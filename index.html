@@ -3,31 +3,37 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Your Name // Portfolio</title>
+  <title>Daniel D. John // Systems Engineer</title>
   <meta
     name="description"
-    content="Dark, text-forward GitHub Pages portfolio inspired by thavlik.dev."
+    content="Daniel D. John's resume-driven portfolio: systems engineering, computational physics, simulation, and aerospace-focused modeling."
   />
   <meta name="color-scheme" content="dark" />
   <style>
     :root {
-      --bg: #070a0c;
-      --bg-2: #0b1114;
+      --bg: #050607;
+      --bg-2: #0b1015;
       --panel: rgba(14, 18, 24, 0.94);
-      --panel-2: rgba(10, 14, 19, 0.96);
-      --line: rgba(60, 231, 197, 0.18);
-      --line-strong: rgba(60, 231, 197, 0.33);
-      --text: #e7edf3;
-      --muted: #a7b2be;
-      --soft: #6f7a86;
-      --teal: #37d7c1;
-      --teal-soft: rgba(55, 215, 193, 0.16);
-      --gold: #f0b96e;
-      --gold-soft: rgba(240, 185, 110, 0.15);
-      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
-      --max: 1240px;
+      --panel-2: rgba(10, 13, 18, 0.97);
+      --panel-3: rgba(18, 23, 31, 0.92);
+      --line: rgba(255, 255, 255, 0.08);
+      --line-strong: rgba(255, 255, 255, 0.16);
+      --text: #f1ede5;
+      --muted: #a8b0ba;
+      --soft: #7d8792;
+      --apollo-cream: #f0eadf;
+      --apollo-red: #c52c3f;
+      --apollo-orange: #d96431;
+      --apollo-gold: #d2a041;
+      --apollo-blue: #3a5487;
+      --cream-soft: rgba(240, 234, 223, 0.12);
+      --red-soft: rgba(197, 44, 63, 0.18);
+      --orange-soft: rgba(217, 100, 49, 0.16);
+      --gold-soft: rgba(210, 160, 65, 0.14);
+      --blue-soft: rgba(58, 84, 135, 0.16);
+      --shadow: 0 28px 80px rgba(0, 0, 0, 0.45);
       --radius: 0;
-      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+      --max: 1240px;
     }
 
     * {
@@ -40,15 +46,29 @@
 
     body {
       margin: 0;
-      color: var(--text);
-      background:
-        radial-gradient(circle at top, rgba(55, 215, 193, 0.09), transparent 42%),
-        radial-gradient(circle at 15% 15%, rgba(240, 185, 110, 0.05), transparent 28%),
-        linear-gradient(180deg, #050708 0%, var(--bg) 55%, #050708 100%);
-      font: 400 15px/1.65 var(--mono);
-      letter-spacing: 0.01em;
       min-height: 100vh;
+      color: var(--text);
+      font: 400 16px/1.65 "Segoe UI", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at 15% 10%, rgba(197, 44, 63, 0.12), transparent 24%),
+        radial-gradient(circle at 82% 14%, rgba(58, 84, 135, 0.15), transparent 22%),
+        radial-gradient(circle at 50% 0%, rgba(210, 160, 65, 0.08), transparent 18%),
+        linear-gradient(180deg, #040506 0%, #070a0f 38%, #050607 100%);
       overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+      background-size: 100% 48px, 48px 100%;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.22), rgba(0, 0, 0, 0.05) 14%, rgba(0, 0, 0, 0.05) 86%, rgba(0, 0, 0, 0.22));
+      opacity: 0.5;
+      z-index: 0;
     }
 
     a {
@@ -58,11 +78,32 @@
 
     a:hover,
     a:focus-visible {
-      color: var(--teal);
+      color: var(--apollo-gold);
     }
 
-    button {
-      font: inherit;
+    img,
+    svg {
+      display: block;
+      max-width: 100%;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    .brand,
+    .section-title,
+    .eyebrow,
+    .chip,
+    .stat-label,
+    .meta-label {
+      letter-spacing: 0.02em;
     }
 
     .skip-link {
@@ -70,63 +111,15 @@
       left: 1rem;
       top: -3rem;
       z-index: 100;
-      padding: 0.65rem 0.9rem;
+      padding: 0.7rem 0.95rem;
       border: 1px solid var(--line-strong);
-      background: #0b1114;
+      background: #0c1116;
       color: var(--text);
       transition: top 120ms ease;
     }
 
     .skip-link:focus {
       top: 1rem;
-    }
-
-    .backdrop {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      z-index: 0;
-      overflow: hidden;
-    }
-
-    .backdrop::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 100% 44px, 100% 44px;
-      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.04) 18%, rgba(0, 0, 0, 0.04) 82%, rgba(0, 0, 0, 0.35));
-      opacity: 0.42;
-    }
-
-    .wave {
-      position: absolute;
-      left: -4%;
-      width: 108%;
-      height: 30px;
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='30' viewBox='0 0 480 30' fill='none'%3E%3Cpath d='M0 15 C 10 15, 12 6, 20 6 S 30 24, 40 24 S 50 6, 60 6 S 70 24, 80 24 S 90 6, 100 6 S 110 24, 120 24 S 130 6, 140 6 S 150 24, 160 24 S 170 6, 180 6 S 190 24, 200 24 S 210 6, 220 6 S 230 24, 240 24 S 250 6, 260 6 S 270 24, 280 24 S 290 6, 300 6 S 310 24, 320 24 S 330 6, 340 6 S 350 24, 360 24 S 370 6, 380 6 S 390 24, 400 24 S 410 6, 420 6 S 430 24, 440 24 S 450 6, 460 6 S 470 24, 480 24' stroke='%2337d7c1' stroke-opacity='0.55' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-      background-repeat: repeat-x;
-      background-size: 480px 30px;
-      filter: drop-shadow(0 0 10px rgba(55, 215, 193, 0.07));
-      opacity: 0.45;
-      transform: translateY(var(--offset));
-      animation: drift var(--speed) linear infinite;
-      mix-blend-mode: screen;
-    }
-
-    .wave.is-gold {
-      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='30' viewBox='0 0 480 30' fill='none'%3E%3Cpath d='M0 15 C 10 15, 12 6, 20 6 S 30 24, 40 24 S 50 6, 60 6 S 70 24, 80 24 S 90 6, 100 6 S 110 24, 120 24 S 130 6, 140 6 S 150 24, 160 24 S 170 6, 180 6 S 190 24, 200 24 S 210 6, 220 6 S 230 24, 240 24 S 250 6, 260 6 S 270 24, 280 24 S 290 6, 300 6 S 310 24, 320 24 S 330 6, 340 6 S 350 24, 360 24 S 370 6, 380 6 S 390 24, 400 24 S 410 6, 420 6 S 430 24, 440 24 S 450 6, 460 6 S 470 24, 480 24' stroke='%23f0b96e' stroke-opacity='0.25' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-    }
-
-    @keyframes drift {
-      from {
-        background-position-x: 0;
-      }
-      to {
-        background-position-x: 480px;
-      }
     }
 
     .shell {
@@ -140,13 +133,13 @@
       position: sticky;
       top: 0;
       z-index: 30;
-      border-bottom: 1px solid var(--line-strong);
-      background: rgba(5, 8, 10, 0.82);
-      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: rgba(5, 7, 9, 0.82);
+      backdrop-filter: blur(10px);
     }
 
     .nav {
-      min-height: 58px;
+      min-height: 62px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -154,171 +147,244 @@
     }
 
     .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
       font-size: 0.92rem;
-      letter-spacing: 0.08em;
+      font-weight: 700;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--text);
       white-space: nowrap;
+    }
+
+    .brand::before {
+      content: "";
+      width: 2.75rem;
+      height: 0.55rem;
+      background: linear-gradient(90deg, var(--apollo-cream) 0 20%, var(--apollo-red) 20% 40%, var(--apollo-orange) 40% 60%, var(--apollo-gold) 60% 80%, var(--apollo-blue) 80% 100%);
+      box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08);
     }
 
     .nav-links {
       display: flex;
       align-items: center;
-      gap: 1.4rem;
-      flex-wrap: wrap;
       justify-content: flex-end;
+      gap: 1.25rem;
+      flex-wrap: wrap;
+      font-size: 0.92rem;
     }
 
     .nav-links a {
-      color: var(--text);
-      opacity: 0.88;
+      color: var(--muted);
     }
 
     .nav-links a:hover,
     .nav-links a:focus-visible {
-      opacity: 1;
+      color: var(--text);
     }
 
     main {
-      padding: 3rem 0 3.5rem;
+      padding: 2rem 0 3rem;
     }
 
     .hero {
       display: grid;
-      justify-items: center;
-      text-align: center;
-      padding: 3.2rem 0 2.25rem;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.8fr);
+      gap: 1rem;
+      align-items: stretch;
+      padding: 2.25rem 0 1.4rem;
     }
+
+    .panel {
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      border-left: 4px solid transparent;
+      border-image: linear-gradient(180deg, var(--apollo-cream), var(--apollo-red), var(--apollo-orange), var(--apollo-gold), var(--apollo-blue)) 1;
+      background: linear-gradient(180deg, rgba(17, 21, 27, 0.97), rgba(10, 14, 19, 0.97));
+      box-shadow: var(--shadow);
+    }
+
+    .hero-copy {
+      padding: 1.4rem 1.45rem 1.35rem;
+      display: grid;
+      gap: 1.15rem;
+      align-content: start;
+      min-height: 100%;
+    }
+
+    .apollo-strip {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr 1fr 1fr 1fr;
+      gap: 0;
+      height: 0.85rem;
+      border: 1px solid rgba(255, 255, 255, 0.09);
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.03);
+    }
+
+    .apollo-strip span:nth-child(1) { background: rgba(240, 234, 223, 0.72); }
+    .apollo-strip span:nth-child(2) { background: rgba(197, 44, 63, 0.85); }
+    .apollo-strip span:nth-child(3) { background: rgba(217, 100, 49, 0.85); }
+    .apollo-strip span:nth-child(4) { background: rgba(210, 160, 65, 0.9); }
+    .apollo-strip span:nth-child(5) { background: rgba(58, 84, 135, 0.9); }
 
     .eyebrow {
-      margin: 0 0 0.9rem;
-      color: var(--teal);
-      font-size: 0.75rem;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      color: var(--apollo-gold);
+      font-size: 0.76rem;
+      font-weight: 800;
       text-transform: uppercase;
-    }
-
-    h1,
-    h2,
-    h3,
-    p {
-      margin: 0;
-    }
-
-    h1,
-    h2,
-    h3,
-    .section-label,
-    .badge,
-    .project-status,
-    .footer {
-      letter-spacing: 0.02em;
+      letter-spacing: 0.22em;
+      margin-bottom: 0.1rem;
     }
 
     h1 {
-      font-size: clamp(2rem, 4vw, 3.4rem);
-      line-height: 1.08;
+      font-size: clamp(2.4rem, 5.4vw, 4.4rem);
+      line-height: 0.95;
       font-weight: 800;
       text-wrap: balance;
-      margin-bottom: 1rem;
+      letter-spacing: -0.04em;
     }
 
     .lede {
-      max-width: 66ch;
+      max-width: 72ch;
       color: var(--text);
-      font-size: 1.04rem;
-      line-height: 1.8;
+      font-size: 1.03rem;
+      line-height: 1.85;
       text-wrap: pretty;
     }
 
     .hero-meta {
-      margin-top: 1.6rem;
-      display: grid;
-      gap: 0.8rem;
-      justify-items: center;
-    }
-
-    .hero-meta p {
-      color: var(--muted);
-      max-width: 70ch;
-    }
-
-    .hero-links {
       display: flex;
-      gap: 1rem;
       flex-wrap: wrap;
-      justify-content: center;
+      gap: 0.5rem;
+      margin-top: 0.1rem;
     }
 
-    .hero-links a,
-    .read-more,
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      min-height: 30px;
+      padding: 0.2rem 0.65rem;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      background: rgba(255, 255, 255, 0.03);
+      color: var(--muted);
+      font-size: 0.82rem;
+      white-space: nowrap;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-top: 0.25rem;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 40px;
-      padding: 0.5rem 0.9rem;
+      min-height: 42px;
+      padding: 0.55rem 0.95rem;
       border: 1px solid var(--line-strong);
-      transition: transform 120ms ease, border-color 120ms ease, color 120ms ease;
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--text);
+      transition: transform 120ms ease, border-color 120ms ease, background-color 120ms ease, color 120ms ease;
     }
 
-    .hero-links a:hover,
-    .hero-links a:focus-visible,
-    .read-more:hover,
-    .read-more:focus-visible,
     .btn:hover,
     .btn:focus-visible {
       transform: translateY(-1px);
-      border-color: rgba(55, 215, 193, 0.5);
+      border-color: rgba(210, 160, 65, 0.5);
+      color: var(--text);
     }
 
-    .section {
-      margin-top: 1.4rem;
+    .btn.primary {
+      border-color: rgba(210, 160, 65, 0.35);
+      background: linear-gradient(180deg, rgba(210, 160, 65, 0.14), rgba(255, 255, 255, 0.02));
     }
 
-    .featured,
-    .project-card {
-      border: 1px solid rgba(55, 215, 193, 0.22);
-      background: linear-gradient(180deg, rgba(16, 21, 27, 0.98), rgba(10, 14, 19, 0.98));
+    .hero-card {
+      padding: 1.35rem 1.45rem 1.35rem;
+      display: grid;
+      gap: 1rem;
+      align-content: start;
+    }
+
+    .card-title {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--apollo-gold);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 0.85rem;
+    }
+
+    .contact-row {
+      display: grid;
+      gap: 0.25rem;
+      padding-bottom: 0.7rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .contact-row:last-child {
+      padding-bottom: 0;
+      border-bottom: 0;
+    }
+
+    .meta-label {
+      color: var(--soft);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .meta-value {
+      color: var(--text);
+      font-size: 1rem;
+    }
+
+    .contact-note {
+      color: var(--muted);
+      font-size: 0.92rem;
+      line-height: 1.75;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      margin-top: 0.4rem;
+    }
+
+    .stat {
+      padding: 1rem 1rem 1.05rem;
+      background: linear-gradient(180deg, rgba(16, 20, 27, 0.95), rgba(10, 13, 18, 0.97));
+      border: 1px solid rgba(255, 255, 255, 0.08);
       box-shadow: var(--shadow);
     }
 
-    .featured {
-      padding: 1.25rem 1.35rem 1.2rem;
-      margin-bottom: 1rem;
-    }
-
-    .section-label {
-      color: #8ed9d0;
+    .stat-label {
+      color: var(--apollo-cream);
       font-size: 0.78rem;
-      font-weight: 700;
+      font-weight: 800;
       text-transform: uppercase;
-      letter-spacing: 0.2em;
-      margin-bottom: 0.6rem;
-    }
-
-    .featured h2 {
-      font-size: clamp(1.3rem, 2.6vw, 1.8rem);
-      line-height: 1.2;
+      letter-spacing: 0.18em;
       margin-bottom: 0.55rem;
     }
 
-    .featured p {
-      color: var(--muted);
-      line-height: 1.8;
-      max-width: 92ch;
+    .stat-value {
+      color: var(--text);
+      font-size: 1rem;
+      line-height: 1.75;
     }
 
-    .featured-footer {
-      margin-top: 1rem;
-      display: flex;
-      justify-content: flex-end;
-    }
-
-    .read-more {
-      color: #9fe8df;
-      border-color: rgba(55, 215, 193, 0.28);
+    .section {
+      margin-top: 1.5rem;
     }
 
     .section-head {
@@ -326,133 +392,108 @@
       align-items: baseline;
       justify-content: space-between;
       gap: 1rem;
-      margin: 1.8rem 0 0.8rem;
-      padding-top: 1.1rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      margin: 1.85rem 0 0.85rem;
+      padding-top: 1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
     }
 
     .section-title {
-      font-size: 0.9rem;
       color: var(--text);
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-    }
-
-    .section-note {
-      color: var(--soft);
       font-size: 0.88rem;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 1rem;
-    }
-
-    .project-card {
-      display: grid;
-      grid-template-rows: auto auto 1fr;
-      min-height: 100%;
-    }
-
-    .project-card__head {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.75rem;
-      padding: 1rem 1rem 0.85rem;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-    }
-
-    .project-card__head h3 {
-      font-size: 1rem;
-      line-height: 1.2;
-      font-weight: 700;
-    }
-
-    .project-status {
-      font-size: 0.76rem;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: lowercase;
-      padding: 0.35rem 0.6rem;
-      border: 1px solid transparent;
-      white-space: nowrap;
-    }
-
-    .project-status[data-status="open source"] {
-      color: #7ff0de;
-      border-color: rgba(55, 215, 193, 0.34);
-      background: var(--teal-soft);
-    }
-
-    .project-status[data-status="closed source"] {
-      color: var(--gold);
-      border-color: rgba(240, 185, 110, 0.35);
-      background: var(--gold-soft);
-    }
-
-    .project-status[data-status="internal"] {
-      color: #b6c8ff;
-      border-color: rgba(126, 156, 255, 0.3);
-      background: rgba(126, 156, 255, 0.09);
-    }
-
-    .project-media {
-      position: relative;
-      aspect-ratio: 16 / 9;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      overflow: hidden;
-      background:
-        radial-gradient(circle at 20% 30%, rgba(55, 215, 193, 0.18), transparent 34%),
-        radial-gradient(circle at 82% 22%, rgba(240, 185, 110, 0.12), transparent 24%),
-        linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 45%),
-        #0a1014;
-    }
-
-    .project-media[data-tone="teal"]::before,
-    .project-media[data-tone="gold"]::before,
-    .project-media[data-tone="violet"]::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background-image:
-        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-      background-size: 24px 24px;
-      opacity: 0.42;
-    }
-
-    .project-media::after {
-      content: attr(data-caption);
-      position: absolute;
-      left: 1rem;
-      bottom: 0.9rem;
-      right: 1rem;
-      font-size: 0.8rem;
-      color: rgba(231, 237, 243, 0.76);
+      font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.16em;
     }
 
-    .project-card__body {
-      padding: 1rem 1rem 1.05rem;
-      display: grid;
-      gap: 0.95rem;
-    }
-
-    .project-kicker {
+    .section-note {
       color: var(--soft);
-      font-weight: 700;
-      font-size: 0.86rem;
-      text-transform: none;
+      font-size: 0.9rem;
     }
 
-    .project-desc {
+    .timeline,
+    .project-grid,
+    .education-grid,
+    .skills-grid {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .timeline {
+      grid-template-columns: 1fr;
+    }
+
+    .project-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .education-grid,
+    .skills-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .resume-card {
+      padding: 1.05rem 1.08rem 1.05rem;
+      background: linear-gradient(180deg, rgba(16, 21, 28, 0.96), rgba(10, 14, 19, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .resume-card__head {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      padding-bottom: 0.75rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .resume-card__org {
+      font-size: 1.02rem;
+      font-weight: 800;
+      line-height: 1.25;
+    }
+
+    .resume-card__role {
+      margin-top: 0.25rem;
+      color: var(--apollo-cream);
+      font-size: 0.95rem;
+    }
+
+    .resume-card__dates {
+      color: var(--apollo-gold);
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    .resume-card__body {
+      display: grid;
+      gap: 0.85rem;
+      padding-top: 0.95rem;
+    }
+
+    .resume-card__summary {
+      color: var(--muted);
+      line-height: 1.8;
+    }
+
+    .bullet-list {
+      margin: 0;
+      padding-left: 1.1rem;
+      display: grid;
+      gap: 0.45rem;
       color: var(--text);
-      line-height: 1.85;
-      min-height: 11.4em;
+    }
+
+    .bullet-list li::marker {
+      color: var(--apollo-gold);
+    }
+
+    .bullet-list li {
+      line-height: 1.75;
+      color: var(--muted);
     }
 
     .tag-list {
@@ -467,12 +508,70 @@
     .tag-list li {
       display: inline-flex;
       align-items: center;
-      min-height: 26px;
-      padding: 0.18rem 0.5rem;
+      min-height: 28px;
+      padding: 0.2rem 0.55rem;
       border: 1px solid rgba(255, 255, 255, 0.1);
-      color: var(--muted);
       background: rgba(255, 255, 255, 0.02);
+      color: var(--muted);
       font-size: 0.8rem;
+    }
+
+    .project-card {
+      padding: 1.05rem 1.08rem 1.08rem;
+      background: linear-gradient(180deg, rgba(16, 21, 28, 0.96), rgba(10, 14, 19, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .project-head {
+      display: grid;
+      gap: 0.3rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .project-title {
+      font-size: 1.03rem;
+      font-weight: 800;
+      line-height: 1.2;
+    }
+
+    .project-subtitle {
+      color: var(--apollo-cream);
+      line-height: 1.5;
+    }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 28px;
+      width: fit-content;
+      padding: 0.2rem 0.55rem;
+      border: 1px solid transparent;
+      font-size: 0.76rem;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .project-badge[data-tone="gold"] {
+      color: var(--apollo-gold);
+      background: var(--gold-soft);
+      border-color: rgba(210, 160, 65, 0.34);
+    }
+
+    .project-badge[data-tone="blue"] {
+      color: #b8c8f3;
+      background: var(--blue-soft);
+      border-color: rgba(58, 84, 135, 0.34);
+    }
+
+    .project-desc {
+      color: var(--muted);
+      line-height: 1.85;
     }
 
     .project-links {
@@ -480,93 +579,109 @@
       flex-wrap: wrap;
       gap: 0.65rem;
       align-items: center;
-      margin-top: 0.15rem;
-    }
-
-    .btn.primary {
-      color: #86f3e3;
-      border-color: rgba(55, 215, 193, 0.34);
     }
 
     .btn.secondary {
       color: var(--text);
-      opacity: 0.9;
-      border-color: rgba(255, 255, 255, 0.1);
+      opacity: 0.92;
+      border-color: rgba(255, 255, 255, 0.12);
+    }
+
+    .skills-stack {
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .skills-group {
+      display: grid;
+      gap: 0.7rem;
+      padding: 1.05rem 1.08rem 1.08rem;
+      background: linear-gradient(180deg, rgba(16, 21, 28, 0.96), rgba(10, 14, 19, 0.98));
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: var(--shadow);
+    }
+
+    .skills-group__title {
+      color: var(--apollo-gold);
+      font-size: 0.78rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+    }
+
+    .skills-group__copy {
+      color: var(--muted);
+      line-height: 1.8;
     }
 
     .footer {
       margin-top: 2rem;
-      padding: 1.2rem 0 0.8rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1.15rem 0 0.95rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
       color: var(--muted);
-      font-size: 0.88rem;
+      font-size: 0.9rem;
     }
 
     .footer__inner {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem 1rem;
-      align-items: center;
       justify-content: center;
+      gap: 0.55rem 1rem;
+      align-items: center;
       text-align: center;
     }
 
     .footer__inner a {
-      color: #8fe9dd;
-      border-bottom: 1px solid rgba(143, 233, 221, 0.3);
+      color: var(--apollo-cream);
+      border-bottom: 1px solid rgba(240, 234, 223, 0.28);
     }
 
     .footer__sep {
-      color: rgba(255, 255, 255, 0.3);
+      color: rgba(255, 255, 255, 0.28);
     }
 
     .footer__top {
-      color: #8fe9dd;
+      color: var(--apollo-gold);
     }
 
     @media (max-width: 980px) {
-      .project-grid {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
+      .hero,
+      .summary-grid,
+      .project-grid,
+      .education-grid,
+      .skills-grid {
+        grid-template-columns: 1fr;
       }
     }
 
     @media (max-width: 720px) {
       main {
-        padding-top: 2rem;
+        padding-top: 1.4rem;
       }
 
       .nav {
         flex-direction: column;
         align-items: flex-start;
         justify-content: flex-start;
-        padding: 0.8rem 0;
+        padding: 0.85rem 0;
       }
 
       .nav-links {
         gap: 0.9rem;
       }
 
-      .hero {
-        padding-top: 2.3rem;
+      .hero-copy,
+      .hero-card,
+      .stat,
+      .resume-card,
+      .project-card,
+      .skills-group {
+        padding-left: 0.92rem;
+        padding-right: 0.92rem;
       }
 
       h1 {
-        font-size: clamp(1.8rem, 9vw, 2.6rem);
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .featured,
-      .project-card__head,
-      .project-card__body {
-        padding-left: 0.9rem;
-        padding-right: 0.9rem;
-      }
-
-      .project-desc {
-        min-height: 0;
+        font-size: clamp(2.05rem, 12vw, 3rem);
       }
     }
 
@@ -575,225 +690,304 @@
         scroll-behavior: auto;
       }
 
-      .wave {
-        animation: none;
-      }
-
-      .hero-links a,
-      .read-more,
-      .btn {
+      .btn,
+      .skip-link {
         transition: none;
       }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#projects">Skip to projects</a>
-
-  <div class="backdrop" aria-hidden="true">
-    <div class="wave" style="top: 7%; --offset: 0px; --speed: 94s;"></div>
-    <div class="wave is-gold" style="top: 15%; --offset: 0px; --speed: 118s;"></div>
-    <div class="wave" style="top: 23%; --offset: 0px; --speed: 102s; opacity: 0.38;"></div>
-    <div class="wave" style="top: 31%; --offset: 0px; --speed: 126s; opacity: 0.34;"></div>
-    <div class="wave is-gold" style="top: 39%; --offset: 0px; --speed: 134s; opacity: 0.28;"></div>
-    <div class="wave" style="top: 47%; --offset: 0px; --speed: 108s; opacity: 0.36;"></div>
-    <div class="wave" style="top: 55%; --offset: 0px; --speed: 96s; opacity: 0.31;"></div>
-    <div class="wave is-gold" style="top: 63%; --offset: 0px; --speed: 140s; opacity: 0.24;"></div>
-    <div class="wave" style="top: 71%; --offset: 0px; --speed: 122s; opacity: 0.32;"></div>
-    <div class="wave" style="top: 79%; --offset: 0px; --speed: 88s; opacity: 0.28;"></div>
-    <div class="wave is-gold" style="top: 87%; --offset: 0px; --speed: 150s; opacity: 0.22;"></div>
-  </div>
+  <a class="skip-link" href="#experience">Skip to content</a>
 
   <header class="site-header">
     <div class="shell nav">
-      <a class="brand" href="#top" id="brand-link">Your Name</a>
+      <a class="brand" href="#top">Daniel D. John</a>
       <nav class="nav-links" aria-label="Primary">
+        <a href="#overview">Overview</a>
+        <a href="#experience">Experience</a>
         <a href="#projects">Projects</a>
-        <a href="#featured">Blog</a>
-        <a id="github-nav" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
   </header>
 
   <main id="top">
-    <section class="shell hero" aria-labelledby="hero-title">
-      <p class="eyebrow" id="hero-eyebrow"></p>
-      <h1 id="hero-title"></h1>
-      <p class="lede" id="hero-lede"></p>
-      <div class="hero-meta">
-        <p id="hero-support"></p>
-        <div class="hero-links">
-          <a id="hero-github" href="#" target="_blank" rel="noreferrer">github: @your-username</a>
-          <a id="hero-email" href="mailto:you@example.com">email: you@example.com</a>
+    <section class="shell hero" id="overview" aria-labelledby="hero-title">
+      <article class="panel hero-copy">
+        <div class="apollo-strip" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
+        <div>
+          <p class="eyebrow">Engineering Physics | Systems | Simulation</p>
+          <h1 id="hero-title">Daniel D. John</h1>
+        </div>
+        <p class="lede">
+          Systems engineer, physicist, and software engineer focused on computational physics,
+          real-time simulation, physics-based game systems, and aerospace-focused modeling.
+          Strong background in control systems, trajectory mechanics, and high-fidelity dynamics.
+        </p>
+        <div class="hero-meta" aria-label="Core strengths">
+          <span class="chip">Computational physics</span>
+          <span class="chip">Real-time simulation</span>
+          <span class="chip">Aerospace modeling</span>
+          <span class="chip">Control systems</span>
+          <span class="chip">First-principles thinking</span>
+        </div>
+        <div class="hero-actions">
+          <a class="btn primary" href="Daniel John - Resume.pdf" target="_blank" rel="noreferrer">View resume PDF</a>
+          <a class="btn" href="mailto:parelldev01@gmail.com">Email Daniel</a>
+        </div>
+      </article>
+
+      <aside class="panel hero-card" id="contact" aria-labelledby="contact-title">
+        <div class="card-title" id="contact-title">Contact</div>
+        <p class="contact-note">
+          Public-facing contact details from the resume. The page keeps the content concise and
+          action-oriented so the technical background reads quickly.
+        </p>
+        <div class="contact-grid">
+          <div class="contact-row">
+            <div class="meta-label">Location</div>
+            <div class="meta-value">Otsego, Minnesota</div>
+          </div>
+          <div class="contact-row">
+            <div class="meta-label">Phone</div>
+            <div class="meta-value"><a href="tel:+16128765754">+1 (612) 876-5754</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="meta-label">Email</div>
+            <div class="meta-value"><a href="mailto:parelldev01@gmail.com">parelldev01@gmail.com</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="meta-label">University Email</div>
+            <div class="meta-value"><a href="mailto:joh22496@umn.edu">joh22496@umn.edu</a></div>
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section class="shell section" aria-labelledby="summary-title">
+      <div class="section-head">
+        <div class="section-title" id="summary-title">Snapshot</div>
+        <div class="section-note">A condensed read on what the resume emphasizes</div>
+      </div>
+      <div class="summary-grid">
+        <article class="stat">
+          <div class="stat-label">Physics-first</div>
+          <div class="stat-value">Models complex systems from first principles, with a bias toward control, dynamics, and numerical rigor.</div>
+        </article>
+        <article class="stat">
+          <div class="stat-label">Simulation systems</div>
+          <div class="stat-value">Builds real-time simulation, physics-driven mechanics, and tooling that stay deterministic and practical under pressure.</div>
+        </article>
+        <article class="stat">
+          <div class="stat-label">Working style</div>
+          <div class="stat-value">Direct, disciplined, quick to learn, and detail-oriented across technical and operational environments.</div>
+        </article>
       </div>
     </section>
 
-    <section class="shell section" id="featured" aria-labelledby="featured-title">
-      <article class="featured">
-        <div class="section-label" id="featured-meta"></div>
-        <h2 id="featured-title"></h2>
-        <p id="featured-summary"></p>
-        <div class="featured-footer">
-          <a class="read-more" id="featured-link" href="#">Read post -></a>
-        </div>
-      </article>
+    <section class="shell section" id="experience" aria-labelledby="experience-title">
+      <div class="section-head">
+        <div class="section-title" id="experience-title">Experience</div>
+        <div class="section-note">Military, simulation, and leadership work</div>
+      </div>
+      <div class="timeline">
+        <article class="resume-card">
+          <div class="resume-card__head">
+            <div>
+              <div class="resume-card__org">Minnesota Army National Guard</div>
+              <div class="resume-card__role">Artillery Specialist</div>
+            </div>
+            <div class="resume-card__dates">07/2023 - Present</div>
+          </div>
+          <div class="resume-card__body">
+            <ul class="bullet-list">
+              <li>Developed leadership and directness.</li>
+              <li>Supported precision engagement tasks requiring accuracy, discipline, and systems awareness.</li>
+              <li>Operated within structured, high-pressure team environments.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <div class="resume-card__head">
+            <div>
+              <div class="resume-card__org">Simulation Developer</div>
+              <div class="resume-card__role">Physics-driven mechanics and real-time simulation systems</div>
+            </div>
+            <div class="resume-card__dates">2016 - 2026</div>
+          </div>
+          <div class="resume-card__body">
+            <ul class="bullet-list">
+              <li>Developed physics-driven mechanics and real-time simulation systems.</li>
+              <li>Engineered custom rocket thruster allocation algorithms and flight dynamics solvers.</li>
+              <li>Built blended N-body and Keplerian orbital models to simulate perturbations and long-arc trajectories.</li>
+              <li>Designed missile guidance scoring systems for autonomous target selection.</li>
+              <li>Applied computational physics techniques for validation and scenario testing.</li>
+            </ul>
+          </div>
+        </article>
+
+        <article class="resume-card">
+          <div class="resume-card__head">
+            <div>
+              <div class="resume-card__org">High School Science &amp; Engineering Club</div>
+              <div class="resume-card__role">President</div>
+            </div>
+            <div class="resume-card__dates">2020 - 2023</div>
+          </div>
+          <div class="resume-card__body">
+            <ul class="bullet-list">
+              <li>Led student engineering initiatives.</li>
+              <li>Coordinated technical workshops and project teams.</li>
+              <li>Presented complex topics from a young age.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
     </section>
 
     <section class="shell section" id="projects" aria-labelledby="projects-title">
       <div class="section-head">
-        <div class="section-title" id="projects-title">Selected projects</div>
-        <div class="section-note" id="projects-note"></div>
+        <div class="section-title" id="projects-title">Projects</div>
+        <div class="section-note">Systems and tooling that mirror the resume</div>
       </div>
-      <div class="project-grid" id="projects-list"></div>
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="project-head">
+            <div class="project-badge" data-tone="gold">Project</div>
+            <h3 class="project-title">Decel</h3>
+            <div class="project-subtitle">Solar System &amp; Spacecraft Dynamics Simulator</div>
+          </div>
+          <p class="project-desc">
+            Created a simulation platform modeling orbital mechanics, spacecraft control, and trajectory planning.
+          </p>
+          <ul class="bullet-list">
+            <li>Developed physics-based systems and computational methods for motion and control.</li>
+            <li>Built a platform intended to reason about spacecraft behavior under changing conditions.</li>
+          </ul>
+          <ul class="tag-list" aria-label="Decel technologies">
+            <li>Orbital mechanics</li>
+            <li>Spacecraft control</li>
+            <li>Trajectory planning</li>
+            <li>Simulation platform</li>
+          </ul>
+        </article>
+
+        <article class="project-card">
+          <div class="project-head">
+            <div class="project-badge" data-tone="blue">Project</div>
+            <h3 class="project-title">American Rally Association</h3>
+            <div class="project-subtitle">Driver &amp; Mechanic</div>
+          </div>
+          <p class="project-desc">
+            Worked on rally vehicle systems under competitive conditions, with an emphasis on field reliability.
+          </p>
+          <ul class="bullet-list">
+            <li>Built and maintained rally vehicle systems under competitive conditions.</li>
+            <li>Applied mechanical intuition, rapid troubleshooting, and field-condition repairs.</li>
+          </ul>
+          <ul class="tag-list" aria-label="Rally technologies">
+            <li>Vehicle systems</li>
+            <li>Competitive conditions</li>
+            <li>Troubleshooting</li>
+            <li>Field repairs</li>
+          </ul>
+        </article>
+      </div>
     </section>
 
-    <footer class="shell footer" id="contact">
-      <div class="footer__inner" id="footer-text"></div>
-    </footer>
-  </main>
-
-  <script>
-    const siteData = {
-      person: {
-        name: "Your Name",
-        title: "Software Architect | Engineering Physics Student",
-        intro:
-          "I build production software with a bias toward practical architecture, performance, and maintainability. The goal here is simple: make the work obvious, keep the page fast, and let the content do the heavy lifting.",
-        support:
-          "Interested in backend systems, scientific software, or applied ML? Reach out.",
-        github: "https://github.com/your-username",
-        email: "you@example.com"
-      },
-      featured: {
-        label: "Latest from the blog",
-        date: "2026-03-31",
-        title: "What this site is for",
-        summary:
-          "Use this card for a recent post, release note, or a current focus area. The reference site keeps the homepage immediate and concrete, so this slot stays the first thing users read after the intro.",
-        url: "#projects",
-        urlLabel: "Read post ->"
-      },
-      projects: [
-        {
-          name: "Project One",
-          status: "open source",
-          tone: "teal",
-          caption: "high-throughput systems",
-          kicker: "Next-generation service platform",
-          description:
-            "A production-grade system for workloads that care about throughput, observability, and failure isolation. Keep the description blunt: what problem it solves, why the architecture matters, and what makes it technically interesting.",
-          stack: ["C#", ".NET", "PostgreSQL", "Docker", "Kubernetes"],
-          links: [
-            { label: "GitHub", url: "https://github.com/your-username/project-one" },
-            { label: "Live demo", url: "https://example.com" }
-          ]
-        },
-        {
-          name: "Project Two",
-          status: "closed source",
-          tone: "gold",
-          caption: "medical AI workflow",
-          kicker: "Institution-scale platform work",
-          description:
-            "A closed-source platform or internal tool. Describe the domain, your role, and the result without disclosing sensitive implementation details. Keep the copy compact and specific.",
-          stack: ["Distributed systems", "Observability", "Event-driven", "CI/CD", "Security"],
-          links: [
-            { label: "Details on request", url: "#contact" }
-          ]
-        },
-        {
-          name: "Project Three",
-          status: "internal",
-          tone: "violet",
-          caption: "research and tooling",
-          kicker: "Applied engineering and analysis",
-          description:
-            "A project that sits closer to scientific computing, data analysis, or tooling. This is a good place for instrumentation, simulation, or anything where strong technical judgment matters more than UI polish.",
-          stack: ["Physics", "Numerics", "Automation", "Analysis"],
-          links: [
-            { label: "Write-up", url: "#" }
-          ]
-        }
-      ]
-    };
-
-    const $ = (selector) => document.querySelector(selector);
-
-    function escapeHtml(text) {
-      return String(text)
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#39;");
-    }
-
-    function renderProjects(projects) {
-      const container = $("#projects-list");
-      container.innerHTML = projects.map((project) => `
-        <article class="project-card">
-          <div class="project-card__head">
-            <h3>${escapeHtml(project.name)}</h3>
-            <span class="project-status" data-status="${escapeHtml(project.status)}">${escapeHtml(project.status)}</span>
-          </div>
-          <div class="project-media" data-tone="${escapeHtml(project.tone)}" data-caption="${escapeHtml(project.caption)}"></div>
-          <div class="project-card__body">
-            <div class="project-kicker">${escapeHtml(project.kicker)}</div>
-            <p class="project-desc">${escapeHtml(project.description)}</p>
-            <ul class="tag-list">
-              ${project.stack.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-            </ul>
-            <div class="project-links">
-              ${project.links.map((link, index) => {
-                const external = !link.url.startsWith("#");
-                const classes = index === 0 ? "btn primary" : "btn secondary";
-                return `<a class="${classes}" href="${escapeHtml(link.url)}"${external ? ' target="_blank" rel="noreferrer"' : ""}>${escapeHtml(link.label)}</a>`;
-              }).join("")}
+    <section class="shell section" id="education" aria-labelledby="education-title">
+      <div class="section-head">
+        <div class="section-title" id="education-title">Education</div>
+        <div class="section-note">Engineering physics, systems engineering, and applied computation</div>
+      </div>
+      <div class="education-grid">
+        <article class="resume-card">
+          <div class="resume-card__head">
+            <div>
+              <div class="resume-card__org">University of Minnesota - Twin Cities &amp; Duluth</div>
+              <div class="resume-card__role">Bachelor of Science, Engineering Physics Systems, EAC-ABET accredited</div>
             </div>
+            <div class="resume-card__dates">06/2024 - Present</div>
+          </div>
+          <div class="resume-card__body">
+            <ul class="bullet-list">
+              <li>Curriculum emphasizing systems engineering, computational methods, and applied physics.</li>
+              <li>Coursework focus areas: dynamics, controls, numerical modeling, embedded computation.</li>
+            </ul>
+            <ul class="tag-list" aria-label="Education focus areas">
+              <li>Dynamics</li>
+              <li>Controls</li>
+              <li>Numerical modeling</li>
+              <li>Embedded computation</li>
+            </ul>
           </div>
         </article>
-      `).join("");
-    }
+      </div>
+    </section>
 
-    function init() {
-      const { person, featured, projects } = siteData;
+    <section class="shell section" id="skills" aria-labelledby="skills-title">
+      <div class="section-head">
+        <div class="section-title" id="skills-title">Skills</div>
+        <div class="section-note">Technical depth and general strengths</div>
+      </div>
+      <div class="skills-grid">
+        <article class="skills-group">
+          <div class="skills-group__title">Technical</div>
+          <p class="skills-group__copy">
+            C# for game systems, simulation frameworks, and real-time physics. Unity for custom physics, tooling, and gameplay systems.
+            MATLAB, Mathematica, and JMP for numerical analysis, modeling, and automation. CAD and CAM support the mechanical side of the work.
+          </p>
+          <ul class="tag-list" aria-label="Technical skills">
+            <li>C#</li>
+            <li>Unity</li>
+            <li>MATLAB</li>
+            <li>Mathematica</li>
+            <li>JMP</li>
+            <li>CAD</li>
+            <li>CAM</li>
+          </ul>
+        </article>
 
-      document.title = `${person.name} // Portfolio`;
+        <article class="skills-group">
+          <div class="skills-group__title">Strengths</div>
+          <p class="skills-group__copy">
+            High attention to detail in all environments. Learns new technical domains rapidly and applies concepts pragmatically.
+          </p>
+          <ul class="tag-list" aria-label="Strengths">
+            <li>Attention to detail</li>
+            <li>Rapid learner</li>
+            <li>Pragmatic application</li>
+            <li>Systems thinking</li>
+          </ul>
+        </article>
+      </div>
+    </section>
 
-      $("#brand-link").textContent = person.name;
-      $("#hero-eyebrow").textContent = person.title;
-      $("#hero-title").textContent = person.name;
-      $("#hero-lede").textContent = person.intro;
-      $("#hero-support").textContent = person.support;
-      $("#hero-github").textContent = `github: @${person.github.split("/").filter(Boolean).pop() || "your-username"}`;
-      $("#hero-github").href = person.github;
-      $("#hero-email").textContent = `email: ${person.email}`;
-      $("#hero-email").href = `mailto:${person.email}`;
-      $("#github-nav").href = person.github;
-
-      $("#featured-meta").textContent = `${featured.label} - ${featured.date}`;
-      $("#featured-title").textContent = featured.title;
-      $("#featured-summary").textContent = featured.summary;
-      $("#featured-link").href = featured.url;
-      $("#featured-link").textContent = featured.urlLabel;
-
-      $("#projects-note").textContent = "Open source, closed source, and internal work";
-      renderProjects(projects);
-
-      $("#footer-text").innerHTML = `
-        <span>${escapeHtml(person.title)}</span>
+    <footer class="shell footer">
+      <div class="footer__inner">
+        <span>Daniel D. John</span>
         <span class="footer__sep" aria-hidden="true">-</span>
-        <a href="${escapeHtml(person.github)}" target="_blank" rel="noreferrer">GitHub: @${escapeHtml(person.github.split("/").filter(Boolean).pop() || "your-username")}</a>
+        <a href="Daniel John - Resume.pdf" target="_blank" rel="noreferrer">Resume PDF</a>
         <span class="footer__sep" aria-hidden="true">-</span>
-        <a href="mailto:${escapeHtml(person.email)}">email: ${escapeHtml(person.email)}</a>
+        <a href="mailto:parelldev01@gmail.com">parelldev01@gmail.com</a>
+        <span class="footer__sep" aria-hidden="true">-</span>
+        <a href="mailto:joh22496@umn.edu">joh22496@umn.edu</a>
+        <span class="footer__sep" aria-hidden="true">-</span>
+        <a href="tel:+16128765754">+1 (612) 876-5754</a>
         <span class="footer__sep" aria-hidden="true">-</span>
         <a class="footer__top" href="#top">Back to top</a>
-      `;
-    }
-
-    init();
-  </script>
+      </div>
+    </footer>
+  </main>
 </body>
 </html>

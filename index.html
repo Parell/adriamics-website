@@ -1,26 +1,38 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Your Name // CV</title>
-  <meta name="description" content="Minimal GitHub Pages CV inspired by thavlik.dev" />
-  <meta name="color-scheme" content="light" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Your Name // Portfolio</title>
+  <meta
+    name="description"
+    content="Dark, text-forward GitHub Pages portfolio inspired by thavlik.dev."
+  />
+  <meta name="color-scheme" content="dark" />
   <style>
     :root {
-      --bg: #f8f7f3;
-      --surface: #ffffff;
-      --text: #171717;
-      --muted: #5c5c5c;
-      --soft: #8b8b8b;
-      --line: #d9d4ca;
-      --accent: #111111;
-      --max: 860px;
-      --radius: 18px;
-      --shadow: 0 12px 40px rgba(0,0,0,0.05);
+      --bg: #070a0c;
+      --bg-2: #0b1114;
+      --panel: rgba(14, 18, 24, 0.94);
+      --panel-2: rgba(10, 14, 19, 0.96);
+      --line: rgba(60, 231, 197, 0.18);
+      --line-strong: rgba(60, 231, 197, 0.33);
+      --text: #e7edf3;
+      --muted: #a7b2be;
+      --soft: #6f7a86;
+      --teal: #37d7c1;
+      --teal-soft: rgba(55, 215, 193, 0.16);
+      --gold: #f0b96e;
+      --gold-soft: rgba(240, 185, 110, 0.15);
+      --shadow: 0 30px 80px rgba(0, 0, 0, 0.45);
+      --max: 1240px;
+      --radius: 0;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     html {
       scroll-behavior: smooth;
@@ -28,405 +40,651 @@
 
     body {
       margin: 0;
-      background:
-        radial-gradient(circle at top left, rgba(0,0,0,0.025), transparent 34%),
-        linear-gradient(to bottom, #fcfbf8, var(--bg));
       color: var(--text);
-      font: 400 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top, rgba(55, 215, 193, 0.09), transparent 42%),
+        radial-gradient(circle at 15% 15%, rgba(240, 185, 110, 0.05), transparent 28%),
+        linear-gradient(180deg, #050708 0%, var(--bg) 55%, #050708 100%);
+      font: 400 15px/1.65 var(--mono);
       letter-spacing: 0.01em;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
     a {
       color: inherit;
-      text-decoration-thickness: 1px;
-      text-underline-offset: 0.18em;
+      text-decoration: none;
     }
 
-    img {
-      max-width: 100%;
-      display: block;
+    a:hover,
+    a:focus-visible {
+      color: var(--teal);
     }
 
-    .wrap {
-      width: min(calc(100% - 2rem), var(--max));
-      margin: 0 auto;
+    button {
+      font: inherit;
     }
 
     .skip-link {
       position: absolute;
       left: 1rem;
       top: -3rem;
-      background: #111;
-      color: #fff;
-      padding: 0.75rem 1rem;
-      border-radius: 999px;
       z-index: 100;
+      padding: 0.65rem 0.9rem;
+      border: 1px solid var(--line-strong);
+      background: #0b1114;
+      color: var(--text);
+      transition: top 120ms ease;
     }
 
     .skip-link:focus {
       top: 1rem;
     }
 
+    .backdrop {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .backdrop::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 100% 44px, 100% 44px;
+      mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.04) 18%, rgba(0, 0, 0, 0.04) 82%, rgba(0, 0, 0, 0.35));
+      opacity: 0.42;
+    }
+
+    .wave {
+      position: absolute;
+      left: -4%;
+      width: 108%;
+      height: 30px;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='30' viewBox='0 0 480 30' fill='none'%3E%3Cpath d='M0 15 C 10 15, 12 6, 20 6 S 30 24, 40 24 S 50 6, 60 6 S 70 24, 80 24 S 90 6, 100 6 S 110 24, 120 24 S 130 6, 140 6 S 150 24, 160 24 S 170 6, 180 6 S 190 24, 200 24 S 210 6, 220 6 S 230 24, 240 24 S 250 6, 260 6 S 270 24, 280 24 S 290 6, 300 6 S 310 24, 320 24 S 330 6, 340 6 S 350 24, 360 24 S 370 6, 380 6 S 390 24, 400 24 S 410 6, 420 6 S 430 24, 440 24 S 450 6, 460 6 S 470 24, 480 24' stroke='%2337d7c1' stroke-opacity='0.55' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: repeat-x;
+      background-size: 480px 30px;
+      filter: drop-shadow(0 0 10px rgba(55, 215, 193, 0.07));
+      opacity: 0.45;
+      transform: translateY(var(--offset));
+      animation: drift var(--speed) linear infinite;
+      mix-blend-mode: screen;
+    }
+
+    .wave.is-gold {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='480' height='30' viewBox='0 0 480 30' fill='none'%3E%3Cpath d='M0 15 C 10 15, 12 6, 20 6 S 30 24, 40 24 S 50 6, 60 6 S 70 24, 80 24 S 90 6, 100 6 S 110 24, 120 24 S 130 6, 140 6 S 150 24, 160 24 S 170 6, 180 6 S 190 24, 200 24 S 210 6, 220 6 S 230 24, 240 24 S 250 6, 260 6 S 270 24, 280 24 S 290 6, 300 6 S 310 24, 320 24 S 330 6, 340 6 S 350 24, 360 24 S 370 6, 380 6 S 390 24, 400 24 S 410 6, 420 6 S 430 24, 440 24 S 450 6, 460 6 S 470 24, 480 24' stroke='%23f0b96e' stroke-opacity='0.25' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+    }
+
+    @keyframes drift {
+      from {
+        background-position-x: 0;
+      }
+      to {
+        background-position-x: 480px;
+      }
+    }
+
+    .shell {
+      position: relative;
+      z-index: 1;
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
     .site-header {
       position: sticky;
       top: 0;
-      z-index: 40;
-      backdrop-filter: blur(10px);
-      background: rgba(248, 247, 243, 0.78);
-      border-bottom: 1px solid rgba(0,0,0,0.06);
+      z-index: 30;
+      border-bottom: 1px solid var(--line-strong);
+      background: rgba(5, 8, 10, 0.82);
+      backdrop-filter: blur(8px);
     }
 
     .nav {
+      min-height: 58px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       gap: 1rem;
-      min-height: 72px;
     }
 
     .brand {
-      font-weight: 700;
-      letter-spacing: 0.02em;
-      text-decoration: none;
+      font-size: 0.92rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text);
       white-space: nowrap;
     }
 
     .nav-links {
       display: flex;
-      gap: 1rem;
       align-items: center;
+      gap: 1.4rem;
       flex-wrap: wrap;
       justify-content: flex-end;
     }
 
     .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      padding: 0.35rem 0;
+      color: var(--text);
+      opacity: 0.88;
     }
 
     .nav-links a:hover,
     .nav-links a:focus-visible {
-      color: var(--text);
+      opacity: 1;
     }
 
     main {
-      padding: 3.5rem 0 5rem;
+      padding: 3rem 0 3.5rem;
     }
 
     .hero {
-      padding: 2rem 0 1.75rem;
-      border-bottom: 1px solid var(--line);
+      display: grid;
+      justify-items: center;
+      text-align: center;
+      padding: 3.2rem 0 2.25rem;
     }
 
     .eyebrow {
-      color: var(--muted);
-      font-size: 0.95rem;
-      margin: 0 0 0.85rem;
+      margin: 0 0 0.9rem;
+      color: var(--teal);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
     }
 
-    h1, h2, h3 {
-      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+    h1,
+    h2,
+    h3,
+    p {
       margin: 0;
+    }
+
+    h1,
+    h2,
+    h3,
+    .section-label,
+    .badge,
+    .project-status,
+    .footer {
+      letter-spacing: 0.02em;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 7vw, 4.8rem);
-      max-width: 12ch;
+      font-size: clamp(2rem, 4vw, 3.4rem);
+      line-height: 1.08;
+      font-weight: 800;
+      text-wrap: balance;
       margin-bottom: 1rem;
-    }
-
-    h2 {
-      font-size: clamp(1.9rem, 4vw, 2.6rem);
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-grid {
-      display: grid;
-      gap: 1.25rem;
-      grid-template-columns: 1.6fr 1fr;
-      align-items: start;
     }
 
     .lede {
-      font-size: 1.125rem;
+      max-width: 66ch;
       color: var(--text);
-      max-width: 62ch;
-      margin: 0;
+      font-size: 1.04rem;
+      line-height: 1.8;
+      text-wrap: pretty;
     }
 
-    .hero-aside {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.7);
-      box-shadow: var(--shadow);
-      padding: 1.1rem 1.15rem;
+    .hero-meta {
+      margin-top: 1.6rem;
+      display: grid;
+      gap: 0.8rem;
+      justify-items: center;
     }
 
-    .hero-aside p {
-      margin: 0.2rem 0;
+    .hero-meta p {
       color: var(--muted);
+      max-width: 70ch;
     }
 
-    .cta-row {
+    .hero-links {
       display: flex;
-      gap: 0.85rem;
+      gap: 1rem;
       flex-wrap: wrap;
-      margin-top: 1.4rem;
+      justify-content: center;
     }
 
-    .button {
+    .hero-links a,
+    .read-more,
+    .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      min-height: 44px;
-      padding: 0.7rem 1rem;
-      border-radius: 999px;
-      border: 1px solid var(--text);
-      text-decoration: none;
-      font-weight: 600;
-      transition: transform 120ms ease, background 120ms ease;
+      min-height: 40px;
+      padding: 0.5rem 0.9rem;
+      border: 1px solid var(--line-strong);
+      transition: transform 120ms ease, border-color 120ms ease, color 120ms ease;
     }
 
-    .button:hover,
-    .button:focus-visible {
+    .hero-links a:hover,
+    .hero-links a:focus-visible,
+    .read-more:hover,
+    .read-more:focus-visible,
+    .btn:hover,
+    .btn:focus-visible {
       transform: translateY(-1px);
-    }
-
-    .button.primary {
-      background: var(--text);
-      color: #fff;
-    }
-
-    .button.secondary {
-      background: transparent;
-      color: var(--text);
+      border-color: rgba(55, 215, 193, 0.5);
     }
 
     .section {
-      padding: 2.25rem 0;
-      border-bottom: 1px solid var(--line);
+      margin-top: 1.4rem;
     }
 
-    .section p.section-intro {
-      color: var(--muted);
-      margin-top: 0;
-      max-width: 68ch;
+    .featured,
+    .project-card {
+      border: 1px solid rgba(55, 215, 193, 0.22);
+      background: linear-gradient(180deg, rgba(16, 21, 27, 0.98), rgba(10, 14, 19, 0.98));
+      box-shadow: var(--shadow);
     }
 
     .featured {
-      border: 1px solid var(--line);
-      background: linear-gradient(to bottom right, rgba(255,255,255,0.95), rgba(255,255,255,0.78));
-      border-radius: calc(var(--radius) + 2px);
-      box-shadow: var(--shadow);
-      padding: 1.25rem 1.25rem 1.15rem;
+      padding: 1.25rem 1.35rem 1.2rem;
+      margin-bottom: 1rem;
     }
 
-    .featured-meta {
-      color: var(--soft);
-      font-size: 0.95rem;
-      margin-bottom: 0.7rem;
+    .section-label {
+      color: #8ed9d0;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+      margin-bottom: 0.6rem;
+    }
+
+    .featured h2 {
+      font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+      line-height: 1.2;
+      margin-bottom: 0.55rem;
     }
 
     .featured p {
-      margin: 0.4rem 0 0;
       color: var(--muted);
+      line-height: 1.8;
+      max-width: 92ch;
     }
 
-    .cards {
-      display: grid;
-      gap: 1rem;
-    }
-
-    .card {
-      border: 1px solid var(--line);
-      border-radius: calc(var(--radius) + 2px);
-      background: rgba(255,255,255,0.84);
-      box-shadow: var(--shadow);
-      padding: 1.2rem 1.2rem 1rem;
-    }
-
-    .card-top {
+    .featured-footer {
+      margin-top: 1rem;
       display: flex;
+      justify-content: flex-end;
+    }
+
+    .read-more {
+      color: #9fe8df;
+      border-color: rgba(55, 215, 193, 0.28);
+    }
+
+    .section-head {
+      display: flex;
+      align-items: baseline;
       justify-content: space-between;
       gap: 1rem;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 0.35rem;
+      margin: 1.8rem 0 0.8rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
     }
 
-    .card-kicker {
-      color: var(--soft);
-      font-size: 0.95rem;
-    }
-
-    .card-subtitle {
+    .section-title {
+      font-size: 0.9rem;
       color: var(--text);
-      font-weight: 600;
-      margin-bottom: 0.35rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
     }
 
-    .card p {
-      margin: 0.5rem 0 0.7rem;
-      color: var(--muted);
+    .section-note {
+      color: var(--soft);
+      font-size: 0.88rem;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .project-card {
+      display: grid;
+      grid-template-rows: auto auto 1fr;
+      min-height: 100%;
+    }
+
+    .project-card__head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      padding: 1rem 1rem 0.85rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .project-card__head h3 {
+      font-size: 1rem;
+      line-height: 1.2;
+      font-weight: 700;
+    }
+
+    .project-status {
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: lowercase;
+      padding: 0.35rem 0.6rem;
+      border: 1px solid transparent;
+      white-space: nowrap;
+    }
+
+    .project-status[data-status="open source"] {
+      color: #7ff0de;
+      border-color: rgba(55, 215, 193, 0.34);
+      background: var(--teal-soft);
+    }
+
+    .project-status[data-status="closed source"] {
+      color: var(--gold);
+      border-color: rgba(240, 185, 110, 0.35);
+      background: var(--gold-soft);
+    }
+
+    .project-status[data-status="internal"] {
+      color: #b6c8ff;
+      border-color: rgba(126, 156, 255, 0.3);
+      background: rgba(126, 156, 255, 0.09);
+    }
+
+    .project-media {
+      position: relative;
+      aspect-ratio: 16 / 9;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 20% 30%, rgba(55, 215, 193, 0.18), transparent 34%),
+        radial-gradient(circle at 82% 22%, rgba(240, 185, 110, 0.12), transparent 24%),
+        linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 45%),
+        #0a1014;
+    }
+
+    .project-media[data-tone="teal"]::before,
+    .project-media[data-tone="gold"]::before,
+    .project-media[data-tone="violet"]::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+      background-size: 24px 24px;
+      opacity: 0.42;
+    }
+
+    .project-media::after {
+      content: attr(data-caption);
+      position: absolute;
+      left: 1rem;
+      bottom: 0.9rem;
+      right: 1rem;
+      font-size: 0.8rem;
+      color: rgba(231, 237, 243, 0.76);
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+    }
+
+    .project-card__body {
+      padding: 1rem 1rem 1.05rem;
+      display: grid;
+      gap: 0.95rem;
+    }
+
+    .project-kicker {
+      color: var(--soft);
+      font-weight: 700;
+      font-size: 0.86rem;
+      text-transform: none;
+    }
+
+    .project-desc {
+      color: var(--text);
+      line-height: 1.85;
+      min-height: 11.4em;
     }
 
     .tag-list {
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
-      margin: 0.75rem 0 0;
       padding: 0;
+      margin: 0;
       list-style: none;
     }
 
     .tag-list li {
-      border: 1px solid var(--line);
-      border-radius: 999px;
-      padding: 0.28rem 0.65rem;
+      display: inline-flex;
+      align-items: center;
+      min-height: 26px;
+      padding: 0.18rem 0.5rem;
+      border: 1px solid rgba(255, 255, 255, 0.1);
       color: var(--muted);
-      font-size: 0.92rem;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255, 255, 255, 0.02);
+      font-size: 0.8rem;
     }
 
-    .link-row {
+    .project-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 0.8rem;
+      gap: 0.65rem;
+      align-items: center;
+      margin-top: 0.15rem;
     }
 
-    .timeline {
-      display: grid;
-      gap: 0.9rem;
+    .btn.primary {
+      color: #86f3e3;
+      border-color: rgba(55, 215, 193, 0.34);
     }
 
-    .timeline-item {
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 1rem;
-      padding: 0.4rem 0;
+    .btn.secondary {
+      color: var(--text);
+      opacity: 0.9;
+      border-color: rgba(255, 255, 255, 0.1);
     }
 
-    .timeline-date {
-      color: var(--soft);
-      font-size: 0.95rem;
-      padding-top: 0.2rem;
-    }
-
-    .timeline-body strong {
-      display: block;
-      margin-bottom: 0.25rem;
-    }
-
-    .timeline-body p {
-      margin: 0.2rem 0;
+    .footer {
+      margin-top: 2rem;
+      padding: 1.2rem 0 0.8rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
       color: var(--muted);
+      font-size: 0.88rem;
     }
 
-    .contact-grid {
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
+    .footer__inner {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
     }
 
-    .contact-card {
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      background: rgba(255,255,255,0.78);
-      padding: 1rem;
-      box-shadow: var(--shadow);
+    .footer__inner a {
+      color: #8fe9dd;
+      border-bottom: 1px solid rgba(143, 233, 221, 0.3);
     }
 
-    .contact-card .label {
-      color: var(--soft);
-      font-size: 0.95rem;
-      margin-bottom: 0.35rem;
+    .footer__sep {
+      color: rgba(255, 255, 255, 0.3);
     }
 
-    footer {
-      padding: 1.6rem 0 2.5rem;
-      color: var(--soft);
-      font-size: 0.95rem;
+    .footer__top {
+      color: #8fe9dd;
     }
 
-    @media (max-width: 860px) {
-      .hero-grid,
-      .contact-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .timeline-item {
-        grid-template-columns: 1fr;
-        gap: 0.2rem;
-      }
-
-      .site-header {
-        position: static;
+    @media (max-width: 980px) {
+      .project-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
       }
     }
 
-    @media (max-width: 640px) {
-      body { font-size: 15px; }
-      main { padding-top: 2rem; }
+    @media (max-width: 720px) {
+      main {
+        padding-top: 2rem;
+      }
+
       .nav {
-        align-items: flex-start;
         flex-direction: column;
-        padding: 0.9rem 0;
+        align-items: flex-start;
+        justify-content: flex-start;
+        padding: 0.8rem 0;
       }
+
       .nav-links {
-        gap: 0.85rem;
+        gap: 0.9rem;
       }
-      h1 { max-width: none; }
+
+      .hero {
+        padding-top: 2.3rem;
+      }
+
+      h1 {
+        font-size: clamp(1.8rem, 9vw, 2.6rem);
+      }
+
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .featured,
+      .project-card__head,
+      .project-card__body {
+        padding-left: 0.9rem;
+        padding-right: 0.9rem;
+      }
+
+      .project-desc {
+        min-height: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      .wave {
+        animation: none;
+      }
+
+      .hero-links a,
+      .read-more,
+      .btn {
+        transition: none;
+      }
     }
   </style>
 </head>
 <body>
-  <a class="skip-link" href="#projects">Skip to content</a>
+  <a class="skip-link" href="#projects">Skip to projects</a>
+
+  <div class="backdrop" aria-hidden="true">
+    <div class="wave" style="top: 7%; --offset: 0px; --speed: 94s;"></div>
+    <div class="wave is-gold" style="top: 15%; --offset: 0px; --speed: 118s;"></div>
+    <div class="wave" style="top: 23%; --offset: 0px; --speed: 102s; opacity: 0.38;"></div>
+    <div class="wave" style="top: 31%; --offset: 0px; --speed: 126s; opacity: 0.34;"></div>
+    <div class="wave is-gold" style="top: 39%; --offset: 0px; --speed: 134s; opacity: 0.28;"></div>
+    <div class="wave" style="top: 47%; --offset: 0px; --speed: 108s; opacity: 0.36;"></div>
+    <div class="wave" style="top: 55%; --offset: 0px; --speed: 96s; opacity: 0.31;"></div>
+    <div class="wave is-gold" style="top: 63%; --offset: 0px; --speed: 140s; opacity: 0.24;"></div>
+    <div class="wave" style="top: 71%; --offset: 0px; --speed: 122s; opacity: 0.32;"></div>
+    <div class="wave" style="top: 79%; --offset: 0px; --speed: 88s; opacity: 0.28;"></div>
+    <div class="wave is-gold" style="top: 87%; --offset: 0px; --speed: 150s; opacity: 0.22;"></div>
+  </div>
+
+  <header class="site-header">
+    <div class="shell nav">
+      <a class="brand" href="#top" id="brand-link">Your Name</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#featured">Blog</a>
+        <a id="github-nav" href="#" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="shell hero" aria-labelledby="hero-title">
+      <p class="eyebrow" id="hero-eyebrow"></p>
+      <h1 id="hero-title"></h1>
+      <p class="lede" id="hero-lede"></p>
+      <div class="hero-meta">
+        <p id="hero-support"></p>
+        <div class="hero-links">
+          <a id="hero-github" href="#" target="_blank" rel="noreferrer">github: @your-username</a>
+          <a id="hero-email" href="mailto:you@example.com">email: you@example.com</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="shell section" id="featured" aria-labelledby="featured-title">
+      <article class="featured">
+        <div class="section-label" id="featured-meta"></div>
+        <h2 id="featured-title"></h2>
+        <p id="featured-summary"></p>
+        <div class="featured-footer">
+          <a class="read-more" id="featured-link" href="#">Read post -></a>
+        </div>
+      </article>
+    </section>
+
+    <section class="shell section" id="projects" aria-labelledby="projects-title">
+      <div class="section-head">
+        <div class="section-title" id="projects-title">Selected projects</div>
+        <div class="section-note" id="projects-note"></div>
+      </div>
+      <div class="project-grid" id="projects-list"></div>
+    </section>
+
+    <footer class="shell footer" id="contact">
+      <div class="footer__inner" id="footer-text"></div>
+    </footer>
+  </main>
 
   <script>
     const siteData = {
       person: {
         name: "Your Name",
-        title: "Engineering Physics Student | Senior Software Engineer",
-        location: "City, Country",
-        email: "you@example.com",
-        github: "https://github.com/your-username",
-        linkedin: "https://www.linkedin.com/in/your-handle/",
-        resumePdf: "./resume.pdf",
+        title: "Software Architect | Engineering Physics Student",
         intro:
-          "I build reliable software systems with a bias toward practical architecture, performance, and maintainability. My work spans backend services, developer tooling, and technical problem-solving with a parallel focus on engineering physics.",
-        contactBlurb:
-          "Interested in systems engineering, simulation, backend architecture, or technical consulting? Reach out."
+          "I build production software with a bias toward practical architecture, performance, and maintainability. The goal here is simple: make the work obvious, keep the page fast, and let the content do the heavy lifting.",
+        support:
+          "Interested in backend systems, scientific software, or applied ML? Reach out.",
+        github: "https://github.com/your-username",
+        email: "you@example.com"
       },
       featured: {
-        label: "Featured note",
+        label: "Latest from the blog",
         date: "2026-03-31",
         title: "What this site is for",
         summary:
-          "Use this block for a brief statement, a recent article, an update, or a current focus area. The source site surfaces a recent blog post here; for a CV, this can be your elevator pitch or latest milestone.",
-        url: "#about",
-        urlLabel: "Read more"
-      },
-      about: {
-        body:
-          "This site is intentionally minimal. It prioritizes readable typography, restrained spacing, and project-first content. Edit the data object at the top of index.html to change copy, links, roles, and project entries."
+          "Use this card for a recent post, release note, or a current focus area. The reference site keeps the homepage immediate and concrete, so this slot stays the first thing users read after the intro.",
+        url: "#projects",
+        urlLabel: "Read post ->"
       },
       projects: [
         {
           name: "Project One",
           status: "open source",
-          subtitle: "High-performance service platform",
+          tone: "teal",
+          caption: "high-throughput systems",
+          kicker: "Next-generation service platform",
           description:
-            "A concise project description. Focus on outcomes, constraints, and the technically interesting parts: scale, latency, architecture, numerical methods, or domain impact.",
-          stack: ["C#", ".NET", "PostgreSQL", "Docker", "GitHub Actions"],
+            "A production-grade system for workloads that care about throughput, observability, and failure isolation. Keep the description blunt: what problem it solves, why the architecture matters, and what makes it technically interesting.",
+          stack: ["C#", ".NET", "PostgreSQL", "Docker", "Kubernetes"],
           links: [
             { label: "GitHub", url: "https://github.com/your-username/project-one" },
             { label: "Live demo", url: "https://example.com" }
@@ -434,141 +692,37 @@
         },
         {
           name: "Project Two",
-          status: "research / academic",
-          subtitle: "Modeling, simulation, or analysis work",
+          status: "closed source",
+          tone: "gold",
+          caption: "medical AI workflow",
+          kicker: "Institution-scale platform work",
           description:
-            "Use this for a capstone, thesis, instrumentation project, or computational physics work. Keep it short and concrete.",
-          stack: ["Python", "NumPy", "MATLAB", "Simulation"],
+            "A closed-source platform or internal tool. Describe the domain, your role, and the result without disclosing sensitive implementation details. Keep the copy compact and specific.",
+          stack: ["Distributed systems", "Observability", "Event-driven", "CI/CD", "Security"],
           links: [
-            { label: "Paper / report", url: "#" }
+            { label: "Details on request", url: "#contact" }
           ]
         },
         {
           name: "Project Three",
-          status: "professional",
-          subtitle: "Internal platform or product work",
+          status: "internal",
+          tone: "violet",
+          caption: "research and tooling",
+          kicker: "Applied engineering and analysis",
           description:
-            "For closed-source work, describe the problem, your role, and the result without disclosing confidential implementation details.",
-          stack: ["Distributed systems", "Observability", "CI/CD"],
+            "A project that sits closer to scientific computing, data analysis, or tooling. This is a good place for instrumentation, simulation, or anything where strong technical judgment matters more than UI polish.",
+          stack: ["Physics", "Numerics", "Automation", "Analysis"],
           links: [
-            { label: "Details on request", url: "#contact" }
+            { label: "Write-up", url: "#" }
           ]
         }
-      ],
-      experience: [
-        {
-          period: "2022 — Present",
-          role: "Senior Software Engineer",
-          org: "Company Name",
-          details:
-            "Built and maintained production systems, improved delivery workflows, and led architectural decisions for reliability and scale."
-        },
-        {
-          period: "2020 — 2022",
-          role: "Software Engineer",
-          org: "Previous Company",
-          details:
-            "Delivered backend services, internal tooling, and automation with emphasis on maintainable code and pragmatic design."
-        }
-      ],
-      education: [
-        {
-          period: "2023 — Present",
-          role: "B.S. Engineering Physics",
-          org: "University Name",
-          details:
-            "Relevant topics: computational methods, electromagnetism, mechanics, numerical analysis, controls, instrumentation."
-        }
-      ],
-      contact: [
-        { label: "Email", value: "you@example.com", href: "mailto:you@example.com" },
-        { label: "GitHub", value: "@your-username", href: "https://github.com/your-username" },
-        { label: "LinkedIn", value: "your-handle", href: "https://www.linkedin.com/in/your-handle/" }
       ]
     };
-  </script>
 
-  <header class="site-header">
-    <div class="wrap nav">
-      <a class="brand" href="#top">CV</a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top" class="wrap">
-    <section class="hero" aria-labelledby="hero-title">
-      <p class="eyebrow" id="hero-eyebrow"></p>
-      <div class="hero-grid">
-        <div>
-          <h1 id="hero-title"></h1>
-          <p class="lede" id="hero-lede"></p>
-          <div class="cta-row">
-            <a class="button primary" id="resume-link" href="#">Resume</a>
-            <a class="button secondary" id="github-link" href="#" target="_blank" rel="noreferrer">GitHub</a>
-          </div>
-        </div>
-        <aside class="hero-aside" aria-label="Summary">
-          <p id="hero-location"></p>
-          <p id="hero-email"></p>
-          <p id="hero-contact-blurb"></p>
-        </aside>
-      </div>
-    </section>
-
-    <section class="section" aria-labelledby="featured-title">
-      <div class="featured">
-        <div class="featured-meta" id="featured-meta"></div>
-        <h2 id="featured-title"></h2>
-        <p id="featured-summary"></p>
-        <div class="link-row">
-          <a id="featured-link" href="#">Read more</a>
-        </div>
-      </div>
-    </section>
-
-    <section id="about" class="section" aria-labelledby="about-title">
-      <h2 id="about-title">About</h2>
-      <p class="section-intro" id="about-body"></p>
-    </section>
-
-    <section id="projects" class="section" aria-labelledby="projects-title">
-      <h2 id="projects-title">Selected projects</h2>
-      <p class="section-intro">
-        Keep this section project-first. The reference site is effective because it shows substantial work immediately instead of hiding it behind tabs or animation.
-      </p>
-      <div class="cards" id="projects-list"></div>
-    </section>
-
-    <section id="experience" class="section" aria-labelledby="experience-title">
-      <h2 id="experience-title">Experience</h2>
-      <div class="timeline" id="experience-list"></div>
-    </section>
-
-    <section id="education" class="section" aria-labelledby="education-title">
-      <h2 id="education-title">Education</h2>
-      <div class="timeline" id="education-list"></div>
-    </section>
-
-    <section id="contact" class="section" aria-labelledby="contact-title">
-      <h2 id="contact-title">Contact</h2>
-      <div class="contact-grid" id="contact-list"></div>
-    </section>
-  </main>
-
-  <footer class="wrap">
-    <div id="footer-text"></div>
-  </footer>
-
-  <script>
     const $ = (selector) => document.querySelector(selector);
 
     function escapeHtml(text) {
-      return text
+      return String(text)
         .replaceAll("&", "&amp;")
         .replaceAll("<", "&lt;")
         .replaceAll(">", "&gt;")
@@ -579,78 +733,63 @@
     function renderProjects(projects) {
       const container = $("#projects-list");
       container.innerHTML = projects.map((project) => `
-        <article class="card">
-          <div class="card-top">
+        <article class="project-card">
+          <div class="project-card__head">
             <h3>${escapeHtml(project.name)}</h3>
-            <div class="card-kicker">${escapeHtml(project.status)}</div>
+            <span class="project-status" data-status="${escapeHtml(project.status)}">${escapeHtml(project.status)}</span>
           </div>
-          <div class="card-subtitle">${escapeHtml(project.subtitle)}</div>
-          <p>${escapeHtml(project.description)}</p>
-          <ul class="tag-list">
-            ${project.stack.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
-          </ul>
-          <div class="link-row">
-            ${project.links.map((link) => `<a href="${link.url}" target="${link.url.startsWith("#") ? "_self" : "_blank"}" rel="noreferrer">${escapeHtml(link.label)}</a>`).join("")}
+          <div class="project-media" data-tone="${escapeHtml(project.tone)}" data-caption="${escapeHtml(project.caption)}"></div>
+          <div class="project-card__body">
+            <div class="project-kicker">${escapeHtml(project.kicker)}</div>
+            <p class="project-desc">${escapeHtml(project.description)}</p>
+            <ul class="tag-list">
+              ${project.stack.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+            </ul>
+            <div class="project-links">
+              ${project.links.map((link, index) => {
+                const external = !link.url.startsWith("#");
+                const classes = index === 0 ? "btn primary" : "btn secondary";
+                return `<a class="${classes}" href="${escapeHtml(link.url)}"${external ? ' target="_blank" rel="noreferrer"' : ""}>${escapeHtml(link.label)}</a>`;
+              }).join("")}
+            </div>
           </div>
         </article>
       `).join("");
     }
 
-    function renderTimeline(selector, items) {
-      const container = $(selector);
-      container.innerHTML = items.map((item) => `
-        <div class="timeline-item">
-          <div class="timeline-date">${escapeHtml(item.period)}</div>
-          <div class="timeline-body">
-            <strong>${escapeHtml(item.role)} · ${escapeHtml(item.org)}</strong>
-            <p>${escapeHtml(item.details)}</p>
-          </div>
-        </div>
-      `).join("");
-    }
-
-    function renderContacts(items) {
-      const container = $("#contact-list");
-      container.innerHTML = items.map((item) => `
-        <div class="contact-card">
-          <div class="label">${escapeHtml(item.label)}</div>
-          <a href="${item.href}" ${item.href.startsWith("mailto:") ? "" : 'target="_blank" rel="noreferrer"'}>${escapeHtml(item.value)}</a>
-        </div>
-      `).join("");
-    }
-
     function init() {
-      const { person, featured, about, projects, experience, education, contact } = siteData;
+      const { person, featured, projects } = siteData;
 
-      document.title = `${person.name} // CV`;
+      document.title = `${person.name} // Portfolio`;
 
+      $("#brand-link").textContent = person.name;
       $("#hero-eyebrow").textContent = person.title;
       $("#hero-title").textContent = person.name;
       $("#hero-lede").textContent = person.intro;
-      $("#hero-location").textContent = person.location;
-      $("#hero-email").textContent = person.email;
-      $("#hero-contact-blurb").textContent = person.contactBlurb;
+      $("#hero-support").textContent = person.support;
+      $("#hero-github").textContent = `github: @${person.github.split("/").filter(Boolean).pop() || "your-username"}`;
+      $("#hero-github").href = person.github;
+      $("#hero-email").textContent = `email: ${person.email}`;
+      $("#hero-email").href = `mailto:${person.email}`;
+      $("#github-nav").href = person.github;
 
-      $("#resume-link").href = person.resumePdf;
-      $("#github-link").href = person.github;
-
-      $("#featured-meta").textContent = `${featured.label} · ${featured.date}`;
+      $("#featured-meta").textContent = `${featured.label} - ${featured.date}`;
       $("#featured-title").textContent = featured.title;
       $("#featured-summary").textContent = featured.summary;
       $("#featured-link").href = featured.url;
       $("#featured-link").textContent = featured.urlLabel;
 
-      $("#about-body").textContent = about.body;
-
+      $("#projects-note").textContent = "Open source, closed source, and internal work";
       renderProjects(projects);
-      renderTimeline("#experience-list", experience);
-      renderTimeline("#education-list", education);
-      renderContacts(contact);
 
       $("#footer-text").innerHTML = `
-        ${escapeHtml(person.name)} · ${escapeHtml(person.title)} ·
-        <a href="${person.github}" target="_blank" rel="noreferrer">GitHub</a> ·
-        <a href="mailto:${person.email}">${escapeHtml(person.email)}</a>
+        <span>${escapeHtml(person.title)}</span>
+        <span class="footer__sep" aria-hidden="true">-</span>
+        <a href="${escapeHtml(person.github)}" target="_blank" rel="noreferrer">GitHub: @${escapeHtml(person.github.split("/").filter(Boolean).pop() || "your-username")}</a>
+        <span class="footer__sep" aria-hidden="true">-</span>
+        <a href="mailto:${escapeHtml(person.email)}">email: ${escapeHtml(person.email)}</a>
+        <span class="footer__sep" aria-hidden="true">-</span>
+        <a class="footer__top" href="#top">Back to top</a>
       `;
     }
 

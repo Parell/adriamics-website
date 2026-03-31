@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Name // CV</title>
+  <meta name="description" content="Minimal GitHub Pages CV inspired by thavlik.dev" />
+  <meta name="color-scheme" content="light" />
+  <style>
+    :root {
+      --bg: #f8f7f3;
+      --surface: #ffffff;
+      --text: #171717;
+      --muted: #5c5c5c;
+      --soft: #8b8b8b;
+      --line: #d9d4ca;
+      --accent: #111111;
+      --max: 860px;
+      --radius: 18px;
+      --shadow: 0 12px 40px rgba(0,0,0,0.05);
+    }
+
+    * { box-sizing: border-box; }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at top left, rgba(0,0,0,0.025), transparent 34%),
+        linear-gradient(to bottom, #fcfbf8, var(--bg));
+      color: var(--text);
+      font: 400 16px/1.65 Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0.01em;
+    }
+
+    a {
+      color: inherit;
+      text-decoration-thickness: 1px;
+      text-underline-offset: 0.18em;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .wrap {
+      width: min(calc(100% - 2rem), var(--max));
+      margin: 0 auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: #111;
+      color: #fff;
+      padding: 0.75rem 1rem;
+      border-radius: 999px;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 1rem;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(10px);
+      background: rgba(248, 247, 243, 0.78);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      min-height: 72px;
+    }
+
+    .brand {
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--muted);
+      padding: 0.35rem 0;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--text);
+    }
+
+    main {
+      padding: 3.5rem 0 5rem;
+    }
+
+    .hero {
+      padding: 2rem 0 1.75rem;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      font-size: 0.95rem;
+      margin: 0 0 0.85rem;
+    }
+
+    h1, h2, h3 {
+      font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(2.5rem, 7vw, 4.8rem);
+      max-width: 12ch;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: clamp(1.9rem, 4vw, 2.6rem);
+      margin-bottom: 1rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      gap: 1.25rem;
+      grid-template-columns: 1.6fr 1fr;
+      align-items: start;
+    }
+
+    .lede {
+      font-size: 1.125rem;
+      color: var(--text);
+      max-width: 62ch;
+      margin: 0;
+    }
+
+    .hero-aside {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.7);
+      box-shadow: var(--shadow);
+      padding: 1.1rem 1.15rem;
+    }
+
+    .hero-aside p {
+      margin: 0.2rem 0;
+      color: var(--muted);
+    }
+
+    .cta-row {
+      display: flex;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+      margin-top: 1.4rem;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 0.7rem 1rem;
+      border-radius: 999px;
+      border: 1px solid var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 120ms ease, background 120ms ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+    }
+
+    .button.primary {
+      background: var(--text);
+      color: #fff;
+    }
+
+    .button.secondary {
+      background: transparent;
+      color: var(--text);
+    }
+
+    .section {
+      padding: 2.25rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section p.section-intro {
+      color: var(--muted);
+      margin-top: 0;
+      max-width: 68ch;
+    }
+
+    .featured {
+      border: 1px solid var(--line);
+      background: linear-gradient(to bottom right, rgba(255,255,255,0.95), rgba(255,255,255,0.78));
+      border-radius: calc(var(--radius) + 2px);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.25rem 1.15rem;
+    }
+
+    .featured-meta {
+      color: var(--soft);
+      font-size: 0.95rem;
+      margin-bottom: 0.7rem;
+    }
+
+    .featured p {
+      margin: 0.4rem 0 0;
+      color: var(--muted);
+    }
+
+    .cards {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: calc(var(--radius) + 2px);
+      background: rgba(255,255,255,0.84);
+      box-shadow: var(--shadow);
+      padding: 1.2rem 1.2rem 1rem;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      align-items: baseline;
+      flex-wrap: wrap;
+      margin-bottom: 0.35rem;
+    }
+
+    .card-kicker {
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+
+    .card-subtitle {
+      color: var(--text);
+      font-weight: 600;
+      margin-bottom: 0.35rem;
+    }
+
+    .card p {
+      margin: 0.5rem 0 0.7rem;
+      color: var(--muted);
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin: 0.75rem 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .tag-list li {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.28rem 0.65rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      background: rgba(255,255,255,0.9);
+    }
+
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 0.8rem;
+    }
+
+    .timeline {
+      display: grid;
+      gap: 0.9rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 160px 1fr;
+      gap: 1rem;
+      padding: 0.4rem 0;
+    }
+
+    .timeline-date {
+      color: var(--soft);
+      font-size: 0.95rem;
+      padding-top: 0.2rem;
+    }
+
+    .timeline-body strong {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .timeline-body p {
+      margin: 0.2rem 0;
+      color: var(--muted);
+    }
+
+    .contact-grid {
+      display: grid;
+      gap: 1rem;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: rgba(255,255,255,0.78);
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-card .label {
+      color: var(--soft);
+      font-size: 0.95rem;
+      margin-bottom: 0.35rem;
+    }
+
+    footer {
+      padding: 1.6rem 0 2.5rem;
+      color: var(--soft);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+      }
+
+      .site-header {
+        position: static;
+      }
+    }
+
+    @media (max-width: 640px) {
+      body { font-size: 15px; }
+      main { padding-top: 2rem; }
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 0.9rem 0;
+      }
+      .nav-links {
+        gap: 0.85rem;
+      }
+      h1 { max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#projects">Skip to content</a>
+
+  <script>
+    const siteData = {
+      person: {
+        name: "Your Name",
+        title: "Engineering Physics Student | Senior Software Engineer",
+        location: "City, Country",
+        email: "you@example.com",
+        github: "https://github.com/your-username",
+        linkedin: "https://www.linkedin.com/in/your-handle/",
+        resumePdf: "./resume.pdf",
+        intro:
+          "I build reliable software systems with a bias toward practical architecture, performance, and maintainability. My work spans backend services, developer tooling, and technical problem-solving with a parallel focus on engineering physics.",
+        contactBlurb:
+          "Interested in systems engineering, simulation, backend architecture, or technical consulting? Reach out."
+      },
+      featured: {
+        label: "Featured note",
+        date: "2026-03-31",
+        title: "What this site is for",
+        summary:
+          "Use this block for a brief statement, a recent article, an update, or a current focus area. The source site surfaces a recent blog post here; for a CV, this can be your elevator pitch or latest milestone.",
+        url: "#about",
+        urlLabel: "Read more"
+      },
+      about: {
+        body:
+          "This site is intentionally minimal. It prioritizes readable typography, restrained spacing, and project-first content. Edit the data object at the top of index.html to change copy, links, roles, and project entries."
+      },
+      projects: [
+        {
+          name: "Project One",
+          status: "open source",
+          subtitle: "High-performance service platform",
+          description:
+            "A concise project description. Focus on outcomes, constraints, and the technically interesting parts: scale, latency, architecture, numerical methods, or domain impact.",
+          stack: ["C#", ".NET", "PostgreSQL", "Docker", "GitHub Actions"],
+          links: [
+            { label: "GitHub", url: "https://github.com/your-username/project-one" },
+            { label: "Live demo", url: "https://example.com" }
+          ]
+        },
+        {
+          name: "Project Two",
+          status: "research / academic",
+          subtitle: "Modeling, simulation, or analysis work",
+          description:
+            "Use this for a capstone, thesis, instrumentation project, or computational physics work. Keep it short and concrete.",
+          stack: ["Python", "NumPy", "MATLAB", "Simulation"],
+          links: [
+            { label: "Paper / report", url: "#" }
+          ]
+        },
+        {
+          name: "Project Three",
+          status: "professional",
+          subtitle: "Internal platform or product work",
+          description:
+            "For closed-source work, describe the problem, your role, and the result without disclosing confidential implementation details.",
+          stack: ["Distributed systems", "Observability", "CI/CD"],
+          links: [
+            { label: "Details on request", url: "#contact" }
+          ]
+        }
+      ],
+      experience: [
+        {
+          period: "2022 — Present",
+          role: "Senior Software Engineer",
+          org: "Company Name",
+          details:
+            "Built and maintained production systems, improved delivery workflows, and led architectural decisions for reliability and scale."
+        },
+        {
+          period: "2020 — 2022",
+          role: "Software Engineer",
+          org: "Previous Company",
+          details:
+            "Delivered backend services, internal tooling, and automation with emphasis on maintainable code and pragmatic design."
+        }
+      ],
+      education: [
+        {
+          period: "2023 — Present",
+          role: "B.S. Engineering Physics",
+          org: "University Name",
+          details:
+            "Relevant topics: computational methods, electromagnetism, mechanics, numerical analysis, controls, instrumentation."
+        }
+      ],
+      contact: [
+        { label: "Email", value: "you@example.com", href: "mailto:you@example.com" },
+        { label: "GitHub", value: "@your-username", href: "https://github.com/your-username" },
+        { label: "LinkedIn", value: "your-handle", href: "https://www.linkedin.com/in/your-handle/" }
+      ]
+    };
+  </script>
+
+  <header class="site-header">
+    <div class="wrap nav">
+      <a class="brand" href="#top">CV</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="wrap">
+    <section class="hero" aria-labelledby="hero-title">
+      <p class="eyebrow" id="hero-eyebrow"></p>
+      <div class="hero-grid">
+        <div>
+          <h1 id="hero-title"></h1>
+          <p class="lede" id="hero-lede"></p>
+          <div class="cta-row">
+            <a class="button primary" id="resume-link" href="#">Resume</a>
+            <a class="button secondary" id="github-link" href="#" target="_blank" rel="noreferrer">GitHub</a>
+          </div>
+        </div>
+        <aside class="hero-aside" aria-label="Summary">
+          <p id="hero-location"></p>
+          <p id="hero-email"></p>
+          <p id="hero-contact-blurb"></p>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="featured-title">
+      <div class="featured">
+        <div class="featured-meta" id="featured-meta"></div>
+        <h2 id="featured-title"></h2>
+        <p id="featured-summary"></p>
+        <div class="link-row">
+          <a id="featured-link" href="#">Read more</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <h2 id="about-title">About</h2>
+      <p class="section-intro" id="about-body"></p>
+    </section>
+
+    <section id="projects" class="section" aria-labelledby="projects-title">
+      <h2 id="projects-title">Selected projects</h2>
+      <p class="section-intro">
+        Keep this section project-first. The reference site is effective because it shows substantial work immediately instead of hiding it behind tabs or animation.
+      </p>
+      <div class="cards" id="projects-list"></div>
+    </section>
+
+    <section id="experience" class="section" aria-labelledby="experience-title">
+      <h2 id="experience-title">Experience</h2>
+      <div class="timeline" id="experience-list"></div>
+    </section>
+
+    <section id="education" class="section" aria-labelledby="education-title">
+      <h2 id="education-title">Education</h2>
+      <div class="timeline" id="education-list"></div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <h2 id="contact-title">Contact</h2>
+      <div class="contact-grid" id="contact-list"></div>
+    </section>
+  </main>
+
+  <footer class="wrap">
+    <div id="footer-text"></div>
+  </footer>
+
+  <script>
+    const $ = (selector) => document.querySelector(selector);
+
+    function escapeHtml(text) {
+      return text
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#39;");
+    }
+
+    function renderProjects(projects) {
+      const container = $("#projects-list");
+      container.innerHTML = projects.map((project) => `
+        <article class="card">
+          <div class="card-top">
+            <h3>${escapeHtml(project.name)}</h3>
+            <div class="card-kicker">${escapeHtml(project.status)}</div>
+          </div>
+          <div class="card-subtitle">${escapeHtml(project.subtitle)}</div>
+          <p>${escapeHtml(project.description)}</p>
+          <ul class="tag-list">
+            ${project.stack.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}
+          </ul>
+          <div class="link-row">
+            ${project.links.map((link) => `<a href="${link.url}" target="${link.url.startsWith("#") ? "_self" : "_blank"}" rel="noreferrer">${escapeHtml(link.label)}</a>`).join("")}
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function renderTimeline(selector, items) {
+      const container = $(selector);
+      container.innerHTML = items.map((item) => `
+        <div class="timeline-item">
+          <div class="timeline-date">${escapeHtml(item.period)}</div>
+          <div class="timeline-body">
+            <strong>${escapeHtml(item.role)} · ${escapeHtml(item.org)}</strong>
+            <p>${escapeHtml(item.details)}</p>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function renderContacts(items) {
+      const container = $("#contact-list");
+      container.innerHTML = items.map((item) => `
+        <div class="contact-card">
+          <div class="label">${escapeHtml(item.label)}</div>
+          <a href="${item.href}" ${item.href.startsWith("mailto:") ? "" : 'target="_blank" rel="noreferrer"'}>${escapeHtml(item.value)}</a>
+        </div>
+      `).join("");
+    }
+
+    function init() {
+      const { person, featured, about, projects, experience, education, contact } = siteData;
+
+      document.title = `${person.name} // CV`;
+
+      $("#hero-eyebrow").textContent = person.title;
+      $("#hero-title").textContent = person.name;
+      $("#hero-lede").textContent = person.intro;
+      $("#hero-location").textContent = person.location;
+      $("#hero-email").textContent = person.email;
+      $("#hero-contact-blurb").textContent = person.contactBlurb;
+
+      $("#resume-link").href = person.resumePdf;
+      $("#github-link").href = person.github;
+
+      $("#featured-meta").textContent = `${featured.label} · ${featured.date}`;
+      $("#featured-title").textContent = featured.title;
+      $("#featured-summary").textContent = featured.summary;
+      $("#featured-link").href = featured.url;
+      $("#featured-link").textContent = featured.urlLabel;
+
+      $("#about-body").textContent = about.body;
+
+      renderProjects(projects);
+      renderTimeline("#experience-list", experience);
+      renderTimeline("#education-list", education);
+      renderContacts(contact);
+
+      $("#footer-text").innerHTML = `
+        ${escapeHtml(person.name)} · ${escapeHtml(person.title)} ·
+        <a href="${person.github}" target="_blank" rel="noreferrer">GitHub</a> ·
+        <a href="mailto:${person.email}">${escapeHtml(person.email)}</a>
+      `;
+    }
+
+    init();
+  </script>
+</body>
+</html>

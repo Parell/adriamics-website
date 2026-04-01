@@ -6,6 +6,7 @@ const SITE = {
       "I'm an engineer and physicist who builds software. I combine first-principles thinking with a deep understanding of aerospace control and computational simulation.",
     support: "Interested in software, science, or engineering ideas? Reach out.",
     github: "https://github.com/Parell",
+    linkedin: "https://www.linkedin.com/in/daniel-john-6630b0232/",
     email: "parelldev01@gmail.com",
   },
   projects: [
@@ -21,19 +22,19 @@ const SITE = {
       links: [{ label: "GitHub", url: "https://github.com/Parell/RocketNozzleCalculator" }],
     },
     {
-      name: "Unity Continuous Floating Origin",
-      status: "open source",
+      name: "Unity Physics Floating Origin",
+      status: "closed source",
       tone: "violet",
       caption: "large-world rendering support",
       image: {
         src: "test_image.png",
         alt: "Test image used for the Unity Continuous Floating Origin project card",
       },
-      kicker: "Continuous floating origin system for Unity",
+      kicker: "Physics floating origin system for Unity",
       description:
         "Utility for keeping large Unity worlds numerically stable as the camera and scene scale increase. Useful for long-range traversal, precision management, and open-world simulations.",
       stack: ["Unity", "Floating origin", "Large worlds", "C#"],
-      links: [{ label: "GitHub", url: "https://github.com/Parell/UnityContinuousFloatingOrigin" }],
+      links: [{ label: "Unity Asset Store", url: "https://u3d.as/3PCt" }],
     },
   ],
   blogPosts: [
@@ -64,11 +65,13 @@ const SELECTORS = {
   githubNav: "#github-nav",
   heroEmail: "#hero-email",
   heroGithub: "#hero-github",
+  heroLinkedin: "#hero-linkedin",
   heroLede: "#hero-lede",
   heroResume: "#hero-resume",
   heroSupport: "#hero-support",
   heroTitle: "#hero-title",
   heroEyebrow: "#hero-eyebrow",
+  linkedinNav: "#linkedin-nav",
   projectsList: "#projects-list",
   projectsNote: "#projects-note",
   textStream: "#text-stream",
@@ -322,9 +325,9 @@ function renderFooter(person, githubHandle) {
   }
 
   footer.innerHTML = `
-    <span>${escapeHtml(person.title)}</span>
-    <span class="footer__sep" aria-hidden="true">-</span>
     <a href="${escapeHtml(person.github)}" target="_blank" rel="noreferrer">GitHub: @${escapeHtml(githubHandle)}</a>
+    <span class="footer__sep" aria-hidden="true">-</span>
+    <a href="${escapeHtml(person.linkedin)}" target="_blank" rel="noreferrer">LinkedIn</a>
     <span class="footer__sep" aria-hidden="true">-</span>
     <button
       class="copy-email"
@@ -437,10 +440,13 @@ function init() {
   setText(SELECTORS.heroSupport, person.support);
   setText(SELECTORS.heroGithub, `github: @${githubHandle}`);
   setLink(SELECTORS.heroGithub, person.github);
+  setText(SELECTORS.heroLinkedin, "LinkedIn");
+  setLink(SELECTORS.heroLinkedin, person.linkedin);
   setCopyEmailButton(SELECTORS.heroEmail, person.email);
   setText(SELECTORS.heroResume, "resume: PDF");
   setLink(SELECTORS.heroResume, "Daniel John - Resume.pdf");
   setLink(SELECTORS.githubNav, person.github);
+  setLink(SELECTORS.linkedinNav, person.linkedin);
 
   renderFeaturedBlog(latestBlog);
   setText(SELECTORS.projectsNote, "Selected engineering work");

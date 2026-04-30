@@ -11,17 +11,6 @@ const SITE = {
   },
   projects: [
     {
-      name: "Rocket Nozzle Calculator",
-      status: "open source",
-      tone: "gold",
-      caption: "rocket propulsion tooling",
-      kicker: "Nozzle sizing and performance calculator",
-      description:
-        "Calculator for rocket nozzle geometry and performance analysis. Use it to model chamber pressure, expansion ratio, and related propulsion parameters.",
-      stack: ["Rocketry", "Propulsion", "Numerical analysis", "C#"],
-      links: [{ label: "GitHub", url: "https://github.com/Parell/RocketNozzleCalculator" }],
-    },
-    {
       name: "Unity Physics Floating Origin",
       status: "closed source",
       tone: "violet",
@@ -35,6 +24,55 @@ const SITE = {
         "Utility for keeping large Unity worlds numerically stable as the camera and scene scale increase. Useful for long-range traversal, precision management, and open-world simulations.",
       stack: ["Unity", "Floating origin", "Large worlds", "C#"],
       links: [{ label: "Unity Asset Store", url: "https://u3d.as/3PCt" }],
+    },
+    {
+      name: "GNC Trajectory Visualization",
+      status: "open source",
+      tone: "teal",
+      caption: "trajectory planning tools",
+      image: {
+        src: "gnc_trajectory_visualization.png",
+        alt: "Trajectory visualization for the GNC project",
+      },
+      kicker: "Mission trajectory visualization",
+      description:
+        "Visualization tools for guidance, navigation, and control trajectory work. Helps inspect paths, compare maneuvers, and reason about flight behavior during mission design.",
+      stack: ["GNC", "Trajectory analysis", "Visualization", "GitHub"],
+      links: [{ label: "GitHub", url: "https://github.com/Parell/gnc-trajectory-visualization" }],
+    },
+    {
+      name: "ARA Rally Car",
+      status: "in progress",
+      tone: "amber",
+      caption: "garage build",
+      image: {
+        src: "rally_car.jpg",
+        alt: "2007 Subaru Impreza 2.5i rally car build",
+      },
+      kicker: "Rally car project",
+      description:
+        "A 2007 Subaru Impreza 2.5i that I'm building into a rally car. The focus is on a practical, capable setup that can handle the demands of real driving and competition.",
+      stack: ["Automotive", "Rally", "Fabrication", "Build log"],
+    },
+    {
+      name: "Decel",
+      status: "closed source",
+      tone: "violet",
+      caption: "realistic space combat",
+      kicker: "Small-scope orbital combat game",
+      description:
+        "A realistic space game built around N-body orbital mechanics with no patched conics. Defeat enemies to win, and fight with combat inspired by Children of a Dead Earth, but with more emphasis on piloting skill and tactical movement. The scope stays small: a world, weapons, and a way to get around.",
+      stack: ["N-body mechanics", "Orbital combat", "Game dev", "Simulation"],
+    },
+    {
+      name: "pyESS",
+      status: "in progress",
+      tone: "teal",
+      caption: "thermodynamics solver",
+      kicker: "Open-core browser-based thermodynamics solver",
+      description:
+        "An open-core, browser-based thermodynamics equation solver for students and instructors. Uses EES-like syntax, CoolProp-backed properties, units, parametric tables, plotting, assignments, and Python export.",
+      stack: ["Thermodynamics", "EES syntax", "CoolProp", "Units", "Python export"],
     },
   ],
   blogPosts: [

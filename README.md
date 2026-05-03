@@ -1,11 +1,12 @@
 # parell.github.io
 
-Static GitHub Pages portfolio and blog.
+Static GitHub Pages site with a root Adriamics landing page and the current Daniel D. John portfolio under `/portfolio/`.
 
 ## Structure
 
-- `index.html`: homepage and project/blog index.
-- `blog/`: standalone blog posts.
-- `assets/site.css`: shared base styles.
-- `assets/site-home.js`: homepage rendering logic.
-- `text-stream.txt`: decorative text stream content for the homepage background.
+- `index.html`: Adriamics work-in-progress landing page.
+- `portfolio/`: self-contained portfolio site.
+- `portfolio/blog/`: standalone portfolio blog posts.
+- `portfolio/assets/site.css`: shared portfolio styles.
+- `portfolio/assets/site-home.js`: portfolio homepage rendering logic.
+- `portfolio/text-stream.txt`: decorative text stream content for the portfolio homepage background.

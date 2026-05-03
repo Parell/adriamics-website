@@ -66,13 +66,14 @@ const SITE = {
     },
     {
       name: "pyESS",
-      status: "in progress",
+      status: "open source",
       tone: "teal",
       caption: "thermodynamics solver",
       kicker: "Open-core browser-based thermodynamics solver",
       description:
         "An open-core, browser-based thermodynamics equation solver for students and instructors. Uses EES-like syntax, CoolProp-backed properties, units, parametric tables, plotting, assignments, and Python export.",
       stack: ["Thermodynamics", "EES syntax", "CoolProp", "Units", "Python export"],
+      links: [{ label: "GitHub", url: "https://github.com/Parell/pyESS" }],
     },
   ],
   blogPosts: [

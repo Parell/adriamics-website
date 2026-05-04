@@ -5,6 +5,7 @@ Static GitHub Pages site with a root Adriamics landing page and the current Dani
 ## Structure
 
 - `index.html`: Adriamics work-in-progress landing page.
+- `news/`: standalone Adriamics news posts.
 - `portfolio/`: self-contained portfolio site.
 - `portfolio/blog/`: standalone portfolio blog posts.
 - `portfolio/assets/site.css`: shared portfolio styles.

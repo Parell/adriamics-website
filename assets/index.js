@@ -335,6 +335,7 @@
     }
 
     const root = document.body;
+    const motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
     let rafId = 0;
 
     function update() {
@@ -357,6 +358,13 @@
 
     window.addEventListener("scroll", scheduleUpdate, { passive: true });
     window.addEventListener("resize", scheduleUpdate);
+    if (motionQuery) {
+      if (typeof motionQuery.addEventListener === "function") {
+        motionQuery.addEventListener("change", scheduleUpdate);
+      } else if (typeof motionQuery.addListener === "function") {
+        motionQuery.addListener(scheduleUpdate);
+      }
+    }
     update();
   }
 

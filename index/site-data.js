@@ -1,16 +1,4 @@
 window.ADRIAMICS_SITE = {
-  company: {
-    name: "Adriamics",
-    tagline: "Aerospace and software research company",
-    description:
-      "We build flight software, simulation tools, telemetry systems, and research publications for aerospace programs.",
-    contact: {
-      general: "contact@adriamics.com",
-      research: "research@adriamics.com",
-      careers: "careers@adriamics.com",
-      press: "press@adriamics.com",
-    },
-  },
   news: [
     // {
     //   slug: "project-directory",
@@ -72,30 +60,15 @@ window.ADRIAMICS_SITE = {
     // },
   ],
   careers: {
-    intro:
-      "Send a short background summary, your research interests, and a resume or portfolio link. We review fit for aerospace, software, and research roles together.",
-    email: "careers@adriamics.com",
     roles: [
       {
         title: "Flight software engineer",
-        location: "Remote or hybrid",
-        type: "Full time",
-        summary:
-          "Build release tooling, test harnesses, and flight software workflows with a research-oriented team.",
       },
       {
         title: "Research engineer, autonomy",
-        location: "Remote or hybrid",
-        type: "Full time",
-        summary:
-          "Work on simulation, estimation, and controller studies that inform future flight systems.",
       },
       {
         title: "Data systems engineer",
-        location: "Remote or hybrid",
-        type: "Contract or full time",
-        summary:
-          "Shape telemetry archives, mission dashboards, and the internal search tools that keep material accessible.",
       },
     ],
   },

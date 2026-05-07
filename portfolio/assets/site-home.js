@@ -11,7 +11,7 @@ const SITE = {
   },
   projects: [
     {
-      name: "Unity Physics Floating Origin",
+      name: "Physics Origin Shifting",
       status: "closed source",
       tone: "violet",
       caption: "large-world rendering support",
@@ -19,10 +19,10 @@ const SITE = {
         src: "test_image.png",
         alt: "Test image used for the Unity Continuous Floating Origin project card",
       },
-      kicker: "Physics floating origin system for Unity",
+      kicker: "Physics origin shifting for Unity",
       description:
         "Utility for keeping large Unity worlds numerically stable as the camera and scene scale increase. Useful for long-range traversal, precision management, and open-world simulations.",
-      stack: ["Unity", "Floating origin", "Large worlds", "C#"],
+      stack: ["Unity", "Origin shifting", "Large worlds", "C#"],
       links: [{ label: "Unity Asset Store", url: "https://u3d.as/3PCt" }],
     },
     {
@@ -37,7 +37,7 @@ const SITE = {
       kicker: "Mission trajectory visualization",
       description:
         "Visualization tools for guidance, navigation, and control trajectory work. Helps inspect paths, compare maneuvers, and reason about flight behavior during mission design.",
-      stack: ["GNC", "Trajectory analysis", "Visualization", "GitHub"],
+      stack: ["GNC", "Trajectory analysis", "Visualization"],
       links: [{ label: "GitHub", url: "https://github.com/Parell/gnc-trajectory-visualization" }],
     },
     {
@@ -64,17 +64,17 @@ const SITE = {
         "A realistic space game built around N-body orbital mechanics with no patched conics. Defeat enemies to win, and fight with combat inspired by Children of a Dead Earth, but with more emphasis on piloting skill and tactical movement. The scope stays small: a world, weapons, and a way to get around.",
       stack: ["N-body mechanics", "Orbital combat", "Game dev", "Simulation"],
     },
-    {
-      name: "pyESS",
-      status: "open source",
-      tone: "teal",
-      caption: "thermodynamics solver",
-      kicker: "Open-core browser-based thermodynamics solver",
-      description:
-        "An open-core, browser-based thermodynamics equation solver for students and instructors. Uses EES-like syntax, CoolProp-backed properties, units, parametric tables, plotting, assignments, and Python export.",
-      stack: ["Thermodynamics", "EES syntax", "CoolProp", "Units", "Python export"],
-      links: [{ label: "GitHub", url: "https://github.com/Parell/pyESS" }],
-    },
+    // {
+    //   name: "pyEES",
+    //   status: "open source",
+    //   tone: "teal",
+    //   caption: "thermodynamics solver",
+    //   kicker: "Open-core browser-based thermodynamics solver",
+    //   description:
+    //     "An open-core, browser-based thermodynamics equation solver for students and instructors. Uses EES-like syntax, CoolProp-backed properties, units, parametric tables, plotting, assignments, and Python export.",
+    //   stack: ["Thermodynamics", "EES syntax", "CoolProp", "Units", "Python export"],
+    //   links: [{ label: "GitHub", url: "https://github.com/Parell/pyESS" }],
+    // },
   ],
   blogPosts: [
     {
@@ -488,7 +488,7 @@ function init() {
   setLink(SELECTORS.linkedinNav, person.linkedin);
 
   renderFeaturedBlog(latestBlog);
-  setText(SELECTORS.projectsNote, "Selected engineering work");
+  setText(SELECTORS.projectsNote, "");
   renderProjects(projects);
   renderBlogPosts(sortedPosts);
   renderFooter(person, githubHandle);

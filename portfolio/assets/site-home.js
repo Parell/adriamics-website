@@ -16,7 +16,7 @@ const SITE = {
       tone: "violet",
       caption: "large-world rendering support",
       image: {
-        src: "test_image.png",
+        src: "../assets/test_image.png",
         alt: "Test image used for the Unity Continuous Floating Origin project card",
       },
       kicker: "Physics origin shifting for Unity",
@@ -31,7 +31,7 @@ const SITE = {
       tone: "teal",
       caption: "trajectory planning tools",
       image: {
-        src: "gnc_trajectory_visualization.png",
+        src: "../assets/gnc_trajectory_visualization.png",
         alt: "Trajectory visualization for the GNC project",
       },
       kicker: "Mission trajectory visualization",
@@ -46,7 +46,7 @@ const SITE = {
       tone: "amber",
       caption: "garage build",
       image: {
-        src: "rally_car.jpg",
+        src: "../assets/rally_car.jpg",
         alt: "2007 Subaru Impreza 2.5i rally car build",
       },
       kicker: "Rally car project",
@@ -121,7 +121,7 @@ const TEXT_STREAM = {
   minLinesPerRow: 6,
   minRows: 16,
   rowHeight: 48,
-  url: new URL("text-stream.txt", window.location.href).toString(),
+  url: new URL("../assets/text-stream.txt", window.location.href).toString(),
 };
 
 const FALLBACK_TEXT_STREAM_LINES = [
@@ -483,7 +483,7 @@ function init() {
   setLink(SELECTORS.heroLinkedin, person.linkedin);
   setCopyEmailButton(SELECTORS.heroEmail, person.email);
   setText(SELECTORS.heroResume, "resume: PDF");
-  setLink(SELECTORS.heroResume, "Daniel John - Resume.pdf");
+  setLink(SELECTORS.heroResume, "../assets/Daniel John - Resume.pdf");
   setLink(SELECTORS.githubNav, person.github);
   setLink(SELECTORS.linkedinNav, person.linkedin);
 

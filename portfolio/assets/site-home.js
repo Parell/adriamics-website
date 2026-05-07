@@ -317,7 +317,7 @@ function renderTextStreamRow(rowIndex, linesPerRow) {
     return `<span class="text-stream__line">${escapeHtml(line)}</span>`;
   });
 
-  const speed = 46 + (rowIndex % 4) * 7 + (rowIndex % 3) * 3;
+  const speed = 120 + (rowIndex % 4) * 80 + (rowIndex % 3) * 40;
   const delay = -(rowIndex % 5) * 6;
 
   return `

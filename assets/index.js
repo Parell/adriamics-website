@@ -138,20 +138,18 @@
     const href = item.link ? resolveHref(item.link) : "";
 
     return `
-      ${
-        href
-          ? `<a class="card news-card news-card-link" id="${escapeHtml(item.slug)}" href="${escapeHref(href)}" data-search="${escapeHtml(search)}">`
-          : `<article class="card news-card" id="${escapeHtml(item.slug)}" data-search="${escapeHtml(search)}">`
+      ${href
+        ? `<a class="card news-card news-card-link" id="${escapeHtml(item.slug)}" href="${escapeHref(href)}" data-search="${escapeHtml(search)}">`
+        : `<article class="card news-card" id="${escapeHtml(item.slug)}" data-search="${escapeHtml(search)}">`
       }
-        ${
-          imageSrc
-            ? `
+        ${imageSrc
+        ? `
               <div class="card-media">
                 <img src="${escapeHref(imageSrc)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" />
               </div>
             `
-            : ""
-        }
+        : ""
+      }
         <p class="eyebrow">${escapeHtml(item.category)} | ${escapeHtml(formatDate(item.date))}</p>
         <h3>${escapeHtml(item.title)}</h3>
         <p>${escapeHtml(item.summary)}</p>
@@ -181,15 +179,14 @@
 
     return `
       <article class="card project-card" id="${escapeHtml(item.slug)}" data-search="${escapeHtml(search)}">
-        ${
-          imageSrc
-            ? `
+        ${imageSrc
+        ? `
               <div class="card-media">
                 <img src="${escapeHref(imageSrc)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" />
               </div>
             `
-            : ""
-        }
+        : ""
+      }
         <div class="card-top">
           <p class="eyebrow">${escapeHtml(item.kind)} | ${escapeHtml(item.meta)}</p>
           <span class="project-status">${escapeHtml(item.badge)}</span>

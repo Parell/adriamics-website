@@ -17,6 +17,31 @@
     return escapeHtml(encodeURI(String(value)));
   }
 
+  async function copyTextToClipboard(text) {
+    if (navigator.clipboard?.writeText && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return;
+    }
+
+    const textarea = document.createElement("textarea");
+    textarea.value = text;
+    textarea.setAttribute("readonly", "");
+    textarea.style.position = "fixed";
+    textarea.style.top = "-1000px";
+    textarea.style.opacity = "0";
+
+    document.body.appendChild(textarea);
+    textarea.focus();
+    textarea.select();
+
+    const succeeded = document.execCommand("copy");
+    document.body.removeChild(textarea);
+
+    if (!succeeded) {
+      throw new Error("Copy command failed");
+    }
+  }
+
   function formatDate(value) {
     if (!value) {
       return "";
@@ -123,7 +148,7 @@
       return "";
     }
 
-    return document.body.dataset.page === "home" ? `assets/${value}` : `../assets/${value}`;
+    return document.body.dataset.page === "home" ? `index/assets/${value}` : `../index/assets/${value}`;
   }
 
   function getVisibleItems(container, items = []) {
@@ -170,32 +195,6 @@
       >
         ${escapeHtml(year)}
       </button>
-    `;
-  }
-
-  function renderWorkCard(item) {
-    const search = toSearchText([item.title, item.summary, item.kind, item.meta, item.badge, item.tags]);
-    const imageSrc = resolveAssetSrc(item.image || "");
-
-    return `
-      <article class="card project-card" id="${escapeHtml(item.slug)}" data-search="${escapeHtml(search)}">
-        ${imageSrc
-        ? `
-              <div class="card-media">
-                <img src="${escapeHref(imageSrc)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" />
-              </div>
-            `
-        : ""
-      }
-        <div class="card-top">
-          <p class="eyebrow">${escapeHtml(item.kind)} | ${escapeHtml(item.meta)}</p>
-          <span class="project-status">${escapeHtml(item.badge)}</span>
-        </div>
-        <h3>${escapeHtml(item.title)}</h3>
-        <p>${escapeHtml(item.summary)}</p>
-        ${renderTags(item.tags)}
-        ${renderLinkList(item.links || [], "project-links")}
-      </article>
     `;
   }
 
@@ -261,64 +260,6 @@
     renderCards($("#news-list"), SITE.news || [], renderNewsCard);
   }
 
-  function renderProjectsPage() {
-    const container = $("#projects-list");
-    renderCards(container, SITE.work || [], renderWorkCard);
-
-    const search = $("#project-search");
-    const chips = $$("[data-project-filter]");
-    const cards = $$("[data-search]", container || document);
-
-    function applyFilter(value) {
-      const query = String(value || "").trim().toLowerCase();
-
-      cards.forEach((card) => {
-        const haystack = card.dataset.search || "";
-        const visible = !query || haystack.includes(query);
-        card.hidden = !visible;
-      });
-
-      chips.forEach((chip) => {
-        chip.classList.toggle("is-active", chip.dataset.projectFilter === query);
-      });
-    }
-
-    if (search) {
-      search.addEventListener("input", (event) => {
-        applyFilter(event.target.value);
-      });
-    }
-
-    chips.forEach((chip) => {
-      chip.addEventListener("click", () => {
-        if (!search) {
-          return;
-        }
-
-        search.value = chip.dataset.projectFilter || "";
-        applyFilter(search.value);
-        search.focus();
-      });
-    });
-
-    applyFilter(search?.value || "");
-  }
-
-  function populateRoleInterestField() {
-    const input = $("#role-interest");
-
-    if (!input) {
-      return;
-    }
-
-    const roles = Array.isArray(SITE.careers?.roles) ? SITE.careers.roles : [];
-    const suggestedRole = roles.find((role) => role && role.title && role.title.trim())?.title || "";
-
-    if (suggestedRole) {
-      input.placeholder = `e.g. ${suggestedRole}`;
-    }
-  }
-
   function bindCurrentYear() {
     const year = String(new Date().getFullYear());
     $$("[data-current-year]").forEach((element) => {
@@ -368,7 +309,6 @@
   function init() {
     bindCurrentYear();
     bindHomeBackgroundFade();
-
     const page = document.body.dataset.page || "";
 
     if (page === "home") {
@@ -378,13 +318,57 @@
     if (page === "news") {
       renderNewsPage();
     }
+  }
 
-    if (page === "projects") {
-      renderProjectsPage();
+  document.addEventListener("click", async (event) => {
+    const button = event.target.closest("[data-copy-text]");
+    if (!button) {
+      return;
     }
 
-    populateRoleInterestField();
-  }
+    event.preventDefault();
+
+    const text = button.dataset.copyText;
+    if (!text) {
+      return;
+    }
+
+    try {
+      await copyTextToClipboard(text);
+
+      if (button.dataset.copyTempLabel) {
+        const originalLabel = button.dataset.copyOriginalLabel || button.textContent;
+        button.dataset.copyOriginalLabel = originalLabel;
+        button.textContent = button.dataset.copyTempLabel;
+
+        window.setTimeout(() => {
+          if (button.dataset.copyOriginalLabel === originalLabel && button.textContent === button.dataset.copyTempLabel) {
+            button.textContent = originalLabel;
+          }
+        }, 1600);
+      }
+
+      const status = button.querySelector("[data-copy-email-status]");
+      if (status) {
+        status.textContent = "Email copied to clipboard";
+        window.setTimeout(() => {
+          if (status.textContent === "Email copied to clipboard") {
+            status.textContent = "";
+          }
+        }, 1800);
+      }
+    } catch {
+      const status = button.querySelector("[data-copy-email-status]");
+      if (status) {
+        status.textContent = "Could not copy email";
+        window.setTimeout(() => {
+          if (status.textContent === "Could not copy email") {
+            status.textContent = "";
+          }
+        }, 2200);
+      }
+    }
+  });
 
   document.addEventListener("DOMContentLoaded", init);
 })();

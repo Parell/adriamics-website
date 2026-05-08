@@ -16,7 +16,7 @@ const SITE = {
       tone: "violet",
       caption: "large-world rendering support",
       image: {
-        src: "../assets/test_image.png",
+        src: "assets/test-image.png",
         alt: "Test image used for the Unity Continuous Floating Origin project card",
       },
       kicker: "Physics origin shifting for Unity",
@@ -31,7 +31,7 @@ const SITE = {
       tone: "teal",
       caption: "trajectory planning tools",
       image: {
-        src: "../assets/gnc_trajectory_visualization.png",
+        src: "assets/gnc-trajectory-visualization.png",
         alt: "Trajectory visualization for the GNC project",
       },
       kicker: "Mission trajectory visualization",
@@ -46,7 +46,7 @@ const SITE = {
       tone: "amber",
       caption: "garage build",
       image: {
-        src: "../assets/rally_car.jpg",
+        src: "assets/rally-car.jpg",
         alt: "2007 Subaru Impreza 2.5i rally car build",
       },
       kicker: "Rally car project",
@@ -92,16 +92,15 @@ const SITE = {
   ],
 };
 
-const SELECTORS = {
+  const SELECTORS = {
   brandLink: "#brand-link",
   blogList: "#blog-list",
   blogNote: "#blog-note",
-  featuredLink: "#featured-link",
-  featuredMeta: "#featured-meta",
-  featuredSummary: "#featured-summary",
-  featuredTitle: "#featured-title",
-  footerText: "#footer-text",
-  githubNav: "#github-nav",
+    featuredLink: "#featured-link",
+    featuredMeta: "#featured-meta",
+    featuredSummary: "#featured-summary",
+    featuredTitle: "#featured-title",
+    githubNav: "#github-nav",
   heroEmail: "#hero-email",
   heroGithub: "#hero-github",
   heroLinkedin: "#hero-linkedin",
@@ -121,7 +120,7 @@ const TEXT_STREAM = {
   minLinesPerRow: 6,
   minRows: 16,
   rowHeight: 48,
-  url: new URL("../assets/text-stream.txt", window.location.href).toString(),
+  url: new URL("assets/text-stream.txt", window.location.href).toString(),
 };
 
 const FALLBACK_TEXT_STREAM_LINES = [
@@ -357,33 +356,6 @@ async function loadTextStream() {
   }
 }
 
-function renderFooter(person, githubHandle) {
-  const footer = $(SELECTORS.footerText);
-  if (!footer) {
-    return;
-  }
-
-  footer.innerHTML = `
-    <a href="${escapeHtml(person.github)}" target="_blank" rel="noreferrer">GitHub: @${escapeHtml(githubHandle)}</a>
-    <span class="footer__sep" aria-hidden="true">-</span>
-    <a href="${escapeHtml(person.linkedin)}" target="_blank" rel="noreferrer">LinkedIn</a>
-    <span class="footer__sep" aria-hidden="true">-</span>
-    <button
-      class="copy-email"
-      type="button"
-      data-copy-email="${escapeHtml(person.email)}"
-      data-copy-state="idle"
-      title="Copy email to clipboard"
-    >
-      <span class="copy-email__label" data-copy-email-label>email: ${escapeHtml(person.email)}</span>
-      <span class="copy-email__hint" data-copy-email-hint aria-hidden="true">copy</span>
-      <span class="sr-only" data-copy-email-status aria-live="polite"></span>
-    </button>
-    <span class="footer__sep" aria-hidden="true">-</span>
-    <a class="footer__top" href="#top">Back to top</a>
-  `;
-}
-
 const copyEmailResetTimers = new WeakMap();
 
 async function copyTextToClipboard(text) {
@@ -483,7 +455,7 @@ function init() {
   setLink(SELECTORS.heroLinkedin, person.linkedin);
   setCopyEmailButton(SELECTORS.heroEmail, person.email);
   setText(SELECTORS.heroResume, "resume: PDF");
-  setLink(SELECTORS.heroResume, "../assets/Daniel John - Resume.pdf");
+  setLink(SELECTORS.heroResume, "assets/Daniel John - Resume.pdf");
   setLink(SELECTORS.githubNav, person.github);
   setLink(SELECTORS.linkedinNav, person.linkedin);
 
@@ -491,7 +463,6 @@ function init() {
   setText(SELECTORS.projectsNote, "");
   renderProjects(projects);
   renderBlogPosts(sortedPosts);
-  renderFooter(person, githubHandle);
 }
 
 document.addEventListener("click", async (event) => {

@@ -118,7 +118,7 @@
   }
 
   function getPortfolioHref() {
-    return document.body.dataset.page === "home" ? "portfolio/" : "../portfolio/";
+    return "/portfolio/";
   }
 
   function resolveHref(value) {
@@ -137,7 +137,7 @@
         return "";
       }
 
-      return document.body.dataset.page === "home" ? `#${section}` : `../index.html#${section}`;
+      return document.body.dataset.page === "home" ? `#${section}` : `/#${section}`;
     }
 
     return value;
@@ -148,7 +148,7 @@
       return "";
     }
 
-    return document.body.dataset.page === "home" ? `index/assets/${value}` : `../index/assets/${value}`;
+    return `/home/assets/${value}`;
   }
 
   function getVisibleItems(container, items = []) {
@@ -267,48 +267,8 @@
     });
   }
 
-  function bindHomeBackgroundFade() {
-    if (document.body.dataset.page !== "home") {
-      return;
-    }
-
-    const root = document.body;
-    const motionQuery = window.matchMedia ? window.matchMedia("(prefers-reduced-motion: reduce)") : null;
-    let rafId = 0;
-
-    function update() {
-      rafId = 0;
-
-      const maxScroll = Math.max(document.documentElement.scrollHeight - window.innerHeight, 1);
-      const progress = Math.min(1, Math.max(0, window.scrollY / maxScroll));
-
-      root.style.setProperty("--home-bg-fade", progress.toFixed(4));
-      root.style.setProperty("--home-bg-shift", (window.scrollY * 0.12).toFixed(2));
-    }
-
-    function scheduleUpdate() {
-      if (rafId) {
-        return;
-      }
-
-      rafId = window.requestAnimationFrame(update);
-    }
-
-    window.addEventListener("scroll", scheduleUpdate, { passive: true });
-    window.addEventListener("resize", scheduleUpdate);
-    if (motionQuery) {
-      if (typeof motionQuery.addEventListener === "function") {
-        motionQuery.addEventListener("change", scheduleUpdate);
-      } else if (typeof motionQuery.addListener === "function") {
-        motionQuery.addListener(scheduleUpdate);
-      }
-    }
-    update();
-  }
-
   function init() {
     bindCurrentYear();
-    bindHomeBackgroundFade();
     const page = document.body.dataset.page || "";
 
     if (page === "home") {

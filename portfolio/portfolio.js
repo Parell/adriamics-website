@@ -16,7 +16,7 @@ const SITE = {
       tone: "violet",
       caption: "large-world rendering support",
       image: {
-        src: "assets/test-image.png",
+        src: "/portfolio/assets/test-image.png",
         alt: "Test image used for the Unity Continuous Floating Origin project card",
       },
       kicker: "Physics origin shifting for Unity",
@@ -31,7 +31,7 @@ const SITE = {
       tone: "teal",
       caption: "trajectory planning tools",
       image: {
-        src: "assets/gnc-trajectory-visualization.png",
+        src: "/portfolio/assets/gnc-trajectory-visualization.png",
         alt: "Trajectory visualization for the GNC project",
       },
       kicker: "Mission trajectory visualization",
@@ -46,7 +46,7 @@ const SITE = {
       tone: "amber",
       caption: "garage build",
       image: {
-        src: "assets/rally-car.jpg",
+        src: "/portfolio/assets/rally-car.jpg",
         alt: "2007 Subaru Impreza 2.5i rally car build",
       },
       kicker: "Rally car project",
@@ -64,17 +64,6 @@ const SITE = {
         "A realistic space game built around N-body orbital mechanics with no patched conics. Defeat enemies to win, and fight with combat inspired by Children of a Dead Earth, but with more emphasis on piloting skill and tactical movement. The scope stays small: a world, weapons, and a way to get around.",
       stack: ["N-body mechanics", "Orbital combat", "Game dev", "Simulation"],
     },
-    // {
-    //   name: "pyEES",
-    //   status: "open source",
-    //   tone: "teal",
-    //   caption: "thermodynamics solver",
-    //   kicker: "Open-core browser-based thermodynamics solver",
-    //   description:
-    //     "An open-core, browser-based thermodynamics equation solver for students and instructors. Uses EES-like syntax, CoolProp-backed properties, units, parametric tables, plotting, assignments, and Python export.",
-    //   stack: ["Thermodynamics", "EES syntax", "CoolProp", "Units", "Python export"],
-    //   links: [{ label: "GitHub", url: "https://github.com/Parell/pyESS" }],
-    // },
   ],
   blogPosts: [
     {
@@ -82,7 +71,7 @@ const SITE = {
       date: "2026-03-31",
       summary:
         "A temporary first post about the shape of this site, the kind of work I want to document here, and how the portfolio and blog should fit together.",
-      url: "blog/what-this-site-is-for.html",
+      url: "/portfolio/blog/what-this-site-is-for.html",
       kicker: "Temporary blog entry",
       caption: "site notes",
       tone: "teal",
@@ -92,15 +81,18 @@ const SITE = {
   ],
 };
 
-  const SELECTORS = {
+const RESUME_URL = "/portfolio/assets/daniel-john-resume.pdf";
+
+const SELECTORS = {
   brandLink: "#brand-link",
   blogList: "#blog-list",
   blogNote: "#blog-note",
-    featuredLink: "#featured-link",
-    featuredMeta: "#featured-meta",
-    featuredSummary: "#featured-summary",
-    featuredTitle: "#featured-title",
-    githubNav: "#github-nav",
+  featuredLink: "#featured-link",
+  featuredMeta: "#featured-meta",
+  featuredSummary: "#featured-summary",
+  featuredTitle: "#featured-title",
+  footerText: "#footer-text",
+  githubNav: "#github-nav",
   heroEmail: "#hero-email",
   heroGithub: "#hero-github",
   heroLinkedin: "#hero-linkedin",
@@ -120,7 +112,7 @@ const TEXT_STREAM = {
   minLinesPerRow: 6,
   minRows: 16,
   rowHeight: 48,
-  url: new URL("assets/text-stream.txt", window.location.href).toString(),
+  url: "/portfolio/assets/text-stream.txt",
 };
 
 const FALLBACK_TEXT_STREAM_LINES = [
@@ -169,6 +161,11 @@ function setLink(selector, href, root = document) {
   if (element) {
     element.href = href;
   }
+}
+
+function setLinkText(selector, href, text, root = document) {
+  setText(selector, text, root);
+  setLink(selector, href, root);
 }
 
 function setCopyEmailButton(selector, email, root = document) {
@@ -422,8 +419,7 @@ function renderFeaturedBlog(post) {
     setText(SELECTORS.featuredMeta, `Latest from the blog - ${post.date}`);
     setText(SELECTORS.featuredTitle, post.title);
     setText(SELECTORS.featuredSummary, post.summary);
-    setLink(SELECTORS.featuredLink, post.url);
-    setText(SELECTORS.featuredLink, "Read post ->");
+    setLinkText(SELECTORS.featuredLink, post.url, "Read post ->");
     setText(SELECTORS.blogNote, "Newest post first");
     return;
   }
@@ -431,9 +427,35 @@ function renderFeaturedBlog(post) {
   setText(SELECTORS.featuredMeta, "Latest from the blog");
   setText(SELECTORS.featuredTitle, "Blog coming soon");
   setText(SELECTORS.featuredSummary, "A placeholder for the newest post will appear here once one exists.");
-  setLink(SELECTORS.featuredLink, "#blog");
-  setText(SELECTORS.featuredLink, "View blog list ->");
+  setLinkText(SELECTORS.featuredLink, "#blog", "View blog list ->");
   setText(SELECTORS.blogNote, "Blog section");
+}
+
+function renderFooter(person, githubHandle) {
+  const footer = $(SELECTORS.footerText);
+  if (!footer) {
+    return;
+  }
+
+  footer.innerHTML = `
+    <a href="${escapeHtml(person.github)}" target="_blank" rel="noreferrer">GitHub: @${escapeHtml(githubHandle)}</a>
+    <span class="footer__sep" aria-hidden="true">-</span>
+    <a href="${escapeHtml(person.linkedin)}" target="_blank" rel="noreferrer">LinkedIn</a>
+    <span class="footer__sep" aria-hidden="true">-</span>
+    <button
+      class="copy-email"
+      type="button"
+      data-copy-email="${escapeHtml(person.email)}"
+      data-copy-state="idle"
+      title="Copy email to clipboard"
+    >
+      <span class="copy-email__label" data-copy-email-label>email: ${escapeHtml(person.email)}</span>
+      <span class="copy-email__hint" data-copy-email-hint aria-hidden="true">copy</span>
+      <span class="sr-only" data-copy-email-status aria-live="polite"></span>
+    </button>
+    <span class="footer__sep" aria-hidden="true">-</span>
+    <a class="footer__top" href="#top">Back to top</a>
+  `;
 }
 
 function init() {
@@ -449,13 +471,10 @@ function init() {
   setText(SELECTORS.heroTitle, person.name);
   setText(SELECTORS.heroLede, person.intro);
   setText(SELECTORS.heroSupport, person.support);
-  setText(SELECTORS.heroGithub, `github: @${githubHandle}`);
-  setLink(SELECTORS.heroGithub, person.github);
-  setText(SELECTORS.heroLinkedin, "LinkedIn");
-  setLink(SELECTORS.heroLinkedin, person.linkedin);
+  setLinkText(SELECTORS.heroGithub, person.github, `github: @${githubHandle}`);
+  setLinkText(SELECTORS.heroLinkedin, person.linkedin, "LinkedIn");
   setCopyEmailButton(SELECTORS.heroEmail, person.email);
-  setText(SELECTORS.heroResume, "resume: PDF");
-  setLink(SELECTORS.heroResume, "assets/Daniel John - Resume.pdf");
+  setLinkText(SELECTORS.heroResume, RESUME_URL, "resume: PDF");
   setLink(SELECTORS.githubNav, person.github);
   setLink(SELECTORS.linkedinNav, person.linkedin);
 
@@ -463,6 +482,7 @@ function init() {
   setText(SELECTORS.projectsNote, "");
   renderProjects(projects);
   renderBlogPosts(sortedPosts);
+  renderFooter(person, githubHandle);
 }
 
 document.addEventListener("click", async (event) => {

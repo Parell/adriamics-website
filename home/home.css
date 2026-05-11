@@ -43,8 +43,9 @@ body {
 
 body.home-page {
   position: relative;
-  --home-bg-fade: 0;
-  --home-bg-shift: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   --muted: rgba(246, 243, 236, 0.82);
   --soft: rgba(246, 243, 236, 0.7);
 }
@@ -80,12 +81,10 @@ body::after {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  will-change: transform, opacity;
   background:
     linear-gradient(180deg, rgba(6, 8, 11, 0.04) 0%, rgba(6, 8, 11, 0.3) 48%, rgba(6, 8, 11, 0.78) 100%),
-    url("./test-background.png") center top / cover no-repeat;
-  opacity: calc(0.92 - (var(--home-bg-fade) * 0.2));
-  transform: translate3d(0, calc(var(--home-bg-shift) * -1px), 0) scale(1.05);
+    url("/home/assets/home-background.png") center top / cover no-repeat;
+  opacity: 0.92;
 }
 
 a {
@@ -208,17 +207,27 @@ p {
 main {
   position: relative;
   z-index: 1;
+  flex: 1 0 auto;
   padding: 2.4rem 0 3rem;
 }
 
 .site-footer {
   position: relative;
   z-index: 1;
-  margin-top: 0.4rem;
-  margin-bottom: 1.25rem;
-  padding: 1.95rem 0 2.05rem;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 1.95rem 0 4.5rem;
+}
+
+.site-footer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--shell);
   border-top: 1px solid rgba(255, 255, 255, 0.12);
-  background: #000;
+  transform: translateX(-50%);
+  pointer-events: none;
 }
 
 .site-footer__inner {
@@ -892,7 +901,7 @@ main {
   }
 
   .site-footer {
-    padding: 0.85rem 0 0.95rem;
+    padding: 0.95rem 0 0.95rem;
   }
 
   .site-footer__inner {

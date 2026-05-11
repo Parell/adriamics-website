@@ -12,6 +12,8 @@
   --teal-soft: rgba(255, 255, 255, 0.08);
   --gold: #c5c5c0;
   --gold-soft: rgba(255, 255, 255, 0.06);
+  --footer-link: #dde1e6;
+  --footer-sep: rgba(255, 255, 255, 0.3);
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
   --max: 1240px;
   --radius: 0;
@@ -230,6 +232,40 @@ button {
   font-size: 0.8rem;
 }
 
+.footer {
+  margin-top: 2rem;
+  padding: 1.2rem 0 0.8rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+
+.footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.footer__inner a {
+  color: var(--footer-link);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+}
+
+.footer__inner .copy-email {
+  color: var(--footer-link);
+}
+
+.footer__sep {
+  color: var(--footer-sep);
+}
+
+.footer__top {
+  color: var(--footer-link);
+}
+
 @media (max-width: 720px) {
   .nav {
     flex-direction: column;
@@ -258,6 +294,8 @@ button {
 
 /* Home page */
 body.home-page {
+  --footer-link: #e5e8ec;
+  --footer-sep: rgba(255, 255, 255, 0.22);
   background:
     linear-gradient(180deg, #0c1116 0%, #050607 50%, #020304 100%);
 }
@@ -435,6 +473,15 @@ body.home-page .copy-email[data-copy-state="error"] .copy-email__hint {
   background: rgba(255, 255, 255, 0.08);
 }
 
+body.home-page .footer__inner .copy-email {
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+body.home-page .footer__inner .copy-email__hint {
+  margin-left: 0.1rem;
+}
+
 body.home-page .section {
   margin-top: 1.4rem;
 }
@@ -552,16 +599,18 @@ body.home-page .project-status[data-status="closed source"] {
   background: var(--gold-soft);
 }
 
-body.home-page .project-status[data-status="internal"] {
-  color: #d0d5db;
+body.home-page .project-status[data-status="internal"],
+body.home-page .project-status[data-status="blog"] {
   border-color: rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
 }
 
+body.home-page .project-status[data-status="internal"] {
+  color: #d0d5db;
+}
+
 body.home-page .project-status[data-status="blog"] {
   color: #d3d7dc;
-  border-color: rgba(255, 255, 255, 0.18);
-  background: rgba(255, 255, 255, 0.06);
 }
 
 body.home-page .project-media {

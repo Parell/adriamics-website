@@ -1,6 +1,5 @@
 const structureContainer = document.getElementById('structure-buttons');
 const guideTitleEl = document.getElementById('guide-tree-title');
-const guidePanelNoteEl = document.getElementById('guide-panel-note');
 const guideTreeEl = document.getElementById('guide-tree');
 const titleEl = document.getElementById('current-title');
 const metaEl = document.getElementById('current-meta');
@@ -17,9 +16,10 @@ const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatusEl = document.getElementById('search-status');
 const searchResultsEl = document.getElementById('search-results');
-const storageKey = 'notes-page-state';
-const manifestGlobalName = 'UES_GUIDE_MANIFEST';
-const githubIssueBaseUrl = 'https://github.com/Parell/parell.github.io/issues/new';
+const STORAGE_KEY = 'notes-page-state';
+const MANIFEST_GLOBAL_NAME = 'UES_GUIDE_MANIFEST';
+const GITHUB_ISSUE_BASE_URL = 'https://github.com/Parell/parell.github.io/issues/new';
+const METADATA_SEPARATOR = ' | ';
 
 let guideStructures = [];
 let currentStructureId = null;
@@ -147,7 +147,7 @@ function normalizePositionMap(positions) {
 
 function loadState() {
   try {
-    const raw = window.localStorage.getItem(storageKey);
+    const raw = window.localStorage.getItem(STORAGE_KEY);
 
     if (!raw) {
       return getDefaultState();
@@ -171,7 +171,7 @@ function loadState() {
 
 function saveState(state) {
   try {
-    window.localStorage.setItem(storageKey, JSON.stringify(state));
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   } catch {
     // Ignore storage failures in private modes or locked-down browsers.
   }
@@ -331,7 +331,7 @@ function buildMetadataLabel(metadata, fallbackPath) {
     parts.push(`Auditors: ${metadata.auditors.join(', ')}`);
   }
 
-  return parts.length ? parts.join(' • ') : fallbackPath;
+  return parts.length ? parts.join(METADATA_SEPARATOR) : fallbackPath;
 }
 
 function buildSuggestEditUrl(pagePath, noteTitle) {
@@ -348,7 +348,7 @@ function buildSuggestEditUrl(pagePath, noteTitle) {
     params.set('title', `[Correction]: ${noteTitle}`);
   }
 
-  return `${githubIssueBaseUrl}?${params.toString()}`;
+  return `${GITHUB_ISSUE_BASE_URL}?${params.toString()}`;
 }
 
 function buildStandalonePageUrl(pagePath) {
@@ -505,6 +505,43 @@ function updateSearchStatus(message) {
   searchStatusEl.textContent = message;
 }
 
+function findTermPositions(text, terms) {
+  return terms.map((term) => text.indexOf(term));
+}
+
+function buildSearchResult(entry, terms, normalizedQuery) {
+  const combinedText = `${entry.titleLower}\n${entry.contentLower}`;
+
+  if (findTermPositions(combinedText, terms).some((position) => position === -1)) {
+    return null;
+  }
+
+  const contentPositions = findTermPositions(entry.contentLower, terms).filter((position) => position >= 0);
+  const titlePositions = findTermPositions(entry.titleLower, terms).filter((position) => position >= 0);
+  const earliestContent = contentPositions.length ? Math.min(...contentPositions) : Number.MAX_SAFE_INTEGER;
+  const earliestTitle = titlePositions.length ? Math.min(...titlePositions) : Number.MAX_SAFE_INTEGER;
+  const hasContentMatch = contentPositions.length > 0;
+  const bestTextIndex = hasContentMatch ? earliestContent : earliestTitle;
+  const snippetSource = hasContentMatch ? entry.contentText : entry.title;
+  const snippet = buildSnippet(
+    snippetSource,
+    bestTextIndex === Number.MAX_SAFE_INTEGER ? 0 : bestTextIndex,
+    terms[0]?.length ?? normalizedQuery.length,
+  );
+
+  return {
+    title: entry.title,
+    path: entry.path,
+    structureId: entry.structureId,
+    snippet,
+    score: (titlePositions.length * 1000) - Math.min(earliestContent, 500) - Math.min(earliestTitle, 200),
+  };
+}
+
+function compareSearchResults(left, right) {
+  return right.score - left.score || left.title.localeCompare(right.title);
+}
+
 function performSearch(query) {
   const normalizedQuery = normalizeWhitespace(query);
   const terms = tokenizeSearchQuery(normalizedQuery);
@@ -528,41 +565,9 @@ function performSearch(query) {
   }
 
   const results = searchIndex
-    .map((entry) => {
-      const combined = `${entry.titleLower}\n${entry.contentLower}`;
-      const positions = terms.map((term) => combined.indexOf(term));
-
-      if (positions.some((position) => position === -1)) {
-        return null;
-      }
-
-      const contentPositions = terms
-        .map((term) => entry.contentLower.indexOf(term))
-        .filter((position) => position >= 0);
-      const titlePositions = terms
-        .map((term) => entry.titleLower.indexOf(term))
-        .filter((position) => position >= 0);
-      const titleBoost = titlePositions.length * 1000;
-      const earliestContent = contentPositions.length ? Math.min(...contentPositions) : Number.MAX_SAFE_INTEGER;
-      const earliestTitle = titlePositions.length ? Math.min(...titlePositions) : Number.MAX_SAFE_INTEGER;
-      const bestTextIndex = contentPositions.length ? earliestContent : earliestTitle;
-      const snippetSource = contentPositions.length ? entry.contentText : entry.title;
-      const snippet = buildSnippet(
-        snippetSource,
-        bestTextIndex === Number.MAX_SAFE_INTEGER ? 0 : bestTextIndex,
-        terms[0]?.length ?? normalizedQuery.length,
-      );
-
-      return {
-        title: entry.title,
-        path: entry.path,
-        structureId: entry.structureId,
-        snippet,
-        score: titleBoost - Math.min(earliestContent, 500) - Math.min(earliestTitle, 200),
-      };
-    })
+    .map((entry) => buildSearchResult(entry, terms, normalizedQuery))
     .filter(Boolean)
-    .sort((left, right) => right.score - left.score || left.title.localeCompare(right.title))
+    .sort(compareSearchResults)
     .slice(0, 25);
 
   updateSearchStatus(results.length ? `${results.length} result${results.length === 1 ? '' : 's'}` : 'No results');
@@ -1033,8 +1038,20 @@ function sanitizeNode(node, isStructure = false, index = 0) {
   return normalizedNode;
 }
 
+function getRawStructures(payload) {
+  if (Array.isArray(payload)) {
+    return payload;
+  }
+
+  if (Array.isArray(payload?.structures)) {
+    return payload.structures;
+  }
+
+  return [];
+}
+
 function normalizeStructures(payload) {
-  const rawStructures = Array.isArray(payload) ? payload : Array.isArray(payload?.structures) ? payload.structures : [];
+  const rawStructures = getRawStructures(payload);
   const structures = rawStructures
     .map((structure, index) => sanitizeNode(structure, true, index))
     .filter(Boolean);
@@ -1047,10 +1064,10 @@ function normalizeStructures(payload) {
 }
 
 async function loadGuideStructures() {
-  const manifest = window[manifestGlobalName];
+  const manifest = window[MANIFEST_GLOBAL_NAME];
 
   if (!manifest) {
-    throw new Error(`Could not load guide manifest from ${manifestGlobalName}.`);
+    throw new Error(`Could not load guide manifest from ${MANIFEST_GLOBAL_NAME}.`);
   }
 
   return normalizeStructures(manifest);
@@ -1185,9 +1202,6 @@ function createGuideTreeItem(node, depth) {
 
 function renderGuideTree(structure) {
   guideTitleEl.textContent = structure.title;
-  if (guidePanelNoteEl) {
-    guidePanelNoteEl.textContent = 'Browse the selected structure';
-  }
   guideTreeEl.innerHTML = '';
 
   if (structure.path) {
@@ -1305,9 +1319,6 @@ async function init() {
 
   if (window.location.protocol === 'file:') {
     guideTitleEl.textContent = 'Open via a web server';
-    if (guidePanelNoteEl) {
-      guidePanelNoteEl.textContent = 'Folder-based guide loading needs HTTP or HTTPS.';
-    }
     titleEl.textContent = 'Open via a web server';
     metaEl.textContent = 'Fetching local Markdown files is blocked when the page is opened directly from disk.';
     statusEl.textContent = 'Use GitHub Pages or a local server';
@@ -1330,9 +1341,6 @@ async function init() {
     await loadPage(selection.pagePath, { structureId: selection.structureId });
   } catch (error) {
     guideTitleEl.textContent = 'Unable to load guide';
-    if (guidePanelNoteEl) {
-      guidePanelNoteEl.textContent = 'Check the guide structure files.';
-    }
     titleEl.textContent = 'Unable to load notes';
     metaEl.textContent = 'Check the guide manifest and Markdown file paths.';
     statusEl.textContent = 'Initialization failed';

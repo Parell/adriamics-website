@@ -9,6 +9,7 @@ const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'subjects', 'manifest.js');
 const siteOrigin = 'https://adriamics.com';
+const metadataSeparator = ' | ';
 
 function toPosix(inputPath) {
   return String(inputPath).split(path.sep).join('/');
@@ -129,7 +130,7 @@ function getMetadataLabel(metadata, fallbackPath) {
     parts.push(`Auditors: ${metadata.auditors.join(', ')}`);
   }
 
-  return parts.length ? parts.join(' \u2022 ') : fallbackPath;
+  return parts.length ? parts.join(metadataSeparator) : fallbackPath;
 }
 
 function getPageUrl(pagePath) {
@@ -167,33 +168,43 @@ function rewriteInternalHref(href, sourcePath) {
   }
 }
 
+function stashInlineHtml(tokens, html) {
+  const token = `@@INLINE_${tokens.length}@@`;
+  tokens.push({ token, html });
+  return token;
+}
+
+function restoreInlineHtml(html, tokens) {
+  return tokens.reduceRight(
+    (currentHtml, token) => currentHtml.replaceAll(token.token, token.html),
+    html,
+  );
+}
+
 function renderInline(text, sourcePath) {
-  let html = escapeHtml(text);
-  const codeSpans = [];
+  const tokens = [];
+  let source = String(text ?? '');
 
-  html = html.replace(/`([^`]+)`/g, (_, code) => {
-    const token = `@@CODE_${codeSpans.length}@@`;
-    codeSpans.push(`<code>${escapeHtml(code)}</code>`);
-    return token;
+  source = source.replace(/`([^`]+)`/g, (_, code) => {
+    return stashInlineHtml(tokens, `<code>${escapeHtml(code)}</code>`);
   });
 
-  html = html.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_, alt, src) => {
-    return `<img src="${escapeHtml(rewriteInternalHref(src, sourcePath))}" alt="${escapeHtml(alt)}" />`;
+  source = source.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_, alt, src) => {
+    const resolvedSrc = rewriteInternalHref(src, sourcePath);
+    return stashInlineHtml(tokens, `<img src="${escapeHtml(resolvedSrc)}" alt="${escapeHtml(alt)}" />`);
   });
 
-  html = html.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_, label, href) => {
+  source = source.replace(/\[([^\]]+)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_, label, href) => {
     const resolvedHref = rewriteInternalHref(href, sourcePath);
-    return `<a href="${escapeHtml(resolvedHref)}">${label}</a>`;
+    const renderedLabel = renderInline(label, sourcePath);
+    return stashInlineHtml(tokens, `<a href="${escapeHtml(resolvedHref)}">${renderedLabel}</a>`);
   });
 
-  html = html.replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>');
-  html = html.replace(/__([^_\n]+)__/g, '<strong>$1</strong>');
+  const html = escapeHtml(source)
+    .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/__([^_\n]+)__/g, '<strong>$1</strong>');
 
-  codeSpans.forEach((value, index) => {
-    html = html.replace(`@@CODE_${index}@@`, value);
-  });
-
-  return html;
+  return restoreInlineHtml(html, tokens);
 }
 
 function slugifyHeading(text) {

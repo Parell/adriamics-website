@@ -8,25 +8,26 @@
   --accent: #f5f5f5;
   --accent-strong: #ffffff;
   --accent-soft: rgba(255, 255, 255, 0.06);
+  --control-bg: rgba(18, 18, 18, 0.98);
+  --control-hover-bg: rgba(255, 255, 255, 0.1);
+  --control-hover-border: rgba(255, 255, 255, 0.22);
   --shadow: 0 18px 42px rgba(0, 0, 0, 0.42);
   --radius-lg: 28px;
   --radius-md: 18px;
   --radius-sm: 12px;
+  --transition-ui: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
   font-synthesis: none;
 }
 
 html {
   box-sizing: border-box;
+  scroll-behavior: smooth;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-html {
-  scroll-behavior: smooth;
 }
 
 body.notes-page {
@@ -92,14 +93,14 @@ body.notes-page {
 .search-panel__close {
   appearance: none;
   border: 1px solid var(--border);
-  background: rgba(18, 18, 18, 0.98);
+  background: var(--control-bg);
   color: var(--accent-strong);
   border-radius: 999px;
   padding: 0.72rem 1rem;
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  transition: var(--transition-ui);
 }
 
 .notes-search-trigger {
@@ -115,8 +116,8 @@ body.notes-page {
 .notes-search-trigger:focus-visible,
 .search-panel__close:hover,
 .search-panel__close:focus-visible {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: var(--control-hover-bg);
+  border-color: var(--control-hover-border);
   transform: translateY(-1px);
 }
 
@@ -143,7 +144,7 @@ body.notes-page {
 .notes-viewer h2 {
   margin: 0;
   line-height: 1.05;
-  letter-spacing: -0.03em;
+  letter-spacing: 0;
 }
 
 .notes-header h1 {
@@ -243,7 +244,7 @@ body.notes-page {
   padding: 0.9rem 1rem;
   font: inherit;
   cursor: pointer;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  transition: var(--transition-ui);
 }
 
 .search-result:hover,
@@ -510,13 +511,13 @@ body.notes-page {
   font: inherit;
   text-decoration: none;
   font-weight: 600;
-  transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
+  transition: var(--transition-ui);
 }
 
 .suggest-edit-link:hover,
 .suggest-edit-link:focus-visible {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: var(--control-hover-bg);
+  border-color: var(--control-hover-border);
   transform: translateY(-1px);
 }
 
@@ -608,7 +609,7 @@ body.notes-page {
 .markdown-body h3,
 .markdown-body h4 {
   line-height: 1.22;
-  letter-spacing: -0.02em;
+  letter-spacing: 0;
   margin: 1.6em 0 0.6em;
   scroll-margin-top: 1.5rem;
 }
@@ -724,7 +725,7 @@ body.notes-page {
   padding: 0.8rem 1rem;
   border-radius: 999px;
   border: 1px solid var(--border);
-  background: rgba(18, 18, 18, 0.98);
+  background: var(--control-bg);
   color: var(--accent-strong);
   text-decoration: none;
   font-weight: 700;

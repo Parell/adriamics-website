@@ -1,356 +1,80 @@
-window.UES_GUIDE_MANIFEST = {
-  structures: [
-    {
-      id: 'general',
-      title: 'General',
-      children: [
-        {
-          title: 'Introduction',
-          path: 'subjects/general/introduction.md',
-        },
-        {
-          title: 'Adding and Editing Documents',
-          path: 'subjects/general/adding-and-editing-documents.md',
-        },
-      ],
-    },
-    {
-      id: 'math',
-      title: 'Math',
-      children: [
-        {
-          title: 'Arithmetic',
-          path: 'subjects/math/arithmetic.md',
-        },
-        {
-          title: 'Logic',
-          path: 'subjects/math/logic.md',
-        },
-        {
-          title: 'Geometry',
-          path: 'subjects/math/geometry.md',
-        },
-        {
-          title: 'Algebra',
-          path: 'subjects/math/algebra.md',
-        },
-        {
-          title: 'Functions',
-          path: 'subjects/math/functions.md',
-        },
-        {
-          title: 'Probability',
-          path: 'subjects/math/probability.md',
-        },
-        {
-          title: 'Statistics',
-          path: 'subjects/math/statistics.md',
-        },
-        {
-          title: 'Trigonometry',
-          path: 'subjects/math/trigonometry.md',
-        },
-        {
-          title: 'Limits',
-          path: 'subjects/math/limits.md',
-        },
-        {
-          title: 'Derivatives',
-          path: 'subjects/math/derivatives.md',
-        },
-        {
-          title: 'Integrals',
-          path: 'subjects/math/integrals.md',
-        },
-        {
-          title: 'Series',
-          path: 'subjects/math/series.md',
-        },
-        {
-          title: 'Vectors',
-          path: 'subjects/math/vectors.md',
-        },
-        {
-          title: 'Matrices',
-          path: 'subjects/math/matrices.md',
-        },
-        {
-          title: 'Eigenvalues',
-          path: 'subjects/math/eigenvalues.md',
-        },
-        {
-          title: 'Discrete Math',
-          path: 'subjects/math/discrete-math.md',
-        },
-        {
-          title: 'Modeling',
-          path: 'subjects/math/modeling.md',
-        },
-        {
-          title: 'First Order ODEs',
-          path: 'subjects/math/first-order-odes.md',
-        },
-        {
-          title: 'Second Order ODEs',
-          path: 'subjects/math/second-order-odes.md',
-        },
-        {
-          title: 'Systems of ODEs',
-          path: 'subjects/math/systems-of-odes.md',
-        },
-        {
-          title: 'Proof Writing',
-          path: 'subjects/math/proof-writing.md',
-        },
-      ],
-    },
-    {
-      id: 'physics',
-      title: 'Physics',
-      children: [
-        {
-          title: 'Thermodynamics I',
-          path: 'subjects/physics/thermodynamics-i.md',
-        },
-        {
-          title: 'Physics I',
-          path: 'subjects/physics/physics-i.md',
-        },
-        {
-          title: 'Physics II',
-          path: 'subjects/physics/physics-ii.md',
-        },
-        {
-          title: 'Quantum Physics I',
-          path: 'subjects/physics/quantum-physics-i.md',
-        },
-        {
-          title: 'Classical Mechanics',
-          path: 'subjects/physics/classical-mechanics.md',
-        },
-        {
-          title: 'Electricity and Magnetism',
-          path: 'subjects/physics/electricity-and-magnetism.md',
-        },
-        {
-          title: 'Relativity',
-          path: 'subjects/physics/relativity.md',
-        },
-        {
-          title: 'Optics',
-          path: 'subjects/physics/optics.md',
-        },
-        // {
-        //   title: 'Condensed Matter Physics',
-        //   path: 'subjects/physics/condensed-matter-physics.md',
-        // },
-        // {
-        //   title: 'Particle and Nuclear Physics',
-        //   path: 'subjects/physics/particle-and-nuclear-physics.md',
-        // },
-        // {
-        //   title: 'Astrophysics and Cosmology',
-        //   path: 'subjects/physics/astrophysics-and-cosmology.md',
-        // },
-        // {
-        //   title: 'Plasma Physics',
-        //   path: 'subjects/physics/plasma-physics.md',
-        // },
-        // {
-        //   title: 'Biophysics',
-        //   path: 'subjects/physics/biophysics.md',
-        // },
-        // {
-        //   title: 'Geophysics',
-        //   path: 'subjects/physics/geophysics.md',
-        // },
-        // {
-        //   title: 'Computational Physics',
-        //   path: 'subjects/physics/computational-physics.md',
-        // },
-        // {
-        //   title: 'Lab and Measurement',
-        //   path: 'subjects/physics/lab-and-measurement.md',
-        // },
-      ],
-    },
-    {
-      id: 'engineering',
-      title: 'Engineering',
-      children: [
-        {
-          title: 'Statics',
-          path: 'subjects/engineering/statics.md',
-        },
-        {
-          title: 'Dynamics',
-          path: 'subjects/engineering/dynamics.md',
-        },
-        {
-          title: 'Mechanics of Materials',
-          path: 'subjects/engineering/mechanics-of-materials.md',
-        },
-        {
-          title: 'Fluid Mechanics',
-          path: 'subjects/engineering/fluid-mechanics.md',
-        },
-        {
-          title: 'Heat Transfer',
-          path: 'subjects/engineering/heat-transfer.md',
-        },
-        {
-          title: 'Materials Science',
-          path: 'subjects/engineering/materials-science.md',
-        },
-        {
-          title: 'Electrical Circuit Analysis',
-          path: 'subjects/engineering/electrical-circuit-analysis.md',
-        },
-        {
-          title: 'Linear System Signal Analysis',
-          path: 'subjects/engineering/linear-system-signal-analysis.md',
-        },
-        {
-          title: 'Electronics',
-          path: 'subjects/engineering/electronics.md',
-        },
-        {
-          title: 'Signals and Systems',
-          path: 'subjects/engineering/signals-and-systems.md',
-        },
-        {
-          title: 'Control Systems',
-          path: 'subjects/engineering/control-systems.md',
-        },
-        {
-          title: 'Instrumentation',
-          path: 'subjects/engineering/instrumentation.md',
-        },
-        {
-          title: 'CAD',
-          path: 'subjects/engineering/cad.md',
-        },
-        {
-          title: 'Simulation',
-          path: 'subjects/engineering/simulation.md',
-        },
-        {
-          title: 'Manufacturing',
-          path: 'subjects/engineering/manufacturing.md',
-        },
-        {
-          title: 'Quality Control',
-          path: 'subjects/engineering/quality-control.md',
-        },
-        {
-          title: 'Project Management',
-          path: 'subjects/engineering/project-management.md',
-        },
-        {
-          title: 'Cost/Risk Analysis',
-          path: 'subjects/engineering/cost-risk-analysis.md',
-        },
-        {
-          title: 'Kinematics',
-          path: 'subjects/engineering/kinematics.md',
-        },
-      ],
-    },
-    {
-      id: 'medical-biology',
-      title: 'Medical / Biology',
-      children: [
-        {
-          title: 'General Biology',
-          path: 'subjects/medical-biology/general-biology.md',
-        },
-        {
-          title: 'General Chemistry',
-          path: 'subjects/medical-biology/general-chemistry.md',
-        },
-        {
-          title: 'Organic Chemistry',
-          path: 'subjects/medical-biology/organic-chemistry.md',
-        },
-        {
-          title: 'Biochemistry',
-          path: 'subjects/medical-biology/biochemistry.md',
-        },
-        {
-          title: 'Anatomy',
-          path: 'subjects/medical-biology/anatomy.md',
-        },
-        {
-          title: 'Physiology',
-          path: 'subjects/medical-biology/physiology.md',
-        },
-        {
-          title: 'Genetics',
-          path: 'subjects/medical-biology/genetics.md',
-        },
-        {
-          title: 'Psychology',
-          path: 'subjects/medical-biology/psychology.md',
-        },
-        {
-          title: 'Ethics',
-          path: 'subjects/medical-biology/ethics.md',
-        },
-        {
-          title: 'Lab Safety',
-          path: 'subjects/medical-biology/lab-safety.md',
-        },
-        {
-          title: 'Scientific Writing',
-          path: 'subjects/medical-biology/scientific-writing.md',
-        },
-      ],
-    },
-    // {
-    //   id: 'data-computing',
-    //   title: 'Data / Computing',
-    //   children: [
-    //     {
-    //       title: 'Programming',
-    //       path: 'subjects/data-computing/programming.md',
-    //     },
-    //     {
-    //       title: 'Algorithms',
-    //       path: 'subjects/data-computing/algorithms.md',
-    //     },
-    //     {
-    //       title: 'Data Structures',
-    //       path: 'subjects/data-computing/data-structures.md',
-    //     },
-    //     {
-    //       title: 'Databases',
-    //       path: 'subjects/data-computing/databases.md',
-    //     },
-    //     {
-    //       title: 'Computer Architecture',
-    //       path: 'subjects/data-computing/computer-architecture.md',
-    //     },
-    //     {
-    //       title: 'Operating Systems',
-    //       path: 'subjects/data-computing/operating-systems.md',
-    //     },
-    //     {
-    //       title: 'Networking',
-    //       path: 'subjects/data-computing/networking.md',
-    //     },
-    //     {
-    //       title: 'Cybersecurity Basics',
-    //       path: 'subjects/data-computing/cybersecurity-basics.md',
-    //     },
-    //     {
-    //       title: 'Software Design',
-    //       path: 'subjects/data-computing/software-design.md',
-    //     },
-    //     {
-    //       title: 'Version Control',
-    //       path: 'subjects/data-computing/version-control.md',
-    //     },
-    //   ],
-    // },
-  ],
-};
+window.UES_GUIDE_MANIFEST = (() => {
+  const note = (title, path) => ({ title, path });
+  const structure = (id, title, children) => ({ id, title, children });
+
+  return {
+    structures: [
+      structure('general', 'General', [
+        note('Introduction', 'subjects/general/introduction.md'),
+        note('Adding and Editing Documents', 'subjects/general/adding-and-editing-documents.md'),
+      ]),
+      structure('math', 'Math', [
+        note('Arithmetic', 'subjects/math/arithmetic.md'),
+        note('Logic', 'subjects/math/logic.md'),
+        note('Geometry', 'subjects/math/geometry.md'),
+        note('Algebra', 'subjects/math/algebra.md'),
+        note('Functions', 'subjects/math/functions.md'),
+        note('Probability', 'subjects/math/probability.md'),
+        note('Statistics', 'subjects/math/statistics.md'),
+        note('Trigonometry', 'subjects/math/trigonometry.md'),
+        note('Limits', 'subjects/math/limits.md'),
+        note('Derivatives', 'subjects/math/derivatives.md'),
+        note('Integrals', 'subjects/math/integrals.md'),
+        note('Series', 'subjects/math/series.md'),
+        note('Vectors', 'subjects/math/vectors.md'),
+        note('Matrices', 'subjects/math/matrices.md'),
+        note('Eigenvalues', 'subjects/math/eigenvalues.md'),
+        note('Discrete Math', 'subjects/math/discrete-math.md'),
+        note('Modeling', 'subjects/math/modeling.md'),
+        note('First Order ODEs', 'subjects/math/first-order-odes.md'),
+        note('Second Order ODEs', 'subjects/math/second-order-odes.md'),
+        note('Systems of ODEs', 'subjects/math/systems-of-odes.md'),
+        note('Proof Writing', 'subjects/math/proof-writing.md'),
+      ]),
+      structure('physics', 'Physics', [
+        note('Thermodynamics I', 'subjects/physics/thermodynamics-i.md'),
+        note('Physics I', 'subjects/physics/physics-i.md'),
+        note('Physics II', 'subjects/physics/physics-ii.md'),
+        note('Quantum Physics I', 'subjects/physics/quantum-physics-i.md'),
+        note('Classical Mechanics', 'subjects/physics/classical-mechanics.md'),
+        note('Electricity and Magnetism', 'subjects/physics/electricity-and-magnetism.md'),
+        note('Relativity', 'subjects/physics/relativity.md'),
+        note('Optics', 'subjects/physics/optics.md'),
+      ]),
+      structure('engineering', 'Engineering', [
+        note('Statics', 'subjects/engineering/statics.md'),
+        note('Dynamics', 'subjects/engineering/dynamics.md'),
+        note('Mechanics of Materials', 'subjects/engineering/mechanics-of-materials.md'),
+        note('Fluid Mechanics', 'subjects/engineering/fluid-mechanics.md'),
+        note('Heat Transfer', 'subjects/engineering/heat-transfer.md'),
+        note('Materials Science', 'subjects/engineering/materials-science.md'),
+        note('Electrical Circuit Analysis', 'subjects/engineering/electrical-circuit-analysis.md'),
+        note('Linear System Signal Analysis', 'subjects/engineering/linear-system-signal-analysis.md'),
+        note('Electronics', 'subjects/engineering/electronics.md'),
+        note('Signals and Systems', 'subjects/engineering/signals-and-systems.md'),
+        note('Control Systems', 'subjects/engineering/control-systems.md'),
+        note('Instrumentation', 'subjects/engineering/instrumentation.md'),
+        note('CAD', 'subjects/engineering/cad.md'),
+        note('Simulation', 'subjects/engineering/simulation.md'),
+        note('Manufacturing', 'subjects/engineering/manufacturing.md'),
+        note('Quality Control', 'subjects/engineering/quality-control.md'),
+        note('Project Management', 'subjects/engineering/project-management.md'),
+        note('Cost/Risk Analysis', 'subjects/engineering/cost-risk-analysis.md'),
+        note('Kinematics', 'subjects/engineering/kinematics.md'),
+      ]),
+      structure('medical-biology', 'Medical / Biology', [
+        note('General Biology', 'subjects/medical-biology/general-biology.md'),
+        note('General Chemistry', 'subjects/medical-biology/general-chemistry.md'),
+        note('Organic Chemistry', 'subjects/medical-biology/organic-chemistry.md'),
+        note('Biochemistry', 'subjects/medical-biology/biochemistry.md'),
+        note('Anatomy', 'subjects/medical-biology/anatomy.md'),
+        note('Physiology', 'subjects/medical-biology/physiology.md'),
+        note('Genetics', 'subjects/medical-biology/genetics.md'),
+        note('Psychology', 'subjects/medical-biology/psychology.md'),
+        note('Ethics', 'subjects/medical-biology/ethics.md'),
+        note('Lab Safety', 'subjects/medical-biology/lab-safety.md'),
+        note('Scientific Writing', 'subjects/medical-biology/scientific-writing.md'),
+      ]),
+    ],
+  };
+})();

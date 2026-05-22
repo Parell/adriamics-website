@@ -31,7 +31,6 @@ let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexError = null;
 let pendingSearchFocus = false;
-let currentStandalonePagePath = null;
 
 function slugifyHeading(text) {
   const base = String(text ?? '')
@@ -362,18 +361,12 @@ function buildStandalonePageUrl(pagePath) {
   return `/notes/${normalizedPath.replace(/\.md$/i, '')}/index.html`;
 }
 
-function openStandalonePage() {
-  const pagePath = currentStandalonePagePath;
-
-  if (!pagePath) {
+function updateStandaloneLink(pagePath) {
+  if (!standaloneLink) {
     return;
   }
 
-  window.location.assign(buildStandalonePageUrl(pagePath));
-}
-
-if (standaloneLink) {
-  standaloneLink.addEventListener('click', openStandalonePage);
+  standaloneLink.href = buildStandalonePageUrl(pagePath);
 }
 
 function updateSuggestEditLink(pagePath, noteTitle) {
@@ -1228,10 +1221,10 @@ async function loadPage(pagePath, options = {}) {
 
   currentStructureId = structure.id;
   currentPagePath = normalizedPath;
-  currentStandalonePagePath = normalizedPath;
   clearSearchMatch();
   titleEl.textContent = node.title;
   metaEl.textContent = normalizedPath;
+  updateStandaloneLink(normalizedPath);
   updateSuggestEditLink(normalizedPath, node.title);
   statusEl.textContent = 'Loading...';
   setActiveStructureButton(structure.id);
@@ -1254,6 +1247,7 @@ async function loadPage(pagePath, options = {}) {
     const resolvedTitle = typeof metadata?.title === 'string' && metadata.title.trim() ? metadata.title.trim() : node.title;
     titleEl.textContent = resolvedTitle;
     metaEl.textContent = buildMetadataLabel(metadata, normalizedPath);
+    updateStandaloneLink(normalizedPath);
     updateSuggestEditLink(normalizedPath, resolvedTitle);
     await renderMarkdown(body);
     if (options.jumpToQuery) {
@@ -1333,7 +1327,6 @@ async function init() {
 
     void ensureSearchIndex();
     const selection = resolveInitialSelection(loadState());
-    currentStandalonePagePath = selection.pagePath;
     await loadPage(selection.pagePath, { structureId: selection.structureId });
   } catch (error) {
     guideTitleEl.textContent = 'Unable to load guide';

@@ -11,3 +11,5 @@ Debating if I should use github for all these systems?
 - How to make a Sparkplug example?
 - Online EES software?
 - Mass Transfer?
+
+Build the crawlable note pages and sitemap with `node scripts/build-notes.mjs` after changing markdown notes.

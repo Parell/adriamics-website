@@ -9,6 +9,7 @@ const contentEl = document.getElementById('note-content');
 const tocPanel = document.getElementById('toc-panel');
 const tocList = document.getElementById('toc-list');
 const suggestEditLink = document.getElementById('suggest-edit-link');
+const standaloneLink = document.getElementById('standalone-link');
 const notesLayout = document.querySelector('.notes-layout');
 const searchTrigger = document.getElementById('search-trigger');
 const searchPanel = document.getElementById('search-panel');
@@ -350,12 +351,30 @@ function buildSuggestEditUrl(pagePath, noteTitle) {
   return `${githubIssueBaseUrl}?${params.toString()}`;
 }
 
+function buildStandalonePageUrl(pagePath) {
+  const normalizedPath = normalizeStoredPagePath(pagePath);
+
+  if (!normalizedPath) {
+    return '/notes/';
+  }
+
+  return `/notes/${normalizedPath.replace(/\.md$/i, '')}/`;
+}
+
 function updateSuggestEditLink(pagePath, noteTitle) {
   if (!suggestEditLink) {
     return;
   }
 
   suggestEditLink.href = buildSuggestEditUrl(pagePath, noteTitle);
+}
+
+function updateStandaloneLink(pagePath) {
+  if (!standaloneLink) {
+    return;
+  }
+
+  standaloneLink.href = buildStandalonePageUrl(pagePath);
 }
 
 function tokenizeSearchQuery(query) {
@@ -1225,10 +1244,11 @@ async function loadPage(pagePath, options = {}) {
     const markdown = await response.text();
     const { metadata, body } = splitFrontmatter(markdown);
     const resolvedTitle = typeof metadata?.title === 'string' && metadata.title.trim() ? metadata.title.trim() : node.title;
-    titleEl.textContent = resolvedTitle;
-    metaEl.textContent = buildMetadataLabel(metadata, normalizedPath);
-    updateSuggestEditLink(normalizedPath, resolvedTitle);
-    await renderMarkdown(body);
+  titleEl.textContent = resolvedTitle;
+  metaEl.textContent = buildMetadataLabel(metadata, normalizedPath);
+  updateStandaloneLink(normalizedPath);
+  updateSuggestEditLink(normalizedPath, resolvedTitle);
+  await renderMarkdown(body);
     if (options.jumpToQuery) {
       const jumpedToMatch = jumpToSearchQuery(options.jumpToQuery);
 

@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Derivatives | Adriamics</title>
+  <meta name="description" content="The derivative measures how a function changes as its input changes." />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/math/derivatives/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Note page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/notes/subjects/math/derivatives/">This page</a>
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="shell">
+    <article class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Derivatives</h1>
+          <p class="viewer-meta">draft • Reviewed 2026-05-22 • Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fmath%2Fderivatives.md&amp;title=%5BCorrection%5D%3A%20Derivatives" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">What a derivative means</a></p></li><li><p><a href="#toc-2">Formal definition</a></p></li><li><p><a href="#toc-3">Notation</a></p></li><li><p><a href="#toc-4">Core differentiation rules</a></p></li><li><p><a href="#toc-5">Derivatives of common functions</a></p></li><li><p><a href="#toc-6">Chain rule and composite functions</a></p></li><li><p><a href="#toc-7">Implicit differentiation</a></p></li><li><p><a href="#toc-8">Higher-order derivatives</a></p></li><li><p><a href="#toc-9">Linear approximation and differentials</a></p></li><li><p><a href="#toc-10">Applications of derivatives</a></p></li><li><p><a href="#toc-11">Optimization workflow</a></p></li><li><p><a href="#toc-12">Formula sheet</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="1-what-a-derivative-means">1. What a derivative means</h1>
+<p>The derivative measures how a function changes as its input changes.</p>
+<p>If $y = f(x)$, then $f&#39;(x)$ describes the <strong>instantaneous rate of change</strong> of $y$ with respect to $x$.</p>
+<p>It also gives the <strong>slope of the tangent line</strong> to the graph of $y = f(x)$ at a point.</p>
+<p>Two useful interpretations:</p>
+<ul><li><p>Rate interpretation: how fast one quantity changes compared with another</p></li><li><p>Geometric interpretation: slope of the tangent line</p></li></ul>
+<p>Examples:</p>
+<ul><li><p>If $s(t)$ is position, then $s&#39;(t)$ is velocity.</p></li><li><p>If $C(q)$ is cost, then $C&#39;(q)$ is marginal cost.</p></li></ul>
+<p>If the derivative is:</p>
+<ul><li><p>Positive, the function is increasing locally</p></li><li><p>Negative, the function is decreasing locally</p></li><li><p>Zero, the function may have a horizontal tangent</p></li></ul>
+<hr />
+<a id="toc-2"></a>
+<h1 id="2-formal-definition">2. Formal definition</h1>
+<p>The derivative of $f$ at $x$ is defined by the limit</p>
+<div class="math-block">$$
+f&#39;(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}
+$$</div>
+<p>if the limit exists.</p>
+<p>This is the slope of the secant line in the limit as the two points merge into one.</p>
+<p>An equivalent form is</p>
+<div class="math-block">$$
+f&#39;(a) = \lim_{x \to a} \frac{f(x)-f(a)}{x-a}
+$$</div>
+<h2 id="differentiability-and-continuity">Differentiability and continuity</h2>
+<p>If a function is differentiable at a point, then it is continuous there.</p>
+<p>But the converse is not always true:</p>
+<ul><li><p>Differentiable $\Rightarrow$ continuous</p></li><li><p>Continuous $\nRightarrow$ differentiable</p></li></ul>
+<p>Common reasons a derivative fails to exist:</p>
+<ul><li><p>Corner</p></li><li><p>Cusp</p></li><li><p>Vertical tangent</p></li><li><p>Discontinuity</p></li></ul>
+<p>Example:</p>
+<div class="math-block">$$
+f(x) = |x|
+$$</div>
+<p>is continuous at $x=0$, but not differentiable there because the left-hand and right-hand slopes are different.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="3-notation">3. Notation</h1>
+<p>If $y=f(x)$, common derivative notations include:</p>
+<div class="math-block">$$
+f&#39;(x), \quad y&#39;, \quad \frac{dy}{dx}, \quad \frac{d}{dx}[f(x)]
+$$</div>
+<p>For functions of time:</p>
+<div class="math-block">$$
+\frac{ds}{dt}, \quad \frac{dv}{dt}
+$$</div>
+<p>Higher derivatives:</p>
+<div class="math-block">$$
+f&#39;&#39;(x), \quad y&#39;&#39;, \quad \frac{d^2y}{dx^2}
+$$</div>
+<p>Leibniz notation is especially useful when applying the chain rule because it keeps track of variables clearly.</p>
+<hr />
+<a id="toc-4"></a>
+<h1 id="4-core-differentiation-rules">4. Core differentiation rules</h1>
+<p>These rules let you differentiate most elementary functions efficiently.</p>
+<h2 id="constant-rule">Constant rule</h2>
+<div class="math-block">$$
+\frac{d}{dx}[c] = 0
+$$</div>
+<h2 id="power-rule">Power rule</h2>
+<div class="math-block">$$
+\frac{d}{dx}[x^n] = nx^{n-1}
+$$</div>
+<p>This holds for any real exponent $n$ when the function is defined.</p>
+<p>Examples:</p>
+<div class="math-block">$$
+\frac{d}{dx}[x^5] = 5x^4
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[x^{-2}] = -2x^{-3}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\sqrt{x}] = \frac{1}{2\sqrt{x}}
+$$</div>
+<h2 id="constant-multiple-rule">Constant multiple rule</h2>
+<div class="math-block">$$
+\frac{d}{dx}[c f(x)] = c f&#39;(x)
+$$</div>
+<h2 id="sum-and-difference-rules">Sum and difference rules</h2>
+<div class="math-block">$$
+\frac{d}{dx}[f(x)+g(x)] = f&#39;(x)+g&#39;(x)
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[f(x)-g(x)] = f&#39;(x)-g&#39;(x)
+$$</div>
+<h2 id="product-rule">Product rule</h2>
+<div class="math-block">$$
+\frac{d}{dx}[f(x)g(x)] = f&#39;(x)g(x)+f(x)g&#39;(x)
+$$</div>
+<p>Example:</p>
+<div class="math-block">$$
+\frac{d}{dx}[x^2 e^x] = 2x e^x + x^2 e^x
+$$</div>
+<h2 id="quotient-rule">Quotient rule</h2>
+<div class="math-block">$$
+\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right]
+=
+\frac{f&#39;(x)g(x)-f(x)g&#39;(x)}{[g(x)]^2}
+$$</div>
+<p>where $g(x)\ne 0$.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\frac{d}{dx}\left[\frac{x^2+1}{x}\right]
+=
+\frac{(2x)(x)-(x^2+1)(1)}{x^2}
+=
+\frac{x^2-1}{x^2}
+$$</div>
+<hr />
+<a id="toc-5"></a>
+<h1 id="5-derivatives-of-common-functions">5. Derivatives of common functions</h1>
+<h2 id="exponential-functions">Exponential functions</h2>
+<div class="math-block">$$
+\frac{d}{dx}[e^x] = e^x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[a^x] = a^x \ln a
+\quad \text{for } a&gt;0,\ a\ne 1
+$$</div>
+<h2 id="logarithmic-functions">Logarithmic functions</h2>
+<div class="math-block">$$
+\frac{d}{dx}[\ln x] = \frac{1}{x}
+\quad \text{for } x&gt;0
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\log_a x] = \frac{1}{x \ln a}
+$$</div>
+<h2 id="trigonometric-functions">Trigonometric functions</h2>
+<div class="math-block">$$
+\frac{d}{dx}[\sin x] = \cos x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\cos x] = -\sin x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\tan x] = \sec^2 x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\cot x] = -\csc^2 x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\sec x] = \sec x \tan x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\csc x] = -\csc x \cot x
+$$</div>
+<p>These formulas assume angles are measured in radians.</p>
+<h2 id="inverse-trigonometric-functions">Inverse trigonometric functions</h2>
+<div class="math-block">$$
+\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arctan x] = \frac{1}{1+x^2}
+$$</div>
+<p>Useful extensions:</p>
+<div class="math-block">$$
+\frac{d}{dx}[\arcsec x] = \frac{1}{|x|\sqrt{x^2-1}}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arccsc x] = -\frac{1}{|x|\sqrt{x^2-1}}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arccot x] = -\frac{1}{1+x^2}
+$$</div>
+<hr />
+<a id="toc-6"></a>
+<h1 id="6-chain-rule-and-composite-functions">6. Chain rule and composite functions</h1>
+<p>The chain rule is essential for differentiating nested functions.</p>
+<p>If</p>
+<div class="math-block">$$
+y = f(g(x))
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+\frac{dy}{dx} = f&#39;(g(x)) \cdot g&#39;(x)
+$$</div>
+<p>In operator form:</p>
+<div class="math-block">$$
+\frac{d}{dx}[f(g(x))] = f&#39;(g(x))g&#39;(x)
+$$</div>
+<h2 id="examples">Examples</h2>
+<p>If</p>
+<div class="math-block">$$
+y = (3x^2+1)^5
+$$</div>
+<p>then let $u=3x^2+1$. Since $\frac{d}{du}[u^5]=5u^4$ and $\frac{du}{dx}=6x$,</p>
+<div class="math-block">$$
+\frac{dy}{dx} = 5(3x^2+1)^4(6x) = 30x(3x^2+1)^4
+$$</div>
+<p>If</p>
+<div class="math-block">$$
+y = \sin(x^3)
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+\frac{dy}{dx} = \cos(x^3)\cdot 3x^2
+$$</div>
+<p>If</p>
+<div class="math-block">$$
+y = \ln(2x^2-7x+4)
+$$</div>
+<p>then</p>
+<div class="math-block">$$
+\frac{dy}{dx} = \frac{4x-7}{2x^2-7x+4}
+$$</div>
+<h2 id="general-pattern">General pattern</h2>
+<p>Differentiate the outer function first, leaving the inner function unchanged, then multiply by the derivative of the inner function.</p>
+<p>This is where many mistakes happen. Do not differentiate the inside and outside independently without the linking factor.</p>
+<hr />
+<a id="toc-7"></a>
+<h1 id="7-implicit-differentiation">7. Implicit differentiation</h1>
+<p>Sometimes a relation involving $x$ and $y$ is not solved explicitly for $y$.</p>
+<p>Example:</p>
+<div class="math-block">$$
+x^2 + y^2 = 25
+$$</div>
+<p>To differentiate with respect to $x$, treat $y$ as a function of $x$:</p>
+<div class="math-block">$$
+\frac{d}{dx}[x^2] + \frac{d}{dx}[y^2] = \frac{d}{dx}[25]
+$$</div>
+<div class="math-block">$$
+2x + 2y\frac{dy}{dx} = 0
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\frac{dy}{dx} = -\frac{x}{y}
+$$</div>
+<h2 id="why-frac-dy-dx-appears">Why $\frac{dy}{dx}$ appears</h2>
+<p>When differentiating any expression involving $y$, use the chain rule because $y=y(x)$.</p>
+<p>For example:</p>
+<div class="math-block">$$
+\frac{d}{dx}[y^3] = 3y^2\frac{dy}{dx}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\sin y] = \cos y \frac{dy}{dx}
+$$</div>
+<h2 id="tangent-line-example">Tangent line example</h2>
+<p>Given</p>
+<div class="math-block">$$
+x^2 + y^2 = 25
+$$</div>
+<p>find the tangent slope at $(3,4)$:</p>
+<div class="math-block">$$
+\frac{dy}{dx} = -\frac{x}{y}
+$$</div>
+<p>At $(3,4)$,</p>
+<div class="math-block">$$
+\frac{dy}{dx} = -\frac{3}{4}
+$$</div>
+<p>So the tangent line is</p>
+<div class="math-block">$$
+y-4 = -\frac{3}{4}(x-3)
+$$</div>
+<hr />
+<a id="toc-8"></a>
+<h1 id="8-higher-order-derivatives">8. Higher-order derivatives</h1>
+<p>The second derivative is the derivative of the first derivative:</p>
+<div class="math-block">$$
+f&#39;&#39;(x) = \frac{d}{dx}[f&#39;(x)]
+$$</div>
+<p>Similarly:</p>
+<div class="math-block">$$
+f^{(3)}(x), \quad f^{(4)}(x), \quad \dots
+$$</div>
+<h2 id="interpretation">Interpretation</h2>
+<ul><li><p>$f&#39;(x)$ describes slope or rate of change</p></li><li><p>$f&#39;&#39;(x)$ describes how the slope changes</p></li></ul>
+<p>In motion:</p>
+<ul><li><p>Position: $s(t)$</p></li><li><p>Velocity: $v(t)=s&#39;(t)$</p></li><li><p>Acceleration: $a(t)=s&#39;&#39;(t)$</p></li></ul>
+<h2 id="concavity">Concavity</h2>
+<p>If:</p>
+<ul><li><p>$f&#39;&#39;(x) &gt; 0$, the graph is concave up</p></li><li><p>$f&#39;&#39;(x) &lt; 0$, the graph is concave down</p></li></ul>
+<p>Possible inflection points occur where concavity changes.</p>
+<p>Example:</p>
+<div class="math-block">$$
+f(x)=x^3-3x
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+f&#39;(x)=3x^2-3
+$$</div>
+<div class="math-block">$$
+f&#39;&#39;(x)=6x
+$$</div>
+<p>Since $f&#39;&#39;(x)$ changes sign at $x=0$, the graph has an inflection point there.</p>
+<hr />
+<a id="toc-9"></a>
+<h1 id="9-linear-approximation-and-differentials">9. Linear approximation and differentials</h1>
+<p>Near a point $x=a$, a differentiable function is well approximated by its tangent line.</p>
+<h2 id="linearization">Linearization</h2>
+<p>The linear approximation of $f(x)$ at $x=a$ is</p>
+<div class="math-block">$$
+L(x) = f(a) + f&#39;(a)(x-a)
+$$</div>
+<p>This is useful for estimation.</p>
+<p>Example:</p>
+<p>Estimate $\sqrt{4.1}$ using $f(x)=\sqrt{x}$ at $a=4$.</p>
+<div class="math-block">$$
+f(4)=2,\quad f&#39;(x)=\frac{1}{2\sqrt{x}},\quad f&#39;(4)=\frac{1}{4}
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+L(x)=2+\frac{1}{4}(x-4)
+$$</div>
+<p>At $x=4.1$:</p>
+<div class="math-block">$$
+L(4.1)=2+\frac{1}{4}(0.1)=2.025
+$$</div>
+<p>So</p>
+<div class="math-block">$$
+\sqrt{4.1} \approx 2.025
+$$</div>
+<h2 id="differentials">Differentials</h2>
+<p>If $y=f(x)$, then the differential is</p>
+<div class="math-block">$$
+dy = f&#39;(x)\,dx
+$$</div>
+<p>For a small change $dx$, the corresponding change in $y$ is approximately</p>
+<div class="math-block">$$
+\Delta y \approx dy
+$$</div>
+<p>Differentials are useful in error estimation and applied modeling.</p>
+<hr />
+<a id="toc-10"></a>
+<h1 id="10-applications-of-derivatives">10. Applications of derivatives</h1>
+<h2 id="increasing-and-decreasing-behavior">Increasing and decreasing behavior</h2>
+<p>Use the sign of $f&#39;(x)$:</p>
+<ul><li><p>If $f&#39;(x)&gt;0$ on an interval, $f$ is increasing there.</p></li><li><p>If $f&#39;(x)&lt;0$ on an interval, $f$ is decreasing there.</p></li></ul>
+<h2 id="critical-points">Critical points</h2>
+<p>Critical points occur where:</p>
+<ul><li><p>$f&#39;(x)=0$, or</p></li><li><p>$f&#39;(x)$ does not exist</p></li></ul>
+<p>These points are candidates for local maxima, local minima, or neither.</p>
+<h2 id="first-derivative-test">First derivative test</h2>
+<p>If $f&#39;$ changes:</p>
+<ul><li><p>From positive to negative, $f$ has a local maximum</p></li><li><p>From negative to positive, $f$ has a local minimum</p></li><li><p>Without a sign change, there is no local extremum</p></li></ul>
+<h2 id="second-derivative-test">Second derivative test</h2>
+<p>If $f&#39;(c)=0$ and:</p>
+<ul><li><p>$f&#39;&#39;(c)&gt;0$, then $f(c)$ is a local minimum</p></li><li><p>$f&#39;&#39;(c)&lt;0$, then $f(c)$ is a local maximum</p></li><li><p>$f&#39;&#39;(c)=0$, the test is inconclusive</p></li></ul>
+<h2 id="related-rates">Related rates</h2>
+<p>If variables are connected by an equation and all depend on time, differentiate with respect to $t$.</p>
+<p>Example for a circle:</p>
+<div class="math-block">$$
+A = \pi r^2
+$$</div>
+<p>Differentiate with respect to time:</p>
+<div class="math-block">$$
+\frac{dA}{dt} = 2\pi r \frac{dr}{dt}
+$$</div>
+<p>This connects the rate of change of area to the rate of change of radius.</p>
+<h2 id="newtons-method">Newton&#39;s method</h2>
+<p>Derivatives also support numerical root-finding:</p>
+<div class="math-block">$$
+x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)}
+$$</div>
+<p>This method works well when the initial guess is reasonable and $f&#39;(x_n)\ne 0$.</p>
+<hr />
+<a id="toc-11"></a>
+<h1 id="11-optimization-workflow">11. Optimization workflow</h1>
+<p>Many applied derivative problems reduce to optimization.</p>
+<p>Use this process:</p>
+<ol><li><p>Define the quantity to optimize.</p></li><li><p>Write it as a function of one variable.</p></li><li><p>Find the derivative.</p></li><li><p>Solve $f&#39;(x)=0$ and check points where $f&#39;$ does not exist.</p></li><li><p>Use the first or second derivative test.</p></li><li><p>Check endpoints if the domain is closed and bounded.</p></li><li><p>State the answer with units and context.</p></li></ol>
+<h2 id="example">Example</h2>
+<p>Find the maximum value of</p>
+<div class="math-block">$$
+f(x) = -x^2 + 4x + 1
+$$</div>
+<p>Differentiate:</p>
+<div class="math-block">$$
+f&#39;(x) = -2x + 4
+$$</div>
+<p>Set equal to zero:</p>
+<div class="math-block">$$
+-2x+4=0 \Rightarrow x=2
+$$</div>
+<p>Second derivative:</p>
+<div class="math-block">$$
+f&#39;&#39;(x) = -2 &lt; 0
+$$</div>
+<p>So $x=2$ gives a local maximum. The maximum value is</p>
+<div class="math-block">$$
+f(2)=-(2)^2+4(2)+1=5
+$$</div>
+<hr />
+<a id="toc-12"></a>
+<h1 id="12-formula-sheet">12. Formula sheet</h1>
+<h2 id="definition">Definition</h2>
+<div class="math-block">$$
+f&#39;(x) = \lim_{h \to 0} \frac{f(x+h)-f(x)}{h}
+$$</div>
+<h2 id="basic-rules">Basic rules</h2>
+<div class="math-block">$$
+\frac{d}{dx}[c] = 0
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[x^n] = nx^{n-1}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[c f(x)] = c f&#39;(x)
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[f(x)\pm g(x)] = f&#39;(x)\pm g&#39;(x)
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[f(x)g(x)] = f&#39;(x)g(x)+f(x)g&#39;(x)
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}\left[\frac{f(x)}{g(x)}\right]
+=
+\frac{f&#39;(x)g(x)-f(x)g&#39;(x)}{[g(x)]^2}
+$$</div>
+<h2 id="chain-rule">Chain rule</h2>
+<div class="math-block">$$
+\frac{d}{dx}[f(g(x))] = f&#39;(g(x))g&#39;(x)
+$$</div>
+<h2 id="common-functions">Common functions</h2>
+<div class="math-block">$$
+\frac{d}{dx}[e^x] = e^x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[a^x] = a^x \ln a
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\ln x] = \frac{1}{x}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\sin x] = \cos x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\cos x] = -\sin x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\tan x] = \sec^2 x
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}}
+$$</div>
+<div class="math-block">$$
+\frac{d}{dx}[\arctan x] = \frac{1}{1+x^2}
+$$</div>
+<h2 id="linearization-2">Linearization</h2>
+<div class="math-block">$$
+L(x) = f(a) + f&#39;(a)(x-a)
+$$</div>
+<h2 id="differential">Differential</h2>
+<div class="math-block">$$
+dy = f&#39;(x)\,dx
+$$</div>
+<h2 id="newtons-method-2">Newton&#39;s method</h2>
+<div class="math-block">$$
+x_{n+1} = x_n - \frac{f(x_n)}{f&#39;(x_n)}
+$$</div>
+<hr />
+<h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
+<ul><li><p>Treating the derivative as an average rate of change instead of a limit-based instantaneous rate.</p></li><li><p>Forgetting the chain rule for nested expressions such as $(3x^2+1)^5$ or $\sin(x^3)$.</p></li><li><p>Misusing the product rule by differentiating only one factor.</p></li><li><p>Dropping parentheses in quotient-rule problems.</p></li><li><p>Using trigonometric derivative formulas when the angle is not in radians.</p></li><li><p>Assuming continuity automatically implies differentiability.</p></li><li><p>Forgetting that critical points include places where $f&#39;(x)$ does not exist.</p></li><li><p>Using the second derivative test when $f&#39;&#39;(c)=0$ and drawing a conclusion anyway.</p></li><li><p>Writing $\frac{d}{dx}[\ln x]=\frac{1}{x}$ without checking that the domain requires $x&gt;0$.</p></li><li><p>Solving an optimization problem algebraically but forgetting to interpret the result in context.</p></li></ul>
+      </article>
+    </article>
+  </main>
+</body>
+</html>

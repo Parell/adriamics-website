@@ -1,0 +1,420 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Proof Writing | Adriamics</title>
+  <meta name="description" content="A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results." />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/math/proof-writing/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Note page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/notes/subjects/math/proof-writing/">This page</a>
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="shell">
+    <article class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Proof Writing</h1>
+          <p class="viewer-meta">draft • Reviewed 2026-05-22 • Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fmath%2Fproof-writing.md&amp;title=%5BCorrection%5D%3A%20Proof%20Writing" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">What a proof does</a></p></li><li><p><a href="#toc-2">Reading mathematical statements</a></p></li><li><p><a href="#toc-3">Core proof structures</a></p></li><li><p><a href="#toc-4">Direct proof</a></p></li><li><p><a href="#toc-5">Contrapositive and contradiction</a></p></li><li><p><a href="#toc-6">Cases, existence, and uniqueness</a></p></li><li><p><a href="#toc-7">Induction</a></p></li><li><p><a href="#toc-8">Proofs about sets, functions, and relations</a></p></li><li><p><a href="#toc-9">Common theorem shapes</a></p></li><li><p><a href="#toc-10">Writing style and presentation</a></p></li><li><p><a href="#toc-11">Problem-solving workflow</a></p></li><li><p><a href="#toc-12">Checklist and common mistakes</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="1-what-a-proof-does">1. What a proof does</h1>
+<p>A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.</p>
+<p>The goal is not to explain why a statement feels true. The goal is to remove doubt.</p>
+<h2 id="proof-ingredients">Proof ingredients</h2>
+<p>Every proof is built from:</p>
+<ul><li><p>Definitions</p></li><li><p>Known theorems</p></li><li><p>Logic rules</p></li><li><p>Explicit assumptions from the statement</p></li></ul>
+<p>If a step is not justified by one of these, it is a gap.</p>
+<h2 id="typical-statement-forms">Typical statement forms</h2>
+<p>Mathematical claims usually have one of these shapes:</p>
+<ul><li><p>Universal statements: “for all”</p></li><li><p>Existential statements: “there exists”</p></li><li><p>Implications: “if ... then ...”</p></li><li><p>Equivalences: “if and only if”</p></li><li><p>Negations: “it is not the case that ...”</p></li></ul>
+<p>Each shape suggests a different proof strategy.</p>
+<h2 id="what-counts-as-a-proof">What counts as a proof</h2>
+<p>Valid forms include:</p>
+<ul><li><p>Symbolic derivations from definitions</p></li><li><p>A chain of logically equivalent statements</p></li><li><p>A complete case analysis</p></li><li><p>Induction on a natural parameter</p></li><li><p>A contradiction that forces the negation of the assumption</p></li></ul>
+<p>Examples, diagrams, and numerical checks can motivate a proof, but they do not replace one.</p>
+<hr />
+<a id="toc-2"></a>
+<h1 id="2-reading-mathematical-statements">2. Reading mathematical statements</h1>
+<p>Before proving anything, rewrite the statement carefully.</p>
+<h2 id="translate-the-language">Translate the language</h2>
+<p>Common phrases:</p>
+<table><thead><tr><th>Phrase</th><th>Logical meaning</th></tr></thead><tbody><tr><td>“For all \(x\)”</td><td>\(\forall x\)</td></tr><tr><td>“There exists \(x\)”</td><td>\(\exists x\)</td></tr><tr><td>“If \(P\), then \(Q\)”</td><td>\(P \Rightarrow Q\)</td></tr><tr><td>“\(P\) only if \(Q\)”</td><td>\(P \Rightarrow Q\)</td></tr><tr><td>“\(P\) if \(Q\)”</td><td>\(Q \Rightarrow P\)</td></tr><tr><td>“\(P\) iff \(Q\)”</td><td>\(P \Leftrightarrow Q\)</td></tr><tr><td>“At least one”</td><td>existential</td></tr><tr><td>“Exactly one”</td><td>existence plus uniqueness</td></tr></tbody></table>
+<h2 id="watch-the-quantifier-order">Watch the quantifier order</h2>
+<p>Quantifier order matters:</p>
+<div class="math-block">$$
+\forall x\, \exists y\, P(x,y)
+\quad \text{is not the same as} \quad
+\exists y\, \forall x\, P(x,y).
+$$</div>
+<p>The first says each \(x\) may have its own \(y\). The second says one single \(y\) works for all \(x\).</p>
+<h2 id="negations">Negations</h2>
+<p>Negating statements correctly is essential.</p>
+<div class="math-block">$$
+\neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg(\exists x\, P(x)) \equiv \forall x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg(P \Rightarrow Q) \equiv P \land \neg Q
+$$</div>
+<div class="math-block">$$
+\neg(P \land Q) \equiv \neg P \lor \neg Q
+$$</div>
+<p>These identities are especially useful for contradiction proofs.</p>
+<h2 id="unpack-definitions">Unpack definitions</h2>
+<p>Many proofs are just definitions written carefully.</p>
+<p>Examples:</p>
+<ul><li><p>Even: \(n\) is even if \(n = 2k\) for some integer \(k\)</p></li><li><p>Divisible: \(a \mid b\) means \(b = ak\) for some integer \(k\)</p></li><li><p>Injective: \(f(x_1) = f(x_2)\) implies \(x_1 = x_2\)</p></li><li><p>Surjective: for every \(y\) in the codomain, there exists \(x\) with \(f(x) = y\)</p></li></ul>
+<p>When stuck, rewrite the claim using definitions and symbols.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="3-core-proof-structures">3. Core proof structures</h1>
+<p>Most undergraduate proofs fall into a small number of templates.</p>
+<h2 id="implication">Implication</h2>
+<p>To prove \(P \Rightarrow Q\), assume \(P\) and show \(Q\).</p>
+<p>This is the default proof shape.</p>
+<h2 id="equivalence">Equivalence</h2>
+<p>To prove \(P \Leftrightarrow Q\), prove both directions:</p>
+<div class="math-block">$$
+P \Rightarrow Q
+\quad \text{and} \quad
+Q \Rightarrow P.
+$$</div>
+<p>Sometimes a chain of equivalences is shorter:</p>
+<div class="math-block">$$
+P \Leftrightarrow A \Leftrightarrow B \Leftrightarrow Q.
+$$</div>
+<h2 id="existence">Existence</h2>
+<p>To prove \(\exists x\, P(x)\), provide:</p>
+<ul><li><p>A candidate object \(x\)</p></li><li><p>A justification that it satisfies the property</p></li></ul>
+<p>This is a constructive existence proof.</p>
+<h2 id="uniqueness">Uniqueness</h2>
+<p>To prove “there exists exactly one \(x\) such that \(P(x)\)”:</p>
+<ol><li><p>Prove existence.</p></li><li><p>Assume \(x_1\) and \(x_2\) both satisfy \(P\).</p></li><li><p>Show \(x_1 = x_2\).</p></li></ol>
+<h2 id="universal-statements">Universal statements</h2>
+<p>To prove \(\forall x\, P(x)\), start with an arbitrary \(x\) and prove \(P(x)\).</p>
+<p>Do not assume special properties of \(x\) unless the statement gives them.</p>
+<hr />
+<a id="toc-4"></a>
+<h1 id="4-direct-proof">4. Direct proof</h1>
+<p>A direct proof starts from the hypotheses and derives the conclusion by valid deductions.</p>
+<h2 id="template">Template</h2>
+<p>For a statement \(P \Rightarrow Q\):</p>
+<ol><li><p>Assume \(P\).</p></li><li><p>Expand definitions.</p></li><li><p>Use algebra, logic, or known results.</p></li><li><p>Conclude \(Q\).</p></li></ol>
+<h2 id="example-even-plus-even-is-even">Example: even plus even is even</h2>
+<p>Claim: If \(m\) and \(n\) are even integers, then \(m+n\) is even.</p>
+<p>Proof:</p>
+<p>Let \(m = 2a\) and \(n = 2b\) for integers \(a,b\). Then</p>
+<div class="math-block">$$
+m+n = 2a + 2b = 2(a+b).
+$$</div>
+<p>Since \(a+b\) is an integer, \(m+n\) is even.</p>
+<h2 id="example-product-of-odd-integers">Example: product of odd integers</h2>
+<p>If \(m = 2a+1\) and \(n = 2b+1\), then</p>
+<div class="math-block">$$
+mn = (2a+1)(2b+1) = 2(2ab+a+b)+1,
+$$</div>
+<p>so \(mn\) is odd.</p>
+<h2 id="when-to-use-direct-proof">When to use direct proof</h2>
+<p>Use direct proof when:</p>
+<ul><li><p>The conclusion follows naturally from the hypothesis</p></li><li><p>Definitions are algebraic or constructive</p></li><li><p>The statement is about closure, parity, divisibility, or inequalities</p></li></ul>
+<hr />
+<a id="toc-5"></a>
+<h1 id="5-contrapositive-and-contradiction">5. Contrapositive and contradiction</h1>
+<p>These are the two main indirect proof methods.</p>
+<h2 id="contrapositive">Contrapositive</h2>
+<p>To prove \(P \Rightarrow Q\), you may instead prove:</p>
+<div class="math-block">$$
+\neg Q \Rightarrow \neg P.
+$$</div>
+<p>This is logically equivalent to the original statement.</p>
+<h3 id="example">Example</h3>
+<p>Claim: If \(n^2\) is even, then \(n\) is even.</p>
+<p>Contrapositive: If \(n\) is odd, then \(n^2\) is odd.</p>
+<p>If \(n = 2k+1\), then</p>
+<div class="math-block">$$
+n^2 = (2k+1)^2 = 4k(k+1)+1,
+$$</div>
+<p>which is odd. Hence the contrapositive is true, so the original statement is true.</p>
+<h2 id="contradiction">Contradiction</h2>
+<p>To prove \(S\), assume \(\neg S\) and derive an impossibility.</p>
+<p>The impossibility may be:</p>
+<ul><li><p>A logical contradiction such as \(A \land \neg A\)</p></li><li><p>A violation of a definition</p></li><li><p>A conflict with a known theorem</p></li><li><p>A numerical impossibility, such as “an integer is both even and odd”</p></li></ul>
+<h3 id="example-2">Example</h3>
+<p>Claim: \(\sqrt{2}\) is irrational.</p>
+<p>Assume \(\sqrt{2} = \frac{a}{b}\) in lowest terms. Then</p>
+<div class="math-block">$$
+2 = \frac{a^2}{b^2}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+a^2 = 2b^2.
+$$</div>
+<p>Thus \(a^2\) is even, so \(a\) is even. Write \(a = 2k\). Then</p>
+<div class="math-block">$$
+4k^2 = 2b^2 \implies b^2 = 2k^2,
+$$</div>
+<p>so \(b\) is even. That contradicts that \(a/b\) was in lowest terms.</p>
+<p>Therefore \(\sqrt{2}\) is irrational.</p>
+<h2 id="choosing-between-them">Choosing between them</h2>
+<ul><li><p>Use contrapositive when the negated conclusion is easier to work with.</p></li><li><p>Use contradiction when the negation of the entire statement creates a strong structural conflict.</p></li></ul>
+<hr />
+<a id="toc-6"></a>
+<h1 id="6-cases-existence-and-uniqueness">6. Cases, existence, and uniqueness</h1>
+<p>Some proofs need branching logic.</p>
+<h2 id="proof-by-cases">Proof by cases</h2>
+<p>If a statement splits naturally into finitely many possibilities, prove each case.</p>
+<p>Example:</p>
+<ul><li><p>\(n\) is even or odd</p></li><li><p>\(x \ge 0\) or \(x &lt; 0\)</p></li><li><p>A geometric object lies in one of several regions</p></li></ul>
+<h3 id="example-3">Example</h3>
+<p>Claim: For any integer \(n\), \(n^2 \equiv 0 \text{ or } 1 \pmod{4}\).</p>
+<p>If \(n = 2k\), then \(n^2 = 4k^2 \equiv 0 \pmod{4}\).</p>
+<p>If \(n = 2k+1\), then</p>
+<div class="math-block">$$
+n^2 = 4k(k+1)+1 \equiv 1 \pmod{4}.
+$$</div>
+<p>So the claim holds in both cases.</p>
+<h2 id="existence-proofs">Existence proofs</h2>
+<p>There are two main types.</p>
+<h3 id="constructive-existence">Constructive existence</h3>
+<p>Give an explicit example.</p>
+<p>Example:</p>
+<p>To show there exists a rational number between 1 and 2, choose \(\frac{3}{2}\).</p>
+<h3 id="nonconstructive-existence">Nonconstructive existence</h3>
+<p>Show that something must exist without explicitly naming it.</p>
+<p>Common tools:</p>
+<ul><li><p>Pigeonhole principle</p></li><li><p>Completeness arguments</p></li><li><p>Compactness or extremal arguments</p></li></ul>
+<h2 id="uniqueness-proofs">Uniqueness proofs</h2>
+<p>To prove uniqueness, the standard move is:</p>
+<ol><li><p>Assume two objects satisfy the defining property.</p></li><li><p>Compare them.</p></li><li><p>Conclude they are equal.</p></li></ol>
+<p>This is often paired with an existence proof.</p>
+<hr />
+<a id="toc-7"></a>
+<h1 id="7-induction">7. Induction</h1>
+<p>Induction proves statements indexed by the natural numbers.</p>
+<h2 id="standard-induction">Standard induction</h2>
+<p>To prove \(P(n)\) for all \(n \ge n_0\):</p>
+<ol><li><p>Base case: prove \(P(n_0)\).</p></li><li><p>Inductive hypothesis: assume \(P(k)\) for some arbitrary \(k \ge n_0\).</p></li><li><p>Inductive step: prove \(P(k+1)\).</p></li></ol>
+<p>If both steps work, then \(P(n)\) holds for all \(n \ge n_0\).</p>
+<h2 id="example-4">Example</h2>
+<p>Claim:</p>
+<div class="math-block">$$
+1 + 2 + \cdots + n = \frac{n(n+1)}{2}
+$$</div>
+<p>for all \(n \ge 1\).</p>
+<p>Base case \(n=1\):</p>
+<div class="math-block">$$
+1 = \frac{1\cdot 2}{2}.
+$$</div>
+<p>Inductive hypothesis:</p>
+<div class="math-block">$$
+1 + 2 + \cdots + k = \frac{k(k+1)}{2}.
+$$</div>
+<p>Then</p>
+<div class="math-block">$$
+1 + 2 + \cdots + k + (k+1)
+= \frac{k(k+1)}{2} + (k+1)
+$$</div>
+<div class="math-block">$$
+= (k+1)\left(\frac{k}{2}+1\right)
+= \frac{(k+1)(k+2)}{2}.
+$$</div>
+<p>So the formula holds for \(k+1\).</p>
+<h2 id="strong-induction">Strong induction</h2>
+<p>In strong induction, assume \(P(n_0), P(n_0+1), \dots, P(k)\) all hold, then prove \(P(k+1)\).</p>
+<p>Use strong induction when the next case depends on multiple earlier cases.</p>
+<h2 id="common-induction-pitfalls">Common induction pitfalls</h2>
+<ul><li><p>Forgetting the base case</p></li><li><p>Assuming what you are trying to prove</p></li><li><p>Proving only \(P(k)\Rightarrow P(k+1)\) without starting the chain</p></li><li><p>Failing to state the arbitrary integer \(k\)</p></li></ul>
+<hr />
+<a id="toc-8"></a>
+<h1 id="8-proofs-about-sets-functions-and-relations">8. Proofs about sets, functions, and relations</h1>
+<p>These proofs rely heavily on unpacking definitions.</p>
+<h2 id="set-equality">Set equality</h2>
+<p>To prove \(A = B\), prove both inclusions:</p>
+<div class="math-block">$$
+A \subseteq B
+\quad \text{and} \quad
+B \subseteq A.
+$$</div>
+<p>To prove \(A \subseteq B\), start with an arbitrary \(x \in A\) and show \(x \in B\).</p>
+<h3 id="example-5">Example</h3>
+<p>Claim:</p>
+<div class="math-block">$$
+A \cap (B \cup C) = (A \cap B) \cup (A \cap C).
+$$</div>
+<p>Proof idea:</p>
+<ul><li><p>Show \(x\) in the left side implies \(x\) is in the right side.</p></li><li><p>Show \(x\) in the right side implies \(x\) is in the left side.</p></li></ul>
+<p>This is the most reliable way to prove set identities.</p>
+<h2 id="function-properties">Function properties</h2>
+<h3 id="injective">Injective</h3>
+<p>To prove \(f\) is injective, assume \(f(x_1)=f(x_2)\) and show \(x_1=x_2\).</p>
+<h3 id="surjective">Surjective</h3>
+<p>To prove \(f\) is surjective, let \(y\) be arbitrary in the codomain and find \(x\) such that \(f(x)=y\).</p>
+<h3 id="bijective">Bijective</h3>
+<p>A function is bijective if it is both injective and surjective.</p>
+<p>Bijective functions often have inverses.</p>
+<h2 id="relations">Relations</h2>
+<p>For a relation \(R\), standard properties are:</p>
+<ul><li><p>Reflexive: \(aRa\)</p></li><li><p>Symmetric: \(aRb \Rightarrow bRa\)</p></li><li><p>Antisymmetric: \(aRb\) and \(bRa\) imply \(a=b\)</p></li><li><p>Transitive: \(aRb\) and \(bRc\) imply \(aRc\)</p></li></ul>
+<p>These are usually proved directly from the definition of the relation.</p>
+<hr />
+<a id="toc-9"></a>
+<h1 id="9-common-theorem-shapes">9. Common theorem shapes</h1>
+<p>Many theorems repeat the same patterns under different vocabulary.</p>
+<h2 id="divisibility-proofs">Divisibility proofs</h2>
+<p>If \(a \mid b\), write \(b = ak\) for some integer \(k\).</p>
+<p>Then algebraically manipulate the expression.</p>
+<p>Example:</p>
+<p>If \(a \mid b\) and \(a \mid c\), then \(a \mid (b+c)\).</p>
+<p>Write \(b = ak\) and \(c = a\ell\). Then</p>
+<div class="math-block">$$
+b+c = a(k+\ell),
+$$</div>
+<p>so \(a \mid (b+c)\).</p>
+<h2 id="parity-proofs">Parity proofs</h2>
+<p>Use the forms:</p>
+<ul><li><p>Even: \(2k\)</p></li><li><p>Odd: \(2k+1\)</p></li></ul>
+<p>Then expand and simplify.</p>
+<h2 id="inequality-proofs">Inequality proofs</h2>
+<p>Common tools:</p>
+<ul><li><p>Add the same quantity to both sides</p></li><li><p>Multiply or divide by a positive quantity</p></li><li><p>Use known bounds</p></li><li><p>Apply AM-GM, Cauchy-Schwarz, triangle inequality, or monotonicity</p></li></ul>
+<p>Be careful: multiplying or dividing by a negative number reverses the inequality.</p>
+<h2 id="maximum-minimum-proofs">Maximum/minimum proofs</h2>
+<p>Typical strategies:</p>
+<ul><li><p>Differentiate if calculus is allowed</p></li><li><p>Use algebraic completion</p></li><li><p>Compare to a known bound</p></li><li><p>Use an extremal argument</p></li></ul>
+<h2 id="existence-of-solutions">Existence of solutions</h2>
+<p>Typical strategies:</p>
+<ul><li><p>Explicit construction</p></li><li><p>Intermediate value theorem</p></li><li><p>Counting argument</p></li><li><p>Compactness or extremal choice</p></li></ul>
+<hr />
+<a id="toc-10"></a>
+<h1 id="10-writing-style-and-presentation">10. Writing style and presentation</h1>
+<p>Good proof writing is clear, not decorative.</p>
+<h2 id="keep-the-logical-structure-visible">Keep the logical structure visible</h2>
+<p>Use signposts:</p>
+<ul><li><p>“Assume...”</p></li><li><p>“Let \(x\) be arbitrary...”</p></li><li><p>“By definition...”</p></li><li><p>“Therefore...”</p></li><li><p>“Hence...”</p></li><li><p>“It follows that...”</p></li></ul>
+<p>These guide the reader through the argument.</p>
+<h2 id="state-the-plan-when-useful">State the plan when useful</h2>
+<p>For longer proofs, start with a short roadmap:</p>
+<ul><li><p>“We prove this by contradiction.”</p></li><li><p>“We prove both inclusions.”</p></li><li><p>“We use induction on \(n\).”</p></li></ul>
+<h2 id="avoid-hidden-assumptions">Avoid hidden assumptions</h2>
+<p>State assumptions explicitly.</p>
+<p>Bad:</p>
+<ul><li><p>“Let \(x\) be the solution.”</p></li></ul>
+<p>Better:</p>
+<ul><li><p>“Suppose \(x\) is any solution.”</p></li><li><p>“Let \(x\) be an arbitrary element of \(A\).”</p></li></ul>
+<h2 id="make-variable-names-stable">Make variable names stable</h2>
+<p>Do not rename objects without reason. If you introduce \(n\), keep using \(n\).</p>
+<h2 id="separate-algebra-from-logic">Separate algebra from logic</h2>
+<p>A long algebraic manipulation should still be anchored by a sentence explaining why it matters.</p>
+<h2 id="end-with-the-claim">End with the claim</h2>
+<p>Finish with a sentence that explicitly links your work back to the statement:</p>
+<ul><li><p>“Therefore, \(P\) holds.”</p></li><li><p>“So \(f\) is injective.”</p></li><li><p>“Thus \(A = B\).”</p></li></ul>
+<hr />
+<a id="toc-11"></a>
+<h1 id="11-problem-solving-workflow">11. Problem-solving workflow</h1>
+<p>When you are unsure how to start, use this sequence.</p>
+<h2 id="step-1-rewrite-the-statement">Step 1: Rewrite the statement</h2>
+<p>Put the claim in symbols.</p>
+<p>Identify:</p>
+<ul><li><p>Hypotheses</p></li><li><p>Conclusion</p></li><li><p>Quantifiers</p></li><li><p>Definitions involved</p></li></ul>
+<h2 id="step-2-test-the-shape">Step 2: Test the shape</h2>
+<p>Decide whether the proof is best approached by:</p>
+<ul><li><p>Direct proof</p></li><li><p>Contrapositive</p></li><li><p>Contradiction</p></li><li><p>Cases</p></li><li><p>Induction</p></li><li><p>Set inclusion</p></li></ul>
+<h2 id="step-3-expand-definitions">Step 3: Expand definitions</h2>
+<p>This often reveals the correct path.</p>
+<p>For example:</p>
+<ul><li><p>“\(n\) is prime”</p></li><li><p>“\(f\) is injective”</p></li><li><p>“\(A \subseteq B\)”</p></li><li><p>“\(x \in A \cup B\)”</p></li></ul>
+<h2 id="step-4-try-a-small-example">Step 4: Try a small example</h2>
+<p>Concrete examples can expose the structure of the general proof.</p>
+<p>They should motivate the argument, not replace it.</p>
+<h2 id="step-5-write-the-argument-in-order">Step 5: Write the argument in order</h2>
+<p>A good proof usually follows this structure:</p>
+<ol><li><p>Start from the assumptions.</p></li><li><p>Apply definitions.</p></li><li><p>Use algebra or known theorems.</p></li><li><p>Reach the conclusion.</p></li></ol>
+<h2 id="step-6-check-the-proof-backwards">Step 6: Check the proof backwards</h2>
+<p>Read the conclusion first and verify every step has support.</p>
+<p>Ask:</p>
+<ul><li><p>Did I prove what I claimed?</p></li><li><p>Did I use every assumption correctly?</p></li><li><p>Did I accidentally assume the result?</p></li><li><p>Are the quantifiers correct?</p></li></ul>
+<hr />
+<a id="toc-12"></a>
+<h1 id="12-checklist-and-common-mistakes">12. Checklist and common mistakes</h1>
+<h2 id="proof-checklist">Proof checklist</h2>
+<ul><li><p>State the claim clearly.</p></li><li><p>Identify the proof method.</p></li><li><p>Expand definitions early.</p></li><li><p>Track quantifiers carefully.</p></li><li><p>Justify each nontrivial step.</p></li><li><p>Use complete cases when needed.</p></li><li><p>Close the proof with the exact conclusion.</p></li></ul>
+<h2 id="common-mistakes">Common mistakes</h2>
+<ul><li><p>Proving examples instead of the general statement</p></li><li><p>Mixing up “if” and “only if”</p></li><li><p>Forgetting to prove both directions of an equivalence</p></li><li><p>Using a base case that is not actually the first case</p></li><li><p>Assuming the conclusion in an inductive step</p></li><li><p>Confusing \(\forall\) with \(\exists\)</p></li><li><p>Neglecting that a contradiction must be impossible</p></li><li><p>Writing algebra that is correct but unrelated to the claim</p></li><li><p>Skipping the reason a theorem applies</p></li><li><p>Failing to specify the domain of variables</p></li></ul>
+<h2 id="quick-reference">Quick reference</h2>
+<p>If the statement is:</p>
+<ul><li><p>\(P \Rightarrow Q\), try direct proof first</p></li><li><p>\(P \Rightarrow Q\) with an awkward conclusion, try contrapositive</p></li><li><p>A universal claim over integers, consider induction</p></li><li><p>A set identity, prove both inclusions</p></li><li><p>An existence statement, try construction or a nonconstructive argument</p></li><li><p>A uniqueness statement, prove existence and then compare two candidates</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<div class="math-block">$$
+\neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg(\exists x\, P(x)) \equiv \forall x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg(P \Rightarrow Q) \equiv P \land \neg Q
+$$</div>
+<div class="math-block">$$
+P \Leftrightarrow Q \iff (P \Rightarrow Q) \land (Q \Rightarrow P)
+$$</div>
+<div class="math-block">$$
+A = B \iff (A \subseteq B) \land (B \subseteq A)
+$$</div>
+<div class="math-block">$$
+\text{To prove } \forall x\, P(x), \text{ choose arbitrary } x.
+$$</div>
+<div class="math-block">$$
+\text{To prove } \exists x\, P(x), \text{ exhibit a witness } x.
+$$</div>
+<div class="math-block">$$
+\text{To prove } P \Rightarrow Q, \text{ assume } P \text{ and derive } Q.
+$$</div>
+<div class="math-block">$$
+\text{To prove } P \Rightarrow Q, \text{ it is enough to show } \neg Q \Rightarrow \neg P.
+$$</div>
+      </article>
+    </article>
+  </main>
+</body>
+</html>

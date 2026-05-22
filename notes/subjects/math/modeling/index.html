@@ -1,0 +1,398 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Modeling | Adriamics</title>
+  <meta name="description" content="Mathematical modeling is the process of representing a real-world system with mathematical structures so that the system can be analyzed, predicted, or optimize" />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/math/modeling/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Note page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/notes/subjects/math/modeling/">This page</a>
+        <a href="/">Home</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="content" class="shell">
+    <article class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Modeling</h1>
+          <p class="viewer-meta">draft • Reviewed 2026-05-22 • Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fmath%2Fmodeling.md&amp;title=%5BCorrection%5D%3A%20Modeling" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">What mathematical modeling is</a></p></li><li><p><a href="#toc-2">The modeling cycle</a></p></li><li><p><a href="#toc-3">Types of models</a></p></li><li><p><a href="#toc-4">Core modeling tools</a></p></li><li><p><a href="#toc-5">Parameter fitting and calibration</a></p></li><li><p><a href="#toc-6">Validation and error analysis</a></p></li><li><p><a href="#toc-7">Common model families</a></p></li><li><p><a href="#toc-8">Worked example: population growth</a></p></li><li><p><a href="#toc-9">Worked example: optimization model</a></p></li><li><p><a href="#toc-10">Common pitfalls</a></p></li><li><p><a href="#toc-11">Problem-solving checklist</a></p></li><li><p><a href="#toc-12">Formula summary</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="1-what-mathematical-modeling-is">1. What mathematical modeling is</h1>
+<p>Mathematical modeling is the process of representing a real-world system with mathematical structures so that the system can be analyzed, predicted, or optimized.</p>
+<p>A good model is not the same as a perfect description of reality. It is a simplified representation built to answer a specific question.</p>
+<p>Typical goals:</p>
+<ul><li><p>Explain observed behavior</p></li><li><p>Predict future behavior</p></li><li><p>Estimate unknown quantities</p></li><li><p>Compare competing scenarios</p></li><li><p>Support decision-making under constraints</p></li></ul>
+<h2 id="what-makes-a-model-useful">What makes a model useful</h2>
+<p>A useful model is:</p>
+<ul><li><p>Mathematically consistent</p></li><li><p>Simple enough to analyze or compute</p></li><li><p>Accurate enough for the intended purpose</p></li><li><p>Transparent about assumptions and limitations</p></li></ul>
+<p>Modeling is always a tradeoff between fidelity and tractability. More detail usually increases realism, but it also increases complexity, uncertainty, and the risk of overfitting.</p>
+<hr />
+<a id="toc-2"></a>
+<h1 id="2-the-modeling-cycle">2. The modeling cycle</h1>
+<p>Most modeling problems follow a recurring cycle.</p>
+<h2 id="1-define-the-question">1. Define the question</h2>
+<p>Start with the specific quantity or relationship you want to understand.</p>
+<p>Examples:</p>
+<ul><li><p>How many customers will a business have next month?</p></li><li><p>What load can a bridge support?</p></li><li><p>What is the optimal production schedule?</p></li><li><p>How does a disease spread through a population?</p></li></ul>
+<p>The question determines the variables, level of detail, and output format.</p>
+<h2 id="2-identify-variables-and-assumptions">2. Identify variables and assumptions</h2>
+<p>Classify the quantities involved.</p>
+<ul><li><p><strong>State variables</strong> describe the system at a given time.</p></li><li><p><strong>Inputs</strong> are external influences or controls.</p></li><li><p><strong>Parameters</strong> are fixed or slowly varying quantities.</p></li><li><p><strong>Outputs</strong> are the quantities of interest.</p></li></ul>
+<p>Assumptions reduce reality to something mathematically manageable.</p>
+<p>Examples of assumptions:</p>
+<ul><li><p>The system is well mixed</p></li><li><p>Growth is proportional to current size</p></li><li><p>Friction is negligible</p></li><li><p>Variables change continuously</p></li><li><p>Effects are independent</p></li></ul>
+<h2 id="3-build-the-equations">3. Build the equations</h2>
+<p>Choose mathematical relationships based on known laws, empirical patterns, geometry, or constraints.</p>
+<p>Common sources:</p>
+<ul><li><p>Conservation laws</p></li><li><p>Proportionality arguments</p></li><li><p>Geometric relations</p></li><li><p>Statistical fitting</p></li><li><p>Optimization criteria</p></li></ul>
+<h2 id="4-solve-or-simulate">4. Solve or simulate</h2>
+<p>Depending on the model, use:</p>
+<ul><li><p>Algebra</p></li><li><p>Calculus</p></li><li><p>Differential equations</p></li><li><p>Linear algebra</p></li><li><p>Numerical methods</p></li><li><p>Statistical estimation</p></li></ul>
+<h2 id="5-check-the-result">5. Check the result</h2>
+<p>Ask whether the result is:</p>
+<ul><li><p>Dimensionally consistent</p></li><li><p>Numerically plausible</p></li><li><p>Stable under small changes</p></li><li><p>Compatible with known behavior</p></li></ul>
+<h2 id="6-refine">6. Refine</h2>
+<p>If the model fails to capture important behavior, revise the assumptions, add variables, or change the structure.</p>
+<p>The best models are often iterative, not one-shot.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="3-types-of-models">3. Types of models</h1>
+<h2 id="deterministic-and-stochastic">Deterministic and stochastic</h2>
+<p>Deterministic models produce the same output for the same input.</p>
+<p>Examples:</p>
+<ul><li><p>Projectile motion without random wind</p></li><li><p>Linear growth with fixed rate</p></li><li><p>Many idealized optimization problems</p></li></ul>
+<p>Stochastic models include randomness.</p>
+<p>Examples:</p>
+<ul><li><p>Queueing systems</p></li><li><p>Random walks</p></li><li><p>Demand forecasting with uncertainty</p></li><li><p>Epidemic spread with probabilistic contacts</p></li></ul>
+<h2 id="static-and-dynamic">Static and dynamic</h2>
+<p>Static models describe one snapshot in time.</p>
+<p>Dynamic models describe how a system evolves over time.</p>
+<p>Examples:</p>
+<ul><li><p>Static: equilibrium in a truss</p></li><li><p>Dynamic: spring-mass motion</p></li><li><p>Static: budget allocation</p></li><li><p>Dynamic: inventory over time</p></li></ul>
+<h2 id="continuous-and-discrete">Continuous and discrete</h2>
+<p>Continuous models use variables that vary smoothly.</p>
+<p>Examples:</p>
+<ul><li><p>Temperature</p></li><li><p>Position</p></li><li><p>Concentration</p></li></ul>
+<p>Discrete models use countable steps or entities.</p>
+<p>Examples:</p>
+<ul><li><p>Graph models</p></li><li><p>Difference equations</p></li><li><p>Integer programming</p></li><li><p>Markov chains</p></li></ul>
+<h2 id="linear-and-nonlinear">Linear and nonlinear</h2>
+<p>Linear models are easier to solve and interpret, but they may be too simple.</p>
+<p>A linear relation has the form</p>
+<div class="math-block">$$
+y = mx + b
+$$</div>
+<p>or, more generally,</p>
+<div class="math-block">$$
+Ax = b
+$$</div>
+<p>Nonlinear models can represent saturation, thresholds, feedback, and chaos.</p>
+<p>Examples:</p>
+<ul><li><p>Logistic growth</p></li><li><p>Drag proportional to velocity squared</p></li><li><p>Predator-prey systems</p></li></ul>
+<hr />
+<a id="toc-4"></a>
+<h1 id="4-core-modeling-tools">4. Core modeling tools</h1>
+<h2 id="dimensional-analysis">Dimensional analysis</h2>
+<p>Units must be consistent. Dimensional analysis often reveals missing factors or incorrect formulas.</p>
+<p>If two expressions are supposed to be equal, their dimensions must match.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\text{distance} = \text{speed} \times \text{time}
+$$</div>
+<p>since</p>
+<div class="math-block">$$
+[L] = [L/T][T]
+$$</div>
+<h2 id="scaling-and-nondimensionalization">Scaling and nondimensionalization</h2>
+<p>Scaling replaces raw variables with dimensionless combinations that expose the governing behavior.</p>
+<p>This often reduces the number of parameters and helps identify dominant effects.</p>
+<p>Example:</p>
+<p>If</p>
+<div class="math-block">$$
+\frac{dx}{dt} = ax
+$$</div>
+<p>then the timescale is roughly</p>
+<div class="math-block">$$
+\tau \sim \frac{1}{a}
+$$</div>
+<h2 id="conservation-laws">Conservation laws</h2>
+<p>Many models start from a balance statement:</p>
+<div class="math-block">$$
+\text{change} = \text{inflow} - \text{outflow} + \text{generation} - \text{consumption}
+$$</div>
+<p>Examples:</p>
+<ul><li><p>Mass balance</p></li><li><p>Energy balance</p></li><li><p>Momentum balance</p></li><li><p>Population balance</p></li></ul>
+<h2 id="functions-and-rates-of-change">Functions and rates of change</h2>
+<p>If a quantity changes over time, its derivative often appears in the model.</p>
+<p>For a state variable $x(t)$:</p>
+<div class="math-block">$$
+\frac{dx}{dt}
+$$</div>
+<p>represents the instantaneous rate of change.</p>
+<p>Common forms:</p>
+<ul><li><p>Proportional growth: $\frac{dx}{dt} = kx$</p></li><li><p>Logistic growth: $\frac{dx}{dt} = rx\left(1 - \frac{x}{K}\right)$</p></li><li><p>Relaxation: $\frac{dx}{dt} = -k(x - x^*)$</p></li></ul>
+<h2 id="systems-of-equations">Systems of equations</h2>
+<p>Real models often involve multiple interacting variables:</p>
+<div class="math-block">$$
+\frac{d\mathbf{x}}{dt} = f(\mathbf{x}, t, \mathbf{p})
+$$</div>
+<p>where $\mathbf{x}$ is the state vector and $\mathbf{p}$ is the parameter vector.</p>
+<hr />
+<a id="toc-5"></a>
+<h1 id="5-parameter-fitting-and-calibration">5. Parameter fitting and calibration</h1>
+<p>Parameters are numbers chosen so the model matches observed data.</p>
+<h2 id="calibration-workflow">Calibration workflow</h2>
+<ol><li><p>Choose the model structure</p></li><li><p>Collect data</p></li><li><p>Define the error measure</p></li><li><p>Estimate the parameters</p></li><li><p>Check fit quality</p></li><li><p>Test on new data if possible</p></li></ol>
+<h2 id="least-squares">Least squares</h2>
+<p>If observed data are $(x_i, y_i)$ and the model predicts $\hat y_i = f(x_i; \theta)$, a common objective is</p>
+<div class="math-block">$$
+S(\theta) = \sum_{i=1}^n \left(y_i - f(x_i; \theta)\right)^2
+$$</div>
+<p>The best-fit parameter vector $\theta$ minimizes $S(\theta)$.</p>
+<p>For a linear model</p>
+<div class="math-block">$$
+y = mx + b
+$$</div>
+<p>the least-squares fit chooses $m$ and $b$ to minimize the total squared residuals.</p>
+<h2 id="residuals">Residuals</h2>
+<p>The residual at observation $i$ is</p>
+<div class="math-block">$$
+r_i = y_i - \hat y_i
+$$</div>
+<p>Residual plots help reveal:</p>
+<ul><li><p>Nonlinearity</p></li><li><p>Heteroscedasticity</p></li><li><p>Outliers</p></li><li><p>Missing variables</p></li></ul>
+<h2 id="overfitting-and-underfitting">Overfitting and underfitting</h2>
+<ul><li><p><strong>Underfitting</strong>: model is too simple to capture the pattern</p></li><li><p><strong>Overfitting</strong>: model is too flexible and captures noise instead of signal</p></li></ul>
+<p>A model should generalize, not just memorize the calibration data.</p>
+<hr />
+<a id="toc-6"></a>
+<h1 id="6-validation-and-error-analysis">6. Validation and error analysis</h1>
+<p>Model validation checks whether the model is reliable for its intended use.</p>
+<h2 id="sources-of-error">Sources of error</h2>
+<ul><li><p>Measurement error</p></li><li><p>Parameter uncertainty</p></li><li><p>Structural error from simplifying assumptions</p></li><li><p>Numerical approximation error</p></li><li><p>Random variation</p></li></ul>
+<h2 id="relative-and-absolute-error">Relative and absolute error</h2>
+<p>Absolute error:</p>
+<div class="math-block">$$
+e_{abs} = |x - x_{true}|
+$$</div>
+<p>Relative error:</p>
+<div class="math-block">$$
+e_{rel} = \frac{|x - x_{true}|}{|x_{true}|}
+$$</div>
+<h2 id="sensitivity-analysis">Sensitivity analysis</h2>
+<p>Sensitivity analysis measures how much the output changes when an input or parameter changes.</p>
+<p>If a small parameter change causes a large output change, the model is sensitive and may require more careful calibration.</p>
+<p>This is especially important near thresholds, bifurcations, or unstable equilibria.</p>
+<h2 id="validation-tests">Validation tests</h2>
+<p>Useful checks include:</p>
+<ul><li><p>Compare predictions against held-out data</p></li><li><p>Compare limiting behavior to known special cases</p></li><li><p>Check units and dimensions</p></li><li><p>Perturb parameters and inspect stability</p></li><li><p>Ask whether the model fails gracefully</p></li></ul>
+<hr />
+<a id="toc-7"></a>
+<h1 id="7-common-model-families">7. Common model families</h1>
+<h2 id="linear-models">Linear models</h2>
+<p>Linear models are the starting point for many applications.</p>
+<p>General form:</p>
+<div class="math-block">$$
+\mathbf{y} = A\mathbf{x} + \mathbf{b}
+$$</div>
+<p>Use linear models when the response is approximately proportional to the input over the relevant range.</p>
+<h2 id="differential-equation-models">Differential equation models</h2>
+<p>Differential equations describe continuous change.</p>
+<p>Example:</p>
+<div class="math-block">$$
+\frac{dN}{dt} = rN
+$$</div>
+<p>This represents exponential growth or decay depending on the sign of $r$.</p>
+<h2 id="difference-equation-models">Difference equation models</h2>
+<p>Difference equations model stepwise change:</p>
+<div class="math-block">$$
+x_{n+1} = F(x_n)
+$$</div>
+<p>These are useful for seasonal data, recursive processes, and simulations.</p>
+<h2 id="optimization-models">Optimization models</h2>
+<p>Optimization seeks the best value of an objective function subject to constraints.</p>
+<p>General form:</p>
+<div class="math-block">$$
+\min_x f(x)
+$$</div>
+<p>subject to</p>
+<div class="math-block">$$
+g_i(x) \le 0,\quad h_j(x) = 0
+$$</div>
+<p>Applications:</p>
+<ul><li><p>Scheduling</p></li><li><p>Design</p></li><li><p>Resource allocation</p></li><li><p>Routing</p></li></ul>
+<h2 id="graph-and-network-models">Graph and network models</h2>
+<p>Graph models represent connections between objects.</p>
+<p>They are useful for:</p>
+<ul><li><p>Transportation networks</p></li><li><p>Social networks</p></li><li><p>Dependency graphs</p></li><li><p>Flow problems</p></li></ul>
+<p>Nodes represent entities and edges represent interactions.</p>
+<h2 id="probabilistic-models">Probabilistic models</h2>
+<p>Probabilistic models represent uncertainty explicitly.</p>
+<p>Examples:</p>
+<ul><li><p>Bayesian inference</p></li><li><p>Markov chains</p></li><li><p>Hidden state models</p></li><li><p>Monte Carlo simulation</p></li></ul>
+<hr />
+<a id="toc-8"></a>
+<h1 id="8-worked-example-population-growth">8. Worked example: population growth</h1>
+<p>Suppose a population grows at a rate proportional to its current size.</p>
+<h2 id="model">Model</h2>
+<p>Let $P(t)$ be the population. Then</p>
+<div class="math-block">$$
+\frac{dP}{dt} = kP
+$$</div>
+<p>where $k$ is a constant growth rate.</p>
+<h2 id="solution">Solution</h2>
+<p>Separating variables gives</p>
+<div class="math-block">$$
+\frac{1}{P}\,dP = k\,dt
+$$</div>
+<p>Integrating:</p>
+<div class="math-block">$$
+\ln |P| = kt + C
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+P(t) = P_0 e^{kt}
+$$</div>
+<p>where $P_0$ is the initial population.</p>
+<h2 id="interpretation">Interpretation</h2>
+<ul><li><p>If $k &gt; 0$, the population grows exponentially.</p></li><li><p>If $k &lt; 0$, the population decays exponentially.</p></li><li><p>If growth saturates in reality, the exponential model eventually becomes inaccurate.</p></li></ul>
+<h2 id="extension-logistic-growth">Extension: logistic growth</h2>
+<p>A more realistic model with carrying capacity $K$ is</p>
+<div class="math-block">$$
+\frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)
+$$</div>
+<p>This adds self-limiting behavior:</p>
+<ul><li><p>Growth is nearly exponential when $P \ll K$</p></li><li><p>Growth slows as $P$ approaches $K$</p></li><li><p>The equilibrium $P = K$ is stable</p></li></ul>
+<hr />
+<a id="toc-9"></a>
+<h1 id="9-worked-example-optimization-model">9. Worked example: optimization model</h1>
+<p>Suppose a company wants to minimize cost while meeting a production target.</p>
+<h2 id="decision-variable">Decision variable</h2>
+<p>Let $x$ be the number of units produced by machine A and $y$ the number produced by machine B.</p>
+<h2 id="objective">Objective</h2>
+<p>Minimize cost:</p>
+<div class="math-block">$$
+C(x,y) = c_1x + c_2y
+$$</div>
+<h2 id="constraints">Constraints</h2>
+<p>Production requirement:</p>
+<div class="math-block">$$
+x + y \geq P
+$$</div>
+<p>Capacity limits:</p>
+<div class="math-block">$$
+0 \leq x \leq A
+$$</div>
+<div class="math-block">$$
+0 \leq y \leq B
+$$</div>
+<h2 id="interpretation-2">Interpretation</h2>
+<p>This is a linear programming model if the objective and constraints are linear.</p>
+<p>The solution typically occurs at a feasible corner point of the constraint region.</p>
+<h2 id="modeling-lesson">Modeling lesson</h2>
+<p>The important part is not just solving the equations. It is making sure the variables, objective, and constraints correctly encode the real decision problem.</p>
+<hr />
+<a id="toc-10"></a>
+<h1 id="10-common-pitfalls">10. Common pitfalls</h1>
+<h2 id="confusing-correlation-with-causation">Confusing correlation with causation</h2>
+<p>A fitted pattern does not automatically imply a causal relationship.</p>
+<h2 id="adding-unnecessary-complexity">Adding unnecessary complexity</h2>
+<p>More parameters do not automatically improve a model.</p>
+<h2 id="ignoring-units">Ignoring units</h2>
+<p>Dimensional mistakes often signal deeper conceptual errors.</p>
+<h2 id="using-the-model-outside-its-validity-range">Using the model outside its validity range</h2>
+<p>Every model has an implicit domain of applicability.</p>
+<p>Examples:</p>
+<ul><li><p>Linear approximations near an operating point</p></li><li><p>Ideal gas assumptions at moderate conditions</p></li><li><p>Constant-rate growth models at early times</p></li></ul>
+<h2 id="failing-to-test-extremes">Failing to test extremes</h2>
+<p>Check what the model predicts when:</p>
+<ul><li><p>Inputs go to zero</p></li><li><p>Inputs become very large</p></li><li><p>Parameters change sign</p></li><li><p>Constraints become tight</p></li></ul>
+<h2 id="overlooking-identifiability">Overlooking identifiability</h2>
+<p>If multiple parameter sets produce nearly the same output, the model may not be well determined by the available data.</p>
+<hr />
+<a id="toc-11"></a>
+<h1 id="11-problem-solving-checklist">11. Problem-solving checklist</h1>
+<p>Use this workflow when building or solving a model.</p>
+<ol><li><p>State the question precisely.</p></li><li><p>Define the variables and units.</p></li><li><p>List assumptions explicitly.</p></li><li><p>Decide whether the model is static, dynamic, deterministic, or stochastic.</p></li><li><p>Write the governing equations.</p></li><li><p>Add constraints and initial or boundary conditions.</p></li><li><p>Solve symbolically or numerically.</p></li><li><p>Check units, signs, and limiting cases.</p></li><li><p>Compare with data or known behavior.</p></li><li><p>Refine if necessary.</p></li></ol>
+<p>If the result looks strange, do not force the algebra. Re-check the assumptions first.</p>
+<hr />
+<a id="toc-12"></a>
+<h1 id="12-formula-summary">12. Formula summary</h1>
+<h2 id="growth-and-decay">Growth and decay</h2>
+<div class="math-block">$$
+\frac{dx}{dt} = kx
+$$</div>
+<div class="math-block">$$
+x(t) = x_0 e^{kt}
+$$</div>
+<h2 id="logistic-growth">Logistic growth</h2>
+<div class="math-block">$$
+\frac{dx}{dt} = rx\left(1 - \frac{x}{K}\right)
+$$</div>
+<h2 id="least-squares-objective">Least squares objective</h2>
+<div class="math-block">$$
+S(\theta) = \sum_{i=1}^n \left(y_i - f(x_i; \theta)\right)^2
+$$</div>
+<h2 id="relative-error">Relative error</h2>
+<div class="math-block">$$
+e_{rel} = \frac{|x - x_{true}|}{|x_{true}|}
+$$</div>
+<h2 id="general-optimization-problem">General optimization problem</h2>
+<div class="math-block">$$
+\min_x f(x)
+$$</div>
+<p>subject to</p>
+<div class="math-block">$$
+g_i(x) \le 0,\quad h_j(x) = 0
+$$</div>
+<h2 id="balance-law">Balance law</h2>
+<div class="math-block">$$
+\text{change} = \text{inflow} - \text{outflow} + \text{generation} - \text{consumption}
+$$</div>
+<hr />
+<h2 id="key-idea">Key idea</h2>
+<p>Modeling is the art of choosing the right simplification for the question being asked. Good models are not merely correct in principle; they are useful, testable, and honest about their limits.</p>
+      </article>
+    </article>
+  </main>
+</body>
+</html>

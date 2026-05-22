@@ -1,0 +1,64 @@
+name: Missing Topic
+description: Request a new note page or identify a missing topic within an existing subject.
+title: "[Missing topic]: "
+labels:
+  - feedback
+  - missing-topic
+body:
+  - type: input
+    id: page_path
+    attributes:
+      label: Proposed page path
+      description: Where should this topic live in the notes tree?
+      placeholder: notes/subjects/engineering/thermodynamics-ii.md
+    validations:
+      required: true
+
+  - type: dropdown
+    id: problem_type
+    attributes:
+      label: Problem type
+      options:
+        - Missing topic
+        - Missing prerequisite
+        - Missing worked example
+        - Missing dataset or reference material
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current text or context
+      description: Link or quote the nearby page that reveals the gap, if any.
+      placeholder: Note the page or section where this missing topic became apparent.
+    validations:
+      required: false
+
+  - type: textarea
+    id: suggested_change
+    attributes:
+      label: Suggested change
+      description: Describe the topic, sections, or examples that should be added.
+      placeholder: Outline the missing page or topic coverage.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Explain why this topic is needed and who it helps.
+      placeholder: Describe the gap in the curriculum or learning path.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_reference
+    attributes:
+      label: Source/reference
+      description: Provide references that define the scope or support the request.
+      placeholder: Syllabus, textbook, course outline, URL, or other source.
+    validations:
+      required: false

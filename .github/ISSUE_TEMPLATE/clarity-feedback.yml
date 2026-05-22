@@ -1,0 +1,65 @@
+name: Clarity Feedback
+description: Flag unclear explanations, structure, or presentation issues in an existing note.
+title: "[Clarity]: "
+labels:
+  - feedback
+  - clarity
+body:
+  - type: input
+    id: page_path
+    attributes:
+      label: Page path
+      description: Path to the note page with the clarity issue.
+      placeholder: notes/subjects/math/derivatives.md
+    validations:
+      required: true
+
+  - type: dropdown
+    id: problem_type
+    attributes:
+      label: Problem type
+      options:
+        - Explanation is confusing
+        - Terminology is unclear
+        - Missing intermediate steps
+        - Structure or ordering issue
+        - Visual formatting issue
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: current_text
+    attributes:
+      label: Current text
+      description: Quote the exact sentence, section, or explanation that is unclear.
+      placeholder: Paste the confusing content here.
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested_change
+    attributes:
+      label: Suggested change
+      description: Explain how the content could be made clearer.
+      placeholder: Rewrite, reorder, or propose an example.
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Describe what makes the current presentation hard to follow.
+      placeholder: Mention missing context, jumps in logic, or ambiguous wording.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_reference
+    attributes:
+      label: Source/reference
+      description: Optional reference showing a clearer explanation or authoritative phrasing.
+      placeholder: Textbook section, article, or example resource.
+    validations:
+      required: false

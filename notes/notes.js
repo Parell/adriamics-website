@@ -31,6 +31,7 @@ let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexError = null;
 let pendingSearchFocus = false;
+let currentStandalonePagePath = null;
 
 function slugifyHeading(text) {
   const base = String(text ?? '')
@@ -361,20 +362,26 @@ function buildStandalonePageUrl(pagePath) {
   return `/notes/${normalizedPath.replace(/\.md$/i, '')}/index.html`;
 }
 
+function openStandalonePage() {
+  const pagePath = currentStandalonePagePath;
+
+  if (!pagePath) {
+    return;
+  }
+
+  window.location.assign(buildStandalonePageUrl(pagePath));
+}
+
+if (standaloneLink) {
+  standaloneLink.addEventListener('click', openStandalonePage);
+}
+
 function updateSuggestEditLink(pagePath, noteTitle) {
   if (!suggestEditLink) {
     return;
   }
 
   suggestEditLink.href = buildSuggestEditUrl(pagePath, noteTitle);
-}
-
-function updateStandaloneLink(pagePath) {
-  if (!standaloneLink) {
-    return;
-  }
-
-  standaloneLink.href = buildStandalonePageUrl(pagePath);
 }
 
 function tokenizeSearchQuery(query) {
@@ -1221,10 +1228,10 @@ async function loadPage(pagePath, options = {}) {
 
   currentStructureId = structure.id;
   currentPagePath = normalizedPath;
+  currentStandalonePagePath = normalizedPath;
   clearSearchMatch();
   titleEl.textContent = node.title;
   metaEl.textContent = normalizedPath;
-  updateStandaloneLink(normalizedPath);
   updateSuggestEditLink(normalizedPath, node.title);
   statusEl.textContent = 'Loading...';
   setActiveStructureButton(structure.id);
@@ -1245,11 +1252,10 @@ async function loadPage(pagePath, options = {}) {
     const markdown = await response.text();
     const { metadata, body } = splitFrontmatter(markdown);
     const resolvedTitle = typeof metadata?.title === 'string' && metadata.title.trim() ? metadata.title.trim() : node.title;
-  titleEl.textContent = resolvedTitle;
-  metaEl.textContent = buildMetadataLabel(metadata, normalizedPath);
-  updateStandaloneLink(normalizedPath);
-  updateSuggestEditLink(normalizedPath, resolvedTitle);
-  await renderMarkdown(body);
+    titleEl.textContent = resolvedTitle;
+    metaEl.textContent = buildMetadataLabel(metadata, normalizedPath);
+    updateSuggestEditLink(normalizedPath, resolvedTitle);
+    await renderMarkdown(body);
     if (options.jumpToQuery) {
       const jumpedToMatch = jumpToSearchQuery(options.jumpToQuery);
 
@@ -1261,7 +1267,6 @@ async function loadPage(pagePath, options = {}) {
     }
     statusEl.textContent = 'Loaded';
   } catch {
-    updateStandaloneLink(normalizedPath);
     await renderMarkdown(`# ${node.title}\n\nThis note file is missing.\n\nCreate it at \`${normalizedPath}\` and the page will render it here.\n`);
     restoreScrollPosition(normalizedPath);
     statusEl.textContent = 'Missing file';
@@ -1328,7 +1333,7 @@ async function init() {
 
     void ensureSearchIndex();
     const selection = resolveInitialSelection(loadState());
-    updateStandaloneLink(selection.pagePath);
+    currentStandalonePagePath = selection.pagePath;
     await loadPage(selection.pagePath, { structureId: selection.structureId });
   } catch (error) {
     guideTitleEl.textContent = 'Unable to load guide';

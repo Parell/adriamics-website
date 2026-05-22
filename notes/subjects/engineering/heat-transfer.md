@@ -1,9 +1,9 @@
 ---
 auditors:
-  - @Parell
-status: verified
+  - "@Parell"
+status: draft
 last_reviewed: 2026-05-22
-sources:
+sources: []
 ---
 
 # Heat Transfer

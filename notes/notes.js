@@ -244,6 +244,10 @@ function normalizeWhitespace(text) {
 function parseFrontmatterValue(value) {
   const trimmed = String(value ?? '').trim();
 
+  if (trimmed === '[]') {
+    return [];
+  }
+
   if (
     (trimmed.startsWith('"') && trimmed.endsWith('"'))
     || (trimmed.startsWith("'") && trimmed.endsWith("'"))

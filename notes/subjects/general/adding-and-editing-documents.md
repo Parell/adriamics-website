@@ -1,9 +1,9 @@
 ---
 auditors:
-  - @Parell
+  - "@Parell"
 status: verified
 last_reviewed: 2026-05-22
-sources:
+sources: []
 ---
 
 # Adding and Editing Documents
@@ -26,7 +26,7 @@ Use a new document when the topic does not already exist in the subject tree.
 
 1. Choose the correct subject folder under `notes/subjects/`.
 2. Create a new Markdown file with a short kebab-case name such as `example-topic.md`.
-3. Copy the standard frontmatter block from an existing note and set the title with an `# H1` heading.
+3. Copy the standard frontmatter block from an existing note, keep GitHub-sensitive values quoted such as `- "@Parell"`, use `sources: []` for an empty list, and set the title with an `# H1` heading.
 4. Add the new file to `notes/subjects/manifest.js` so it appears in the guide panel.
 5. Open the notes site and confirm the page loads, renders, and appears under the correct subject.
 6. Submit the change for auditor review before it is merged.

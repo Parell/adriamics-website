@@ -8,8 +8,654 @@ sources: []
 
 # Relativity
 
-Placeholder notes for relativity.
+## Table of contents
 
-## Focus
+1. [Why relativity is needed](#toc-1)
+2. [Special relativity: postulates and frames](#toc-2)
+3. [Lorentz transformations](#toc-3)
+4. [Spacetime interval and causality](#toc-4)
+5. [Time dilation and length contraction](#toc-5)
+6. [Relativity of simultaneity](#toc-6)
+7. [Velocity and acceleration in relativity](#toc-7)
+8. [Energy and momentum](#toc-8)
+9. [Relativistic dynamics and collisions](#toc-9)
+10. [General relativity: gravity as geometry](#toc-10)
+11. [Gravitational time dilation and light bending](#toc-11)
+12. [Common problem-solving workflow](#toc-12)
+13. [Formula sheet](#toc-13)
+14. [Common mistakes to avoid](#toc-14)
 
-Cover the main concepts, methods, terminology, and representative problems for relativity.
+---
+
+<a id="toc-1"></a>
+# 1. Why relativity is needed
+
+Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed of light, but it fails for:
+
+- Particles moving near light speed
+- Accurate timing in satellites and particle accelerators
+- Strong gravitational fields
+
+Relativity replaces absolute time with spacetime and ensures that the speed of light in vacuum,
+
+$$
+c \approx 3.00 \times 10^8\ \text{m/s}
+$$
+
+is the same for all inertial observers.
+
+## When to use relativity
+
+Use relativity when:
+
+- A speed is a significant fraction of $c$
+- The problem involves light signals, clocks, or simultaneity
+- The problem asks for rest mass, rest energy, or invariant interval
+- Gravity must be treated as curved spacetime rather than a force in flat space
+
+For everyday speeds, classical formulas are usually adequate because relativistic corrections are tiny.
+
+---
+
+<a id="toc-2"></a>
+# 2. Special relativity: postulates and frames
+
+Special relativity applies to inertial frames, meaning frames moving at constant velocity relative to one another.
+
+## Postulates
+
+1. The laws of physics are the same in all inertial frames.
+2. The speed of light in vacuum is the same for all inertial observers.
+
+These postulates force space and time to transform together.
+
+## Reference frames
+
+An inertial frame is one that is not accelerating.
+
+Common notation:
+
+- $S$ = unprimed frame
+- $S'$ = frame moving at constant velocity $v$ relative to $S$
+
+If the motion is along the $x$-axis, the standard analysis uses one-dimensional Lorentz transformations.
+
+## Events
+
+An **event** is something that happens at a particular place and time.
+
+An event is represented by:
+
+$$
+(t, x, y, z)
+$$
+
+or, often, by the spacetime coordinate pair $(ct, x)$ in one dimension.
+
+---
+
+<a id="toc-3"></a>
+# 3. Lorentz transformations
+
+The Lorentz transformations relate the coordinates of the same event between two inertial frames moving at relative speed $v$ along the $x$-axis.
+
+Define:
+
+$$
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$
+
+Then:
+
+$$
+x' = \gamma(x-vt)
+$$
+
+$$
+t' = \gamma\left(t-\frac{vx}{c^2}\right)
+$$
+
+The inverse transformations are:
+
+$$
+x = \gamma(x'+vt')
+$$
+
+$$
+t = \gamma\left(t'+\frac{vx'}{c^2}\right)
+$$
+
+## Galilean limit
+
+If $v \ll c$, then $\gamma \approx 1$ and the Lorentz transformations reduce to the classical relations:
+
+$$
+x' \approx x-vt
+$$
+
+$$
+t' \approx t
+$$
+
+## Interpretation
+
+The transformations mix space and time. That is the mathematical reason that:
+
+- Moving clocks run slow
+- Moving rods contract along the direction of motion
+- Simultaneity becomes frame-dependent
+
+---
+
+<a id="toc-4"></a>
+# 4. Spacetime interval and causality
+
+The spacetime interval between two events is invariant under Lorentz transformations.
+
+In one spatial dimension:
+
+$$
+\Delta s^2 = c^2\Delta t^2 - \Delta x^2
+$$
+
+In three dimensions:
+
+$$
+\Delta s^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
+$$
+
+The sign convention may vary by text, but the invariant content is the same.
+
+## Interval classification
+
+| Interval type | Condition | Interpretation |
+| --- | ---: | --- |
+| Timelike | $c^2\Delta t^2 > \Delta x^2+\Delta y^2+\Delta z^2$ | A causal signal moving slower than light can connect the events |
+| Lightlike / null | Equality | Connected by a light signal |
+| Spacelike | $c^2\Delta t^2 < \Delta x^2+\Delta y^2+\Delta z^2$ | No causal influence at or below light speed can connect them |
+
+## Proper time
+
+Proper time $\Delta \tau$ is the time measured by a clock that travels with the events when the interval is timelike.
+
+For motion in one dimension:
+
+$$
+\Delta \tau = \Delta t\sqrt{1-\frac{v^2}{c^2}}
+$$
+
+and therefore:
+
+$$
+\Delta t = \gamma \Delta \tau
+$$
+
+Proper time is the shortest time elapsed between two timelike-separated events among inertial paths.
+
+---
+
+<a id="toc-5"></a>
+# 5. Time dilation and length contraction
+
+## Time dilation
+
+A moving clock is observed to run slow.
+
+If $\Delta \tau$ is the proper time measured in the clock’s rest frame, then an observer who sees the clock moving measures:
+
+$$
+\Delta t = \gamma \Delta \tau
+$$
+
+where $\Delta t$ is larger than the proper time.
+
+### Example pattern
+
+If a muon has a proper lifetime of $\tau_0$ and moves at speed $v$, the observed lifetime is:
+
+$$
+\tau = \gamma \tau_0
+$$
+
+## Length contraction
+
+An object moving relative to an observer is shortened along the direction of motion.
+
+If $L_0$ is the proper length measured in the object’s rest frame, then the observed length is:
+
+$$
+L = \frac{L_0}{\gamma}
+$$
+
+Only the dimension parallel to the motion contracts.
+
+## Proper quantities
+
+- Proper time: time measured in the object's rest frame
+- Proper length: length measured in the object's rest frame
+
+These are the natural reference values in relativity problems.
+
+---
+
+<a id="toc-6"></a>
+# 6. Relativity of simultaneity
+
+Events that are simultaneous in one frame need not be simultaneous in another.
+
+From the Lorentz transformation:
+
+$$
+t' = \gamma\left(t-\frac{vx}{c^2}\right)
+$$
+
+two events with $\Delta t = 0$ in one frame generally satisfy:
+
+$$
+\Delta t' = -\gamma \frac{v\Delta x}{c^2}
+$$
+
+if they are separated in space.
+
+## Why it matters
+
+Relativity of simultaneity is not a minor correction. It is the key idea that makes time dilation and length contraction consistent.
+
+## Common interpretation trap
+
+If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of “same time” is frame-dependent.
+
+---
+
+<a id="toc-7"></a>
+# 7. Velocity and acceleration in relativity
+
+Classical velocity addition fails at high speed.
+
+## Velocity addition
+
+For colinear velocities:
+
+$$
+u' = \frac{u-v}{1-\frac{uv}{c^2}}
+$$
+
+Equivalently, if an object moves at speed $u'$ in $S'$ and $S'$ moves at speed $v$ relative to $S$, then the speed in $S$ is:
+
+$$
+u = \frac{u'+v}{1+\frac{u'v}{c^2}}
+$$
+
+This formula guarantees that no result exceeds $c$ if the inputs are subluminal.
+
+## Why speeds do not simply add
+
+If $u' = c$, then:
+
+$$
+u = c
+$$
+
+for any inertial frame. Light speed is invariant.
+
+## Relativistic momentum direction
+
+For force and acceleration problems, the acceleration need not point in the same direction as the applied force in a simple Newtonian way because momentum depends on $\gamma$.
+
+---
+
+<a id="toc-8"></a>
+# 8. Energy and momentum
+
+Relativity unifies energy and momentum into a single framework.
+
+## Relativistic momentum
+
+$$
+\mathbf{p} = \gamma m\mathbf{v}
+$$
+
+where $m$ is the invariant rest mass.
+
+## Total energy
+
+$$
+E = \gamma mc^2
+$$
+
+## Rest energy
+
+For an object at rest:
+
+$$
+E_0 = mc^2
+$$
+
+This is the most famous result in relativity.
+
+## Kinetic energy
+
+Relativistic kinetic energy is:
+
+$$
+K = E - E_0 = (\gamma - 1)mc^2
+$$
+
+For $v \ll c$, this approaches the classical form:
+
+$$
+K \approx \frac{1}{2}mv^2
+$$
+
+## Energy-momentum relation
+
+The invariant relation is:
+
+$$
+E^2 = (pc)^2 + (mc^2)^2
+$$
+
+Special cases:
+
+- If $m=0$:
+
+$$
+E = pc
+$$
+
+- If the particle is at rest:
+
+$$
+E = mc^2
+$$
+
+## Four-momentum
+
+The four-momentum combines energy and momentum:
+
+$$
+P^\mu = \left(\frac{E}{c}, \mathbf{p}\right)
+$$
+
+Its invariant magnitude is tied to rest mass.
+
+---
+
+<a id="toc-9"></a>
+# 9. Relativistic dynamics and collisions
+
+The relativistic conservation laws look familiar, but the conserved quantities are different from the classical approximations.
+
+## Conservation laws
+
+In an isolated system:
+
+- Total energy is conserved
+- Total momentum is conserved
+- Angular momentum is conserved
+
+For collisions, use:
+
+$$
+\sum E_{in} = \sum E_{out}
+$$
+
+and
+
+$$
+\sum \mathbf{p}_{in} = \sum \mathbf{p}_{out}
+$$
+
+## Inelastic collisions
+
+In relativity, kinetic energy can be converted into rest mass and vice versa, as long as total energy is conserved.
+
+## Threshold and reaction problems
+
+For particle reactions, use the invariant quantity before and after the event. The center-of-momentum frame is often the cleanest choice because the total momentum is zero there.
+
+## Practical workflow
+
+1. Identify the reference frame.
+2. Write energy and momentum conservation.
+3. Use the relativistic energy-momentum relation.
+4. Keep $c$ explicit until the final step.
+5. Check whether the result stays below $c$ for any material particle.
+
+---
+
+<a id="toc-10"></a>
+# 10. General relativity: gravity as geometry
+
+Special relativity handles inertial frames. General relativity extends the framework to accelerated frames and gravity.
+
+## Core idea
+
+Gravity is not treated as an ordinary force in the Newtonian sense. Instead, mass-energy curves spacetime, and free-falling objects follow geodesics in that curved spacetime.
+
+## Equivalence principle
+
+Locally, being in a small freely falling elevator is indistinguishable from being in gravity-free inertial motion.
+
+This principle explains why gravitational effects can be modeled geometrically.
+
+## Stress-energy source
+
+Matter and energy determine curvature. In broad terms:
+
+- Energy density curves spacetime
+- Curved spacetime affects motion
+
+The full field equations are beyond most introductory treatments, but the conceptual link is essential.
+
+## When general relativity matters
+
+General relativity is important for:
+
+- GPS timing corrections
+- Black holes and neutron stars
+- Precision orbital dynamics
+- Gravitational lensing
+- Cosmology
+
+---
+
+<a id="toc-11"></a>
+# 11. Gravitational time dilation and light bending
+
+## Gravitational time dilation
+
+Clocks deeper in a gravitational field tick more slowly relative to clocks higher up.
+
+Near a non-rotating spherical body, the qualitative result is:
+
+- Lower gravitational potential means slower clock rate
+- Higher gravitational potential means faster clock rate
+
+This effect is measurable and must be corrected in satellite navigation.
+
+## Gravitational redshift
+
+Light climbing out of a gravitational field loses frequency and gains wavelength.
+
+If frequency decreases, then:
+
+$$
+E = hf
+$$
+
+also decreases for the photon.
+
+## Light bending
+
+Light follows curved spacetime, so its path bends near massive objects.
+
+This is one of the classic observational tests of general relativity.
+
+---
+
+<a id="toc-12"></a>
+# 12. Common problem-solving workflow
+
+Use this workflow for most relativity problems.
+
+## Step 1: Identify the regime
+
+Decide whether the problem is:
+
+- Special relativity
+- General relativity
+- A classical limit where relativistic corrections are negligible
+
+## Step 2: Choose the right frame
+
+Pick the frame where the geometry or conservation law is simplest.
+
+Common good choices:
+
+- Rest frame of the particle
+- Rest frame of the clock
+- Center-of-momentum frame
+- Frame in which an event occurs at a single point
+
+## Step 3: List invariants
+
+Useful invariants include:
+
+- Speed of light $c$
+- Spacetime interval
+- Rest mass
+- Total energy-momentum relation
+
+## Step 4: Translate the geometry correctly
+
+Be explicit about:
+
+- Which events are simultaneous in which frame
+- Which length is proper length
+- Which time is proper time
+
+## Step 5: Write the governing equations
+
+For special relativity:
+
+$$
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$
+
+$$
+\Delta t = \gamma \Delta \tau
+$$
+
+$$
+E^2 = (pc)^2 + (mc^2)^2
+$$
+
+For collisions:
+
+$$
+\sum E_{in} = \sum E_{out}
+$$
+
+$$
+\sum \mathbf{p}_{in} = \sum \mathbf{p}_{out}
+$$
+
+## Step 6: Check limits
+
+Verify that your result reduces to the classical answer when $v \ll c$.
+
+---
+
+<a id="toc-13"></a>
+# 13. Formula sheet
+
+## Lorentz factor
+
+$$
+\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}
+$$
+
+## Lorentz transformations
+
+$$
+x' = \gamma(x-vt)
+$$
+
+$$
+t' = \gamma\left(t-\frac{vx}{c^2}\right)
+$$
+
+## Interval
+
+$$
+\Delta s^2 = c^2\Delta t^2 - \Delta x^2 - \Delta y^2 - \Delta z^2
+$$
+
+## Time dilation
+
+$$
+\Delta t = \gamma \Delta \tau
+$$
+
+## Length contraction
+
+$$
+L = \frac{L_0}{\gamma}
+$$
+
+## Velocity addition
+
+$$
+u = \frac{u'+v}{1+\frac{u'v}{c^2}}
+$$
+
+## Momentum and energy
+
+$$
+\mathbf{p} = \gamma m\mathbf{v}
+$$
+
+$$
+E = \gamma mc^2
+$$
+
+$$
+E_0 = mc^2
+$$
+
+$$
+K = (\gamma - 1)mc^2
+$$
+
+$$
+E^2 = (pc)^2 + (mc^2)^2
+$$
+
+## Photon relations
+
+For light:
+
+$$
+E = hf
+$$
+
+$$
+E = pc
+$$
+
+---
+
+<a id="toc-14"></a>
+# 14. Common mistakes to avoid
+
+- Using Galilean velocity addition when speeds are relativistic.
+- Treating coordinate time as proper time.
+- Forgetting that proper length is measured in the object's rest frame.
+- Assuming simultaneity is universal.
+- Mixing up which frame is $S$ and which is $S'$ in Lorentz transformations.
+- Dropping factors of $c$ too early.
+- Using $K = \frac{1}{2}mv^2$ at high speed.
+- Forgetting that momentum is $\gamma mv$, not just $mv$.
+- Applying special-relativity formulas to strong gravity without checking the model.
+- Confusing gravitational time dilation with Doppler shift, which are related but not the same effect.

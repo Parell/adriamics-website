@@ -23,12 +23,28 @@ window.UES_GUIDE_MANIFEST = {
           path: 'subjects/math/arithmetic.md',
         },
         {
+          title: 'Logic',
+          path: 'subjects/math/logic.md',
+        },
+        {
+          title: 'Geometry',
+          path: 'subjects/math/geometry.md',
+        },
+        {
           title: 'Algebra',
           path: 'subjects/math/algebra.md',
         },
         {
           title: 'Functions',
           path: 'subjects/math/functions.md',
+        },
+        {
+          title: 'Probability',
+          path: 'subjects/math/probability.md',
+        },
+        {
+          title: 'Statistics',
+          path: 'subjects/math/statistics.md',
         },
         {
           title: 'Trigonometry',
@@ -63,6 +79,14 @@ window.UES_GUIDE_MANIFEST = {
           path: 'subjects/math/eigenvalues.md',
         },
         {
+          title: 'Discrete Math',
+          path: 'subjects/math/discrete-math.md',
+        },
+        {
+          title: 'Modeling',
+          path: 'subjects/math/modeling.md',
+        },
+        {
           title: 'First Order ODEs',
           path: 'subjects/math/first-order-odes.md',
         },
@@ -75,32 +99,8 @@ window.UES_GUIDE_MANIFEST = {
           path: 'subjects/math/systems-of-odes.md',
         },
         {
-          title: 'Geometry',
-          path: 'subjects/math/geometry.md',
-        },
-        {
-          title: 'Logic',
-          path: 'subjects/math/logic.md',
-        },
-        {
           title: 'Proof Writing',
           path: 'subjects/math/proof-writing.md',
-        },
-        {
-          title: 'Probability',
-          path: 'subjects/math/probability.md',
-        },
-        {
-          title: 'Statistics',
-          path: 'subjects/math/statistics.md',
-        },
-        {
-          title: 'Discrete Math',
-          path: 'subjects/math/discrete-math.md',
-        },
-        {
-          title: 'Modeling',
-          path: 'subjects/math/modeling.md',
         },
       ],
     },
@@ -140,42 +140,38 @@ window.UES_GUIDE_MANIFEST = {
           title: 'Optics',
           path: 'subjects/physics/optics.md',
         },
-        {
-          title: 'Condensed Matter Physics',
-          path: 'subjects/physics/condensed-matter-physics.md',
-        },
-        {
-          title: 'Particle and Nuclear Physics',
-          path: 'subjects/physics/particle-and-nuclear-physics.md',
-        },
-        {
-          title: 'Astrophysics and Cosmology',
-          path: 'subjects/physics/astrophysics-and-cosmology.md',
-        },
-        {
-          title: 'Plasma Physics',
-          path: 'subjects/physics/plasma-physics.md',
-        },
-        {
-          title: 'Biophysics',
-          path: 'subjects/physics/biophysics.md',
-        },
-        {
-          title: 'Geophysics',
-          path: 'subjects/physics/geophysics.md',
-        },
-        {
-          title: 'Lab and Measurement',
-          path: 'subjects/physics/lab-and-measurement.md',
-        },
-        {
-          title: 'Data and Analysis',
-          path: 'subjects/physics/data-and-analysis.md',
-        },
-        {
-          title: 'Computational Physics',
-          path: 'subjects/physics/computational-physics.md',
-        },
+        // {
+        //   title: 'Condensed Matter Physics',
+        //   path: 'subjects/physics/condensed-matter-physics.md',
+        // },
+        // {
+        //   title: 'Particle and Nuclear Physics',
+        //   path: 'subjects/physics/particle-and-nuclear-physics.md',
+        // },
+        // {
+        //   title: 'Astrophysics and Cosmology',
+        //   path: 'subjects/physics/astrophysics-and-cosmology.md',
+        // },
+        // {
+        //   title: 'Plasma Physics',
+        //   path: 'subjects/physics/plasma-physics.md',
+        // },
+        // {
+        //   title: 'Biophysics',
+        //   path: 'subjects/physics/biophysics.md',
+        // },
+        // {
+        //   title: 'Geophysics',
+        //   path: 'subjects/physics/geophysics.md',
+        // },
+        // {
+        //   title: 'Computational Physics',
+        //   path: 'subjects/physics/computational-physics.md',
+        // },
+        // {
+        //   title: 'Lab and Measurement',
+        //   path: 'subjects/physics/lab-and-measurement.md',
+        // },
       ],
     },
     {
@@ -205,10 +201,6 @@ window.UES_GUIDE_MANIFEST = {
         {
           title: 'Materials Science',
           path: 'subjects/engineering/materials-science.md',
-        },
-        {
-          title: 'Circuits',
-          path: 'subjects/engineering/circuits.md',
         },
         {
           title: 'Electrical Circuit Analysis',
@@ -314,51 +306,51 @@ window.UES_GUIDE_MANIFEST = {
         },
       ],
     },
-    {
-      id: 'data-computing',
-      title: 'Data / Computing',
-      children: [
-        {
-          title: 'Programming',
-          path: 'subjects/data-computing/programming.md',
-        },
-        {
-          title: 'Algorithms',
-          path: 'subjects/data-computing/algorithms.md',
-        },
-        {
-          title: 'Data Structures',
-          path: 'subjects/data-computing/data-structures.md',
-        },
-        {
-          title: 'Databases',
-          path: 'subjects/data-computing/databases.md',
-        },
-        {
-          title: 'Computer Architecture',
-          path: 'subjects/data-computing/computer-architecture.md',
-        },
-        {
-          title: 'Operating Systems',
-          path: 'subjects/data-computing/operating-systems.md',
-        },
-        {
-          title: 'Networking',
-          path: 'subjects/data-computing/networking.md',
-        },
-        {
-          title: 'Cybersecurity Basics',
-          path: 'subjects/data-computing/cybersecurity-basics.md',
-        },
-        {
-          title: 'Software Design',
-          path: 'subjects/data-computing/software-design.md',
-        },
-        {
-          title: 'Version Control',
-          path: 'subjects/data-computing/version-control.md',
-        },
-      ],
-    },
+    // {
+    //   id: 'data-computing',
+    //   title: 'Data / Computing',
+    //   children: [
+    //     {
+    //       title: 'Programming',
+    //       path: 'subjects/data-computing/programming.md',
+    //     },
+    //     {
+    //       title: 'Algorithms',
+    //       path: 'subjects/data-computing/algorithms.md',
+    //     },
+    //     {
+    //       title: 'Data Structures',
+    //       path: 'subjects/data-computing/data-structures.md',
+    //     },
+    //     {
+    //       title: 'Databases',
+    //       path: 'subjects/data-computing/databases.md',
+    //     },
+    //     {
+    //       title: 'Computer Architecture',
+    //       path: 'subjects/data-computing/computer-architecture.md',
+    //     },
+    //     {
+    //       title: 'Operating Systems',
+    //       path: 'subjects/data-computing/operating-systems.md',
+    //     },
+    //     {
+    //       title: 'Networking',
+    //       path: 'subjects/data-computing/networking.md',
+    //     },
+    //     {
+    //       title: 'Cybersecurity Basics',
+    //       path: 'subjects/data-computing/cybersecurity-basics.md',
+    //     },
+    //     {
+    //       title: 'Software Design',
+    //       path: 'subjects/data-computing/software-design.md',
+    //     },
+    //     {
+    //       title: 'Version Control',
+    //       path: 'subjects/data-computing/version-control.md',
+    //     },
+    //   ],
+    // },
   ],
 };

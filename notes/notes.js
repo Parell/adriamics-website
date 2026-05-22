@@ -1224,6 +1224,7 @@ async function loadPage(pagePath, options = {}) {
   clearSearchMatch();
   titleEl.textContent = node.title;
   metaEl.textContent = normalizedPath;
+  updateStandaloneLink(normalizedPath);
   updateSuggestEditLink(normalizedPath, node.title);
   statusEl.textContent = 'Loading...';
   setActiveStructureButton(structure.id);
@@ -1260,6 +1261,7 @@ async function loadPage(pagePath, options = {}) {
     }
     statusEl.textContent = 'Loaded';
   } catch {
+    updateStandaloneLink(normalizedPath);
     await renderMarkdown(`# ${node.title}\n\nThis note file is missing.\n\nCreate it at \`${normalizedPath}\` and the page will render it here.\n`);
     restoreScrollPosition(normalizedPath);
     statusEl.textContent = 'Missing file';
@@ -1326,6 +1328,7 @@ async function init() {
 
     void ensureSearchIndex();
     const selection = resolveInitialSelection(loadState());
+    updateStandaloneLink(selection.pagePath);
     await loadPage(selection.pagePath, { structureId: selection.structureId });
   } catch (error) {
     guideTitleEl.textContent = 'Unable to load guide';

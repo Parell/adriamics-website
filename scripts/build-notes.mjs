@@ -691,7 +691,7 @@ async function buildNotePage(note, urlPath) {
   const summary = getSummary(bodyWithoutTitle) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
-  const standaloneUrl = urlPath;
+  const standaloneUrl = `${urlPath}index.html`;
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(`notes/${note.path}`)}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
   const bodyHtml = renderBlocks(bodyWithoutTitle, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({

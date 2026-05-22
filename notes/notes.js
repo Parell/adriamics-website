@@ -358,7 +358,7 @@ function buildStandalonePageUrl(pagePath) {
     return '/notes/';
   }
 
-  return `/notes/${normalizedPath.replace(/\.md$/i, '')}/`;
+  return `/notes/${normalizedPath.replace(/\.md$/i, '')}/index.html`;
 }
 
 function updateSuggestEditLink(pagePath, noteTitle) {

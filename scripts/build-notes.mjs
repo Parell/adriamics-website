@@ -34,18 +34,19 @@ function trimMarkdownText(text) {
     .replace(/`([^`]+)`/g, ' $1 ')
     .replace(/!\[([^\]]*)\]\([^)]+\)/g, ' $1 ')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, ' $1 ')
+    .replace(/<[^>]+>/g, ' ')
     .replace(/^\s{0,3}#{1,6}\s+/gm, ' ')
     .replace(/^\s{0,3}>\s?/gm, ' ')
     .replace(/^\s*[-*+]\s+/gm, ' ')
     .replace(/^\s*\d+\.\s+/gm, ' ')
     .replace(/\|/g, ' ')
-    .replace(/[*_~]/g, ' ')
+    .replace(/[*_~$]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
 
 function splitFrontmatter(markdown) {
-  const text = String(markdown ?? '');
+  const text = String(markdown ?? '').replace(/^\uFEFF/, '');
   const match = text.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
 
   if (!match) {
@@ -545,14 +546,190 @@ function getSummary(markdown) {
     const summary = trimMarkdownText(paragraphLines.join(' '));
 
     if (summary) {
-      return summary.slice(0, 160);
+      return summary;
     }
   }
 
   return '';
 }
 
-function buildNoteHtml({ title, description, metadataLabel, bodyHtml, canonicalUrl, standaloneUrl, editUrl }) {
+function getFirstPagePath(node) {
+  if (!node || typeof node !== 'object') {
+    return null;
+  }
+
+  if (node.path) {
+    return node.path;
+  }
+
+  for (const child of node.children ?? []) {
+    const path = getFirstPagePath(child);
+
+    if (path) {
+      return path;
+    }
+  }
+
+  return null;
+}
+
+function containsPagePath(node, pagePath) {
+  return node?.path === pagePath
+    || (node?.children ?? []).some((child) => containsPagePath(child, pagePath));
+}
+
+function getNoteUrl(notePath) {
+  return getPageUrl(`notes/${notePath}`);
+}
+
+function renderSubjectLinks(structures, activeStructureId = null) {
+  const links = structures.map((structure) => {
+    const pagePath = getFirstPagePath(structure);
+
+    if (!pagePath) {
+      return '';
+    }
+
+    const isActive = structure.id === activeStructureId;
+    const activeClass = isActive ? ' class="is-active"' : '';
+    const current = isActive ? ' aria-current="true"' : '';
+    return `<li><a${activeClass}${current} href="${escapeHtml(getNoteUrl(pagePath))}">${escapeHtml(structure.title)}</a></li>`;
+  }).join('');
+
+  return `<aside class="notes-structures" aria-label="Guide structures">
+          <ul class="subject-list">${links}</ul>
+        </aside>`;
+}
+
+function renderGuideTree(nodes, activePagePath = null, depth = 0) {
+  return nodes.map((node) => {
+    const pagePath = node.path ?? getFirstPagePath(node);
+
+    if (!pagePath) {
+      return '';
+    }
+
+    const isActive = node.path === activePagePath;
+    const isAncestor = !isActive && containsPagePath(node, activePagePath);
+    const classes = [
+      'guide-tree__button',
+      node.children?.length ? 'guide-tree__button--folder' : 'guide-tree__button--page',
+      isActive ? 'is-active' : '',
+      isAncestor ? 'is-ancestor' : '',
+    ].filter(Boolean).join(' ');
+    const current = isActive ? ' aria-current="page"' : '';
+    const children = node.children?.length
+      ? `<ul class="guide-tree__branch">${renderGuideTree(node.children, activePagePath, depth + 1)}</ul>`
+      : '';
+
+    return `<li class="guide-tree__item"><a class="${classes}" style="--guide-depth: ${depth}" href="${escapeHtml(getNoteUrl(pagePath))}"${current}>${escapeHtml(node.title)}</a>${children}</li>`;
+  }).join('');
+}
+
+function renderSearchPanel() {
+  return `<aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>`;
+}
+
+function renderHeader(structures, activeStructureId = null, includeIntro = false) {
+  const browseLink = includeIntro ? '' : '\n        <a href="/notes/">Browse notes</a>';
+  const intro = includeIntro
+    ? `
+        <p class="notes-intro">
+          The Universal Education System is an open collection of structured notes for math,
+          physics, engineering, biology, chemistry, programming, and self-guided learning.
+          Browse subjects, search notes, and suggest corrections through GitHub.
+        </p>`
+    : '';
+
+  return `<header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>${intro}
+      </div>
+      <nav class="notes-header__links" aria-label="Notes page links">${browseLink}
+        <a href="/">Home</a>
+      </nav>
+      ${renderSubjectLinks(structures, activeStructureId)}
+    </div>
+  </header>`;
+}
+
+function plainTextFromHtml(html) {
+  return String(html ?? '')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>');
+}
+
+function renderTableOfContents(bodyHtml, title) {
+  const headingPattern = /<h([1-6]) id="([^"]+)">([\s\S]*?)<\/h\1>/g;
+  const titleText = String(title ?? '').trim().toLowerCase();
+  const entries = [];
+  let match = headingPattern.exec(bodyHtml);
+
+  while (match) {
+    const [, level, id, headingHtml] = match;
+    const text = plainTextFromHtml(headingHtml).replace(/\s+/g, ' ').trim();
+    const normalizedText = text.toLowerCase();
+
+    if (normalizedText && normalizedText !== 'table of contents' && normalizedText !== 'contents' && normalizedText !== titleText) {
+      entries.push({ level: Number.parseInt(level, 10), id, headingHtml });
+    }
+
+    match = headingPattern.exec(bodyHtml);
+  }
+
+  if (!entries.length) {
+    return '';
+  }
+
+  const links = entries.map((entry) => {
+    const indent = Math.max(0, entry.level - 1);
+    return `<li class="notes-toc__item" style="--toc-indent: ${indent}"><a class="notes-toc__link" href="#${escapeHtml(entry.id)}">${entry.headingHtml}</a></li>`;
+  }).join('');
+
+  return `<nav class="notes-toc panel" aria-label="Table of contents">
+      <div class="notes-toc__head">
+        <p class="section-label">Table of contents</p>
+      </div>
+      <ol class="notes-toc__list">${links}</ol>
+    </nav>`;
+}
+
+function buildNoteHtml({
+  title,
+  description,
+  metadataLabel,
+  bodyHtml,
+  canonicalUrl,
+  editUrl,
+  structures,
+  structure,
+  pagePath,
+}) {
+  const tocHtml = renderTableOfContents(bodyHtml, title);
+  const layoutClass = tocHtml ? ' notes-layout--has-toc' : '';
+
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -576,26 +753,27 @@ function buildNoteHtml({ title, description, metadataLabel, bodyHtml, canonicalU
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="/notes/notes.js"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
 
-  <header class="shell notes-header">
-    <div class="notes-header__inner">
-      <div class="notes-header__brand">
-        <p class="eyebrow">The</p>
-        <h1>Universal Education System</h1>
+  ${renderHeader(structures, structure.id)}
+
+  <main id="content" class="shell notes-layout${layoutClass}" aria-label="Notes content">
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
       </div>
-      <nav class="notes-header__links" aria-label="Note page links">
-        <a href="/notes/">Browse notes</a>
-        <a href="${escapeHtml(standaloneUrl)}">This page</a>
-        <a href="/">Home</a>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
+        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], pagePath)}</ul>
       </nav>
-    </div>
-  </header>
-
-  <main id="content" class="shell">
-    <article class="notes-viewer panel">
+    </aside>
+    <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
@@ -609,8 +787,54 @@ function buildNoteHtml({ title, description, metadataLabel, bodyHtml, canonicalU
       <article class="markdown-body">
         ${bodyHtml}
       </article>
-    </article>
+    </section>
+    ${tocHtml}
   </main>
+  ${renderSearchPanel()}
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>`;
+}
+
+function buildLandingHtml(structures) {
+  const guideGroups = structures.map((structure) => {
+    const firstPath = getFirstPagePath(structure);
+    const href = firstPath ? getNoteUrl(firstPath) : '/notes/';
+    return `<section class="guide-catalog__group">
+          <h2 class="notes-sidebar__title"><a href="${escapeHtml(href)}">${escapeHtml(structure.title)}</a></h2>
+          <ul class="guide-tree">${renderGuideTree(structure.children ?? [])}</ul>
+        </section>`;
+  }).join('');
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Universal Education System | Adriamics</title>
+  <meta name="description" content="Universal Education System notes by Adriamics: math, physics, engineering, biology, chemistry, programming, and structured learning guides." />
+  <link rel="canonical" href="${siteOrigin}/notes/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script defer src="/notes/notes.js"></script>
+</head>
+<body class="notes-page notes-catalog-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
+  ${renderHeader(structures, null, true)}
+  <main id="content" class="shell notes-catalog-layout" aria-label="All note guides">
+    <aside class="notes-sidebar notes-sidebar--catalog panel" aria-labelledby="guide-catalog-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+        <h2 class="notes-sidebar__title" id="guide-catalog-title">All subjects</h2>
+      </div>
+      ${guideGroups}
+    </aside>
+  </main>
+  ${renderSearchPanel()}
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
 </body>
 </html>`;
 }
@@ -632,24 +856,25 @@ async function loadManifest() {
 function flattenNotes(structures) {
   const notes = [];
 
-  function visit(node, structureId, structureTitle) {
+  function visit(node, structure) {
     if (!node || typeof node !== 'object') {
       return;
     }
 
     if (node.path) {
       notes.push({
-        structureId,
-        structureTitle,
+        structure,
+        structureId: structure.id,
+        structureTitle: structure.title,
         title: node.title,
         path: node.path,
       });
     }
 
-    (node.children ?? []).forEach((child) => visit(child, structureId, structureTitle));
+    (node.children ?? []).forEach((child) => visit(child, structure));
   }
 
-  structures.forEach((structure) => visit(structure, structure.id, structure.title));
+  structures.forEach((structure) => visit(structure, structure));
   return notes;
 }
 
@@ -740,7 +965,7 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath) {
+async function buildNotePage(note, urlPath, structures) {
   const sourcePath = path.join(notesRoot, note.path);
   const markdown = await fs.readFile(sourcePath, 'utf8');
   const { metadata, body } = splitFrontmatter(markdown);
@@ -752,7 +977,6 @@ async function buildNotePage(note, urlPath) {
   const summary = getSummary(bodyWithoutTitle) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
-  const standaloneUrl = `${urlPath}index.html`;
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(`notes/${note.path}`)}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
   const bodyHtml = renderBlocks(bodyWithoutTitle, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({
@@ -761,13 +985,31 @@ async function buildNotePage(note, urlPath) {
     metadataLabel,
     bodyHtml,
     canonicalUrl,
-    standaloneUrl,
     editUrl,
+    structures,
+    structure: note.structure,
+    pagePath: note.path,
   });
   const outputPath = path.join(notesRoot, note.path.replace(/\.md$/i, ''), 'index.html');
 
   await ensureDir(outputPath);
   await fs.writeFile(outputPath, pageHtml, 'utf8');
+
+  return {
+    title,
+    subject: note.structureTitle,
+    url: urlPath,
+    text: trimMarkdownText(`${title} ${bodyWithoutTitle}`),
+  };
+}
+
+async function buildLandingPage(structures) {
+  await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures), 'utf8');
+}
+
+async function buildSearchIndex(entries) {
+  const json = `${JSON.stringify(entries, null, 2)}\n`;
+  await fs.writeFile(path.join(notesRoot, 'search-index.json'), json, 'utf8');
 }
 
 async function buildSitemap(noteUrls) {
@@ -799,10 +1041,13 @@ async function main() {
 
   await removeStaleGeneratedPages(notes);
 
+  const searchEntries = [];
   for (let index = 0; index < notes.length; index += 1) {
-    await buildNotePage(notes[index], urls[index]);
+    searchEntries.push(await buildNotePage(notes[index], urls[index], manifest.structures));
   }
 
+  await buildLandingPage(manifest.structures);
+  await buildSearchIndex(searchEntries);
   await buildSitemap(urls);
 }
 

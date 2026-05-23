@@ -235,6 +235,7 @@ body.notes-page {
 
 .search-result {
   appearance: none;
+  display: block;
   width: 100%;
   text-align: left;
   border: 1px solid transparent;
@@ -244,6 +245,7 @@ body.notes-page {
   padding: 0.9rem 1rem;
   font: inherit;
   cursor: pointer;
+  text-decoration: none;
   transition: var(--transition-ui);
 }
 
@@ -261,6 +263,13 @@ body.notes-page {
 
 .search-result__title {
   font-weight: 700;
+}
+
+.search-result__subject {
+  margin-left: 0.35rem;
+  color: var(--muted);
+  font-size: 0.9em;
+  font-weight: 500;
 }
 
 .search-result__snippet {
@@ -316,6 +325,10 @@ body.notes-page {
   grid-template-columns: minmax(240px, 290px) minmax(0, 1fr) minmax(220px, 260px);
 }
 
+.notes-catalog-layout {
+  margin-bottom: 2rem;
+}
+
 .notes-sidebar {
   padding: 1.15rem 1.15rem 1rem;
   position: sticky;
@@ -358,6 +371,7 @@ body.notes-page {
 .guide-tree__button {
   --guide-depth: 0;
   appearance: none;
+  display: block;
   width: 100%;
   border: 1px solid transparent;
   border-radius: 14px;
@@ -368,6 +382,7 @@ body.notes-page {
   font: inherit;
   line-height: 1.45;
   cursor: pointer;
+  text-decoration: none;
   transition: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
 }
 
@@ -454,6 +469,32 @@ body.notes-page {
 .notes-toc__link:focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
+}
+
+.notes-sidebar--catalog {
+  position: static;
+  width: 100%;
+  max-height: none;
+}
+
+.notes-sidebar--catalog .guide-tree {
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr));
+}
+
+.guide-catalog__group + .guide-catalog__group {
+  margin-top: 1.35rem;
+  padding-top: 1.35rem;
+  border-top: 1px solid var(--border);
+}
+
+.guide-catalog__group .notes-sidebar__title a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+.guide-catalog__group .notes-sidebar__title a:hover,
+.guide-catalog__group .notes-sidebar__title a:focus-visible {
+  text-decoration: underline;
 }
 
 .panel {
@@ -548,6 +589,7 @@ body.notes-page {
   font-weight: 400;
 }
 
+.subject-list a,
 .subject-list button {
   appearance: none;
   border: 0;
@@ -564,12 +606,15 @@ body.notes-page {
   transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
+.subject-list a:hover,
+.subject-list a:focus-visible,
 .subject-list button:hover,
 .subject-list button:focus-visible {
   color: var(--accent-strong);
   text-decoration: underline;
 }
 
+.subject-list a.is-active,
 .subject-list button[aria-selected="true"] {
   color: var(--accent-strong);
   text-decoration: underline;

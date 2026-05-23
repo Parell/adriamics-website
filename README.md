@@ -1,5 +1,7 @@
 # parell.github.io
 
+node scripts/build-notes.mjs
+
 Debating if I should use github for all these systems?
 - voting
 - disputes
@@ -12,4 +14,4 @@ Debating if I should use github for all these systems?
 - Online EES software?
 - Mass Transfer?
 
-Build the crawlable note pages and sitemap with `node scripts/build-notes.mjs` after changing markdown notes.
+Build the static note pages, catalog, search index, and sitemap with `node scripts/build-notes.mjs` after changing Markdown notes or their manifest.

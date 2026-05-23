@@ -348,7 +348,7 @@ In general,
 
 $$
 \forall x\, \exists y\, P(x,y)
-\]
+$$
 
 is not equivalent to
 

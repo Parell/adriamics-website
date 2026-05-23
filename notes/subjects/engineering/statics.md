@@ -243,13 +243,13 @@ Different supports impose different kinematic constraints and therefore produce 
 
 ## Common 2D supports
 
-| Support | Reaction components | Notes |
-| --- | --- | --- |
-| Roller | One force normal to the surface | Allows motion along the surface |
-| Pin or hinge | Two force components, $x$ and $y$ | Prevents translation, allows rotation |
-| Fixed support | Two force components and one moment | Prevents translation and rotation |
-| Cable | Tension only along cable direction | Cannot carry compression |
-| Smooth contact | One normal reaction | No friction |
+| Support        | Reaction components                 | Notes                                 |
+| -------------- | ----------------------------------- | ------------------------------------- |
+| Roller         | One force normal to the surface     | Allows motion along the surface       |
+| Pin or hinge   | Two force components, $x$ and $y$   | Prevents translation, allows rotation |
+| Fixed support  | Two force components and one moment | Prevents translation and rotation     |
+| Cable          | Tension only along cable direction  | Cannot carry compression              |
+| Smooth contact | One normal reaction                 | No friction                           |
 
 ## Common 3D supports
 

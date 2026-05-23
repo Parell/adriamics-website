@@ -653,6 +653,56 @@ function flattenNotes(structures) {
   return notes;
 }
 
+async function listMarkdownNotePaths(dirPath = path.join(notesRoot, 'subjects')) {
+  const entries = await fs.readdir(dirPath, { withFileTypes: true });
+  const paths = await Promise.all(entries.map(async (entry) => {
+    const entryPath = path.join(dirPath, entry.name);
+
+    if (entry.isDirectory()) {
+      return listMarkdownNotePaths(entryPath);
+    }
+
+    if (!entry.isFile() || !entry.name.endsWith('.md')) {
+      return [];
+    }
+
+    return [toPosix(path.relative(notesRoot, entryPath))];
+  }));
+
+  return paths.flat().sort();
+}
+
+async function validateManifestCoverage(notes) {
+  const manifestPaths = notes.map((note) => note.path);
+  const uniqueManifestPaths = new Set(manifestPaths);
+  const duplicatePaths = manifestPaths
+    .filter((notePath, index) => manifestPaths.indexOf(notePath) !== index);
+  const markdownPaths = await listMarkdownNotePaths();
+  const markdownPathSet = new Set(markdownPaths);
+  const missingFiles = [...uniqueManifestPaths]
+    .filter((notePath) => !markdownPathSet.has(notePath))
+    .sort();
+  const unroutedFiles = markdownPaths
+    .filter((notePath) => !uniqueManifestPaths.has(notePath));
+  const errors = [];
+
+  if (duplicatePaths.length) {
+    errors.push(`Duplicate manifest note paths:\n${[...new Set(duplicatePaths)].sort().map((notePath) => `- ${notePath}`).join('\n')}`);
+  }
+
+  if (missingFiles.length) {
+    errors.push(`Manifest note paths with no markdown file:\n${missingFiles.map((notePath) => `- ${notePath}`).join('\n')}`);
+  }
+
+  if (unroutedFiles.length) {
+    errors.push(`Markdown notes missing from manifest, so no standalone URL or sitemap entry will be generated:\n${unroutedFiles.map((notePath) => `- ${notePath}`).join('\n')}`);
+  }
+
+  if (errors.length) {
+    throw new Error(errors.join('\n\n'));
+  }
+}
+
 async function ensureDir(filePath) {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
 }
@@ -739,6 +789,9 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 async function main() {
   const manifest = await loadManifest();
   const notes = flattenNotes(manifest.structures);
+
+  await validateManifestCoverage(notes);
+
   const urls = notes.map((note) => {
     const sourcePath = `notes/${note.path}`;
     return getPageUrl(sourcePath);

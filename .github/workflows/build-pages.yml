@@ -35,7 +35,9 @@ jobs:
           rm -rf _site
           mkdir -p _site
           rsync -a \
+            --exclude='.git/' \
             --exclude='.github/' \
+            --exclude='_site/' \
             --exclude='scripts/' \
             --exclude='README.md' \
             --exclude='*.md' \

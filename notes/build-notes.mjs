@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import crypto from 'node:crypto';
 import path from 'node:path';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
@@ -156,6 +157,11 @@ function getRelativeNotesAssetHref(notePath, assetName) {
   const depth = outputDir ? outputDir.split('/').filter(Boolean).length : 0;
   const prefix = '../'.repeat(depth);
   return `${prefix}${assetName}`;
+}
+
+async function getAssetVersion(assetPath) {
+  const assetContent = await fs.readFile(assetPath, 'utf8');
+  return crypto.createHash('sha256').update(assetContent).digest('hex').slice(0, 12);
 }
 
 function isFolderLayoutNotePath(notePath) {
@@ -824,11 +830,12 @@ function buildNoteHtml({
   structures,
   structure,
   pagePath,
+  assetVersions,
 }) {
   const tocHtml = renderTableOfContents(bodyHtml, title);
   const layoutClass = tocHtml ? ' notes-layout--has-toc' : '';
-  const stylesheetHref = getRelativeNotesAssetHref(pagePath, 'notes.css');
-  const scriptHref = getRelativeNotesAssetHref(pagePath, 'notes.js');
+  const stylesheetHref = `${getRelativeNotesAssetHref(pagePath, 'notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(pagePath, 'notes.js')}?v=${assetVersions.notesJs}`;
   const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -1014,7 +1021,7 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures) {
+async function buildNotePage(note, urlPath, structures, assetVersions) {
   const sourcePath = getNoteSourcePath(note.path);
   const markdown = await fs.readFile(sourcePath, 'utf8');
   const { metadata, body } = splitFrontmatter(markdown);
@@ -1038,6 +1045,7 @@ async function buildNotePage(note, urlPath, structures) {
     structures,
     structure: note.structure,
     pagePath: note.path,
+    assetVersions,
   });
   const outputPath = path.join(notesRoot, path.dirname(note.path), 'index.html');
 
@@ -1080,6 +1088,10 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 async function main() {
   const manifest = await loadManifest();
   const notes = flattenNotes(manifest.structures);
+  const assetVersions = {
+    notesCss: await getAssetVersion(path.join(notesRoot, 'notes.css')),
+    notesJs: await getAssetVersion(path.join(notesRoot, 'notes.js')),
+  };
 
   await validateManifestCoverage(notes);
 
@@ -1089,7 +1101,7 @@ async function main() {
 
   const searchEntries = [];
   for (let index = 0; index < notes.length; index += 1) {
-    searchEntries.push(await buildNotePage(notes[index], urls[index], manifest.structures));
+    searchEntries.push(await buildNotePage(notes[index], urls[index], manifest.structures, assetVersions));
   }
 
   await buildLandingPage(manifest.structures);

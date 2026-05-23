@@ -139,6 +139,31 @@ function getPageUrl(pagePath) {
   return `/notes/${normalized}/`;
 }
 
+function getNoteRoutePath(notePath) {
+  return toPosix(path.dirname(notePath)).replace(/^notes\//, '');
+}
+
+function getNoteSourcePath(notePath) {
+  return path.join(notesRoot, toPosix(notePath));
+}
+
+function getNoteOutputDir(notePath) {
+  return path.dirname(getNoteSourcePath(notePath));
+}
+
+function isFolderLayoutNotePath(notePath) {
+  const normalized = toPosix(notePath).replace(/^notes\//, '');
+  const parts = normalized.split('/');
+
+  if (parts.length < 3) {
+    return false;
+  }
+
+  const fileName = parts.at(-1);
+  const folderName = parts.at(-2);
+  return fileName === `${folderName}.md`;
+}
+
 function rewriteInternalHref(href, sourcePath) {
   const trimmed = String(href ?? '').trim();
 
@@ -579,7 +604,7 @@ function containsPagePath(node, pagePath) {
 }
 
 function getNoteUrl(notePath) {
-  return getPageUrl(`notes/${notePath}`);
+  return `/notes/${getNoteRoutePath(notePath)}/`;
 }
 
 function renderSubjectLinks(structures, activeStructureId = null) {
@@ -646,8 +671,29 @@ function renderSearchPanel() {
   </aside>`;
 }
 
+function buildLandingRedirectHtml() {
+  const redirectUrl = '/notes/subjects/general/introduction/';
+
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Introduction | Adriamics</title>
+  <meta name="description" content="Redirecting to the Universal Education System introduction page." />
+  <link rel="canonical" href="${siteOrigin}${redirectUrl}" />
+  <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
+  <script>
+    location.replace(${JSON.stringify(redirectUrl)});
+  </script>
+</head>
+<body>
+  <p>Redirecting to <a href="${redirectUrl}">Introduction</a>.</p>
+</body>
+</html>`;
+}
+
 function renderHeader(structures, activeStructureId = null, includeIntro = false) {
-  const browseLink = includeIntro ? '' : '\n        <a href="/notes/">Browse notes</a>';
   const intro = includeIntro
     ? `
         <p class="notes-intro">
@@ -663,12 +709,55 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
         <p class="eyebrow">The</p>
         <h1>Universal Education System</h1>${intro}
       </div>
-      <nav class="notes-header__links" aria-label="Notes page links">${browseLink}
+      <nav class="notes-header__links" aria-label="Notes page links">
         <a href="/">Home</a>
       </nav>
       ${renderSubjectLinks(structures, activeStructureId)}
     </div>
   </header>`;
+}
+
+function renderNotesPageDocument({
+  title,
+  description,
+  canonicalUrl,
+  bodyClass,
+  mainClass,
+  mainAriaLabel,
+  mainHtml,
+  structures,
+  activeStructureId = null,
+  includeIntro = false,
+  extraHead = '',
+}) {
+  return `<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeHtml(title)}</title>
+  <meta name="description" content="${escapeHtml(description)}" />
+  <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  ${extraHead}
+  <script defer src="/notes/notes.js"></script>
+</head>
+<body class="notes-page ${escapeHtml(bodyClass)}" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
+
+  ${renderHeader(structures, activeStructureId, includeIntro)}
+
+  <main id="content" class="${escapeHtml(mainClass)}" aria-label="${escapeHtml(mainAriaLabel)}">
+    ${mainHtml}
+  </main>
+  ${renderSearchPanel()}
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>`;
 }
 
 function plainTextFromHtml(html) {
@@ -729,41 +818,7 @@ function buildNoteHtml({
 }) {
   const tocHtml = renderTableOfContents(bodyHtml, title);
   const layoutClass = tocHtml ? ' notes-layout--has-toc' : '';
-
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${escapeHtml(title)} | Adriamics</title>
-  <meta name="description" content="${escapeHtml(description)}" />
-  <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
-  <meta name="color-scheme" content="dark" />
-  <link rel="stylesheet" href="/notes/notes.css" />
-  <script>
-    window.MathJax = {
-      tex: {
-        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
-        displayMath: [['$$', '$$']]
-      },
-      svg: { fontCache: 'global' },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    };
-  </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="/notes/notes.js"></script>
-</head>
-<body class="notes-page note-standalone-page" id="top">
-  <a class="skip-link" href="#content">Skip to content</a>
-  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
-    Search notes
-  </button>
-
-  ${renderHeader(structures, structure.id)}
-
-  <main id="content" class="shell notes-layout${layoutClass}" aria-label="Notes content">
+  const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
         <p class="section-label">Guides</p>
@@ -784,59 +839,40 @@ function buildNoteHtml({
           <p class="viewer-status">Standalone, crawlable note page</p>
         </div>
       </div>
-      <article class="markdown-body">
+      <article class="markdown-body" id="note-content">
         ${bodyHtml}
       </article>
     </section>
-    ${tocHtml}
-  </main>
-  ${renderSearchPanel()}
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
-</body>
-</html>`;
+    ${tocHtml}`;
+
+  return renderNotesPageDocument({
+    title: `${title} | Adriamics`,
+    description,
+    canonicalUrl,
+    bodyClass: 'note-standalone-page',
+    mainClass: `shell notes-layout${layoutClass}`,
+    mainAriaLabel: 'Notes content',
+    mainHtml,
+    structures,
+    activeStructureId: structure.id,
+    extraHead: `<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>`,
+  });
 }
 
-function buildLandingHtml(structures) {
-  const guideGroups = structures.map((structure) => {
-    const firstPath = getFirstPagePath(structure);
-    const href = firstPath ? getNoteUrl(firstPath) : '/notes/';
-    return `<section class="guide-catalog__group">
-          <h2 class="notes-sidebar__title"><a href="${escapeHtml(href)}">${escapeHtml(structure.title)}</a></h2>
-          <ul class="guide-tree">${renderGuideTree(structure.children ?? [])}</ul>
-        </section>`;
-  }).join('');
-
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Universal Education System | Adriamics</title>
-  <meta name="description" content="Universal Education System notes by Adriamics: math, physics, engineering, biology, chemistry, programming, and structured learning guides." />
-  <link rel="canonical" href="${siteOrigin}/notes/" />
-  <meta name="color-scheme" content="dark" />
-  <link rel="stylesheet" href="/notes/notes.css" />
-  <script defer src="/notes/notes.js"></script>
-</head>
-<body class="notes-page notes-catalog-page" id="top">
-  <a class="skip-link" href="#content">Skip to content</a>
-  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
-    Search notes
-  </button>
-  ${renderHeader(structures, null, true)}
-  <main id="content" class="shell notes-catalog-layout" aria-label="All note guides">
-    <aside class="notes-sidebar notes-sidebar--catalog panel" aria-labelledby="guide-catalog-title">
-      <div class="notes-sidebar__head">
-        <p class="section-label">Guides</p>
-        <h2 class="notes-sidebar__title" id="guide-catalog-title">All subjects</h2>
-      </div>
-      ${guideGroups}
-    </aside>
-  </main>
-  ${renderSearchPanel()}
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
-</body>
-</html>`;
+function buildLandingHtml() {
+  return buildLandingRedirectHtml();
 }
 
 async function loadManifest() {
@@ -904,23 +940,24 @@ async function validateManifestCoverage(notes) {
     .filter((notePath, index) => manifestPaths.indexOf(notePath) !== index);
   const markdownPaths = await listMarkdownNotePaths();
   const markdownPathSet = new Set(markdownPaths);
+  const invalidManifestPaths = [...uniqueManifestPaths]
+    .filter((notePath) => !isFolderLayoutNotePath(notePath))
+    .sort();
   const missingFiles = [...uniqueManifestPaths]
     .filter((notePath) => !markdownPathSet.has(notePath))
     .sort();
-  const unroutedFiles = markdownPaths
-    .filter((notePath) => !uniqueManifestPaths.has(notePath));
   const errors = [];
 
   if (duplicatePaths.length) {
     errors.push(`Duplicate manifest note paths:\n${[...new Set(duplicatePaths)].sort().map((notePath) => `- ${notePath}`).join('\n')}`);
   }
 
-  if (missingFiles.length) {
-    errors.push(`Manifest note paths with no markdown file:\n${missingFiles.map((notePath) => `- ${notePath}`).join('\n')}`);
+  if (invalidManifestPaths.length) {
+    errors.push(`Manifest note paths must use the folder layout <slug>/<slug>.md:\n${invalidManifestPaths.map((notePath) => `- ${notePath}`).join('\n')}`);
   }
 
-  if (unroutedFiles.length) {
-    errors.push(`Markdown notes missing from manifest, so no standalone URL or sitemap entry will be generated:\n${unroutedFiles.map((notePath) => `- ${notePath}`).join('\n')}`);
+  if (missingFiles.length) {
+    errors.push(`Manifest note paths with no markdown file:\n${missingFiles.map((notePath) => `- ${notePath}`).join('\n')}`);
   }
 
   if (errors.length) {
@@ -934,17 +971,17 @@ async function ensureDir(filePath) {
 
 async function removeStaleGeneratedPages(notes) {
   const expectedOutputDirs = new Set(
-    notes.map((note) => path.join(notesRoot, note.path.replace(/\.md$/i, ''))),
+    notes.map((note) => getNoteOutputDir(note.path)),
   );
 
   async function visit(dirPath) {
     const entries = await fs.readdir(dirPath, { withFileTypes: true });
+    const indexEntry = entries.find((entry) => entry.isFile() && entry.name === 'index.html');
 
-    if (entries.some((entry) => entry.isFile() && entry.name === 'index.html')) {
-      const sourceFile = `${dirPath}.md`;
+    if (indexEntry) {
+      const sourceFile = path.join(dirPath, `${path.basename(dirPath)}.md`);
       if (!expectedOutputDirs.has(dirPath) || !(await exists(sourceFile))) {
-        await fs.rm(dirPath, { recursive: true, force: true });
-        return;
+        await fs.rm(path.join(dirPath, indexEntry.name), { force: true });
       }
     }
 
@@ -966,7 +1003,7 @@ async function exists(filePath) {
 }
 
 async function buildNotePage(note, urlPath, structures) {
-  const sourcePath = path.join(notesRoot, note.path);
+  const sourcePath = getNoteSourcePath(note.path);
   const markdown = await fs.readFile(sourcePath, 'utf8');
   const { metadata, body } = splitFrontmatter(markdown);
   const bodyWithoutTitle = stripFirstH1(body);
@@ -990,7 +1027,7 @@ async function buildNotePage(note, urlPath, structures) {
     structure: note.structure,
     pagePath: note.path,
   });
-  const outputPath = path.join(notesRoot, note.path.replace(/\.md$/i, ''), 'index.html');
+  const outputPath = path.join(notesRoot, path.dirname(note.path), 'index.html');
 
   await ensureDir(outputPath);
   await fs.writeFile(outputPath, pageHtml, 'utf8');
@@ -1034,10 +1071,7 @@ async function main() {
 
   await validateManifestCoverage(notes);
 
-  const urls = notes.map((note) => {
-    const sourcePath = `notes/${note.path}`;
-    return getPageUrl(sourcePath);
-  });
+  const urls = notes.map((note) => getNoteUrl(note.path));
 
   await removeStaleGeneratedPages(notes);
 

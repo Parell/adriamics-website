@@ -4,7 +4,7 @@ const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
-const noteContent = document.getElementById('note-content');
+const noteContent = document.getElementById('note-content') ?? document.querySelector('.markdown-body');
 const SEARCH_INDEX_URL = '/notes/search-index.json';
 
 let searchIndex = [];

@@ -15,3 +15,5 @@ Debating if I should use github for all these systems?
 - Mass Transfer?
 
 Build the static note pages, catalog, search index, and sitemap with `node scripts/build-notes.mjs` after changing Markdown notes or their manifest.
+
+Notes live in per-topic folders under `notes/subjects/...`, and each note source file must match its folder name, for example `notes/subjects/math/algebra/algebra.md`.

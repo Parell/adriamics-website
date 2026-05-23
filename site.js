@@ -224,18 +224,29 @@ function renderLinks(links = []) {
   });
 }
 
+function renderCardShell({ title, status, bodyHtml, cardClass = "project-card" }) {
+  return `
+    <article class="${cardClass}">
+      <div class="project-card__head">
+        <h3>${escapeHtml(title)}</h3>
+        <span class="project-status" data-status="${escapeHtml(status)}">${escapeHtml(status)}</span>
+      </div>
+      ${bodyHtml}
+    </article>
+  `;
+}
+
 function renderProjectCard(project) {
   const image = project.image ?? null;
   const stack = project.stack ?? [];
   const links = project.links ?? [];
+  const mediaClass = image?.src ? "project-media has-image" : "project-media";
 
-  return `
-    <article class="project-card">
-      <div class="project-card__head">
-        <h3>${escapeHtml(project.name)}</h3>
-        <span class="project-status" data-status="${escapeHtml(project.status)}">${escapeHtml(project.status)}</span>
-      </div>
-      <div class="project-media${image?.src ? " has-image" : ""}" data-tone="${escapeHtml(project.tone)}" data-caption="${escapeHtml(project.caption)}">
+  return renderCardShell({
+    title: project.name,
+    status: project.status,
+    bodyHtml: `
+      <div class="${mediaClass}" data-tone="${escapeHtml(project.tone)}" data-caption="${escapeHtml(project.caption)}">
         ${image?.src ? `<img class="project-media__image" src="${escapeHtml(image.src)}" alt="${escapeHtml(image.alt || "")}" loading="lazy" decoding="async" />` : ""}
       </div>
       <div class="project-card__body">
@@ -248,19 +259,18 @@ function renderProjectCard(project) {
           ${renderLinks(links)}
         </div>
       </div>
-    </article>
-  `;
+    `,
+  });
 }
 
 function renderBlogCard(post) {
   const tags = post.tags ?? [];
 
-  return `
-    <article class="project-card project-card--text-only">
-      <div class="project-card__head">
-        <h3>${escapeHtml(post.title)}</h3>
-        <span class="project-status" data-status="blog">Blog</span>
-      </div>
+  return renderCardShell({
+    title: post.title,
+    status: "Blog",
+    cardClass: "project-card project-card--text-only",
+    bodyHtml: `
       <div class="project-card__body">
         <div class="project-kicker">${escapeHtml(post.kicker)} - ${escapeHtml(post.date)} - ${escapeHtml(post.readTime)}</div>
         <p class="project-desc">${escapeHtml(post.summary)}</p>
@@ -271,8 +281,8 @@ function renderBlogCard(post) {
           <a class="btn primary" href="${escapeHtml(post.url)}">Read post</a>
         </div>
       </div>
-    </article>
-  `;
+    `,
+  });
 }
 
 function renderProjects(projects) {
@@ -301,6 +311,8 @@ function parseStreamText(text) {
 }
 
 let currentTextStreamLines = FALLBACK_TEXT_STREAM_LINES;
+let currentTextStreamRowCount = 0;
+let textStreamResizeFrame = null;
 
 function getTextStreamRowCount() {
   return Math.min(TEXT_STREAM.maxRows, Math.max(TEXT_STREAM.minRows, Math.round(window.innerHeight / TEXT_STREAM.rowHeight)));
@@ -332,11 +344,30 @@ function renderTextStream(lines = currentTextStreamLines) {
     return;
   }
 
-  currentTextStreamLines = lines.length > 0 ? lines : FALLBACK_TEXT_STREAM_LINES;
+  const nextLines = lines.length > 0 ? lines : FALLBACK_TEXT_STREAM_LINES;
   const rows = getTextStreamRowCount();
+  const sourceChanged = nextLines !== currentTextStreamLines;
+
+  currentTextStreamLines = nextLines;
+  if (!sourceChanged && rows === currentTextStreamRowCount) {
+    return;
+  }
+
+  currentTextStreamRowCount = rows;
   const linesPerRow = Math.max(TEXT_STREAM.minLinesPerRow, Math.ceil(currentTextStreamLines.length / rows));
 
   container.innerHTML = Array.from({ length: rows }, (_, rowIndex) => renderTextStreamRow(rowIndex, linesPerRow)).join("");
+}
+
+function scheduleTextStreamRender() {
+  if (textStreamResizeFrame !== null) {
+    return;
+  }
+
+  textStreamResizeFrame = window.requestAnimationFrame(() => {
+    textStreamResizeFrame = null;
+    renderTextStream();
+  });
 }
 
 async function loadTextStream() {
@@ -442,19 +473,25 @@ function renderFooter(person, githubHandle) {
     <span class="footer__sep" aria-hidden="true">-</span>
     <a href="${escapeHtml(person.linkedin)}" target="_blank" rel="noreferrer">LinkedIn</a>
     <span class="footer__sep" aria-hidden="true">-</span>
+    ${renderCopyEmailButton(person.email)}
+    <span class="footer__sep" aria-hidden="true">-</span>
+    <a class="footer__top" href="#top">Back to top</a>
+  `;
+}
+
+function renderCopyEmailButton(email) {
+  return `
     <button
       class="copy-email"
       type="button"
-      data-copy-email="${escapeHtml(person.email)}"
+      data-copy-email="${escapeHtml(email)}"
       data-copy-state="idle"
       title="Copy email to clipboard"
     >
-      <span class="copy-email__label" data-copy-email-label>email: ${escapeHtml(person.email)}</span>
+      <span class="copy-email__label" data-copy-email-label>email: ${escapeHtml(email)}</span>
       <span class="copy-email__hint" data-copy-email-hint aria-hidden="true">copy</span>
       <span class="sr-only" data-copy-email-status aria-live="polite"></span>
     </button>
-    <span class="footer__sep" aria-hidden="true">-</span>
-    <a class="footer__top" href="#top">Back to top</a>
   `;
 }
 
@@ -508,9 +545,7 @@ document.addEventListener("click", async (event) => {
   }
 });
 
-window.addEventListener("resize", () => {
-  renderTextStream(currentTextStreamLines);
-});
+window.addEventListener("resize", scheduleTextStreamRender);
 
 init();
 void loadTextStream();

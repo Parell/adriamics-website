@@ -3,7 +3,7 @@ const TEXT_STREAM = {
   minLinesPerRow: 6,
   minRows: 16,
   rowHeight: 48,
-  url: "/text-stream.txt",
+  url: "text-stream.txt",
 };
 
 const FALLBACK_TEXT_STREAM_LINES = [

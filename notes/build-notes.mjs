@@ -151,6 +151,13 @@ function getNoteOutputDir(notePath) {
   return path.dirname(getNoteSourcePath(notePath));
 }
 
+function getRelativeNotesAssetHref(notePath, assetName) {
+  const outputDir = toPosix(path.dirname(notePath));
+  const depth = outputDir ? outputDir.split('/').filter(Boolean).length : 0;
+  const prefix = '../'.repeat(depth);
+  return `${prefix}${assetName}`;
+}
+
 function isFolderLayoutNotePath(notePath) {
   const normalized = toPosix(notePath).replace(/^notes\//, '');
   const parts = normalized.split('/');
@@ -728,6 +735,8 @@ function renderNotesPageDocument({
   structures,
   activeStructureId = null,
   includeIntro = false,
+  stylesheetHref = '/notes/notes.css',
+  scriptHref = '/notes/notes.js',
   extraHead = '',
 }) {
   return `<!doctype html>
@@ -739,9 +748,9 @@ function renderNotesPageDocument({
   <meta name="description" content="${escapeHtml(description)}" />
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
   <meta name="color-scheme" content="dark" />
-  <link rel="stylesheet" href="/notes/notes.css" />
+  <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
   ${extraHead}
-  <script defer src="/notes/notes.js"></script>
+  <script defer src="${escapeHtml(scriptHref)}"></script>
 </head>
 <body class="notes-page ${escapeHtml(bodyClass)}" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -818,6 +827,8 @@ function buildNoteHtml({
 }) {
   const tocHtml = renderTableOfContents(bodyHtml, title);
   const layoutClass = tocHtml ? ' notes-layout--has-toc' : '';
+  const stylesheetHref = getRelativeNotesAssetHref(pagePath, 'notes.css');
+  const scriptHref = getRelativeNotesAssetHref(pagePath, 'notes.js');
   const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -836,7 +847,6 @@ function buildNoteHtml({
         </div>
         <div class="viewer-head__actions">
           <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer">Suggest edit</a>
-          <p class="viewer-status">Standalone, crawlable note page</p>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -855,6 +865,8 @@ function buildNoteHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
+    stylesheetHref,
+    scriptHref,
     extraHead: `<script>
     window.MathJax = {
       tex: {

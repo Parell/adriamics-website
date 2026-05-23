@@ -1,0 +1,626 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Physics I | Adriamics</title>
+  <meta name="description" content="Physics I is usually the first university-level mechanics course. The core goal is to describe how objects move and why they move using a small set of conser..." />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/physics/physics-i/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="/notes/notes.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Notes page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/">Home</a>
+      </nav>
+      <aside class="notes-structures" aria-label="Guide structures">
+          <ul class="subject-list"><li><a href="/notes/subjects/general/introduction/">General</a></li><li><a href="/notes/subjects/math/arithmetic/">Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/data-computing/programming/">Data / Computing</a></li><li><a href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-biology/">Medical / Biology</a></li></ul>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">Physics</h2>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/">Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" aria-current="page">Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/">Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/">Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/">Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/">Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/">Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/">Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/">Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/">Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/">Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/">Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/">Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/">Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/">Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/">Plasma Physics</a></li></ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Physics I</h1>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fphysics%2Fphysics-i.md&amp;title=%5BCorrection%5D%3A%20Physics%20I" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">What Physics I covers</a></p></li><li><p><a href="#toc-2">Units, vectors, and notation</a></p></li><li><p><a href="#toc-3">One-dimensional kinematics</a></p></li><li><p><a href="#toc-4">Two-dimensional motion and projectiles</a></p></li><li><p><a href="#toc-5">Newton&#39;s laws and free-body diagrams</a></p></li><li><p><a href="#toc-6">Common forces</a></p></li><li><p><a href="#toc-7">Work, energy, and power</a></p></li><li><p><a href="#toc-8">Momentum, impulse, and collisions</a></p></li><li><p><a href="#toc-9">Rotation and torque</a></p></li><li><p><a href="#toc-10">Gravity and circular motion</a></p></li><li><p><a href="#toc-11">Simple harmonic motion</a></p></li><li><p><a href="#toc-12">Statics and equilibrium</a></p></li><li><p><a href="#toc-13">Problem-solving workflow</a></p></li><li><p><a href="#toc-14">Formula summary</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="what-physics-i-covers">What Physics I covers</h1>
+<p>Physics I is usually the first university-level mechanics course. The core goal is to describe how objects move and why they move using a small set of conservation laws and force laws.</p>
+<p>The main themes are:</p>
+<ul><li><p>Kinematics: describing motion without explaining its cause</p></li><li><p>Dynamics: explaining motion with forces</p></li><li><p>Conservation of energy and momentum</p></li><li><p>Rotational motion and torque</p></li><li><p>Gravitational motion and oscillations</p></li></ul>
+<p>The subject is not about memorizing a large number of formulas. Most problems reduce to:</p>
+<ol><li><p>Identify the system.</p></li><li><p>Draw the relevant forces or motion quantities.</p></li><li><p>Choose the correct conservation or Newtonian principle.</p></li><li><p>Solve algebraically and check units.</p></li></ol>
+<hr />
+<a id="toc-2"></a>
+<h1 id="units-vectors-and-notation">Units, vectors, and notation</h1>
+<h2 id="si-base-quantities">SI base quantities</h2>
+<table><thead><tr><th>Quantity</th><th>Symbol</th><th>SI unit</th></tr></thead><tbody><tr><td>Length</td><td>$x, y, r$</td><td>m</td></tr><tr><td>Mass</td><td>$m$</td><td>kg</td></tr><tr><td>Time</td><td>$t$</td><td>s</td></tr><tr><td>Velocity</td><td>$\vec v$</td><td>m/s</td></tr><tr><td>Acceleration</td><td>$\vec a$</td><td>m/s$^2$</td></tr><tr><td>Force</td><td>$\vec F$</td><td>N = kg m/s$^2$</td></tr><tr><td>Work / energy</td><td>$W, E$</td><td>J = N m</td></tr><tr><td>Power</td><td>$P$</td><td>W = J/s</td></tr><tr><td>Momentum</td><td>$\vec p$</td><td>kg m/s</td></tr><tr><td>Torque</td><td>$\tau$</td><td>N m</td></tr></tbody></table>
+<h2 id="scalars-and-vectors">Scalars and vectors</h2>
+<ul><li><p>A scalar has magnitude only: mass, time, temperature, energy.</p></li><li><p>A vector has magnitude and direction: displacement, velocity, force, momentum.</p></li></ul>
+<p>Write vectors in component form when possible:</p>
+<div class="math-block">$$
+\vec A = A_x \hat i + A_y \hat j + A_z \hat k
+$$</div>
+<p>Magnitude:</p>
+<div class="math-block">$$
+|\vec A| = \sqrt{A_x^2 + A_y^2 + A_z^2}
+$$</div>
+<h2 id="coordinate-choice">Coordinate choice</h2>
+<p>Pick axes that simplify the problem. A good axis choice can eliminate trigonometry and reduce sign mistakes.</p>
+<p>Common conventions:</p>
+<ul><li><p>Positive $x$ to the right</p></li><li><p>Positive $y$ upward</p></li><li><p>Positive angular direction counterclockwise</p></li></ul>
+<p>Be consistent once the axes are chosen.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="one-dimensional-kinematics">One-dimensional kinematics</h1>
+<p>Kinematics describes motion in terms of position, velocity, and acceleration.</p>
+<h2 id="definitions">Definitions</h2>
+<p>Displacement:</p>
+<div class="math-block">$$
+\Delta x = x_f - x_i
+$$</div>
+<p>Average velocity:</p>
+<div class="math-block">$$
+\bar v = \frac{\Delta x}{\Delta t}
+$$</div>
+<p>Instantaneous velocity:</p>
+<div class="math-block">$$
+v = \frac{dx}{dt}
+$$</div>
+<p>Average acceleration:</p>
+<div class="math-block">$$
+\bar a = \frac{\Delta v}{\Delta t}
+$$</div>
+<p>Instantaneous acceleration:</p>
+<div class="math-block">$$
+a = \frac{dv}{dt} = \frac{d^2x}{dt^2}
+$$</div>
+<h2 id="constant-acceleration-equations">Constant-acceleration equations</h2>
+<p>If acceleration is constant, the following equations apply:</p>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<div class="math-block">$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$</div>
+<div class="math-block">$$
+v^2 = v_0^2 + 2a(x-x_0)
+$$</div>
+<div class="math-block">$$
+x - x_0 = \frac{(v_0 + v)}{2}t
+$$</div>
+<p>These are valid only when acceleration does not change during the interval.</p>
+<h2 id="interpretation-tips">Interpretation tips</h2>
+<ul><li><p>Velocity is the slope of the position-time graph.</p></li><li><p>Acceleration is the slope of the velocity-time graph.</p></li><li><p>The area under a velocity-time graph gives displacement.</p></li><li><p>The area under an acceleration-time graph gives change in velocity.</p></li></ul>
+<h2 id="free-fall-as-a-special-case">Free-fall as a special case</h2>
+<p>Near Earth, the acceleration from gravity is approximately constant:</p>
+<div class="math-block">$$
+a = -g \approx -9.8\ \text{m/s}^2
+$$</div>
+<p>if upward is positive.</p>
+<hr />
+<a id="toc-4"></a>
+<h1 id="two-dimensional-motion-and-projectiles">Two-dimensional motion and projectiles</h1>
+<p>In two dimensions, motion is analyzed independently along perpendicular axes.</p>
+<h2 id="component-method">Component method</h2>
+<p>For a vector $\vec v$ at angle $\theta$ above the positive $x$-axis:</p>
+<div class="math-block">$$
+v_x = v \cos \theta, \qquad v_y = v \sin \theta
+$$</div>
+<p>Reconstruct the magnitude and direction from components:</p>
+<div class="math-block">$$
+v = \sqrt{v_x^2 + v_y^2}
+$$</div>
+<div class="math-block">$$
+\theta = \tan^{-1}\!\left(\frac{v_y}{v_x}\right)
+$$</div>
+<h2 id="projectile-motion">Projectile motion</h2>
+<p>For ideal projectile motion, neglect air resistance. The only acceleration is gravity.</p>
+<p>Horizontal motion:</p>
+<div class="math-block">$$
+a_x = 0,\qquad v_x = \text{constant}
+$$</div>
+<p>Vertical motion:</p>
+<div class="math-block">$$
+a_y = -g
+$$</div>
+<h2 id="useful-projectile-results">Useful projectile results</h2>
+<p>If a projectile is launched from and lands at the same height:</p>
+<p>Time of flight:</p>
+<div class="math-block">$$
+T = \frac{2v_0 \sin\theta}{g}
+$$</div>
+<p>Maximum height:</p>
+<div class="math-block">$$
+H = \frac{v_0^2 \sin^2\theta}{2g}
+$$</div>
+<p>Range:</p>
+<div class="math-block">$$
+R = \frac{v_0^2 \sin 2\theta}{g}
+$$</div>
+<h2 id="common-mistake">Common mistake</h2>
+<p>Do not use the magnitude of velocity in every equation. The $x$ and $y$ components evolve differently, and they must be solved separately.</p>
+<hr />
+<a id="toc-5"></a>
+<h1 id="newtons-laws-and-free-body-diagrams">Newton&#39;s laws and free-body diagrams</h1>
+<p>Newton&#39;s laws connect forces and motion.</p>
+<h2 id="newtons-laws">Newton&#39;s laws</h2>
+<ol><li><p>Inertia: if the net force is zero, velocity is constant.</p></li><li><p>Dynamics: net force equals mass times acceleration.</p></li><li><p>Action-reaction: forces between two bodies are equal in magnitude and opposite in direction.</p></li></ol>
+<p>Mathematically:</p>
+<div class="math-block">$$
+\sum \vec F = m \vec a
+$$</div>
+<p>For components:</p>
+<div class="math-block">$$
+\sum F_x = ma_x, \qquad \sum F_y = ma_y
+$$</div>
+<h2 id="free-body-diagram-workflow">Free-body diagram workflow</h2>
+<ol><li><p>Isolate the object.</p></li><li><p>Draw only external forces acting on it.</p></li><li><p>Choose axes aligned with the motion or surface if possible.</p></li><li><p>Resolve angled forces into components.</p></li><li><p>Write one equation per axis.</p></li></ol>
+<h2 id="common-errors">Common errors</h2>
+<ul><li><p>Including forces the object exerts on other bodies</p></li><li><p>Omitting weight or normal force</p></li><li><p>Confusing action-reaction pairs with balanced forces on the same body</p></li><li><p>Forgetting to project angled forces onto axes</p></li></ul>
+<hr />
+<a id="toc-6"></a>
+<h1 id="common-forces">Common forces</h1>
+<h2 id="weight">Weight</h2>
+<p>The gravitational force near Earth is:</p>
+<div class="math-block">$$
+\vec W = m\vec g
+$$</div>
+<p>Magnitude:</p>
+<div class="math-block">$$
+W = mg
+$$</div>
+<h2 id="normal-force">Normal force</h2>
+<p>The normal force is the contact force perpendicular to a surface. It is not always equal to $mg$.</p>
+<p>Examples:</p>
+<ul><li><p>On a horizontal surface with no vertical acceleration, $N = mg$</p></li><li><p>On an incline, $N = mg\cos\theta$ if no other vertical components act</p></li></ul>
+<h2 id="tension">Tension</h2>
+<p>Tension acts along a taut rope or cable and pulls away from the object.</p>
+<p>Assumptions often used in introductory problems:</p>
+<ul><li><p>Rope is massless</p></li><li><p>Pulley is frictionless</p></li><li><p>Tension is the same throughout one continuous rope</p></li></ul>
+<h2 id="friction">Friction</h2>
+<p>Static friction:</p>
+<div class="math-block">$$
+f_s \le \mu_s N
+$$</div>
+<p>Kinetic friction:</p>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<p>Friction opposes relative motion or impending motion between surfaces.</p>
+<h2 id="springs">Springs</h2>
+<p>Hooke&#39;s law:</p>
+<div class="math-block">$$
+F_s = -kx
+$$</div>
+<p>Here $k$ is the spring constant and $x$ is displacement from equilibrium.</p>
+<p>The minus sign indicates a restoring force.</p>
+<hr />
+<a id="toc-7"></a>
+<h1 id="work-energy-and-power">Work, energy, and power</h1>
+<p>Energy methods are often simpler than direct force analysis when the question concerns speed, height, or turning points.</p>
+<h2 id="work">Work</h2>
+<p>Work done by a constant force:</p>
+<div class="math-block">$$
+W = \vec F \cdot \vec d = Fd\cos\theta
+$$</div>
+<p>For a variable force:</p>
+<div class="math-block">$$
+W = \int \vec F \cdot d\vec r
+$$</div>
+<h2 id="kinetic-energy">Kinetic energy</h2>
+<div class="math-block">$$
+K = \frac{1}{2}mv^2
+$$</div>
+<h2 id="work-energy-theorem">Work-energy theorem</h2>
+<p>Net work changes kinetic energy:</p>
+<div class="math-block">$$
+W_{net} = \Delta K
+$$</div>
+<h2 id="potential-energy">Potential energy</h2>
+<p>Gravitational near Earth:</p>
+<div class="math-block">$$
+U_g = mgh
+$$</div>
+<p>Spring potential:</p>
+<div class="math-block">$$
+U_s = \frac{1}{2}kx^2
+$$</div>
+<h2 id="conservation-of-mechanical-energy">Conservation of mechanical energy</h2>
+<p>If only conservative forces act:</p>
+<div class="math-block">$$
+K_i + U_i = K_f + U_f
+$$</div>
+<p>If nonconservative forces do work:</p>
+<div class="math-block">$$
+K_i + U_i + W_{nc} = K_f + U_f
+$$</div>
+<h2 id="power">Power</h2>
+<p>Average power:</p>
+<div class="math-block">$$
+\bar P = \frac{W}{\Delta t}
+$$</div>
+<p>Instantaneous power:</p>
+<div class="math-block">$$
+P = \frac{dW}{dt} = \vec F \cdot \vec v
+$$</div>
+<h2 id="when-to-use-energy">When to use energy</h2>
+<p>Use energy when:</p>
+<ul><li><p>You want speed after moving through a height change</p></li><li><p>A force changes with position</p></li><li><p>Time is not explicitly required</p></li></ul>
+<p>Use Newton&#39;s laws when:</p>
+<ul><li><p>You need acceleration or tension as a function of time</p></li><li><p>Friction or constraints make the force balance essential</p></li></ul>
+<hr />
+<a id="toc-8"></a>
+<h1 id="momentum-impulse-and-collisions">Momentum, impulse, and collisions</h1>
+<p>Momentum is the quantity most useful when forces act over short times or when bodies collide.</p>
+<h2 id="momentum">Momentum</h2>
+<div class="math-block">$$
+\vec p = m\vec v
+$$</div>
+<h2 id="impulse">Impulse</h2>
+<p>Impulse is force integrated over time:</p>
+<div class="math-block">$$
+\vec J = \int \vec F\,dt
+$$</div>
+<p>For constant force:</p>
+<div class="math-block">$$
+\vec J = \vec F\Delta t
+$$</div>
+<p>Impulse-momentum theorem:</p>
+<div class="math-block">$$
+\vec J = \Delta \vec p
+$$</div>
+<h2 id="conservation-of-momentum">Conservation of momentum</h2>
+<p>If the net external impulse on a system is zero:</p>
+<div class="math-block">$$
+\vec p_i = \vec p_f
+$$</div>
+<p>This is especially useful in explosions and collisions.</p>
+<h2 id="collision-types">Collision types</h2>
+<ul><li><p>Elastic: momentum and kinetic energy are both conserved</p></li><li><p>Inelastic: momentum is conserved, kinetic energy is not</p></li><li><p>Perfectly inelastic: objects stick together after collision</p></li></ul>
+<h2 id="one-dimensional-perfectly-inelastic-collision">One-dimensional perfectly inelastic collision</h2>
+<p>If two masses stick together:</p>
+<div class="math-block">$$
+m_1 v_{1i} + m_2 v_{2i} = (m_1 + m_2)v_f
+$$</div>
+<h2 id="common-mistake-2">Common mistake</h2>
+<p>Momentum is a vector. Conservation must be applied separately in each direction.</p>
+<hr />
+<a id="toc-9"></a>
+<h1 id="rotation-and-torque">Rotation and torque</h1>
+<p>Rotational motion is the angular analogue of linear motion.</p>
+<h2 id="angular-variables">Angular variables</h2>
+<p>Angular displacement:</p>
+<div class="math-block">$$
+\theta
+$$</div>
+<p>Angular velocity:</p>
+<div class="math-block">$$
+\omega = \frac{d\theta}{dt}
+$$</div>
+<p>Angular acceleration:</p>
+<div class="math-block">$$
+\alpha = \frac{d\omega}{dt}
+$$</div>
+<p>For constant angular acceleration:</p>
+<div class="math-block">$$
+\omega = \omega_0 + \alpha t
+$$</div>
+<div class="math-block">$$
+\theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2
+$$</div>
+<div class="math-block">$$
+\omega^2 = \omega_0^2 + 2\alpha(\theta - \theta_0)
+$$</div>
+<h2 id="link-between-linear-and-angular-motion">Link between linear and angular motion</h2>
+<p>For a point at radius $r$:</p>
+<div class="math-block">$$
+s = r\theta
+$$</div>
+<div class="math-block">$$
+v = r\omega
+$$</div>
+<div class="math-block">$$
+a_t = r\alpha
+$$</div>
+<div class="math-block">$$
+a_c = \frac{v^2}{r} = r\omega^2
+$$</div>
+<h2 id="torque">Torque</h2>
+<p>Torque measures the tendency of a force to cause rotation:</p>
+<div class="math-block">$$
+\vec \tau = \vec r \times \vec F
+$$</div>
+<p>Magnitude:</p>
+<div class="math-block">$$
+\tau = rF\sin\phi
+$$</div>
+<p>where $\phi$ is the angle between $\vec r$ and $\vec F$.</p>
+<h2 id="rotational-dynamics">Rotational dynamics</h2>
+<p>For a rigid body about a fixed axis:</p>
+<div class="math-block">$$
+\sum \tau = I\alpha
+$$</div>
+<p>Here $I$ is the moment of inertia.</p>
+<h2 id="rotational-kinetic-energy">Rotational kinetic energy</h2>
+<div class="math-block">$$
+K_{rot} = \frac{1}{2}I\omega^2
+$$</div>
+<h2 id="rolling-without-slipping">Rolling without slipping</h2>
+<p>Condition:</p>
+<div class="math-block">$$
+v = r\omega
+$$</div>
+<p>Rolling problems often combine translation, rotation, and energy.</p>
+<hr />
+<a id="toc-10"></a>
+<h1 id="gravity-and-circular-motion">Gravity and circular motion</h1>
+<h2 id="universal-gravitation">Universal gravitation</h2>
+<p>Newton&#39;s law of gravitation:</p>
+<div class="math-block">$$
+F = G\frac{m_1 m_2}{r^2}
+$$</div>
+<p>Near Earth&#39;s surface:</p>
+<div class="math-block">$$
+g = G\frac{M_E}{R_E^2}
+$$</div>
+<h2 id="uniform-circular-motion">Uniform circular motion</h2>
+<p>An object moving in a circle at constant speed still accelerates because its velocity direction changes.</p>
+<p>Centripetal acceleration:</p>
+<div class="math-block">$$
+a_c = \frac{v^2}{r} = \omega^2 r
+$$</div>
+<p>Centripetal force:</p>
+<div class="math-block">$$
+F_c = m\frac{v^2}{r}
+$$</div>
+<p>This is not a new force. It is the net inward force required for circular motion.</p>
+<h2 id="common-circular-motion-sources-of-centripetal-force">Common circular-motion sources of centripetal force</h2>
+<ul><li><p>Tension in a string</p></li><li><p>Friction between tires and road</p></li><li><p>Gravity in orbital motion</p></li><li><p>Normal force in a loop or banked curve</p></li></ul>
+<h2 id="orbit-idea">Orbit idea</h2>
+<p>For a circular orbit, gravity supplies the centripetal force:</p>
+<div class="math-block">$$
+\frac{GMm}{r^2} = m\frac{v^2}{r}
+$$</div>
+<hr />
+<a id="toc-11"></a>
+<h1 id="simple-harmonic-motion">Simple harmonic motion</h1>
+<p>Simple harmonic motion describes oscillations around stable equilibrium.</p>
+<h2 id="defining-feature">Defining feature</h2>
+<p>The restoring force is proportional to displacement and opposite in direction:</p>
+<div class="math-block">$$
+F = -kx
+$$</div>
+<p>For a mass-spring system:</p>
+<div class="math-block">$$
+m\ddot x + kx = 0
+$$</div>
+<p>Angular frequency:</p>
+<div class="math-block">$$
+\omega = \sqrt{\frac{k}{m}}
+$$</div>
+<p>Period:</p>
+<div class="math-block">$$
+T = 2\pi\sqrt{\frac{m}{k}}
+$$</div>
+<h2 id="useful-energy-form">Useful energy form</h2>
+<p>Total mechanical energy in ideal SHM:</p>
+<div class="math-block">$$
+E = \frac{1}{2}kA^2
+$$</div>
+<p>where $A$ is amplitude.</p>
+<h2 id="pendulum-approximation">Pendulum approximation</h2>
+<p>For small angles, a simple pendulum has period:</p>
+<div class="math-block">$$
+T = 2\pi\sqrt{\frac{L}{g}}
+$$</div>
+<p>This approximation is accurate only for small angular displacements.</p>
+<hr />
+<a id="toc-12"></a>
+<h1 id="statics-and-equilibrium">Statics and equilibrium</h1>
+<p>Statics studies objects at rest or moving with constant velocity.</p>
+<p>For equilibrium:</p>
+<div class="math-block">$$
+\sum \vec F = 0
+$$</div>
+<p>and for rotational equilibrium:</p>
+<div class="math-block">$$
+\sum \tau = 0
+$$</div>
+<h2 id="strategy">Strategy</h2>
+<ol><li><p>Draw the free-body diagram.</p></li><li><p>Write force balances in each direction.</p></li><li><p>Choose a torque point that removes unknown forces when possible.</p></li><li><p>Solve the smallest useful system of equations.</p></li></ol>
+<h2 id="typical-statics-problems">Typical statics problems</h2>
+<ul><li><p>Beams supported at two points</p></li><li><p>Ladders against walls</p></li><li><p>Hanging signs</p></li><li><p>Center of mass and support forces</p></li></ul>
+<h2 id="center-of-mass">Center of mass</h2>
+<p>For point masses on a line:</p>
+<div class="math-block">$$
+x_{cm} = \frac{\sum m_i x_i}{\sum m_i}
+$$</div>
+<p>In two dimensions:</p>
+<div class="math-block">$$
+x_{cm} = \frac{\sum m_i x_i}{\sum m_i}, \qquad y_{cm} = \frac{\sum m_i y_i}{\sum m_i}
+$$</div>
+<p>The center of mass is the effective point where translational motion can be tracked.</p>
+<hr />
+<a id="toc-13"></a>
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
+<p>Good mechanics solutions are usually built in the same order.</p>
+<h2 id="1-identify-the-topic">1. Identify the topic</h2>
+<p>Decide whether the problem is mainly about:</p>
+<ul><li><p>Kinematics</p></li><li><p>Forces</p></li><li><p>Energy</p></li><li><p>Momentum</p></li><li><p>Rotation</p></li><li><p>Gravity</p></li><li><p>Oscillation</p></li></ul>
+<h2 id="2-draw-the-model">2. Draw the model</h2>
+<p>Use a diagram. Label:</p>
+<ul><li><p>Known and unknown quantities</p></li><li><p>Axes</p></li><li><p>Angles</p></li><li><p>Forces</p></li><li><p>Initial and final states</p></li></ul>
+<h2 id="3-choose-the-governing-principle">3. Choose the governing principle</h2>
+<p>Examples:</p>
+<ul><li><p>Constant acceleration equations</p></li><li><p>$\sum F = ma$</p></li><li><p>$W_{net} = \Delta K$</p></li><li><p>$\vec p_i = \vec p_f$</p></li><li><p>$\sum \tau = I\alpha$</p></li></ul>
+<h2 id="4-solve-symbolically-first">4. Solve symbolically first</h2>
+<p>Keep variables until the end. This reduces algebra mistakes and makes unit checking easier.</p>
+<h2 id="5-check-the-result">5. Check the result</h2>
+<p>Sanity checks:</p>
+<ul><li><p>Units are correct</p></li><li><p>Direction and sign are reasonable</p></li><li><p>Magnitude is physically plausible</p></li><li><p>Limiting cases make sense</p></li></ul>
+<h2 id="6-interpret">6. Interpret</h2>
+<p>Translate the answer back into the language of the problem. A correct number is not enough if the meaning is unclear.</p>
+<hr />
+<a id="toc-14"></a>
+<h1 id="formula-summary">Formula summary</h1>
+<h2 id="kinematics">Kinematics</h2>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<div class="math-block">$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$</div>
+<div class="math-block">$$
+v^2 = v_0^2 + 2a(x-x_0)
+$$</div>
+<h2 id="forces">Forces</h2>
+<div class="math-block">$$
+\sum \vec F = m\vec a
+$$</div>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<div class="math-block">$$
+f_s \le \mu_s N
+$$</div>
+<div class="math-block">$$
+F_s = -kx
+$$</div>
+<h2 id="energy">Energy</h2>
+<div class="math-block">$$
+K = \frac{1}{2}mv^2
+$$</div>
+<div class="math-block">$$
+W = \vec F \cdot \vec d
+$$</div>
+<div class="math-block">$$
+W_{net} = \Delta K
+$$</div>
+<div class="math-block">$$
+U_g = mgh
+$$</div>
+<div class="math-block">$$
+U_s = \frac{1}{2}kx^2
+$$</div>
+<div class="math-block">$$
+K_i + U_i + W_{nc} = K_f + U_f
+$$</div>
+<h2 id="momentum-2">Momentum</h2>
+<div class="math-block">$$
+\vec p = m\vec v
+$$</div>
+<div class="math-block">$$
+\vec J = \Delta \vec p
+$$</div>
+<div class="math-block">$$
+\vec p_i = \vec p_f
+$$</div>
+<h2 id="rotation">Rotation</h2>
+<div class="math-block">$$
+\omega = \omega_0 + \alpha t
+$$</div>
+<div class="math-block">$$
+\theta = \theta_0 + \omega_0 t + \frac{1}{2}\alpha t^2
+$$</div>
+<div class="math-block">$$
+\sum \tau = I\alpha
+$$</div>
+<div class="math-block">$$
+K_{rot} = \frac{1}{2}I\omega^2
+$$</div>
+<div class="math-block">$$
+v = r\omega
+$$</div>
+<div class="math-block">$$
+a_c = \frac{v^2}{r}
+$$</div>
+<h2 id="gravity-and-oscillations">Gravity and oscillations</h2>
+<div class="math-block">$$
+F = G\frac{m_1 m_2}{r^2}
+$$</div>
+<div class="math-block">$$
+T_{spring} = 2\pi\sqrt{\frac{m}{k}}
+$$</div>
+<div class="math-block">$$
+T_{pendulum} = 2\pi\sqrt{\frac{L}{g}}
+$$</div>
+<hr />
+<h2 id="common-pitfalls">Common pitfalls</h2>
+<ul><li><p>Mixing up displacement and distance</p></li><li><p>Using a speed equation when direction matters</p></li><li><p>Assuming $N = mg$ in every contact problem</p></li><li><p>Forgetting that friction and tension are forces, not constants</p></li><li><p>Applying energy when the problem asks for a force or acceleration directly</p></li><li><p>Forgetting that momentum is vector-valued</p></li><li><p>Using a circular motion formula without checking whether the motion is actually circular</p></li></ul>
+      </article>
+    </section>
+    <nav class="notes-toc panel" aria-label="Table of contents">
+      <div class="notes-toc__head">
+        <p class="section-label">Table of contents</p>
+      </div>
+      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#what-physics-i-covers">What Physics I covers</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#units-vectors-and-notation">Units, vectors, and notation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#si-base-quantities">SI base quantities</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#scalars-and-vectors">Scalars and vectors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#coordinate-choice">Coordinate choice</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#one-dimensional-kinematics">One-dimensional kinematics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#definitions">Definitions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constant-acceleration-equations">Constant-acceleration equations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interpretation-tips">Interpretation tips</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-fall-as-a-special-case">Free-fall as a special case</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#two-dimensional-motion-and-projectiles">Two-dimensional motion and projectiles</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#component-method">Component method</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#projectile-motion">Projectile motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#useful-projectile-results">Useful projectile results</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-mistake">Common mistake</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#newtons-laws-and-free-body-diagrams">Newton&#39;s laws and free-body diagrams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-laws">Newton&#39;s laws</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-body-diagram-workflow">Free-body diagram workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-errors">Common errors</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#common-forces">Common forces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#weight">Weight</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-force">Normal force</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#tension">Tension</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#friction">Friction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#springs">Springs</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#work-energy-and-power">Work, energy, and power</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work-energy-theorem">Work-energy theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#potential-energy">Potential energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservation-of-mechanical-energy">Conservation of mechanical energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#power">Power</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-to-use-energy">When to use energy</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#momentum-impulse-and-collisions">Momentum, impulse, and collisions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#momentum">Momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#impulse">Impulse</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservation-of-momentum">Conservation of momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#collision-types">Collision types</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#one-dimensional-perfectly-inelastic-collision">One-dimensional perfectly inelastic collision</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-mistake-2">Common mistake</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#rotation-and-torque">Rotation and torque</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angular-variables">Angular variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#link-between-linear-and-angular-motion">Link between linear and angular motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#torque">Torque</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotational-dynamics">Rotational dynamics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotational-kinetic-energy">Rotational kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rolling-without-slipping">Rolling without slipping</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#gravity-and-circular-motion">Gravity and circular motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#universal-gravitation">Universal gravitation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#uniform-circular-motion">Uniform circular motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-circular-motion-sources-of-centripetal-force">Common circular-motion sources of centripetal force</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#orbit-idea">Orbit idea</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#simple-harmonic-motion">Simple harmonic motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#defining-feature">Defining feature</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#useful-energy-form">Useful energy form</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pendulum-approximation">Pendulum approximation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#statics-and-equilibrium">Statics and equilibrium</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#strategy">Strategy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-statics-problems">Typical statics problems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#center-of-mass">Center of mass</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#problem-solving-workflow">Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#1-identify-the-topic">1. Identify the topic</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#2-draw-the-model">2. Draw the model</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#3-choose-the-governing-principle">3. Choose the governing principle</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#4-solve-symbolically-first">4. Solve symbolically first</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#5-check-the-result">5. Check the result</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#6-interpret">6. Interpret</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#formula-summary">Formula summary</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinematics">Kinematics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#forces">Forces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy">Energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#momentum-2">Momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotation">Rotation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#gravity-and-oscillations">Gravity and oscillations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-pitfalls">Common pitfalls</a></li></ol>
+    </nav>
+  </main>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>

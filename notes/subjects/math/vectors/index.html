@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Vectors | Adriamics</title>
+  <meta name="description" content="A vector is an object with both magnitude and direction. In geometry and physics, vectors represent quantities such as displacement, velocity, acceleration, ..." />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/math/vectors/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="/notes/notes.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Notes page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/">Home</a>
+      </nav>
+      <aside class="notes-structures" aria-label="Guide structures">
+          <ul class="subject-list"><li><a href="/notes/subjects/general/introduction/">General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/data-computing/programming/">Data / Computing</a></li><li><a href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-biology/">Medical / Biology</a></li></ul>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/">Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/">Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/">Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/">Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/">Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/">Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/">Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/">Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/">Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/">Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/">Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/">Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" aria-current="page">Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/">Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/">Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/">Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/">Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/">First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/">Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/">Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/">Proof Writing</a></li></ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Vectors</h1>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fmath%2Fvectors.md&amp;title=%5BCorrection%5D%3A%20Vectors" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">What a vector is</a></p></li><li><p><a href="#toc-2">Notation and components</a></p></li><li><p><a href="#toc-3">Magnitude and unit vectors</a></p></li><li><p><a href="#toc-4">Basic vector operations</a></p></li><li><p><a href="#toc-5">Dot product</a></p></li><li><p><a href="#toc-6">Cross product</a></p></li><li><p><a href="#toc-7">Vector projections</a></p></li><li><p><a href="#toc-8">Lines and planes</a></p></li><li><p><a href="#toc-9">Common workflows</a></p></li><li><p><a href="#toc-10">Formula summary</a></p></li><li><p><a href="#toc-11">Pitfalls</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="1-what-a-vector-is">1. What a vector is</h1>
+<p>A <strong>vector</strong> is an object with both magnitude and direction. In geometry and physics, vectors represent quantities such as displacement, velocity, acceleration, and force.</p>
+<p>In algebra, vectors are often treated as ordered lists of numbers in $\mathbb{R}^n$:</p>
+<div class="math-block">$$
+\mathbf{v} = \langle v_1, v_2, \dots, v_n \rangle
+$$</div>
+<p>The numbers $v_1, v_2, \dots, v_n$ are the <strong>components</strong> of the vector.</p>
+<h2 id="geometric-view">Geometric view</h2>
+<p>In 2D or 3D, a vector can be drawn as an arrow:</p>
+<ul><li><p>Length represents magnitude</p></li><li><p>Arrow direction represents orientation</p></li><li><p>The vector is independent of its position in space</p></li></ul>
+<p>Two vectors are equal if they have the same magnitude and direction, even if they start at different points.</p>
+<h2 id="free-vectors-and-position-vectors">Free vectors and position vectors</h2>
+<ul><li><p>A <strong>free vector</strong> can be translated anywhere without changing it.</p></li><li><p>A <strong>position vector</strong> starts at the origin and ends at a point.</p></li></ul>
+<p>If $P = (x, y, z)$, then the position vector of $P$ is</p>
+<div class="math-block">$$
+\mathbf{p} = \langle x, y, z \rangle
+$$</div>
+<hr />
+<a id="toc-2"></a>
+<h1 id="2-notation-and-components">2. Notation and components</h1>
+<p>Vectors may be written in several equivalent forms:</p>
+<div class="math-block">$$
+\mathbf{v} = \langle 3, -2 \rangle
+$$</div>
+<div class="math-block">$$
+\mathbf{v} =
+\begin{bmatrix}
+3 \\
+-2
+\end{bmatrix}
+$$</div>
+<div class="math-block">$$
+\mathbf{v} = 3\mathbf{i} - 2\mathbf{j}
+$$</div>
+<p>In 3D:</p>
+<div class="math-block">$$
+\mathbf{v} = a\mathbf{i} + b\mathbf{j} + c\mathbf{k}
+$$</div>
+<p>where $\mathbf{i}$, $\mathbf{j}$, and $\mathbf{k}$ are the standard basis vectors:</p>
+<div class="math-block">$$
+\mathbf{i} = \langle 1, 0, 0 \rangle,\quad
+\mathbf{j} = \langle 0, 1, 0 \rangle,\quad
+\mathbf{k} = \langle 0, 0, 1 \rangle
+$$</div>
+<h2 id="component-form-from-two-points">Component form from two points</h2>
+<p>If a vector goes from point $A(x_1, y_1)$ to point $B(x_2, y_2)$, then</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle x_2 - x_1,\ y_2 - y_1 \rangle
+$$</div>
+<p>In 3D:</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle x_2 - x_1,\ y_2 - y_1,\ z_2 - z_1 \rangle
+$$</div>
+<p>This is one of the most common ways vectors appear in geometry problems.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="3-magnitude-and-unit-vectors">3. Magnitude and unit vectors</h1>
+<p>The <strong>magnitude</strong> or length of $\mathbf{v} = \langle v_1, v_2, \dots, v_n \rangle$ is</p>
+<div class="math-block">$$
+\|\mathbf{v}\| = \sqrt{v_1^2 + v_2^2 + \cdots + v_n^2}
+$$</div>
+<p>In 2D:</p>
+<div class="math-block">$$
+\|\mathbf{v}\| = \sqrt{x^2 + y^2}
+$$</div>
+<p>In 3D:</p>
+<div class="math-block">$$
+\|\mathbf{v}\| = \sqrt{x^2 + y^2 + z^2}
+$$</div>
+<h2 id="unit-vectors">Unit vectors</h2>
+<p>A <strong>unit vector</strong> has length 1. The unit vector in the direction of $\mathbf{v}$ is</p>
+<div class="math-block">$$
+\hat{\mathbf{v}} = \frac{\mathbf{v}}{\|\mathbf{v}\|}
+$$</div>
+<p>provided $\mathbf{v} \neq \mathbf{0}$.</p>
+<p>Example:</p>
+<p>If $\mathbf{v} = \langle 3, 4 \rangle$, then</p>
+<div class="math-block">$$
+\|\mathbf{v}\| = 5,\qquad
+\hat{\mathbf{v}} = \left\langle \frac{3}{5}, \frac{4}{5} \right\rangle
+$$</div>
+<h2 id="direction-in-2d">Direction in 2D</h2>
+<p>If $\mathbf{v} = \langle x, y \rangle$, then the direction angle $\theta$ satisfies</p>
+<div class="math-block">$$
+\tan \theta = \frac{y}{x}
+$$</div>
+<p>with the correct quadrant chosen from the signs of $x$ and $y$.</p>
+<hr />
+<a id="toc-4"></a>
+<h1 id="4-basic-vector-operations">4. Basic vector operations</h1>
+<h2 id="addition-and-subtraction">Addition and subtraction</h2>
+<p>For $\mathbf{u} = \langle u_1, u_2, \dots \rangle$ and $\mathbf{v} = \langle v_1, v_2, \dots \rangle$:</p>
+<div class="math-block">$$
+\mathbf{u} + \mathbf{v} = \langle u_1 + v_1,\ u_2 + v_2,\ \dots \rangle
+$$</div>
+<div class="math-block">$$
+\mathbf{u} - \mathbf{v} = \langle u_1 - v_1,\ u_2 - v_2,\ \dots \rangle
+$$</div>
+<p>Geometrically, addition follows the <strong>tip-to-tail</strong> or <strong>parallelogram</strong> rule.</p>
+<h2 id="scalar-multiplication">Scalar multiplication</h2>
+<p>For scalar $c$:</p>
+<div class="math-block">$$
+c\mathbf{v} = \langle cv_1, cv_2, \dots, cv_n \rangle
+$$</div>
+<p>Effects:</p>
+<ul><li><p>If $|c| &gt; 1$, the vector stretches</p></li><li><p>If $0 &lt; |c| &lt; 1$, the vector shrinks</p></li><li><p>If $c &lt; 0$, the direction reverses</p></li></ul>
+<h2 id="zero-vector">Zero vector</h2>
+<p>The zero vector is</p>
+<div class="math-block">$$
+\mathbf{0} = \langle 0, 0, \dots, 0 \rangle
+$$</div>
+<p>It has zero magnitude and no direction.</p>
+<hr />
+<a id="toc-5"></a>
+<h1 id="5-dot-product">5. Dot product</h1>
+<p>The <strong>dot product</strong> of two vectors in $\mathbb{R}^n$ is</p>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = u_1v_1 + u_2v_2 + \cdots + u_nv_n
+$$</div>
+<p>In 2D:</p>
+<div class="math-block">$$
+\langle a, b \rangle \cdot \langle c, d \rangle = ac + bd
+$$</div>
+<p>In 3D:</p>
+<div class="math-block">$$
+\langle a, b, c \rangle \cdot \langle d, e, f \rangle = ad + be + cf
+$$</div>
+<h2 id="angle-between-vectors">Angle between vectors</h2>
+<p>The dot product also satisfies</p>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \, \|\mathbf{v}\| \cos \theta
+$$</div>
+<p>where $\theta$ is the angle between the vectors.</p>
+<p>So</p>
+<div class="math-block">$$
+\cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \, \|\mathbf{v}\|}
+$$</div>
+<p>This is often the fastest way to find an angle.</p>
+<h2 id="orthogonality">Orthogonality</h2>
+<p>Two nonzero vectors are <strong>orthogonal</strong> if their dot product is zero:</p>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = 0
+$$</div>
+<p>This means the vectors are perpendicular.</p>
+<h2 id="projection-idea-from-the-dot-product">Projection idea from the dot product</h2>
+<p>The scalar component of $\mathbf{v}$ along $\mathbf{u}$ is</p>
+<div class="math-block">$$
+\operatorname{comp}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|}
+$$</div>
+<p>The vector projection is covered in the next section.</p>
+<hr />
+<a id="toc-6"></a>
+<h1 id="6-cross-product">6. Cross product</h1>
+<p>The <strong>cross product</strong> is defined for vectors in $\mathbb{R}^3$.</p>
+<p>For</p>
+<div class="math-block">$$
+\mathbf{u} = \langle u_1, u_2, u_3 \rangle,\qquad
+\mathbf{v} = \langle v_1, v_2, v_3 \rangle
+$$</div>
+<p>the cross product is</p>
+<div class="math-block">$$
+\mathbf{u} \times \mathbf{v}
+=
+\begin{vmatrix}
+\mathbf{i} &amp; \mathbf{j} &amp; \mathbf{k} \\
+u_1 &amp; u_2 &amp; u_3 \\
+v_1 &amp; v_2 &amp; v_3
+\end{vmatrix}
+$$</div>
+<p>which expands to</p>
+<div class="math-block">$$
+\mathbf{u} \times \mathbf{v}
+= \langle u_2v_3 - u_3v_2,\ u_3v_1 - u_1v_3,\ u_1v_2 - u_2v_1 \rangle
+$$</div>
+<h2 id="geometric-meaning">Geometric meaning</h2>
+<ul><li><p>$\mathbf{u} \times \mathbf{v}$ is perpendicular to both $\mathbf{u}$ and $\mathbf{v}$</p></li><li><p>Its magnitude is</p></li></ul>
+<div class="math-block">$$
+\|\mathbf{u} \times \mathbf{v}\| = \|\mathbf{u}\| \, \|\mathbf{v}\| \sin \theta
+$$</div>
+<ul><li><p>It gives the area of the parallelogram spanned by the two vectors</p></li></ul>
+<p>So the triangle area is</p>
+<div class="math-block">$$
+\frac{1}{2}\|\mathbf{u} \times \mathbf{v}\|
+$$</div>
+<h2 id="orientation">Orientation</h2>
+<p>The cross product is not commutative:</p>
+<div class="math-block">$$
+\mathbf{u} \times \mathbf{v} = -(\mathbf{v} \times \mathbf{u})
+$$</div>
+<p>Use the right-hand rule to determine direction.</p>
+<hr />
+<a id="toc-7"></a>
+<h1 id="7-vector-projections">7. Vector projections</h1>
+<p>The projection of $\mathbf{v}$ onto $\mathbf{u}$ is the component of $\mathbf{v}$ that points along $\mathbf{u}$.</p>
+<h2 id="scalar-projection">Scalar projection</h2>
+<div class="math-block">$$
+\operatorname{comp}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\|\mathbf{u}\|}
+$$</div>
+<h2 id="vector-projection">Vector projection</h2>
+<div class="math-block">$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u}
+$$</div>
+<p>This formula is useful in decomposition problems and least-squares geometry.</p>
+<h2 id="orthogonal-decomposition">Orthogonal decomposition</h2>
+<p>Any vector can be split into parallel and perpendicular parts relative to $\mathbf{u}$:</p>
+<div class="math-block">$$
+\mathbf{v} = \operatorname{proj}_{\mathbf{u}} \mathbf{v} + \mathbf{v}_\perp
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+\mathbf{v}_\perp = \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+$$</div>
+<p>and $\mathbf{v}_\perp \cdot \mathbf{u} = 0$.</p>
+<hr />
+<a id="toc-8"></a>
+<h1 id="8-lines-and-planes">8. Lines and planes</h1>
+<p>Vectors provide compact equations for geometric objects.</p>
+<h2 id="line-in-2d-or-3d">Line in 2D or 3D</h2>
+<p>A line through point $\mathbf{r}_0$ with direction vector $\mathbf{d}$ has vector equation</p>
+<div class="math-block">$$
+\mathbf{r}(t) = \mathbf{r}_0 + t\mathbf{d}
+$$</div>
+<p>where $t$ is a parameter.</p>
+<p>In components:</p>
+<div class="math-block">$$
+x = x_0 + at,\qquad y = y_0 + bt,\qquad z = z_0 + ct
+$$</div>
+<p>if $\mathbf{d} = \langle a, b, c \rangle$.</p>
+<h2 id="plane-in-3d">Plane in 3D</h2>
+<p>A plane through point $\mathbf{r}_0$ with normal vector $\mathbf{n}$ satisfies</p>
+<div class="math-block">$$
+\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0
+$$</div>
+<p>If $\mathbf{n} = \langle A, B, C \rangle$ and $\mathbf{r}_0 = (x_0, y_0, z_0)$, then</p>
+<div class="math-block">$$
+A(x - x_0) + B(y - y_0) + C(z - z_0) = 0
+$$</div>
+<p>This is the standard point-normal form of a plane.</p>
+<h2 id="distance-from-a-point-to-a-plane">Distance from a point to a plane</h2>
+<p>For plane</p>
+<div class="math-block">$$
+Ax + By + Cz + D = 0
+$$</div>
+<p>and point $(x_0, y_0, z_0)$, the distance is</p>
+<div class="math-block">$$
+\frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+$$</div>
+<hr />
+<a id="toc-9"></a>
+<h1 id="9-common-workflows">9. Common workflows</h1>
+<h2 id="find-the-vector-from-one-point-to-another">Find the vector from one point to another</h2>
+<ol><li><p>Identify the initial point $A$ and terminal point $B$</p></li><li><p>Subtract coordinates: $B - A$</p></li><li><p>Simplify the components</p></li></ol>
+<p>Example:</p>
+<p>If $A = (1, -3)$ and $B = (5, 2)$, then</p>
+<div class="math-block">$$
+\overrightarrow{AB} = \langle 4, 5 \rangle
+$$</div>
+<h2 id="find-an-angle-between-vectors">Find an angle between vectors</h2>
+<ol><li><p>Compute $\mathbf{u} \cdot \mathbf{v}$</p></li><li><p>Compute $\|\mathbf{u}\|$ and $\|\mathbf{v}\|$</p></li><li><p>Use</p></li></ol>
+<div class="math-block">$$
+\cos \theta = \frac{\mathbf{u} \cdot \mathbf{v}}{\|\mathbf{u}\| \, \|\mathbf{v}\|}
+$$</div>
+<ol><li><p>Apply inverse cosine</p></li></ol>
+<h2 id="test-perpendicularity-or-parallelism">Test perpendicularity or parallelism</h2>
+<ul><li><p>Perpendicular: $\mathbf{u} \cdot \mathbf{v} = 0$</p></li><li><p>Parallel: one vector is a scalar multiple of the other</p></li></ul>
+<h2 id="build-a-line-or-plane">Build a line or plane</h2>
+<ul><li><p>Line: point plus direction vector</p></li><li><p>Plane: point plus normal vector</p></li></ul>
+<p>If the problem gives a geometric picture, convert it to vectors first. The algebra is usually simpler afterward.</p>
+<hr />
+<a id="toc-10"></a>
+<h1 id="10-formula-summary">10. Formula summary</h1>
+<h2 id="core-formulas">Core formulas</h2>
+<div class="math-block">$$
+\mathbf{u} + \mathbf{v} = \langle u_1 + v_1, \dots, u_n + v_n \rangle
+$$</div>
+<div class="math-block">$$
+c\mathbf{v} = \langle cv_1, \dots, cv_n \rangle
+$$</div>
+<div class="math-block">$$
+\|\mathbf{v}\| = \sqrt{v_1^2 + \cdots + v_n^2}
+$$</div>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = \sum_{i=1}^n u_i v_i
+$$</div>
+<div class="math-block">$$
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \, \|\mathbf{v}\| \cos \theta
+$$</div>
+<div class="math-block">$$
+\mathbf{u} \times \mathbf{v}
+= \langle u_2v_3 - u_3v_2,\ u_3v_1 - u_1v_3,\ u_1v_2 - u_2v_1 \rangle
+$$</div>
+<div class="math-block">$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u}
+$$</div>
+<div class="math-block">$$
+\mathbf{r}(t) = \mathbf{r}_0 + t\mathbf{d}
+$$</div>
+<div class="math-block">$$
+\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0
+$$</div>
+<hr />
+<a id="toc-11"></a>
+<h1 id="11-pitfalls">11. Pitfalls</h1>
+<h2 id="sign-mistakes-in-components">Sign mistakes in components</h2>
+<p>When subtracting coordinates, always use</p>
+<div class="math-block">$$
+\overrightarrow{AB} = B - A
+$$</div>
+<p>not the other way around unless the direction is intentionally reversed.</p>
+<h2 id="confusing-dot-product-with-multiplication">Confusing dot product with multiplication</h2>
+<p>The dot product produces a scalar, not a vector.</p>
+<h2 id="confusing-dot-and-cross-products">Confusing dot and cross products</h2>
+<ul><li><p>Dot product measures alignment and angle</p></li><li><p>Cross product measures perpendicularity and area in 3D</p></li></ul>
+<h2 id="forgetting-absolute-value-in-distance-formulas">Forgetting absolute value in distance formulas</h2>
+<p>Distance is always nonnegative. Use absolute value when needed.</p>
+<h2 id="using-the-wrong-dimension">Using the wrong dimension</h2>
+<ul><li><p>Dot product works in any dimension</p></li><li><p>Cross product, in the standard form, is a 3D operation</p></li></ul>
+<h2 id="losing-the-direction-of-a-vector">Losing the direction of a vector</h2>
+<p>A vector is not just its length. Reversing a vector changes its direction even if the magnitude stays the same.</p>
+<hr />
+<h2 id="final-checks">Final checks</h2>
+<p>Before moving on in a vector problem, verify:</p>
+<ul><li><p>The components point the correct way</p></li><li><p>The dimensions match the operation</p></li><li><p>Units are consistent if the vectors are physical quantities</p></li><li><p>The final answer has the right geometric meaning</p></li></ul>
+      </article>
+    </section>
+    <nav class="notes-toc panel" aria-label="Table of contents">
+      <div class="notes-toc__head">
+        <p class="section-label">Table of contents</p>
+      </div>
+      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-a-vector-is">1. What a vector is</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#geometric-view">Geometric view</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-vectors-and-position-vectors">Free vectors and position vectors</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-notation-and-components">2. Notation and components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#component-form-from-two-points">Component form from two points</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-magnitude-and-unit-vectors">3. Magnitude and unit vectors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#unit-vectors">Unit vectors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#direction-in-2d">Direction in 2D</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-basic-vector-operations">4. Basic vector operations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#addition-and-subtraction">Addition and subtraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#scalar-multiplication">Scalar multiplication</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#zero-vector">Zero vector</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-dot-product">5. Dot product</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angle-between-vectors">Angle between vectors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#orthogonality">Orthogonality</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#projection-idea-from-the-dot-product">Projection idea from the dot product</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-cross-product">6. Cross product</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#geometric-meaning">Geometric meaning</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#orientation">Orientation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-vector-projections">7. Vector projections</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#scalar-projection">Scalar projection</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#vector-projection">Vector projection</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#orthogonal-decomposition">Orthogonal decomposition</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-lines-and-planes">8. Lines and planes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#line-in-2d-or-3d">Line in 2D or 3D</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#plane-in-3d">Plane in 3D</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#distance-from-a-point-to-a-plane">Distance from a point to a plane</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-common-workflows">9. Common workflows</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#find-the-vector-from-one-point-to-another">Find the vector from one point to another</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#find-an-angle-between-vectors">Find an angle between vectors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#test-perpendicularity-or-parallelism">Test perpendicularity or parallelism</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#build-a-line-or-plane">Build a line or plane</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-formula-summary">10. Formula summary</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#core-formulas">Core formulas</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-pitfalls">11. Pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sign-mistakes-in-components">Sign mistakes in components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#confusing-dot-product-with-multiplication">Confusing dot product with multiplication</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#confusing-dot-and-cross-products">Confusing dot and cross products</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#forgetting-absolute-value-in-distance-formulas">Forgetting absolute value in distance formulas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#using-the-wrong-dimension">Using the wrong dimension</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#losing-the-direction-of-a-vector">Losing the direction of a vector</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#final-checks">Final checks</a></li></ol>
+    </nav>
+  </main>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>

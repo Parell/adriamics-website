@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mechanics of Materials | Adriamics</title>
+  <meta name="description" content="Mechanics of materials studies how solid members deform and fail under load. The central goal is to relate:" />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/engineering/mechanics-of-materials/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="/notes/notes.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Notes page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/">Home</a>
+      </nav>
+      <aside class="notes-structures" aria-label="Guide structures">
+          <ul class="subject-list"><li><a href="/notes/subjects/general/introduction/">General</a></li><li><a href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/data-computing/programming/">Data / Computing</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-biology/">Medical / Biology</a></li></ul>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">Engineering</h2>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/statics/">Statics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/dynamics/">Dynamics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/" aria-current="page">Mechanics of Materials</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/fluid-mechanics/">Fluid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/heat-transfer/">Heat Transfer</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/materials-science/">Materials Science</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electrical-circuit-analysis/">Electrical Circuit Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/linear-system-signal-analysis/">Linear System Signal Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electronics/">Electronics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/signals-and-systems/">Signals and Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/control-systems/">Control Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/instrumentation/">Instrumentation</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/cad/">CAD</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/simulation/">Simulation</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/manufacturing/">Manufacturing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/quality-control/">Quality Control</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/project-management/">Project Management</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/cost-risk-analysis/">Cost/Risk Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/kinematics/">Kinematics</a></li></ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Mechanics of Materials</h1>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fengineering%2Fmechanics-of-materials.md&amp;title=%5BCorrection%5D%3A%20Mechanics%20of%20Materials" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">Scope and core ideas</a></p></li><li><p><a href="#toc-2">Stress, strain, and constitutive behavior</a></p></li><li><p><a href="#toc-3">Axial loading of bars</a></p></li><li><p><a href="#toc-4">Thermal strain and statically indeterminate axial systems</a></p></li><li><p><a href="#toc-5">Torsion of circular shafts</a></p></li><li><p><a href="#toc-6">Shear and internal force resultants</a></p></li><li><p><a href="#toc-7">Bending stress in beams</a></p></li><li><p><a href="#toc-8">Beam shear stress</a></p></li><li><p><a href="#toc-9">Stress and strain transformations</a></p></li><li><p><a href="#toc-10">Mohr&#39;s circle</a></p></li><li><p><a href="#toc-11">Deflection of beams and shafts</a></p></li><li><p><a href="#toc-12">Columns and buckling</a></p></li><li><p><a href="#toc-13">Combined loading and failure criteria</a></p></li><li><p><a href="#toc-14">Fatigue and design checks</a></p></li><li><p><a href="#toc-15">Problem-solving workflow</a></p></li><li><p><a href="#toc-16">Formula sheet</a></p></li><li><p><a href="#toc-17">Common mistakes</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="1-scope-and-core-ideas">1. Scope and core ideas</h1>
+<p>Mechanics of materials studies how solid members deform and fail under load. The central goal is to relate:</p>
+<ul><li><p>External loads and supports</p></li><li><p>Internal force resultants</p></li><li><p>Stress and strain</p></li><li><p>Material properties</p></li><li><p>Deflection and stability</p></li></ul>
+<p>The subject is built on idealizations:</p>
+<ul><li><p>Members are usually slender compared with their length.</p></li><li><p>Materials are treated as continuous media.</p></li><li><p>Loads are assumed to act in a prescribed way at first, then converted to internal resultants.</p></li><li><p>Linear elasticity is often used unless the problem states otherwise.</p></li></ul>
+<h2 id="the-engineering-chain">The engineering chain</h2>
+<p>Most problems follow this chain:</p>
+<div class="math-block">$$
+\text{loads} \rightarrow \text{internal forces} \rightarrow \text{stress} \rightarrow \text{strain} \rightarrow \text{deformation} \rightarrow \text{failure check}
+$$</div>
+<p>If any link is wrong, the final answer is usually wrong even if the algebra is correct.</p>
+<h2 id="main-failure-modes">Main failure modes</h2>
+<ul><li><p>Yielding in ductile materials</p></li><li><p>Brittle fracture</p></li><li><p>Excessive deflection</p></li><li><p>Buckling</p></li><li><p>Fatigue from repeated loading</p></li><li><p>Shear failure in joints or sections</p></li></ul>
+<hr />
+<a id="toc-2"></a>
+<h1 id="2-stress-strain-and-constitutive-behavior">2. Stress, strain, and constitutive behavior</h1>
+<h2 id="normal-stress">Normal stress</h2>
+<p>Average normal stress under an axial force:</p>
+<div class="math-block">$$
+\sigma = \frac{P}{A}
+$$</div>
+<p>where:</p>
+<ul><li><p>$P$ is the internal axial force</p></li><li><p>$A$ is the cross-sectional area</p></li></ul>
+<p>Tension is usually taken as positive and compression as negative.</p>
+<h2 id="shear-stress">Shear stress</h2>
+<p>Average shear stress:</p>
+<div class="math-block">$$
+\tau = \frac{V}{A}
+$$</div>
+<p>where $V$ is the shear force acting over the area.</p>
+<p>For nonuniform shear, the average stress is not enough. Use the appropriate distribution formula for the geometry.</p>
+<h2 id="normal-strain">Normal strain</h2>
+<p>Engineering strain is</p>
+<div class="math-block">$$
+\varepsilon = \frac{\delta}{L}
+$$</div>
+<p>where:</p>
+<ul><li><p>$\delta$ is the change in length</p></li><li><p>$L$ is the original length</p></li></ul>
+<p>For small deformations, engineering strain is usually sufficient.</p>
+<h2 id="shear-strain">Shear strain</h2>
+<p>Shear strain $\gamma$ measures angular distortion. For small angles,</p>
+<div class="math-block">$$
+\gamma \approx \theta
+$$</div>
+<p>with $\gamma$ in radians.</p>
+<h2 id="hookes-law">Hooke&#39;s law</h2>
+<p>For linear elastic uniaxial behavior:</p>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<p>where $E$ is Young&#39;s modulus.</p>
+<p>For shear:</p>
+<div class="math-block">$$
+\tau = G\gamma
+$$</div>
+<p>where $G$ is the shear modulus.</p>
+<p>The elastic constants are related by</p>
+<div class="math-block">$$
+E = 2G(1+\nu)
+$$</div>
+<p>where $\nu$ is Poisson&#39;s ratio.</p>
+<h2 id="poisson-effect">Poisson effect</h2>
+<p>Under axial tension, a material usually contracts laterally:</p>
+<div class="math-block">$$
+\varepsilon_{lat} = -\nu \varepsilon_{ax}
+$$</div>
+<p>This matters in three-dimensional stress states and constrained members.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="3-axial-loading-of-bars">3. Axial loading of bars</h1>
+<h2 id="deformation-of-a-prismatic-bar">Deformation of a prismatic bar</h2>
+<p>For a bar with constant area and axial force:</p>
+<div class="math-block">$$
+\delta = \frac{PL}{AE}
+$$</div>
+<p>If the axial force or area changes along the length:</p>
+<div class="math-block">$$
+\delta = \int_0^L \frac{P(x)}{A(x)E(x)}\,dx
+$$</div>
+<p>For piecewise constant segments, sum the deformation of each segment.</p>
+<h2 id="stress-in-axial-members">Stress in axial members</h2>
+<p>If the internal axial force is constant over a segment:</p>
+<div class="math-block">$$
+\sigma = \frac{P}{A}
+$$</div>
+<p>Sign matters. Tension and compression should not be mixed in the same formula without a sign convention.</p>
+<h2 id="statically-determinate-axial-problems">Statically determinate axial problems</h2>
+<p>Use equilibrium to find the reaction forces, then compute internal axial force, stress, and deformation.</p>
+<p>Typical steps:</p>
+<ol><li><p>Draw the free-body diagram.</p></li><li><p>Solve the support reactions.</p></li><li><p>Cut the bar to find internal axial force.</p></li><li><p>Compute stress with $\sigma = P/A$.</p></li><li><p>Compute deformation with $\delta = PL/(AE)$ or the integral form.</p></li></ol>
+<h2 id="example-pattern">Example pattern</h2>
+<p>If a bar has two segments in series, the total deformation is</p>
+<div class="math-block">$$
+\delta_{tot} = \sum_i \frac{P_iL_i}{A_iE_i}
+$$</div>
+<p>If the same axial force passes through all segments, each segment contributes according to its own $L$, $A$, and $E$.</p>
+<h2 id="stress-concentration">Stress concentration</h2>
+<p>A sudden change in geometry creates a local stress concentration. The nominal stress may be acceptable while the local peak stress is not.</p>
+<p>For design, check whether the problem supplies a stress concentration factor $K_t$:</p>
+<div class="math-block">$$
+\sigma_{max} = K_t \sigma_{nom}
+$$</div>
+<hr />
+<a id="toc-4"></a>
+<h1 id="4-thermal-strain-and-statically-indeterminate-axial-systems">4. Thermal strain and statically indeterminate axial systems</h1>
+<h2 id="free-thermal-expansion">Free thermal expansion</h2>
+<p>For uniform temperature change:</p>
+<div class="math-block">$$
+\delta_{th} = \alpha L \Delta T
+$$</div>
+<p>where $\alpha$ is the coefficient of thermal expansion.</p>
+<h2 id="constrained-thermal-stress">Constrained thermal stress</h2>
+<p>If expansion is fully prevented:</p>
+<div class="math-block">$$
+\varepsilon_{total} = 0
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\sigma = E\alpha\Delta T
+$$</div>
+<p>The sign depends on whether the temperature increase is constrained in compression or the temperature decrease is constrained in tension.</p>
+<h2 id="statically-indeterminate-members">Statically indeterminate members</h2>
+<p>When equilibrium is not enough, add compatibility:</p>
+<ul><li><p>Force equilibrium</p></li><li><p>Deformation compatibility</p></li><li><p>Constitutive relations</p></li></ul>
+<p>Common approach:</p>
+<ol><li><p>Introduce a redundant reaction or internal force.</p></li><li><p>Write equilibrium.</p></li><li><p>Write the compatibility condition for total deformation.</p></li><li><p>Express each deformation in terms of the unknown force.</p></li><li><p>Solve the system.</p></li></ol>
+<h2 id="rigid-supports-and-multiple-materials">Rigid supports and multiple materials</h2>
+<p>For bars in series with different $E$ or $A$ values, compatibility requires that the total change in length matches the support spacing or imposed displacement.</p>
+<p>For parallel members, the deformation is often the same in each member:</p>
+<div class="math-block">$$
+\delta_1 = \delta_2 = \cdots
+$$</div>
+<p>Then the forces distribute according to stiffness:</p>
+<div class="math-block">$$
+k = \frac{AE}{L}
+$$</div>
+<p>and for parallel members:</p>
+<div class="math-block">$$
+P_i = k_i \delta
+$$</div>
+<hr />
+<a id="toc-5"></a>
+<h1 id="5-torsion-of-circular-shafts">5. Torsion of circular shafts</h1>
+<h2 id="torsion-formula">Torsion formula</h2>
+<p>For a circular shaft under torque $T$:</p>
+<div class="math-block">$$
+\tau = \frac{Tr}{J}
+$$</div>
+<p>where:</p>
+<ul><li><p>$\tau$ is the shear stress at radius $r$</p></li><li><p>$J$ is the polar moment of inertia</p></li></ul>
+<p>Maximum shear stress occurs at the outer surface:</p>
+<div class="math-block">$$
+\tau_{max} = \frac{Tc}{J}
+$$</div>
+<p>where $c$ is the outer radius.</p>
+<h2 id="polar-moment-of-inertia">Polar moment of inertia</h2>
+<p>For a solid circular shaft:</p>
+<div class="math-block">$$
+J = \frac{\pi d^4}{32}
+$$</div>
+<p>For a hollow circular shaft:</p>
+<div class="math-block">$$
+J = \frac{\pi (d_o^4 - d_i^4)}{32}
+$$</div>
+<h2 id="angle-of-twist">Angle of twist</h2>
+<p>For constant $T$, $J$, and $G$:</p>
+<div class="math-block">$$
+\phi = \frac{TL}{JG}
+$$</div>
+<p>For varying geometry:</p>
+<div class="math-block">$$
+\phi = \int_0^L \frac{T(x)}{J(x)G(x)}\,dx
+$$</div>
+<h2 id="shaft-design-checks">Shaft design checks</h2>
+<p>Common design requirements:</p>
+<ul><li><p>Stress must stay below the allowable shear stress.</p></li><li><p>Twist must stay below a serviceability limit.</p></li><li><p>Keyways, shoulders, and holes can create stress concentrations.</p></li></ul>
+<h2 id="power-transmission">Power transmission</h2>
+<p>Torque and power are related by</p>
+<div class="math-block">$$
+P = T\omega
+$$</div>
+<p>where:</p>
+<ul><li><p>$P$ is power</p></li><li><p>$\omega$ is angular speed</p></li></ul>
+<p>This relation is often used to determine the design torque for rotating shafts.</p>
+<hr />
+<a id="toc-6"></a>
+<h1 id="6-shear-and-internal-force-resultants">6. Shear and internal force resultants</h1>
+<h2 id="internal-resultants">Internal resultants</h2>
+<p>A cut through a member generally exposes:</p>
+<ul><li><p>Axial force $N$</p></li><li><p>Shear force $V$</p></li><li><p>Bending moment $M$</p></li><li><p>Torque $T$</p></li></ul>
+<p>These internal resultants are found by equilibrium of one side of the cut.</p>
+<h2 id="sign-convention">Sign convention</h2>
+<p>Different textbooks use slightly different sign conventions. Be consistent within a problem.</p>
+<p>The important point is not the exact convention but that:</p>
+<ul><li><p>Equilibrium equations match the chosen convention</p></li><li><p>Stress formulas are applied with the correct sign and orientation</p></li></ul>
+<h2 id="shear-force-and-bending-moment-diagrams">Shear force and bending moment diagrams</h2>
+<p>For beams loaded in a plane:</p>
+<ul><li><p>The slope of the shear diagram equals the distributed load, up to sign convention.</p></li><li><p>The slope of the moment diagram equals the shear force.</p></li></ul>
+<p>In differential form, with one common convention:</p>
+<div class="math-block">$$
+\frac{dV}{dx} = -w(x)
+$$</div>
+<div class="math-block">$$
+\frac{dM}{dx} = V(x)
+$$</div>
+<p>where $w(x)$ is the distributed load.</p>
+<h2 id="useful-diagram-facts">Useful diagram facts</h2>
+<ul><li><p>A concentrated force causes a jump in the shear diagram.</p></li><li><p>A concentrated moment causes a jump in the moment diagram.</p></li><li><p>Uniform distributed load gives a linear shear diagram.</p></li><li><p>Constant shear gives a linear moment diagram.</p></li></ul>
+<hr />
+<a id="toc-7"></a>
+<h1 id="7-bending-stress-in-beams">7. Bending stress in beams</h1>
+<h2 id="flexure-formula">Flexure formula</h2>
+<p>For linear elastic bending:</p>
+<div class="math-block">$$
+\sigma = \frac{My}{I}
+$$</div>
+<p>where:</p>
+<ul><li><p>$M$ is the internal bending moment</p></li><li><p>$y$ is the distance from the neutral axis</p></li><li><p>$I$ is the second moment of area about the neutral axis</p></li></ul>
+<p>At the outer fiber:</p>
+<div class="math-block">$$
+\sigma_{max} = \frac{Mc}{I}
+$$</div>
+<h2 id="neutral-axis">Neutral axis</h2>
+<p>The neutral axis is the line in the cross-section where the normal stress from bending is zero.</p>
+<p>For homogeneous, symmetric sections in pure bending, the neutral axis passes through the centroid.</p>
+<h2 id="section-modulus">Section modulus</h2>
+<p>Section modulus is</p>
+<div class="math-block">$$
+S = \frac{I}{c}
+$$</div>
+<p>so the maximum bending stress becomes</p>
+<div class="math-block">$$
+\sigma_{max} = \frac{M}{S}
+$$</div>
+<p>This is useful in design because it packages geometry into one quantity.</p>
+<h2 id="second-moment-of-area">Second moment of area</h2>
+<p>Common results:</p>
+<p>Solid rectangle about centroidal axis:</p>
+<div class="math-block">$$
+I = \frac{bh^3}{12}
+$$</div>
+<p>Solid circle:</p>
+<div class="math-block">$$
+I = \frac{\pi d^4}{64}
+$$</div>
+<p>Parallel-axis theorem:</p>
+<div class="math-block">$$
+I = I_c + Ad^2
+$$</div>
+<p>where $I_c$ is about the centroidal axis and $d$ is the offset to the new axis.</p>
+<h2 id="composite-beams">Composite beams</h2>
+<p>For beams made of different materials, transform one material into an equivalent material using the modular ratio:</p>
+<div class="math-block">$$
+n = \frac{E_2}{E_1}
+$$</div>
+<p>Then locate the neutral axis and compute the transformed second moment of area.</p>
+<p>The key assumptions are:</p>
+<ul><li><p>Perfect bond between materials</p></li><li><p>Plane sections remain plane</p></li><li><p>Linear elastic behavior</p></li></ul>
+<hr />
+<a id="toc-8"></a>
+<h1 id="8-beam-shear-stress">8. Beam shear stress</h1>
+<h2 id="general-shear-formula">General shear formula</h2>
+<p>For transverse shear in a beam:</p>
+<div class="math-block">$$
+\tau = \frac{VQ}{It}
+$$</div>
+<p>where:</p>
+<ul><li><p>$V$ is the internal shear force</p></li><li><p>$Q$ is the first moment of area of the portion above or below the point</p></li><li><p>$I$ is the second moment of area of the entire cross-section</p></li><li><p>$t$ is the local thickness where the stress is evaluated</p></li></ul>
+<h2 id="interpretation-of-q">Interpretation of Q</h2>
+<p>The first moment of area is</p>
+<div class="math-block">$$
+Q = \bar{y}A&#39;
+$$</div>
+<p>where $A&#39;$ is the portion of area on one side of the cut and $\bar{y}$ is the distance from its centroid to the neutral axis.</p>
+<h2 id="important-distribution-facts">Important distribution facts</h2>
+<ul><li><p>Shear stress is zero at free top and bottom surfaces of common beam sections.</p></li><li><p>Maximum shear stress often occurs at the neutral axis.</p></li><li><p>Rectangular sections have a parabolic shear stress distribution.</p></li><li><p>Thin-walled sections require careful treatment of thickness variation.</p></li></ul>
+<h2 id="average-vs-local-shear">Average vs local shear</h2>
+<p>The average shear stress</p>
+<div class="math-block">$$
+\tau_{avg} = \frac{V}{A}
+$$</div>
+<p>is rarely sufficient for beam sections because the local distribution is not uniform.</p>
+<hr />
+<a id="toc-9"></a>
+<h1 id="9-stress-and-strain-transformations">9. Stress and strain transformations</h1>
+<h2 id="plane-stress-state">Plane stress state</h2>
+<p>A 2D stress state usually has:</p>
+<div class="math-block">$$
+\sigma_x,\quad \sigma_y,\quad \tau_{xy}
+$$</div>
+<p>Normal and shear stresses on a rotated plane are found with transformation equations.</p>
+<h2 id="stress-transformation-equations">Stress transformation equations</h2>
+<p>For a plane rotated by angle $\theta$:</p>
+<div class="math-block">$$
+\sigma_{x&#39;} = \frac{\sigma_x+\sigma_y}{2}
++ \frac{\sigma_x-\sigma_y}{2}\cos 2\theta
++ \tau_{xy}\sin 2\theta
+$$</div>
+<div class="math-block">$$
+\sigma_{y&#39;} = \frac{\sigma_x+\sigma_y}{2}
+- \frac{\sigma_x-\sigma_y}{2}\cos 2\theta
+- \tau_{xy}\sin 2\theta
+$$</div>
+<div class="math-block">$$
+\tau_{x&#39;y&#39;} = -\frac{\sigma_x-\sigma_y}{2}\sin 2\theta
++ \tau_{xy}\cos 2\theta
+$$</div>
+<h2 id="principal-stresses">Principal stresses</h2>
+<p>Principal stresses occur where shear stress is zero.</p>
+<div class="math-block">$$
+\sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2}
+\pm
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$</div>
+<p>The maximum in-plane shear stress is</p>
+<div class="math-block">$$
+\tau_{max} =
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$</div>
+<h2 id="principal-planes">Principal planes</h2>
+<p>The principal angle satisfies</p>
+<div class="math-block">$$
+\tan 2\theta_p = \frac{2\tau_{xy}}{\sigma_x-\sigma_y}
+$$</div>
+<p>The maximum shear planes are 45 degrees from the principal planes in the stress-transformation sense.</p>
+<h2 id="strain-transformation">Strain transformation</h2>
+<p>Strains transform similarly, but use engineering shear strain and the appropriate strain relationships. When in doubt, be careful about factor-of-two differences between tensor shear strain and engineering shear strain.</p>
+<hr />
+<a id="toc-10"></a>
+<h1 id="10-mohrs-circle">10. Mohr&#39;s circle</h1>
+<p>Mohr&#39;s circle is a graphical method for plane stress or plane strain transformation.</p>
+<h2 id="what-it-gives">What it gives</h2>
+<ul><li><p>Normal stress on rotated planes</p></li><li><p>Shear stress on rotated planes</p></li><li><p>Principal stresses</p></li><li><p>Maximum shear stress</p></li><li><p>Orientation of principal and shear planes</p></li></ul>
+<h2 id="construction-idea">Construction idea</h2>
+<p>For plane stress, plot the points:</p>
+<div class="math-block">$$
+(\sigma_x,\ \tau_{xy})
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+(\sigma_y,\ -\tau_{xy})
+$$</div>
+<p>The center is</p>
+<div class="math-block">$$
+C = \left(\frac{\sigma_x+\sigma_y}{2}, 0\right)
+$$</div>
+<p>and the radius is</p>
+<div class="math-block">$$
+R =
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$</div>
+<p>Then:</p>
+<div class="math-block">$$
+\sigma_1 = C_x + R
+$$</div>
+<div class="math-block">$$
+\sigma_2 = C_x - R
+$$</div>
+<div class="math-block">$$
+\tau_{max} = R
+$$</div>
+<h2 id="common-use">Common use</h2>
+<p>Mohr&#39;s circle is especially useful when a problem asks for stresses on an inclined plane or the orientation of a critical plane.</p>
+<p>The algebraic formulas are faster if you already know the orientation. The circle is safer if the geometry of the stress state is easy to mix up.</p>
+<hr />
+<a id="toc-11"></a>
+<h1 id="11-deflection-of-beams-and-shafts">11. Deflection of beams and shafts</h1>
+<h2 id="beam-curvature-relation">Beam curvature relation</h2>
+<p>For small deflections of an Euler-Bernoulli beam:</p>
+<div class="math-block">$$
+\frac{1}{\rho} = \frac{M}{EI}
+$$</div>
+<p>and for small slopes:</p>
+<div class="math-block">$$
+\frac{d^2v}{dx^2} = \frac{M(x)}{EI}
+$$</div>
+<p>with sign depending on convention.</p>
+<h2 id="integration-method">Integration method</h2>
+<p>Starting from the bending moment function:</p>
+<div class="math-block">$$
+EI\frac{d^2v}{dx^2} = M(x)
+$$</div>
+<p>Integrate twice to obtain slope and deflection:</p>
+<div class="math-block">$$
+EI\frac{dv}{dx} = \int M(x)\,dx + C_1
+$$</div>
+<div class="math-block">$$
+EIv = \int\!\!\int M(x)\,dx\,dx + C_1x + C_2
+$$</div>
+<p>Apply boundary conditions to determine constants.</p>
+<h2 id="common-boundary-conditions">Common boundary conditions</h2>
+<ul><li><p>Simply supported end: deflection is zero</p></li><li><p>Fixed end: deflection and slope are zero</p></li><li><p>Free end: moment and shear conditions apply</p></li></ul>
+<h2 id="superposition">Superposition</h2>
+<p>If the material remains linear elastic and deflections are small, use superposition:</p>
+<div class="math-block">$$
+v_{total} = \sum_i v_i
+$$</div>
+<p>This is often the fastest way to handle several load cases.</p>
+<h2 id="area-moment-and-conjugate-beam-ideas">Area-moment and conjugate-beam ideas</h2>
+<p>Some courses also use:</p>
+<ul><li><p>Area-moment method</p></li><li><p>Conjugate-beam method</p></li><li><p>Virtual work or unit-load method</p></li></ul>
+<p>The key idea is the same: connect internal bending response to displacement.</p>
+<h2 id="shaft-twist-revisited">Shaft twist revisited</h2>
+<p>For torsion, the analogous relation is</p>
+<div class="math-block">$$
+\frac{d\phi}{dx} = \frac{T(x)}{J(x)G(x)}
+$$</div>
+<p>so</p>
+<div class="math-block">$$
+\phi = \int_0^L \frac{T(x)}{J(x)G(x)}\,dx
+$$</div>
+<hr />
+<a id="toc-12"></a>
+<h1 id="12-columns-and-buckling">12. Columns and buckling</h1>
+<h2 id="euler-buckling">Euler buckling</h2>
+<p>Slender columns can fail by instability before the material reaches yield.</p>
+<p>Critical load for an ideal column:</p>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$</div>
+<p>where:</p>
+<ul><li><p>$K$ is the effective length factor</p></li><li><p>$L$ is the unsupported length</p></li><li><p>$EI$ is the flexural rigidity</p></li></ul>
+<h2 id="effective-length-factor">Effective length factor</h2>
+<p>Common idealized end conditions change the effective length:</p>
+<ul><li><p>Pinned-pinned: $K = 1$</p></li><li><p>Fixed-free: $K = 2$</p></li><li><p>Fixed-pinned: $K \approx 0.7$</p></li><li><p>Fixed-fixed: $K = 0.5$</p></li></ul>
+<p>The exact value depends on the boundary condition model being used.</p>
+<h2 id="slenderness">Slenderness</h2>
+<p>Buckling becomes more likely as the slenderness ratio increases:</p>
+<div class="math-block">$$
+\lambda = \frac{KL}{r}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+r = \sqrt{\frac{I}{A}}
+$$</div>
+<p>is the radius of gyration.</p>
+<h2 id="design-implication">Design implication</h2>
+<p>A short stocky column usually fails by material yielding or crushing. A slender column usually fails by elastic or inelastic buckling.</p>
+<p>You must identify which regime applies before choosing the allowable load.</p>
+<hr />
+<a id="toc-13"></a>
+<h1 id="13-combined-loading-and-failure-criteria">13. Combined loading and failure criteria</h1>
+<h2 id="superposition-of-stress-components">Superposition of stress components</h2>
+<p>Many members experience more than one type of loading:</p>
+<ul><li><p>Axial load</p></li><li><p>Bending</p></li><li><p>Torsion</p></li><li><p>Transverse shear</p></li></ul>
+<p>At a point, the combined stress state is the algebraic sum of the relevant components.</p>
+<p>For example, an axial force plus bending gives:</p>
+<div class="math-block">$$
+\sigma = \frac{P}{A} \pm \frac{My}{I}
+$$</div>
+<h2 id="combined-bending-and-torsion">Combined bending and torsion</h2>
+<p>For shafts with a transverse force and torque, you may need both:</p>
+<ul><li><p>Normal stress from bending</p></li><li><p>Shear stress from torsion</p></li></ul>
+<p>Then compare the combined state against a failure theory.</p>
+<h2 id="maximum-normal-stress-criterion">Maximum normal stress criterion</h2>
+<p>For brittle materials, one simple check is:</p>
+<div class="math-block">$$
+\sigma_{max} \le \sigma_{allow}
+$$</div>
+<p>using the maximum principal stress.</p>
+<h2 id="maximum-shear-stress-criterion">Maximum shear stress criterion</h2>
+<p>For ductile materials, a common conservative check uses the maximum shear stress:</p>
+<div class="math-block">$$
+\tau_{max} \le \tau_{allow}
+$$</div>
+<p>This is closely related to yielding in ductile metals.</p>
+<h2 id="distortion-energy-idea">Distortion-energy idea</h2>
+<p>The von Mises criterion is widely used for ductile materials under multiaxial stress.</p>
+<p>For plane stress:</p>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}
+$$</div>
+<p>Yielding is predicted when</p>
+<div class="math-block">$$
+\sigma_{vm} \ge \sigma_y
+$$</div>
+<p>where $\sigma_y$ is the yield strength.</p>
+<h2 id="engineering-judgment">Engineering judgment</h2>
+<p>Use the failure criterion that matches the material and the type of failure expected.</p>
+<ul><li><p>Ductile metal: often von Mises or maximum shear stress</p></li><li><p>Brittle material: often maximum normal stress or Mohr-type criteria</p></li></ul>
+<hr />
+<a id="toc-14"></a>
+<h1 id="14-fatigue-and-design-checks">14. Fatigue and design checks</h1>
+<h2 id="fatigue-basics">Fatigue basics</h2>
+<p>Repeated or fluctuating stress can cause failure at stresses below the static strength.</p>
+<p>Fatigue is usually described by:</p>
+<ul><li><p>Stress amplitude</p></li><li><p>Mean stress</p></li><li><p>Number of cycles to failure</p></li></ul>
+<p>Stress amplitude and mean stress are</p>
+<div class="math-block">$$
+\sigma_a = \frac{\sigma_{max}-\sigma_{min}}{2}
+$$</div>
+<div class="math-block">$$
+\sigma_m = \frac{\sigma_{max}+\sigma_{min}}{2}
+$$</div>
+<h2 id="s-n-concept">S-N concept</h2>
+<p>An S-N curve relates stress amplitude to fatigue life. Lower stress generally means longer life.</p>
+<h2 id="goodman-type-design-idea">Goodman-type design idea</h2>
+<p>A common design relation is</p>
+<div class="math-block">$$
+\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} \le \frac{1}{n}
+$$</div>
+<p>where:</p>
+<ul><li><p>$S_e$ is endurance limit</p></li><li><p>$S_{ut}$ is ultimate tensile strength</p></li><li><p>$n$ is factor of safety</p></li></ul>
+<p>Different courses and texts use slightly different fatigue diagrams. Use the one specified in the problem.</p>
+<h2 id="practical-check-list">Practical check list</h2>
+<ul><li><p>Identify whether loading is static or cyclic.</p></li><li><p>Find local stress concentrations.</p></li><li><p>Apply surface, size, and reliability factors if the course uses them.</p></li><li><p>Compare against the appropriate fatigue criterion.</p></li></ul>
+<hr />
+<a id="toc-15"></a>
+<h1 id="15-problem-solving-workflow">15. Problem-solving workflow</h1>
+<h2 id="general-workflow">General workflow</h2>
+<ol><li><p>Read the problem carefully and identify what must be found.</p></li><li><p>Sketch the member, support conditions, loads, and coordinate axes.</p></li><li><p>Draw free-body diagrams.</p></li><li><p>Solve for reactions using equilibrium.</p></li><li><p>Cut the member and determine internal force resultants.</p></li><li><p>Choose the relevant stress or deformation formula.</p></li><li><p>Check units and sign conventions.</p></li><li><p>Compare against allowable stress, twist, deflection, or buckling criteria.</p></li></ol>
+<h2 id="what-to-ask-yourself">What to ask yourself</h2>
+<ul><li><p>Is the member in axial, torsional, bending, shear, or combined loading?</p></li><li><p>Is the material linear elastic?</p></li><li><p>Is the member prismatic or does geometry vary?</p></li><li><p>Is the system determinate or indeterminate?</p></li><li><p>Is the problem about strength, stiffness, or stability?</p></li></ul>
+<h2 id="fast-validation">Fast validation</h2>
+<ul><li><p>Stress units should be force per area.</p></li><li><p>Strain should be dimensionless.</p></li><li><p>Deflection should have units of length.</p></li><li><p>Torque divided by polar moment should yield stress.</p></li><li><p>Bending moment divided by section modulus should yield stress.</p></li></ul>
+<h2 id="if-the-answer-seems-unreasonable">If the answer seems unreasonable</h2>
+<p>Check:</p>
+<ul><li><p>Sign convention</p></li><li><p>Area or moment of inertia</p></li><li><p>Unit conversions</p></li><li><p>Whether a diameter or radius was used incorrectly</p></li><li><p>Whether the neutral axis was located properly</p></li><li><p>Whether the correct support condition was used for buckling or deflection</p></li></ul>
+<hr />
+<a id="toc-16"></a>
+<h1 id="16-formula-sheet">16. Formula sheet</h1>
+<h2 id="axial">Axial</h2>
+<div class="math-block">$$
+\sigma = \frac{P}{A}
+$$</div>
+<div class="math-block">$$
+\delta = \frac{PL}{AE}
+$$</div>
+<div class="math-block">$$
+\delta_{th} = \alpha L\Delta T
+$$</div>
+<h2 id="torsion">Torsion</h2>
+<div class="math-block">$$
+\tau = \frac{Tr}{J}
+$$</div>
+<div class="math-block">$$
+\phi = \frac{TL}{JG}
+$$</div>
+<div class="math-block">$$
+J_{solid} = \frac{\pi d^4}{32}
+$$</div>
+<div class="math-block">$$
+J_{hollow} = \frac{\pi(d_o^4-d_i^4)}{32}
+$$</div>
+<h2 id="bending">Bending</h2>
+<div class="math-block">$$
+\sigma = \frac{My}{I}
+$$</div>
+<div class="math-block">$$
+\sigma_{max} = \frac{Mc}{I} = \frac{M}{S}
+$$</div>
+<div class="math-block">$$
+I_{rect} = \frac{bh^3}{12}
+$$</div>
+<div class="math-block">$$
+I_{circle} = \frac{\pi d^4}{64}
+$$</div>
+<div class="math-block">$$
+I = I_c + Ad^2
+$$</div>
+<h2 id="beam-shear">Beam shear</h2>
+<div class="math-block">$$
+\tau = \frac{VQ}{It}
+$$</div>
+<h2 id="stress-transformation">Stress transformation</h2>
+<div class="math-block">$$
+\sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2}
+\pm
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$</div>
+<div class="math-block">$$
+\tau_{max} =
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$</div>
+<h2 id="deflection-and-buckling">Deflection and buckling</h2>
+<div class="math-block">$$
+\frac{d^2v}{dx^2} = \frac{M(x)}{EI}
+$$</div>
+<div class="math-block">$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$</div>
+<div class="math-block">$$
+r = \sqrt{\frac{I}{A}}
+$$</div>
+<h2 id="multiaxial-failure">Multiaxial failure</h2>
+<div class="math-block">$$
+\sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}
+$$</div>
+<hr />
+<a id="toc-17"></a>
+<h1 id="17-common-mistakes">17. Common mistakes</h1>
+<ul><li><p>Using the wrong area moment of inertia for the bending axis.</p></li><li><p>Confusing polar moment of inertia $J$ with second moment of area $I$.</p></li><li><p>Applying $\sigma = P/A$ to a nonuniform stress field without checking the assumptions.</p></li><li><p>Forgetting that beam bending stress varies linearly with distance from the neutral axis.</p></li><li><p>Using the average shear stress instead of the beam shear formula when local stress matters.</p></li><li><p>Mixing up radius and diameter in torsion formulas.</p></li><li><p>Forgetting that thermal strain can create stress only when expansion is restrained.</p></li><li><p>Solving an indeterminate problem using equilibrium alone.</p></li><li><p>Using Euler buckling for a column that is too stocky for elastic buckling to apply.</p></li><li><p>Ignoring stress concentrations near holes, fillets, or shoulders.</p></li><li><p>Checking only stress when deflection or twist is the governing limit.</p></li><li><p>Using the wrong failure criterion for brittle versus ductile materials.</p></li></ul>
+      </article>
+    </section>
+    <nav class="notes-toc panel" aria-label="Table of contents">
+      <div class="notes-toc__head">
+        <p class="section-label">Table of contents</p>
+      </div>
+      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-scope-and-core-ideas">1. Scope and core ideas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#the-engineering-chain">The engineering chain</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#main-failure-modes">Main failure modes</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-stress-strain-and-constitutive-behavior">2. Stress, strain, and constitutive behavior</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-stress">Normal stress</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#shear-stress">Shear stress</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-strain">Normal strain</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#shear-strain">Shear strain</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#hookes-law">Hooke&#39;s law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#poisson-effect">Poisson effect</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-axial-loading-of-bars">3. Axial loading of bars</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#deformation-of-a-prismatic-bar">Deformation of a prismatic bar</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stress-in-axial-members">Stress in axial members</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#statically-determinate-axial-problems">Statically determinate axial problems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-pattern">Example pattern</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stress-concentration">Stress concentration</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-thermal-strain-and-statically-indeterminate-axial-systems">4. Thermal strain and statically indeterminate axial systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-thermal-expansion">Free thermal expansion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constrained-thermal-stress">Constrained thermal stress</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#statically-indeterminate-members">Statically indeterminate members</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rigid-supports-and-multiple-materials">Rigid supports and multiple materials</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-torsion-of-circular-shafts">5. Torsion of circular shafts</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#torsion-formula">Torsion formula</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#polar-moment-of-inertia">Polar moment of inertia</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angle-of-twist">Angle of twist</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#shaft-design-checks">Shaft design checks</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#power-transmission">Power transmission</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-shear-and-internal-force-resultants">6. Shear and internal force resultants</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#internal-resultants">Internal resultants</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sign-convention">Sign convention</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#shear-force-and-bending-moment-diagrams">Shear force and bending moment diagrams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#useful-diagram-facts">Useful diagram facts</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-bending-stress-in-beams">7. Bending stress in beams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#flexure-formula">Flexure formula</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#neutral-axis">Neutral axis</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#section-modulus">Section modulus</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#second-moment-of-area">Second moment of area</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#composite-beams">Composite beams</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-beam-shear-stress">8. Beam shear stress</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#general-shear-formula">General shear formula</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interpretation-of-q">Interpretation of Q</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#important-distribution-facts">Important distribution facts</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#average-vs-local-shear">Average vs local shear</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-stress-and-strain-transformations">9. Stress and strain transformations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#plane-stress-state">Plane stress state</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stress-transformation-equations">Stress transformation equations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#principal-stresses">Principal stresses</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#principal-planes">Principal planes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#strain-transformation">Strain transformation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-mohrs-circle">10. Mohr&#39;s circle</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#what-it-gives">What it gives</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#construction-idea">Construction idea</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-use">Common use</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-deflection-of-beams-and-shafts">11. Deflection of beams and shafts</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#beam-curvature-relation">Beam curvature relation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#integration-method">Integration method</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-boundary-conditions">Common boundary conditions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#superposition">Superposition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#area-moment-and-conjugate-beam-ideas">Area-moment and conjugate-beam ideas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#shaft-twist-revisited">Shaft twist revisited</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-columns-and-buckling">12. Columns and buckling</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#euler-buckling">Euler buckling</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#effective-length-factor">Effective length factor</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#slenderness">Slenderness</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#design-implication">Design implication</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-combined-loading-and-failure-criteria">13. Combined loading and failure criteria</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#superposition-of-stress-components">Superposition of stress components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#combined-bending-and-torsion">Combined bending and torsion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#maximum-normal-stress-criterion">Maximum normal stress criterion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#maximum-shear-stress-criterion">Maximum shear stress criterion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#distortion-energy-idea">Distortion-energy idea</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#engineering-judgment">Engineering judgment</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#14-fatigue-and-design-checks">14. Fatigue and design checks</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fatigue-basics">Fatigue basics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#s-n-concept">S-N concept</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#goodman-type-design-idea">Goodman-type design idea</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#practical-check-list">Practical check list</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#15-problem-solving-workflow">15. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#general-workflow">General workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#what-to-ask-yourself">What to ask yourself</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fast-validation">Fast validation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#if-the-answer-seems-unreasonable">If the answer seems unreasonable</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#16-formula-sheet">16. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#axial">Axial</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#torsion">Torsion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#bending">Bending</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#beam-shear">Beam shear</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stress-transformation">Stress transformation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#deflection-and-buckling">Deflection and buckling</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiaxial-failure">Multiaxial failure</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#17-common-mistakes">17. Common mistakes</a></li></ol>
+    </nav>
+  </main>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>

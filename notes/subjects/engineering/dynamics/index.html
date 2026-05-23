@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dynamics | Adriamics</title>
+  <meta name="description" content="Dynamics is the study of motion and the forces that cause or respond to motion. It sits between statics and vibration-heavy advanced mechanics." />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/engineering/dynamics/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="stylesheet" href="/notes/notes.css" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="/notes/notes.js"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
+    Search notes
+  </button>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <div class="notes-header__brand">
+        <p class="eyebrow">The</p>
+        <h1>Universal Education System</h1>
+      </div>
+      <nav class="notes-header__links" aria-label="Notes page links">
+        <a href="/notes/">Browse notes</a>
+        <a href="/">Home</a>
+      </nav>
+      <aside class="notes-structures" aria-label="Guide structures">
+          <ul class="subject-list"><li><a href="/notes/subjects/general/introduction/">General</a></li><li><a href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/data-computing/programming/">Data / Computing</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-biology/">Medical / Biology</a></li></ul>
+        </aside>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">Engineering</h2>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/statics/">Statics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/engineering/dynamics/" aria-current="page">Dynamics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/">Mechanics of Materials</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/fluid-mechanics/">Fluid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/heat-transfer/">Heat Transfer</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/materials-science/">Materials Science</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electrical-circuit-analysis/">Electrical Circuit Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/linear-system-signal-analysis/">Linear System Signal Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electronics/">Electronics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/signals-and-systems/">Signals and Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/control-systems/">Control Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/instrumentation/">Instrumentation</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/cad/">CAD</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/simulation/">Simulation</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/manufacturing/">Manufacturing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/quality-control/">Quality Control</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/project-management/">Project Management</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/cost-risk-analysis/">Cost/Risk Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/kinematics/">Kinematics</a></li></ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Dynamics</h1>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsubjects%2Fengineering%2Fdynamics.md&amp;title=%5BCorrection%5D%3A%20Dynamics" target="_blank" rel="noreferrer">Suggest edit</a>
+          <p class="viewer-status">Standalone, crawlable note page</p>
+        </div>
+      </div>
+      <article class="markdown-body">
+        <h2 id="table-of-contents">Table of contents</h2>
+<ol><li><p><a href="#toc-1">What dynamics studies</a></p></li><li><p><a href="#toc-2">Kinematics fundamentals</a></p></li><li><p><a href="#toc-3">Rectilinear motion</a></p></li><li><p><a href="#toc-4">Curvilinear motion</a></p></li><li><p><a href="#toc-5">Relative motion</a></p></li><li><p><a href="#toc-6">Particle kinetics</a></p></li><li><p><a href="#toc-7">Work-energy methods</a></p></li><li><p><a href="#toc-8">Impulse-momentum methods</a></p></li><li><p><a href="#toc-9">Rigid-body kinematics</a></p></li><li><p><a href="#toc-10">Rigid-body kinetics</a></p></li><li><p><a href="#toc-11">Choosing the right method</a></p></li><li><p><a href="#toc-12">Common pitfalls</a></p></li><li><p><a href="#toc-13">Formula sheet</a></p></li></ol>
+<hr />
+<a id="toc-1"></a>
+<h1 id="1-what-dynamics-studies">1. What dynamics studies</h1>
+<p>Dynamics is the study of motion and the forces that cause or respond to motion. It sits between statics and vibration-heavy advanced mechanics.</p>
+<p>It is usually split into two parts:</p>
+<ul><li><p><strong>Kinematics</strong>: describes motion without considering forces</p></li><li><p><strong>Kinetics</strong>: relates motion to the forces and moments that produce it</p></li></ul>
+<p>The core variables are position, velocity, acceleration, force, mass, and moment of inertia.</p>
+<h2 id="typical-modeling-assumptions">Typical modeling assumptions</h2>
+<ul><li><p>Bodies are often treated as particles when size and rotation do not matter.</p></li><li><p>Rigid bodies are treated as nondeforming.</p></li><li><p>Motion is usually measured in an inertial reference frame.</p></li><li><p>Gravity is often the only body force that needs explicit modeling unless stated otherwise.</p></li></ul>
+<h2 id="main-laws">Main laws</h2>
+<p>Newton&#39;s second law is the foundation:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = m\mathbf{a}
+$$</div>
+<p>For rotation:</p>
+<div class="math-block">$$
+\sum M_O = I_O \alpha
+$$</div>
+<p>or, more generally,</p>
+<div class="math-block">$$
+\sum \mathbf{M}_G = \frac{d\mathbf{H}_G}{dt}
+$$</div>
+<p>where \(G\) is the center of mass and \(\mathbf{H}\) is angular momentum.</p>
+<hr />
+<a id="toc-2"></a>
+<h1 id="2-kinematics-fundamentals">2. Kinematics fundamentals</h1>
+<p>Kinematics describes how objects move.</p>
+<h2 id="position-displacement-velocity-acceleration">Position, displacement, velocity, acceleration</h2>
+<p>For one-dimensional motion with position \(x(t)\):</p>
+<div class="math-block">$$
+v = \frac{dx}{dt}
+$$</div>
+<div class="math-block">$$
+a = \frac{dv}{dt} = \frac{d^2x}{dt^2}
+$$</div>
+<p>Useful differential forms:</p>
+<div class="math-block">$$
+v\,dv = a\,dx
+$$</div>
+<p>when acceleration is a function of position, and</p>
+<div class="math-block">$$
+a\,dt = dv
+$$</div>
+<p>when acceleration is a function of time.</p>
+<h2 id="vector-form">Vector form</h2>
+<p>For 2D or 3D motion:</p>
+<div class="math-block">$$
+\mathbf{r} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k}
+$$</div>
+<div class="math-block">$$
+\mathbf{v} = \frac{d\mathbf{r}}{dt}
+$$</div>
+<div class="math-block">$$
+\mathbf{a} = \frac{d\mathbf{v}}{dt}
+$$</div>
+<p>The safest workflow is to write position as a vector first, then differentiate.</p>
+<hr />
+<a id="toc-3"></a>
+<h1 id="3-rectilinear-motion">3. Rectilinear motion</h1>
+<p>Rectilinear motion is motion along a straight line. It is the simplest and most common starting point.</p>
+<h2 id="constant-acceleration">Constant acceleration</h2>
+<p>If acceleration \(a\) is constant:</p>
+<div class="math-block">$$
+v = v_0 + at
+$$</div>
+<div class="math-block">$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$</div>
+<div class="math-block">$$
+v^2 = v_0^2 + 2a(x-x_0)
+$$</div>
+<p>These are valid only when \(a\) is constant.</p>
+<h2 id="variable-acceleration">Variable acceleration</h2>
+<p>If acceleration varies with time:</p>
+<div class="math-block">$$
+a(t) = \frac{dv}{dt}
+$$</div>
+<p>Integrate to get velocity, then position.</p>
+<p>If acceleration varies with position:</p>
+<div class="math-block">$$
+a(x) = v\frac{dv}{dx}
+$$</div>
+<p>This is useful in spring, drag, and braking problems.</p>
+<h2 id="example-pattern">Example pattern</h2>
+<p>If a car starts from rest and accelerates at a constant \(2 \, \text{m/s}^2\) for \(5\) s:</p>
+<div class="math-block">$$
+v = 0 + 2(5) = 10 \, \text{m/s}
+$$</div>
+<div class="math-block">$$
+x = \frac{1}{2}(2)(5^2) = 25 \, \text{m}
+$$</div>
+<hr />
+<a id="toc-4"></a>
+<h1 id="4-curvilinear-motion">4. Curvilinear motion</h1>
+<p>Curvilinear motion occurs along a curved path. Two common coordinate systems are Cartesian and normal-tangential coordinates.</p>
+<h2 id="cartesian-components">Cartesian components</h2>
+<p>For a particle with coordinates \(x(t)\), \(y(t)\), and \(z(t)\):</p>
+<div class="math-block">$$
+\mathbf{v} = \dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k}
+$$</div>
+<div class="math-block">$$
+\mathbf{a} = \ddot{x}\mathbf{i} + \ddot{y}\mathbf{j} + \ddot{z}\mathbf{k}
+$$</div>
+<p>This is the best choice when the path is naturally described by coordinates.</p>
+<h2 id="normal-tangential-components">Normal-tangential components</h2>
+<p>When motion follows a known curved path:</p>
+<div class="math-block">$$
+\mathbf{v} = v\mathbf{t}
+$$</div>
+<div class="math-block">$$
+\mathbf{a} = a_t\mathbf{t} + a_n\mathbf{n}
+$$</div>
+<p>where</p>
+<div class="math-block">$$
+a_t = \frac{dv}{dt}
+$$</div>
+<p>and</p>
+<div class="math-block">$$
+a_n = \frac{v^2}{\rho}
+$$</div>
+<p>with \(\rho\) the radius of curvature.</p>
+<p>Interpretation:</p>
+<ul><li><p>\(a_t\) changes speed</p></li><li><p>\(a_n\) changes direction</p></li></ul>
+<h2 id="polar-coordinates">Polar coordinates</h2>
+<p>For planar motion:</p>
+<div class="math-block">$$
+\mathbf{v} = \dot{r}\mathbf{e}_r + r\dot{\theta}\mathbf{e}_\theta
+$$</div>
+<div class="math-block">$$
+\mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta
+$$</div>
+<p>Polar coordinates are useful for motion involving rotation about a point.</p>
+<hr />
+<a id="toc-5"></a>
+<h1 id="5-relative-motion">5. Relative motion</h1>
+<p>Relative motion compares the motion of one body to another moving reference frame.</p>
+<h2 id="translation-of-reference-frames">Translation of reference frames</h2>
+<p>For particles \(A\) and \(B\):</p>
+<div class="math-block">$$
+\mathbf{r}_B = \mathbf{r}_A + \mathbf{r}_{B/A}
+$$</div>
+<p>Differentiating:</p>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \mathbf{v}_{B/A}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}_B = \mathbf{a}_A + \mathbf{a}_{B/A}
+$$</div>
+<h2 id="common-use-cases">Common use cases</h2>
+<ul><li><p>A person walking on a moving walkway</p></li><li><p>A boat moving in a current</p></li><li><p>A slider in a rotating slot</p></li><li><p>Two connected bodies with one body providing the frame for the other</p></li></ul>
+<h2 id="rotating-frames">Rotating frames</h2>
+<p>When the reference frame rotates, additional terms appear:</p>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \mathbf{v}_{rel} + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}_B = \mathbf{a}_A + \mathbf{a}_{rel} + 2\boldsymbol{\omega} \times \mathbf{v}_{rel} + \boldsymbol{\alpha} \times \mathbf{r}_{B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+$$</div>
+<p>The \(2\boldsymbol{\omega} \times \mathbf{v}_{rel}\) term is the Coriolis term.</p>
+<hr />
+<a id="toc-6"></a>
+<h1 id="6-particle-kinetics">6. Particle kinetics</h1>
+<p>Particle kinetics links forces to translational acceleration.</p>
+<h2 id="newtons-second-law">Newton&#39;s second law</h2>
+<p>For a particle:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = m\mathbf{a}
+$$</div>
+<p>Write the force balance in component form:</p>
+<div class="math-block">$$
+\sum F_x = ma_x,\quad \sum F_y = ma_y,\quad \sum F_z = ma_z
+$$</div>
+<h2 id="free-body-diagrams">Free-body diagrams</h2>
+<p>A free-body diagram is the main tool for particle kinetics.</p>
+<p>Include:</p>
+<ul><li><p>Weight \(W = mg\)</p></li><li><p>Normal reactions</p></li><li><p>Friction forces</p></li><li><p>Cable tensions</p></li><li><p>Applied forces</p></li></ul>
+<h2 id="friction">Friction</h2>
+<p>Static friction satisfies</p>
+<div class="math-block">$$
+f_s \le \mu_s N
+$$</div>
+<p>Kinetic friction is usually modeled as</p>
+<div class="math-block">$$
+f_k = \mu_k N
+$$</div>
+<p>The friction force opposes impending or relative motion along the contact surface.</p>
+<h2 id="typical-workflow">Typical workflow</h2>
+<ol><li><p>Draw the particle and isolate it.</p></li><li><p>Choose axes aligned with the motion if possible.</p></li><li><p>Write \(\sum \mathbf{F} = m\mathbf{a}\).</p></li><li><p>Add kinematic relations if needed.</p></li><li><p>Solve algebraically before substituting numbers.</p></li></ol>
+<hr />
+<a id="toc-7"></a>
+<h1 id="7-work-energy-methods">7. Work-energy methods</h1>
+<p>Work-energy is often faster than force-balance when displacement is easier to track than time.</p>
+<h2 id="work">Work</h2>
+<p>The work of a force is</p>
+<div class="math-block">$$
+W = \int \mathbf{F}\cdot d\mathbf{r}
+$$</div>
+<p>For a constant force in the direction of motion:</p>
+<div class="math-block">$$
+W = Fs
+$$</div>
+<h2 id="kinetic-energy">Kinetic energy</h2>
+<p>For a particle:</p>
+<div class="math-block">$$
+T = \frac{1}{2}mv^2
+$$</div>
+<p>Work-energy theorem:</p>
+<div class="math-block">$$
+T_1 + \sum W_{1\to2} = T_2
+$$</div>
+<h2 id="conservative-forces">Conservative forces</h2>
+<p>Gravity and springs are conservative.</p>
+<p>Potential energy forms:</p>
+<div class="math-block">$$
+V_g = mgy
+$$</div>
+<div class="math-block">$$
+V_s = \frac{1}{2}kx^2
+$$</div>
+<p>Mechanical energy form:</p>
+<div class="math-block">$$
+T_1 + V_1 + W_{nc} = T_2 + V_2
+$$</div>
+<p>where \(W_{nc}\) is work by nonconservative forces such as friction.</p>
+<h2 id="example-pattern-2">Example pattern</h2>
+<p>For a block released on a rough incline, the work-energy method often gives speed after sliding a known distance without needing time explicitly.</p>
+<hr />
+<a id="toc-8"></a>
+<h1 id="8-impulse-momentum-methods">8. Impulse-momentum methods</h1>
+<p>Impulse-momentum is useful when forces act over a short time, such as impacts or thrust events.</p>
+<h2 id="linear-impulse-momentum">Linear impulse-momentum</h2>
+<p>For a particle:</p>
+<div class="math-block">$$
+\int_{t_1}^{t_2} \sum \mathbf{F}\,dt = m\mathbf{v}_2 - m\mathbf{v}_1
+$$</div>
+<p>Component form is often easiest.</p>
+<h2 id="angular-impulse-momentum">Angular impulse-momentum</h2>
+<p>About a point \(O\):</p>
+<div class="math-block">$$
+\int_{t_1}^{t_2} \sum M_O\,dt = H_{O2} - H_{O1}
+$$</div>
+<h2 id="when-to-use-it">When to use it</h2>
+<ul><li><p>Impact problems</p></li><li><p>Short duration force histories</p></li><li><p>Average force from collision data</p></li><li><p>Problems where velocity change is known and time is short</p></li></ul>
+<h2 id="caution">Caution</h2>
+<p>Impulse-momentum is not ideal if the force is unknown and the time interval is long unless the impulse can be integrated or approximated.</p>
+<hr />
+<a id="toc-9"></a>
+<h1 id="9-rigid-body-kinematics">9. Rigid-body kinematics</h1>
+<p>Rigid-body motion combines translation and rotation.</p>
+<h2 id="plane-motion">Plane motion</h2>
+<p>For planar motion of a rigid body:</p>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}_B = \mathbf{a}_A + \boldsymbol{\alpha} \times \mathbf{r}_{B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+$$</div>
+<h2 id="pure-translation">Pure translation</h2>
+<p>If every line in the body remains parallel to itself:</p>
+<ul><li><p>All points have the same velocity</p></li><li><p>All points have the same acceleration</p></li></ul>
+<h2 id="pure-rotation-about-a-fixed-axis">Pure rotation about a fixed axis</h2>
+<p>For a point at radius \(r\):</p>
+<div class="math-block">$$
+v = \omega r
+$$</div>
+<div class="math-block">$$
+a_t = \alpha r
+$$</div>
+<div class="math-block">$$
+a_n = \omega^2 r
+$$</div>
+<p>Direction matters:</p>
+<ul><li><p>\(a_t\) is tangent to the path</p></li><li><p>\(a_n\) points toward the center of rotation</p></li></ul>
+<h2 id="instantaneous-center-of-zero-velocity">Instantaneous center of zero velocity</h2>
+<p>In planar motion, a body can often be treated as instantaneously rotating about a point with zero velocity. This is a useful geometric shortcut for velocity analysis, but it does not replace full acceleration analysis.</p>
+<hr />
+<a id="toc-10"></a>
+<h1 id="10-rigid-body-kinetics">10. Rigid-body kinetics</h1>
+<p>Rigid-body kinetics extends Newton&#39;s laws to bodies with rotation.</p>
+<h2 id="translation-of-the-mass-center">Translation of the mass center</h2>
+<p>For a rigid body:</p>
+<div class="math-block">$$
+\sum \mathbf{F} = m\mathbf{a}_G
+$$</div>
+<p>where \(G\) is the center of mass.</p>
+<h2 id="rotation-about-the-mass-center">Rotation about the mass center</h2>
+<p>For planar motion:</p>
+<div class="math-block">$$
+\sum M_G = I_G \alpha
+$$</div>
+<p>where \(I_G\) is the mass moment of inertia about the center of mass.</p>
+<h2 id="rotation-about-another-point">Rotation about another point</h2>
+<p>About a fixed point \(O\):</p>
+<div class="math-block">$$
+\sum M_O = I_O \alpha
+$$</div>
+<p>if the axis is fixed in an inertial frame.</p>
+<p>Parallel-axis theorem:</p>
+<div class="math-block">$$
+I_O = I_G + md^2
+$$</div>
+<p>where \(d\) is the distance between axes.</p>
+<h2 id="common-inertia-facts">Common inertia facts</h2>
+<ul><li><p>Thin rod about center: \(I = \frac{1}{12}mL^2\)</p></li><li><p>Thin rod about end: \(I = \frac{1}{3}mL^2\)</p></li><li><p>Solid disk about center: \(I = \frac{1}{2}mr^2\)</p></li><li><p>Solid sphere about center: \(I = \frac{2}{5}mr^2\)</p></li></ul>
+<h2 id="energy-for-rigid-bodies">Energy for rigid bodies</h2>
+<p>Total kinetic energy:</p>
+<div class="math-block">$$
+T = \frac{1}{2}mv_G^2 + \frac{1}{2}I_G\omega^2
+$$</div>
+<p>This form is useful for rolling, pulleys, and rotating links.</p>
+<hr />
+<a id="toc-11"></a>
+<h1 id="11-choosing-the-right-method">11. Choosing the right method</h1>
+<p>The best method depends on what the problem gives and what it asks for.</p>
+<h2 id="use-kinematics-when">Use kinematics when</h2>
+<ul><li><p>You need position, velocity, or acceleration only</p></li><li><p>No forces are required</p></li><li><p>The motion is prescribed</p></li></ul>
+<h2 id="use-newton-euler-when">Use Newton-Euler when</h2>
+<ul><li><p>Forces or moments are explicitly requested</p></li><li><p>Unknown reactions matter</p></li><li><p>Acceleration is known or can be found</p></li></ul>
+<h2 id="use-work-energy-when">Use work-energy when</h2>
+<ul><li><p>Displacement is known</p></li><li><p>Speed is needed rather than time</p></li><li><p>Conservative forces dominate</p></li></ul>
+<h2 id="use-impulse-momentum-when">Use impulse-momentum when</h2>
+<ul><li><p>The time interval is short</p></li><li><p>Impacts or average forces are involved</p></li><li><p>Velocity change is easier to track than acceleration</p></li></ul>
+<h2 id="practical-decision-rule">Practical decision rule</h2>
+<p>If the problem asks for a force, start with free-body diagrams and Newton&#39;s laws. If it asks for a speed after moving through a distance, work-energy is often shorter. If it asks about collision or impact, impulse-momentum is usually best.</p>
+<hr />
+<a id="toc-12"></a>
+<h1 id="12-common-pitfalls">12. Common pitfalls</h1>
+<ul><li><p>Mixing up <strong>kinematics</strong> and <strong>kinetics</strong></p></li><li><p>Using constant-acceleration formulas when acceleration is not constant</p></li><li><p>Forgetting to define a positive sign convention</p></li><li><p>Leaving out the normal or tangential acceleration component</p></li><li><p>Treating the center of mass as the same thing as a geometric center without checking symmetry</p></li><li><p>Using \(I_G\) when the problem needs \(I_O\), or vice versa</p></li><li><p>Forgetting that friction direction is opposite impending or relative motion</p></li><li><p>Applying rigid-body formulas to deformable systems</p></li><li><p>Skipping the free-body diagram and trying to solve from memory</p></li></ul>
+<h2 id="sanity-checks">Sanity checks</h2>
+<ul><li><p>Units must match at every step</p></li><li><p>Acceleration direction should agree with the chosen coordinates</p></li><li><p>A force balance should reduce correctly in special cases</p></li><li><p>Energy methods should conserve mechanical energy only when the model allows it</p></li></ul>
+<hr />
+<a id="toc-13"></a>
+<h1 id="13-formula-sheet">13. Formula sheet</h1>
+<h2 id="particle-motion">Particle motion</h2>
+<div class="math-block">$$
+\mathbf{v} = \frac{d\mathbf{r}}{dt},\quad \mathbf{a} = \frac{d\mathbf{v}}{dt}
+$$</div>
+<div class="math-block">$$
+\sum \mathbf{F} = m\mathbf{a}
+$$</div>
+<div class="math-block">$$
+T = \frac{1}{2}mv^2
+$$</div>
+<div class="math-block">$$
+\int \sum \mathbf{F}\,dt = m\mathbf{v}_2 - m\mathbf{v}_1
+$$</div>
+<h2 id="curvilinear-motion">Curvilinear motion</h2>
+<div class="math-block">$$
+a_t = \frac{dv}{dt}
+$$</div>
+<div class="math-block">$$
+a_n = \frac{v^2}{\rho}
+$$</div>
+<div class="math-block">$$
+\mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e}_r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e}_\theta
+$$</div>
+<h2 id="rigid-body-motion">Rigid-body motion</h2>
+<div class="math-block">$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$</div>
+<div class="math-block">$$
+\mathbf{a}_B = \mathbf{a}_A + \boldsymbol{\alpha} \times \mathbf{r}_{B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+$$</div>
+<div class="math-block">$$
+\sum M_G = I_G \alpha
+$$</div>
+<div class="math-block">$$
+T = \frac{1}{2}mv_G^2 + \frac{1}{2}I_G\omega^2
+$$</div>
+<h2 id="energy">Energy</h2>
+<div class="math-block">$$
+T_1 + \sum W_{1\to2} = T_2
+$$</div>
+<div class="math-block">$$
+T_1 + V_1 + W_{nc} = T_2 + V_2
+$$</div>
+<h2 id="friction-2">Friction</h2>
+<div class="math-block">$$
+f_s \le \mu_s N,\quad f_k = \mu_k N
+$$</div>
+<h2 id="problem-solving-checklist">Problem-solving checklist</h2>
+<ol><li><p>Draw the system and the free-body diagram.</p></li><li><p>Identify whether the body is a particle or rigid body.</p></li><li><p>Choose coordinates that simplify the equations.</p></li><li><p>Decide whether force, energy, or impulse methods are best.</p></li><li><p>Write the governing equations before plugging in numbers.</p></li><li><p>Check units and limiting cases.</p></li></ol>
+      </article>
+    </section>
+    <nav class="notes-toc panel" aria-label="Table of contents">
+      <div class="notes-toc__head">
+        <p class="section-label">Table of contents</p>
+      </div>
+      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-dynamics-studies">1. What dynamics studies</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-modeling-assumptions">Typical modeling assumptions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#main-laws">Main laws</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-kinematics-fundamentals">2. Kinematics fundamentals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#position-displacement-velocity-acceleration">Position, displacement, velocity, acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#vector-form">Vector form</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-rectilinear-motion">3. Rectilinear motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constant-acceleration">Constant acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variable-acceleration">Variable acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-pattern">Example pattern</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-curvilinear-motion">4. Curvilinear motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#cartesian-components">Cartesian components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-tangential-components">Normal-tangential components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#polar-coordinates">Polar coordinates</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-relative-motion">5. Relative motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#translation-of-reference-frames">Translation of reference frames</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-use-cases">Common use cases</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotating-frames">Rotating frames</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-particle-kinetics">6. Particle kinetics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-second-law">Newton&#39;s second law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-body-diagrams">Free-body diagrams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#friction">Friction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-workflow">Typical workflow</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-work-energy-methods">7. Work-energy methods</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservative-forces">Conservative forces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-pattern-2">Example pattern</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-impulse-momentum-methods">8. Impulse-momentum methods</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-impulse-momentum">Linear impulse-momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angular-impulse-momentum">Angular impulse-momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#caution">Caution</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-rigid-body-kinematics">9. Rigid-body kinematics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#plane-motion">Plane motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pure-translation">Pure translation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pure-rotation-about-a-fixed-axis">Pure rotation about a fixed axis</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#instantaneous-center-of-zero-velocity">Instantaneous center of zero velocity</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-rigid-body-kinetics">10. Rigid-body kinetics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#translation-of-the-mass-center">Translation of the mass center</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotation-about-the-mass-center">Rotation about the mass center</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotation-about-another-point">Rotation about another point</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-inertia-facts">Common inertia facts</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy-for-rigid-bodies">Energy for rigid bodies</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-choosing-the-right-method">11. Choosing the right method</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-kinematics-when">Use kinematics when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-newton-euler-when">Use Newton-Euler when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-work-energy-when">Use work-energy when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-impulse-momentum-when">Use impulse-momentum when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#practical-decision-rule">Practical decision rule</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-common-pitfalls">12. Common pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-formula-sheet">13. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#particle-motion">Particle motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#curvilinear-motion">Curvilinear motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rigid-body-motion">Rigid-body motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy">Energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#friction-2">Friction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#problem-solving-checklist">Problem-solving checklist</a></li></ol>
+    </nav>
+  </main>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>

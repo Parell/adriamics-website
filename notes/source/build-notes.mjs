@@ -380,7 +380,8 @@ function renderInline(text, sourcePath) {
 
   const html = escapeHtml(source)
     .replace(/\*\*([^*\n]+)\*\*/g, '<strong>$1</strong>')
-    .replace(/__([^_\n]+)__/g, '<strong>$1</strong>');
+    .replace(/__([^_\n]+)__/g, '<strong>$1</strong>')
+    .replace(/(?<!\*)\*(\S(?:[^*\n]*?\S)?)\*(?!\*)/g, '<em>$1</em>');
 
   return restoreInlineHtml(html, tokens);
 }

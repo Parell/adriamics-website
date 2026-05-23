@@ -636,6 +636,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
   }).join('');
 
   return `<aside class="notes-structures" aria-label="Guide structures">
+          <p class="notes-header__title">Universal Education System</p>
           <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li>${links}</ul>
         </aside>`;
 }

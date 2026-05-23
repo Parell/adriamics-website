@@ -6,7 +6,7 @@ last_reviewed: 2026-05-22
 sources: []
 ---
 
-# Welcome to UES
+## Welcome to UES
 
 UES, the Universal Education System, is a growing library of subject notes organized to make technical topics easier to study, review, and revisit.
 

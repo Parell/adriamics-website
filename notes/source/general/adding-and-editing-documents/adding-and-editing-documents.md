@@ -24,10 +24,10 @@ Use the existing page when the topic already exists and only needs correction, c
 
 Use a new document when the topic does not already exist in the subject tree.
 
-1. Choose the correct subject folder under `notes/subjects/`.
+1. Choose the correct subject folder under `notes/source/`.
 2. Create a new Markdown file with a short kebab-case name such as `example-topic.md`.
 3. Copy the standard frontmatter block from an existing note, keep GitHub-sensitive values quoted such as `- "@Parell"`, use `sources: []` for an empty list, and set the title with an `# H1` heading.
-4. Add the new file to `notes/subjects/manifest.js` so it appears in the guide panel.
+4. Add the new file to `notes/source/manifest.js` so it appears in the guide panel.
 5. Open the notes site and confirm the page loads, renders, and appears under the correct subject.
 6. Submit the change for auditor review before it is merged.
 
@@ -49,8 +49,8 @@ User finds an issue or missing topic -> Suggest edit or open an issue -> Auditor
 
 To add a page under `General`, you would:
 
-1. Create `notes/subjects/general/new-topic.md`.
-2. Add a matching entry in the `general` section of `notes/subjects/manifest.js`.
+1. Create `notes/source/general/new-topic.md`.
+2. Add a matching entry in the `general` section of `notes/source/manifest.js`.
 3. Write the page content in Markdown.
 4. Load `/notes/` and verify the page appears in the left-side guide.
 

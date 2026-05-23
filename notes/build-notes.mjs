@@ -635,7 +635,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
   }).join('');
 
   return `<aside class="notes-structures" aria-label="Guide structures">
-          <ul class="subject-list">${links}</ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li>${links}</ul>
         </aside>`;
 }
 
@@ -718,13 +718,6 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
 
   return `<header class="shell notes-header">
     <div class="notes-header__inner">
-      <div class="notes-header__brand">
-        <p class="eyebrow">The</p>
-        <h1>Universal Education System</h1>${intro}
-      </div>
-      <nav class="notes-header__links" aria-label="Notes page links">
-        <a href="/">Home</a>
-      </nav>
       ${renderSubjectLinks(structures, activeStructureId)}
     </div>
   </header>`;

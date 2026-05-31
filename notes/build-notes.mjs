@@ -8,9 +8,35 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
-const manifestPath = path.join(notesRoot, 'subjects', 'manifest.js');
+const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
 const siteOrigin = 'https://adriamics.com';
+const headerArtworkUrl = encodeURI('/assets/name.gif');
 const metadataSeparator = ' | ';
+const practiceLevelLabels = new Map([
+  [1, 'Direct Practice'],
+  [2, 'Integrated Practice'],
+  [3, 'Applied Problems'],
+  [4, 'Challenge / Synthesis'],
+]);
+const practiceSkillLinks = {
+  'subjects/math/algebra/algebra.md': {
+    Fractions: '#fractions-in-algebra',
+    'Linear Equations': '#one-variable-linear-equations',
+    'Inverse Operations': '#one-variable-linear-equations',
+    'Like Terms': '#like-terms',
+    'Distributing and factoring': '#distributing-and-factoring',
+    'Order of Operations': '#order-of-operations',
+    'Exponent Laws': '#exponent-laws',
+    'Systems of equations': '#two-linear-equations-in-two-variables',
+    Elimination: '#example-elimination',
+    'Common factoring methods': '#common-factoring-methods',
+    'Zero-product property': '#zero-product-property',
+    'Evaluating functions': '#evaluating-functions',
+    Functions: '#9-functions',
+    'Sets of numbers': '#sets-of-numbers',
+    'Interval notation': '#interval-notation',
+  },
+};
 
 function toPosix(inputPath) {
   return String(inputPath).split(path.sep).join('/');
@@ -67,11 +93,60 @@ function parseFrontmatterValue(value) {
     return [];
   }
 
+  if (trimmed.startsWith('[') && trimmed.endsWith(']')) {
+    const inner = trimmed.slice(1, -1).trim();
+
+    if (!inner) {
+      return [];
+    }
+
+    const items = [];
+    let current = '';
+    let quote = null;
+
+    for (let index = 0; index < inner.length; index += 1) {
+      const character = inner[index];
+
+      if (quote) {
+        if (character === quote && inner[index - 1] !== '\\') {
+          quote = null;
+        }
+
+        current += character;
+        continue;
+      }
+
+      if (character === '"' || character === "'") {
+        quote = character;
+        current += character;
+        continue;
+      }
+
+      if (character === ',') {
+        items.push(parseFrontmatterValue(current));
+        current = '';
+        continue;
+      }
+
+      current += character;
+    }
+
+    if (current.trim()) {
+      items.push(parseFrontmatterValue(current));
+    }
+
+    return items;
+  }
+
   if (
     (trimmed.startsWith('"') && trimmed.endsWith('"'))
     || (trimmed.startsWith("'") && trimmed.endsWith("'"))
   ) {
     return trimmed.slice(1, -1);
+  }
+
+  if (/^[+-]?(?:\d+\.?\d*|\.\d+)$/.test(trimmed)) {
+    return Number(trimmed);
   }
 
   return trimmed;
@@ -145,16 +220,100 @@ function getNoteRoutePath(notePath) {
 }
 
 function getNoteSourcePath(notePath) {
-  return path.join(notesRoot, toPosix(notePath));
+  const normalized = toPosix(notePath).replace(/^subjects\//, '');
+  return path.join(notesRoot, 'source', normalized);
 }
 
 function getNoteOutputDir(notePath) {
-  return path.dirname(getNoteSourcePath(notePath));
+  return path.join(notesRoot, getNoteRoutePath(notePath));
 }
 
-function getRelativeNotesAssetHref(notePath, assetName) {
-  const outputDir = toPosix(path.dirname(notePath));
-  const depth = outputDir ? outputDir.split('/').filter(Boolean).length : 0;
+function getPracticeSourcePath(notePath) {
+  return getNoteSourcePath(notePath).replace(/\.md$/i, '-problems.md');
+}
+
+function getPracticeOutputDir(notePath) {
+  return path.join(getNoteOutputDir(notePath), 'practice');
+}
+
+function getPracticeUrl(notePath) {
+  return `${getNoteUrl(notePath)}practice/`;
+}
+
+function parsePracticeProblemId(id, sourcePath, problemIndex) {
+  const problemId = String(id).trim();
+  const match = problemId.match(/^(.*?)-(\d)(\d+)$/);
+
+  if (!match) {
+    throw new Error(`Practice problem id "${problemId}" in ${sourcePath} (problem ${problemIndex + 1}) must end with a one-digit level followed by a position, like "algebra-14".`);
+  }
+
+  const level = Number.parseInt(match[2], 10);
+  const position = Number.parseInt(match[3], 10);
+
+  if (!Number.isFinite(level) || level <= 0 || !Number.isFinite(position) || position <= 0) {
+    throw new Error(`Practice problem id "${problemId}" in ${sourcePath} (problem ${problemIndex + 1}) must encode a positive level and position.`);
+  }
+
+  return { level, position };
+}
+
+function getPracticeLevelLabel(level) {
+  const parsedLevel = Number.parseInt(String(level).trim(), 10);
+  return practiceLevelLabels.get(parsedLevel) ?? 'Practice problems';
+}
+
+function resolvePracticeSkillHref(notePath, skillName) {
+  const normalizedNotePath = toPosix(notePath).replace(/^notes\//, '');
+  const skillMap = practiceSkillLinks[normalizedNotePath] ?? {};
+  const label = String(skillName).trim();
+
+  if (skillMap[label]) {
+    return `${getNoteUrl(notePath)}${skillMap[label]}`;
+  }
+
+  return `${getNoteUrl(notePath)}#${slugifyHeading(label)}`;
+}
+
+function renderPracticeSkills(notePath, skills) {
+  return skills.map((skill) => {
+    const label = String(skill).trim();
+    const href = resolvePracticeSkillHref(notePath, label);
+    return `<a class="practice-problem__skill" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
+  }).join(' &middot; ');
+}
+
+function groupPracticeProblems(problems) {
+  const groups = new Map();
+
+  problems.forEach((problem) => {
+    const level = Number.parseInt(String(problem.level).trim(), 10);
+    const normalizedLevel = Number.isFinite(level) ? level : 0;
+    const position = Number.parseInt(String(problem.position).trim(), 10);
+    const normalizedPosition = Number.isFinite(position) ? position : 0;
+
+    if (!groups.has(normalizedLevel)) {
+      groups.set(normalizedLevel, {
+        level: normalizedLevel,
+        label: getPracticeLevelLabel(normalizedLevel),
+        items: [],
+      });
+    }
+
+    groups.get(normalizedLevel).items.push({ problem, position: normalizedPosition });
+  });
+
+  return [...groups.values()]
+    .sort((left, right) => left.level - right.level)
+    .map((group) => ({
+      ...group,
+      items: group.items.sort((left, right) => left.position - right.position),
+    }));
+}
+
+function getRelativeNotesAssetHref(outputDirPath, assetName) {
+  const relativeOutputDir = toPosix(path.relative(notesRoot, outputDirPath));
+  const depth = relativeOutputDir ? relativeOutputDir.split('/').filter(Boolean).length : 0;
   const prefix = '../'.repeat(depth);
   return `${prefix}${assetName}`;
 }
@@ -632,11 +791,15 @@ function renderSubjectLinks(structures, activeStructureId = null) {
     const isActive = structure.id === activeStructureId;
     const activeClass = isActive ? ' class="is-active"' : '';
     const current = isActive ? ' aria-current="true"' : '';
-    return `<li><a${activeClass}${current} href="${escapeHtml(getNoteUrl(pagePath))}">${escapeHtml(structure.title)}</a></li>`;
+    const href = getNoteUrl(pagePath);
+    return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}">${escapeHtml(structure.title)}</a></li>`;
   }).join('');
 
   return `<aside class="notes-structures" aria-label="Guide structures">
-          <p class="notes-header__title">Universal Education System</p>
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title">Universal Education System</p>
+          </div>
           <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li>${links}</ul>
         </aside>`;
 }
@@ -696,6 +859,7 @@ function buildLandingRedirectHtml() {
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Introduction | Adriamics</title>
   <meta name="description" content="Redirecting to the Universal Education System introduction page." />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="canonical" href="${siteOrigin}${redirectUrl}" />
   <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
   <script>
@@ -708,7 +872,21 @@ function buildLandingRedirectHtml() {
 </html>`;
 }
 
-function renderHeader(structures, activeStructureId = null, includeIntro = false) {
+function renderQuickActions(practiceUrl = null) {
+  const actions = [
+    `<button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      Search notes
+    </button>`,
+  ];
+
+  if (practiceUrl) {
+    actions.push(`<a class="notes-practice-trigger" href="${escapeHtml(practiceUrl)}">Practice</a>`);
+  }
+
+  return actions.join('');
+}
+
+function renderHeader(structures, activeStructureId = null, includeIntro = false, actionsHtml = '') {
   const intro = includeIntro
     ? `
         <p class="notes-intro">
@@ -721,6 +899,8 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
   return `<header class="shell notes-header">
     <div class="notes-header__inner">
       ${renderSubjectLinks(structures, activeStructureId)}
+      ${actionsHtml ? `<div class="notes-header__actions" role="group" aria-label="Quick actions">${actionsHtml}</div>` : ''}
+      <img class="notes-header__art" src="${headerArtworkUrl}" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>`;
 }
@@ -736,6 +916,8 @@ function renderNotesPageDocument({
   structures,
   activeStructureId = null,
   includeIntro = false,
+  headerActionsHtml = '',
+  floatingActionsHtml = '',
   stylesheetHref = '/notes/notes.css',
   scriptHref = '/notes/notes.js',
   extraHead = '',
@@ -749,17 +931,16 @@ function renderNotesPageDocument({
   <meta name="description" content="${escapeHtml(description)}" />
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
   <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
   ${extraHead}
   <script defer src="${escapeHtml(scriptHref)}"></script>
 </head>
 <body class="notes-page ${escapeHtml(bodyClass)}" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
-  <button class="notes-search-trigger" id="search-trigger" type="button" aria-expanded="false" aria-controls="search-panel">
-    Search notes
-  </button>
+  ${floatingActionsHtml}
 
-  ${renderHeader(structures, activeStructureId, includeIntro)}
+  ${renderHeader(structures, activeStructureId, includeIntro, headerActionsHtml)}
 
   <main id="content" class="${escapeHtml(mainClass)}" aria-label="${escapeHtml(mainAriaLabel)}">
     ${mainHtml}
@@ -818,19 +999,22 @@ function renderTableOfContents(bodyHtml, title) {
 function buildNoteHtml({
   title,
   description,
-  metadataLabel,
   bodyHtml,
   canonicalUrl,
   editUrl,
   structures,
   structure,
-  pagePath,
+  notePath,
+  outputDir,
   assetVersions,
+  practiceUrl = null,
+  metadataLabel,
 }) {
   const tocHtml = renderTableOfContents(bodyHtml, title);
   const layoutClass = tocHtml ? ' notes-layout--has-toc' : '';
-  const stylesheetHref = `${getRelativeNotesAssetHref(pagePath, 'notes.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(pagePath, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const quickActionsHtml = renderQuickActions(practiceUrl);
   const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -838,7 +1022,7 @@ function buildNoteHtml({
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
-        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], pagePath)}</ul>
+        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], notePath)}</ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
@@ -867,6 +1051,8 @@ function buildNoteHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
+    headerActionsHtml: `<div class="notes-header__actions-inner">${quickActionsHtml}</div>`,
+    floatingActionsHtml: `<div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}</div>`,
     stylesheetHref,
     scriptHref,
     extraHead: `<script>
@@ -887,6 +1073,318 @@ function buildNoteHtml({
 
 function buildLandingHtml() {
   return buildLandingRedirectHtml();
+}
+
+function trimBlankLines(lines) {
+  let start = 0;
+  let end = lines.length;
+
+  while (start < end && !lines[start].trim()) {
+    start += 1;
+  }
+
+  while (end > start && !lines[end - 1].trim()) {
+    end -= 1;
+  }
+
+  return lines.slice(start, end);
+}
+
+function isPracticeFrontmatterStart(lines, index) {
+  if (lines[index]?.trim() !== '---') {
+    return false;
+  }
+
+  let nextIndex = index + 1;
+
+  while (nextIndex < lines.length && !lines[nextIndex].trim()) {
+    nextIndex += 1;
+  }
+
+  return nextIndex < lines.length && /^[A-Za-z0-9_-]+:\s*/.test(lines[nextIndex]);
+}
+
+function parsePracticeSolutionBlock(markdown, sourcePath, problemId) {
+  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
+  const startIndex = lines.findIndex((line) => /^\s*:::solution\s*$/.test(line));
+
+  if (startIndex < 0) {
+    return {
+      promptMarkdown: trimBlankLines(lines).join('\n'),
+      solutionMarkdown: '',
+    };
+  }
+
+  const endIndex = lines.findIndex((line, index) => index > startIndex && /^\s*:::\s*$/.test(line));
+
+  if (endIndex < 0) {
+    throw new Error(`Missing closing ::: for solution block in ${sourcePath}${problemId ? ` (${problemId})` : ''}`);
+  }
+
+  const trailing = lines.slice(endIndex + 1).filter((line) => line.trim());
+
+  if (trailing.length) {
+    throw new Error(`Unexpected content after solution block in ${sourcePath}${problemId ? ` (${problemId})` : ''}`);
+  }
+
+  return {
+    promptMarkdown: trimBlankLines(lines.slice(0, startIndex)).join('\n'),
+    solutionMarkdown: trimBlankLines(lines.slice(startIndex + 1, endIndex)).join('\n'),
+  };
+}
+
+function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, seenProblemIds) {
+  const requiredFields = ['id', 'note', 'title', 'type', 'answer', 'skills'];
+
+  for (const field of requiredFields) {
+    const value = metadata?.[field];
+    const isMissing = Array.isArray(value)
+      ? !value.length
+      : value === undefined || value === null || String(value).trim() === '';
+
+    if (isMissing) {
+      throw new Error(`Missing required field "${field}" in ${sourcePath} (problem ${problemIndex + 1})`);
+    }
+  }
+
+  if (!Array.isArray(metadata.skills)) {
+    throw new Error(`Field "skills" must be an array in ${sourcePath} (problem ${problemIndex + 1})`);
+  }
+
+  const id = String(metadata.id).trim();
+
+  if (seenProblemIds.has(id)) {
+    throw new Error(`Duplicate problem id "${id}" in ${sourcePath}; already used in ${seenProblemIds.get(id)}`);
+  }
+
+  seenProblemIds.set(id, sourcePath);
+
+  const { level, position } = parsePracticeProblemId(id, sourcePath, problemIndex);
+
+  const type = String(metadata.type).trim().toLowerCase();
+
+  if (type === 'numeric') {
+    const numericAnswer = Number(String(metadata.answer).trim());
+
+    if (!Number.isFinite(numericAnswer)) {
+      throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a numeric answer.`);
+    }
+
+    if (metadata.tolerance !== undefined && metadata.tolerance !== null && String(metadata.tolerance).trim() !== '') {
+      const tolerance = Number(String(metadata.tolerance).trim());
+
+      if (!Number.isFinite(tolerance) || tolerance < 0) {
+        throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a valid non-negative tolerance.`);
+      }
+    }
+  }
+
+  return {
+    id,
+    level,
+    position,
+    note: String(metadata.note).trim(),
+    title: String(metadata.title).trim(),
+    type,
+    answer: metadata.answer,
+    tolerance: metadata.tolerance,
+    unit: metadata.unit,
+    skills: metadata.skills,
+  };
+}
+
+function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
+  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
+  const problems = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    while (index < lines.length && !lines[index].trim()) {
+      index += 1;
+    }
+
+    if (index >= lines.length) {
+      break;
+    }
+
+    if (!isPracticeFrontmatterStart(lines, index)) {
+      throw new Error(`Unexpected content before a problem block in ${sourcePath} on line ${index + 1}.`);
+    }
+
+    const frontmatterLines = [];
+    index += 1;
+
+    while (index < lines.length && lines[index].trim() !== '---') {
+      frontmatterLines.push(lines[index]);
+      index += 1;
+    }
+
+    if (index >= lines.length) {
+      throw new Error(`Missing closing frontmatter delimiter in ${sourcePath}.`);
+    }
+
+    const metadata = parseFrontmatter(frontmatterLines.join('\n'));
+    index += 1;
+
+    const bodyLines = [];
+
+    while (index < lines.length && !isPracticeFrontmatterStart(lines, index)) {
+      bodyLines.push(lines[index]);
+      index += 1;
+    }
+
+    const { promptMarkdown, solutionMarkdown } = parsePracticeSolutionBlock(bodyLines.join('\n'), sourcePath, metadata.id);
+    const problem = validatePracticeProblemMetadata(metadata, sourcePath, problems.length, seenProblemIds);
+
+    problems.push({
+      ...problem,
+      promptMarkdown,
+      solutionMarkdown,
+      sourcePath,
+    });
+  }
+
+  if (!problems.length) {
+    throw new Error(`No practice problems were found in ${sourcePath}.`);
+  }
+
+  return problems;
+}
+
+function renderPracticeProblem(problem, practiceSourcePath, notePath) {
+  const promptHtml = renderBlocks(problem.promptMarkdown, practiceSourcePath);
+  const solutionHtml = problem.solutionMarkdown
+    ? renderBlocks(problem.solutionMarkdown, practiceSourcePath)
+    : '<p class="practice-problem__solution-empty">No solution provided.</p>';
+  const skills = renderPracticeSkills(notePath, problem.skills);
+  const tolerance = problem.tolerance === undefined || problem.tolerance === null || String(problem.tolerance).trim() === ''
+    ? ''
+    : String(problem.tolerance).trim();
+  const unit = problem.unit === undefined || problem.unit === null ? '' : String(problem.unit).trim();
+  const metadataBits = [
+    skills ? `<span class="practice-problem__uses"><span class="practice-problem__skills">${skills}</span></span>` : null,
+    unit ? `<span>Unit ${escapeHtml(unit)}</span>` : null,
+  ].filter(Boolean).join(' | ');
+
+  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem data-problem-type="${escapeHtml(problem.type)}" data-problem-answer="${escapeHtml(String(problem.answer).trim())}"${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">${escapeHtml(`${String(problem.level).trim()}.${String(problem.position).trim()}`)}</span><span class="practice-problem__title-text">${escapeHtml(problem.title)}</span></h2>
+          <p class="practice-problem__meta">${metadataBits}</p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        ${promptHtml}
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          ${solutionHtml}
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article>`;
+}
+
+function buildPracticeHtml({
+  title,
+  description,
+  canonicalUrl,
+  noteUrl,
+  noteTitle,
+  editUrl,
+  notePath,
+  practiceSourcePath,
+  structures,
+  structure,
+  outputDir,
+  assetVersions,
+  problems,
+}) {
+  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const problemCount = problems.length;
+  const problemGroups = groupPracticeProblems(problems);
+  const problemHtml = problemGroups.map((group) => {
+    const levelProblemHtml = group.items.map(({ problem }) => {
+      return renderPracticeProblem(problem, practiceSourcePath, notePath);
+    }).join('');
+
+    return `<section class="practice-level panel" aria-labelledby="practice-level-${group.level}">
+        <div class="practice-level__head">
+          <p class="section-label">Level ${escapeHtml(String(group.level))}</p>
+          <h2 id="practice-level-${escapeHtml(String(group.level))}">${escapeHtml(group.label)}</h2>
+          <p class="practice-level__meta">${escapeHtml(group.items.length)} problem${group.items.length === 1 ? '' : 's'}</p>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          ${levelProblemHtml}
+        </div>
+      </section>`;
+  }).join('');
+  const quickActionsHtml = renderQuickActions();
+  const mainHtml = `
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
+        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], notePath)}</ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>${escapeHtml(title)}</h1>
+          <p class="viewer-meta">${escapeHtml(description)}</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer">Suggest edit</a>
+          <a class="practice-back-link" href="${escapeHtml(noteUrl)}">Back to note</a>
+        </div>
+      </div>
+      <div class="practice-problem-list">
+        ${problemHtml}
+      </div>
+    </section>`;
+
+  return renderNotesPageDocument({
+    title: `${title} | Adriamics`,
+    description,
+    canonicalUrl,
+    bodyClass: 'practice-page',
+    mainClass: 'shell notes-layout',
+    mainAriaLabel: 'Practice problems',
+    mainHtml,
+    structures,
+    activeStructureId: structure.id,
+    headerActionsHtml: `<div class="notes-header__actions-inner">${quickActionsHtml}</div>`,
+    floatingActionsHtml: `<div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}</div>`,
+    stylesheetHref,
+    scriptHref,
+    extraHead: `<script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>`,
+  });
 }
 
 async function loadManifest() {
@@ -928,20 +1426,20 @@ function flattenNotes(structures) {
   return notes;
 }
 
-async function listMarkdownNotePaths(dirPath = path.join(notesRoot, 'subjects')) {
+async function listMarkdownFiles(dirPath) {
   const entries = await fs.readdir(dirPath, { withFileTypes: true });
   const paths = await Promise.all(entries.map(async (entry) => {
     const entryPath = path.join(dirPath, entry.name);
 
     if (entry.isDirectory()) {
-      return listMarkdownNotePaths(entryPath);
+      return listMarkdownFiles(entryPath);
     }
 
     if (!entry.isFile() || !entry.name.endsWith('.md')) {
       return [];
     }
 
-    return [toPosix(path.relative(notesRoot, entryPath))];
+    return [entryPath];
   }));
 
   return paths.flat().sort();
@@ -952,14 +1450,17 @@ async function validateManifestCoverage(notes) {
   const uniqueManifestPaths = new Set(manifestPaths);
   const duplicatePaths = manifestPaths
     .filter((notePath, index) => manifestPaths.indexOf(notePath) !== index);
-  const markdownPaths = await listMarkdownNotePaths();
-  const markdownPathSet = new Set(markdownPaths);
   const invalidManifestPaths = [...uniqueManifestPaths]
     .filter((notePath) => !isFolderLayoutNotePath(notePath))
     .sort();
-  const missingFiles = [...uniqueManifestPaths]
-    .filter((notePath) => !markdownPathSet.has(notePath))
-    .sort();
+  const missingFiles = [];
+
+  for (const notePath of uniqueManifestPaths) {
+    if (!(await exists(getNoteSourcePath(notePath)))) {
+      missingFiles.push(notePath);
+    }
+  }
+
   const errors = [];
 
   if (duplicatePaths.length) {
@@ -983,18 +1484,67 @@ async function ensureDir(filePath) {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
 }
 
-async function removeStaleGeneratedPages(notes) {
-  const expectedOutputDirs = new Set(
-    notes.map((note) => getNoteOutputDir(note.path)),
-  );
+function getGeneratedSourcePathFromOutputDir(outputDir) {
+  const relativeOutputDir = toPosix(path.relative(path.join(notesRoot, 'subjects'), outputDir));
+  const parts = relativeOutputDir.split('/').filter(Boolean);
+
+  if (!parts.length) {
+    return null;
+  }
+
+  if (parts.at(-1) === 'practice') {
+    if (parts.length < 2) {
+      return null;
+    }
+
+    const noteParts = parts.slice(0, -1);
+    return path.join(notesRoot, 'source', ...noteParts, `${noteParts.at(-1)}-problems.md`);
+  }
+
+  return path.join(notesRoot, 'source', ...parts, `${parts.at(-1)}.md`);
+}
+
+async function loadPracticeProblems(notes) {
+  const noteBySourcePath = new Map(notes.map((note) => [getNoteSourcePath(note.path), note]));
+  const seenProblemIds = new Map();
+  const practiceSourcePaths = (await listMarkdownFiles(path.join(notesRoot, 'source')))
+    .filter((sourcePath) => sourcePath.endsWith('-problems.md'));
+  const practiceByNotePath = new Map();
+
+  for (const practiceSourcePath of practiceSourcePaths) {
+    const noteSourcePath = practiceSourcePath.replace(/-problems\.md$/i, '.md');
+    const note = noteBySourcePath.get(noteSourcePath);
+
+    if (!note) {
+      throw new Error(`Practice file has no matching note: ${toPosix(path.relative(notesRoot, practiceSourcePath))}`);
+    }
+
+    const markdown = await fs.readFile(practiceSourcePath, 'utf8');
+    const problems = parsePracticeProblems(markdown, practiceSourcePath, seenProblemIds);
+
+    practiceByNotePath.set(note.path, {
+      note,
+      sourcePath: practiceSourcePath,
+      problems,
+    });
+  }
+
+  return practiceByNotePath;
+}
+
+async function removeStaleGeneratedPages(notes, practiceByNotePath) {
+  const expectedOutputDirs = new Set([
+    ...notes.map((note) => getNoteOutputDir(note.path)),
+    ...[...practiceByNotePath.values()].map((practice) => getPracticeOutputDir(practice.note.path)),
+  ]);
 
   async function visit(dirPath) {
     const entries = await fs.readdir(dirPath, { withFileTypes: true });
     const indexEntry = entries.find((entry) => entry.isFile() && entry.name === 'index.html');
 
     if (indexEntry) {
-      const sourceFile = path.join(dirPath, `${path.basename(dirPath)}.md`);
-      if (!expectedOutputDirs.has(dirPath) || !(await exists(sourceFile))) {
+      const sourceFile = getGeneratedSourcePathFromOutputDir(dirPath);
+      if (!sourceFile || !expectedOutputDirs.has(dirPath) || !(await exists(sourceFile))) {
         await fs.rm(path.join(dirPath, indexEntry.name), { force: true });
       }
     }
@@ -1016,7 +1566,7 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions) {
+async function buildNotePage(note, urlPath, structures, assetVersions, practice = null) {
   const sourcePath = getNoteSourcePath(note.path);
   const markdown = await fs.readFile(sourcePath, 'utf8');
   const { metadata, body } = splitFrontmatter(markdown);
@@ -1028,7 +1578,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions) {
   const summary = getSummary(bodyWithoutTitle) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
-  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(`notes/${note.path}`)}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
+  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(toPosix(path.relative(repoRoot, sourcePath)))}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
   const bodyHtml = renderBlocks(bodyWithoutTitle, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({
     title,
@@ -1039,10 +1589,12 @@ async function buildNotePage(note, urlPath, structures, assetVersions) {
     editUrl,
     structures,
     structure: note.structure,
-    pagePath: note.path,
+    notePath: note.path,
+    practiceUrl: practice ? getPracticeUrl(note.path) : null,
+    outputDir: getNoteOutputDir(note.path),
     assetVersions,
   });
-  const outputPath = path.join(notesRoot, path.dirname(note.path), 'index.html');
+  const outputPath = path.join(getNoteOutputDir(note.path), 'index.html');
 
   await ensureDir(outputPath);
   await fs.writeFile(outputPath, pageHtml, 'utf8');
@@ -1055,6 +1607,45 @@ async function buildNotePage(note, urlPath, structures, assetVersions) {
   };
 }
 
+async function buildPracticePage(practice, structures, assetVersions) {
+  const sourcePath = practice.sourcePath;
+  const note = practice.note;
+  const noteSourcePath = getNoteSourcePath(note.path);
+  const noteMarkdown = await fs.readFile(noteSourcePath, 'utf8');
+  const { metadata } = splitFrontmatter(noteMarkdown);
+  const noteTitle = typeof metadata?.title === 'string' && metadata.title.trim()
+    ? metadata.title.trim()
+    : note.title;
+  const title = `${noteTitle} Practice`;
+  const description = `${practice.problems.length} practice problem${practice.problems.length === 1 ? '' : 's'}`;
+  const canonicalUrl = `${siteOrigin}${getPracticeUrl(note.path)}`;
+  const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
+  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
+  const pageHtml = buildPracticeHtml({
+    title,
+    description,
+    canonicalUrl,
+    noteUrl: getNoteUrl(note.path),
+    noteTitle,
+    editUrl,
+    notePath: note.path,
+    practiceSourcePath: sourcePath,
+    structures,
+    structure: note.structure,
+    outputDir: getPracticeOutputDir(note.path),
+    assetVersions,
+    problems: practice.problems,
+  });
+  const outputPath = path.join(getPracticeOutputDir(note.path), 'index.html');
+
+  await ensureDir(outputPath);
+  await fs.writeFile(outputPath, pageHtml, 'utf8');
+
+  return {
+    url: getPracticeUrl(note.path),
+  };
+}
+
 async function buildLandingPage(structures) {
   await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures), 'utf8');
 }
@@ -1064,11 +1655,12 @@ async function buildSearchIndex(entries) {
   await fs.writeFile(path.join(notesRoot, 'search-index.json'), json, 'utf8');
 }
 
-async function buildSitemap(noteUrls) {
+async function buildSitemap(noteUrls, practiceUrls) {
   const urls = [
     `${siteOrigin}/`,
     `${siteOrigin}/notes/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
+    ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -1091,17 +1683,27 @@ async function main() {
   await validateManifestCoverage(notes);
 
   const urls = notes.map((note) => getNoteUrl(note.path));
-
-  await removeStaleGeneratedPages(notes);
-
+  const practiceByNotePath = await loadPracticeProblems(notes);
+  const practiceUrls = [];
   const searchEntries = [];
   for (let index = 0; index < notes.length; index += 1) {
-    searchEntries.push(await buildNotePage(notes[index], urls[index], manifest.structures, assetVersions));
+    const note = notes[index];
+    const practice = practiceByNotePath.get(note.path);
+
+    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, practice));
+
+    if (practice) {
+      const practicePage = await buildPracticePage(practice, manifest.structures, assetVersions);
+      practiceUrls.push(practicePage.url);
+    }
   }
+
+  await removeStaleGeneratedPages(notes, practiceByNotePath);
 
   await buildLandingPage(manifest.structures);
   await buildSearchIndex(searchEntries);
-  await buildSitemap(urls);
+  await buildSitemap(urls, practiceUrls);
 }
 
 await main();
+

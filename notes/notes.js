@@ -1,16 +1,117 @@
-const searchTrigger = document.getElementById('search-trigger');
+const searchTriggers = Array.from(document.querySelectorAll('[data-search-trigger]'));
 const searchPanel = document.getElementById('search-panel');
 const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
-const noteContent = document.getElementById('note-content') ?? document.querySelector('.markdown-body');
+const noteContent = document.getElementById('note-content');
+const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const SEARCH_INDEX_URL = '/notes/search-index.json';
+const CHATGPT_BASE_URL = 'https://chatgpt.com/?q=';
+const NOTES_SESSION_STORAGE_KEY = 'ues-notes:last-pages-by-subject';
 
 let searchIndex = [];
 let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexFailed = false;
+let activeSearchTrigger = searchTriggers[0] ?? null;
+let scrollStateFrame = 0;
+
+function getSessionStorage() {
+  try {
+    return window.sessionStorage;
+  } catch {
+    return null;
+  }
+}
+
+function readLastPagesBySubject() {
+  const storage = getSessionStorage();
+
+  if (!storage) {
+    return {};
+  }
+
+  try {
+    const raw = storage.getItem(NOTES_SESSION_STORAGE_KEY);
+
+    if (!raw) {
+      return {};
+    }
+
+    const parsed = JSON.parse(raw);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
+  } catch {
+    return {};
+  }
+}
+
+function writeLastPagesBySubject(state) {
+  const storage = getSessionStorage();
+
+  if (!storage) {
+    return;
+  }
+
+  try {
+    storage.setItem(NOTES_SESSION_STORAGE_KEY, JSON.stringify(state));
+  } catch {
+    // Ignore storage quota or privacy-mode failures.
+  }
+}
+
+function getCurrentSubjectPageInfo() {
+  const match = window.location.pathname.match(/^\/notes\/subjects\/([^/]+)\/([^/]+)\/(?:practice\/)?$/);
+
+  if (!match) {
+    return null;
+  }
+
+  const subjectId = match[1];
+  const noteSlug = match[2];
+
+  return {
+    subjectId,
+    pagePath: `/notes/subjects/${subjectId}/${noteSlug}/`,
+  };
+}
+
+function rememberCurrentSubjectPage() {
+  const currentPage = getCurrentSubjectPageInfo();
+
+  if (!currentPage) {
+    return;
+  }
+
+  const state = readLastPagesBySubject();
+
+  if (state[currentPage.subjectId] === currentPage.pagePath) {
+    return;
+  }
+
+  state[currentPage.subjectId] = currentPage.pagePath;
+  writeLastPagesBySubject(state);
+}
+
+function updateSubjectHeaderLinks() {
+  const lastPagesBySubject = readLastPagesBySubject();
+
+  subjectHeaderLinks.forEach((link) => {
+    const subjectId = link.dataset.subjectId;
+    const defaultHref = link.dataset.defaultHref;
+
+    if (!subjectId || !defaultHref) {
+      return;
+    }
+
+    link.href = lastPagesBySubject[subjectId] || defaultHref;
+  });
+}
+
+function syncSubjectNavigation() {
+  rememberCurrentSubjectPage();
+  updateSubjectHeaderLinks();
+}
 
 function escapeHtml(text) {
   return String(text ?? '')
@@ -27,6 +128,34 @@ function escapeRegExp(text) {
 
 function normalizeWhitespace(text) {
   return String(text ?? '').replace(/\s+/g, ' ').trim();
+}
+
+function normalizePracticeAnswer(text) {
+  return String(text ?? '').trim();
+}
+
+function buildChatGptPrompt(problemCard, submittedAnswer) {
+  const title = normalizeWhitespace(problemCard.querySelector('h2')?.textContent ?? '');
+  const prompt = normalizeWhitespace(problemCard.querySelector('[data-practice-prompt]')?.textContent ?? '');
+  const problemType = normalizeWhitespace(problemCard.dataset.problemType ?? 'unknown');
+  const answer = normalizePracticeAnswer(submittedAnswer);
+
+  return [
+    'You are a study partner helping me think through this practice problem.',
+    `Title: ${title || '(untitled)'}`,
+    `Type: ${problemType}`,
+    `Problem: ${prompt || '(no problem text found)'}`,
+    `Student response: ${answer || '(blank)'}`,
+    'Ask exactly one follow-up question that helps me reason about the same problem or a close variation.',
+    'Use the student response as context, even if it is incomplete or phrased as a question.',
+    'Do not grade the answer, reveal the full solution, or answer with multiple questions.',
+    'Keep the question specific and useful. Variations like changing coefficients, using decimals, or testing a nearby case are good when relevant.',
+  ].join('\n\n');
+}
+
+function openChatGptPrompt(promptText) {
+  const url = `${CHATGPT_BASE_URL}${encodeURIComponent(promptText)}`;
+  window.open(url, '_blank', 'noopener,noreferrer');
 }
 
 const LATEX_COMMAND_MAP = new Map([
@@ -151,6 +280,16 @@ function updateStatus(message) {
   if (searchStatus) {
     searchStatus.textContent = message;
   }
+}
+
+function setSearchTriggerState(isExpanded) {
+  searchTriggers.forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+  });
+}
+
+function updateFloatingActionsState() {
+  document.body.classList.toggle('notes-page--scrolled', window.scrollY > 0);
 }
 
 function renderPlaceholder(message) {
@@ -284,13 +423,14 @@ async function loadSearchIndex() {
   return searchIndexPromise;
 }
 
-function openSearch() {
-  if (!searchPanel || !searchTrigger || !searchInput) {
+function openSearch(trigger = activeSearchTrigger) {
+  if (!searchPanel || !searchInput) {
     return;
   }
 
+  activeSearchTrigger = trigger ?? activeSearchTrigger;
   searchPanel.hidden = false;
-  searchTrigger.setAttribute('aria-expanded', 'true');
+  setSearchTriggerState(true);
   void loadSearchIndex();
   runSearch(searchInput.value);
   searchInput.focus();
@@ -298,13 +438,13 @@ function openSearch() {
 }
 
 function closeSearch() {
-  if (!searchPanel || !searchTrigger) {
+  if (!searchPanel) {
     return;
   }
 
   searchPanel.hidden = true;
-  searchTrigger.setAttribute('aria-expanded', 'false');
-  searchTrigger.focus();
+  setSearchTriggerState(false);
+  activeSearchTrigger?.focus();
 }
 
 function findTextMatch(root, query) {
@@ -364,22 +504,59 @@ function revealQueryMatch() {
   mark.scrollIntoView({ block: 'center' });
 }
 
-searchTrigger?.addEventListener('click', () => {
-  if (searchPanel?.hidden) {
-    openSearch();
-  } else {
-    closeSearch();
-  }
+searchTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    if (searchPanel?.hidden) {
+      openSearch(trigger);
+    } else {
+      closeSearch();
+    }
+  });
 });
 
 document.addEventListener('click', (event) => {
   const leaveButton = event.target.closest('[data-leave-notes]');
 
-  if (!leaveButton) {
+  if (leaveButton) {
+    window.location.href = '/';
     return;
   }
 
-  window.location.href = '/';
+  const solutionButton = event.target.closest('[data-practice-solution-toggle]');
+
+  if (!solutionButton) {
+    return;
+  }
+
+  const problemCard = solutionButton.closest('[data-practice-problem]');
+  const solution = problemCard?.querySelector('[data-practice-solution]');
+  const isHidden = solution?.hidden ?? true;
+
+  if (solution) {
+    solution.hidden = !isHidden;
+  }
+
+  solutionButton.textContent = isHidden ? 'Hide solutions' : 'Show solutions';
+});
+
+document.addEventListener('submit', (event) => {
+  const form = event.target.closest('[data-practice-form]');
+
+  if (!form) {
+    return;
+  }
+
+  event.preventDefault();
+
+  const problemCard = form.closest('[data-practice-problem]');
+  const input = form.querySelector('[data-practice-answer]');
+
+  if (!problemCard || !input) {
+    return;
+  }
+
+  const promptText = buildChatGptPrompt(problemCard, input.value);
+  openChatGptPrompt(promptText);
 });
 
 searchCloseButton?.addEventListener('click', closeSearch);
@@ -396,5 +573,20 @@ window.addEventListener('keydown', (event) => {
   }
 });
 
+window.addEventListener('scroll', () => {
+  if (scrollStateFrame) {
+    return;
+  }
+
+  scrollStateFrame = window.requestAnimationFrame(() => {
+    scrollStateFrame = 0;
+    updateFloatingActionsState();
+  });
+}, { passive: true });
+
+updateFloatingActionsState();
 renderPlaceholder('Search note titles and note content.');
 revealQueryMatch();
+
+syncSubjectNavigation();
+window.addEventListener('pageshow', syncSubjectNavigation);

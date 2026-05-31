@@ -8,7 +8,20 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/math/series/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="stylesheet" href="../../../notes.css?v=a4160824d3df" />
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.css?v=4226cfbe9fd7" />
   <script>
     window.MathJax = {
       tex: {
@@ -22,13 +35,13 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=9338cf2da787"></script>
+  <script defer src="../../../notes.js?v=72dc943ac791"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><a class="notes-practice-trigger" href="/notes/subjects/math/series/practice/">Practice</a></div>
+    </button><a class="notes-practice-trigger" href="/notes/subjects/math/series/practice/" data-notes-nav-item>Practice</a></div>
 
   <header class="shell notes-header">
     <div class="notes-header__inner">
@@ -37,11 +50,11 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/">General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/">Medical / Biology</a></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
-      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><a class="notes-practice-trigger" href="/notes/subjects/math/series/practice/">Practice</a></div></div>
+    </button><a class="notes-practice-trigger" href="/notes/subjects/math/series/practice/" data-notes-nav-item>Practice</a></div></div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
@@ -54,7 +67,7 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/">Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/">Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/">Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/">Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/">Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/">Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/">Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/">Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/">Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/">Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/">Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/series/" aria-current="page">Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/">Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/">Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/">Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/">Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/">Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/">First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/">Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/">Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/">Proof Writing</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/series/" aria-current="page" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/" data-notes-nav-item>Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
@@ -64,7 +77,7 @@
           <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fseries%2Fseries.md&amp;title=%5BCorrection%5D%3A%20Series" target="_blank" rel="noreferrer">Suggest edit</a>
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fseries%2Fseries.md&amp;title=%5BCorrection%5D%3A%20Series" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -476,7 +489,7 @@ $$</div>
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -486,6 +499,6 @@ $$</div>
       <div class="search-results" id="search-results" role="list"></div>
     </div>
   </aside>
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
 </body>
 </html>

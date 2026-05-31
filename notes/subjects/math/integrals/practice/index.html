@@ -8,7 +8,20 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/math/integrals/practice/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="stylesheet" href="../../../../notes.css?v=a4160824d3df" />
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../../notes.css?v=4226cfbe9fd7" />
   <script>
     window.MathJax = {
       tex: {
@@ -22,11 +35,11 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../../notes.js?v=9338cf2da787"></script>
+  <script defer src="../../../../notes.js?v=72dc943ac791"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div>
 
@@ -37,9 +50,9 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/">General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/">Medical / Biology</a></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
-      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div></div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
@@ -54,18 +67,18 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/">Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/">Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/">Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/">Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/">Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/">Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/">Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/">Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/">Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/">Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" aria-current="page">Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/">Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/">Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/">Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/">Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/">Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/">Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/">First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/">Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/">Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/">Proof Writing</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" aria-current="page" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/" data-notes-nav-item>Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
           <h1>Integrals Practice</h1>
-          <p class="viewer-meta">64 practice problems</p>
+          <p class="viewer-meta practice-note-meta-line">64 practice problems | draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fintegrals%2Fintegrals-problems.md&amp;title=%5BCorrection%5D%3A%20Integrals%20Practice" target="_blank" rel="noreferrer">Suggest edit</a>
-          <a class="practice-back-link" href="/notes/subjects/math/integrals/">Back to note</a>
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fintegrals%2Fintegrals-problems.md&amp;title=%5BCorrection%5D%3A%20Integrals%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="practice-back-link" href="/notes/subjects/math/integrals/" data-notes-nav-item>Back to note</a>
         </div>
       </div>
       <div class="practice-problem-list">
@@ -86,21 +99,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Indefinite integrals and antiderivatives</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-11">Your work for Review: Indefinite integrals and antiderivatives</label>
+          <textarea
+            id="practice-study-math-integrals-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: An antiderivative of $f(x)$ is a function $F(x)$ such that $$ F&#39;(x) = f(x).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-12" data-practice-problem data-problem-type="text" data-problem-answer="Integration is linear: $$ \\int \\bigl(af(x) + bg(x)\\bigr)\\,dx = a\\int f(x)\\,dx + b\\int g(x)\\,dx. $$ This is one of the most useful simplifications in basic integration.">
       <div class="practice-problem__head">
@@ -112,21 +132,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Linear properties</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-12">Your work for Review: Linear properties</label>
+          <textarea
+            id="practice-study-math-integrals-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Integration is linear: $$ \int \bigl(af(x) + bg(x)\bigr)\,dx = a\int f(x)\,dx + b\int g(x)\,dx. $$ This is one of the most useful simplifications in basic integration.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-13" data-practice-problem data-problem-type="text" data-problem-answer="If $f(x)$ is a rate, then an integral of $f$ gives the accumulated amount. If $v(t)$ is velocity, then $$ \\int v(t)\\,dt $$ gives displacement, up to an initial condition. ---">
       <div class="practice-problem__head">
@@ -138,21 +165,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Basic interpretation</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-13">Your work for Review: Basic interpretation</label>
+          <textarea
+            id="practice-study-math-integrals-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $f(x)$ is a rate, then an integral of $f$ gives the accumulated amount. If $v(t)$ is velocity, then $$ \int v(t)\,dt $$ gives displacement, up to an initial condition. ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-14" data-practice-problem data-problem-type="text" data-problem-answer="The definite integral of $f(x)$ from $a$ to $b$ is written $$ \\int a^b f(x)\\,dx. $$ It represents signed accumulation over the interval $[a,b]$.">
       <div class="practice-problem__head">
@@ -164,21 +198,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Definite integrals and area</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-14">Your work for Review: Definite integrals and area</label>
+          <textarea
+            id="practice-study-math-integrals-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The definite integral of $f(x)$ from $a$ to $b$ is written $$ \int a^b f(x)\,dx. $$ It represents signed accumulation over the interval $[a,b]$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-15" data-practice-problem data-problem-type="text" data-problem-answer="Partition $[a,b]$ into $n$ subintervals of width $$ \\Delta x = \\frac{b-a}{n}.">
       <div class="practice-problem__head">
@@ -190,21 +231,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>Riemann sum definition</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-15">Your work for Review: Riemann sum definition</label>
+          <textarea
+            id="practice-study-math-integrals-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Partition $[a,b]$ into $n$ subintervals of width $$ \Delta x = \frac{b-a}{n}.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-16" data-practice-problem data-problem-type="text" data-problem-answer="If $f(x) &gt; 0$ on an interval, the integral is positive.">
       <div class="practice-problem__head">
@@ -216,21 +264,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Signed area</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-16">Your work for Review: Signed area</label>
+          <textarea
+            id="practice-study-math-integrals-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $f(x) &gt; 0$ on an interval, the integral is positive.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-17" data-practice-problem data-problem-type="text" data-problem-answer="The average value of $f$ on $[a,b]$ is $$ f {\\text{avg}} = \\frac{1}{b-a}\\int a^b f(x)\\,dx. $$ This is a common interpretation: the integral is the total, and dividing by interval length gives the average height. ---">
       <div class="practice-problem__head">
@@ -242,21 +297,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Average value</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-17">Your work for Review: Average value</label>
+          <textarea
+            id="practice-study-math-integrals-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The average value of $f$ on $[a,b]$ is $$ f {\text{avg}} = \frac{1}{b-a}\int a^b f(x)\,dx. $$ This is a common interpretation: the integral is the total, and dividing by interval length gives the average height. ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-18" data-practice-problem data-problem-type="text" data-problem-answer="The Fundamental Theorem of Calculus connects derivatives and integrals.">
       <div class="practice-problem__head">
@@ -268,21 +330,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>The Fundamental Theorem of Calculus</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-18">Your work for Review: The Fundamental Theorem of Calculus</label>
+          <textarea
+            id="practice-study-math-integrals-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The Fundamental Theorem of Calculus connects derivatives and integrals.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-19" data-practice-problem data-problem-type="text" data-problem-answer="If $$ G(x) = \\int a^x f(t)\\,dt, $$ then, under mild conditions, $$ G&#39;(x) = f(x). $$ This says accumulation and instantaneous rate are inverse processes.">
       <div class="practice-problem__head">
@@ -294,21 +363,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Part 1</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-19">Your work for Review: Part 1</label>
+          <textarea
+            id="practice-study-math-integrals-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $$ G(x) = \int a^x f(t)\,dt, $$ then, under mild conditions, $$ G&#39;(x) = f(x). $$ This says accumulation and instantaneous rate are inverse processes.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-110" data-practice-problem data-problem-type="text" data-problem-answer="If $F&#39;(x)=f(x)$, then $$ \\int a^b f(x)\\,dx = F(b) - F(a). $$ This is the practical evaluation rule for definite integrals.">
       <div class="practice-problem__head">
@@ -320,21 +396,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Part 2</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-110">Your work for Review: Part 2</label>
+          <textarea
+            id="practice-study-math-integrals-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $F&#39;(x)=f(x)$, then $$ \int a^b f(x)\,dx = F(b) - F(a). $$ This is the practical evaluation rule for definite integrals.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-111" data-practice-problem data-problem-type="text" data-problem-answer="Find an antiderivative.">
       <div class="practice-problem__head">
@@ -346,21 +429,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Why this matters</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-111">Your work for Review: Why this matters</label>
+          <textarea
+            id="practice-study-math-integrals-111"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Find an antiderivative.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-112" data-practice-problem data-problem-type="text" data-problem-answer="These formulas appear constantly.">
       <div class="practice-problem__head">
@@ -372,21 +462,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>Core antiderivative rules</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-112">Your work for Review: Core antiderivative rules</label>
+          <textarea
+            id="practice-study-math-integrals-112"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: These formulas appear constantly.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-113" data-practice-problem data-problem-type="text" data-problem-answer="For $n \\neq -1$, $$ \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C. $$ Special case: $$ \\int \\frac{1}{x}\\,dx = \\ln x + C. $$">
       <div class="practice-problem__head">
@@ -398,21 +495,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Power rule</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-113">Your work for Review: Power rule</label>
+          <textarea
+            id="practice-study-math-integrals-113"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: For $n \neq -1$, $$ \int x^n\,dx = \frac{x^{n+1}}{n+1} + C. $$ Special case: $$ \int \frac{1}{x}\,dx = \ln x + C. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-114" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\int e^x\\,dx = e^x + C $$ $$ \\int a^x\\,dx = \\frac{a^x}{\\ln a} + C \\quad (a&gt;0,\\ a\\neq 1) $$ $$ \\int \\ln x\\,dx $$ is not a basic form, but is often handled by integration by parts.">
       <div class="practice-problem__head">
@@ -424,21 +528,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Exponential and logarithmic forms</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-114">Your work for Review: Exponential and logarithmic forms</label>
+          <textarea
+            id="practice-study-math-integrals-114"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ \int e^x\,dx = e^x + C $$ $$ \int a^x\,dx = \frac{a^x}{\ln a} + C \quad (a&gt;0,\ a\neq 1) $$ $$ \int \ln x\,dx $$ is not a basic form, but is often handled by integration by parts.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-115" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\int \\sin x\\,dx = -\\cos x + C $$ $$ \\int \\cos x\\,dx = \\sin x + C $$ $$ \\int \\sec^2 x\\,dx = \\tan x + C $$ $$ \\int \\csc^2 x\\,dx = -\\cot x + C $$ $$ \\int \\sec x\\tan x\\,dx = \\sec x + C $$ $$ \\int \\csc x\\cot x\\,dx = -\\csc…">
       <div class="practice-problem__head">
@@ -450,21 +561,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Trigonometric basics</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-115">Your work for Review: Trigonometric basics</label>
+          <textarea
+            id="practice-study-math-integrals-115"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ \int \sin x\,dx = -\cos x + C $$ $$ \int \cos x\,dx = \sin x + C $$ $$ \int \sec^2 x\,dx = \tan x + C $$ $$ \int \csc^2 x\,dx = -\cot x + C $$ $$ \int \sec x\tan x\,dx = \sec x + C $$ $$ \int \csc x\cot x\,dx = -\csc…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-116" data-practice-problem data-problem-type="text" data-problem-answer="expand products">
       <div class="practice-problem__head">
@@ -476,21 +594,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common algebraic manipulations</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-116">Your work for Review: Common algebraic manipulations</label>
+          <textarea
+            id="practice-study-math-integrals-116"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: expand products</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -511,21 +636,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Substitution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-21">Your work for Review: Substitution</label>
+          <textarea
+            id="practice-study-math-integrals-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Substitution reverses the chain rule. Use it when an integrand contains a function and its derivative, or a recognizable composite expression.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-22" data-practice-problem data-problem-type="text" data-problem-answer="If $$ \\int f(g(x))g&#39;(x)\\,dx $$ then set $$ u = g(x), \\qquad du = g&#39;(x)\\,dx. $$ The integral becomes $$ \\int f(u)\\,du. $$">
       <div class="practice-problem__head">
@@ -537,21 +669,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Pattern</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-22">Your work for Review: Pattern</label>
+          <textarea
+            id="practice-study-math-integrals-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $$ \int f(g(x))g&#39;(x)\,dx $$ then set $$ u = g(x), \qquad du = g&#39;(x)\,dx. $$ The integral becomes $$ \int f(u)\,du. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-23" data-practice-problem data-problem-type="text" data-problem-answer="Evaluate $$ \\int 2x\\cos(x^2)\\,dx. $$ Let $$ u = x^2,\\qquad du = 2x\\,dx. $$ Then $$ \\int 2x\\cos(x^2)\\,dx = \\int \\cos u\\,du = \\sin u + C = \\sin(x^2)+C. $$">
       <div class="practice-problem__head">
@@ -563,21 +702,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-23">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-integrals-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Evaluate $$ \int 2x\cos(x^2)\,dx. $$ Let $$ u = x^2,\qquad du = 2x\,dx. $$ Then $$ \int 2x\cos(x^2)\,dx = \int \cos u\,du = \sin u + C = \sin(x^2)+C. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-24" data-practice-problem data-problem-type="text" data-problem-answer="change the limits to the new variable, or">
       <div class="practice-problem__head">
@@ -589,21 +735,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Definite integrals with substitution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-24">Your work for Review: Definite integrals with substitution</label>
+          <textarea
+            id="practice-study-math-integrals-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: change the limits to the new variable, or</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-25" data-practice-problem data-problem-type="text" data-problem-answer="inner function and its derivative">
       <div class="practice-problem__head">
@@ -615,21 +768,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common substitution cues</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-25">Your work for Review: Common substitution cues</label>
+          <textarea
+            id="practice-study-math-integrals-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: inner function and its derivative</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-26" data-practice-problem data-problem-type="text" data-problem-answer="Integration by parts comes from the product rule: $$ \\frac{d}{dx}(uv) = u\\frac{dv}{dx} + v\\frac{du}{dx}. $$ In integral form: $$ \\int u\\,dv = uv - \\int v\\,du. $$">
       <div class="practice-problem__head">
@@ -641,21 +801,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Integration by parts</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-26">Your work for Review: Integration by parts</label>
+          <textarea
+            id="practice-study-math-integrals-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Integration by parts comes from the product rule: $$ \frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}. $$ In integral form: $$ \int u\,dv = uv - \int v\,du. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-27" data-practice-problem data-problem-type="text" data-problem-answer="polynomial times exponential">
       <div class="practice-problem__head">
@@ -667,21 +834,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>When to use it</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-27">Your work for Review: When to use it</label>
+          <textarea
+            id="practice-study-math-integrals-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: polynomial times exponential</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-28" data-practice-problem data-problem-type="text" data-problem-answer="Evaluate $$ \\int x e^x\\,dx. $$ Choose $$ u = x,\\qquad dv = e^x\\,dx. $$ Then $$ du = dx,\\qquad v = e^x. $$ So $$ \\int x e^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C. $$">
       <div class="practice-problem__head">
@@ -693,21 +867,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-28">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-integrals-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Evaluate $$ \int x e^x\,dx. $$ Choose $$ u = x,\qquad dv = e^x\,dx. $$ Then $$ du = dx,\qquad v = e^x. $$ So $$ \int x e^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-29" data-practice-problem data-problem-type="text" data-problem-answer="Logarithmic">
       <div class="practice-problem__head">
@@ -719,21 +900,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>LIATE heuristic</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-29">Your work for Review: LIATE heuristic</label>
+          <textarea
+            id="practice-study-math-integrals-29"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Logarithmic</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-210" data-practice-problem data-problem-type="text" data-problem-answer="Partial fraction decomposition is used for rational functions: $$ \\frac{P(x)}{Q(x)} $$ where $P$ and $Q$ are polynomials and the degree of $P$ is less than the degree of $Q$ after long division.">
       <div class="practice-problem__head">
@@ -745,21 +933,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Partial fractions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-210">Your work for Review: Partial fractions</label>
+          <textarea
+            id="practice-study-math-integrals-210"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Partial fraction decomposition is used for rational functions: $$ \frac{P(x)}{Q(x)} $$ where $P$ and $Q$ are polynomials and the degree of $P$ is less than the degree of $Q$ after long division.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-211" data-practice-problem data-problem-type="text" data-problem-answer="If needed, perform polynomial long division.">
       <div class="practice-problem__head">
@@ -771,21 +966,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Basic steps</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-211">Your work for Review: Basic steps</label>
+          <textarea
+            id="practice-study-math-integrals-211"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If needed, perform polynomial long division.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-212" data-practice-problem data-problem-type="text" data-problem-answer="If $$ Q(x) = (x-a)(x-b), $$ then write $$ \\frac{P(x)}{(x-a)(x-b)} = \\frac{A}{x-a} + \\frac{B}{x-b}.">
       <div class="practice-problem__head">
@@ -797,21 +999,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common denominator forms</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-212">Your work for Review: Common denominator forms</label>
+          <textarea
+            id="practice-study-math-integrals-212"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $$ Q(x) = (x-a)(x-b), $$ then write $$ \frac{P(x)}{(x-a)(x-b)} = \frac{A}{x-a} + \frac{B}{x-b}.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-213" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\int \\frac{1}{x(x+1)}\\,dx $$ Decompose: $$ \\frac{1}{x(x+1)} = \\frac{1}{x} - \\frac{1}{x+1}. $$ Then $$ \\int \\frac{1}{x(x+1)}\\,dx = \\ln x - \\ln x+1 + C. $$ ---">
       <div class="practice-problem__head">
@@ -823,21 +1032,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-213">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-integrals-213"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ \int \frac{1}{x(x+1)}\,dx $$ Decompose: $$ \frac{1}{x(x+1)} = \frac{1}{x} - \frac{1}{x+1}. $$ Then $$ \int \frac{1}{x(x+1)}\,dx = \ln x - \ln x+1 + C. $$ ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-214" data-practice-problem data-problem-type="text" data-problem-answer="Trigonometric integrals and substitutions">
       <div class="practice-problem__head">
@@ -849,21 +1065,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Trigonometric integrals and substitutions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-214">Your work for Review: Trigonometric integrals and substitutions</label>
+          <textarea
+            id="practice-study-math-integrals-214"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Trigonometric integrals and substitutions</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-215" data-practice-problem data-problem-type="text" data-problem-answer="If a power of sine or cosine is odd, save one factor and convert the rest with $\\sin^2 x = 1-\\cos^2 x$ or $\\cos^2 x = 1-\\sin^2 x$.">
       <div class="practice-problem__head">
@@ -875,21 +1098,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Trigonometric integrals</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-215">Your work for Review: Trigonometric integrals</label>
+          <textarea
+            id="practice-study-math-integrals-215"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If a power of sine or cosine is odd, save one factor and convert the rest with $\sin^2 x = 1-\cos^2 x$ or $\cos^2 x = 1-\sin^2 x$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-216" data-practice-problem data-problem-type="text" data-problem-answer="Use trig substitution for square roots of quadratic forms.">
       <div class="practice-problem__head">
@@ -901,21 +1131,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Trigonometric substitution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-216">Your work for Review: Trigonometric substitution</label>
+          <textarea
+            id="practice-study-math-integrals-216"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Use trig substitution for square roots of quadratic forms.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -936,21 +1173,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-31">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-integrals-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: For $$ \int \frac{dx}{\sqrt{a^2-x^2}}, $$ let $x=a\sin\theta$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-32" data-practice-problem data-problem-type="text" data-problem-answer="infinite limits of integration">
       <div class="practice-problem__head">
@@ -962,21 +1206,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Improper integrals</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-32">Your work for Review: Improper integrals</label>
+          <textarea
+            id="practice-study-math-integrals-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: infinite limits of integration</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-33" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\int a^\\infty f(x)\\,dx = \\lim {b\\to\\infty}\\int a^b f(x)\\,dx. $$">
       <div class="practice-problem__head">
@@ -988,21 +1239,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Infinite interval</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-33">Your work for Review: Infinite interval</label>
+          <textarea
+            id="practice-study-math-integrals-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ \int a^\infty f(x)\,dx = \lim {b\to\infty}\int a^b f(x)\,dx. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-34" data-practice-problem data-problem-type="text" data-problem-answer="If $f$ blows up at $x=c$ in $[a,b]$, then $$ \\int a^b f(x)\\,dx $$ must be split at $c$ and interpreted with one-sided limits.">
       <div class="practice-problem__head">
@@ -1014,21 +1272,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Vertical asymptote</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-34">Your work for Review: Vertical asymptote</label>
+          <textarea
+            id="practice-study-math-integrals-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $f$ blows up at $x=c$ in $[a,b]$, then $$ \int a^b f(x)\,dx $$ must be split at $c$ and interpreted with one-sided limits.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-35" data-practice-problem data-problem-type="text" data-problem-answer="An improper integral converges if the limit exists and is finite. Otherwise it diverges .">
       <div class="practice-problem__head">
@@ -1040,21 +1305,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Convergence</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-35">Your work for Review: Convergence</label>
+          <textarea
+            id="practice-study-math-integrals-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: An improper integral converges if the limit exists and is finite. Otherwise it diverges .</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-36" data-practice-problem data-problem-type="text" data-problem-answer="For $$ \\int 1^\\infty \\frac{1}{x^p}\\,dx, $$ the integral converges if and only if $p&gt;1$. This is a standard comparison test baseline. ---">
       <div class="practice-problem__head">
@@ -1066,21 +1338,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Useful benchmark</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-36">Your work for Review: Useful benchmark</label>
+          <textarea
+            id="practice-study-math-integrals-36"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: For $$ \int 1^\infty \frac{1}{x^p}\,dx, $$ the integral converges if and only if $p&gt;1$. This is a standard comparison test baseline. ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-37" data-practice-problem data-problem-type="text" data-problem-answer="Integrals appear anywhere accumulation matters.">
       <div class="practice-problem__head">
@@ -1092,21 +1371,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Applications</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-37">Your work for Review: Applications</label>
+          <textarea
+            id="practice-study-math-integrals-37"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Integrals appear anywhere accumulation matters.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-38" data-practice-problem data-problem-type="text" data-problem-answer="If $f(x) \\ge g(x)$ on $[a,b]$, then the area between them is $$ \\int a^b \\bigl(f(x)-g(x)\\bigr)\\,dx. $$ If the top and bottom curves switch, split the interval first.">
       <div class="practice-problem__head">
@@ -1118,21 +1404,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Area between curves</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-38">Your work for Review: Area between curves</label>
+          <textarea
+            id="practice-study-math-integrals-38"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $f(x) \ge g(x)$ on $[a,b]$, then the area between them is $$ \int a^b \bigl(f(x)-g(x)\bigr)\,dx. $$ If the top and bottom curves switch, split the interval first.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-39" data-practice-problem data-problem-type="text" data-problem-answer="Volume of revolution">
       <div class="practice-problem__head">
@@ -1144,21 +1437,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Volume of revolution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-39">Your work for Review: Volume of revolution</label>
+          <textarea
+            id="practice-study-math-integrals-39"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Volume of revolution</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-310" data-practice-problem data-problem-type="text" data-problem-answer="If a region is rotated about an axis and produces solid disks of radius $R(x)$, then $$ V = \\pi \\int a^b R(x)^2\\,dx. $$">
       <div class="practice-problem__head">
@@ -1170,21 +1470,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Disk method</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-310">Your work for Review: Disk method</label>
+          <textarea
+            id="practice-study-math-integrals-310"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If a region is rotated about an axis and produces solid disks of radius $R(x)$, then $$ V = \pi \int a^b R(x)^2\,dx. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-311" data-practice-problem data-problem-type="text" data-problem-answer="If there is a hole with inner radius $r(x)$, $$ V = \\pi \\int a^b \\bigl(R(x)^2-r(x)^2\\bigr)\\,dx. $$">
       <div class="practice-problem__head">
@@ -1196,21 +1503,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Washer method</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-311">Your work for Review: Washer method</label>
+          <textarea
+            id="practice-study-math-integrals-311"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If there is a hole with inner radius $r(x)$, $$ V = \pi \int a^b \bigl(R(x)^2-r(x)^2\bigr)\,dx. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-312" data-practice-problem data-problem-type="text" data-problem-answer="Using cylindrical shells, $$ V = 2\\pi \\int a^b (\\text{radius})(\\text{height})\\,dx. $$">
       <div class="practice-problem__head">
@@ -1222,21 +1536,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Shell method</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-312">Your work for Review: Shell method</label>
+          <textarea
+            id="practice-study-math-integrals-312"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Using cylindrical shells, $$ V = 2\pi \int a^b (\text{radius})(\text{height})\,dx. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-313" data-practice-problem data-problem-type="text" data-problem-answer="If force varies with position, $$ W = \\int a^b F(x)\\,dx. $$ For a spring obeying Hooke&#39;s law $F=kx$, $$ W = \\int a^b kx\\,dx. $$">
       <div class="practice-problem__head">
@@ -1248,21 +1569,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Work</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-313">Your work for Review: Work</label>
+          <textarea
+            id="practice-study-math-integrals-313"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If force varies with position, $$ W = \int a^b F(x)\,dx. $$ For a spring obeying Hooke&#39;s law $F=kx$, $$ W = \int a^b kx\,dx. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-314" data-practice-problem data-problem-type="text" data-problem-answer="If $\\rho(x)$ is linear density, $$ m = \\int a^b \\rho(x)\\,dx. $$ For surface and volume density, the same accumulation idea applies with the appropriate measure.">
       <div class="practice-problem__head">
@@ -1274,21 +1602,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Mass from density</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-314">Your work for Review: Mass from density</label>
+          <textarea
+            id="practice-study-math-integrals-314"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $\rho(x)$ is linear density, $$ m = \int a^b \rho(x)\,dx. $$ For surface and volume density, the same accumulation idea applies with the appropriate measure.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-315" data-practice-problem data-problem-type="text" data-problem-answer="If $f(x)$ is a probability density function, then $$ P(a \\le X \\le b) = \\int a^b f(x)\\,dx. $$ The total area under a valid pdf must be $$ \\int {-\\infty}^{\\infty} f(x)\\,dx = 1. $$ ---">
       <div class="practice-problem__head">
@@ -1300,21 +1635,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Probability</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-315">Your work for Review: Probability</label>
+          <textarea
+            id="practice-study-math-integrals-315"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $f(x)$ is a probability density function, then $$ P(a \le X \le b) = \int a^b f(x)\,dx. $$ The total area under a valid pdf must be $$ \int {-\infty}^{\infty} f(x)\,dx = 1. $$ ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-316" data-practice-problem data-problem-type="text" data-problem-answer="When an antiderivative is hard or unavailable, approximate the integral numerically.">
       <div class="practice-problem__head">
@@ -1326,21 +1668,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Numerical integration</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-316">Your work for Review: Numerical integration</label>
+          <textarea
+            id="practice-study-math-integrals-316"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: When an antiderivative is hard or unavailable, approximate the integral numerically.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1361,21 +1710,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Trapezoidal rule</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-41">Your work for Review: Trapezoidal rule</label>
+          <textarea
+            id="practice-study-math-integrals-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Partition $[a,b]$ into $n$ equal parts with $\Delta x = (b-a)/n$. Then $$ \int a^b f(x)\,dx \approx \frac{\Delta x}{2}\left[f(x 0)+2\sum {i=1}^{n-1}f(x i)+f(x n)\right]. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-42" data-practice-problem data-problem-type="text" data-problem-answer="With even $n$, $$ \\int a^b f(x)\\,dx \\approx \\frac{\\Delta x}{3}\\left[f(x 0)+4\\sum {\\text{odd }i}f(x i)+2\\sum {\\text{even }i}f(x i)+f(x n)\\right]. $$">
       <div class="practice-problem__head">
@@ -1387,21 +1743,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Simpson&#39;s rule</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-42">Your work for Review: Simpson&#39;s rule</label>
+          <textarea
+            id="practice-study-math-integrals-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: With even $n$, $$ \int a^b f(x)\,dx \approx \frac{\Delta x}{3}\left[f(x 0)+4\sum {\text{odd }i}f(x i)+2\sum {\text{even }i}f(x i)+f(x n)\right]. $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-43" data-practice-problem data-problem-type="text" data-problem-answer="More subintervals usually improve accuracy.">
       <div class="practice-problem__head">
@@ -1413,21 +1776,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Error intuition</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-43">Your work for Review: Error intuition</label>
+          <textarea
+            id="practice-study-math-integrals-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: More subintervals usually improve accuracy.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-44" data-practice-problem data-problem-type="text" data-problem-answer="Identify the integral type: indefinite, definite, improper, or application.">
       <div class="practice-problem__head">
@@ -1439,21 +1809,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Problem-solving workflow</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-44">Your work for Review: Problem-solving workflow</label>
+          <textarea
+            id="practice-study-math-integrals-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Identify the integral type: indefinite, definite, improper, or application.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-45" data-practice-problem data-problem-type="text" data-problem-answer="Differentiate your antiderivative.">
       <div class="practice-problem__head">
@@ -1465,21 +1842,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Fast self-checks</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-45">Your work for Review: Fast self-checks</label>
+          <textarea
+            id="practice-study-math-integrals-45"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Differentiate your antiderivative.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-46" data-practice-problem data-problem-type="text" data-problem-answer="Common mistakes">
       <div class="practice-problem__head">
@@ -1491,21 +1875,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common mistakes</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-46">Your work for Review: Common mistakes</label>
+          <textarea
+            id="practice-study-math-integrals-46"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Common mistakes</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-47" data-practice-problem data-problem-type="text" data-problem-answer="For indefinite integrals, $$ \\int f(x)\\,dx = F(x) + C. $$ Omitting $C$ is a common grading error.">
       <div class="practice-problem__head">
@@ -1517,21 +1908,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Forgetting the constant of integration</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-47">Your work for Review: Forgetting the constant of integration</label>
+          <textarea
+            id="practice-study-math-integrals-47"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: For indefinite integrals, $$ \int f(x)\,dx = F(x) + C. $$ Omitting $C$ is a common grading error.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-48" data-practice-problem data-problem-type="text" data-problem-answer="If you let $u=g(x)$, then every $x$ must be rewritten consistently in terms of $u$ or converted back before finishing.">
       <div class="practice-problem__head">
@@ -1543,21 +1941,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Using the wrong variable in substitution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-48">Your work for Review: Using the wrong variable in substitution</label>
+          <textarea
+            id="practice-study-math-integrals-48"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If you let $u=g(x)$, then every $x$ must be rewritten consistently in terms of $u$ or converted back before finishing.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-49" data-practice-problem data-problem-type="text" data-problem-answer="The definite integral can be negative. Actual area is nonnegative.">
       <div class="practice-problem__head">
@@ -1569,21 +1974,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Mixing up signed area and geometric area</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-49">Your work for Review: Mixing up signed area and geometric area</label>
+          <textarea
+            id="practice-study-math-integrals-49"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The definite integral can be negative. Actual area is nonnegative.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-410" data-practice-problem data-problem-type="text" data-problem-answer="When changing variables in a definite integral, the limits must change too. If you keep the old limits, you must substitute back before evaluating.">
       <div class="practice-problem__head">
@@ -1595,21 +2007,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Wrong bounds after substitution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-410">Your work for Review: Wrong bounds after substitution</label>
+          <textarea
+            id="practice-study-math-integrals-410"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: When changing variables in a definite integral, the limits must change too. If you keep the old limits, you must substitute back before evaluating.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-411" data-practice-problem data-problem-type="text" data-problem-answer="The antiderivative of $1/x$ is $$ \\ln x + C, $$ not just $\\ln x + C$.">
       <div class="practice-problem__head">
@@ -1621,21 +2040,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Missing absolute values in logarithms</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-411">Your work for Review: Missing absolute values in logarithms</label>
+          <textarea
+            id="practice-study-math-integrals-411"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The antiderivative of $1/x$ is $$ \ln x + C, $$ not just $\ln x + C$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-412" data-practice-problem data-problem-type="text" data-problem-answer="expand carefully">
       <div class="practice-problem__head">
@@ -1647,21 +2073,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Algebra mistakes before integrating</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-412">Your work for Review: Algebra mistakes before integrating</label>
+          <textarea
+            id="practice-study-math-integrals-412"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: expand carefully</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-413" data-practice-problem data-problem-type="text" data-problem-answer="Formula sheet">
       <div class="practice-problem__head">
@@ -1673,21 +2106,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core formulas or relations are summarized in <strong>Formula sheet</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-413">Your work for Review: Formula sheet</label>
+          <textarea
+            id="practice-study-math-integrals-413"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Formula sheet</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-414" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C \\quad (n\\neq -1) $$ $$ \\int \\frac{1}{x}\\,dx = \\ln x + C $$ $$ \\int e^x\\,dx = e^x + C $$ $$ \\int \\sin x\\,dx = -\\cos x + C $$ $$ \\int \\cos x\\,dx = \\sin x + C $$ $$ \\int u\\,dv = uv…">
       <div class="practice-problem__head">
@@ -1699,21 +2139,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core formulas or relations are summarized in <strong>Core formulas</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-414">Your work for Review: Core formulas</label>
+          <textarea
+            id="practice-study-math-integrals-414"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ \int x^n\,dx = \frac{x^{n+1}}{n+1} + C \quad (n\neq -1) $$ $$ \int \frac{1}{x}\,dx = \ln x + C $$ $$ \int e^x\,dx = e^x + C $$ $$ \int \sin x\,dx = -\cos x + C $$ $$ \int \cos x\,dx = \sin x + C $$ $$ \int u\,dv = uv…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-415" data-practice-problem data-problem-type="text" data-problem-answer="$$ V {\\text{disk}} = \\pi \\int a^b R(x)^2\\,dx $$ $$ V {\\text{washer}} = \\pi \\int a^b \\bigl(R(x)^2-r(x)^2\\bigr)\\,dx $$ $$ V {\\text{shell}} = 2\\pi \\int a^b (\\text{radius})(\\text{height})\\,dx $$ ---">
       <div class="practice-problem__head">
@@ -1725,21 +2172,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common geometric volumes</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-415">Your work for Review: Common geometric volumes</label>
+          <textarea
+            id="practice-study-math-integrals-415"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ V {\text{disk}} = \pi \int a^b R(x)^2\,dx $$ $$ V {\text{washer}} = \pi \int a^b \bigl(R(x)^2-r(x)^2\bigr)\,dx $$ $$ V {\text{shell}} = 2\pi \int a^b (\text{radius})(\text{height})\,dx $$ ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-integrals-416" data-practice-problem data-problem-type="text" data-problem-answer="like a composite function times its derivative, try substitution">
       <div class="practice-problem__head">
@@ -1751,21 +2205,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Quick reference</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-integrals-416">Your work for Review: Quick reference</label>
+          <textarea
+            id="practice-study-math-integrals-416"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: like a composite function times its derivative, try substitution</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1780,7 +2241,7 @@
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -1790,6 +2251,6 @@
       <div class="search-results" id="search-results" role="list"></div>
     </div>
   </aside>
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
 </body>
 </html>

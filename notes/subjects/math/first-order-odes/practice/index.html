@@ -8,7 +8,20 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/math/first-order-odes/practice/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="stylesheet" href="../../../../notes.css?v=a4160824d3df" />
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../../notes.css?v=4226cfbe9fd7" />
   <script>
     window.MathJax = {
       tex: {
@@ -22,11 +35,11 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../../notes.js?v=9338cf2da787"></script>
+  <script defer src="../../../../notes.js?v=72dc943ac791"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div>
 
@@ -37,9 +50,9 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/">General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/">Medical / Biology</a></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
-      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div></div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
@@ -54,18 +67,18 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/">Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/">Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/">Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/">Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/">Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/">Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/">Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/">Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/">Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/">Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/">Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/">Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/">Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/">Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/">Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/">Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/">Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" aria-current="page">First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/">Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/">Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/">Proof Writing</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/" data-notes-nav-item>Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" aria-current="page" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
           <h1>First Order ODEs Practice</h1>
-          <p class="viewer-meta">46 practice problems</p>
+          <p class="viewer-meta practice-note-meta-line">46 practice problems | draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Ffirst-order-odes%2Ffirst-order-odes-problems.md&amp;title=%5BCorrection%5D%3A%20First%20Order%20ODEs%20Practice" target="_blank" rel="noreferrer">Suggest edit</a>
-          <a class="practice-back-link" href="/notes/subjects/math/first-order-odes/">Back to note</a>
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Ffirst-order-odes%2Ffirst-order-odes-problems.md&amp;title=%5BCorrection%5D%3A%20First%20Order%20ODEs%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="practice-back-link" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>Back to note</a>
         </div>
       </div>
       <div class="practice-problem-list">
@@ -86,21 +99,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>First-Order ODEs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-11">Your work for Review: First-Order ODEs</label>
+          <textarea
+            id="practice-study-math-first-order-odes-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y&#39;$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-12" data-practice-problem data-problem-type="text" data-problem-answer="A first-order ODE is any equation of the form $$ F(x,y,y&#39;) = 0 $$ or, when solved for the derivative, $$ \\frac{dy}{dx} = f(x,y) $$ where $y$ is an unknown function of $x$.">
       <div class="practice-problem__head">
@@ -112,21 +132,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>What a first-order ODE is</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-12">Your work for Review: What a first-order ODE is</label>
+          <textarea
+            id="practice-study-math-first-order-odes-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A first-order ODE is any equation of the form $$ F(x,y,y&#39;) = 0 $$ or, when solved for the derivative, $$ \frac{dy}{dx} = f(x,y) $$ where $y$ is an unknown function of $x$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-13" data-practice-problem data-problem-type="text" data-problem-answer="An ordinary differential equation involves derivatives with respect to one independent variable.">
       <div class="practice-problem__head">
@@ -138,21 +165,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Ordinary vs. partial</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-13">Your work for Review: Ordinary vs. partial</label>
+          <textarea
+            id="practice-study-math-first-order-odes-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: An ordinary differential equation involves derivatives with respect to one independent variable.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-14" data-practice-problem data-problem-type="text" data-problem-answer="The order of a differential equation is the highest derivative that appears. For a first-order ODE, the highest derivative is $y&#39;$.">
       <div class="practice-problem__head">
@@ -164,21 +198,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Order</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-14">Your work for Review: Order</label>
+          <textarea
+            id="practice-study-math-first-order-odes-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The order of a differential equation is the highest derivative that appears. For a first-order ODE, the highest derivative is $y&#39;$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-15" data-practice-problem data-problem-type="text" data-problem-answer="Linear: $y&#39; + 3y = e^x$">
       <div class="practice-problem__head">
@@ -190,21 +231,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Linear vs. nonlinear</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-15">Your work for Review: Linear vs. nonlinear</label>
+          <textarea
+            id="practice-study-math-first-order-odes-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Linear: $y&#39; + 3y = e^x$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-16" data-practice-problem data-problem-type="text" data-problem-answer="A first-order ODE usually becomes a specific problem once an initial condition is given: $$ \\frac{dy}{dx} = f(x,y), \\qquad y(x 0)=y 0 $$ This is an initial value problem (IVP).">
       <div class="practice-problem__head">
@@ -216,21 +264,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Initial value problems and geometric meaning</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-16">Your work for Review: Initial value problems and geometric meaning</label>
+          <textarea
+            id="practice-study-math-first-order-odes-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A first-order ODE usually becomes a specific problem once an initial condition is given: $$ \frac{dy}{dx} = f(x,y), \qquad y(x 0)=y 0 $$ This is an initial value problem (IVP).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-17" data-practice-problem data-problem-type="text" data-problem-answer="The general solution contains one arbitrary constant.">
       <div class="practice-problem__head">
@@ -242,21 +297,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>General solution vs. particular solution</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-17">Your work for Review: General solution vs. particular solution</label>
+          <textarea
+            id="practice-study-math-first-order-odes-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The general solution contains one arbitrary constant.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-18" data-practice-problem data-problem-type="text" data-problem-answer="Where slopes are zero">
       <div class="practice-problem__head">
@@ -268,21 +330,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Direction fields</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-18">Your work for Review: Direction fields</label>
+          <textarea
+            id="practice-study-math-first-order-odes-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Where slopes are zero</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-19" data-practice-problem data-problem-type="text" data-problem-answer="A first-order ODE is separable if it can be written as $$ \\frac{dy}{dx} = g(x)h(y) $$ so that variables can be separated: $$ \\frac{1}{h(y)}\\,dy = g(x)\\,dx $$ Then integrate both sides: $$ \\int \\frac{1}{h(y)}\\,dy = \\int…">
       <div class="practice-problem__head">
@@ -294,21 +363,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Separable equations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-19">Your work for Review: Separable equations</label>
+          <textarea
+            id="practice-study-math-first-order-odes-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A first-order ODE is separable if it can be written as $$ \frac{dy}{dx} = g(x)h(y) $$ so that variables can be separated: $$ \frac{1}{h(y)}\,dy = g(x)\,dx $$ Then integrate both sides: $$ \int \frac{1}{h(y)}\,dy = \int…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-110" data-practice-problem data-problem-type="text" data-problem-answer="Rewrite the equation so all $y$ terms are with $dy$ and all $x$ terms are with $dx$.">
       <div class="practice-problem__head">
@@ -320,21 +396,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Standard workflow</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-110">Your work for Review: Standard workflow</label>
+          <textarea
+            id="practice-study-math-first-order-odes-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Rewrite the equation so all $y$ terms are with $dy$ and all $x$ terms are with $dx$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-111" data-practice-problem data-problem-type="text" data-problem-answer="Solve $$ \\frac{dy}{dx} = xy $$ Separate: $$ \\frac{1}{y}\\,dy = x\\,dx $$ Integrate: $$ \\int \\frac{1}{y}\\,dy = \\int x\\,dx $$ $$ \\ln y = \\frac{x^2}{2} + C $$ Exponentiate: $$ y = Ce^{x^2/2} $$ where the constant has been re…">
       <div class="practice-problem__head">
@@ -346,21 +429,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-111">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-first-order-odes-111"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Solve $$ \frac{dy}{dx} = xy $$ Separate: $$ \frac{1}{y}\,dy = x\,dx $$ Integrate: $$ \int \frac{1}{y}\,dy = \int x\,dx $$ $$ \ln y = \frac{x^2}{2} + C $$ Exponentiate: $$ y = Ce^{x^2/2} $$ where the constant has been re…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-112" data-practice-problem data-problem-type="text" data-problem-answer="$P(t)$ is population">
       <div class="practice-problem__head">
@@ -372,21 +462,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Logistic equation</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-112">Your work for Review: Logistic equation</label>
+          <textarea
+            id="practice-study-math-first-order-odes-112"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $P(t)$ is population</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -407,21 +504,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Linear first-order equations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-21">Your work for Review: Linear first-order equations</label>
+          <textarea
+            id="practice-study-math-first-order-odes-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A first-order linear ODE has the standard form $$ y&#39; + p(x)y = q(x) $$ The main tool is an integrating factor .</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-22" data-practice-problem data-problem-type="text" data-problem-answer="Define $$ \\mu(x) = e^{\\int p(x)\\,dx} $$ Multiplying the ODE by $\\mu(x)$ gives $$ \\mu y&#39; + \\mu p y = \\mu q $$ and the left side becomes $$ \\frac{d}{dx}\\big(\\mu y\\big) = \\mu q $$ So $$ \\mu y = \\int \\mu q\\,dx + C $$ and th…">
       <div class="practice-problem__head">
@@ -433,21 +537,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Integrating factor</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-22">Your work for Review: Integrating factor</label>
+          <textarea
+            id="practice-study-math-first-order-odes-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Define $$ \mu(x) = e^{\int p(x)\,dx} $$ Multiplying the ODE by $\mu(x)$ gives $$ \mu y&#39; + \mu p y = \mu q $$ and the left side becomes $$ \frac{d}{dx}\big(\mu y\big) = \mu q $$ So $$ \mu y = \int \mu q\,dx + C $$ and th…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-23" data-practice-problem data-problem-type="text" data-problem-answer="Solve $$ y&#39; + 2y = e^{-x} $$ Here $$ p(x)=2, \\qquad q(x)=e^{-x} $$ The integrating factor is $$ \\mu(x)=e^{\\int 2\\,dx}=e^{2x} $$ Multiply through: $$ e^{2x}y&#39; + 2e^{2x}y = e^x $$ So $$ \\frac{d}{dx}(e^{2x}y)=e^x $$ Integr…">
       <div class="practice-problem__head">
@@ -459,21 +570,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-23">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-first-order-odes-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Solve $$ y&#39; + 2y = e^{-x} $$ Here $$ p(x)=2, \qquad q(x)=e^{-x} $$ The integrating factor is $$ \mu(x)=e^{\int 2\,dx}=e^{2x} $$ Multiply through: $$ e^{2x}y&#39; + 2e^{2x}y = e^x $$ So $$ \frac{d}{dx}(e^{2x}y)=e^x $$ Integr…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-24" data-practice-problem data-problem-type="text" data-problem-answer="The integrating factor depends only on $p(x)$, not on $q(x)$.">
       <div class="practice-problem__head">
@@ -485,21 +603,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common source of mistakes</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-24">Your work for Review: Common source of mistakes</label>
+          <textarea
+            id="practice-study-math-first-order-odes-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The integrating factor depends only on $p(x)$, not on $q(x)$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-25" data-practice-problem data-problem-type="text" data-problem-answer="An equation of the form $$ M(x,y)\\,dx + N(x,y)\\,dy = 0 $$ is exact if there exists a potential function $\\Psi(x,y)$ such that $$ \\frac{\\partial \\Psi}{\\partial x} = M, \\qquad \\frac{\\partial \\Psi}{\\partial y} = N $$ Then…">
       <div class="practice-problem__head">
@@ -511,21 +636,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Exact equations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-25">Your work for Review: Exact equations</label>
+          <textarea
+            id="practice-study-math-first-order-odes-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: An equation of the form $$ M(x,y)\,dx + N(x,y)\,dy = 0 $$ is exact if there exists a potential function $\Psi(x,y)$ such that $$ \frac{\partial \Psi}{\partial x} = M, \qquad \frac{\partial \Psi}{\partial y} = N $$ Then…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-26" data-practice-problem data-problem-type="text" data-problem-answer="If $M$ and $N$ have continuous first partial derivatives, test whether $$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $$ If this holds on a region, the equation is exact there.">
       <div class="practice-problem__head">
@@ -537,21 +669,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Test for exactness</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-26">Your work for Review: Test for exactness</label>
+          <textarea
+            id="practice-study-math-first-order-odes-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $M$ and $N$ have continuous first partial derivatives, test whether $$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $$ If this holds on a region, the equation is exact there.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-27" data-practice-problem data-problem-type="text" data-problem-answer="Verify exactness.">
       <div class="practice-problem__head">
@@ -563,21 +702,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Solution procedure</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-27">Your work for Review: Solution procedure</label>
+          <textarea
+            id="practice-study-math-first-order-odes-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Verify exactness.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-28" data-practice-problem data-problem-type="text" data-problem-answer="Solve $$ (2xy+1)\\,dx + (x^2+3y^2)\\,dy = 0 $$ Here $$ M(x,y)=2xy+1, \\qquad N(x,y)=x^2+3y^2 $$ Check: $$ M y = 2x, \\qquad N x = 2x $$ so the equation is exact.">
       <div class="practice-problem__head">
@@ -589,21 +735,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-28">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-first-order-odes-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Solve $$ (2xy+1)\,dx + (x^2+3y^2)\,dy = 0 $$ Here $$ M(x,y)=2xy+1, \qquad N(x,y)=x^2+3y^2 $$ Check: $$ M y = 2x, \qquad N x = 2x $$ so the equation is exact.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-29" data-practice-problem data-problem-type="text" data-problem-answer="A first-order ODE of the form $$ \\frac{dy}{dx} = F\\left(\\frac{y}{x}\\right) $$ is called homogeneous in the first-order sense.">
       <div class="practice-problem__head">
@@ -615,21 +768,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Homogeneous first-order equations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-29">Your work for Review: Homogeneous first-order equations</label>
+          <textarea
+            id="practice-study-math-first-order-odes-29"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A first-order ODE of the form $$ \frac{dy}{dx} = F\left(\frac{y}{x}\right) $$ is called homogeneous in the first-order sense.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-210" data-practice-problem data-problem-type="text" data-problem-answer="If $$ \\frac{dy}{dx} = \\frac{x+y}{x} = 1 + \\frac{y}{x} $$ set $y=vx$.">
       <div class="practice-problem__head">
@@ -641,21 +801,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example pattern</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-210">Your work for Review: Example pattern</label>
+          <textarea
+            id="practice-study-math-first-order-odes-210"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $$ \frac{dy}{dx} = \frac{x+y}{x} = 1 + \frac{y}{x} $$ set $y=vx$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-211" data-practice-problem data-problem-type="text" data-problem-answer="A Bernoulli equation has the form $$ y&#39; + p(x)y = q(x)y^n $$ with $n \\neq 0,1$. It is nonlinear, but becomes linear after the substitution $$ u = y^{1-n} $$">
       <div class="practice-problem__head">
@@ -667,21 +834,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Bernoulli equations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-211">Your work for Review: Bernoulli equations</label>
+          <textarea
+            id="practice-study-math-first-order-odes-211"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A Bernoulli equation has the form $$ y&#39; + p(x)y = q(x)y^n $$ with $n \neq 0,1$. It is nonlinear, but becomes linear after the substitution $$ u = y^{1-n} $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -702,21 +876,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Derivation</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-31">Your work for Review: Derivation</label>
+          <textarea
+            id="practice-study-math-first-order-odes-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Differentiate: $$ u&#39; = (1-n)y^{-n}y&#39; $$ After multiplying the original equation by $y^{-n}$, the equation becomes linear in $u$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-32" data-practice-problem data-problem-type="text" data-problem-answer="Bernoulli equations are one of the cleanest examples of a nonlinear ODE that reduces to a linear one by a well-chosen substitution. ---">
       <div class="practice-problem__head">
@@ -728,21 +909,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Why it matters</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-32">Your work for Review: Why it matters</label>
+          <textarea
+            id="practice-study-math-first-order-odes-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Bernoulli equations are one of the cleanest examples of a nonlinear ODE that reduces to a linear one by a well-chosen substitution. ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-33" data-practice-problem data-problem-type="text" data-problem-answer="An autonomous first-order ODE has the form $$ \\frac{dy}{dt} = f(y) $$ The independent variable does not appear explicitly.">
       <div class="practice-problem__head">
@@ -754,21 +942,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Autonomous equations and equilibria</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-33">Your work for Review: Autonomous equations and equilibria</label>
+          <textarea
+            id="practice-study-math-first-order-odes-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: An autonomous first-order ODE has the form $$ \frac{dy}{dt} = f(y) $$ The independent variable does not appear explicitly.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-34" data-practice-problem data-problem-type="text" data-problem-answer="An equilibrium occurs when $$ f(y)=0 $$ If $y=y^ $ satisfies this, then the constant function $y(t)=y^ $ is a solution.">
       <div class="practice-problem__head">
@@ -780,21 +975,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Equilibrium solutions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-34">Your work for Review: Equilibrium solutions</label>
+          <textarea
+            id="practice-study-math-first-order-odes-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: An equilibrium occurs when $$ f(y)=0 $$ If $y=y^ $ satisfies this, then the constant function $y(t)=y^ $ is a solution.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-35" data-practice-problem data-problem-type="text" data-problem-answer="If nearby arrows point toward the equilibrium, it is stable .">
       <div class="practice-problem__head">
@@ -806,21 +1008,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Stability</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-35">Your work for Review: Stability</label>
+          <textarea
+            id="practice-study-math-first-order-odes-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If nearby arrows point toward the equilibrium, it is stable .</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-36" data-practice-problem data-problem-type="text" data-problem-answer="Find equilibrium values by solving $f(y)=0$.">
       <div class="practice-problem__head">
@@ -832,21 +1041,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Phase line analysis</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-36">Your work for Review: Phase line analysis</label>
+          <textarea
+            id="practice-study-math-first-order-odes-36"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Find equilibrium values by solving $f(y)=0$.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-37" data-practice-problem data-problem-type="text" data-problem-answer="Does a solution exist?">
       <div class="practice-problem__head">
@@ -858,21 +1074,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Existence and uniqueness</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-37">Your work for Review: Existence and uniqueness</label>
+          <textarea
+            id="practice-study-math-first-order-odes-37"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Does a solution exist?</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-38" data-practice-problem data-problem-type="text" data-problem-answer="If $f(x,y)$ and $\\partial f/\\partial y$ are continuous in a rectangle containing $(x 0,y 0)$, then there exists a unique local solution through that point.">
       <div class="practice-problem__head">
@@ -884,21 +1107,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Practical theorem</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-38">Your work for Review: Practical theorem</label>
+          <textarea
+            id="practice-study-math-first-order-odes-38"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If $f(x,y)$ and $\partial f/\partial y$ are continuous in a rectangle containing $(x 0,y 0)$, then there exists a unique local solution through that point.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-39" data-practice-problem data-problem-type="text" data-problem-answer="Continuity of $f$ supports existence.">
       <div class="practice-problem__head">
@@ -910,21 +1140,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Interpretation</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-39">Your work for Review: Interpretation</label>
+          <textarea
+            id="practice-study-math-first-order-odes-39"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Continuity of $f$ supports existence.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-310" data-practice-problem data-problem-type="text" data-problem-answer="Consider $$ y&#39; = \\sqrt{ y }, \\qquad y(0)=0 $$ The constant solution $y=0$ works, but nonzero solutions can also be patched through the same initial point.">
       <div class="practice-problem__head">
@@ -936,21 +1173,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example of non-uniqueness</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-310">Your work for Review: Example of non-uniqueness</label>
+          <textarea
+            id="practice-study-math-first-order-odes-310"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Consider $$ y&#39; = \sqrt{ y }, \qquad y(0)=0 $$ The constant solution $y=0$ works, but nonzero solutions can also be patched through the same initial point.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-311" data-practice-problem data-problem-type="text" data-problem-answer="First-order ODEs appear naturally in rate laws where the rate of change depends on the current state.">
       <div class="practice-problem__head">
@@ -962,21 +1206,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Modeling patterns</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-311">Your work for Review: Modeling patterns</label>
+          <textarea
+            id="practice-study-math-first-order-odes-311"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: First-order ODEs appear naturally in rate laws where the rate of change depends on the current state.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-312" data-practice-problem data-problem-type="text" data-problem-answer="$k&gt;0$: growth">
       <div class="practice-problem__head">
@@ -988,21 +1239,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Exponential growth and decay</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-312">Your work for Review: Exponential growth and decay</label>
+          <textarea
+            id="practice-study-math-first-order-odes-312"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $k&gt;0$: growth</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1023,21 +1281,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Newton&#39;s law of cooling</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-41">Your work for Review: Newton&#39;s law of cooling</label>
+          <textarea
+            id="practice-study-math-first-order-odes-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If an object&#39;s temperature $T$ moves toward ambient temperature $T a$: $$ \frac{dT}{dt} = -k(T-T a) $$ Then $$ T(t)=T a + Ce^{-kt} $$</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-42" data-practice-problem data-problem-type="text" data-problem-answer="If a tank has inflow and outflow, a common model is $$ \\frac{dQ}{dt} = \\text{rate in} - \\text{rate out} $$ where $Q(t)$ is the amount of substance in the tank.">
       <div class="practice-problem__head">
@@ -1049,21 +1314,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Mixing problems</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-42">Your work for Review: Mixing problems</label>
+          <textarea
+            id="practice-study-math-first-order-odes-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If a tank has inflow and outflow, a common model is $$ \frac{dQ}{dt} = \text{rate in} - \text{rate out} $$ where $Q(t)$ is the amount of substance in the tank.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-43" data-practice-problem data-problem-type="text" data-problem-answer="When facing a first-order ODE, classification is the main step.">
       <div class="practice-problem__head">
@@ -1075,21 +1347,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Problem-solving workflow</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-43">Your work for Review: Problem-solving workflow</label>
+          <textarea
+            id="practice-study-math-first-order-odes-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: When facing a first-order ODE, classification is the main step.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-44" data-practice-problem data-problem-type="text" data-problem-answer="Can the variables be separated?">
       <div class="practice-problem__head">
@@ -1101,21 +1380,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Fast recognition checklist</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-44">Your work for Review: Fast recognition checklist</label>
+          <textarea
+            id="practice-study-math-first-order-odes-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Can the variables be separated?</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-45" data-practice-problem data-problem-type="text" data-problem-answer="Rewrite the equation into a recognizable form.">
       <div class="practice-problem__head">
@@ -1127,21 +1413,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Practical workflow</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-45">Your work for Review: Practical workflow</label>
+          <textarea
+            id="practice-study-math-first-order-odes-45"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Rewrite the equation into a recognizable form.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-46" data-practice-problem data-problem-type="text" data-problem-answer="Many errors happen because a student starts manipulating symbols before identifying the equation type. Classification usually matters more than raw integration skill. ---">
       <div class="practice-problem__head">
@@ -1153,21 +1446,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Strategy note</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-46">Your work for Review: Strategy note</label>
+          <textarea
+            id="practice-study-math-first-order-odes-46"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Many errors happen because a student starts manipulating symbols before identifying the equation type. Classification usually matters more than raw integration skill. ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-47" data-practice-problem data-problem-type="text" data-problem-answer="Treating a nonlinear equation as if the superposition principle applies. It does not.">
       <div class="practice-problem__head">
@@ -1179,21 +1479,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common pitfalls</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-47">Your work for Review: Common pitfalls</label>
+          <textarea
+            id="practice-study-math-first-order-odes-47"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Treating a nonlinear equation as if the superposition principle applies. It does not.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-48" data-practice-problem data-problem-type="text" data-problem-answer="Formula sheet">
       <div class="practice-problem__head">
@@ -1205,21 +1512,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core formulas or relations are summarized in <strong>Formula sheet</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-48">Your work for Review: Formula sheet</label>
+          <textarea
+            id="practice-study-math-first-order-odes-48"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Formula sheet</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-49" data-practice-problem data-problem-type="text" data-problem-answer="Separable: $$ \\frac{dy}{dx} = g(x)h(y) $$ Linear: $$ y&#39; + p(x)y = q(x) $$ Exact: $$ M(x,y)\\,dx + N(x,y)\\,dy = 0 $$ Homogeneous: $$ \\frac{dy}{dx} = F\\left(\\frac{y}{x}\\right) $$ Bernoulli: $$ y&#39; + p(x)y = q(x)y^n $$ Auton…">
       <div class="practice-problem__head">
@@ -1231,21 +1545,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>Core forms</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-49">Your work for Review: Core forms</label>
+          <textarea
+            id="practice-study-math-first-order-odes-49"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Separable: $$ \frac{dy}{dx} = g(x)h(y) $$ Linear: $$ y&#39; + p(x)y = q(x) $$ Exact: $$ M(x,y)\,dx + N(x,y)\,dy = 0 $$ Homogeneous: $$ \frac{dy}{dx} = F\left(\frac{y}{x}\right) $$ Bernoulli: $$ y&#39; + p(x)y = q(x)y^n $$ Auton…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-410" data-practice-problem data-problem-type="text" data-problem-answer="Integrating factor for linear equations: $$ \\mu(x)=e^{\\int p(x)\\,dx} $$ Exactness test: $$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $$ Homogeneous substitution: $$ y=vx, \\qquad y&#39; = v + x\\frac{dv}{d…">
       <div class="practice-problem__head">
@@ -1257,21 +1578,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Key tools</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-410">Your work for Review: Key tools</label>
+          <textarea
+            id="practice-study-math-first-order-odes-410"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Integrating factor for linear equations: $$ \mu(x)=e^{\int p(x)\,dx} $$ Exactness test: $$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $$ Homogeneous substitution: $$ y=vx, \qquad y&#39; = v + x\frac{dv}{d…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-first-order-odes-411" data-practice-problem data-problem-type="text" data-problem-answer="First classify, then solve.">
       <div class="practice-problem__head">
@@ -1283,21 +1611,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>High-yield reminders</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-first-order-odes-411">Your work for Review: High-yield reminders</label>
+          <textarea
+            id="practice-study-math-first-order-odes-411"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: First classify, then solve.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1312,7 +1647,7 @@
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -1322,6 +1657,6 @@
       <div class="search-results" id="search-results" role="list"></div>
     </div>
   </aside>
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
 </body>
 </html>

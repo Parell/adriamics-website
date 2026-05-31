@@ -8,7 +8,20 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/math/proof-writing/practice/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="stylesheet" href="../../../../notes.css?v=a4160824d3df" />
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../../notes.css?v=4226cfbe9fd7" />
   <script>
     window.MathJax = {
       tex: {
@@ -22,11 +35,11 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../../notes.js?v=9338cf2da787"></script>
+  <script defer src="../../../../notes.js?v=72dc943ac791"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div>
 
@@ -37,9 +50,9 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/">General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/">Medical / Biology</a></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
-      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div></div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
@@ -54,18 +67,18 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/">Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/">Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/">Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/">Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/">Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/">Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/">Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/">Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/">Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/">Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/">Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/">Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/">Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/">Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/">Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/">Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/">Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/">First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/">Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/">Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" aria-current="page">Proof Writing</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/" data-notes-nav-item>Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" aria-current="page" data-notes-nav-item>Proof Writing</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
           <h1>Proof Writing Practice</h1>
-          <p class="viewer-meta">71 practice problems</p>
+          <p class="viewer-meta practice-note-meta-line">71 practice problems | draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fproof-writing%2Fproof-writing-problems.md&amp;title=%5BCorrection%5D%3A%20Proof%20Writing%20Practice" target="_blank" rel="noreferrer">Suggest edit</a>
-          <a class="practice-back-link" href="/notes/subjects/math/proof-writing/">Back to note</a>
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fproof-writing%2Fproof-writing-problems.md&amp;title=%5BCorrection%5D%3A%20Proof%20Writing%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="practice-back-link" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Back to note</a>
         </div>
       </div>
       <div class="practice-problem-list">
@@ -86,21 +99,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>What a proof does</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-11">Your work for Review: What a proof does</label>
+          <textarea
+            id="practice-study-math-proof-writing-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-12" data-practice-problem data-problem-type="text" data-problem-answer="Definitions">
       <div class="practice-problem__head">
@@ -112,21 +132,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Proof ingredients</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-12">Your work for Review: Proof ingredients</label>
+          <textarea
+            id="practice-study-math-proof-writing-12"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Definitions</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-13" data-practice-problem data-problem-type="text" data-problem-answer="Universal statements: “for all”">
       <div class="practice-problem__head">
@@ -138,21 +165,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Typical statement forms</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-13">Your work for Review: Typical statement forms</label>
+          <textarea
+            id="practice-study-math-proof-writing-13"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Universal statements: “for all”</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-14" data-practice-problem data-problem-type="text" data-problem-answer="Symbolic derivations from definitions">
       <div class="practice-problem__head">
@@ -164,21 +198,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>What counts as a proof</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-14">Your work for Review: What counts as a proof</label>
+          <textarea
+            id="practice-study-math-proof-writing-14"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Symbolic derivations from definitions</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-15" data-practice-problem data-problem-type="text" data-problem-answer="Before proving anything, rewrite the statement carefully.">
       <div class="practice-problem__head">
@@ -190,21 +231,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Reading mathematical statements</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-15">Your work for Review: Reading mathematical statements</label>
+          <textarea
+            id="practice-study-math-proof-writing-15"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Before proving anything, rewrite the statement carefully.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-16" data-practice-problem data-problem-type="text" data-problem-answer="Common phrases: Phrase Logical meaning --- --- “For all \\(x\\)” \\(\\forall x\\) “There exists \\(x\\)” \\(\\exists x\\) “If \\(P\\), then \\(Q\\)” \\(P \\Rightarrow Q\\) “\\(P\\) only if \\(Q\\)” \\(P \\Rightarrow Q\\) “\\(P\\) if \\(Q\\)” \\(Q \\…">
       <div class="practice-problem__head">
@@ -216,21 +264,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Translate the language</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-16">Your work for Review: Translate the language</label>
+          <textarea
+            id="practice-study-math-proof-writing-16"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Common phrases: Phrase Logical meaning --- --- “For all \(x\)” \(\forall x\) “There exists \(x\)” \(\exists x\) “If \(P\), then \(Q\)” \(P \Rightarrow Q\) “\(P\) only if \(Q\)” \(P \Rightarrow Q\) “\(P\) if \(Q\)” \(Q \…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-17" data-practice-problem data-problem-type="text" data-problem-answer="Quantifier order matters: $$ \\forall x\\, \\exists y\\, P(x,y) \\quad \\text{is not the same as} \\quad \\exists y\\, \\forall x\\, P(x,y).">
       <div class="practice-problem__head">
@@ -242,21 +297,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Watch the quantifier order</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-17">Your work for Review: Watch the quantifier order</label>
+          <textarea
+            id="practice-study-math-proof-writing-17"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Quantifier order matters: $$ \forall x\, \exists y\, P(x,y) \quad \text{is not the same as} \quad \exists y\, \forall x\, P(x,y).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-18" data-practice-problem data-problem-type="text" data-problem-answer="Negating statements correctly is essential.">
       <div class="practice-problem__head">
@@ -268,21 +330,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Negations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-18">Your work for Review: Negations</label>
+          <textarea
+            id="practice-study-math-proof-writing-18"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Negating statements correctly is essential.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-19" data-practice-problem data-problem-type="text" data-problem-answer="Even: \\(n\\) is even if \\(n = 2k\\) for some integer \\(k\\)">
       <div class="practice-problem__head">
@@ -294,21 +363,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>Unpack definitions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-19">Your work for Review: Unpack definitions</label>
+          <textarea
+            id="practice-study-math-proof-writing-19"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Even: \(n\) is even if \(n = 2k\) for some integer \(k\)</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-110" data-practice-problem data-problem-type="text" data-problem-answer="Most undergraduate proofs fall into a small number of templates.">
       <div class="practice-problem__head">
@@ -320,21 +396,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>Core proof structures</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-110">Your work for Review: Core proof structures</label>
+          <textarea
+            id="practice-study-math-proof-writing-110"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Most undergraduate proofs fall into a small number of templates.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-111" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(P \\Rightarrow Q\\), assume \\(P\\) and show \\(Q\\). This is the default proof shape.">
       <div class="practice-problem__head">
@@ -346,21 +429,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Implication</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-111">Your work for Review: Implication</label>
+          <textarea
+            id="practice-study-math-proof-writing-111"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(P \Rightarrow Q\), assume \(P\) and show \(Q\). This is the default proof shape.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-112" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(P \\Leftrightarrow Q\\), prove both directions: $$ P \\Rightarrow Q \\quad \\text{and} \\quad Q \\Rightarrow P.">
       <div class="practice-problem__head">
@@ -372,21 +462,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Equivalence</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-112">Your work for Review: Equivalence</label>
+          <textarea
+            id="practice-study-math-proof-writing-112"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(P \Leftrightarrow Q\), prove both directions: $$ P \Rightarrow Q \quad \text{and} \quad Q \Rightarrow P.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-113" data-practice-problem data-problem-type="text" data-problem-answer="A candidate object \\(x\\)">
       <div class="practice-problem__head">
@@ -398,21 +495,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Existence</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-113">Your work for Review: Existence</label>
+          <textarea
+            id="practice-study-math-proof-writing-113"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A candidate object \(x\)</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-114" data-practice-problem data-problem-type="text" data-problem-answer="Prove existence.">
       <div class="practice-problem__head">
@@ -424,21 +528,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Uniqueness</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-114">Your work for Review: Uniqueness</label>
+          <textarea
+            id="practice-study-math-proof-writing-114"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Prove existence.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-115" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(\\forall x\\, P(x)\\), start with an arbitrary \\(x\\) and prove \\(P(x)\\). Do not assume special properties of \\(x\\) unless the statement gives them. ---">
       <div class="practice-problem__head">
@@ -450,21 +561,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Universal statements</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-115">Your work for Review: Universal statements</label>
+          <textarea
+            id="practice-study-math-proof-writing-115"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(\forall x\, P(x)\), start with an arbitrary \(x\) and prove \(P(x)\). Do not assume special properties of \(x\) unless the statement gives them. ---</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-116" data-practice-problem data-problem-type="text" data-problem-answer="A direct proof starts from the hypotheses and derives the conclusion by valid deductions.">
       <div class="practice-problem__head">
@@ -476,21 +594,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Direct proof</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-116">Your work for Review: Direct proof</label>
+          <textarea
+            id="practice-study-math-proof-writing-116"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A direct proof starts from the hypotheses and derives the conclusion by valid deductions.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-117" data-practice-problem data-problem-type="text" data-problem-answer="Assume \\(P\\).">
       <div class="practice-problem__head">
@@ -502,21 +627,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Template</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-117">Your work for Review: Template</label>
+          <textarea
+            id="practice-study-math-proof-writing-117"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Assume \(P\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-118" data-practice-problem data-problem-type="text" data-problem-answer="Claim: If \\(m\\) and \\(n\\) are even integers, then \\(m+n\\) is even. Proof: Let \\(m = 2a\\) and \\(n = 2b\\) for integers \\(a,b\\). Then $$ m+n = 2a + 2b = 2(a+b). $$ Since \\(a+b\\) is an integer, \\(m+n\\) is even.">
       <div class="practice-problem__head">
@@ -528,21 +660,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example: even plus even is even</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-118">Your work for Review: Example: even plus even is even</label>
+          <textarea
+            id="practice-study-math-proof-writing-118"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Claim: If \(m\) and \(n\) are even integers, then \(m+n\) is even. Proof: Let \(m = 2a\) and \(n = 2b\) for integers \(a,b\). Then $$ m+n = 2a + 2b = 2(a+b). $$ Since \(a+b\) is an integer, \(m+n\) is even.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -563,21 +702,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example: product of odd integers</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-21">Your work for Review: Example: product of odd integers</label>
+          <textarea
+            id="practice-study-math-proof-writing-21"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If \(m = 2a+1\) and \(n = 2b+1\), then $$ mn = (2a+1)(2b+1) = 2(2ab+a+b)+1, $$ so \(mn\) is odd.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-22" data-practice-problem data-problem-type="text" data-problem-answer="The conclusion follows naturally from the hypothesis">
       <div class="practice-problem__head">
@@ -589,21 +735,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>When to use direct proof</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-22">Your work for Review: When to use direct proof</label>
+          <textarea
+            id="practice-study-math-proof-writing-22"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: The conclusion follows naturally from the hypothesis</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-23" data-practice-problem data-problem-type="text" data-problem-answer="These are the two main indirect proof methods.">
       <div class="practice-problem__head">
@@ -615,21 +768,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Contrapositive and contradiction</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-23">Your work for Review: Contrapositive and contradiction</label>
+          <textarea
+            id="practice-study-math-proof-writing-23"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: These are the two main indirect proof methods.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-24" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(P \\Rightarrow Q\\), you may instead prove: $$ \\neg Q \\Rightarrow \\neg P. $$ This is logically equivalent to the original statement.">
       <div class="practice-problem__head">
@@ -641,21 +801,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Contrapositive</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-24">Your work for Review: Contrapositive</label>
+          <textarea
+            id="practice-study-math-proof-writing-24"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(P \Rightarrow Q\), you may instead prove: $$ \neg Q \Rightarrow \neg P. $$ This is logically equivalent to the original statement.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-25" data-practice-problem data-problem-type="text" data-problem-answer="Claim: If \\(n^2\\) is even, then \\(n\\) is even.">
       <div class="practice-problem__head">
@@ -667,21 +834,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-25">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-proof-writing-25"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Claim: If \(n^2\) is even, then \(n\) is even.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-26" data-practice-problem data-problem-type="text" data-problem-answer="A logical contradiction such as \\(A \\land \\neg A\\)">
       <div class="practice-problem__head">
@@ -693,21 +867,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Contradiction</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-26">Your work for Review: Contradiction</label>
+          <textarea
+            id="practice-study-math-proof-writing-26"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A logical contradiction such as \(A \land \neg A\)</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-27" data-practice-problem data-problem-type="text" data-problem-answer="Claim: \\(\\sqrt{2}\\) is irrational.">
       <div class="practice-problem__head">
@@ -719,21 +900,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-27">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-proof-writing-27"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Claim: \(\sqrt{2}\) is irrational.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-28" data-practice-problem data-problem-type="text" data-problem-answer="Use contrapositive when the negated conclusion is easier to work with.">
       <div class="practice-problem__head">
@@ -745,21 +933,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Choosing between them</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-28">Your work for Review: Choosing between them</label>
+          <textarea
+            id="practice-study-math-proof-writing-28"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Use contrapositive when the negated conclusion is easier to work with.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-29" data-practice-problem data-problem-type="text" data-problem-answer="Some proofs need branching logic.">
       <div class="practice-problem__head">
@@ -771,21 +966,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Cases, existence, and uniqueness</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-29">Your work for Review: Cases, existence, and uniqueness</label>
+          <textarea
+            id="practice-study-math-proof-writing-29"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Some proofs need branching logic.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-210" data-practice-problem data-problem-type="text" data-problem-answer="\\(n\\) is even or odd">
       <div class="practice-problem__head">
@@ -797,21 +999,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Proof by cases</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-210">Your work for Review: Proof by cases</label>
+          <textarea
+            id="practice-study-math-proof-writing-210"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: \(n\) is even or odd</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-211" data-practice-problem data-problem-type="text" data-problem-answer="Claim: For any integer \\(n\\), \\(n^2 \\equiv 0 \\text{ or } 1 \\pmod{4}\\).">
       <div class="practice-problem__head">
@@ -823,21 +1032,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-211">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-proof-writing-211"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Claim: For any integer \(n\), \(n^2 \equiv 0 \text{ or } 1 \pmod{4}\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-212" data-practice-problem data-problem-type="text" data-problem-answer="There are two main types.">
       <div class="practice-problem__head">
@@ -849,21 +1065,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Existence proofs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-212">Your work for Review: Existence proofs</label>
+          <textarea
+            id="practice-study-math-proof-writing-212"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: There are two main types.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-213" data-practice-problem data-problem-type="text" data-problem-answer="Give an explicit example. Example: To show there exists a rational number between 1 and 2, choose \\(\\frac{3}{2}\\).">
       <div class="practice-problem__head">
@@ -875,21 +1098,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Constructive existence</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-213">Your work for Review: Constructive existence</label>
+          <textarea
+            id="practice-study-math-proof-writing-213"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Give an explicit example. Example: To show there exists a rational number between 1 and 2, choose \(\frac{3}{2}\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-214" data-practice-problem data-problem-type="text" data-problem-answer="Pigeonhole principle">
       <div class="practice-problem__head">
@@ -901,21 +1131,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Nonconstructive existence</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-214">Your work for Review: Nonconstructive existence</label>
+          <textarea
+            id="practice-study-math-proof-writing-214"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Pigeonhole principle</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-215" data-practice-problem data-problem-type="text" data-problem-answer="Assume two objects satisfy the defining property.">
       <div class="practice-problem__head">
@@ -927,21 +1164,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Uniqueness proofs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-215">Your work for Review: Uniqueness proofs</label>
+          <textarea
+            id="practice-study-math-proof-writing-215"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Assume two objects satisfy the defining property.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-216" data-practice-problem data-problem-type="text" data-problem-answer="Induction proves statements indexed by the natural numbers.">
       <div class="practice-problem__head">
@@ -953,21 +1197,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Induction</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-216">Your work for Review: Induction</label>
+          <textarea
+            id="practice-study-math-proof-writing-216"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Induction proves statements indexed by the natural numbers.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-217" data-practice-problem data-problem-type="text" data-problem-answer="Base case: prove \\(P(n 0)\\).">
       <div class="practice-problem__head">
@@ -979,21 +1230,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Standard induction</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-217">Your work for Review: Standard induction</label>
+          <textarea
+            id="practice-study-math-proof-writing-217"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Base case: prove \(P(n 0)\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-218" data-practice-problem data-problem-type="text" data-problem-answer="Claim: $$ 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2} $$ for all \\(n \\ge 1\\).">
       <div class="practice-problem__head">
@@ -1005,21 +1263,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-218">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-proof-writing-218"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Claim: $$ 1 + 2 + \cdots + n = \frac{n(n+1)}{2} $$ for all \(n \ge 1\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1040,21 +1305,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Strong induction</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-31">Your work for Review: Strong induction</label>
+          <textarea
+            id="practice-study-math-proof-writing-31"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: In strong induction, assume \(P(n 0), P(n 0+1), \dots, P(k)\) all hold, then prove \(P(k+1)\). Use strong induction when the next case depends on multiple earlier cases.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-32" data-practice-problem data-problem-type="text" data-problem-answer="Forgetting the base case">
       <div class="practice-problem__head">
@@ -1066,21 +1338,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common induction pitfalls</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-32">Your work for Review: Common induction pitfalls</label>
+          <textarea
+            id="practice-study-math-proof-writing-32"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Forgetting the base case</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-33" data-practice-problem data-problem-type="text" data-problem-answer="These proofs rely heavily on unpacking definitions.">
       <div class="practice-problem__head">
@@ -1092,21 +1371,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Proofs about sets, functions, and relations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-33">Your work for Review: Proofs about sets, functions, and relations</label>
+          <textarea
+            id="practice-study-math-proof-writing-33"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: These proofs rely heavily on unpacking definitions.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-34" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(A = B\\), prove both inclusions: $$ A \\subseteq B \\quad \\text{and} \\quad B \\subseteq A. $$ To prove \\(A \\subseteq B\\), start with an arbitrary \\(x \\in A\\) and show \\(x \\in B\\).">
       <div class="practice-problem__head">
@@ -1118,21 +1404,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Set equality</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-34">Your work for Review: Set equality</label>
+          <textarea
+            id="practice-study-math-proof-writing-34"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(A = B\), prove both inclusions: $$ A \subseteq B \quad \text{and} \quad B \subseteq A. $$ To prove \(A \subseteq B\), start with an arbitrary \(x \in A\) and show \(x \in B\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-35" data-practice-problem data-problem-type="text" data-problem-answer="Show \\(x\\) in the left side implies \\(x\\) is in the right side.">
       <div class="practice-problem__head">
@@ -1144,21 +1437,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-35">Your work for Review: Example</label>
+          <textarea
+            id="practice-study-math-proof-writing-35"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Show \(x\) in the left side implies \(x\) is in the right side.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-36" data-practice-problem data-problem-type="text" data-problem-answer="Function properties">
       <div class="practice-problem__head">
@@ -1170,21 +1470,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Function properties</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-36">Your work for Review: Function properties</label>
+          <textarea
+            id="practice-study-math-proof-writing-36"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Function properties</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-37" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(f\\) is injective, assume \\(f(x 1)=f(x 2)\\) and show \\(x 1=x 2\\).">
       <div class="practice-problem__head">
@@ -1196,21 +1503,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Injective</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-37">Your work for Review: Injective</label>
+          <textarea
+            id="practice-study-math-proof-writing-37"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(f\) is injective, assume \(f(x 1)=f(x 2)\) and show \(x 1=x 2\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-38" data-practice-problem data-problem-type="text" data-problem-answer="To prove \\(f\\) is surjective, let \\(y\\) be arbitrary in the codomain and find \\(x\\) such that \\(f(x)=y\\).">
       <div class="practice-problem__head">
@@ -1222,21 +1536,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Surjective</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-38">Your work for Review: Surjective</label>
+          <textarea
+            id="practice-study-math-proof-writing-38"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: To prove \(f\) is surjective, let \(y\) be arbitrary in the codomain and find \(x\) such that \(f(x)=y\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-39" data-practice-problem data-problem-type="text" data-problem-answer="A function is bijective if it is both injective and surjective. Bijective functions often have inverses.">
       <div class="practice-problem__head">
@@ -1248,21 +1569,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Bijective</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-39">Your work for Review: Bijective</label>
+          <textarea
+            id="practice-study-math-proof-writing-39"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A function is bijective if it is both injective and surjective. Bijective functions often have inverses.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-310" data-practice-problem data-problem-type="text" data-problem-answer="Reflexive: \\(aRa\\)">
       <div class="practice-problem__head">
@@ -1274,21 +1602,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Relations</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-310">Your work for Review: Relations</label>
+          <textarea
+            id="practice-study-math-proof-writing-310"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Reflexive: \(aRa\)</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-311" data-practice-problem data-problem-type="text" data-problem-answer="Many theorems repeat the same patterns under different vocabulary.">
       <div class="practice-problem__head">
@@ -1300,21 +1635,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common theorem shapes</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-311">Your work for Review: Common theorem shapes</label>
+          <textarea
+            id="practice-study-math-proof-writing-311"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Many theorems repeat the same patterns under different vocabulary.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-312" data-practice-problem data-problem-type="text" data-problem-answer="If \\(a \\mid b\\), write \\(b = ak\\) for some integer \\(k\\).">
       <div class="practice-problem__head">
@@ -1326,21 +1668,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Divisibility proofs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-312">Your work for Review: Divisibility proofs</label>
+          <textarea
+            id="practice-study-math-proof-writing-312"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: If \(a \mid b\), write \(b = ak\) for some integer \(k\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-313" data-practice-problem data-problem-type="text" data-problem-answer="Even: \\(2k\\)">
       <div class="practice-problem__head">
@@ -1352,21 +1701,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Parity proofs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-313">Your work for Review: Parity proofs</label>
+          <textarea
+            id="practice-study-math-proof-writing-313"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Even: \(2k\)</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-314" data-practice-problem data-problem-type="text" data-problem-answer="Add the same quantity to both sides">
       <div class="practice-problem__head">
@@ -1378,21 +1734,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Inequality proofs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-314">Your work for Review: Inequality proofs</label>
+          <textarea
+            id="practice-study-math-proof-writing-314"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Add the same quantity to both sides</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-315" data-practice-problem data-problem-type="text" data-problem-answer="Differentiate if calculus is allowed">
       <div class="practice-problem__head">
@@ -1404,21 +1767,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Maximum/minimum proofs</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-315">Your work for Review: Maximum/minimum proofs</label>
+          <textarea
+            id="practice-study-math-proof-writing-315"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Differentiate if calculus is allowed</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-316" data-practice-problem data-problem-type="text" data-problem-answer="Explicit construction">
       <div class="practice-problem__head">
@@ -1430,21 +1800,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Existence of solutions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-316">Your work for Review: Existence of solutions</label>
+          <textarea
+            id="practice-study-math-proof-writing-316"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Explicit construction</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-317" data-practice-problem data-problem-type="text" data-problem-answer="Good proof writing is clear, not decorative.">
       <div class="practice-problem__head">
@@ -1456,21 +1833,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Writing style and presentation</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-317">Your work for Review: Writing style and presentation</label>
+          <textarea
+            id="practice-study-math-proof-writing-317"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Good proof writing is clear, not decorative.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-318" data-practice-problem data-problem-type="text" data-problem-answer="“Assume...”">
       <div class="practice-problem__head">
@@ -1482,21 +1866,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Keep the logical structure visible</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-318">Your work for Review: Keep the logical structure visible</label>
+          <textarea
+            id="practice-study-math-proof-writing-318"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: “Assume...”</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1517,21 +1908,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>State the plan when useful</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-41">Your work for Review: State the plan when useful</label>
+          <textarea
+            id="practice-study-math-proof-writing-41"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: “We prove this by contradiction.”</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-42" data-practice-problem data-problem-type="text" data-problem-answer="“Let \\(x\\) be the solution.”">
       <div class="practice-problem__head">
@@ -1543,21 +1941,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Avoid hidden assumptions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-42">Your work for Review: Avoid hidden assumptions</label>
+          <textarea
+            id="practice-study-math-proof-writing-42"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: “Let \(x\) be the solution.”</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-43" data-practice-problem data-problem-type="text" data-problem-answer="Do not rename objects without reason. If you introduce \\(n\\), keep using \\(n\\).">
       <div class="practice-problem__head">
@@ -1569,21 +1974,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Make variable names stable</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-43">Your work for Review: Make variable names stable</label>
+          <textarea
+            id="practice-study-math-proof-writing-43"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Do not rename objects without reason. If you introduce \(n\), keep using \(n\).</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-44" data-practice-problem data-problem-type="text" data-problem-answer="A long algebraic manipulation should still be anchored by a sentence explaining why it matters.">
       <div class="practice-problem__head">
@@ -1595,21 +2007,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Separate algebra from logic</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-44">Your work for Review: Separate algebra from logic</label>
+          <textarea
+            id="practice-study-math-proof-writing-44"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: A long algebraic manipulation should still be anchored by a sentence explaining why it matters.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-45" data-practice-problem data-problem-type="text" data-problem-answer="“Therefore, \\(P\\) holds.”">
       <div class="practice-problem__head">
@@ -1621,21 +2040,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>End with the claim</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-45">Your work for Review: End with the claim</label>
+          <textarea
+            id="practice-study-math-proof-writing-45"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: “Therefore, \(P\) holds.”</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-46" data-practice-problem data-problem-type="text" data-problem-answer="When you are unsure how to start, use this sequence.">
       <div class="practice-problem__head">
@@ -1647,21 +2073,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Problem-solving workflow</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-46">Your work for Review: Problem-solving workflow</label>
+          <textarea
+            id="practice-study-math-proof-writing-46"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: When you are unsure how to start, use this sequence.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-47" data-practice-problem data-problem-type="text" data-problem-answer="Hypotheses">
       <div class="practice-problem__head">
@@ -1673,21 +2106,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Step 1: Rewrite the statement</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-47">Your work for Review: Step 1: Rewrite the statement</label>
+          <textarea
+            id="practice-study-math-proof-writing-47"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Hypotheses</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-48" data-practice-problem data-problem-type="text" data-problem-answer="Direct proof">
       <div class="practice-problem__head">
@@ -1699,21 +2139,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Step 2: Test the shape</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-48">Your work for Review: Step 2: Test the shape</label>
+          <textarea
+            id="practice-study-math-proof-writing-48"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Direct proof</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-49" data-practice-problem data-problem-type="text" data-problem-answer="“\\(n\\) is prime”">
       <div class="practice-problem__head">
@@ -1725,21 +2172,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core idea is introduced in <strong>Step 3: Expand definitions</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-49">Your work for Review: Step 3: Expand definitions</label>
+          <textarea
+            id="practice-study-math-proof-writing-49"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: “\(n\) is prime”</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-410" data-practice-problem data-problem-type="text" data-problem-answer="Concrete examples can expose the structure of the general proof. They should motivate the argument, not replace it.">
       <div class="practice-problem__head">
@@ -1751,21 +2205,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Step 4: Try a small example</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-410">Your work for Review: Step 4: Try a small example</label>
+          <textarea
+            id="practice-study-math-proof-writing-410"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Concrete examples can expose the structure of the general proof. They should motivate the argument, not replace it.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-411" data-practice-problem data-problem-type="text" data-problem-answer="Start from the assumptions.">
       <div class="practice-problem__head">
@@ -1777,21 +2238,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Step 5: Write the argument in order</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-411">Your work for Review: Step 5: Write the argument in order</label>
+          <textarea
+            id="practice-study-math-proof-writing-411"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Start from the assumptions.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-412" data-practice-problem data-problem-type="text" data-problem-answer="Did I prove what I claimed?">
       <div class="practice-problem__head">
@@ -1803,21 +2271,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Step 6: Check the proof backwards</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-412">Your work for Review: Step 6: Check the proof backwards</label>
+          <textarea
+            id="practice-study-math-proof-writing-412"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Did I prove what I claimed?</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-413" data-practice-problem data-problem-type="text" data-problem-answer="Checklist and common mistakes">
       <div class="practice-problem__head">
@@ -1829,21 +2304,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Checklist and common mistakes</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-413">Your work for Review: Checklist and common mistakes</label>
+          <textarea
+            id="practice-study-math-proof-writing-413"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Checklist and common mistakes</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-414" data-practice-problem data-problem-type="text" data-problem-answer="State the claim clearly.">
       <div class="practice-problem__head">
@@ -1855,21 +2337,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the note, what sequence of steps is recommended in <strong>Proof checklist</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-414">Your work for Review: Proof checklist</label>
+          <textarea
+            id="practice-study-math-proof-writing-414"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: State the claim clearly.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-415" data-practice-problem data-problem-type="text" data-problem-answer="Proving examples instead of the general statement">
       <div class="practice-problem__head">
@@ -1881,21 +2370,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name one common mistake the note warns about in <strong>Common mistakes</strong>.</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-415">Your work for Review: Common mistakes</label>
+          <textarea
+            id="practice-study-math-proof-writing-415"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Proving examples instead of the general statement</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-416" data-practice-problem data-problem-type="text" data-problem-answer="\\(P \\Rightarrow Q\\), try direct proof first">
       <div class="practice-problem__head">
@@ -1907,21 +2403,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Quick reference</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-416">Your work for Review: Quick reference</label>
+          <textarea
+            id="practice-study-math-proof-writing-416"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: \(P \Rightarrow Q\), try direct proof first</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article><article class="practice-problem panel" id="math-proof-writing-417" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\neg(\\forall x\\, P(x)) \\equiv \\exists x\\, \\neg P(x) $$ $$ \\neg(\\exists x\\, P(x)) \\equiv \\forall x\\, \\neg P(x) $$ $$ \\neg(P \\Rightarrow Q) \\equiv P \\land \\neg Q $$ $$ P \\Leftrightarrow Q \\iff (P \\Rightarrow Q) \\land (…">
       <div class="practice-problem__head">
@@ -1933,21 +2436,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What core formulas or relations are summarized in <strong>Formula summary</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-math-proof-writing-417">Your work for Review: Formula summary</label>
+          <textarea
+            id="practice-study-math-proof-writing-417"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: $$ \neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x) $$ $$ \neg(\exists x\, P(x)) \equiv \forall x\, \neg P(x) $$ $$ \neg(P \Rightarrow Q) \equiv P \land \neg Q $$ $$ P \Leftrightarrow Q \iff (P \Rightarrow Q) \land (…</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -1962,7 +2472,7 @@
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -1972,6 +2482,6 @@
       <div class="search-results" id="search-results" role="list"></div>
     </div>
   </aside>
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
 </body>
 </html>

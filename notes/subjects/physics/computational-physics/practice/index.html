@@ -8,7 +8,20 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/physics/computational-physics/practice/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="stylesheet" href="../../../../notes.css?v=a4160824d3df" />
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../../notes.css?v=4226cfbe9fd7" />
   <script>
     window.MathJax = {
       tex: {
@@ -22,11 +35,11 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../../notes.js?v=9338cf2da787"></script>
+  <script defer src="../../../../notes.js?v=72dc943ac791"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div>
 
@@ -37,9 +50,9 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/">General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/">Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/">Medical / Biology</a></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
-      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button></div></div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
@@ -54,18 +67,18 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Physics</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/">Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/">Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/">Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/">Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/">Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/">Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/">Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/">Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" aria-current="page">Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/">Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/">Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/">Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/">Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/">Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/">Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/">Plasma Physics</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" aria-current="page" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/" data-notes-nav-item>Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/" data-notes-nav-item>Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
           <h1>Computational Physics Practice</h1>
-          <p class="viewer-meta">1 practice problem</p>
+          <p class="viewer-meta practice-note-meta-line">1 practice problem | draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fphysics%2Fcomputational-physics%2Fcomputational-physics-problems.md&amp;title=%5BCorrection%5D%3A%20Computational%20Physics%20Practice" target="_blank" rel="noreferrer">Suggest edit</a>
-          <a class="practice-back-link" href="/notes/subjects/physics/computational-physics/">Back to note</a>
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fphysics%2Fcomputational-physics%2Fcomputational-physics-problems.md&amp;title=%5BCorrection%5D%3A%20Computational%20Physics%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="practice-back-link" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Back to note</a>
         </div>
       </div>
       <div class="practice-problem-list">
@@ -86,21 +99,28 @@
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the main idea of <strong>Focus</strong>?</p>
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-physics-computational-physics-11">Your work for Review: Focus</label>
+          <textarea
+            id="practice-study-physics-computational-physics-11"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           <p>One short answer is: Cover the main concepts, methods, terminology, and representative problems for computational physics.</p>
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>
         </div>
@@ -115,7 +135,7 @@
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -125,6 +145,6 @@
       <div class="search-results" id="search-results" role="list"></div>
     </div>
   </aside>
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
 </body>
 </html>

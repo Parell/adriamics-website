@@ -7,18 +7,26 @@ node notes/build-notes.mjs
 ```
 
 Debating if I should use github for all these systems?
-- voting
-- disputes
-- comments
 - legal/safety systems
-- ads
 - Github contributions?
-- sepia contrast mode
+- Add timer moveable on website
+- Better explanations with diagrams and simulations generate each individually
+- Interactive calculators
+
+STEM topics need visual support:
+
+Force diagrams
+Graph animations
+Circuit diagrams
+Organic reaction mechanisms
+Thermodynamic cycle plots
+Vector field visualizations
+Interactive sliders for formulas
+
+
+
 
 - Dataset tab for needed practice sections
-- How to make a Sparkplug example?
-- Online EES software?
-- Mass Transfer?
 
 Build the static note pages, catalog, search index, practice pages, and sitemap with `node notes/build-notes.mjs` after changing Markdown notes or their manifest.
 

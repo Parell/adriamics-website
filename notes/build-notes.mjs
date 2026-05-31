@@ -11,6 +11,7 @@ const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
 const siteOrigin = 'https://adriamics.com';
 const headerArtworkUrl = encodeURI('/assets/name.gif');
+const notesThemeStorageKey = 'ues-notes:contrast-mode';
 const metadataSeparator = ' | ';
 const practiceLevelLabels = new Map([
   [1, 'Direct Practice'],
@@ -191,23 +192,56 @@ function parseFrontmatter(block) {
 }
 
 function getMetadataLabel(metadata, fallbackPath) {
-  if (!metadata || typeof metadata !== 'object') {
-    return fallbackPath;
+  const parts = getMetadataParts(metadata);
+  return parts.length ? parts.join(metadataSeparator) : (fallbackPath ?? '');
+}
+
+function formatMetadataValue(value) {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => String(item ?? '').trim())
+      .filter(Boolean)
+      .join(', ');
   }
 
-  const parts = [
-    metadata.subject,
-    metadata.topic,
-    metadata.level,
-    metadata.status,
-    metadata.last_reviewed ? `Reviewed ${metadata.last_reviewed}` : null,
-  ].filter(Boolean);
+  return String(value ?? '').trim();
+}
+
+function getMetadataParts(metadata) {
+  if (!metadata || typeof metadata !== 'object') {
+    return [];
+  }
+
+  const parts = [];
+  const subject = formatMetadataValue(metadata.subject);
+  const topic = formatMetadataValue(metadata.topic);
+  const level = formatMetadataValue(metadata.level);
+  const status = formatMetadataValue(metadata.status);
+  const lastReviewed = formatMetadataValue(metadata.last_reviewed);
+
+  if (subject) parts.push(subject);
+  if (topic) parts.push(topic);
+  if (level) parts.push(level);
+  if (status) parts.push(status);
+  if (lastReviewed) parts.push(`Reviewed ${lastReviewed}`);
 
   if (Array.isArray(metadata.auditors) && metadata.auditors.length) {
-    parts.push(`Auditors: ${metadata.auditors.join(', ')}`);
+    const auditors = formatMetadataValue(metadata.auditors);
+
+    if (auditors) {
+      parts.push(`Auditors: ${auditors}`);
+    }
   }
 
-  return parts.length ? parts.join(metadataSeparator) : fallbackPath;
+  return parts;
+}
+
+function renderPracticeMetadataLine(problemCount, metadata) {
+  const parts = getMetadataParts(metadata);
+  const countText = `${problemCount} practice problem${problemCount === 1 ? '' : 's'}`;
+  const metadataText = parts.length ? ` | ${parts.join(metadataSeparator)}` : '';
+
+  return `<p class="viewer-meta practice-note-meta-line">${escapeHtml(countText)}${metadataText}</p>`;
 }
 
 function getPageUrl(pagePath) {
@@ -792,7 +826,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
     const activeClass = isActive ? ' class="is-active"' : '';
     const current = isActive ? ' aria-current="true"' : '';
     const href = getNoteUrl(pagePath);
-    return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}">${escapeHtml(structure.title)}</a></li>`;
+    return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
   }).join('');
 
   return `<aside class="notes-structures" aria-label="Guide structures">
@@ -800,7 +834,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li>${links}</ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li>${links}<li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>`;
 }
 
@@ -825,7 +859,7 @@ function renderGuideTree(nodes, activePagePath = null, depth = 0) {
       ? `<ul class="guide-tree__branch">${renderGuideTree(node.children, activePagePath, depth + 1)}</ul>`
       : '';
 
-    return `<li class="guide-tree__item"><a class="${classes}" style="--guide-depth: ${depth}" href="${escapeHtml(getNoteUrl(pagePath))}"${current}>${escapeHtml(node.title)}</a>${children}</li>`;
+    return `<li class="guide-tree__item"><a class="${classes}" style="--guide-depth: ${depth}" href="${escapeHtml(getNoteUrl(pagePath))}"${current} data-notes-nav-item>${escapeHtml(node.title)}</a>${children}</li>`;
   }).join('');
 }
 
@@ -837,7 +871,7 @@ function renderSearchPanel() {
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -861,6 +895,19 @@ function buildLandingRedirectHtml() {
   <meta name="description" content="Redirecting to the Universal Education System introduction page." />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="canonical" href="${siteOrigin}${redirectUrl}" />
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem(${JSON.stringify(notesThemeStorageKey)});
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
   <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
   <script>
     location.replace(${JSON.stringify(redirectUrl)});
@@ -874,13 +921,13 @@ function buildLandingRedirectHtml() {
 
 function renderQuickActions(practiceUrl = null) {
   const actions = [
-    `<button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+    `<button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
     </button>`,
   ];
 
   if (practiceUrl) {
-    actions.push(`<a class="notes-practice-trigger" href="${escapeHtml(practiceUrl)}">Practice</a>`);
+    actions.push(`<a class="notes-practice-trigger" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>`);
   }
 
   return actions.join('');
@@ -922,6 +969,20 @@ function renderNotesPageDocument({
   scriptHref = '/notes/notes.js',
   extraHead = '',
 }) {
+  const themeBootstrapScript = `<script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem(${JSON.stringify(notesThemeStorageKey)});
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>`;
+
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -932,6 +993,7 @@ function renderNotesPageDocument({
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  ${themeBootstrapScript}
   <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
   ${extraHead}
   <script defer src="${escapeHtml(scriptHref)}"></script>
@@ -946,7 +1008,7 @@ function renderNotesPageDocument({
     ${mainHtml}
   </main>
   ${renderSearchPanel()}
-  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
 </body>
 </html>`;
 }
@@ -1032,7 +1094,7 @@ function buildNoteHtml({
           <p class="viewer-meta">${escapeHtml(metadataLabel)}</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer">Suggest edit</a>
+          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -1276,21 +1338,28 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         ${promptHtml}
       </div>
-      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__study" data-practice-study role="group" aria-label="ChatGPT study mode">
+          <label class="sr-only" for="practice-study-${escapeHtml(problem.id)}">Your work for ${escapeHtml(problem.title)}</label>
+          <textarea
+            id="practice-study-${escapeHtml(problem.id)}"
+            class="practice-problem__study-input"
+            data-practice-study-input
+            rows="2"
+            placeholder="Write your work here before asking ChatGPT..."
+          ></textarea>
+        </div>
+        <div class="practice-problem__action-links" aria-label="Problem actions">
+          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+        </div>
+      </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           ${solutionHtml}
         </div>
-        <form class="practice-problem__form" data-practice-form>
-          <label class="practice-problem__field">
-            <span>Ask a question</span>
-            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
-          </label>
-          <div class="practice-problem__form-actions">
-            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
-          </div>
-        </form>
       </section>
     </article>`;
 }
@@ -1300,7 +1369,7 @@ function buildPracticeHtml({
   description,
   canonicalUrl,
   noteUrl,
-  noteTitle,
+  noteMetadata,
   editUrl,
   notePath,
   practiceSourcePath,
@@ -1345,11 +1414,11 @@ function buildPracticeHtml({
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
-          <p class="viewer-meta">${escapeHtml(description)}</p>
+          ${renderPracticeMetadataLine(problemCount, noteMetadata)}
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer">Suggest edit</a>
-          <a class="practice-back-link" href="${escapeHtml(noteUrl)}">Back to note</a>
+          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="practice-back-link" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to note</a>
         </div>
       </div>
       <div class="practice-problem-list">
@@ -1626,7 +1695,7 @@ async function buildPracticePage(practice, structures, assetVersions) {
     description,
     canonicalUrl,
     noteUrl: getNoteUrl(note.path),
-    noteTitle,
+    noteMetadata: metadata,
     editUrl,
     notePath: note.path,
     practiceSourcePath: sourcePath,

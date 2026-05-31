@@ -1,0 +1,1431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Second Order ODEs Practice | Adriamics</title>
+  <meta name="description" content="50 practice problems" />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/math/second-order-odes/practice/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="../../../../notes.css?v=a4160824d3df" />
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']]
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
+  <script defer src="../../../../notes.js?v=9338cf2da787"></script>
+</head>
+<body class="notes-page practice-page" id="top">
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      Search notes
+    </button></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title">Universal Education System</p>
+          </div>
+          <ul class="subject-list"><li><button type="button" data-leave-notes>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/">General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/">Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/">Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/">Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/">Medical / Biology</a></li></ul>
+        </aside>
+      <div class="notes-header__actions" role="group" aria-label="Quick actions"><div class="notes-header__actions-inner"><button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel">
+      Search notes
+    </button></div></div>
+      <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Practice problems">
+    
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/">Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/">Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/">Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/">Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/">Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/">Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/">Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/">Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/">Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/">Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/">Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/">Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/">Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/">Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/">Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/">Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/modeling/">Modeling</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/">First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" aria-current="page">Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/">Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/">Proof Writing</a></li></ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel practice-viewer" data-practice-page>
+      <div class="viewer-head">
+        <div>
+          <h1>Second Order ODEs Practice</h1>
+          <p class="viewer-meta">50 practice problems</p>
+        </div>
+        <div class="viewer-head__actions">
+          <a class="suggest-edit-link" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fsecond-order-odes%2Fsecond-order-odes-problems.md&amp;title=%5BCorrection%5D%3A%20Second%20Order%20ODEs%20Practice" target="_blank" rel="noreferrer">Suggest edit</a>
+          <a class="practice-back-link" href="/notes/subjects/math/second-order-odes/">Back to note</a>
+        </div>
+      </div>
+      <div class="practice-problem-list">
+        <section class="practice-level panel" aria-labelledby="practice-level-1">
+        <div class="practice-level__head">
+          <p class="section-label">Level 1</p>
+          <h2 id="practice-level-1">Direct Practice</h2>
+          <p class="practice-level__meta">13 problems</p>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-second-order-odes-11" data-practice-problem data-problem-type="text" data-problem-answer="Newtonian mechanics">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Review: What counts as a second-order ODE</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#1-what-counts-as-a-second-order-ode">1. What counts as a second-order ODE</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>What counts as a second-order ODE</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Newtonian mechanics</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-12" data-practice-problem data-problem-type="text" data-problem-answer="Classification and standard forms">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Review: Classification and standard forms</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#2-classification-and-standard-forms">2. Classification and standard forms</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Classification and standard forms</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Classification and standard forms</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-13" data-practice-problem data-problem-type="text" data-problem-answer="A second-order ODE is linear if it can be written as $$ a 2(x) y&#39;&#39; + a 1(x) y&#39; + a 0(x) y = g(x) $$ where \\(y\\), \\(y&#39;\\), and \\(y&#39;&#39;\\) appear only to the first power and are not multiplied together.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Review: Linear vs nonlinear</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#linear-vs-nonlinear">Linear vs nonlinear</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Linear vs nonlinear</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: A second-order ODE is linear if it can be written as $$ a 2(x) y&#39;&#39; + a 1(x) y&#39; + a 0(x) y = g(x) $$ where \(y\), \(y&#39;\), and \(y&#39;&#39;\) appear only to the first power and are not multiplied together.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-14" data-practice-problem data-problem-type="text" data-problem-answer="The linear equation is homogeneous when $$ g(x) = 0 $$ and nonhomogeneous when \\(g(x) \\neq 0\\).">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Review: Homogeneous vs nonhomogeneous</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#homogeneous-vs-nonhomogeneous">Homogeneous vs nonhomogeneous</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Homogeneous vs nonhomogeneous</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: The linear equation is homogeneous when $$ g(x) = 0 $$ and nonhomogeneous when \(g(x) \neq 0\).</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-15" data-practice-problem data-problem-type="text" data-problem-answer="Common standard forms">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Review: Common standard forms</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#common-standard-forms">Common standard forms</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Name one common mistake the note warns about in <strong>Common standard forms</strong>.</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Common standard forms</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-16" data-practice-problem data-problem-type="text" data-problem-answer="$$ a 2(x) y&#39;&#39; + a 1(x) y&#39; + a 0(x) y = g(x) $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Review: General linear form</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#general-linear-form">General linear form</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>General linear form</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ a 2(x) y&#39;&#39; + a 1(x) y&#39; + a 0(x) y = g(x) $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-17" data-practice-problem data-problem-type="text" data-problem-answer="If \\(a 2(x) \\neq 0\\), divide through by \\(a 2(x)\\): $$ y&#39;&#39; + p(x) y&#39; + q(x) y = r(x) $$ This form is often best for theory and method selection.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Review: Normalized form</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#normalized-form">Normalized form</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Normalized form</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: If \(a 2(x) \neq 0\), divide through by \(a 2(x)\): $$ y&#39;&#39; + p(x) y&#39; + q(x) y = r(x) $$ This form is often best for theory and method selection.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-18" data-practice-problem data-problem-type="text" data-problem-answer="$$ ay&#39;&#39; + by&#39; + cy = g(x) $$ with constants \\(a \\neq 0\\), \\(b\\), and \\(c\\). ---">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Review: Constant-coefficient form</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#constant-coefficient-form">Constant-coefficient form</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Constant-coefficient form</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ ay&#39;&#39; + by&#39; + cy = g(x) $$ with constants \(a \neq 0\), \(b\), and \(c\). ---</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-19" data-practice-problem data-problem-type="text" data-problem-answer="For the initial value problem $$ y&#39;&#39; = f(x, y, y&#39;),\\qquad y(x 0) = y 0,\\qquad y&#39;(x 0) = v 0 $$ the existence and uniqueness theorem says that if \\(f\\) and its relevant partial derivatives are continuous near \\((x 0, y 0…">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Review: Existence, uniqueness, and IVPs</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#3-existence-uniqueness-and-ivps">3. Existence, uniqueness, and IVPs</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Existence, uniqueness, and IVPs</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: For the initial value problem $$ y&#39;&#39; = f(x, y, y&#39;),\qquad y(x 0) = y 0,\qquad y&#39;(x 0) = v 0 $$ the existence and uniqueness theorem says that if \(f\) and its relevant partial derivatives are continuous near \((x 0, y 0…</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-110" data-practice-problem data-problem-type="text" data-problem-answer="Integrating a second-order equation effectively introduces two constants of integration. That is why you usually need: $$ y(x 0) = y 0,\\qquad y&#39;(x 0) = v 0 $$ to pin down one specific solution. ---">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Review: Why two initial conditions?</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#why-two-initial-conditions">Why two initial conditions?</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Why two initial conditions?</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Integrating a second-order equation effectively introduces two constants of integration. That is why you usually need: $$ y(x 0) = y 0,\qquad y&#39;(x 0) = v 0 $$ to pin down one specific solution. ---</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-111" data-practice-problem data-problem-type="text" data-problem-answer="The foundational case is $$ ay&#39;&#39; + by&#39; + cy = 0 $$ Try a solution of the form \\(y = e^{rx}\\).">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.11</span><span class="practice-problem__title-text">Review: Homogeneous linear equations with constant coefficients</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#4-homogeneous-linear-equations-with-constant-coefficients">4. Homogeneous linear equations with constant coefficients</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Homogeneous linear equations with constant coefficients</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: The foundational case is $$ ay&#39;&#39; + by&#39; + cy = 0 $$ Try a solution of the form \(y = e^{rx}\).</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-112" data-practice-problem data-problem-type="text" data-problem-answer="If \\(r 1 \\neq r 2\\), then $$ y(x) = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.12</span><span class="practice-problem__title-text">Review: Case 1: two distinct real roots</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#case-1-two-distinct-real-roots">Case 1: two distinct real roots</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Case 1: two distinct real roots</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: If \(r 1 \neq r 2\), then $$ y(x) = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-113" data-practice-problem data-problem-type="text" data-problem-answer="If \\(r 1 = r 2 = r\\), then $$ y(x) = (C 1 + C 2 x)e^{rx} $$ The extra factor of \\(x\\) gives a second independent solution.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">1.13</span><span class="practice-problem__title-text">Review: Case 2: repeated real root</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#case-2-repeated-real-root">Case 2: repeated real root</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Case 2: repeated real root</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: If \(r 1 = r 2 = r\), then $$ y(x) = (C 1 + C 2 x)e^{rx} $$ The extra factor of \(x\) gives a second independent solution.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level panel" aria-labelledby="practice-level-2">
+        <div class="practice-level__head">
+          <p class="section-label">Level 2</p>
+          <h2 id="practice-level-2">Integrated Practice</h2>
+          <p class="practice-level__meta">12 problems</p>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-second-order-odes-21" data-practice-problem data-problem-type="text" data-problem-answer="If $$ r = \\alpha \\pm i\\beta $$ then $$ y(x) = e^{\\alpha x}\\bigl(C 1 \\cos(\\beta x) + C 2 \\sin(\\beta x)\\bigr) $$ This is the most common form for oscillatory motion.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Review: Case 3: complex conjugate roots</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#case-3-complex-conjugate-roots">Case 3: complex conjugate roots</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Case 3: complex conjugate roots</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: If $$ r = \alpha \pm i\beta $$ then $$ y(x) = e^{\alpha x}\bigl(C 1 \cos(\beta x) + C 2 \sin(\beta x)\bigr) $$ This is the most common form for oscillatory motion.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-22" data-practice-problem data-problem-type="text" data-problem-answer="Solve $$ y&#39;&#39; - 3y&#39; + 2y = 0 $$ Characteristic equation: $$ r^2 - 3r + 2 = 0 = (r-1)(r-2) $$ So $$ y(x) = C 1 e^x + C 2 e^{2x} $$ ---">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Review: Example</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#example">Example</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Example</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Solve $$ y&#39;&#39; - 3y&#39; + 2y = 0 $$ Characteristic equation: $$ r^2 - 3r + 2 = 0 = (r-1)(r-2) $$ So $$ y(x) = C 1 e^x + C 2 e^{2x} $$ ---</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-23" data-practice-problem data-problem-type="text" data-problem-answer="\\(y h\\) solves the homogeneous equation">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Review: Forcing and particular solutions</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#5-forcing-and-particular-solutions">5. Forcing and particular solutions</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Forcing and particular solutions</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: \(y h\) solves the homogeneous equation</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-24" data-practice-problem data-problem-type="text" data-problem-answer="Use this when \\(g(x)\\) is built from exponentials, polynomials, sines, cosines, or products of these.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Review: Undetermined coefficients</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#undetermined-coefficients">Undetermined coefficients</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Undetermined coefficients</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Use this when \(g(x)\) is built from exponentials, polynomials, sines, cosines, or products of these.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-25" data-practice-problem data-problem-type="text" data-problem-answer="If your trial solution duplicates part of \\(y h\\), multiply the trial by \\(x\\) enough times to make it linearly independent.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Review: Resonance rule</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#resonance-rule">Resonance rule</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Resonance rule</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: If your trial solution duplicates part of \(y h\), multiply the trial by \(x\) enough times to make it linearly independent.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-26" data-practice-problem data-problem-type="text" data-problem-answer="Use this when undetermined coefficients is not convenient.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Review: Variation of parameters</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#variation-of-parameters">Variation of parameters</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Variation of parameters</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Use this when undetermined coefficients is not convenient.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-27" data-practice-problem data-problem-type="text" data-problem-answer="Variable-coefficient special cases">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Review: Variable-coefficient special cases</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#6-variable-coefficient-special-cases">6. Variable-coefficient special cases</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Variable-coefficient special cases</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Variable-coefficient special cases</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-28" data-practice-problem data-problem-type="text" data-problem-answer="The Euler-Cauchy, or equidimensional, form is $$ x^2 y&#39;&#39; + a x y&#39; + b y = 0 $$ Try \\(y = x^m\\).">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Review: Euler-Cauchy equations</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#euler-cauchy-equations">Euler-Cauchy equations</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Euler-Cauchy equations</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: The Euler-Cauchy, or equidimensional, form is $$ x^2 y&#39;&#39; + a x y&#39; + b y = 0 $$ Try \(y = x^m\).</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-29" data-practice-problem data-problem-type="text" data-problem-answer="Sometimes a change of variables converts a variable-coefficient equation into a constant-coefficient one. For Euler-Cauchy equations, the substitution $$ x = e^t $$ is a common route. ---">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.9</span><span class="practice-problem__title-text">Review: Reduction by substitution</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#reduction-by-substitution">Reduction by substitution</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Reduction by substitution</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Sometimes a change of variables converts a variable-coefficient equation into a constant-coefficient one. For Euler-Cauchy equations, the substitution $$ x = e^t $$ is a common route. ---</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-210" data-practice-problem data-problem-type="text" data-problem-answer="Reduction of order and variation of parameters">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.10</span><span class="practice-problem__title-text">Review: Reduction of order and variation of parameters</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#7-reduction-of-order-and-variation-of-parameters">7. Reduction of order and variation of parameters</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Reduction of order and variation of parameters</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Reduction of order and variation of parameters</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-211" data-practice-problem data-problem-type="text" data-problem-answer="one solution is obvious">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.11</span><span class="practice-problem__title-text">Review: Reduction of order</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#reduction-of-order">Reduction of order</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Reduction of order</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: one solution is obvious</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-212" data-practice-problem data-problem-type="text" data-problem-answer="The Wronskian of two functions \\(y 1\\) and \\(y 2\\) is $$ W(y 1,y 2) = \\begin{vmatrix} y 1 &amp; y 2 \\\\ y 1&#39; &amp; y 2&#39; \\end{vmatrix} = y 1 y 2&#39; - y 1&#39; y 2 $$ If \\(W \\neq 0\\) on an interval, the functions are linearly independen…">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">2.12</span><span class="practice-problem__title-text">Review: Wronskian</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#wronskian">Wronskian</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Wronskian</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: The Wronskian of two functions \(y 1\) and \(y 2\) is $$ W(y 1,y 2) = \begin{vmatrix} y 1 &amp; y 2 \\ y 1&#39; &amp; y 2&#39; \end{vmatrix} = y 1 y 2&#39; - y 1&#39; y 2 $$ If \(W \neq 0\) on an interval, the functions are linearly independen…</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level panel" aria-labelledby="practice-level-3">
+        <div class="practice-level__head">
+          <p class="section-label">Level 3</p>
+          <h2 id="practice-level-3">Applied Problems</h2>
+          <p class="practice-level__meta">13 problems</p>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-second-order-odes-31" data-practice-problem data-problem-type="text" data-problem-answer="Initial and boundary value problems">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Review: Initial and boundary value problems</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#8-initial-and-boundary-value-problems">8. Initial and boundary value problems</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Initial and boundary value problems</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Initial and boundary value problems</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-32" data-practice-problem data-problem-type="text" data-problem-answer="Solve the differential equation.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Review: Initial value problems</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#initial-value-problems">Initial value problems</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Initial value problems</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Solve the differential equation.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-33" data-practice-problem data-problem-type="text" data-problem-answer="beam bending">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Review: Boundary value problems</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#boundary-value-problems">Boundary value problems</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Boundary value problems</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: beam bending</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-34" data-practice-problem data-problem-type="text" data-problem-answer="Many second-order ODEs come from Newton’s second law: $$ m y&#39;&#39; = \\sum F $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Review: Mechanical applications</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#9-mechanical-applications">9. Mechanical applications</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Mechanical applications</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Many second-order ODEs come from Newton’s second law: $$ m y&#39;&#39; = \sum F $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-35" data-practice-problem data-problem-type="text" data-problem-answer="With no damping and no external forcing: $$ m y&#39;&#39; + k y = 0 $$ The solution is harmonic: $$ y(x) = C 1 \\cos(\\omega x) + C 2 \\sin(\\omega x), \\qquad \\omega = \\sqrt{\\frac{k}{m}} $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Review: Mass-spring system</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#mass-spring-system">Mass-spring system</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Mass-spring system</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: With no damping and no external forcing: $$ m y&#39;&#39; + k y = 0 $$ The solution is harmonic: $$ y(x) = C 1 \cos(\omega x) + C 2 \sin(\omega x), \qquad \omega = \sqrt{\frac{k}{m}} $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-36" data-practice-problem data-problem-type="text" data-problem-answer="With viscous damping: $$ m y&#39;&#39; + c y&#39; + k y = 0 $$ Divide by \\(m\\): $$ y&#39;&#39; + 2\\zeta \\omega n y&#39; + \\omega n^2 y = 0 $$ where $$ \\omega n = \\sqrt{\\frac{k}{m}},\\qquad \\zeta = \\frac{c}{2\\sqrt{mk}} $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.6</span><span class="practice-problem__title-text">Review: Damped vibration</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#damped-vibration">Damped vibration</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Damped vibration</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: With viscous damping: $$ m y&#39;&#39; + c y&#39; + k y = 0 $$ Divide by \(m\): $$ y&#39;&#39; + 2\zeta \omega n y&#39; + \omega n^2 y = 0 $$ where $$ \omega n = \sqrt{\frac{k}{m}},\qquad \zeta = \frac{c}{2\sqrt{mk}} $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-37" data-practice-problem data-problem-type="text" data-problem-answer="Regime Condition Behavior --- --- --- Underdamped \\(\\zeta 1\\) Non-oscillatory, slower return">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.7</span><span class="practice-problem__title-text">Review: Damping regimes</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#damping-regimes">Damping regimes</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Damping regimes</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Regime Condition Behavior --- --- --- Underdamped \(\zeta 1\) Non-oscillatory, slower return</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-38" data-practice-problem data-problem-type="text" data-problem-answer="With external forcing \\(F(t)\\): $$ m y&#39;&#39; + c y&#39; + k y = F(t) $$ The solution is usually split into: $$ y(t) = y {\\text{transient}}(t) + y {\\text{steady}}(t) $$ If \\(F(t)\\) is periodic, resonance and near-resonance can p…">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.8</span><span class="practice-problem__title-text">Review: Forced vibration</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#forced-vibration">Forced vibration</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Forced vibration</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: With external forcing \(F(t)\): $$ m y&#39;&#39; + c y&#39; + k y = F(t) $$ The solution is usually split into: $$ y(t) = y {\text{transient}}(t) + y {\text{steady}}(t) $$ If \(F(t)\) is periodic, resonance and near-resonance can p…</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-39" data-practice-problem data-problem-type="text" data-problem-answer="Even when an exact formula is available, it helps to understand the shape of the solution.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.9</span><span class="practice-problem__title-text">Review: Qualitative behavior</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#10-qualitative-behavior">10. Qualitative behavior</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Qualitative behavior</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Even when an exact formula is available, it helps to understand the shape of the solution.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-310" data-practice-problem data-problem-type="text" data-problem-answer="For the autonomous equation $$ y&#39;&#39; + f(y, y&#39;) = 0 $$ equilibria correspond to constant solutions. Linearization near equilibrium often predicts local behavior.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.10</span><span class="practice-problem__title-text">Review: Stability of equilibrium</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#stability-of-equilibrium">Stability of equilibrium</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Stability of equilibrium</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: For the autonomous equation $$ y&#39;&#39; + f(y, y&#39;) = 0 $$ equilibria correspond to constant solutions. Linearization near equilibrium often predicts local behavior.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-311" data-practice-problem data-problem-type="text" data-problem-answer="understanding oscillations">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.11</span><span class="practice-problem__title-text">Review: Phase-plane viewpoint</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#phase-plane-viewpoint">Phase-plane viewpoint</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Phase-plane viewpoint</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: understanding oscillations</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-312" data-practice-problem data-problem-type="text" data-problem-answer="Negative real part: decay">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.12</span><span class="practice-problem__title-text">Review: Long-term behavior</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#long-term-behavior">Long-term behavior</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Long-term behavior</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Negative real part: decay</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-313" data-practice-problem data-problem-type="text" data-problem-answer="Put the equation in standard form.">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">3.13</span><span class="practice-problem__title-text">Review: Problem-solving workflow</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#11-problem-solving-workflow">11. Problem-solving workflow</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>According to the note, what sequence of steps is recommended in <strong>Problem-solving workflow</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Put the equation in standard form.</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article>
+        </div>
+      </section><section class="practice-level panel" aria-labelledby="practice-level-4">
+        <div class="practice-level__head">
+          <p class="section-label">Level 4</p>
+          <h2 id="practice-level-4">Challenge / Synthesis</h2>
+          <p class="practice-level__meta">12 problems</p>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          <article class="practice-problem panel" id="math-second-order-odes-41" data-practice-problem data-problem-type="text" data-problem-answer="Equation type Best first method --- --- Linear constant coefficients, homogeneous Characteristic equation Linear constant coefficients, polynomial/exponential/trig forcing Undetermined coefficients Linear variable coeff…">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Review: Fast method selection</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#fast-method-selection">Fast method selection</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Fast method selection</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Equation type Best first method --- --- Linear constant coefficients, homogeneous Characteristic equation Linear constant coefficients, polynomial/exponential/trig forcing Undetermined coefficients Linear variable coeff…</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-42" data-practice-problem data-problem-type="text" data-problem-answer="Forgetting two integration constants for a second-order homogeneous solution">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Review: Common pitfalls</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#common-pitfalls">Common pitfalls</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>Name one common mistake the note warns about in <strong>Common pitfalls</strong>.</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Forgetting two integration constants for a second-order homogeneous solution</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-43" data-practice-problem data-problem-type="text" data-problem-answer="Formula summary">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Review: Formula summary</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#12-formula-summary">12. Formula summary</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What core formulas or relations are summarized in <strong>Formula summary</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Formula summary</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-44" data-practice-problem data-problem-type="text" data-problem-answer="$$ a 2(x)y&#39;&#39; + a 1(x)y&#39; + a 0(x)y = g(x) $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Review: Standard linear form</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#standard-linear-form">Standard linear form</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Standard linear form</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ a 2(x)y&#39;&#39; + a 1(x)y&#39; + a 0(x)y = g(x) $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-45" data-practice-problem data-problem-type="text" data-problem-answer="$$ y&#39;&#39; + p(x)y&#39; + q(x)y = r(x) $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.5</span><span class="practice-problem__title-text">Review: Normalized form</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#normalized-form">Normalized form</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Normalized form</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ y&#39;&#39; + p(x)y&#39; + q(x)y = r(x) $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-46" data-practice-problem data-problem-type="text" data-problem-answer="$$ ay&#39;&#39; + by&#39; + cy = 0 $$ Characteristic equation: $$ ar^2 + br + c = 0 $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.6</span><span class="practice-problem__title-text">Review: Constant-coefficient homogeneous equation</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#constant-coefficient-homogeneous-equation">Constant-coefficient homogeneous equation</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Constant-coefficient homogeneous equation</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ ay&#39;&#39; + by&#39; + cy = 0 $$ Characteristic equation: $$ ar^2 + br + c = 0 $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-47" data-practice-problem data-problem-type="text" data-problem-answer="Distinct real roots: $$ y = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$ Repeated root: $$ y = (C 1 + C 2 x)e^{rx} $$ Complex roots: $$ y = e^{\\alpha x}\\bigl(C 1\\cos(\\beta x) + C 2\\sin(\\beta x)\\bigr) $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.7</span><span class="practice-problem__title-text">Review: Solution templates</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#solution-templates">Solution templates</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Solution templates</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: Distinct real roots: $$ y = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$ Repeated root: $$ y = (C 1 + C 2 x)e^{rx} $$ Complex roots: $$ y = e^{\alpha x}\bigl(C 1\cos(\beta x) + C 2\sin(\beta x)\bigr) $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-48" data-practice-problem data-problem-type="text" data-problem-answer="$$ y = x^m $$ leading to $$ m(m-1) + am + b = 0 $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.8</span><span class="practice-problem__title-text">Review: Euler-Cauchy trial</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#euler-cauchy-trial">Euler-Cauchy trial</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Euler-Cauchy trial</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ y = x^m $$ leading to $$ m(m-1) + am + b = 0 $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-49" data-practice-problem data-problem-type="text" data-problem-answer="$$ y = y h + y p $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.9</span><span class="practice-problem__title-text">Review: General linear solution</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#general-linear-solution">General linear solution</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>General linear solution</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ y = y h + y p $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-410" data-practice-problem data-problem-type="text" data-problem-answer="$$ W = y 1 y 2&#39; - y 1&#39; y 2 $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.10</span><span class="practice-problem__title-text">Review: Wronskian</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#wronskian">Wronskian</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Wronskian</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ W = y 1 y 2&#39; - y 1&#39; y 2 $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-411" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\omega n = \\sqrt{\\frac{k}{m}} $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.11</span><span class="practice-problem__title-text">Review: Mass-spring frequency</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#mass-spring-frequency">Mass-spring frequency</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Mass-spring frequency</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ \omega n = \sqrt{\frac{k}{m}} $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article><article class="practice-problem panel" id="math-second-order-odes-412" data-practice-problem data-problem-type="text" data-problem-answer="$$ \\zeta = \\frac{c}{2\\sqrt{mk}} $$">
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">4.12</span><span class="practice-problem__title-text">Review: Damping ratio</span></h2>
+          <p class="practice-problem__meta"><span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/second-order-odes/#damping-ratio">Damping ratio</a></span></span></p>
+        </div>
+      </div>
+      <div class="practice-problem__prompt markdown-body" data-practice-prompt>
+        <p>What is the main idea of <strong>Damping ratio</strong>?</p>
+      </div>
+      <button type="button" class="practice-problem__feedback" data-practice-solution-toggle>Show solutions</button>
+      <section class="practice-problem__solution" data-practice-solution hidden>
+        <p class="section-label">Solution</p>
+        <div class="markdown-body">
+          <p>One short answer is: $$ \zeta = \frac{c}{2\sqrt{mk}} $$</p>
+        </div>
+        <form class="practice-problem__form" data-practice-form>
+          <label class="practice-problem__field">
+            <span>Ask a question</span>
+            <input type="text" autocomplete="off" spellcheck="false" data-practice-answer />
+          </label>
+          <div class="practice-problem__form-actions">
+            <button type="submit" class="practice-problem__check">Ask ChatGPT</button>
+          </div>
+        </form>
+      </section>
+    </article>
+        </div>
+      </section>
+      </div>
+    </section>
+  </main>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search">Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+  <a class="back-to-top" href="#top" aria-label="Back to top">Back to top</a>
+</body>
+</html>

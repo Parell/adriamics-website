@@ -1,943 +1,926 @@
 ---
-id: "engineering-dynamics-11"
-note: "engineering-dynamics"
-title: "Review: What dynamics studies"
-type: "text"
-answer: "Kinematics : describes motion without considering forces"
-skills:
-  - "1. What dynamics studies"
+id: dynamics-11
+note: engineering-dynamics
+title: "Classify the Study of Motion"
+skills: [Kinematics, Kinetics]
 ---
 
-What is the main idea of **What dynamics studies**?
+Which branch of dynamics describes motion without considering the forces that cause it?
 
 :::solution
-One short answer is: Kinematics : describes motion without considering forces
+That is **kinematics**.
+
+Kinematics describes motion itself, while kinetics connects motion to the forces and moments that produce it.
 :::
 
 ---
-id: "engineering-dynamics-12"
-note: "engineering-dynamics"
-title: "Review: Typical modeling assumptions"
-type: "text"
-answer: "Bodies are often treated as particles when size and rotation do not matter."
-skills:
-  - "Typical modeling assumptions"
+id: dynamics-12
+note: engineering-dynamics
+title: "Differentiate a Position Function"
+skills: [Position, Velocity, Acceleration]
 ---
 
-What is the main idea of **Typical modeling assumptions**?
+Given
+
+$$
+x(t) = 3t^2 - 2t + 1,
+$$
+
+find $v(2)$ and $a(2)$.
 
 :::solution
-One short answer is: Bodies are often treated as particles when size and rotation do not matter.
+Differentiate position to get velocity:
+
+$$
+v(t) = \frac{dx}{dt} = 6t - 2
+$$
+
+Differentiate again to get acceleration:
+
+$$
+a(t) = \frac{dv}{dt} = 6
+$$
+
+Evaluate at $t=2$:
+
+$$
+v(2) = 6(2) - 2 = 10
+$$
+
+$$
+a(2) = 6
+$$
 :::
 
 ---
-id: "engineering-dynamics-13"
-note: "engineering-dynamics"
-title: "Review: Main laws"
-type: "text"
-answer: "Newton's second law is the foundation: $$ \\sum \\mathbf{F} = m\\mathbf{a} $$ For rotation: $$ \\sum M O = I O \\alpha $$ or, more generally, $$ \\sum \\mathbf{M} G = \\frac{d\\mathbf{H} G}{dt} $$ where \\(G\\) is the center of ma…"
-skills:
-  - "Main laws"
+id: dynamics-13
+note: engineering-dynamics
+title: "Use Constant Acceleration to Find Speed"
+skills: [Rectilinear Motion, Constant Acceleration]
 ---
 
-What is the main idea of **Main laws**?
+A cart starts from rest and accelerates at $4 \, \text{m/s}^2$ for $3$ s. Find its speed.
 
 :::solution
-One short answer is: Newton's second law is the foundation: $$ \sum \mathbf{F} = m\mathbf{a} $$ For rotation: $$ \sum M O = I O \alpha $$ or, more generally, $$ \sum \mathbf{M} G = \frac{d\mathbf{H} G}{dt} $$ where \(G\) is the center of ma…
+Use the constant-acceleration relation:
+
+$$
+v = v_0 + at
+$$
+
+Since the cart starts from rest, $v_0 = 0$:
+
+$$
+v = 0 + 4(3) = 12 \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-14"
-note: "engineering-dynamics"
-title: "Review: Kinematics fundamentals"
-type: "text"
-answer: "Kinematics describes how objects move."
-skills:
-  - "2. Kinematics fundamentals"
+id: dynamics-14
+note: engineering-dynamics
+title: "Find Displacement Under Constant Acceleration"
+skills: [Rectilinear Motion, Constant Acceleration]
 ---
 
-What core idea is introduced in **Kinematics fundamentals**?
+A particle starts at $x_0 = 5$ m with $v_0 = 2 \, \text{m/s}$ and constant acceleration $a = 1 \, \text{m/s}^2$. Find $x$ after $4$ s.
 
 :::solution
-One short answer is: Kinematics describes how objects move.
+Use
+
+$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$
+
+Substitute the values:
+
+$$
+x = 5 + 2(4) + \frac{1}{2}(1)(4^2)
+$$
+
+$$
+x = 5 + 8 + 8 = 21 \, \text{m}
+$$
 :::
 
 ---
-id: "engineering-dynamics-15"
-note: "engineering-dynamics"
-title: "Review: Position, displacement, velocity, acceleration"
-type: "text"
-answer: "For one-dimensional motion with position \\(x(t)\\): $$ v = \\frac{dx}{dt} $$ $$ a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2} $$ Useful differential forms: $$ v\\,dv = a\\,dx $$ when acceleration is a function of position, and $$ a…"
-skills:
-  - "Position, displacement, velocity, acceleration"
+id: dynamics-15
+note: engineering-dynamics
+title: "Read Velocity and Acceleration from Cartesian Components"
+skills: [Cartesian Components, Curvilinear Motion]
 ---
 
-What is the main idea of **Position, displacement, velocity, acceleration**?
+For the position vector
+
+$$
+\mathbf{r}(t) = t\,\mathbf{i} + t^2\,\mathbf{j},
+$$
+
+find $\mathbf{v}$ and $\mathbf{a}$ at $t=3$.
 
 :::solution
-One short answer is: For one-dimensional motion with position \(x(t)\): $$ v = \frac{dx}{dt} $$ $$ a = \frac{dv}{dt} = \frac{d^2x}{dt^2} $$ Useful differential forms: $$ v\,dv = a\,dx $$ when acceleration is a function of position, and $$ a…
+Differentiate the position vector:
+
+$$
+\mathbf{v}(t) = \frac{d\mathbf{r}}{dt} = \mathbf{i} + 2t\,\mathbf{j}
+$$
+
+Differentiate again:
+
+$$
+\mathbf{a}(t) = \frac{d\mathbf{v}}{dt} = 2\,\mathbf{j}
+$$
+
+At $t=3$:
+
+$$
+\mathbf{v}(3) = \mathbf{i} + 6\,\mathbf{j}
+$$
+
+$$
+\mathbf{a}(3) = 2\,\mathbf{j}
+$$
 :::
 
 ---
-id: "engineering-dynamics-16"
-note: "engineering-dynamics"
-title: "Review: Vector form"
-type: "text"
-answer: "For 2D or 3D motion: $$ \\mathbf{r} = x\\mathbf{i} + y\\mathbf{j} + z\\mathbf{k} $$ $$ \\mathbf{v} = \\frac{d\\mathbf{r}}{dt} $$ $$ \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} $$ The safest workflow is to write position as a vector fi…"
-skills:
-  - "Vector form"
+id: dynamics-16
+note: engineering-dynamics
+title: "Compute Normal Acceleration"
+skills: [Normal-Tangential Motion, Curvilinear Motion]
 ---
 
-What is the main idea of **Vector form**?
+A particle moves along a curved path at a speed of $15 \, \text{m/s}$ on a path with radius of curvature $25$ m. Find its normal acceleration.
 
 :::solution
-One short answer is: For 2D or 3D motion: $$ \mathbf{r} = x\mathbf{i} + y\mathbf{j} + z\mathbf{k} $$ $$ \mathbf{v} = \frac{d\mathbf{r}}{dt} $$ $$ \mathbf{a} = \frac{d\mathbf{v}}{dt} $$ The safest workflow is to write position as a vector fi…
+Use
+
+$$
+a_n = \frac{v^2}{\rho}
+$$
+
+So
+
+$$
+a_n = \frac{15^2}{25} = \frac{225}{25} = 9 \, \text{m/s}^2
+$$
 :::
 
 ---
-id: "engineering-dynamics-17"
-note: "engineering-dynamics"
-title: "Review: Rectilinear motion"
-type: "text"
-answer: "Rectilinear motion is motion along a straight line. It is the simplest and most common starting point."
-skills:
-  - "3. Rectilinear motion"
+id: dynamics-17
+note: engineering-dynamics
+title: "Add Velocities in Relative Motion"
+skills: [Relative Motion]
 ---
 
-What is the main idea of **Rectilinear motion**?
+A walkway moves east at $1.5 \, \text{m/s}$. A person walks east relative to the walkway at $0.8 \, \text{m/s}$. What is the person's speed relative to the ground?
 
 :::solution
-One short answer is: Rectilinear motion is motion along a straight line. It is the simplest and most common starting point.
+For motion in the same direction, the velocities add:
+
+$$
+v = 1.5 + 0.8 = 2.3 \, \text{m/s}
+$$
+
+So the person's ground speed is $2.3 \, \text{m/s}$ east.
 :::
 
 ---
-id: "engineering-dynamics-18"
-note: "engineering-dynamics"
-title: "Review: Constant acceleration"
-type: "text"
-answer: "If acceleration \\(a\\) is constant: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \\frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x-x 0) $$ These are valid only when \\(a\\) is constant."
-skills:
-  - "Constant acceleration"
+id: dynamics-18
+note: engineering-dynamics
+title: "Apply Newton's Second Law"
+skills: [Particle Kinetics, Newton's Second Law]
 ---
 
-What is the main idea of **Constant acceleration**?
+A $5$ kg particle has a net force of $20$ N to the right. Find its acceleration.
 
 :::solution
-One short answer is: If acceleration \(a\) is constant: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x-x 0) $$ These are valid only when \(a\) is constant.
+Use Newton's second law:
+
+$$
+\sum F = ma
+$$
+
+So
+
+$$
+a = \frac{20}{5} = 4 \, \text{m/s}^2
+$$
+
+The acceleration is $4 \, \text{m/s}^2$ to the right.
 :::
 
 ---
-id: "engineering-dynamics-19"
-note: "engineering-dynamics"
-title: "Review: Variable acceleration"
-type: "text"
-answer: "If acceleration varies with time: $$ a(t) = \\frac{dv}{dt} $$ Integrate to get velocity, then position."
-skills:
-  - "Variable acceleration"
+id: dynamics-19
+note: engineering-dynamics
+title: "Use Friction at a Contact Surface"
+skills: [Particle Kinetics, Friction]
 ---
 
-What is the main idea of **Variable acceleration**?
+A surface has normal force $N = 40$ N and kinetic friction coefficient $\mu_k = 0.25$. Find the kinetic friction force.
 
 :::solution
-One short answer is: If acceleration varies with time: $$ a(t) = \frac{dv}{dt} $$ Integrate to get velocity, then position.
+Use
+
+$$
+f_k = \mu_k N
+$$
+
+So
+
+$$
+f_k = 0.25(40) = 10 \, \text{N}
+$$
 :::
 
 ---
-id: "engineering-dynamics-110"
-note: "engineering-dynamics"
-title: "Review: Example pattern"
-type: "text"
-answer: "If a car starts from rest and accelerates at a constant \\(2 \\, \\text{m/s}^2\\) for \\(5\\) s: $$ v = 0 + 2(5) = 10 \\, \\text{m/s} $$ $$ x = \\frac{1}{2}(2)(5^2) = 25 \\, \\text{m} $$ ---"
-skills:
-  - "Example pattern"
+id: dynamics-110
+note: engineering-dynamics
+title: "Find Tangential Speed in Pure Rotation"
+skills: [Rigid-Body Kinematics, Pure Rotation]
 ---
 
-What is the main idea of **Example pattern**?
+A point lies $0.4$ m from a fixed axis on a rigid body rotating at $\omega = 6 \, \text{rad/s}$. Find the point's speed.
 
 :::solution
-One short answer is: If a car starts from rest and accelerates at a constant \(2 \, \text{m/s}^2\) for \(5\) s: $$ v = 0 + 2(5) = 10 \, \text{m/s} $$ $$ x = \frac{1}{2}(2)(5^2) = 25 \, \text{m} $$ ---
+For pure rotation,
+
+$$
+v = \omega r
+$$
+
+So
+
+$$
+v = 6(0.4) = 2.4 \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-111"
-note: "engineering-dynamics"
-title: "Review: Curvilinear motion"
-type: "text"
-answer: "Curvilinear motion occurs along a curved path. Two common coordinate systems are Cartesian and normal-tangential coordinates."
-skills:
-  - "4. Curvilinear motion"
+id: dynamics-21
+note: engineering-dynamics
+title: "Use Work-Energy with a Constant Force"
+skills: [Work-Energy Methods, Kinetic Energy]
 ---
 
-What is the main idea of **Curvilinear motion**?
+A $2$ kg cart moves at $3 \, \text{m/s}$. A constant force of $10$ N acts in the direction of motion over $4$ m on a level track. Find the final speed.
 
 :::solution
-One short answer is: Curvilinear motion occurs along a curved path. Two common coordinate systems are Cartesian and normal-tangential coordinates.
+Initial kinetic energy:
+
+$$
+T_1 = \frac{1}{2}mv_1^2 = \frac{1}{2}(2)(3^2) = 9 \, \text{J}
+$$
+
+Work done by the force:
+
+$$
+W = Fs = 10(4) = 40 \, \text{J}
+$$
+
+So
+
+$$
+T_2 = T_1 + W = 9 + 40 = 49 \, \text{J}
+$$
+
+Then
+
+$$
+\frac{1}{2}(2)v_2^2 = 49
+$$
+
+$$
+v_2^2 = 49
+$$
+
+$$
+v_2 = 7 \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-112"
-note: "engineering-dynamics"
-title: "Review: Cartesian components"
-type: "text"
-answer: "For a particle with coordinates \\(x(t)\\), \\(y(t)\\), and \\(z(t)\\): $$ \\mathbf{v} = \\dot{x}\\mathbf{i} + \\dot{y}\\mathbf{j} + \\dot{z}\\mathbf{k} $$ $$ \\mathbf{a} = \\ddot{x}\\mathbf{i} + \\ddot{y}\\mathbf{j} + \\ddot{z}\\mathbf{k}…"
-skills:
-  - "Cartesian components"
+id: dynamics-22
+note: engineering-dynamics
+title: "Track Energy with a Spring"
+skills: [Work-Energy Methods, Springs]
 ---
 
-What is the main idea of **Cartesian components**?
+A $1$ kg block is released from rest by a spring with $k = 100 \, \text{N/m}$ compressed $0.20$ m on a frictionless track. Find the speed when the spring returns to its natural length.
 
 :::solution
-One short answer is: For a particle with coordinates \(x(t)\), \(y(t)\), and \(z(t)\): $$ \mathbf{v} = \dot{x}\mathbf{i} + \dot{y}\mathbf{j} + \dot{z}\mathbf{k} $$ $$ \mathbf{a} = \ddot{x}\mathbf{i} + \ddot{y}\mathbf{j} + \ddot{z}\mathbf{k}…
+The spring potential energy is
+
+$$
+V_s = \frac{1}{2}kx^2 = \frac{1}{2}(100)(0.20^2) = 2 \, \text{J}
+$$
+
+At the natural length, all of that energy becomes kinetic energy:
+
+$$
+\frac{1}{2}mv^2 = 2
+$$
+
+With $m=1$ kg:
+
+$$
+v^2 = 4
+$$
+
+$$
+v = 2 \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-113"
-note: "engineering-dynamics"
-title: "Review: Normal-tangential components"
-type: "text"
-answer: "\\(a t\\) changes speed"
-skills:
-  - "Normal-tangential components"
+id: dynamics-23
+note: engineering-dynamics
+title: "Use Impulse to Find Final Velocity"
+skills: [Impulse-Momentum Methods, Linear Momentum]
 ---
 
-What is the main idea of **Normal-tangential components**?
+A $3$ kg particle starts from rest and is acted on by a $30$ N force for $0.2$ s. Find its final speed.
 
 :::solution
-One short answer is: \(a t\) changes speed
+The impulse is
+
+$$
+J = Ft = 30(0.2) = 6 \, \text{N}\cdot\text{s}
+$$
+
+Impulse-momentum gives
+
+$$
+J = m(v_2 - v_1)
+$$
+
+Since $v_1 = 0$,
+
+$$
+6 = 3v_2
+$$
+
+$$
+v_2 = 2 \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-114"
-note: "engineering-dynamics"
-title: "Review: Polar coordinates"
-type: "text"
-answer: "For planar motion: $$ \\mathbf{v} = \\dot{r}\\mathbf{e} r + r\\dot{\\theta}\\mathbf{e} \\theta $$ $$ \\mathbf{a} = \\left(\\ddot{r} - r\\dot{\\theta}^2\\right)\\mathbf{e} r + \\left(r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}\\right)\\mathbf{…"
-skills:
-  - "Polar coordinates"
+id: dynamics-24
+note: engineering-dynamics
+title: "Solve a Friction Problem with Force Balance"
+skills: [Particle Kinetics, Friction, Newton's Second Law]
 ---
 
-What is the main idea of **Polar coordinates**?
+A $10$ kg block slides on a horizontal surface. A $50$ N horizontal force pulls it to the right, and $\mu_k = 0.2$. Take $g = 10 \, \text{m/s}^2$. Find the acceleration.
 
 :::solution
-One short answer is: For planar motion: $$ \mathbf{v} = \dot{r}\mathbf{e} r + r\dot{\theta}\mathbf{e} \theta $$ $$ \mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e} r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{…
+The normal force is
+
+$$
+N = mg = 10(10) = 100 \, \text{N}
+$$
+
+So the kinetic friction force is
+
+$$
+f_k = \mu_k N = 0.2(100) = 20 \, \text{N}
+$$
+
+The net horizontal force is
+
+$$
+50 - 20 = 30 \, \text{N}
+$$
+
+Therefore,
+
+$$
+a = \frac{30}{10} = 3 \, \text{m/s}^2
+$$
 :::
 
 ---
-id: "engineering-dynamics-115"
-note: "engineering-dynamics"
-title: "Review: Relative motion"
-type: "text"
-answer: "Relative motion compares the motion of one body to another moving reference frame."
-skills:
-  - "5. Relative motion"
+id: dynamics-25
+note: engineering-dynamics
+title: "Combine Translation and Rotation"
+skills: [Rigid-Body Kinematics, Relative Motion]
 ---
 
-What is the main idea of **Relative motion**?
+Point $A$ on a rigid bar moves to the right at $1.5 \, \text{m/s}$. The bar rotates counterclockwise at $3 \, \text{rad/s}$, and point $B$ is $0.6$ m above $A$. Find $\mathbf{v}_B$.
 
 :::solution
-One short answer is: Relative motion compares the motion of one body to another moving reference frame.
+Use
+
+$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$
+
+Take $\mathbf{v}_A = 1.5\,\mathbf{i}$, $\boldsymbol{\omega} = 3\,\mathbf{k}$, and $\mathbf{r}_{B/A} = 0.6\,\mathbf{j}$.
+
+Then
+
+$$
+\boldsymbol{\omega} \times \mathbf{r}_{B/A}
+= 3\mathbf{k} \times 0.6\mathbf{j}
+= -1.8\,\mathbf{i}
+$$
+
+So
+
+$$
+\mathbf{v}_B = 1.5\,\mathbf{i} - 1.8\,\mathbf{i} = -0.3\,\mathbf{i}
+$$
+
+Point $B$ moves left at $0.3 \, \text{m/s}$.
 :::
 
 ---
-id: "engineering-dynamics-21"
-note: "engineering-dynamics"
-title: "Review: Translation of reference frames"
-type: "text"
-answer: "For particles \\(A\\) and \\(B\\): $$ \\mathbf{r} B = \\mathbf{r} A + \\mathbf{r} {B/A} $$ Differentiating: $$ \\mathbf{v} B = \\mathbf{v} A + \\mathbf{v} {B/A} $$ $$ \\mathbf{a} B = \\mathbf{a} A + \\mathbf{a} {B/A} $$"
-skills:
-  - "Translation of reference frames"
+id: dynamics-26
+note: engineering-dynamics
+title: "Find Angular Acceleration from a Moment"
+skills: [Rigid-Body Kinetics, Parallel-Axis Theorem]
 ---
 
-What is the main idea of **Translation of reference frames**?
+A thin rod has mass $4$ kg and length $1.5$ m. It rotates about one end. If the net moment about the end is $6$ N$\cdot$m, find its angular acceleration.
 
 :::solution
-One short answer is: For particles \(A\) and \(B\): $$ \mathbf{r} B = \mathbf{r} A + \mathbf{r} {B/A} $$ Differentiating: $$ \mathbf{v} B = \mathbf{v} A + \mathbf{v} {B/A} $$ $$ \mathbf{a} B = \mathbf{a} A + \mathbf{a} {B/A} $$
+First find the mass moment of inertia about the end using the parallel-axis theorem:
+
+$$
+I_G = \frac{1}{12}mL^2 = \frac{1}{12}(4)(1.5^2) = 0.75 \, \text{kg}\cdot\text{m}^2
+$$
+
+The center of mass is $d = 0.75$ m from the end, so
+
+$$
+I_O = I_G + md^2 = 0.75 + 4(0.75^2) = 3.0 \, \text{kg}\cdot\text{m}^2
+$$
+
+Now use
+
+$$
+\sum M_O = I_O \alpha
+$$
+
+So
+
+$$
+\alpha = \frac{6}{3.0} = 2 \, \text{rad/s}^2
+$$
 :::
 
 ---
-id: "engineering-dynamics-22"
-note: "engineering-dynamics"
-title: "Review: Common use cases"
-type: "text"
-answer: "A person walking on a moving walkway"
-skills:
-  - "Common use cases"
+id: dynamics-27
+note: engineering-dynamics
+title: "Choose the Best Method"
+skills: [Choosing the Right Method]
 ---
 
-Name one common mistake the note warns about in **Common use cases**.
+A problem asks for the speed of a block after it slides a known distance on a rough surface. Which method is usually best?
 
 :::solution
-One short answer is: A person walking on a moving walkway
+The best choice is usually **work-energy**.
+
+The distance is known, so it is often faster to write the work done by gravity, friction, or other forces and relate it to the change in kinetic energy instead of solving for time first.
 :::
 
 ---
-id: "engineering-dynamics-23"
-note: "engineering-dynamics"
-title: "Review: Rotating frames"
-type: "text"
-answer: "When the reference frame rotates, additional terms appear: $$ \\mathbf{v} B = \\mathbf{v} A + \\mathbf{v} {rel} + \\boldsymbol{\\omega} \\times \\mathbf{r} {B/A} $$ $$ \\mathbf{a} B = \\mathbf{a} A + \\mathbf{a} {rel} + 2\\boldsym…"
-skills:
-  - "Rotating frames"
+id: dynamics-28
+note: engineering-dynamics
+title: "Spot a Common Pitfall"
+skills: [Common Pitfalls, Rectilinear Motion]
 ---
 
-What is the main idea of **Rotating frames**?
+A particle has acceleration $a(t) = 3t$. Can you use $v = v_0 + at$ with $a$ taken at the final time? Why or why not?
 
 :::solution
-One short answer is: When the reference frame rotates, additional terms appear: $$ \mathbf{v} B = \mathbf{v} A + \mathbf{v} {rel} + \boldsymbol{\omega} \times \mathbf{r} {B/A} $$ $$ \mathbf{a} B = \mathbf{a} A + \mathbf{a} {rel} + 2\boldsym…
+No. The formula
+
+$$
+v = v_0 + at
+$$
+
+is valid only when acceleration is constant.
+
+Here $a(t)$ changes with time, so you must integrate
+
+$$
+a(t) = \frac{dv}{dt}
+$$
+
+to find velocity.
 :::
 
 ---
-id: "engineering-dynamics-24"
-note: "engineering-dynamics"
-title: "Review: Particle kinetics"
-type: "text"
-answer: "Particle kinetics links forces to translational acceleration."
-skills:
-  - "6. Particle kinetics"
+id: dynamics-31
+note: engineering-dynamics
+title: "Recognize Variable Acceleration by Position"
+skills: [Rectilinear Motion, Variable Acceleration]
 ---
 
-What is the main idea of **Particle kinetics**?
+A particle moves in a straight line with acceleration
+
+$$
+a(x) = 4x \, \text{m/s}^2.
+$$
+
+If $v = 2 \, \text{m/s}$ at $x = 0$, find the speed when $x = 3$ m.
 
 :::solution
-One short answer is: Particle kinetics links forces to translational acceleration.
+Use the position form of the acceleration relation:
+
+$$
+a = v\frac{dv}{dx}
+$$
+
+So
+
+$$
+v\,dv = 4x\,dx
+$$
+
+Integrate from $(x,v) = (0,2)$ to $(3,v)$:
+
+$$
+\int_2^v v\,dv = \int_0^3 4x\,dx
+$$
+
+$$
+\frac{1}{2}(v^2 - 4) = 18
+$$
+
+$$
+v^2 = 40
+$$
+
+$$
+v = 2\sqrt{10} \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-25"
-note: "engineering-dynamics"
-title: "Review: Newton's second law"
-type: "text"
-answer: "For a particle: $$ \\sum \\mathbf{F} = m\\mathbf{a} $$ Write the force balance in component form: $$ \\sum F x = ma x,\\quad \\sum F y = ma y,\\quad \\sum F z = ma z $$"
-skills:
-  - "Newton's second law"
+id: dynamics-32
+note: engineering-dynamics
+title: "Use Work-Energy on an Incline"
+skills: [Work-Energy Methods, Gravity]
 ---
 
-What is the main idea of **Newton's second law**?
+A $2$ kg crate starts from rest and slides $5$ m down a frictionless $30^\circ$ incline. Take $g = 10 \, \text{m/s}^2$. Find the speed at the bottom.
 
 :::solution
-One short answer is: For a particle: $$ \sum \mathbf{F} = m\mathbf{a} $$ Write the force balance in component form: $$ \sum F x = ma x,\quad \sum F y = ma y,\quad \sum F z = ma z $$
+The work done by gravity is
+
+$$
+W_g = mgs\sin 30^\circ
+$$
+
+So
+
+$$
+W_g = 2(10)(5)\left(\frac{1}{2}\right) = 50 \, \text{J}
+$$
+
+Since the crate starts from rest,
+
+$$
+\frac{1}{2}mv^2 = 50
+$$
+
+With $m = 2$ kg:
+
+$$
+v^2 = 50
+$$
+
+$$
+v = 5\sqrt{2} \, \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-26"
-note: "engineering-dynamics"
-title: "Review: Free-body diagrams"
-type: "text"
-answer: "Weight \\(W = mg\\)"
-skills:
-  - "Free-body diagrams"
+id: dynamics-33
+note: engineering-dynamics
+title: "Use Impulse-Momentum in an Impact"
+skills: [Impulse-Momentum Methods, Linear Momentum]
 ---
 
-What is the main idea of **Free-body diagrams**?
+A $0.5$ kg puck moving east at $8 \, \text{m/s}$ is struck by an average $12$ N force to the west for $0.5$ s. Find its final velocity.
 
 :::solution
-One short answer is: Weight \(W = mg\)
+Take east as positive.
+
+The impulse is
+
+$$
+J = Ft = (-12)(0.5) = -6 \, \text{N}\cdot\text{s}
+$$
+
+Initial momentum:
+
+$$
+p_1 = mv_1 = 0.5(8) = 4 \, \text{kg}\cdot\text{m/s}
+$$
+
+Impulse-momentum gives
+
+$$
+p_2 = p_1 + J = 4 - 6 = -2
+$$
+
+So
+
+$$
+v_2 = \frac{p_2}{m} = \frac{-2}{0.5} = -4 \, \text{m/s}
+$$
+
+The puck ends with speed $4 \, \text{m/s}$ to the west.
 :::
 
 ---
-id: "engineering-dynamics-27"
-note: "engineering-dynamics"
-title: "Review: Friction"
-type: "text"
-answer: "Static friction satisfies $$ f s \\le \\mu s N $$ Kinetic friction is usually modeled as $$ f k = \\mu k N $$ The friction force opposes impending or relative motion along the contact surface."
-skills:
-  - "Friction"
+id: dynamics-34
+note: engineering-dynamics
+title: "Find a Point's Velocity and Acceleration on a Rotating Bar"
+skills: [Rigid-Body Kinematics, Rigid-Body Kinetics]
 ---
 
-What is the main idea of **Friction**?
+A rigid bar has point $A$ moving to the right at $2 \, \text{m/s}$ with acceleration $1 \, \text{m/s}^2$ to the right. The bar rotates counterclockwise with $\omega = 4 \, \text{rad/s}$ and $\alpha = 2 \, \text{rad/s}^2$. Point $B$ is $0.5$ m above $A$. Find $\mathbf{v}_B$ and $\mathbf{a}_B$.
 
 :::solution
-One short answer is: Static friction satisfies $$ f s \le \mu s N $$ Kinetic friction is usually modeled as $$ f k = \mu k N $$ The friction force opposes impending or relative motion along the contact surface.
+Use the rigid-body relations:
+
+$$
+\mathbf{v}_B = \mathbf{v}_A + \boldsymbol{\omega} \times \mathbf{r}_{B/A}
+$$
+
+$$
+\mathbf{a}_B = \mathbf{a}_A + \boldsymbol{\alpha} \times \mathbf{r}_{B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+$$
+
+Take
+
+$$
+\mathbf{v}_A = 2\,\mathbf{i}, \quad \mathbf{a}_A = 1\,\mathbf{i}, \quad \boldsymbol{\omega} = 4\,\mathbf{k}, \quad \boldsymbol{\alpha} = 2\,\mathbf{k}, \quad \mathbf{r}_{B/A} = 0.5\,\mathbf{j}
+$$
+
+Then
+
+$$
+\boldsymbol{\omega} \times \mathbf{r}_{B/A}
+= 4\mathbf{k} \times 0.5\mathbf{j}
+= -2\,\mathbf{i}
+$$
+
+so
+
+$$
+\mathbf{v}_B = 2\,\mathbf{i} - 2\,\mathbf{i} = \mathbf{0}
+$$
+
+For acceleration,
+
+$$
+\boldsymbol{\alpha} \times \mathbf{r}_{B/A}
+= 2\mathbf{k} \times 0.5\mathbf{j}
+= -1\,\mathbf{i}
+$$
+
+and
+
+$$
+\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}_{B/A})
+= 4\mathbf{k} \times (-2\,\mathbf{i})
+= -8\,\mathbf{j}
+$$
+
+Therefore,
+
+$$
+\mathbf{a}_B = 1\,\mathbf{i} - 1\,\mathbf{i} - 8\,\mathbf{j} = -8\,\mathbf{j}
+$$
+
+So point $B$ is instantaneously at rest, and its acceleration is $8 \, \text{m/s}^2$ downward.
 :::
 
 ---
-id: "engineering-dynamics-28"
-note: "engineering-dynamics"
-title: "Review: Typical workflow"
-type: "text"
-answer: "Draw the particle and isolate it."
-skills:
-  - "Typical workflow"
+id: dynamics-35
+note: engineering-dynamics
+title: "Choose the Right Impact Method"
+skills: [Choosing the Right Method, Impulse-Momentum Methods]
 ---
 
-According to the note, what sequence of steps is recommended in **Typical workflow**?
+A $2$ kg cart slows from $6 \, \text{m/s}$ to $2 \, \text{m/s}$ in $0.1$ s during a collision. What method should you use to find the average impact force, and what is that force?
 
 :::solution
-One short answer is: Draw the particle and isolate it.
+Use **impulse-momentum** because the force acts over a short time and the velocity change is given.
+
+Take the positive direction as the initial direction of motion:
+
+$$
+\Delta p = m(v_2 - v_1) = 2(2 - 6) = -8 \, \text{kg}\cdot\text{m/s}
+$$
+
+Average force:
+
+$$
+F_{\text{avg}} = \frac{\Delta p}{\Delta t} = \frac{-8}{0.1} = -80 \, \text{N}
+$$
+
+So the average impact force is $80$ N opposite the cart's motion.
 :::
 
 ---
-id: "engineering-dynamics-29"
-note: "engineering-dynamics"
-title: "Review: Work-energy methods"
-type: "text"
-answer: "Work-energy is often faster than force-balance when displacement is easier to track than time."
-skills:
-  - "7. Work-energy methods"
+id: dynamics-41
+note: engineering-dynamics
+title: "Analyze Planar Motion from Position Functions"
+skills: [Cartesian Components, Curvilinear Motion]
 ---
 
-What is the main idea of **Work-energy methods**?
+A particle has position
+
+$$
+x(t) = t^2, \qquad y(t) = 2t^2 - 4t.
+$$
+
+Find $\mathbf{v}$ and $\mathbf{a}$ at $t=2$, and determine whether the particle is speeding up or slowing down at that instant.
 
 :::solution
-One short answer is: Work-energy is often faster than force-balance when displacement is easier to track than time.
+Write the velocity vector:
+
+$$
+\mathbf{v}(t) = \dot{x}\,\mathbf{i} + \dot{y}\,\mathbf{j}
+$$
+
+so
+
+$$
+\mathbf{v}(t) = 2t\,\mathbf{i} + (4t - 4)\,\mathbf{j}
+$$
+
+At $t=2$:
+
+$$
+\mathbf{v}(2) = 4\,\mathbf{i} + 4\,\mathbf{j}
+$$
+
+Differentiate again:
+
+$$
+\mathbf{a}(t) = 2\,\mathbf{i} + 4\,\mathbf{j}
+$$
+
+so
+
+$$
+\mathbf{a}(2) = 2\,\mathbf{i} + 4\,\mathbf{j}
+$$
+
+The speed is
+
+$$
+|\mathbf{v}(2)| = \sqrt{4^2 + 4^2} = 4\sqrt{2}
+$$
+
+Since the acceleration points generally in the same direction as the velocity, the particle is speeding up at $t=2$.
 :::
 
 ---
-id: "engineering-dynamics-210"
-note: "engineering-dynamics"
-title: "Review: Work"
-type: "text"
-answer: "The work of a force is $$ W = \\int \\mathbf{F}\\cdot d\\mathbf{r} $$ For a constant force in the direction of motion: $$ W = Fs $$"
-skills:
-  - "Work"
+id: dynamics-42
+note: engineering-dynamics
+title: "Velocity and Acceleration of a Rotating Point"
+skills: [Rigid-Body Kinematics, Normal-Tangential Motion]
 ---
 
-What is the main idea of **Work**?
+A wheel of radius $0.5$ m has $\omega = 2 \, \text{rad/s}$ and $\alpha = 2 \, \text{rad/s}^2$ at an instant. For a point on the rim, find the speed, tangential acceleration, normal acceleration, and total acceleration magnitude.
 
 :::solution
-One short answer is: The work of a force is $$ W = \int \mathbf{F}\cdot d\mathbf{r} $$ For a constant force in the direction of motion: $$ W = Fs $$
+Use the fixed-axis rotation formulas:
+
+$$
+v = \omega r, \qquad a_t = \alpha r, \qquad a_n = \omega^2 r
+$$
+
+So
+
+$$
+v = 2(0.5) = 1 \, \text{m/s}
+$$
+
+$$
+a_t = 2(0.5) = 1 \, \text{m/s}^2
+$$
+
+$$
+a_n = 2^2(0.5) = 2 \, \text{m/s}^2
+$$
+
+The total acceleration magnitude is
+
+$$
+a = \sqrt{a_t^2 + a_n^2}
+= \sqrt{1^2 + 2^2}
+= \sqrt{5} \, \text{m/s}^2
+$$
 :::
 
 ---
-id: "engineering-dynamics-211"
-note: "engineering-dynamics"
-title: "Review: Kinetic energy"
-type: "text"
-answer: "For a particle: $$ T = \\frac{1}{2}mv^2 $$ Work-energy theorem: $$ T 1 + \\sum W {1\\to2} = T 2 $$"
-skills:
-  - "Kinetic energy"
+id: dynamics-43
+note: engineering-dynamics
+title: "Use Rotational Work-Energy"
+skills: [Work-Energy Methods, Rigid-Body Kinetics]
 ---
 
-What is the main idea of **Kinetic energy**?
+A uniform rod has mass $2$ kg and length $1$ m and rotates about one end. A constant moment of $6$ N$\cdot$m acts on it as it turns through $90^\circ$ from rest. Find its angular speed at the end of the turn.
 
 :::solution
-One short answer is: For a particle: $$ T = \frac{1}{2}mv^2 $$ Work-energy theorem: $$ T 1 + \sum W {1\to2} = T 2 $$
+Use work-energy for rotation:
+
+$$
+W = \Delta T
+$$
+
+The work done by the moment is
+
+$$
+W = M\theta = 6\left(\frac{\pi}{2}\right) = 3\pi \, \text{J}
+$$
+
+The rod's moment of inertia about one end is
+
+$$
+I_O = \frac{1}{3}mL^2 = \frac{1}{3}(2)(1^2) = \frac{2}{3} \, \text{kg}\cdot\text{m}^2
+$$
+
+Since it starts from rest,
+
+$$
+\frac{1}{2}I_O\omega^2 = 3\pi
+$$
+
+Substitute $I_O = \frac{2}{3}$:
+
+$$
+\frac{1}{2}\left(\frac{2}{3}\right)\omega^2 = 3\pi
+$$
+
+$$
+\frac{1}{3}\omega^2 = 3\pi
+$$
+
+$$
+\omega^2 = 9\pi
+$$
+
+$$
+\omega = 3\sqrt{\pi} \, \text{rad/s}
+$$
 :::
 
 ---
-id: "engineering-dynamics-212"
-note: "engineering-dynamics"
-title: "Review: Conservative forces"
-type: "text"
-answer: "Gravity and springs are conservative."
-skills:
-  - "Conservative forces"
+id: dynamics-44
+note: engineering-dynamics
+title: "Handle a Rotating Frame with Coriolis Acceleration"
+skills: [Relative Motion, Rotating Frames]
 ---
 
-What is the main idea of **Conservative forces**?
+A collar slides outward in a radial slot on a disk rotating counterclockwise with constant angular velocity $\omega = 4 \, \text{rad/s}$. At the instant shown, the collar is $0.5$ m from the center and has outward relative speed $\dot{r} = 2 \, \text{m/s}$. The disk has no angular acceleration and the radial speed is constant, so $\ddot{r} = 0$. Find the Coriolis acceleration magnitude and the total acceleration vector.
 
 :::solution
-One short answer is: Gravity and springs are conservative.
-:::
+For a rotating frame, the Coriolis term is
 
----
-id: "engineering-dynamics-213"
-note: "engineering-dynamics"
-title: "Review: Example pattern"
-type: "text"
-answer: "For a block released on a rough incline, the work-energy method often gives speed after sliding a known distance without needing time explicitly. ---"
-skills:
-  - "Example pattern"
----
+$$
+2\boldsymbol{\omega} \times \mathbf{v}_{rel}
+$$
 
-What is the main idea of **Example pattern**?
+Its magnitude is
 
-:::solution
-One short answer is: For a block released on a rough incline, the work-energy method often gives speed after sliding a known distance without needing time explicitly. ---
-:::
+$$
+2\omega v_{rel} = 2(4)(2) = 16 \, \text{m/s}^2
+$$
 
----
-id: "engineering-dynamics-214"
-note: "engineering-dynamics"
-title: "Review: Impulse-momentum methods"
-type: "text"
-answer: "Impulse-momentum is useful when forces act over a short time, such as impacts or thrust events."
-skills:
-  - "8. Impulse-momentum methods"
----
+Since $\dot{r}$ is constant, $\mathbf{a}_{rel} = 0$ and $\boldsymbol{\alpha} = 0$.
 
-What is the main idea of **Impulse-momentum methods**?
+The centripetal term is
 
-:::solution
-One short answer is: Impulse-momentum is useful when forces act over a short time, such as impacts or thrust events.
-:::
+$$
+\boldsymbol{\omega} \times (\boldsymbol{\omega} \times \mathbf{r}) = -\omega^2 r\,\mathbf{e}_r
+$$
 
----
-id: "engineering-dynamics-215"
-note: "engineering-dynamics"
-title: "Review: Linear impulse-momentum"
-type: "text"
-answer: "For a particle: $$ \\int {t 1}^{t 2} \\sum \\mathbf{F}\\,dt = m\\mathbf{v} 2 - m\\mathbf{v} 1 $$ Component form is often easiest."
-skills:
-  - "Linear impulse-momentum"
----
+so
 
-What is the main idea of **Linear impulse-momentum**?
+$$
+a_r = -(4^2)(0.5) = -8 \, \text{m/s}^2
+$$
 
-:::solution
-One short answer is: For a particle: $$ \int {t 1}^{t 2} \sum \mathbf{F}\,dt = m\mathbf{v} 2 - m\mathbf{v} 1 $$ Component form is often easiest.
-:::
+and the Coriolis term points in the tangential direction:
 
----
-id: "engineering-dynamics-31"
-note: "engineering-dynamics"
-title: "Review: Angular impulse-momentum"
-type: "text"
-answer: "About a point \\(O\\): $$ \\int {t 1}^{t 2} \\sum M O\\,dt = H {O2} - H {O1} $$"
-skills:
-  - "Angular impulse-momentum"
----
+$$
+a_\theta = 16 \, \text{m/s}^2
+$$
 
-What is the main idea of **Angular impulse-momentum**?
+Therefore,
 
-:::solution
-One short answer is: About a point \(O\): $$ \int {t 1}^{t 2} \sum M O\,dt = H {O2} - H {O1} $$
-:::
+$$
+\mathbf{a} = -8\,\mathbf{e}_r + 16\,\mathbf{e}_\theta
+$$
 
----
-id: "engineering-dynamics-32"
-note: "engineering-dynamics"
-title: "Review: When to use it"
-type: "text"
-answer: "Impact problems"
-skills:
-  - "When to use it"
----
-
-What is the main idea of **When to use it**?
-
-:::solution
-One short answer is: Impact problems
-:::
-
----
-id: "engineering-dynamics-33"
-note: "engineering-dynamics"
-title: "Review: Caution"
-type: "text"
-answer: "Impulse-momentum is not ideal if the force is unknown and the time interval is long unless the impulse can be integrated or approximated. ---"
-skills:
-  - "Caution"
----
-
-What is the main idea of **Caution**?
-
-:::solution
-One short answer is: Impulse-momentum is not ideal if the force is unknown and the time interval is long unless the impulse can be integrated or approximated. ---
-:::
-
----
-id: "engineering-dynamics-34"
-note: "engineering-dynamics"
-title: "Review: Rigid-body kinematics"
-type: "text"
-answer: "Rigid-body motion combines translation and rotation."
-skills:
-  - "9. Rigid-body kinematics"
----
-
-What is the main idea of **Rigid-body kinematics**?
-
-:::solution
-One short answer is: Rigid-body motion combines translation and rotation.
-:::
-
----
-id: "engineering-dynamics-35"
-note: "engineering-dynamics"
-title: "Review: Plane motion"
-type: "text"
-answer: "For planar motion of a rigid body: $$ \\mathbf{v} B = \\mathbf{v} A + \\boldsymbol{\\omega} \\times \\mathbf{r} {B/A} $$ $$ \\mathbf{a} B = \\mathbf{a} A + \\boldsymbol{\\alpha} \\times \\mathbf{r} {B/A} + \\boldsymbol{\\omega} \\time…"
-skills:
-  - "Plane motion"
----
-
-What is the main idea of **Plane motion**?
-
-:::solution
-One short answer is: For planar motion of a rigid body: $$ \mathbf{v} B = \mathbf{v} A + \boldsymbol{\omega} \times \mathbf{r} {B/A} $$ $$ \mathbf{a} B = \mathbf{a} A + \boldsymbol{\alpha} \times \mathbf{r} {B/A} + \boldsymbol{\omega} \time…
-:::
-
----
-id: "engineering-dynamics-36"
-note: "engineering-dynamics"
-title: "Review: Pure translation"
-type: "text"
-answer: "All points have the same velocity"
-skills:
-  - "Pure translation"
----
-
-What is the main idea of **Pure translation**?
-
-:::solution
-One short answer is: All points have the same velocity
-:::
-
----
-id: "engineering-dynamics-37"
-note: "engineering-dynamics"
-title: "Review: Pure rotation about a fixed axis"
-type: "text"
-answer: "\\(a t\\) is tangent to the path"
-skills:
-  - "Pure rotation about a fixed axis"
----
-
-What is the main idea of **Pure rotation about a fixed axis**?
-
-:::solution
-One short answer is: \(a t\) is tangent to the path
-:::
-
----
-id: "engineering-dynamics-38"
-note: "engineering-dynamics"
-title: "Review: Instantaneous center of zero velocity"
-type: "text"
-answer: "In planar motion, a body can often be treated as instantaneously rotating about a point with zero velocity."
-skills:
-  - "Instantaneous center of zero velocity"
----
-
-What is the main idea of **Instantaneous center of zero velocity**?
-
-:::solution
-One short answer is: In planar motion, a body can often be treated as instantaneously rotating about a point with zero velocity.
-:::
-
----
-id: "engineering-dynamics-39"
-note: "engineering-dynamics"
-title: "Review: Rigid-body kinetics"
-type: "text"
-answer: "Rigid-body kinetics extends Newton's laws to bodies with rotation."
-skills:
-  - "10. Rigid-body kinetics"
----
-
-What is the main idea of **Rigid-body kinetics**?
-
-:::solution
-One short answer is: Rigid-body kinetics extends Newton's laws to bodies with rotation.
-:::
-
----
-id: "engineering-dynamics-310"
-note: "engineering-dynamics"
-title: "Review: Translation of the mass center"
-type: "text"
-answer: "For a rigid body: $$ \\sum \\mathbf{F} = m\\mathbf{a} G $$ where \\(G\\) is the center of mass."
-skills:
-  - "Translation of the mass center"
----
-
-What is the main idea of **Translation of the mass center**?
-
-:::solution
-One short answer is: For a rigid body: $$ \sum \mathbf{F} = m\mathbf{a} G $$ where \(G\) is the center of mass.
-:::
-
----
-id: "engineering-dynamics-311"
-note: "engineering-dynamics"
-title: "Review: Rotation about the mass center"
-type: "text"
-answer: "For planar motion: $$ \\sum M G = I G \\alpha $$ where \\(I G\\) is the mass moment of inertia about the center of mass."
-skills:
-  - "Rotation about the mass center"
----
-
-What is the main idea of **Rotation about the mass center**?
-
-:::solution
-One short answer is: For planar motion: $$ \sum M G = I G \alpha $$ where \(I G\) is the mass moment of inertia about the center of mass.
-:::
-
----
-id: "engineering-dynamics-312"
-note: "engineering-dynamics"
-title: "Review: Rotation about another point"
-type: "text"
-answer: "About a fixed point \\(O\\): $$ \\sum M O = I O \\alpha $$ if the axis is fixed in an inertial frame. Parallel-axis theorem: $$ I O = I G + md^2 $$ where \\(d\\) is the distance between axes."
-skills:
-  - "Rotation about another point"
----
-
-What is the main idea of **Rotation about another point**?
-
-:::solution
-One short answer is: About a fixed point \(O\): $$ \sum M O = I O \alpha $$ if the axis is fixed in an inertial frame. Parallel-axis theorem: $$ I O = I G + md^2 $$ where \(d\) is the distance between axes.
-:::
-
----
-id: "engineering-dynamics-313"
-note: "engineering-dynamics"
-title: "Review: Common inertia facts"
-type: "text"
-answer: "Thin rod about center: \\(I = \\frac{1}{12}mL^2\\)"
-skills:
-  - "Common inertia facts"
----
-
-Name one common mistake the note warns about in **Common inertia facts**.
-
-:::solution
-One short answer is: Thin rod about center: \(I = \frac{1}{12}mL^2\)
-:::
-
----
-id: "engineering-dynamics-314"
-note: "engineering-dynamics"
-title: "Review: Energy for rigid bodies"
-type: "text"
-answer: "Total kinetic energy: $$ T = \\frac{1}{2}mv G^2 + \\frac{1}{2}I G\\omega^2 $$ This form is useful for rolling, pulleys, and rotating links. ---"
-skills:
-  - "Energy for rigid bodies"
----
-
-What is the main idea of **Energy for rigid bodies**?
-
-:::solution
-One short answer is: Total kinetic energy: $$ T = \frac{1}{2}mv G^2 + \frac{1}{2}I G\omega^2 $$ This form is useful for rolling, pulleys, and rotating links. ---
-:::
-
----
-id: "engineering-dynamics-315"
-note: "engineering-dynamics"
-title: "Review: Choosing the right method"
-type: "text"
-answer: "The best method depends on what the problem gives and what it asks for."
-skills:
-  - "11. Choosing the right method"
----
-
-What is the main idea of **Choosing the right method**?
-
-:::solution
-One short answer is: The best method depends on what the problem gives and what it asks for.
-:::
-
----
-id: "engineering-dynamics-41"
-note: "engineering-dynamics"
-title: "Review: Use kinematics when"
-type: "text"
-answer: "You need position, velocity, or acceleration only"
-skills:
-  - "Use kinematics when"
----
-
-What is the main idea of **Use kinematics when**?
-
-:::solution
-One short answer is: You need position, velocity, or acceleration only
-:::
-
----
-id: "engineering-dynamics-42"
-note: "engineering-dynamics"
-title: "Review: Use Newton-Euler when"
-type: "text"
-answer: "Forces or moments are explicitly requested"
-skills:
-  - "Use Newton-Euler when"
----
-
-What is the main idea of **Use Newton-Euler when**?
-
-:::solution
-One short answer is: Forces or moments are explicitly requested
-:::
-
----
-id: "engineering-dynamics-43"
-note: "engineering-dynamics"
-title: "Review: Use work-energy when"
-type: "text"
-answer: "Displacement is known"
-skills:
-  - "Use work-energy when"
----
-
-What is the main idea of **Use work-energy when**?
-
-:::solution
-One short answer is: Displacement is known
-:::
-
----
-id: "engineering-dynamics-44"
-note: "engineering-dynamics"
-title: "Review: Use impulse-momentum when"
-type: "text"
-answer: "The time interval is short"
-skills:
-  - "Use impulse-momentum when"
----
-
-What is the main idea of **Use impulse-momentum when**?
-
-:::solution
-One short answer is: The time interval is short
-:::
-
----
-id: "engineering-dynamics-45"
-note: "engineering-dynamics"
-title: "Review: Practical decision rule"
-type: "text"
-answer: "If the problem asks for a force, start with free-body diagrams and Newton's laws."
-skills:
-  - "Practical decision rule"
----
-
-What is the main idea of **Practical decision rule**?
-
-:::solution
-One short answer is: If the problem asks for a force, start with free-body diagrams and Newton's laws.
-:::
-
----
-id: "engineering-dynamics-46"
-note: "engineering-dynamics"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Mixing up kinematics and kinetics"
-skills:
-  - "12. Common pitfalls"
----
-
-Name one common mistake the note warns about in **Common pitfalls**.
-
-:::solution
-One short answer is: Mixing up kinematics and kinetics
-:::
-
----
-id: "engineering-dynamics-47"
-note: "engineering-dynamics"
-title: "Review: Sanity checks"
-type: "text"
-answer: "Units must match at every step"
-skills:
-  - "Sanity checks"
----
-
-What is the main idea of **Sanity checks**?
-
-:::solution
-One short answer is: Units must match at every step
-:::
-
----
-id: "engineering-dynamics-48"
-note: "engineering-dynamics"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "13. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "engineering-dynamics-49"
-note: "engineering-dynamics"
-title: "Review: Particle motion"
-type: "text"
-answer: "$$ \\mathbf{v} = \\frac{d\\mathbf{r}}{dt},\\quad \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} $$ $$ \\sum \\mathbf{F} = m\\mathbf{a} $$ $$ T = \\frac{1}{2}mv^2 $$ $$ \\int \\sum \\mathbf{F}\\,dt = m\\mathbf{v} 2 - m\\mathbf{v} 1 $$"
-skills:
-  - "Particle motion"
----
-
-What is the main idea of **Particle motion**?
-
-:::solution
-One short answer is: $$ \mathbf{v} = \frac{d\mathbf{r}}{dt},\quad \mathbf{a} = \frac{d\mathbf{v}}{dt} $$ $$ \sum \mathbf{F} = m\mathbf{a} $$ $$ T = \frac{1}{2}mv^2 $$ $$ \int \sum \mathbf{F}\,dt = m\mathbf{v} 2 - m\mathbf{v} 1 $$
-:::
-
----
-id: "engineering-dynamics-410"
-note: "engineering-dynamics"
-title: "Review: Curvilinear motion"
-type: "text"
-answer: "$$ a t = \\frac{dv}{dt} $$ $$ a n = \\frac{v^2}{\\rho} $$ $$ \\mathbf{a} = \\left(\\ddot{r} - r\\dot{\\theta}^2\\right)\\mathbf{e} r + \\left(r\\ddot{\\theta} + 2\\dot{r}\\dot{\\theta}\\right)\\mathbf{e} \\theta $$"
-skills:
-  - "Curvilinear motion"
----
-
-What is the main idea of **Curvilinear motion**?
-
-:::solution
-One short answer is: $$ a t = \frac{dv}{dt} $$ $$ a n = \frac{v^2}{\rho} $$ $$ \mathbf{a} = \left(\ddot{r} - r\dot{\theta}^2\right)\mathbf{e} r + \left(r\ddot{\theta} + 2\dot{r}\dot{\theta}\right)\mathbf{e} \theta $$
-:::
-
----
-id: "engineering-dynamics-411"
-note: "engineering-dynamics"
-title: "Review: Rigid-body motion"
-type: "text"
-answer: "$$ \\mathbf{v} B = \\mathbf{v} A + \\boldsymbol{\\omega} \\times \\mathbf{r} {B/A} $$ $$ \\mathbf{a} B = \\mathbf{a} A + \\boldsymbol{\\alpha} \\times \\mathbf{r} {B/A} + \\boldsymbol{\\omega} \\times (\\boldsymbol{\\omega} \\times \\math…"
-skills:
-  - "Rigid-body motion"
----
-
-What is the main idea of **Rigid-body motion**?
-
-:::solution
-One short answer is: $$ \mathbf{v} B = \mathbf{v} A + \boldsymbol{\omega} \times \mathbf{r} {B/A} $$ $$ \mathbf{a} B = \mathbf{a} A + \boldsymbol{\alpha} \times \mathbf{r} {B/A} + \boldsymbol{\omega} \times (\boldsymbol{\omega} \times \math…
-:::
-
----
-id: "engineering-dynamics-412"
-note: "engineering-dynamics"
-title: "Review: Energy"
-type: "text"
-answer: "$$ T 1 + \\sum W {1\\to2} = T 2 $$ $$ T 1 + V 1 + W {nc} = T 2 + V 2 $$"
-skills:
-  - "Energy"
----
-
-What is the main idea of **Energy**?
-
-:::solution
-One short answer is: $$ T 1 + \sum W {1\to2} = T 2 $$ $$ T 1 + V 1 + W {nc} = T 2 + V 2 $$
-:::
-
----
-id: "engineering-dynamics-413"
-note: "engineering-dynamics"
-title: "Review: Friction"
-type: "text"
-answer: "$$ f s \\le \\mu s N,\\quad f k = \\mu k N $$"
-skills:
-  - "Friction"
----
-
-What is the main idea of **Friction**?
-
-:::solution
-One short answer is: $$ f s \le \mu s N,\quad f k = \mu k N $$
-:::
-
----
-id: "engineering-dynamics-414"
-note: "engineering-dynamics"
-title: "Review: Problem-solving checklist"
-type: "text"
-answer: "Draw the system and the free-body diagram."
-skills:
-  - "Problem-solving checklist"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving checklist**?
-
-:::solution
-One short answer is: Draw the system and the free-body diagram.
+The Coriolis acceleration magnitude is $16 \, \text{m/s}^2$.
 :::

@@ -1,1023 +1,1111 @@
 ---
-id: "math-integrals-11"
-note: "math-integrals"
-title: "Review: Indefinite integrals and antiderivatives"
-type: "text"
-answer: "An antiderivative of $f(x)$ is a function $F(x)$ such that $$ F'(x) = f(x)."
-skills:
-  - "1. Indefinite integrals and antiderivatives"
+id: integrals-11
+note: math-integrals
+title: "Use the Power Rule and Linearity"
+skills: [Power Rule, Linearity]
 ---
 
-What is the main idea of **Indefinite integrals and antiderivatives**?
+Evaluate the indefinite integral:
+
+$$
+\int \left(4x^3 - 6x + 2\right)\,dx
+$$
 
 :::solution
-One short answer is: An antiderivative of $f(x)$ is a function $F(x)$ such that $$ F'(x) = f(x).
+Integrate term by term:
+
+$$
+\int 4x^3\,dx = x^4
+$$
+
+$$
+\int (-6x)\,dx = -3x^2
+$$
+
+$$
+\int 2\,dx = 2x
+$$
+
+So,
+
+$$
+\int \left(4x^3 - 6x + 2\right)\,dx = x^4 - 3x^2 + 2x + C.
+$$
 :::
 
 ---
-id: "math-integrals-12"
-note: "math-integrals"
-title: "Review: Linear properties"
-type: "text"
-answer: "Integration is linear: $$ \\int \\bigl(af(x) + bg(x)\\bigr)\\,dx = a\\int f(x)\\,dx + b\\int g(x)\\,dx. $$ This is one of the most useful simplifications in basic integration."
-skills:
-  - "Linear properties"
+id: integrals-12
+note: math-integrals
+title: "Differentiate an Accumulation Function"
+skills: [Fundamental Theorem of Calculus, Accumulation Functions]
 ---
 
-What is the main idea of **Linear properties**?
+Let
+
+$$
+F(x) = \int_0^x (t^2 + 3t)\,dt.
+$$
+
+Find $F'(x)$.
 
 :::solution
-One short answer is: Integration is linear: $$ \int \bigl(af(x) + bg(x)\bigr)\,dx = a\int f(x)\,dx + b\int g(x)\,dx. $$ This is one of the most useful simplifications in basic integration.
+By Part 1 of the Fundamental Theorem of Calculus,
+
+$$
+F'(x) = x^2 + 3x.
+$$
 :::
 
 ---
-id: "math-integrals-13"
-note: "math-integrals"
-title: "Review: Basic interpretation"
-type: "text"
-answer: "If $f(x)$ is a rate, then an integral of $f$ gives the accumulated amount. If $v(t)$ is velocity, then $$ \\int v(t)\\,dt $$ gives displacement, up to an initial condition. ---"
-skills:
-  - "Basic interpretation"
+id: integrals-13
+note: math-integrals
+title: "Evaluate a Definite Integral with the FTC"
+skills: [Fundamental Theorem of Calculus, Definite Integrals]
 ---
 
-What is the main idea of **Basic interpretation**?
+Compute:
+
+$$
+\int_0^2 \left(3x^2 - 4x + 1\right)\,dx
+$$
 
 :::solution
-One short answer is: If $f(x)$ is a rate, then an integral of $f$ gives the accumulated amount. If $v(t)$ is velocity, then $$ \int v(t)\,dt $$ gives displacement, up to an initial condition. ---
+An antiderivative is
+
+$$
+x^3 - 2x^2 + x.
+$$
+
+Now apply Part 2 of the Fundamental Theorem of Calculus:
+
+$$
+\int_0^2 \left(3x^2 - 4x + 1\right)\,dx
+= \left[x^3 - 2x^2 + x\right]_0^2
+$$
+
+$$
+= (8 - 8 + 2) - 0 = 2.
+$$
 :::
 
 ---
-id: "math-integrals-14"
-note: "math-integrals"
-title: "Review: Definite integrals and area"
-type: "text"
-answer: "The definite integral of $f(x)$ from $a$ to $b$ is written $$ \\int a^b f(x)\\,dx. $$ It represents signed accumulation over the interval $[a,b]$."
-skills:
-  - "2. Definite integrals and area"
+id: integrals-14
+note: math-integrals
+title: "Find an Average Value"
+skills: [Average Value, Definite Integrals]
 ---
 
-What is the main idea of **Definite integrals and area**?
+Find the average value of
+
+$$
+f(x) = x^2
+$$
+
+on the interval $[0,3]$.
 
 :::solution
-One short answer is: The definite integral of $f(x)$ from $a$ to $b$ is written $$ \int a^b f(x)\,dx. $$ It represents signed accumulation over the interval $[a,b]$.
+Use the average value formula:
+
+$$
+f_{\text{avg}} = \frac{1}{3-0}\int_0^3 x^2\,dx.
+$$
+
+Compute the integral:
+
+$$
+\int_0^3 x^2\,dx = \left[\frac{x^3}{3}\right]_0^3 = 9.
+$$
+
+So the average value is
+
+$$
+\frac{1}{3}\cdot 9 = 3.
+$$
 :::
 
 ---
-id: "math-integrals-15"
-note: "math-integrals"
-title: "Review: Riemann sum definition"
-type: "text"
-answer: "Partition $[a,b]$ into $n$ subintervals of width $$ \\Delta x = \\frac{b-a}{n}."
-skills:
-  - "Riemann sum definition"
+id: integrals-15
+note: math-integrals
+title: "Use Substitution on a Composite Function"
+skills: [Substitution, Antiderivatives]
 ---
 
-What core idea is introduced in **Riemann sum definition**?
+Evaluate:
+
+$$
+\int 2x\cos(x^2)\,dx
+$$
 
 :::solution
-One short answer is: Partition $[a,b]$ into $n$ subintervals of width $$ \Delta x = \frac{b-a}{n}.
+Let
+
+$$
+u = x^2, \qquad du = 2x\,dx.
+$$
+
+Then the integral becomes
+
+$$
+\int \cos u\,du = \sin u + C.
+$$
+
+Substitute back:
+
+$$
+\int 2x\cos(x^2)\,dx = \sin(x^2) + C.
+$$
 :::
 
 ---
-id: "math-integrals-16"
-note: "math-integrals"
-title: "Review: Signed area"
-type: "text"
-answer: "If $f(x) > 0$ on an interval, the integral is positive."
-skills:
-  - "Signed area"
+id: integrals-16
+note: math-integrals
+title: "Use Integration by Parts on a Product"
+skills: [Integration by Parts, Exponential Functions]
 ---
 
-What is the main idea of **Signed area**?
+Evaluate:
+
+$$
+\int x e^x\,dx
+$$
 
 :::solution
-One short answer is: If $f(x) > 0$ on an interval, the integral is positive.
+Use integration by parts with
+
+$$
+u = x, \qquad dv = e^x\,dx.
+$$
+
+Then
+
+$$
+du = dx, \qquad v = e^x.
+$$
+
+So
+
+$$
+\int x e^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C.
+$$
 :::
 
 ---
-id: "math-integrals-17"
-note: "math-integrals"
-title: "Review: Average value"
-type: "text"
-answer: "The average value of $f$ on $[a,b]$ is $$ f {\\text{avg}} = \\frac{1}{b-a}\\int a^b f(x)\\,dx. $$ This is a common interpretation: the integral is the total, and dividing by interval length gives the average height. ---"
-skills:
-  - "Average value"
+id: integrals-17
+note: math-integrals
+title: "Decompose a Simple Rational Integral"
+skills: [Partial Fractions, Rational Functions]
 ---
 
-What is the main idea of **Average value**?
+Evaluate:
+
+$$
+\int \frac{1}{x(x+2)}\,dx
+$$
 
 :::solution
-One short answer is: The average value of $f$ on $[a,b]$ is $$ f {\text{avg}} = \frac{1}{b-a}\int a^b f(x)\,dx. $$ This is a common interpretation: the integral is the total, and dividing by interval length gives the average height. ---
+Write the integrand as partial fractions:
+
+$$
+\frac{1}{x(x+2)} = \frac{A}{x} + \frac{B}{x+2}.
+$$
+
+Multiply by $x(x+2)$:
+
+$$
+1 = A(x+2) + Bx.
+$$
+
+Set $x=0$ to get $1=2A$, so $A=\frac12$.  
+Set $x=-2$ to get $1=-2B$, so $B=-\frac12$.
+
+Thus
+
+$$
+\frac{1}{x(x+2)} = \frac{1}{2x} - \frac{1}{2(x+2)}.
+$$
+
+Integrate:
+
+$$
+\int \frac{1}{x(x+2)}\,dx
+= \frac12 \ln|x| - \frac12 \ln|x+2| + C.
+$$
 :::
 
 ---
-id: "math-integrals-18"
-note: "math-integrals"
-title: "Review: The Fundamental Theorem of Calculus"
-type: "text"
-answer: "The Fundamental Theorem of Calculus connects derivatives and integrals."
-skills:
-  - "3. The Fundamental Theorem of Calculus"
+id: integrals-18
+note: math-integrals
+title: "Use a Trig Identity Before Integrating"
+skills: [Trig Identities, Definite Integrals]
 ---
 
-What core idea is introduced in **The Fundamental Theorem of Calculus**?
+Compute:
+
+$$
+\int_0^{\pi/2} \sin^2 x\,dx
+$$
 
 :::solution
-One short answer is: The Fundamental Theorem of Calculus connects derivatives and integrals.
+Use the identity
+
+$$
+\sin^2 x = \frac{1-\cos(2x)}{2}.
+$$
+
+Then
+
+$$
+\int_0^{\pi/2} \sin^2 x\,dx
+= \frac12 \int_0^{\pi/2} \left(1-\cos(2x)\right)\,dx.
+$$
+
+Evaluate:
+
+$$
+\frac12\left[x - \frac{\sin(2x)}{2}\right]_0^{\pi/2}
+= \frac12\left(\frac{\pi}{2}\right)
+= \frac{\pi}{4}.
+$$
 :::
 
 ---
-id: "math-integrals-19"
-note: "math-integrals"
-title: "Review: Part 1"
-type: "text"
-answer: "If $$ G(x) = \\int a^x f(t)\\,dt, $$ then, under mild conditions, $$ G'(x) = f(x). $$ This says accumulation and instantaneous rate are inverse processes."
-skills:
-  - "Part 1"
+id: integrals-19
+note: math-integrals
+title: "Test an Improper Integral"
+skills: [Improper Integrals, Convergence]
 ---
 
-What is the main idea of **Part 1**?
+Evaluate the improper integral:
+
+$$
+\int_1^\infty \frac{1}{x^3}\,dx
+$$
 
 :::solution
-One short answer is: If $$ G(x) = \int a^x f(t)\,dt, $$ then, under mild conditions, $$ G'(x) = f(x). $$ This says accumulation and instantaneous rate are inverse processes.
+Write it as a limit:
+
+$$
+\int_1^\infty \frac{1}{x^3}\,dx
+= \lim_{b\to\infty}\int_1^b x^{-3}\,dx.
+$$
+
+An antiderivative is
+
+$$
+\int x^{-3}\,dx = -\frac{1}{2x^2}.
+$$
+
+So
+
+$$
+\lim_{b\to\infty}\left[-\frac{1}{2x^2}\right]_1^b
+= \lim_{b\to\infty}\left(-\frac{1}{2b^2}+\frac12\right)
+= \frac12.
+$$
+
+The integral converges to $\frac12$.
 :::
 
 ---
-id: "math-integrals-110"
-note: "math-integrals"
-title: "Review: Part 2"
-type: "text"
-answer: "If $F'(x)=f(x)$, then $$ \\int a^b f(x)\\,dx = F(b) - F(a). $$ This is the practical evaluation rule for definite integrals."
-skills:
-  - "Part 2"
+id: integrals-110
+note: math-integrals
+title: "Estimate an Integral with the Trapezoidal Rule"
+skills: [Trapezoidal Rule, Numerical Integration]
 ---
 
-What is the main idea of **Part 2**?
+Use the trapezoidal rule with $n=2$ to approximate
+
+$$
+\int_0^2 (x^2+1)\,dx.
+$$
 
 :::solution
-One short answer is: If $F'(x)=f(x)$, then $$ \int a^b f(x)\,dx = F(b) - F(a). $$ This is the practical evaluation rule for definite integrals.
+With $n=2$,
+
+$$
+\Delta x = \frac{2-0}{2} = 1.
+$$
+
+The sample points are $x_0=0$, $x_1=1$, and $x_2=2$.
+
+Evaluate the function:
+
+$$
+f(0)=1,\qquad f(1)=2,\qquad f(2)=5.
+$$
+
+Apply the trapezoidal rule:
+
+$$
+\int_0^2 (x^2+1)\,dx \approx \frac{\Delta x}{2}\left[f(0)+2f(1)+f(2)\right].
+$$
+
+So
+
+$$
+\frac{1}{2}(1+2\cdot 2+5)=\frac{10}{2}=5.
+$$
 :::
 
 ---
-id: "math-integrals-111"
-note: "math-integrals"
-title: "Review: Why this matters"
-type: "text"
-answer: "Find an antiderivative."
-skills:
-  - "Why this matters"
+id: integrals-21
+note: math-integrals
+title: "Substitute and Change the Bounds"
+skills: [Substitution, Definite Integrals]
 ---
 
-What is the main idea of **Why this matters**?
+Evaluate:
+
+$$
+\int_0^1 \frac{2x}{1+x^2}\,dx
+$$
 
 :::solution
-One short answer is: Find an antiderivative.
+Let
+
+$$
+u = 1+x^2, \qquad du = 2x\,dx.
+$$
+
+Change the bounds:
+
+$$
+x=0 \Rightarrow u=1, \qquad x=1 \Rightarrow u=2.
+$$
+
+Then
+
+$$
+\int_0^1 \frac{2x}{1+x^2}\,dx
+= \int_1^2 \frac{1}{u}\,du
+= \left[\ln|u|\right]_1^2
+= \ln 2.
+$$
 :::
 
 ---
-id: "math-integrals-112"
-note: "math-integrals"
-title: "Review: Core antiderivative rules"
-type: "text"
-answer: "These formulas appear constantly."
-skills:
-  - "4. Core antiderivative rules"
+id: integrals-22
+note: math-integrals
+title: "Integrate a Logarithm by Parts"
+skills: [Integration by Parts, Logarithms]
 ---
 
-What core idea is introduced in **Core antiderivative rules**?
+Evaluate:
+
+$$
+\int_1^e x\ln x\,dx
+$$
 
 :::solution
-One short answer is: These formulas appear constantly.
+Use integration by parts with
+
+$$
+u=\ln x,\qquad dv=x\,dx.
+$$
+
+Then
+
+$$
+du=\frac{1}{x}\,dx,\qquad v=\frac{x^2}{2}.
+$$
+
+So
+
+$$
+\int_1^e x\ln x\,dx
+= \left[\frac{x^2}{2}\ln x\right]_1^e - \frac12\int_1^e x\,dx.
+$$
+
+Now evaluate each part:
+
+$$
+\left[\frac{x^2}{2}\ln x\right]_1^e = \frac{e^2}{2}
+$$
+
+and
+
+$$
+\frac12\int_1^e x\,dx
+= \frac12\left[\frac{x^2}{2}\right]_1^e
+= \frac{e^2-1}{4}.
+$$
+
+Therefore
+
+$$
+\int_1^e x\ln x\,dx
+= \frac{e^2}{2}-\frac{e^2-1}{4}
+= \frac{e^2+1}{4}.
+$$
 :::
 
 ---
-id: "math-integrals-113"
-note: "math-integrals"
-title: "Review: Power rule"
-type: "text"
-answer: "For $n \\neq -1$, $$ \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C. $$ Special case: $$ \\int \\frac{1}{x}\\,dx = \\ln x + C. $$"
-skills:
-  - "Power rule"
+id: integrals-23
+note: math-integrals
+title: "Decompose a Rational Function with a Repeated Factor"
+skills: [Partial Fractions, Repeated Factors]
 ---
 
-What is the main idea of **Power rule**?
+Evaluate:
+
+$$
+\int \frac{1}{x(x+1)^2}\,dx
+$$
 
 :::solution
-One short answer is: For $n \neq -1$, $$ \int x^n\,dx = \frac{x^{n+1}}{n+1} + C. $$ Special case: $$ \int \frac{1}{x}\,dx = \ln x + C. $$
+Write
+
+$$
+\frac{1}{x(x+1)^2} = \frac{A}{x} + \frac{B}{x+1} + \frac{C}{(x+1)^2}.
+$$
+
+Multiply by $x(x+1)^2$:
+
+$$
+1 = A(x+1)^2 + Bx(x+1) + Cx.
+$$
+
+Expanding gives
+
+$$
+1 = (A+B)x^2 + (2A+B+C)x + A.
+$$
+
+Match coefficients:
+
+$$
+A=1,\qquad A+B=0,\qquad 2A+B+C=0.
+$$
+
+So
+
+$$
+A=1,\qquad B=-1,\qquad C=-1.
+$$
+
+Therefore
+
+$$
+\frac{1}{x(x+1)^2} = \frac{1}{x} - \frac{1}{x+1} - \frac{1}{(x+1)^2}.
+$$
+
+Integrate term by term:
+
+$$
+\int \frac{1}{x(x+1)^2}\,dx
+= \ln|x| - \ln|x+1| + \frac{1}{x+1} + C.
+$$
 :::
 
 ---
-id: "math-integrals-114"
-note: "math-integrals"
-title: "Review: Exponential and logarithmic forms"
-type: "text"
-answer: "$$ \\int e^x\\,dx = e^x + C $$ $$ \\int a^x\\,dx = \\frac{a^x}{\\ln a} + C \\quad (a>0,\\ a\\neq 1) $$ $$ \\int \\ln x\\,dx $$ is not a basic form, but is often handled by integration by parts."
-skills:
-  - "Exponential and logarithmic forms"
+id: integrals-24
+note: math-integrals
+title: "Use Trig Substitution on a Radical"
+skills: [Trig Substitution, Definite Integrals]
 ---
 
-What is the main idea of **Exponential and logarithmic forms**?
+Compute:
+
+$$
+\int_0^{3/2} \frac{dx}{\sqrt{9-x^2}}
+$$
 
 :::solution
-One short answer is: $$ \int e^x\,dx = e^x + C $$ $$ \int a^x\,dx = \frac{a^x}{\ln a} + C \quad (a>0,\ a\neq 1) $$ $$ \int \ln x\,dx $$ is not a basic form, but is often handled by integration by parts.
+Use the substitution
+
+$$
+x = 3\sin\theta, \qquad dx = 3\cos\theta\,d\theta.
+$$
+
+The bounds change as follows:
+
+$$
+x=0 \Rightarrow \theta=0, \qquad x=\frac32 \Rightarrow \sin\theta=\frac12 \Rightarrow \theta=\frac{\pi}{6}.
+$$
+
+Also,
+
+$$
+\sqrt{9-x^2} = \sqrt{9-9\sin^2\theta} = 3\cos\theta.
+$$
+
+So the integral becomes
+
+$$
+\int_0^{\pi/6} \frac{3\cos\theta}{3\cos\theta}\,d\theta
+= \int_0^{\pi/6} d\theta
+= \frac{\pi}{6}.
+$$
 :::
 
 ---
-id: "math-integrals-115"
-note: "math-integrals"
-title: "Review: Trigonometric basics"
-type: "text"
-answer: "$$ \\int \\sin x\\,dx = -\\cos x + C $$ $$ \\int \\cos x\\,dx = \\sin x + C $$ $$ \\int \\sec^2 x\\,dx = \\tan x + C $$ $$ \\int \\csc^2 x\\,dx = -\\cot x + C $$ $$ \\int \\sec x\\tan x\\,dx = \\sec x + C $$ $$ \\int \\csc x\\cot x\\,dx = -\\csc…"
-skills:
-  - "Trigonometric basics"
+id: integrals-25
+note: math-integrals
+title: "Find the Area Between Two Curves"
+skills: [Area Between Curves, Definite Integrals]
 ---
 
-What is the main idea of **Trigonometric basics**?
+Find the area between
+
+$$
+y = 2x
+\quad \text{and} \quad
+y = x^2
+$$
+
+on the interval $[0,2]$.
 
 :::solution
-One short answer is: $$ \int \sin x\,dx = -\cos x + C $$ $$ \int \cos x\,dx = \sin x + C $$ $$ \int \sec^2 x\,dx = \tan x + C $$ $$ \int \csc^2 x\,dx = -\cot x + C $$ $$ \int \sec x\tan x\,dx = \sec x + C $$ $$ \int \csc x\cot x\,dx = -\csc…
+On $[0,2]$, the line $y=2x$ lies above $y=x^2$.
+
+So the area is
+
+$$
+\int_0^2 (2x-x^2)\,dx.
+$$
+
+Compute:
+
+$$
+\int_0^2 (2x-x^2)\,dx
+= \left[x^2 - \frac{x^3}{3}\right]_0^2
+= 4-\frac{8}{3}
+= \frac{4}{3}.
+$$
 :::
 
 ---
-id: "math-integrals-116"
-note: "math-integrals"
-title: "Review: Common algebraic manipulations"
-type: "text"
-answer: "expand products"
-skills:
-  - "Common algebraic manipulations"
+id: integrals-26
+note: math-integrals
+title: "Find Volume with the Washer Method"
+skills: [Washer Method, Volumes of Revolution]
 ---
 
-Name one common mistake the note warns about in **Common algebraic manipulations**.
+The region between $y=2$ and $y=x$ for $0 \le x \le 2$ is rotated about the $x$-axis. Find the volume.
 
 :::solution
-One short answer is: expand products
+Using washers, the outer radius is $R(x)=2$ and the inner radius is $r(x)=x$.
+
+So
+
+$$
+V=\pi\int_0^2 \left(R(x)^2-r(x)^2\right)\,dx
+=\pi\int_0^2 (4-x^2)\,dx.
+$$
+
+Evaluate:
+
+$$
+V=\pi\left[4x-\frac{x^3}{3}\right]_0^2
+=\pi\left(8-\frac{8}{3}\right)
+=\frac{16\pi}{3}.
+$$
 :::
 
 ---
-id: "math-integrals-21"
-note: "math-integrals"
-title: "Review: Substitution"
-type: "text"
-answer: "Substitution reverses the chain rule. Use it when an integrand contains a function and its derivative, or a recognizable composite expression."
-skills:
-  - "5. Substitution"
+id: integrals-27
+note: math-integrals
+title: "Find Mass from a Density Function"
+skills: [Mass, Density]
 ---
 
-What is the main idea of **Substitution**?
+A thin rod has density
+
+$$
+\rho(x)=1+2x
+$$
+
+for $0 \le x \le 6$.
+
+Find the mass of the rod.
 
 :::solution
-One short answer is: Substitution reverses the chain rule. Use it when an integrand contains a function and its derivative, or a recognizable composite expression.
+Mass is the integral of density:
+
+$$
+m=\int_0^6 (1+2x)\,dx.
+$$
+
+Compute:
+
+$$
+m=\left[x+x^2\right]_0^6 = 6+36=42.
+$$
 :::
 
 ---
-id: "math-integrals-22"
-note: "math-integrals"
-title: "Review: Pattern"
-type: "text"
-answer: "If $$ \\int f(g(x))g'(x)\\,dx $$ then set $$ u = g(x), \\qquad du = g'(x)\\,dx. $$ The integral becomes $$ \\int f(u)\\,du. $$"
-skills:
-  - "Pattern"
+id: integrals-28
+note: math-integrals
+title: "Estimate an Integral with Simpson's Rule"
+skills: [Simpson's Rule, Numerical Integration]
 ---
 
-What is the main idea of **Pattern**?
+Use Simpson's rule with $n=2$ to approximate
+
+$$
+\int_0^2 x^4\,dx.
+$$
 
 :::solution
-One short answer is: If $$ \int f(g(x))g'(x)\,dx $$ then set $$ u = g(x), \qquad du = g'(x)\,dx. $$ The integral becomes $$ \int f(u)\,du. $$
+With $n=2$,
+
+$$
+\Delta x = \frac{2-0}{2}=1.
+$$
+
+The sample points are $0$, $1$, and $2$.
+
+Evaluate the function:
+
+$$
+f(0)=0,\qquad f(1)=1,\qquad f(2)=16.
+$$
+
+Apply Simpson's rule:
+
+$$
+\int_0^2 x^4\,dx \approx \frac{\Delta x}{3}\left[f(0)+4f(1)+f(2)\right].
+$$
+
+So
+
+$$
+\frac{1}{3}(0+4\cdot 1+16)=\frac{20}{3}.
+$$
 :::
 
 ---
-id: "math-integrals-23"
-note: "math-integrals"
-title: "Review: Example"
-type: "text"
-answer: "Evaluate $$ \\int 2x\\cos(x^2)\\,dx. $$ Let $$ u = x^2,\\qquad du = 2x\\,dx. $$ Then $$ \\int 2x\\cos(x^2)\\,dx = \\int \\cos u\\,du = \\sin u + C = \\sin(x^2)+C. $$"
-skills:
-  - "Example"
+id: integrals-31
+note: math-integrals
+title: "Find Displacement from a Velocity Function"
+skills: [Applications, Velocity]
 ---
 
-What is the main idea of **Example**?
+A particle has velocity
+
+$$
+v(t)=3t^2-2t
+$$
+
+for $0 \le t \le 2$.
+
+Find the displacement over that time interval.
 
 :::solution
-One short answer is: Evaluate $$ \int 2x\cos(x^2)\,dx. $$ Let $$ u = x^2,\qquad du = 2x\,dx. $$ Then $$ \int 2x\cos(x^2)\,dx = \int \cos u\,du = \sin u + C = \sin(x^2)+C. $$
+Displacement is the integral of velocity:
+
+$$
+\int_0^2 (3t^2-2t)\,dt.
+$$
+
+An antiderivative is
+
+$$
+t^3-t^2.
+$$
+
+Evaluate:
+
+$$
+\left[t^3-t^2\right]_0^2 = (8-4)-0 = 4.
+$$
+
+So the displacement is $4$.
 :::
 
 ---
-id: "math-integrals-24"
-note: "math-integrals"
-title: "Review: Definite integrals with substitution"
-type: "text"
-answer: "change the limits to the new variable, or"
-skills:
-  - "Definite integrals with substitution"
+id: integrals-32
+note: math-integrals
+title: "Find Volume with the Shell Method"
+skills: [Shell Method, Volumes of Revolution]
 ---
 
-What is the main idea of **Definite integrals with substitution**?
+The region under
+
+$$
+y=\sqrt{x}
+$$
+
+from $x=0$ to $x=4$ is rotated about the $y$-axis. Find the volume.
 
 :::solution
-One short answer is: change the limits to the new variable, or
+Using shells, the radius is $x$ and the height is $\sqrt{x}$.
+
+So
+
+$$
+V = 2\pi \int_0^4 x\sqrt{x}\,dx
+= 2\pi \int_0^4 x^{3/2}\,dx.
+$$
+
+Compute:
+
+$$
+\int x^{3/2}\,dx = \frac{2}{5}x^{5/2}.
+$$
+
+Therefore
+
+$$
+V = 2\pi \left[\frac{2}{5}x^{5/2}\right]_0^4
+= \frac{4\pi}{5}\cdot 4^{5/2}
+= \frac{4\pi}{5}\cdot 32
+= \frac{128\pi}{5}.
+$$
 :::
 
 ---
-id: "math-integrals-25"
-note: "math-integrals"
-title: "Review: Common substitution cues"
-type: "text"
-answer: "inner function and its derivative"
-skills:
-  - "Common substitution cues"
+id: integrals-33
+note: math-integrals
+title: "Find a Probability from a Density Function"
+skills: [Probability Density Functions, Definite Integrals]
 ---
 
-Name one common mistake the note warns about in **Common substitution cues**.
+Suppose a random variable has density
+
+$$
+f(x)=2x
+$$
+
+for $0 \le x \le 1$.
+
+Find
+
+$$
+P\left(\frac12 \le X \le 1\right).
+$$
 
 :::solution
-One short answer is: inner function and its derivative
+Probability is the area under the density:
+
+$$
+P\left(\frac12 \le X \le 1\right)
+= \int_{1/2}^1 2x\,dx.
+$$
+
+Compute:
+
+$$
+\int_{1/2}^1 2x\,dx = \left[x^2\right]_{1/2}^1 = 1-\frac14 = \frac34.
+$$
 :::
 
 ---
-id: "math-integrals-26"
-note: "math-integrals"
-title: "Review: Integration by parts"
-type: "text"
-answer: "Integration by parts comes from the product rule: $$ \\frac{d}{dx}(uv) = u\\frac{dv}{dx} + v\\frac{du}{dx}. $$ In integral form: $$ \\int u\\,dv = uv - \\int v\\,du. $$"
-skills:
-  - "6. Integration by parts"
+id: integrals-34
+note: math-integrals
+title: "Evaluate an Improper Integral with a Vertical Asymptote"
+skills: [Improper Integrals, Convergence]
 ---
 
-What is the main idea of **Integration by parts**?
+Evaluate:
+
+$$
+\int_0^1 \frac{1}{\sqrt{x}}\,dx
+$$
 
 :::solution
-One short answer is: Integration by parts comes from the product rule: $$ \frac{d}{dx}(uv) = u\frac{dv}{dx} + v\frac{du}{dx}. $$ In integral form: $$ \int u\,dv = uv - \int v\,du. $$
+This is improper at $x=0$, so write it as a limit:
+
+$$
+\int_0^1 \frac{1}{\sqrt{x}}\,dx
+= \lim_{a\to 0^+}\int_a^1 x^{-1/2}\,dx.
+$$
+
+An antiderivative is
+
+$$
+2x^{1/2}.
+$$
+
+So
+
+$$
+\lim_{a\to 0^+}\left[2\sqrt{x}\right]_a^1
+= \lim_{a\to 0^+} (2-2\sqrt{a})
+= 2.
+$$
 :::
 
 ---
-id: "math-integrals-27"
-note: "math-integrals"
-title: "Review: When to use it"
-type: "text"
-answer: "polynomial times exponential"
-skills:
-  - "When to use it"
+id: integrals-35
+note: math-integrals
+title: "Find Geometric Area When the Sign Changes"
+skills: [Geometric Area, Sign Changes]
 ---
 
-What is the main idea of **When to use it**?
+Find the geometric area between
+
+$$
+f(x)=x^2-4x+3
+$$
+
+and the $x$-axis on $[0,4]$.
 
 :::solution
-One short answer is: polynomial times exponential
+First factor:
+
+$$
+x^2-4x+3=(x-1)(x-3).
+$$
+
+So the graph crosses the $x$-axis at $x=1$ and $x=3$.
+
+On $[0,1]$ and $[3,4]$, the function is positive. On $[1,3]$, it is negative.
+
+Thus the geometric area is
+
+$$
+\int_0^1 f(x)\,dx - \int_1^3 f(x)\,dx + \int_3^4 f(x)\,dx.
+$$
+
+An antiderivative is
+
+$$
+\frac{x^3}{3} - 2x^2 + 3x.
+$$
+
+Evaluate:
+
+$$
+\int_0^1 f(x)\,dx = \frac{4}{3},
+$$
+
+$$
+\int_1^3 f(x)\,dx = -\frac{4}{3},
+$$
+
+$$
+\int_3^4 f(x)\,dx = \frac{4}{3}.
+$$
+
+So the total area is
+
+$$
+\frac{4}{3}+\frac{4}{3}+\frac{4}{3}=4.
+$$
 :::
 
 ---
-id: "math-integrals-28"
-note: "math-integrals"
-title: "Review: Example"
-type: "text"
-answer: "Evaluate $$ \\int x e^x\\,dx. $$ Choose $$ u = x,\\qquad dv = e^x\\,dx. $$ Then $$ du = dx,\\qquad v = e^x. $$ So $$ \\int x e^x\\,dx = xe^x - \\int e^x\\,dx = xe^x - e^x + C. $$"
-skills:
-  - "Example"
+id: integrals-41
+note: math-integrals
+title: "Handle an Endpoint Singularity with Parts"
+skills: [Improper Integrals, Integration by Parts]
 ---
 
-What is the main idea of **Example**?
+Evaluate:
+
+$$
+\int_0^1 x\ln x\,dx
+$$
 
 :::solution
-One short answer is: Evaluate $$ \int x e^x\,dx. $$ Choose $$ u = x,\qquad dv = e^x\,dx. $$ Then $$ du = dx,\qquad v = e^x. $$ So $$ \int x e^x\,dx = xe^x - \int e^x\,dx = xe^x - e^x + C. $$
+This is improper at $x=0$, so treat it as a limit:
+
+$$
+\int_0^1 x\ln x\,dx
+= \lim_{a\to 0^+}\int_a^1 x\ln x\,dx.
+$$
+
+Use integration by parts with
+
+$$
+u=\ln x,\qquad dv=x\,dx.
+$$
+
+Then
+
+$$
+du=\frac{1}{x}\,dx,\qquad v=\frac{x^2}{2}.
+$$
+
+So
+
+$$
+\int_a^1 x\ln x\,dx
+= \left[\frac{x^2}{2}\ln x\right]_a^1 - \frac12\int_a^1 x\,dx.
+$$
+
+The boundary term at $x=1$ is $0$, and $a^2\ln a \to 0$ as $a\to 0^+$.
+
+Also,
+
+$$
+\frac12\int_a^1 x\,dx
+= \frac12\left[\frac{x^2}{2}\right]_a^1
+= \frac{1-a^2}{4}.
+$$
+
+Therefore
+
+$$
+\int_0^1 x\ln x\,dx = -\frac14.
+$$
 :::
 
 ---
-id: "math-integrals-29"
-note: "math-integrals"
-title: "Review: LIATE heuristic"
-type: "text"
-answer: "Logarithmic"
-skills:
-  - "LIATE heuristic"
+id: integrals-42
+note: math-integrals
+title: "Evaluate an Improper Integral After Substitution"
+skills: [Improper Integrals, Substitution]
 ---
 
-What is the main idea of **LIATE heuristic**?
+Evaluate:
+
+$$
+\int_0^\infty \frac{x}{(1+x^2)^2}\,dx
+$$
 
 :::solution
-One short answer is: Logarithmic
+Write the integral as a limit:
+
+$$
+\int_0^\infty \frac{x}{(1+x^2)^2}\,dx
+= \lim_{b\to\infty}\int_0^b \frac{x}{(1+x^2)^2}\,dx.
+$$
+
+Use the substitution
+
+$$
+u = 1+x^2,\qquad du = 2x\,dx.
+$$
+
+Then
+
+$$
+\int_0^b \frac{x}{(1+x^2)^2}\,dx
+= \frac12\int_1^{1+b^2} u^{-2}\,du.
+$$
+
+Compute:
+
+$$
+\frac12\left[-u^{-1}\right]_1^{1+b^2}
+= \frac12\left(1-\frac{1}{1+b^2}\right).
+$$
+
+Now let $b\to\infty$:
+
+$$
+\frac12\left(1-\frac{1}{1+b^2}\right)\to \frac12.
+$$
+
+So the integral converges to $\frac12$.
 :::
 
 ---
-id: "math-integrals-210"
-note: "math-integrals"
-title: "Review: Partial fractions"
-type: "text"
-answer: "Partial fraction decomposition is used for rational functions: $$ \\frac{P(x)}{Q(x)} $$ where $P$ and $Q$ are polynomials and the degree of $P$ is less than the degree of $Q$ after long division."
-skills:
-  - "7. Partial fractions"
+id: integrals-43
+note: math-integrals
+title: "Use Shells on a Region Between Curves"
+skills: [Shell Method, Area Between Curves]
 ---
 
-What is the main idea of **Partial fractions**?
+The region enclosed by
+
+$$
+y=x
+\quad \text{and} \quad
+y=x^2
+$$
+
+is rotated about the $y$-axis. Find the volume.
 
 :::solution
-One short answer is: Partial fraction decomposition is used for rational functions: $$ \frac{P(x)}{Q(x)} $$ where $P$ and $Q$ are polynomials and the degree of $P$ is less than the degree of $Q$ after long division.
+The curves intersect where
+
+$$
+x=x^2,
+$$
+
+so $x=0$ and $x=1$.
+
+Using shells, the radius is $x$ and the height is
+
+$$
+x-x^2.
+$$
+
+Thus
+
+$$
+V = 2\pi\int_0^1 x(x-x^2)\,dx
+= 2\pi\int_0^1 (x^2-x^3)\,dx.
+$$
+
+Evaluate:
+
+$$
+V = 2\pi\left[\frac{x^3}{3}-\frac{x^4}{4}\right]_0^1
+= 2\pi\left(\frac13-\frac14\right)
+= 2\pi\cdot\frac{1}{12}
+= \frac{\pi}{6}.
+$$
 :::
 
 ---
-id: "math-integrals-211"
-note: "math-integrals"
-title: "Review: Basic steps"
-type: "text"
-answer: "If needed, perform polynomial long division."
-skills:
-  - "Basic steps"
+id: integrals-44
+note: math-integrals
+title: "Combine Trig Substitution with a Trig Identity"
+skills: [Trig Substitution, Trig Identities]
 ---
 
-What is the main idea of **Basic steps**?
+Compute:
 
-:::solution
-One short answer is: If needed, perform polynomial long division.
-:::
-
----
-id: "math-integrals-212"
-note: "math-integrals"
-title: "Review: Common denominator forms"
-type: "text"
-answer: "If $$ Q(x) = (x-a)(x-b), $$ then write $$ \\frac{P(x)}{(x-a)(x-b)} = \\frac{A}{x-a} + \\frac{B}{x-b}."
-skills:
-  - "Common denominator forms"
----
-
-Name one common mistake the note warns about in **Common denominator forms**.
+$$
+\int_0^{3/2} \frac{x^2}{\sqrt{9-x^2}}\,dx
+$$
 
 :::solution
-One short answer is: If $$ Q(x) = (x-a)(x-b), $$ then write $$ \frac{P(x)}{(x-a)(x-b)} = \frac{A}{x-a} + \frac{B}{x-b}.
-:::
+Use the trig substitution
 
----
-id: "math-integrals-213"
-note: "math-integrals"
-title: "Review: Example"
-type: "text"
-answer: "$$ \\int \\frac{1}{x(x+1)}\\,dx $$ Decompose: $$ \\frac{1}{x(x+1)} = \\frac{1}{x} - \\frac{1}{x+1}. $$ Then $$ \\int \\frac{1}{x(x+1)}\\,dx = \\ln x - \\ln x+1 + C. $$ ---"
-skills:
-  - "Example"
----
+$$
+x=3\sin\theta,\qquad dx=3\cos\theta\,d\theta.
+$$
 
-What is the main idea of **Example**?
+The bounds become
 
-:::solution
-One short answer is: $$ \int \frac{1}{x(x+1)}\,dx $$ Decompose: $$ \frac{1}{x(x+1)} = \frac{1}{x} - \frac{1}{x+1}. $$ Then $$ \int \frac{1}{x(x+1)}\,dx = \ln x - \ln x+1 + C. $$ ---
-:::
+$$
+x=0 \Rightarrow \theta=0,
+\qquad
+x=\frac32 \Rightarrow \theta=\frac{\pi}{6}.
+$$
 
----
-id: "math-integrals-214"
-note: "math-integrals"
-title: "Review: Trigonometric integrals and substitutions"
-type: "text"
-answer: "Trigonometric integrals and substitutions"
-skills:
-  - "8. Trigonometric integrals and substitutions"
----
+Also,
 
-What is the main idea of **Trigonometric integrals and substitutions**?
+$$
+\sqrt{9-x^2}=3\cos\theta.
+$$
 
-:::solution
-One short answer is: Trigonometric integrals and substitutions
-:::
+So the integral becomes
 
----
-id: "math-integrals-215"
-note: "math-integrals"
-title: "Review: Trigonometric integrals"
-type: "text"
-answer: "If a power of sine or cosine is odd, save one factor and convert the rest with $\\sin^2 x = 1-\\cos^2 x$ or $\\cos^2 x = 1-\\sin^2 x$."
-skills:
-  - "Trigonometric integrals"
----
+$$
+\int_0^{\pi/6} \frac{9\sin^2\theta}{3\cos\theta}\cdot 3\cos\theta\,d\theta
+= 9\int_0^{\pi/6}\sin^2\theta\,d\theta.
+$$
 
-What is the main idea of **Trigonometric integrals**?
+Use
 
-:::solution
-One short answer is: If a power of sine or cosine is odd, save one factor and convert the rest with $\sin^2 x = 1-\cos^2 x$ or $\cos^2 x = 1-\sin^2 x$.
-:::
+$$
+\sin^2\theta=\frac{1-\cos(2\theta)}{2}.
+$$
 
----
-id: "math-integrals-216"
-note: "math-integrals"
-title: "Review: Trigonometric substitution"
-type: "text"
-answer: "Use trig substitution for square roots of quadratic forms."
-skills:
-  - "Trigonometric substitution"
----
+Then
 
-What is the main idea of **Trigonometric substitution**?
+$$
+9\int_0^{\pi/6}\sin^2\theta\,d\theta
+= \frac{9}{2}\int_0^{\pi/6}\left(1-\cos(2\theta)\right)\,d\theta.
+$$
 
-:::solution
-One short answer is: Use trig substitution for square roots of quadratic forms.
-:::
+Evaluate:
 
----
-id: "math-integrals-31"
-note: "math-integrals"
-title: "Review: Example"
-type: "text"
-answer: "For $$ \\int \\frac{dx}{\\sqrt{a^2-x^2}}, $$ let $x=a\\sin\\theta$."
-skills:
-  - "Example"
----
+$$
+\frac{9}{2}\left[\theta-\frac{\sin(2\theta)}{2}\right]_0^{\pi/6}
+= \frac{9}{2}\left(\frac{\pi}{6}-\frac{\sin(\pi/3)}{2}\right).
+$$
 
-What is the main idea of **Example**?
+Since $\sin(\pi/3)=\frac{\sqrt3}{2}$,
 
-:::solution
-One short answer is: For $$ \int \frac{dx}{\sqrt{a^2-x^2}}, $$ let $x=a\sin\theta$.
-:::
-
----
-id: "math-integrals-32"
-note: "math-integrals"
-title: "Review: Improper integrals"
-type: "text"
-answer: "infinite limits of integration"
-skills:
-  - "9. Improper integrals"
----
-
-What is the main idea of **Improper integrals**?
-
-:::solution
-One short answer is: infinite limits of integration
-:::
-
----
-id: "math-integrals-33"
-note: "math-integrals"
-title: "Review: Infinite interval"
-type: "text"
-answer: "$$ \\int a^\\infty f(x)\\,dx = \\lim {b\\to\\infty}\\int a^b f(x)\\,dx. $$"
-skills:
-  - "Infinite interval"
----
-
-What is the main idea of **Infinite interval**?
-
-:::solution
-One short answer is: $$ \int a^\infty f(x)\,dx = \lim {b\to\infty}\int a^b f(x)\,dx. $$
-:::
-
----
-id: "math-integrals-34"
-note: "math-integrals"
-title: "Review: Vertical asymptote"
-type: "text"
-answer: "If $f$ blows up at $x=c$ in $[a,b]$, then $$ \\int a^b f(x)\\,dx $$ must be split at $c$ and interpreted with one-sided limits."
-skills:
-  - "Vertical asymptote"
----
-
-What is the main idea of **Vertical asymptote**?
-
-:::solution
-One short answer is: If $f$ blows up at $x=c$ in $[a,b]$, then $$ \int a^b f(x)\,dx $$ must be split at $c$ and interpreted with one-sided limits.
-:::
-
----
-id: "math-integrals-35"
-note: "math-integrals"
-title: "Review: Convergence"
-type: "text"
-answer: "An improper integral converges if the limit exists and is finite. Otherwise it diverges ."
-skills:
-  - "Convergence"
----
-
-What is the main idea of **Convergence**?
-
-:::solution
-One short answer is: An improper integral converges if the limit exists and is finite. Otherwise it diverges .
-:::
-
----
-id: "math-integrals-36"
-note: "math-integrals"
-title: "Review: Useful benchmark"
-type: "text"
-answer: "For $$ \\int 1^\\infty \\frac{1}{x^p}\\,dx, $$ the integral converges if and only if $p>1$. This is a standard comparison test baseline. ---"
-skills:
-  - "Useful benchmark"
----
-
-What is the main idea of **Useful benchmark**?
-
-:::solution
-One short answer is: For $$ \int 1^\infty \frac{1}{x^p}\,dx, $$ the integral converges if and only if $p>1$. This is a standard comparison test baseline. ---
-:::
-
----
-id: "math-integrals-37"
-note: "math-integrals"
-title: "Review: Applications"
-type: "text"
-answer: "Integrals appear anywhere accumulation matters."
-skills:
-  - "10. Applications"
----
-
-What is the main idea of **Applications**?
-
-:::solution
-One short answer is: Integrals appear anywhere accumulation matters.
-:::
-
----
-id: "math-integrals-38"
-note: "math-integrals"
-title: "Review: Area between curves"
-type: "text"
-answer: "If $f(x) \\ge g(x)$ on $[a,b]$, then the area between them is $$ \\int a^b \\bigl(f(x)-g(x)\\bigr)\\,dx. $$ If the top and bottom curves switch, split the interval first."
-skills:
-  - "Area between curves"
----
-
-What is the main idea of **Area between curves**?
-
-:::solution
-One short answer is: If $f(x) \ge g(x)$ on $[a,b]$, then the area between them is $$ \int a^b \bigl(f(x)-g(x)\bigr)\,dx. $$ If the top and bottom curves switch, split the interval first.
-:::
-
----
-id: "math-integrals-39"
-note: "math-integrals"
-title: "Review: Volume of revolution"
-type: "text"
-answer: "Volume of revolution"
-skills:
-  - "Volume of revolution"
----
-
-What is the main idea of **Volume of revolution**?
-
-:::solution
-One short answer is: Volume of revolution
-:::
-
----
-id: "math-integrals-310"
-note: "math-integrals"
-title: "Review: Disk method"
-type: "text"
-answer: "If a region is rotated about an axis and produces solid disks of radius $R(x)$, then $$ V = \\pi \\int a^b R(x)^2\\,dx. $$"
-skills:
-  - "Disk method"
----
-
-What is the main idea of **Disk method**?
-
-:::solution
-One short answer is: If a region is rotated about an axis and produces solid disks of radius $R(x)$, then $$ V = \pi \int a^b R(x)^2\,dx. $$
-:::
-
----
-id: "math-integrals-311"
-note: "math-integrals"
-title: "Review: Washer method"
-type: "text"
-answer: "If there is a hole with inner radius $r(x)$, $$ V = \\pi \\int a^b \\bigl(R(x)^2-r(x)^2\\bigr)\\,dx. $$"
-skills:
-  - "Washer method"
----
-
-What is the main idea of **Washer method**?
-
-:::solution
-One short answer is: If there is a hole with inner radius $r(x)$, $$ V = \pi \int a^b \bigl(R(x)^2-r(x)^2\bigr)\,dx. $$
-:::
-
----
-id: "math-integrals-312"
-note: "math-integrals"
-title: "Review: Shell method"
-type: "text"
-answer: "Using cylindrical shells, $$ V = 2\\pi \\int a^b (\\text{radius})(\\text{height})\\,dx. $$"
-skills:
-  - "Shell method"
----
-
-What is the main idea of **Shell method**?
-
-:::solution
-One short answer is: Using cylindrical shells, $$ V = 2\pi \int a^b (\text{radius})(\text{height})\,dx. $$
-:::
-
----
-id: "math-integrals-313"
-note: "math-integrals"
-title: "Review: Work"
-type: "text"
-answer: "If force varies with position, $$ W = \\int a^b F(x)\\,dx. $$ For a spring obeying Hooke's law $F=kx$, $$ W = \\int a^b kx\\,dx. $$"
-skills:
-  - "Work"
----
-
-What is the main idea of **Work**?
-
-:::solution
-One short answer is: If force varies with position, $$ W = \int a^b F(x)\,dx. $$ For a spring obeying Hooke's law $F=kx$, $$ W = \int a^b kx\,dx. $$
-:::
-
----
-id: "math-integrals-314"
-note: "math-integrals"
-title: "Review: Mass from density"
-type: "text"
-answer: "If $\\rho(x)$ is linear density, $$ m = \\int a^b \\rho(x)\\,dx. $$ For surface and volume density, the same accumulation idea applies with the appropriate measure."
-skills:
-  - "Mass from density"
----
-
-What is the main idea of **Mass from density**?
-
-:::solution
-One short answer is: If $\rho(x)$ is linear density, $$ m = \int a^b \rho(x)\,dx. $$ For surface and volume density, the same accumulation idea applies with the appropriate measure.
-:::
-
----
-id: "math-integrals-315"
-note: "math-integrals"
-title: "Review: Probability"
-type: "text"
-answer: "If $f(x)$ is a probability density function, then $$ P(a \\le X \\le b) = \\int a^b f(x)\\,dx. $$ The total area under a valid pdf must be $$ \\int {-\\infty}^{\\infty} f(x)\\,dx = 1. $$ ---"
-skills:
-  - "Probability"
----
-
-What is the main idea of **Probability**?
-
-:::solution
-One short answer is: If $f(x)$ is a probability density function, then $$ P(a \le X \le b) = \int a^b f(x)\,dx. $$ The total area under a valid pdf must be $$ \int {-\infty}^{\infty} f(x)\,dx = 1. $$ ---
-:::
-
----
-id: "math-integrals-316"
-note: "math-integrals"
-title: "Review: Numerical integration"
-type: "text"
-answer: "When an antiderivative is hard or unavailable, approximate the integral numerically."
-skills:
-  - "11. Numerical integration"
----
-
-What is the main idea of **Numerical integration**?
-
-:::solution
-One short answer is: When an antiderivative is hard or unavailable, approximate the integral numerically.
-:::
-
----
-id: "math-integrals-41"
-note: "math-integrals"
-title: "Review: Trapezoidal rule"
-type: "text"
-answer: "Partition $[a,b]$ into $n$ equal parts with $\\Delta x = (b-a)/n$. Then $$ \\int a^b f(x)\\,dx \\approx \\frac{\\Delta x}{2}\\left[f(x 0)+2\\sum {i=1}^{n-1}f(x i)+f(x n)\\right]. $$"
-skills:
-  - "Trapezoidal rule"
----
-
-What is the main idea of **Trapezoidal rule**?
-
-:::solution
-One short answer is: Partition $[a,b]$ into $n$ equal parts with $\Delta x = (b-a)/n$. Then $$ \int a^b f(x)\,dx \approx \frac{\Delta x}{2}\left[f(x 0)+2\sum {i=1}^{n-1}f(x i)+f(x n)\right]. $$
-:::
-
----
-id: "math-integrals-42"
-note: "math-integrals"
-title: "Review: Simpson's rule"
-type: "text"
-answer: "With even $n$, $$ \\int a^b f(x)\\,dx \\approx \\frac{\\Delta x}{3}\\left[f(x 0)+4\\sum {\\text{odd }i}f(x i)+2\\sum {\\text{even }i}f(x i)+f(x n)\\right]. $$"
-skills:
-  - "Simpson's rule"
----
-
-What is the main idea of **Simpson's rule**?
-
-:::solution
-One short answer is: With even $n$, $$ \int a^b f(x)\,dx \approx \frac{\Delta x}{3}\left[f(x 0)+4\sum {\text{odd }i}f(x i)+2\sum {\text{even }i}f(x i)+f(x n)\right]. $$
-:::
-
----
-id: "math-integrals-43"
-note: "math-integrals"
-title: "Review: Error intuition"
-type: "text"
-answer: "More subintervals usually improve accuracy."
-skills:
-  - "Error intuition"
----
-
-What is the main idea of **Error intuition**?
-
-:::solution
-One short answer is: More subintervals usually improve accuracy.
-:::
-
----
-id: "math-integrals-44"
-note: "math-integrals"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Identify the integral type: indefinite, definite, improper, or application."
-skills:
-  - "12. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Identify the integral type: indefinite, definite, improper, or application.
-:::
-
----
-id: "math-integrals-45"
-note: "math-integrals"
-title: "Review: Fast self-checks"
-type: "text"
-answer: "Differentiate your antiderivative."
-skills:
-  - "Fast self-checks"
----
-
-What is the main idea of **Fast self-checks**?
-
-:::solution
-One short answer is: Differentiate your antiderivative.
-:::
-
----
-id: "math-integrals-46"
-note: "math-integrals"
-title: "Review: Common mistakes"
-type: "text"
-answer: "Common mistakes"
-skills:
-  - "13. Common mistakes"
----
-
-Name one common mistake the note warns about in **Common mistakes**.
-
-:::solution
-One short answer is: Common mistakes
-:::
-
----
-id: "math-integrals-47"
-note: "math-integrals"
-title: "Review: Forgetting the constant of integration"
-type: "text"
-answer: "For indefinite integrals, $$ \\int f(x)\\,dx = F(x) + C. $$ Omitting $C$ is a common grading error."
-skills:
-  - "Forgetting the constant of integration"
----
-
-What is the main idea of **Forgetting the constant of integration**?
-
-:::solution
-One short answer is: For indefinite integrals, $$ \int f(x)\,dx = F(x) + C. $$ Omitting $C$ is a common grading error.
-:::
-
----
-id: "math-integrals-48"
-note: "math-integrals"
-title: "Review: Using the wrong variable in substitution"
-type: "text"
-answer: "If you let $u=g(x)$, then every $x$ must be rewritten consistently in terms of $u$ or converted back before finishing."
-skills:
-  - "Using the wrong variable in substitution"
----
-
-What is the main idea of **Using the wrong variable in substitution**?
-
-:::solution
-One short answer is: If you let $u=g(x)$, then every $x$ must be rewritten consistently in terms of $u$ or converted back before finishing.
-:::
-
----
-id: "math-integrals-49"
-note: "math-integrals"
-title: "Review: Mixing up signed area and geometric area"
-type: "text"
-answer: "The definite integral can be negative. Actual area is nonnegative."
-skills:
-  - "Mixing up signed area and geometric area"
----
-
-What is the main idea of **Mixing up signed area and geometric area**?
-
-:::solution
-One short answer is: The definite integral can be negative. Actual area is nonnegative.
-:::
-
----
-id: "math-integrals-410"
-note: "math-integrals"
-title: "Review: Wrong bounds after substitution"
-type: "text"
-answer: "When changing variables in a definite integral, the limits must change too. If you keep the old limits, you must substitute back before evaluating."
-skills:
-  - "Wrong bounds after substitution"
----
-
-What is the main idea of **Wrong bounds after substitution**?
-
-:::solution
-One short answer is: When changing variables in a definite integral, the limits must change too. If you keep the old limits, you must substitute back before evaluating.
-:::
-
----
-id: "math-integrals-411"
-note: "math-integrals"
-title: "Review: Missing absolute values in logarithms"
-type: "text"
-answer: "The antiderivative of $1/x$ is $$ \\ln x + C, $$ not just $\\ln x + C$."
-skills:
-  - "Missing absolute values in logarithms"
----
-
-What is the main idea of **Missing absolute values in logarithms**?
-
-:::solution
-One short answer is: The antiderivative of $1/x$ is $$ \ln x + C, $$ not just $\ln x + C$.
-:::
-
----
-id: "math-integrals-412"
-note: "math-integrals"
-title: "Review: Algebra mistakes before integrating"
-type: "text"
-answer: "expand carefully"
-skills:
-  - "Algebra mistakes before integrating"
----
-
-Name one common mistake the note warns about in **Algebra mistakes before integrating**.
-
-:::solution
-One short answer is: expand carefully
-:::
-
----
-id: "math-integrals-413"
-note: "math-integrals"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "14. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-integrals-414"
-note: "math-integrals"
-title: "Review: Core formulas"
-type: "text"
-answer: "$$ \\int x^n\\,dx = \\frac{x^{n+1}}{n+1} + C \\quad (n\\neq -1) $$ $$ \\int \\frac{1}{x}\\,dx = \\ln x + C $$ $$ \\int e^x\\,dx = e^x + C $$ $$ \\int \\sin x\\,dx = -\\cos x + C $$ $$ \\int \\cos x\\,dx = \\sin x + C $$ $$ \\int u\\,dv = uv…"
-skills:
-  - "Core formulas"
----
-
-What core formulas or relations are summarized in **Core formulas**?
-
-:::solution
-One short answer is: $$ \int x^n\,dx = \frac{x^{n+1}}{n+1} + C \quad (n\neq -1) $$ $$ \int \frac{1}{x}\,dx = \ln x + C $$ $$ \int e^x\,dx = e^x + C $$ $$ \int \sin x\,dx = -\cos x + C $$ $$ \int \cos x\,dx = \sin x + C $$ $$ \int u\,dv = uv…
-:::
-
----
-id: "math-integrals-415"
-note: "math-integrals"
-title: "Review: Common geometric volumes"
-type: "text"
-answer: "$$ V {\\text{disk}} = \\pi \\int a^b R(x)^2\\,dx $$ $$ V {\\text{washer}} = \\pi \\int a^b \\bigl(R(x)^2-r(x)^2\\bigr)\\,dx $$ $$ V {\\text{shell}} = 2\\pi \\int a^b (\\text{radius})(\\text{height})\\,dx $$ ---"
-skills:
-  - "Common geometric volumes"
----
-
-Name one common mistake the note warns about in **Common geometric volumes**.
-
-:::solution
-One short answer is: $$ V {\text{disk}} = \pi \int a^b R(x)^2\,dx $$ $$ V {\text{washer}} = \pi \int a^b \bigl(R(x)^2-r(x)^2\bigr)\,dx $$ $$ V {\text{shell}} = 2\pi \int a^b (\text{radius})(\text{height})\,dx $$ ---
-:::
-
----
-id: "math-integrals-416"
-note: "math-integrals"
-title: "Review: Quick reference"
-type: "text"
-answer: "like a composite function times its derivative, try substitution"
-skills:
-  - "Quick reference"
----
-
-What is the main idea of **Quick reference**?
-
-:::solution
-One short answer is: like a composite function times its derivative, try substitution
+$$
+\frac{9}{2}\left(\frac{\pi}{6}-\frac{\sqrt3}{4}\right)
+= \frac{3\pi}{4}-\frac{9\sqrt3}{8}.
+$$
 :::

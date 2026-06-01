@@ -2,8 +2,6 @@
 id: algebra-11
 note: math-algebra
 title: "Combine Like Terms in a Polynomial"
-type: numeric
-answer: 11
 skills: [Like Terms]
 ---
 
@@ -33,8 +31,6 @@ The coefficient of $x$ is $11$.
 id: algebra-12
 note: math-algebra
 title: "Solve a Two-Step Linear Equation"
-type: numeric
-answer: 7
 skills: [Linear Equations, Inverse Operations]
 ---
 
@@ -62,8 +58,6 @@ $$
 id: algebra-13
 note: math-algebra
 title: "Evaluate an Expression with Powers and Parentheses"
-type: numeric
-answer: 17
 skills: [Order of Operations, Exponent Laws]
 ---
 
@@ -103,8 +97,6 @@ $$
 id: algebra-14
 note: math-algebra
 title: "Distribute a Constant Across a Binomial"
-type: numeric
-answer: 12
 skills: [Distributing and factoring]
 ---
 
@@ -128,8 +120,6 @@ The coefficient of $x$ is $12$.
 id: algebra-15
 note: math-algebra
 title: "Evaluate a Linear Function"
-type: numeric
-answer: 10
 skills: [Evaluating functions]
 ---
 
@@ -157,8 +147,6 @@ $$
 id: algebra-16
 note: math-algebra
 title: "Solve a Fraction Equation"
-type: numeric
-answer: 42
 skills: [Fractions, Linear Equations, Inverse Operations]
 ---
 
@@ -186,8 +174,6 @@ $$
 id: algebra-17
 note: math-algebra
 title: "Combine Fractional Coefficients"
-type: numeric
-answer: 1
 skills: [Like Terms, Fractions]
 ---
 
@@ -211,8 +197,6 @@ So the coefficient of $x$ is $1$.
 id: algebra-18
 note: math-algebra
 title: "Solve a Bracketed Equation"
-type: numeric
-answer: 5
 skills: [Distributing and factoring, Linear Equations]
 ---
 
@@ -240,8 +224,6 @@ $$
 id: algebra-19
 note: math-algebra
 title: "Use Inverse Operations on a Simple Ratio"
-type: numeric
-answer: 63
 skills: [Fractions, Inverse Operations]
 ---
 
@@ -263,8 +245,6 @@ $$
 id: algebra-110
 note: math-algebra
 title: "Evaluate a Quadratic-Looking Expression"
-type: numeric
-answer: 15
 skills: [Evaluating functions, Exponent Laws]
 ---
 
@@ -294,8 +274,6 @@ $$
 id: algebra-21
 note: math-algebra
 title: "Distribution and Like-Term Combination"
-type: numeric
-answer: 5
 skills: [Distributing and factoring, Linear Equations, Inverse Operations]
 ---
 
@@ -341,8 +319,6 @@ $$
 id: algebra-22
 note: math-algebra
 title: "Fraction Equation with Two Terms"
-type: numeric
-answer: 9
 skills: [Fractions, Linear Equations, Inverse Operations]
 ---
 
@@ -386,8 +362,6 @@ $$
 id: algebra-23
 note: math-algebra
 title: "Solve by Substitution in a System"
-type: numeric
-answer: 6
 skills: [Systems of equations, Substitution]
 ---
 
@@ -432,8 +406,6 @@ $$
 id: algebra-24
 note: math-algebra
 title: "Factor a Quadratic and Select the Smaller Root"
-type: numeric
-answer: 3
 skills: [Common factoring methods, Zero-product property]
 ---
 
@@ -467,8 +439,6 @@ The smaller solution is $3$.
 id: algebra-25
 note: math-algebra
 title: "Compute a Slope from Two Points"
-type: numeric
-answer: 2
 skills: [Functions, Linear Equations]
 ---
 
@@ -496,8 +466,6 @@ $$
 id: algebra-26
 note: math-algebra
 title: "Nested Function Evaluation"
-type: numeric
-answer: 5
 skills: [Evaluating functions]
 ---
 
@@ -533,8 +501,6 @@ $$
 id: algebra-27
 note: math-algebra
 title: "Simplify and Evaluate a Rational Expression"
-type: numeric
-answer: 8
 skills: [Fractions, Distributing and factoring]
 ---
 
@@ -570,8 +536,6 @@ $$
 id: algebra-28
 note: math-algebra
 title: "Distribution on Both Sides"
-type: numeric
-answer: 5
 skills: [Distributing and factoring, Linear Equations, Inverse Operations]
 ---
 
@@ -617,8 +581,6 @@ $$
 id: algebra-31
 note: math-algebra
 title: "Model a Membership Fee"
-type: numeric
-answer: 6
 skills: [Linear Equations]
 ---
 
@@ -650,8 +612,6 @@ $$
 id: algebra-32
 note: math-algebra
 title: "Rectangle Dimensions from a Perimeter Condition"
-type: numeric
-answer: 11
 skills: [Linear Equations]
 ---
 
@@ -693,8 +653,6 @@ $$
 id: algebra-33
 note: math-algebra
 title: "Compare Ticket and Snack Prices"
-type: numeric
-answer: 5
 skills: [Systems of equations, Linear Equations]
 ---
 
@@ -743,8 +701,6 @@ $$
 id: algebra-34
 note: math-algebra
 title: "Constant Rate Change"
-type: numeric
-answer: 5
 skills: [Linear Equations]
 ---
 
@@ -778,8 +734,6 @@ $$
 id: algebra-35
 note: math-algebra
 title: "Proportional Reasoning in a Recipe"
-type: numeric
-answer: 6
 skills: [Fractions]
 ---
 
@@ -801,8 +755,6 @@ So the recipe needs $6$ cups of flour.
 id: algebra-41
 note: math-algebra
 title: "Identify the Perfect-Square Trinomial"
-type: numeric
-answer: 12
 skills: [Common factoring methods]
 ---
 
@@ -832,8 +784,6 @@ $$
 id: algebra-42
 note: math-algebra
 title: "Perpendicular Slope from Standard Form"
-type: numeric
-answer: 0.5
 tolerance: 0.01
 skills: [Linear Equations]
 ---
@@ -870,8 +820,6 @@ In decimal form, that is $0.5$.
 id: algebra-43
 note: math-algebra
 title: "Recover a Quadratic Constant from Its Roots"
-type: numeric
-answer: -12
 skills: [Common factoring methods, Zero-product property]
 ---
 
@@ -909,8 +857,6 @@ $$
 id: algebra-44
 note: math-algebra
 title: "Cancel a Factor and Solve Carefully"
-type: numeric
-answer: 7
 skills: [Fractions, Distributing and factoring, Inverse Operations]
 ---
 

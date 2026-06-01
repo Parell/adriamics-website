@@ -1,671 +1,908 @@
 ---
-id: "math-functions-11"
-note: "math-functions"
-title: "Review: What a function is"
-type: "text"
-answer: "One input can produce only one output."
-skills:
-  - "1. What a function is"
+id: math-functions-11
+note: math-functions
+title: "Decide Whether a Relation Is a Function"
+skills: [Function Definition, Ordered Pairs]
 ---
 
-What core idea is introduced in **What a function is**?
+Is the relation below a function?
+
+$$
+\{(1,4), (2,7), (3,7), (3,9)\}
+$$
 
 :::solution
-One short answer is: One input can produce only one output.
+No. A function must assign each input exactly one output.
+
+Here the input $3$ is paired with two different outputs, $7$ and $9$, so the relation is not a function.
 :::
 
 ---
-id: "math-functions-12"
-note: "math-functions"
-title: "Review: Vertical line test"
-type: "text"
-answer: "A graph represents a function of $x$ if every vertical line intersects the graph at most once. This is a fast visual check, but it is not a substitute for reasoning about the domain. ---"
-skills:
-  - "Vertical line test"
+id: math-functions-12
+note: math-functions
+title: "Find a Domain Restriction"
+skills: [Domain, Rational Functions]
 ---
 
-What is the main idea of **Vertical line test**?
+For
+
+$$
+f(x) = \frac{1}{x - 3},
+$$
+
+what value of $x$ is excluded from the domain?
 
 :::solution
-One short answer is: A graph represents a function of $x$ if every vertical line intersects the graph at most once. This is a fast visual check, but it is not a substitute for reasoning about the domain. ---
+The denominator cannot be zero, so solve
+
+$$
+x - 3 = 0
+$$
+
+which gives
+
+$$
+x = 3.
+$$
+
+So the domain excludes $x = 3$.
 :::
 
 ---
-id: "math-functions-13"
-note: "math-functions"
-title: "Review: Notation, domain, codomain, and range"
-type: "text"
-answer: "Notation, domain, codomain, and range"
-skills:
-  - "2. Notation, domain, codomain, and range"
+id: math-functions-13
+note: math-functions
+title: "Evaluate a Polynomial Function"
+skills: [Evaluating functions]
 ---
 
-What core idea is introduced in **Notation, domain, codomain, and range**?
+If
+
+$$
+f(x) = 2x^2 - 3x + 1,
+$$
+
+what is $f(4)$?
 
 :::solution
-One short answer is: Notation, domain, codomain, and range
+Substitute $4$ for $x$:
+
+$$
+f(4) = 2(4)^2 - 3(4) + 1
+$$
+
+Evaluate:
+
+$$
+f(4) = 2(16) - 12 + 1 = 32 - 12 + 1 = 21
+$$
 :::
 
 ---
-id: "math-functions-14"
-note: "math-functions"
-title: "Review: Standard notation"
-type: "text"
-answer: "Independent variable : the input, usually $x$"
-skills:
-  - "Standard notation"
+id: math-functions-14
+note: math-functions
+title: "Read a Function Value from a Table"
+skills: [Evaluating functions, Tables]
 ---
 
-What core idea is introduced in **Standard notation**?
+Use the table to find $f(3)$.
+
+$$
+\begin{array}{c|cccc}
+x & -2 & 0 & 3 & 5 \\
+\hline
+f(x) & 7 & 1 & -4 & 2
+\end{array}
+$$
 
 :::solution
-One short answer is: Independent variable : the input, usually $x$
+Look at the row where $x = 3$.
+
+The corresponding output is
+
+$$
+f(3) = -4.
+$$
 :::
 
 ---
-id: "math-functions-15"
-note: "math-functions"
-title: "Review: Domain"
-type: "text"
-answer: "Denominators cannot be zero."
-skills:
-  - "Domain"
+id: math-functions-15
+note: math-functions
+title: "Check an Even-Root Domain"
+skills: [Domain, Radical Functions]
 ---
 
-What is the main idea of **Domain**?
+For
+
+$$
+g(x) = \sqrt{8 - x},
+$$
+
+what values of $x$ are allowed?
 
 :::solution
-One short answer is: Denominators cannot be zero.
+The expression inside the square root must be nonnegative:
+
+$$
+8 - x \ge 0
+$$
+
+Solve for $x$:
+
+$$
+x \le 8
+$$
+
+So the domain is all real numbers less than or equal to $8$.
 :::
 
 ---
-id: "math-functions-16"
-note: "math-functions"
-title: "Review: Codomain and range"
-type: "text"
-answer: "The codomain is the target set declared for the function."
-skills:
-  - "Codomain and range"
+id: math-functions-16
+note: math-functions
+title: "Evaluate an Exponential at Zero"
+skills: [Exponential Functions]
 ---
 
-What is the main idea of **Codomain and range**?
+If
+
+$$
+h(x) = 5^x,
+$$
+
+what is $h(0)$?
 
 :::solution
-One short answer is: The codomain is the target set declared for the function.
+Substitute $0$ for $x$:
+
+$$
+h(0) = 5^0
+$$
+
+Any nonzero number raised to the $0$ power equals $1$, so
+
+$$
+h(0) = 1.
+$$
 :::
 
 ---
-id: "math-functions-17"
-note: "math-functions"
-title: "Review: Reading and evaluating functions"
-type: "text"
-answer: "Reading and evaluating functions"
-skills:
-  - "3. Reading and evaluating functions"
+id: math-functions-17
+note: math-functions
+title: "Check Whether a Function Has an Inverse"
+skills: [One-to-one, Inverse functions]
 ---
 
-What is the main idea of **Reading and evaluating functions**?
+Suppose a function satisfies
+
+$$
+f(1) = 4 \quad \text{and} \quad f(2) = 4.
+$$
+
+Can $f$ have an inverse on its full domain?
 
 :::solution
-One short answer is: Reading and evaluating functions
+No. A function must be one-to-one to have an inverse on its full domain.
+
+Here two different inputs, $1$ and $2$, produce the same output, $4$, so the function is not one-to-one.
 :::
 
 ---
-id: "math-functions-18"
-note: "math-functions"
-title: "Review: Evaluating at a point"
-type: "text"
-answer: "To evaluate $f(a)$, substitute $a$ for every occurrence of the variable. Example: $$ f(x) = 2x^2 - 3x + 1 $$ Then $$ f(4) = 2(4)^2 - 3(4) + 1 = 32 - 12 + 1 = 21 $$"
-skills:
-  - "Evaluating at a point"
+id: math-functions-18
+note: math-functions
+title: "Evaluate a Piecewise Function"
+skills: [Piecewise functions, Evaluating functions]
 ---
 
-What is the main idea of **Evaluating at a point**?
+Let
+
+$$
+p(x) =
+\begin{cases}
+x + 2, & x < 0 \\
+3x - 1, & x \ge 0
+\end{cases}
+$$
+
+What is $p(-3)$?
 
 :::solution
-One short answer is: To evaluate $f(a)$, substitute $a$ for every occurrence of the variable. Example: $$ f(x) = 2x^2 - 3x + 1 $$ Then $$ f(4) = 2(4)^2 - 3(4) + 1 = 32 - 12 + 1 = 21 $$
+Since $-3 < 0$, use the first rule:
+
+$$
+p(-3) = -3 + 2 = -1
+$$
 :::
 
 ---
-id: "math-functions-19"
-note: "math-functions"
-title: "Review: Function values from tables and graphs"
-type: "text"
-answer: "Find the input on the horizontal axis."
-skills:
-  - "Function values from tables and graphs"
+id: math-functions-19
+note: math-functions
+title: "Find the Range of a Square Function"
+skills: [Range, Square Functions]
 ---
 
-What is the main idea of **Function values from tables and graphs**?
+For the function
+
+$$
+f(x) = x^2
+$$
+
+with domain and codomain $\mathbb{R}$, what is the range?
 
 :::solution
-One short answer is: Find the input on the horizontal axis.
+Squares are never negative, so every output satisfies
+
+$$
+f(x) \ge 0.
+$$
+
+Also, every nonnegative number occurs as a square of some real number. Therefore the range is
+
+$$
+[0,\infty).
+$$
 :::
 
 ---
-id: "math-functions-110"
-note: "math-functions"
-title: "Review: Interpreting units"
-type: "text"
-answer: "$t$ = time in seconds"
-skills:
-  - "Interpreting units"
+id: math-functions-110
+note: math-functions
+title: "Find the Domain of a Logarithmic Function"
+skills: [Logarithms, Domain]
 ---
 
-What is the main idea of **Interpreting units**?
+For
+
+$$
+\log_2(x - 5),
+$$
+
+what restriction must $x$ satisfy?
 
 :::solution
-One short answer is: $t$ = time in seconds
+The argument of a logarithm must be positive:
+
+$$
+x - 5 > 0
+$$
+
+So
+
+$$
+x > 5.
+$$
 :::
 
 ---
-id: "math-functions-111"
-note: "math-functions"
-title: "Review: Common function families"
-type: "text"
-answer: "Common function families"
-skills:
-  - "4. Common function families"
+id: math-functions-21
+note: math-functions
+title: "Compose Two Functions"
+skills: [Composition, Evaluating functions]
 ---
 
-Name one common mistake the note warns about in **Common function families**.
+Let
+
+$$
+f(x) = x^2 + 1
+$$
+
+and
+
+$$
+g(x) = 3x - 2.
+$$
+
+Find $(f \circ g)(x)$.
 
 :::solution
-One short answer is: Common function families
+By definition,
+
+$$
+(f \circ g)(x) = f(g(x)).
+$$
+
+Substitute $g(x) = 3x - 2$ into $f$:
+
+$$
+f(g(x)) = (3x - 2)^2 + 1
+$$
+
+Expand:
+
+$$
+(3x - 2)^2 + 1 = 9x^2 - 12x + 4 + 1 = 9x^2 - 12x + 5
+$$
 :::
 
 ---
-id: "math-functions-21"
-note: "math-functions"
-title: "Review: Polynomial functions"
-type: "text"
-answer: "Domain is all real numbers."
-skills:
-  - "Polynomial functions"
+id: math-functions-22
+note: math-functions
+title: "Find the Inverse of a Linear Function"
+skills: [Inverse functions, Linear Functions]
 ---
 
-What is the main idea of **Polynomial functions**?
+If
+
+$$
+f(x) = 4x - 9,
+$$
+
+find $f^{-1}(x)$.
 
 :::solution
-One short answer is: Domain is all real numbers.
+Write
+
+$$
+y = 4x - 9.
+$$
+
+Swap $x$ and $y$:
+
+$$
+x = 4y - 9.
+$$
+
+Solve for $y$:
+
+$$
+x + 9 = 4y
+$$
+
+$$
+y = \frac{x + 9}{4}
+$$
+
+So
+
+$$
+f^{-1}(x) = \frac{x + 9}{4}.
+$$
 :::
 
 ---
-id: "math-functions-22"
-note: "math-functions"
-title: "Review: Rational functions"
-type: "text"
-answer: "$q(x) \\ne 0$"
-skills:
-  - "Rational functions"
+id: math-functions-23
+note: math-functions
+title: "Find the Range of a Shifted Square"
+skills: [Range, Transformations]
 ---
 
-What is the main idea of **Rational functions**?
+If
+
+$$
+f(x) = x^2 - 6,
+$$
+
+what is the range of $f$?
 
 :::solution
-One short answer is: $q(x) \ne 0$
+The graph of $x^2$ has minimum value $0$.
+
+Shifting it down by $6$ moves the minimum to $-6$.
+
+So the range is
+
+$$
+[-6,\infty).
+$$
 :::
 
 ---
-id: "math-functions-23"
-note: "math-functions"
-title: "Review: Radical functions"
-type: "text"
-answer: "Even roots require nonnegative radicands in the real numbers."
-skills:
-  - "Radical functions"
+id: math-functions-24
+note: math-functions
+title: "Simplify a Rational Function and Evaluate It"
+skills: [Rational Functions, Distributing and factoring]
 ---
 
-What is the main idea of **Radical functions**?
+For $x \ne 4$, simplify
+
+$$
+\frac{x^2 - 16}{x - 4}
+$$
+
+and then evaluate the simplified expression at $x = 7$.
 
 :::solution
-One short answer is: Even roots require nonnegative radicands in the real numbers.
+Factor the numerator:
+
+$$
+x^2 - 16 = (x - 4)(x + 4)
+$$
+
+So for $x \ne 4$,
+
+$$
+\frac{x^2 - 16}{x - 4} = x + 4.
+$$
+
+Now substitute $x = 7$:
+
+$$
+7 + 4 = 11
+$$
 :::
 
 ---
-id: "math-functions-24"
-note: "math-functions"
-title: "Review: Exponential and logarithmic functions"
-type: "text"
-answer: "For $a^x$, the output is always positive."
-skills:
-  - "Exponential and logarithmic functions"
+id: math-functions-25
+note: math-functions
+title: "Find an Average Rate of Change"
+skills: [Average rate of change, Evaluating functions]
 ---
 
-What is the main idea of **Exponential and logarithmic functions**?
+For
+
+$$
+f(x) = x^2,
+$$
+
+find the average rate of change from $x = 1$ to $x = 4$.
 
 :::solution
-One short answer is: For $a^x$, the output is always positive.
+Use the average rate of change formula:
+
+$$
+\frac{f(4) - f(1)}{4 - 1}
+$$
+
+Compute the function values:
+
+$$
+f(4) = 16 \quad \text{and} \quad f(1) = 1
+$$
+
+Then
+
+$$
+\frac{16 - 1}{3} = \frac{15}{3} = 5
+$$
 :::
 
 ---
-id: "math-functions-25"
-note: "math-functions"
-title: "Review: Trigonometric functions"
-type: "text"
-answer: "Common functions include $$ \\sin x,\\ \\cos x,\\ \\tan x $$ They are periodic and appear in waves, rotation, and oscillation models. ---"
-skills:
-  - "Trigonometric functions"
+id: math-functions-26
+note: math-functions
+title: "Make a Piecewise Function Continuous"
+skills: [Piecewise functions, Continuity]
 ---
 
-What is the main idea of **Trigonometric functions**?
+Choose $a$ so that the function is continuous at $x = 2$:
+
+$$
+f(x) =
+\begin{cases}
+ax + 1, & x < 2 \\
+5x - 3, & x \ge 2
+\end{cases}
+$$
 
 :::solution
-One short answer is: Common functions include $$ \sin x,\ \cos x,\ \tan x $$ They are periodic and appear in waves, rotation, and oscillation models. ---
+For continuity at $x = 2$, the left and right values must match.
+
+The right-hand value at $x = 2$ is
+
+$$
+5(2) - 3 = 7.
+$$
+
+So the left-hand expression must also equal $7$ at $x = 2$:
+
+$$
+2a + 1 = 7
+$$
+
+$$
+2a = 6
+$$
+
+$$
+a = 3
+$$
 :::
 
 ---
-id: "math-functions-26"
-note: "math-functions"
-title: "Review: Transformations and graph behavior"
-type: "text"
-answer: "Transformations and graph behavior"
-skills:
-  - "5. Transformations and graph behavior"
+id: math-functions-27
+note: math-functions
+title: "Determine the End Behavior of a Polynomial"
+skills: [End behavior, Polynomials]
 ---
 
-What is the main idea of **Transformations and graph behavior**?
+Describe the end behavior of
+
+$$
+f(x) = -2x^5 + x^3.
+$$
 
 :::solution
-One short answer is: Transformations and graph behavior
+The leading term is $-2x^5$, so it determines the end behavior.
+
+As $x \to \infty$,
+
+$$
+f(x) \to -\infty.
+$$
+
+As $x \to -\infty$,
+
+$$
+f(x) \to \infty.
+$$
 :::
 
 ---
-id: "math-functions-27"
-note: "math-functions"
-title: "Review: Basic transformations"
-type: "text"
-answer: "If $f(x)$ is a base graph, then: $$ f(x) + k $$ moves the graph up by $k$."
-skills:
-  - "Basic transformations"
+id: math-functions-28
+note: math-functions
+title: "Describe Multiple Transformations"
+skills: [Transformations, Symmetry]
 ---
 
-What is the main idea of **Basic transformations**?
+Let
+
+$$
+f(x) = x^2
+$$
+
+and define
+
+$$
+g(x) = -2f(x + 3) + 1.
+$$
+
+Describe the transformations that take $f$ to $g$.
 
 :::solution
-One short answer is: If $f(x)$ is a base graph, then: $$ f(x) + k $$ moves the graph up by $k$.
+Read the expression from the inside out.
+
+$$
+f(x + 3)
+$$
+
+moves the graph left $3$ units.
+
+The factor $-2$ reflects the graph across the $x$-axis and stretches it vertically by a factor of $2$.
+
+The $+1$ shifts the graph up $1$ unit.
+
+So the transformations are:
+
+- left $3$
+- vertical stretch by $2$
+- reflect across the $x$-axis
+- up $1$
 :::
 
 ---
-id: "math-functions-28"
-note: "math-functions"
-title: "Review: Stretching and shrinking"
-type: "text"
-answer: "$$ a f(x) $$ scales outputs vertically by $ a $. $$ f(bx) $$ scales inputs horizontally by a factor of $1/ b $."
-skills:
-  - "Stretching and shrinking"
+id: math-functions-31
+note: math-functions
+title: "Model a Membership Fee"
+skills: [Linear Models, Functions]
 ---
 
-What is the main idea of **Stretching and shrinking**?
+A music studio charges a $25 registration fee plus $18 per lesson.
+
+If the total bill is $97, how many lessons did the student take?
 
 :::solution
-One short answer is: $$ a f(x) $$ scales outputs vertically by $ a $. $$ f(bx) $$ scales inputs horizontally by a factor of $1/ b $.
+Let $l$ be the number of lessons. Set up the equation:
+
+$$
+25 + 18l = 97
+$$
+
+Subtract $25$:
+
+$$
+18l = 72
+$$
+
+Divide by $18$:
+
+$$
+l = 4
+$$
 :::
 
 ---
-id: "math-functions-29"
-note: "math-functions"
-title: "Review: End behavior"
-type: "text"
-answer: "End behavior describes what happens as $x \\to \\infty$ or $x \\to -\\infty$."
-skills:
-  - "End behavior"
+id: math-functions-32
+note: math-functions
+title: "Interpret an Average Rate of Change"
+skills: [Average rate of change, Units]
 ---
 
-What is the main idea of **End behavior**?
+The height of a plant is modeled by
+
+$$
+h(t) = 2t^2 + 3,
+$$
+
+where $h$ is measured in centimeters and $t$ is measured in weeks.
+
+Find the average rate of change from $t = 1$ to $t = 4$.
 
 :::solution
-One short answer is: End behavior describes what happens as $x \to \infty$ or $x \to -\infty$.
+Use the average rate of change formula:
+
+$$
+\frac{h(4) - h(1)}{4 - 1}
+$$
+
+Compute the values:
+
+$$
+h(4) = 2(16) + 3 = 35
+$$
+
+$$
+h(1) = 2(1) + 3 = 5
+$$
+
+So
+
+$$
+\frac{35 - 5}{3} = \frac{30}{3} = 10
+$$
+
+The average rate of change is $10$ centimeters per week.
 :::
 
 ---
-id: "math-functions-210"
-note: "math-functions"
-title: "Review: Symmetry"
-type: "text"
-answer: "Even if $f(-x) = f(x)$"
-skills:
-  - "Symmetry"
+id: math-functions-33
+note: math-functions
+title: "Write an Exponential Growth Model"
+skills: [Exponential Functions, Modeling]
 ---
 
-What is the main idea of **Symmetry**?
+A bacteria culture starts with $600$ cells and doubles every hour.
+
+Write a function for the number of cells after $t$ hours, and find the number after $5$ hours.
 
 :::solution
-One short answer is: Even if $f(-x) = f(x)$
+Doubling every hour means the model is exponential:
+
+$$
+N(t) = 600 \cdot 2^t
+$$
+
+Now evaluate at $t = 5$:
+
+$$
+N(5) = 600 \cdot 2^5 = 600 \cdot 32 = 19200
+$$
 :::
 
 ---
-id: "math-functions-31"
-note: "math-functions"
-title: "Review: Composition and inverse functions"
-type: "text"
-answer: "Composition and inverse functions"
-skills:
-  - "6. Composition and inverse functions"
+id: math-functions-34
+note: math-functions
+title: "Use a Piecewise Pricing Rule"
+skills: [Piecewise functions, Modeling]
 ---
 
-What is the main idea of **Composition and inverse functions**?
+A parking garage charges $6 for the first hour and $2.50 for each additional hour.
+
+How much does it cost to park for $5$ hours?
 
 :::solution
-One short answer is: Composition and inverse functions
+After the first hour, there are $4$ additional hours.
+
+The total cost is
+
+$$
+6 + 4(2.50) = 6 + 10 = 16
+$$
+
+So the cost is $\$16$.
 :::
 
 ---
-id: "math-functions-32"
-note: "math-functions"
-title: "Review: Composition"
-type: "text"
-answer: "Compute $g(x)$."
-skills:
-  - "Composition"
+id: math-functions-35
+note: math-functions
+title: "Use a Conversion Function"
+skills: [Inverse functions, Modeling]
 ---
 
-What is the main idea of **Composition**?
+The function
+
+$$
+C(F) = \frac{5}{9}(F - 32)
+$$
+
+converts Fahrenheit to Celsius.
+
+What Fahrenheit temperature corresponds to $20^\circ\text{C}$?
 
 :::solution
-One short answer is: Compute $g(x)$.
+Set $C(F) = 20$:
+
+$$
+20 = \frac{5}{9}(F - 32)
+$$
+
+Multiply both sides by $\frac{9}{5}$:
+
+$$
+36 = F - 32
+$$
+
+Add $32$:
+
+$$
+F = 68
+$$
+
+So the temperature is $68^\circ\text{F}$.
 :::
 
 ---
-id: "math-functions-33"
-note: "math-functions"
-title: "Review: Inverse functions"
-type: "text"
-answer: "An inverse function reverses the effect of a function."
-skills:
-  - "Inverse functions"
+id: math-functions-41
+note: math-functions
+title: "Find the Inverse of a Restricted Quadratic"
+skills: [Inverse functions, Quadratics]
 ---
 
-What is the main idea of **Inverse functions**?
+Let
+
+$$
+f(x) = (x - 2)^2
+$$
+
+with domain $x \ge 2$.
+
+Find $f^{-1}(x)$.
 
 :::solution
-One short answer is: An inverse function reverses the effect of a function.
+Write
+
+$$
+y = (x - 2)^2.
+$$
+
+Swap $x$ and $y$:
+
+$$
+x = (y - 2)^2.
+$$
+
+Because the original domain is $y \ge 2$, choose the positive square root:
+
+$$
+y - 2 = \sqrt{x}
+$$
+
+So
+
+$$
+f^{-1}(x) = 2 + \sqrt{x}.
+$$
+
+The domain of the inverse is $x \ge 0$.
 :::
 
 ---
-id: "math-functions-34"
-note: "math-functions"
-title: "Review: Finding an inverse"
-type: "text"
-answer: "Write $y = f(x)$."
-skills:
-  - "Finding an inverse"
+id: math-functions-42
+note: math-functions
+title: "Find the Domain of a Composite Function"
+skills: [Composition, Domain]
 ---
 
-What is the main idea of **Finding an inverse**?
+Let
+
+$$
+f(x) = \sqrt{x - 1}
+$$
+
+and
+
+$$
+g(x) = \log_2(x).
+$$
+
+Find the domain of $(g \circ f)(x)$.
 
 :::solution
-One short answer is: Write $y = f(x)$.
+The composition is
+
+$$
+(g \circ f)(x) = \log_2\!\big(\sqrt{x - 1}\big).
+$$
+
+Two conditions must hold:
+
+1. $x - 1 \ge 0$ so that the square root is defined.
+2. $\sqrt{x - 1} > 0$ because the input of a logarithm must be positive.
+
+The second condition means
+
+$$
+x - 1 > 0,
+$$
+
+so the domain is
+
+$$
+x > 1.
+$$
 :::
 
 ---
-id: "math-functions-35"
-note: "math-functions"
-title: "Review: One-to-one checks"
-type: "text"
-answer: "Horizontal line test on the graph"
-skills:
-  - "One-to-one checks"
+id: math-functions-43
+note: math-functions
+title: "Find the Inverse of a Rational Function with a Hole"
+skills: [Rational Functions, Inverse functions]
 ---
 
-What is the main idea of **One-to-one checks**?
+Consider the function
+
+$$
+f(x) = \frac{x^2 - 9}{x - 3},
+$$
+
+with domain $x \ne 3$.
+
+Does $f$ have an inverse on its domain? If so, find it and state its domain.
 
 :::solution
-One short answer is: Horizontal line test on the graph
+Factor the numerator:
+
+$$
+x^2 - 9 = (x - 3)(x + 3)
+$$
+
+So for $x \ne 3$,
+
+$$
+f(x) = x + 3.
+$$
+
+This is one-to-one, so the function does have an inverse on its domain.
+
+To find it, write
+
+$$
+y = x + 3
+$$
+
+and swap variables:
+
+$$
+x = y + 3.
+$$
+
+Solve for $y$:
+
+$$
+y = x - 3.
+$$
+
+So
+
+$$
+f^{-1}(x) = x - 3.
+$$
+
+Since the original range excludes $6$, the domain of the inverse is $x \ne 6$.
 :::
 
 ---
-id: "math-functions-36"
-note: "math-functions"
-title: "Review: Piecewise functions and modeling"
-type: "text"
-answer: "Piecewise functions and modeling"
-skills:
-  - "7. Piecewise functions and modeling"
+id: math-functions-44
+note: math-functions
+title: "Classify Compositions Using Symmetry"
+skills: [Composition, Symmetry]
 ---
 
-What is the main idea of **Piecewise functions and modeling**?
+Suppose $f$ is even and $g$ is odd.
+
+What can you say about $f \circ g$ and $g \circ f$?
 
 :::solution
-One short answer is: Piecewise functions and modeling
-:::
+Use the definitions of even and odd functions.
 
----
-id: "math-functions-37"
-note: "math-functions"
-title: "Review: Piecewise definitions"
-type: "text"
-answer: "First determine which condition the input satisfies."
-skills:
-  - "Piecewise definitions"
----
+For $f \circ g$:
 
-What core idea is introduced in **Piecewise definitions**?
+$$
+(f \circ g)(-x) = f(g(-x)) = f(-g(x)) = f(g(x))
+$$
 
-:::solution
-One short answer is: First determine which condition the input satisfies.
-:::
+because $g$ is odd and $f$ is even. So $f \circ g$ is even.
 
----
-id: "math-functions-38"
-note: "math-functions"
-title: "Review: Continuity at joins"
-type: "text"
-answer: "For a piecewise function to be continuous at a breakpoint $x = c$: $$ \\lim {x \\to c^-} f(x) = \\lim {x \\to c^+} f(x) = f(c) $$ If the left and right values do not match, the graph has a jump or gap at the join."
-skills:
-  - "Continuity at joins"
----
+For $g \circ f$:
 
-What is the main idea of **Continuity at joins**?
+$$
+(g \circ f)(-x) = g(f(-x)) = g(f(x)) = (g \circ f)(x)
+$$
 
-:::solution
-One short answer is: For a piecewise function to be continuous at a breakpoint $x = c$: $$ \lim {x \to c^-} f(x) = \lim {x \to c^+} f(x) = f(c) $$ If the left and right values do not match, the graph has a jump or gap at the join.
-:::
-
----
-id: "math-functions-39"
-note: "math-functions"
-title: "Review: Modeling with functions"
-type: "text"
-answer: "Motion and position"
-skills:
-  - "Modeling with functions"
----
-
-What is the main idea of **Modeling with functions**?
-
-:::solution
-One short answer is: Motion and position
-:::
-
----
-id: "math-functions-310"
-note: "math-functions"
-title: "Review: Rates of change and calculus connections"
-type: "text"
-answer: "Rates of change and calculus connections"
-skills:
-  - "8. Rates of change and calculus connections"
----
-
-What is the main idea of **Rates of change and calculus connections**?
-
-:::solution
-One short answer is: Rates of change and calculus connections
-:::
-
----
-id: "math-functions-311"
-note: "math-functions"
-title: "Review: Average rate of change"
-type: "text"
-answer: "The average rate of change of $f$ from $x=a$ to $x=b$ is $$ \\frac{f(b) - f(a)}{b - a} $$ This is the slope of the secant line through the two points on the graph."
-skills:
-  - "Average rate of change"
----
-
-What is the main idea of **Average rate of change**?
-
-:::solution
-One short answer is: The average rate of change of $f$ from $x=a$ to $x=b$ is $$ \frac{f(b) - f(a)}{b - a} $$ This is the slope of the secant line through the two points on the graph.
-:::
-
----
-id: "math-functions-41"
-note: "math-functions"
-title: "Review: Instantaneous rate of change"
-type: "text"
-answer: "Slope of the tangent line"
-skills:
-  - "Instantaneous rate of change"
----
-
-What is the main idea of **Instantaneous rate of change**?
-
-:::solution
-One short answer is: Slope of the tangent line
-:::
-
----
-id: "math-functions-42"
-note: "math-functions"
-title: "Review: Why function behavior matters"
-type: "text"
-answer: "Domain restrictions affect differentiation and integration."
-skills:
-  - "Why function behavior matters"
----
-
-What is the main idea of **Why function behavior matters**?
-
-:::solution
-One short answer is: Domain restrictions affect differentiation and integration.
-:::
-
----
-id: "math-functions-43"
-note: "math-functions"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Identify the function type."
-skills:
-  - "9. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Identify the function type.
-:::
-
----
-id: "math-functions-44"
-note: "math-functions"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Forgetting domain restrictions from denominators, radicals, or logs"
-skills:
-  - "Common pitfalls"
----
-
-Name one common mistake the note warns about in **Common pitfalls**.
-
-:::solution
-One short answer is: Forgetting domain restrictions from denominators, radicals, or logs
-:::
-
----
-id: "math-functions-45"
-note: "math-functions"
-title: "Review: Quick graph-reading workflow"
-type: "text"
-answer: "Find intercepts if needed."
-skills:
-  - "Quick graph-reading workflow"
----
-
-According to the note, what sequence of steps is recommended in **Quick graph-reading workflow**?
-
-:::solution
-One short answer is: Find intercepts if needed.
-:::
-
----
-id: "math-functions-46"
-note: "math-functions"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "10. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-functions-47"
-note: "math-functions"
-title: "Review: Definitions"
-type: "text"
-answer: "$$ f : A \\to B $$ $$ f(x) $$ $$ (f \\circ g)(x) = f(g(x)) $$ $$ f^{-1}(f(x)) = x $$"
-skills:
-  - "Definitions"
----
-
-What core idea is introduced in **Definitions**?
-
-:::solution
-One short answer is: $$ f : A \to B $$ $$ f(x) $$ $$ (f \circ g)(x) = f(g(x)) $$ $$ f^{-1}(f(x)) = x $$
-:::
-
----
-id: "math-functions-48"
-note: "math-functions"
-title: "Review: Transformation rules"
-type: "text"
-answer: "$$ f(x) + k \\text{ shifts up} $$ $$ f(x) - k \\text{ shifts down} $$ $$ f(x - h) \\text{ shifts right} $$ $$ f(x + h) \\text{ shifts left} $$ $$ -f(x) \\text{ reflects across the } x\\text{-axis} $$ $$ f(-x) \\text{ reflects…"
-skills:
-  - "Transformation rules"
----
-
-What is the main idea of **Transformation rules**?
-
-:::solution
-One short answer is: $$ f(x) + k \text{ shifts up} $$ $$ f(x) - k \text{ shifts down} $$ $$ f(x - h) \text{ shifts right} $$ $$ f(x + h) \text{ shifts left} $$ $$ -f(x) \text{ reflects across the } x\text{-axis} $$ $$ f(-x) \text{ reflects…
-:::
-
----
-id: "math-functions-49"
-note: "math-functions"
-title: "Review: Rate formulas"
-type: "text"
-answer: "$$ \\text{Average rate of change} = \\frac{f(b) - f(a)}{b - a} $$ $$ \\text{Even: } f(-x) = f(x) $$ $$ \\text{Odd: } f(-x) = -f(x) $$"
-skills:
-  - "Rate formulas"
----
-
-What core formulas or relations are summarized in **Rate formulas**?
-
-:::solution
-One short answer is: $$ \text{Average rate of change} = \frac{f(b) - f(a)}{b - a} $$ $$ \text{Even: } f(-x) = f(x) $$ $$ \text{Odd: } f(-x) = -f(x) $$
-:::
-
----
-id: "math-functions-410"
-note: "math-functions"
-title: "Review: Domain reminders"
-type: "text"
-answer: "Rational: denominator $\\ne 0$"
-skills:
-  - "Domain reminders"
----
-
-What is the main idea of **Domain reminders**?
-
-:::solution
-One short answer is: Rational: denominator $\ne 0$
+because $f$ is even, so the input to $g$ does not change when $x$ is replaced by $-x$. Thus $g \circ f$ is also even.
 :::

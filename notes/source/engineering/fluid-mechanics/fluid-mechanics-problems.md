@@ -1,1231 +1,996 @@
 ---
-id: "engineering-fluid-mechanics-11"
-note: "engineering-fluid-mechanics"
-title: "Review: What fluid mechanics studies"
-type: "text"
-answer: "Fluid statics : fluids at rest"
-skills:
-  - "1. What fluid mechanics studies"
+id: fluid-mechanics-11
+note: engineering-fluid-mechanics
+title: "Relate Density, Specific Weight, and Viscosity"
+skills: [Fluid Properties, Newtonian Fluids]
 ---
 
-What is the main idea of **What fluid mechanics studies**?
+A fluid has density $1000\ \text{kg/m}^3$ and dynamic viscosity $1.0\times 10^{-3}\ \text{Pa}\cdot\text{s}$.
 
-:::solution
-One short answer is: Fluid statics : fluids at rest
-:::
+Find:
 
----
-id: "engineering-fluid-mechanics-12"
-note: "engineering-fluid-mechanics"
-title: "Review: Core modeling idea"
-type: "text"
-answer: "Conservation of mass"
-skills:
-  - "Core modeling idea"
----
+- its specific weight $\gamma$
+- its specific volume $v$
+- its kinematic viscosity $\nu$
 
-What core idea is introduced in **Core modeling idea**?
+Also state whether this fluid is usually modeled as incompressible and Newtonian in ordinary pipe flow.
 
 :::solution
-One short answer is: Conservation of mass
-:::
+Use the definitions:
 
----
-id: "engineering-fluid-mechanics-13"
-note: "engineering-fluid-mechanics"
-title: "Review: Fluid properties and classification"
-type: "text"
-answer: "Fluid properties and classification"
-skills:
-  - "2. Fluid properties and classification"
----
+$$
+\gamma = \rho g = 1000(9.81) = 9810\ \text{N/m}^3
+$$
 
-What is the main idea of **Fluid properties and classification**?
+$$
+v = \frac{1}{\rho} = \frac{1}{1000} = 1.0\times 10^{-3}\ \text{m}^3/\text{kg}
+$$
 
-:::solution
-One short answer is: Fluid properties and classification
+$$
+\nu = \frac{\mu}{\rho} = \frac{1.0\times 10^{-3}}{1000} = 1.0\times 10^{-6}\ \text{m}^2/\text{s}
+$$
+
+This fluid is commonly modeled as incompressible and Newtonian in ordinary pipe flow.
 :::
 
 ---
-id: "engineering-fluid-mechanics-14"
-note: "engineering-fluid-mechanics"
-title: "Review: Common properties"
-type: "text"
-answer: "Quantity Symbol Typical unit --- --- --- Density $\\rho$ kg/m$^3$ Specific weight $\\gamma$ N/m$^3$ Specific volume $v$ m$^3$/kg Dynamic viscosity $\\mu$ Pa$\\cdot$s Kinematic viscosity $\\nu$ m$^2$/s Pressure $p$ Pa Surface…"
-skills:
-  - "Common properties"
+id: fluid-mechanics-12
+note: engineering-fluid-mechanics
+title: "Classify Flow by Reynolds Number"
+skills: [Reynolds Number, Flow Regime]
 ---
+
+Oil flows through a circular pipe with
 
-Name one common mistake the note warns about in **Common properties**.
+$$
+\rho = 850\ \text{kg/m}^3,\quad \mu = 0.17\ \text{Pa}\cdot\text{s},\quad V = 0.40\ \text{m/s},\quad D = 0.020\ \text{m}.
+$$
 
+Find the Reynolds number and classify the flow as laminar, transitional, or turbulent.
+
 :::solution
-One short answer is: Quantity Symbol Typical unit --- --- --- Density $\rho$ kg/m$^3$ Specific weight $\gamma$ N/m$^3$ Specific volume $v$ m$^3$/kg Dynamic viscosity $\mu$ Pa$\cdot$s Kinematic viscosity $\nu$ m$^2$/s Pressure $p$ Pa Surface…
+Compute the Reynolds number:
+
+$$
+\mathrm{Re} = \frac{\rho V D}{\mu}
+= \frac{850(0.40)(0.020)}{0.17}
+= 40
+$$
+
+Since $\mathrm{Re} \ll 2300$, the flow is laminar.
 :::
 
 ---
-id: "engineering-fluid-mechanics-15"
-note: "engineering-fluid-mechanics"
-title: "Review: Idealizations"
-type: "text"
-answer: "Idealizations"
-skills:
-  - "Idealizations"
+id: fluid-mechanics-13
+note: engineering-fluid-mechanics
+title: "Find Pressure at a Depth"
+skills: [Hydrostatics, Pressure]
 ---
+
+What is the gauge pressure $6$ m below the free surface in fresh water?
 
-What is the main idea of **Idealizations**?
+Use $\rho = 1000\ \text{kg/m}^3$ and $g = 9.81\ \text{m/s}^2$.
 
 :::solution
-One short answer is: Idealizations
-:::
+For a fluid at rest, pressure increases with depth:
 
----
-id: "engineering-fluid-mechanics-16"
-note: "engineering-fluid-mechanics"
-title: "Review: Incompressible fluid"
-type: "text"
-answer: "A fluid is modeled as incompressible when density changes are negligible. This is often valid for liquids and for gases at low speed, typically when the Mach number is small."
-skills:
-  - "Incompressible fluid"
----
+$$
+p = \rho g h
+$$
 
-What is the main idea of **Incompressible fluid**?
+So
 
-:::solution
-One short answer is: A fluid is modeled as incompressible when density changes are negligible. This is often valid for liquids and for gases at low speed, typically when the Mach number is small.
+$$
+p = 1000(9.81)(6) = 58860\ \text{Pa}
+$$
+
+$$
+p \approx 58.9\ \text{kPa}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-17"
-note: "engineering-fluid-mechanics"
-title: "Review: Newtonian fluid"
-type: "text"
-answer: "For a Newtonian fluid, shear stress is proportional to the rate of strain: $$ \\tau = \\mu \\frac{du}{dy} $$ Water, air, and many engineering fluids are Newtonian under normal conditions."
-skills:
-  - "Newtonian fluid"
+id: fluid-mechanics-14
+note: engineering-fluid-mechanics
+title: "Convert Gauge Pressure to Pressure Head"
+skills: [Pressure Head]
 ---
+
+A gauge reads $150\ \text{kPa}$ in water.
 
-What is the main idea of **Newtonian fluid**?
+What pressure head does this correspond to?
 
 :::solution
-One short answer is: For a Newtonian fluid, shear stress is proportional to the rate of strain: $$ \tau = \mu \frac{du}{dy} $$ Water, air, and many engineering fluids are Newtonian under normal conditions.
-:::
+Pressure head is
 
----
-id: "engineering-fluid-mechanics-18"
-note: "engineering-fluid-mechanics"
-title: "Review: Inviscid fluid"
-type: "text"
-answer: "An inviscid fluid has negligible viscosity effects. This is a useful approximation outside boundary layers and in simplified Bernoulli analysis."
-skills:
-  - "Inviscid fluid"
----
+$$
+\frac{p}{\gamma}
+$$
 
-What is the main idea of **Inviscid fluid**?
+For water, $\gamma = \rho g = 1000(9.81) = 9810\ \text{N/m}^3$.
 
-:::solution
-One short answer is: An inviscid fluid has negligible viscosity effects. This is a useful approximation outside boundary layers and in simplified Bernoulli analysis.
+Thus
+
+$$
+\frac{p}{\gamma} = \frac{150000}{9810} \approx 15.3\ \text{m}
+$$
+
+So the pressure head is about $15.3$ m of water.
 :::
 
 ---
-id: "engineering-fluid-mechanics-19"
-note: "engineering-fluid-mechanics"
-title: "Review: Steady flow"
-type: "text"
-answer: "At any fixed point, properties do not change with time."
-skills:
-  - "Steady flow"
+id: fluid-mechanics-15
+note: engineering-fluid-mechanics
+title: "Compute Buoyant Force from Displaced Volume"
+skills: [Buoyancy, Hydrostatics]
 ---
 
-What is the main idea of **Steady flow**?
+A submerged object displaces $0.030\ \text{m}^3$ of water.
 
+What buoyant force acts on it?
+
 :::solution
-One short answer is: At any fixed point, properties do not change with time.
-:::
+By Archimedes' principle, the buoyant force equals the weight of the displaced fluid:
 
----
-id: "engineering-fluid-mechanics-110"
-note: "engineering-fluid-mechanics"
-title: "Review: Uniform flow"
-type: "text"
-answer: "Properties are constant across a section."
-skills:
-  - "Uniform flow"
----
+$$
+F_B = \rho g V_{\text{disp}}
+$$
 
-What is the main idea of **Uniform flow**?
+So
 
-:::solution
-One short answer is: Properties are constant across a section.
+$$
+F_B = 1000(9.81)(0.030) = 294.3\ \text{N}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-111"
-note: "engineering-fluid-mechanics"
-title: "Review: Laminar and turbulent flow"
-type: "text"
-answer: "Laminar flow : ordered motion, low mixing"
-skills:
-  - "Laminar and turbulent flow"
+id: fluid-mechanics-16
+note: engineering-fluid-mechanics
+title: "Use Continuity in a Converging Pipe"
+skills: [Continuity, Volumetric Flow Rate]
 ---
 
-What is the main idea of **Laminar and turbulent flow**?
+Water flows through a $60$ mm pipe at $3.0\ \text{m/s}$ and then enters a $30$ mm nozzle.
 
+Find the volumetric flow rate and the nozzle exit speed.
+
 :::solution
-One short answer is: Laminar flow : ordered motion, low mixing
-:::
+First compute the flow rate at the larger section:
 
----
-id: "engineering-fluid-mechanics-112"
-note: "engineering-fluid-mechanics"
-title: "Review: Pressure and hydrostatics"
-type: "text"
-answer: "Pressure and hydrostatics"
-skills:
-  - "3. Pressure and hydrostatics"
----
+$$
+A_1 = \frac{\pi}{4}(0.060)^2
+$$
 
-What is the main idea of **Pressure and hydrostatics**?
+$$
+Q = A_1V_1 = \frac{\pi}{4}(0.060)^2(3.0) \approx 8.48\times 10^{-3}\ \text{m}^3/\text{s}
+$$
 
-:::solution
-One short answer is: Pressure and hydrostatics
+Now use continuity at the nozzle:
+
+$$
+A_2 = \frac{\pi}{4}(0.030)^2
+$$
+
+$$
+V_2 = \frac{Q}{A_2} = \frac{8.48\times 10^{-3}}{\pi(0.030)^2/4} = 12\ \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-113"
-note: "engineering-fluid-mechanics"
-title: "Review: Pressure"
-type: "text"
-answer: "Pressure is normal force per unit area: $$ p = \\frac{F}{A} $$ Pressure is isotropic in a fluid at rest."
-skills:
-  - "Pressure"
+id: fluid-mechanics-17
+note: engineering-fluid-mechanics
+title: "Apply Bernoulli at the Same Elevation"
+skills: [Bernoulli Equation, Pressure]
 ---
+
+In a horizontal water line, the speed increases from $2\ \text{m/s}$ to $6\ \text{m/s}$.
 
-What is the main idea of **Pressure**?
+What is the pressure drop between the two points?
 
 :::solution
-One short answer is: Pressure is normal force per unit area: $$ p = \frac{F}{A} $$ Pressure is isotropic in a fluid at rest.
-:::
+For steady, incompressible, inviscid flow at the same elevation,
 
----
-id: "engineering-fluid-mechanics-114"
-note: "engineering-fluid-mechanics"
-title: "Review: Hydrostatic equation"
-type: "text"
-answer: "For a fluid at rest under gravity: $$ \\frac{dp}{dz} = -\\rho g $$ If density is constant: $$ p = p 0 + \\rho g (z 0 - z) $$ This gives the familiar result that pressure increases with depth."
-skills:
-  - "Hydrostatic equation"
----
+$$
+\frac{p_1}{\gamma} + \frac{V_1^2}{2g}
+=
+\frac{p_2}{\gamma} + \frac{V_2^2}{2g}
+$$
 
-What is the main idea of **Hydrostatic equation**?
+So
 
-:::solution
-One short answer is: For a fluid at rest under gravity: $$ \frac{dp}{dz} = -\rho g $$ If density is constant: $$ p = p 0 + \rho g (z 0 - z) $$ This gives the familiar result that pressure increases with depth.
-:::
+$$
+p_1 - p_2 = \frac{1}{2}\rho\left(V_2^2 - V_1^2\right)
+$$
 
----
-id: "engineering-fluid-mechanics-115"
-note: "engineering-fluid-mechanics"
-title: "Review: Pressure head"
-type: "text"
-answer: "Pressure can be expressed as an equivalent fluid column height: $$ \\frac{p}{\\gamma} $$ This is called pressure head."
-skills:
-  - "Pressure head"
----
+Substitute the values:
 
-What is the main idea of **Pressure head**?
+$$
+p_1 - p_2 = \frac{1}{2}(1000)(6^2 - 2^2)
+$$
 
-:::solution
-One short answer is: Pressure can be expressed as an equivalent fluid column height: $$ \frac{p}{\gamma} $$ This is called pressure head.
+$$
+p_1 - p_2 = 500(36 - 4) = 16000\ \text{Pa}
+$$
+
+So the pressure drops by $16\ \text{kPa}$.
 :::
 
 ---
-id: "engineering-fluid-mechanics-116"
-note: "engineering-fluid-mechanics"
-title: "Review: Manometers"
-type: "text"
-answer: "Pick a starting point with known pressure."
-skills:
-  - "Manometers"
+id: fluid-mechanics-18
+note: engineering-fluid-mechanics
+title: "Find the Darcy Friction Factor for Laminar Flow"
+skills: [Friction Factor, Reynolds Number]
 ---
+
+A pipe flow has Reynolds number $1600$.
 
-What is the main idea of **Manometers**?
+Assuming the flow is laminar, what is the Darcy friction factor?
 
 :::solution
-One short answer is: Pick a starting point with known pressure.
-:::
+For laminar pipe flow,
 
----
-id: "engineering-fluid-mechanics-117"
-note: "engineering-fluid-mechanics"
-title: "Review: Common pitfall"
-type: "text"
-answer: "The density used in each segment must match the fluid in that segment. Do not use one density for the whole manometer unless the column is truly one fluid. ---"
-skills:
-  - "Common pitfall"
----
+$$
+f = \frac{64}{\mathrm{Re}}
+$$
 
-Name one common mistake the note warns about in **Common pitfall**.
+Therefore
 
-:::solution
-One short answer is: The density used in each segment must match the fluid in that segment. Do not use one density for the whole manometer unless the column is truly one fluid. ---
+$$
+f = \frac{64}{1600} = 0.04
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-118"
-note: "engineering-fluid-mechanics"
-title: "Review: Fluid statics applications"
-type: "text"
-answer: "Fluid statics applications"
-skills:
-  - "4. Fluid statics applications"
+id: fluid-mechanics-19
+note: engineering-fluid-mechanics
+title: "Compute Stagnation Pressure"
+skills: [Stagnation Pressure, Bernoulli Equation]
 ---
 
-What is the main idea of **Fluid statics applications**?
+Air flows with static pressure $101\ \text{kPa}$, density $1.2\ \text{kg/m}^3$, and speed $30\ \text{m/s}$.
 
+What is the stagnation pressure?
+
 :::solution
-One short answer is: Fluid statics applications
-:::
+Use the stagnation pressure relation:
 
----
-id: "engineering-fluid-mechanics-119"
-note: "engineering-fluid-mechanics"
-title: "Review: Hydrostatic force on a plane surface"
-type: "text"
-answer: "$F R$ is the resultant hydrostatic force"
-skills:
-  - "Hydrostatic force on a plane surface"
----
+$$
+p_0 = p + \frac{1}{2}\rho V^2
+$$
 
-What is the main idea of **Hydrostatic force on a plane surface**?
+Substitute the values:
 
-:::solution
-One short answer is: $F R$ is the resultant hydrostatic force
-:::
+$$
+p_0 = 101000 + \frac{1}{2}(1.2)(30^2)
+$$
 
----
-id: "engineering-fluid-mechanics-120"
-note: "engineering-fluid-mechanics"
-title: "Review: Center of pressure"
-type: "text"
-answer: "The line of action is below the centroid because pressure increases with depth."
-skills:
-  - "Center of pressure"
----
+$$
+p_0 = 101000 + 540 = 101540\ \text{Pa}
+$$
 
-What is the main idea of **Center of pressure**?
+So
 
-:::solution
-One short answer is: The line of action is below the centroid because pressure increases with depth.
+$$
+p_0 \approx 101.5\ \text{kPa}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-21"
-note: "engineering-fluid-mechanics"
-title: "Review: Buoyancy"
-type: "text"
-answer: "The buoyant force equals the weight of the displaced fluid: $$ F B = \\rho g V {\\text{disp}} $$ This is Archimedes' principle."
-skills:
-  - "Buoyancy"
+id: fluid-mechanics-110
+note: engineering-fluid-mechanics
+title: "Check for Compressibility from Mach Number"
+skills: [Mach Number, Compressible Flow]
 ---
+
+Air moves at $120\ \text{m/s}$ and the local speed of sound is $340\ \text{m/s}$.
 
-What is the main idea of **Buoyancy**?
+Find the Mach number and say whether compressibility effects may matter.
 
 :::solution
-One short answer is: The buoyant force equals the weight of the displaced fluid: $$ F B = \rho g V {\text{disp}} $$ This is Archimedes' principle.
+Compute the Mach number:
+
+$$
+\mathrm{Ma} = \frac{V}{a} = \frac{120}{340} \approx 0.35
+$$
+
+Since this is greater than about $0.3$, compressibility effects may matter.
 :::
 
 ---
-id: "engineering-fluid-mechanics-22"
-note: "engineering-fluid-mechanics"
-title: "Review: Floating condition"
-type: "text"
-answer: "For a floating body in equilibrium: $$ W = F B $$"
-skills:
-  - "Floating condition"
+id: fluid-mechanics-21
+note: engineering-fluid-mechanics
+title: "Read a Two-Fluid Manometer"
+skills: [Hydrostatics, Manometers, Pressure]
 ---
+
+A tank gas is connected to a U-tube manometer. On the tank side, $5$ cm of water sits above mercury. The mercury level on the open side is $15$ cm higher than the mercury-water interface on the tank side. The open side is at atmospheric pressure.
 
-What is the main idea of **Floating condition**?
+Find the gas gauge pressure in the tank.
 
 :::solution
-One short answer is: For a floating body in equilibrium: $$ W = F B $$
-:::
+Start at the open surface, where the pressure is atmospheric.
 
----
-id: "engineering-fluid-mechanics-23"
-note: "engineering-fluid-mechanics"
-title: "Review: Stability note"
-type: "text"
-answer: "A floating body is statically stable if a small tilt produces a restoring moment. In early engineering work, the metacentric concept is used to assess this."
-skills:
-  - "Stability note"
----
+Move down $0.15$ m in mercury:
 
-What is the main idea of **Stability note**?
+$$
+p = p_{\text{atm}} + \rho_{\text{Hg}} g(0.15)
+$$
 
-:::solution
-One short answer is: A floating body is statically stable if a small tilt produces a restoring moment. In early engineering work, the metacentric concept is used to assess this.
-:::
+Then move up $0.05$ m in water to the tank gas:
 
----
-id: "engineering-fluid-mechanics-24"
-note: "engineering-fluid-mechanics"
-title: "Review: Hydrostatic paradox"
-type: "text"
-answer: "The pressure at a given depth depends on fluid density and depth, not container shape. Different vessel shapes can have the same pressure at the same depth. ---"
-skills:
-  - "Hydrostatic paradox"
----
+$$
+p_{\text{tank}} = p_{\text{atm}} + \rho_{\text{Hg}} g(0.15) - \rho_w g(0.05)
+$$
 
-What is the main idea of **Hydrostatic paradox**?
+So the gauge pressure is
 
-:::solution
-One short answer is: The pressure at a given depth depends on fluid density and depth, not container shape. Different vessel shapes can have the same pressure at the same depth. ---
-:::
+$$
+p_g = \rho_{\text{Hg}} g(0.15) - \rho_w g(0.05)
+$$
 
----
-id: "engineering-fluid-mechanics-25"
-note: "engineering-fluid-mechanics"
-title: "Review: Control volume analysis"
-type: "text"
-answer: "Most flow problems are easiest in a control volume framework."
-skills:
-  - "5. Control volume analysis"
----
+Using $\rho_{\text{Hg}} = 13600\ \text{kg/m}^3$ and $\rho_w = 1000\ \text{kg/m}^3$:
 
-What is the main idea of **Control volume analysis**?
+$$
+p_g = 13600(9.81)(0.15) - 1000(9.81)(0.05)
+$$
 
-:::solution
-One short answer is: Most flow problems are easiest in a control volume framework.
+$$
+p_g \approx 19.5\ \text{kPa}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-26"
-note: "engineering-fluid-mechanics"
-title: "Review: Reynolds transport theorem"
-type: "text"
-answer: "For any extensive property $B$ with specific form $b$: $$ \\frac{dB {sys}}{dt} = \\frac{d}{dt}\\int {CV} \\rho b \\, dV \\int {CS} \\rho b (\\mathbf{V}\\cdot \\mathbf{n})\\, dA $$ This connects system behavior to control-volume ba…"
-skills:
-  - "Reynolds transport theorem"
+id: fluid-mechanics-22
+note: engineering-fluid-mechanics
+title: "Resultant Force on a Submerged Gate"
+skills: [Hydrostatic Force, Center of Pressure]
 ---
 
-What is the main idea of **Reynolds transport theorem**?
+A vertical rectangular gate is $2$ m high and $1$ m wide. Its top edge is $3$ m below the free surface in water.
 
+Find the resultant hydrostatic force and the depth of the center of pressure below the free surface.
+
 :::solution
-One short answer is: For any extensive property $B$ with specific form $b$: $$ \frac{dB {sys}}{dt} = \frac{d}{dt}\int {CV} \rho b \, dV \int {CS} \rho b (\mathbf{V}\cdot \mathbf{n})\, dA $$ This connects system behavior to control-volume ba…
-:::
+The centroid of the gate is at a depth
 
----
-id: "engineering-fluid-mechanics-27"
-note: "engineering-fluid-mechanics"
-title: "Review: Conservation of mass"
-type: "text"
-answer: "General form: $$ \\frac{d}{dt}\\int {CV} \\rho \\, dV \\int {CS} \\rho (\\mathbf{V}\\cdot \\mathbf{n})\\, dA = 0 $$ For steady one-inlet, one-outlet flow: $$ \\dot{m} = \\rho A V $$ and $$ \\dot{m} {in} = \\dot{m} {out} $$ If the flu…"
-skills:
-  - "Conservation of mass"
----
+$$
+h_c = 3 + 1 = 4\ \text{m}
+$$
 
-What is the main idea of **Conservation of mass**?
+The area is
 
-:::solution
-One short answer is: General form: $$ \frac{d}{dt}\int {CV} \rho \, dV \int {CS} \rho (\mathbf{V}\cdot \mathbf{n})\, dA = 0 $$ For steady one-inlet, one-outlet flow: $$ \dot{m} = \rho A V $$ and $$ \dot{m} {in} = \dot{m} {out} $$ If the flu…
-:::
+$$
+A = 2(1) = 2\ \text{m}^2
+$$
 
----
-id: "engineering-fluid-mechanics-28"
-note: "engineering-fluid-mechanics"
-title: "Review: Volumetric flow rate"
-type: "text"
-answer: "$$ Q = AV $$ and $$ \\dot{m} = \\rho Q $$ ---"
-skills:
-  - "Volumetric flow rate"
----
+So the resultant force is
 
-What is the main idea of **Volumetric flow rate**?
+$$
+F_R = \rho g h_c A = 1000(9.81)(4)(2) = 78480\ \text{N}
+$$
 
-:::solution
-One short answer is: $$ Q = AV $$ and $$ \dot{m} = \rho Q $$ ---
-:::
+$$
+F_R \approx 78.5\ \text{kN}
+$$
 
----
-id: "engineering-fluid-mechanics-29"
-note: "engineering-fluid-mechanics"
-title: "Review: Bernoulli equation and energy form"
-type: "text"
-answer: "Bernoulli equation and energy form"
-skills:
-  - "6. Bernoulli equation and energy form"
----
+For the center of pressure,
 
-What is the main idea of **Bernoulli equation and energy form**?
+$$
+h_p = h_c + \frac{I_G}{h_cA}
+$$
 
-:::solution
-One short answer is: Bernoulli equation and energy form
-:::
+For a rectangle,
 
----
-id: "engineering-fluid-mechanics-210"
-note: "engineering-fluid-mechanics"
-title: "Review: Bernoulli equation"
-type: "text"
-answer: "Pressure head"
-skills:
-  - "Bernoulli equation"
----
+$$
+I_G = \frac{bh^3}{12} = \frac{1(2^3)}{12} = \frac{8}{12} = 0.667\ \text{m}^4
+$$
 
-What is the main idea of **Bernoulli equation**?
+Thus
 
-:::solution
-One short answer is: Pressure head
+$$
+h_p = 4 + \frac{0.667}{(4)(2)} \approx 4.08\ \text{m}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-211"
-note: "engineering-fluid-mechanics"
-title: "Review: Extended Bernoulli equation"
-type: "text"
-answer: "$h p$ is pump head added"
-skills:
-  - "Extended Bernoulli equation"
+id: fluid-mechanics-23
+note: engineering-fluid-mechanics
+title: "Match Mass Flow Rates Across a Nozzle"
+skills: [Continuity, Mass Flow Rate]
 ---
+
+Water enters a $60$ mm pipe at $3.0\ \text{m/s}$ and leaves through a $30$ mm nozzle.
 
-What is the main idea of **Extended Bernoulli equation**?
+Find the nozzle exit speed and the mass flow rate.
 
 :::solution
-One short answer is: $h p$ is pump head added
-:::
+Compute the inlet area:
 
----
-id: "engineering-fluid-mechanics-212"
-note: "engineering-fluid-mechanics"
-title: "Review: Stagnation pressure"
-type: "text"
-answer: "If a fluid is brought to rest isentropically or with negligible loss: $$ p 0 = p + \\frac{1}{2}\\rho V^2 $$ This is useful in Pitot tube measurements."
-skills:
-  - "Stagnation pressure"
----
+$$
+A_1 = \frac{\pi}{4}(0.060)^2
+$$
 
-What is the main idea of **Stagnation pressure**?
+Then the flow rate is
 
-:::solution
-One short answer is: If a fluid is brought to rest isentropically or with negligible loss: $$ p 0 = p + \frac{1}{2}\rho V^2 $$ This is useful in Pitot tube measurements.
-:::
+$$
+Q = A_1V_1 = \frac{\pi}{4}(0.060)^2(3.0) \approx 8.48\times 10^{-3}\ \text{m}^3/\text{s}
+$$
 
----
-id: "engineering-fluid-mechanics-213"
-note: "engineering-fluid-mechanics"
-title: "Review: When Bernoulli applies"
-type: "text"
-answer: "Steady flow"
-skills:
-  - "When Bernoulli applies"
----
+At the nozzle,
 
-What is the main idea of **When Bernoulli applies**?
+$$
+A_2 = \frac{\pi}{4}(0.030)^2
+$$
 
-:::solution
-One short answer is: Steady flow
-:::
+so
 
----
-id: "engineering-fluid-mechanics-214"
-note: "engineering-fluid-mechanics"
-title: "Review: Common mistake"
-type: "text"
-answer: "Do not use Bernoulli across a pump, across a significant loss, or through a strongly viscous region without adding the missing terms. ---"
-skills:
-  - "Common mistake"
----
+$$
+V_2 = \frac{Q}{A_2} = 12\ \text{m/s}
+$$
 
-Name one common mistake the note warns about in **Common mistake**.
+The mass flow rate is
 
-:::solution
-One short answer is: Do not use Bernoulli across a pump, across a significant loss, or through a strongly viscous region without adding the missing terms. ---
+$$
+\dot{m} = \rho Q = 1000(8.48\times 10^{-3}) \approx 8.48\ \text{kg/s}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-215"
-note: "engineering-fluid-mechanics"
-title: "Review: Momentum equation"
-type: "text"
-answer: "The linear momentum equation is the workhorse for forces on jets, bends, nozzles, and control devices."
-skills:
-  - "7. Momentum equation"
+id: fluid-mechanics-24
+note: engineering-fluid-mechanics
+title: "Find Pump Head in an Extended Bernoulli Balance"
+skills: [Bernoulli Equation, Head Loss, Pumps]
 ---
+
+Water is pumped from one large open reservoir to another large open reservoir that is $8$ m higher.
 
-What is the main idea of **Momentum equation**?
+The system loses $3$ m of head along the way.
 
+What pump head is required if the free-surface velocities are negligible?
+
 :::solution
-One short answer is: The linear momentum equation is the workhorse for forces on jets, bends, nozzles, and control devices.
+Between the two reservoir surfaces, the pressure terms cancel and the velocities are negligible. The pump must supply the elevation gain plus the losses:
+
+$$
+h_p = 8 + 3 = 11\ \text{m}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-216"
-note: "engineering-fluid-mechanics"
-title: "Review: Vector form"
-type: "text"
-answer: "\\int {CS} \\rho \\mathbf{V}(\\mathbf{V}\\cdot \\mathbf{n})\\, dA"
-skills:
-  - "Vector form"
+id: fluid-mechanics-25
+note: engineering-fluid-mechanics
+title: "Compute the Force on a 90-Degree Elbow"
+skills: [Momentum Equation, Control Volume]
 ---
 
-What is the main idea of **Vector form**?
+A $0.10$ m diameter pipe carries water at $4.0\ \text{m/s}$ through a 90-degree elbow.
 
+Neglect pressure forces and weight.
+
+What is the magnitude of the force the fluid exerts on the elbow?
+
 :::solution
-One short answer is: \int {CS} \rho \mathbf{V}(\mathbf{V}\cdot \mathbf{n})\, dA
-:::
+First find the mass flow rate:
 
----
-id: "engineering-fluid-mechanics-217"
-note: "engineering-fluid-mechanics"
-title: "Review: Engineering use cases"
-type: "text"
-answer: "Force on a pipe elbow"
-skills:
-  - "Engineering use cases"
----
+$$
+A = \frac{\pi}{4}(0.10)^2
+$$
 
-What is the main idea of **Engineering use cases**?
+$$
+\dot{m} = \rho AV = 1000\left(\frac{\pi}{4}(0.10)^2\right)(4.0) \approx 31.4\ \text{kg/s}
+$$
 
-:::solution
-One short answer is: Force on a pipe elbow
-:::
+The inlet velocity is along one axis and the outlet velocity is along a perpendicular axis, both with speed $4.0\ \text{m/s}$.
 
----
-id: "engineering-fluid-mechanics-218"
-note: "engineering-fluid-mechanics"
-title: "Review: Practical force balance workflow"
-type: "text"
-answer: "Draw the control volume."
-skills:
-  - "Practical force balance workflow"
----
+So the momentum change has components of magnitude
 
-According to the note, what sequence of steps is recommended in **Practical force balance workflow**?
+$$
+\dot{m}V = 31.4(4.0) = 125.6\ \text{N}
+$$
 
-:::solution
-One short answer is: Draw the control volume.
+The resultant force magnitude is
+
+$$
+F = \sqrt{125.6^2 + 125.6^2} = 125.6\sqrt{2} \approx 177.6\ \text{N}
+$$
+
+So the fluid exerts a force of about $178\ \text{N}$ on the elbow.
 :::
 
 ---
-id: "engineering-fluid-mechanics-219"
-note: "engineering-fluid-mechanics"
-title: "Review: Sign convention"
-type: "text"
-answer: "Be consistent with inlet and outlet velocity directions. Most errors in momentum problems come from sign mistakes, not from the governing equation itself. ---"
-skills:
-  - "Sign convention"
+id: fluid-mechanics-26
+note: engineering-fluid-mechanics
+title: "Scale a Free-Surface Model"
+skills: [Froude Number, Similitude]
 ---
 
-What is the main idea of **Sign convention**?
+A spillway model is built at $1:36$ scale using the same fluid as the prototype.
 
+If the prototype surface speed is $6\ \text{m/s}$, what model speed gives Froude similarity?
+
 :::solution
-One short answer is: Be consistent with inlet and outlet velocity directions. Most errors in momentum problems come from sign mistakes, not from the governing equation itself. ---
-:::
+For free-surface flow, match the Froude number:
 
----
-id: "engineering-fluid-mechanics-31"
-note: "engineering-fluid-mechanics"
-title: "Review: Dimensional analysis and similitude"
-type: "text"
-answer: "Dimensional analysis reduces variables and identifies key nondimensional groups."
-skills:
-  - "8. Dimensional analysis and similitude"
----
+$$
+\mathrm{Fr} = \frac{V}{\sqrt{gL}}
+$$
 
-What is the main idea of **Dimensional analysis and similitude**?
+So
 
-:::solution
-One short answer is: Dimensional analysis reduces variables and identifies key nondimensional groups.
-:::
+$$
+\frac{V_m}{V_p} = \sqrt{\frac{L_m}{L_p}} = \sqrt{\frac{1}{36}} = \frac{1}{6}
+$$
 
----
-id: "engineering-fluid-mechanics-32"
-note: "engineering-fluid-mechanics"
-title: "Review: Buckingham Pi theorem"
-type: "text"
-answer: "If a problem has $n$ dimensional variables and $k$ fundamental dimensions, then it can be rewritten using $n-k$ dimensionless groups."
-skills:
-  - "Buckingham Pi theorem"
----
+Therefore
 
-What is the main idea of **Buckingham Pi theorem**?
+$$
+V_m = 6\left(\frac{1}{6}\right) = 1\ \text{m/s}
+$$
 
-:::solution
-One short answer is: If a problem has $n$ dimensional variables and $k$ fundamental dimensions, then it can be rewritten using $n-k$ dimensionless groups.
+Exact Reynolds similarity is not possible at this scale with the same fluid, so Froude similarity is the governing choice.
 :::
 
 ---
-id: "engineering-fluid-mechanics-33"
-note: "engineering-fluid-mechanics"
-title: "Review: Important dimensionless numbers"
-type: "text"
-answer: "Important dimensionless numbers"
-skills:
-  - "Important dimensionless numbers"
+id: fluid-mechanics-27
+note: engineering-fluid-mechanics
+title: "Combine Major and Minor Losses"
+skills: [Darcy-Weisbach, Minor Losses, Head Loss]
 ---
 
-What is the main idea of **Important dimensionless numbers**?
+Water flows through a $40$ m long pipe of diameter $50$ mm at $2.0\ \text{m/s}$.
 
+The Darcy friction factor is $0.03$, and the total minor-loss coefficient is $2.0$.
+
+Find the total head loss and the equivalent pressure drop.
+
 :::solution
-One short answer is: Important dimensionless numbers
-:::
+First compute the velocity head:
 
----
-id: "engineering-fluid-mechanics-34"
-note: "engineering-fluid-mechanics"
-title: "Review: Reynolds number"
-type: "text"
-answer: "$$ \\mathrm{Re} = \\frac{\\rho V L}{\\mu} $$ Ratio of inertial to viscous effects."
-skills:
-  - "Reynolds number"
----
+$$
+\frac{V^2}{2g} = \frac{2.0^2}{2(9.81)} \approx 0.204\ \text{m}
+$$
 
-What is the main idea of **Reynolds number**?
+Major loss:
 
-:::solution
-One short answer is: $$ \mathrm{Re} = \frac{\rho V L}{\mu} $$ Ratio of inertial to viscous effects.
-:::
+$$
+h_f = f\frac{L}{D}\frac{V^2}{2g}
+= 0.03\left(\frac{40}{0.05}\right)(0.204)
+$$
 
----
-id: "engineering-fluid-mechanics-35"
-note: "engineering-fluid-mechanics"
-title: "Review: Froude number"
-type: "text"
-answer: "$$ \\mathrm{Fr} = \\frac{V}{\\sqrt{gL}} $$ Ratio of inertial to gravitational effects."
-skills:
-  - "Froude number"
----
+$$
+h_f \approx 4.89\ \text{m}
+$$
 
-What is the main idea of **Froude number**?
+Minor loss:
 
-:::solution
-One short answer is: $$ \mathrm{Fr} = \frac{V}{\sqrt{gL}} $$ Ratio of inertial to gravitational effects.
-:::
+$$
+h_m = K\frac{V^2}{2g} = 2.0(0.204) \approx 0.41\ \text{m}
+$$
 
----
-id: "engineering-fluid-mechanics-36"
-note: "engineering-fluid-mechanics"
-title: "Review: Mach number"
-type: "text"
-answer: "$$ \\mathrm{Ma} = \\frac{V}{a} $$ Ratio of flow speed to speed of sound."
-skills:
-  - "Mach number"
----
+Total head loss:
 
-What is the main idea of **Mach number**?
+$$
+h_L = h_f + h_m \approx 5.30\ \text{m}
+$$
 
-:::solution
-One short answer is: $$ \mathrm{Ma} = \frac{V}{a} $$ Ratio of flow speed to speed of sound.
+Equivalent pressure drop:
+
+$$
+\Delta p = \rho g h_L = 1000(9.81)(5.30) \approx 5.20\times 10^4\ \text{Pa}
+$$
+
+So the pressure drop is about $52\ \text{kPa}$.
 :::
 
 ---
-id: "engineering-fluid-mechanics-37"
-note: "engineering-fluid-mechanics"
-title: "Review: Weber number"
-type: "text"
-answer: "$$ \\mathrm{We} = \\frac{\\rho V^2 L}{\\sigma} $$ Ratio of inertial to surface tension effects."
-skills:
-  - "Weber number"
+id: fluid-mechanics-28
+note: engineering-fluid-mechanics
+title: "Calculate Drag from a Coefficient"
+skills: [Drag Coefficient, External Flow]
 ---
 
-What is the main idea of **Weber number**?
+A bluff body in air has reference area $2.0\ \text{m}^2$ and drag coefficient $C_D = 1.2$.
 
+The air density is $1.2\ \text{kg/m}^3$ and the speed is $25\ \text{m/s}$.
+
+What drag force acts on the body?
+
 :::solution
-One short answer is: $$ \mathrm{We} = \frac{\rho V^2 L}{\sigma} $$ Ratio of inertial to surface tension effects.
-:::
+Use the drag-coefficient relation:
 
----
-id: "engineering-fluid-mechanics-38"
-note: "engineering-fluid-mechanics"
-title: "Review: Similarity"
-type: "text"
-answer: "Geometric similarity : same shape at different scale"
-skills:
-  - "Similarity"
----
+$$
+C_D = \frac{D}{\tfrac{1}{2}\rho V^2 A}
+$$
 
-What is the main idea of **Similarity**?
+So
 
-:::solution
-One short answer is: Geometric similarity : same shape at different scale
-:::
+$$
+D = \frac{1}{2}\rho V^2 A C_D
+$$
 
----
-id: "engineering-fluid-mechanics-39"
-note: "engineering-fluid-mechanics"
-title: "Review: Internal flows and losses"
-type: "text"
-answer: "Internal flow refers to flow in pipes, ducts, and channels."
-skills:
-  - "9. Internal flows and losses"
----
+Substitute the values:
 
-What is the main idea of **Internal flows and losses**?
+$$
+D = \frac{1}{2}(1.2)(25^2)(2.0)(1.2)
+$$
 
-:::solution
-One short answer is: Internal flow refers to flow in pipes, ducts, and channels.
+$$
+D = 900\ \text{N}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-310"
-note: "engineering-fluid-mechanics"
-title: "Review: Hagen-Poiseuille flow"
-type: "text"
-answer: "For fully developed laminar flow in a circular pipe: $$ Q = \\frac{\\pi D^4}{128 \\mu L}\\Delta p $$ The corresponding pressure drop is: $$ \\Delta p = \\frac{32 \\mu L V}{D^2} $$ The Darcy friction factor for laminar pipe flo…"
-skills:
-  - "Hagen-Poiseuille flow"
+id: fluid-mechanics-31
+note: engineering-fluid-mechanics
+title: "Size the Inlet Pressure for a Rising Pipe"
+skills: [Continuity, Bernoulli Equation, Head Loss]
 ---
+
+Water flows at $0.015\ \text{m}^3/\text{s}$ through an $80$ m long, $0.10$ m diameter pipe that rises $5$ m and discharges to atmosphere at the same diameter.
+
+Take the Darcy friction factor as $0.02$ and neglect minor losses.
 
-What is the main idea of **Hagen-Poiseuille flow**?
+What inlet gauge pressure is needed?
 
 :::solution
-One short answer is: For fully developed laminar flow in a circular pipe: $$ Q = \frac{\pi D^4}{128 \mu L}\Delta p $$ The corresponding pressure drop is: $$ \Delta p = \frac{32 \mu L V}{D^2} $$ The Darcy friction factor for laminar pipe flo…
-:::
+First find the pipe speed:
 
----
-id: "engineering-fluid-mechanics-311"
-note: "engineering-fluid-mechanics"
-title: "Review: Fully developed pipe flow"
-type: "text"
-answer: "The velocity profile does not change in the flow direction."
-skills:
-  - "Fully developed pipe flow"
----
+$$
+A = \frac{\pi}{4}(0.10)^2
+$$
 
-What is the main idea of **Fully developed pipe flow**?
+$$
+V = \frac{Q}{A} = \frac{0.015}{\pi(0.10)^2/4} \approx 1.91\ \text{m/s}
+$$
 
-:::solution
-One short answer is: The velocity profile does not change in the flow direction.
-:::
+The velocity head is
 
----
-id: "engineering-fluid-mechanics-312"
-note: "engineering-fluid-mechanics"
-title: "Review: Head loss"
-type: "text"
-answer: "$h f$ is major loss from friction"
-skills:
-  - "Head loss"
----
+$$
+\frac{V^2}{2g} \approx \frac{1.91^2}{2(9.81)} \approx 0.186\ \text{m}
+$$
 
-What is the main idea of **Head loss**?
+The friction loss is
 
-:::solution
-One short answer is: $h f$ is major loss from friction
-:::
+$$
+h_f = f\frac{L}{D}\frac{V^2}{2g}
+= 0.02\left(\frac{80}{0.10}\right)(0.186)
+$$
 
----
-id: "engineering-fluid-mechanics-313"
-note: "engineering-fluid-mechanics"
-title: "Review: Major loss"
-type: "text"
-answer: "Using Darcy-Weisbach: $$ h f = f \\frac{L}{D}\\frac{V^2}{2g} $$"
-skills:
-  - "Major loss"
----
+$$
+h_f \approx 2.97\ \text{m}
+$$
 
-What is the main idea of **Major loss**?
+Because the pipe diameter is the same at inlet and outlet, the velocity heads cancel. The inlet gauge pressure must supply the elevation rise plus the friction loss:
 
-:::solution
-One short answer is: Using Darcy-Weisbach: $$ h f = f \frac{L}{D}\frac{V^2}{2g} $$
-:::
+$$
+\frac{p_{in}}{\gamma} = 5 + 2.97 = 7.97\ \text{m}
+$$
 
----
-id: "engineering-fluid-mechanics-314"
-note: "engineering-fluid-mechanics"
-title: "Review: Minor loss"
-type: "text"
-answer: "$$ h m = K \\frac{V^2}{2g} $$ with loss coefficient $K$."
-skills:
-  - "Minor loss"
----
+Thus
 
-What is the main idea of **Minor loss**?
+$$
+p_{in} = 1000(9.81)(7.97) \approx 7.82\times 10^4\ \text{Pa}
+$$
 
-:::solution
-One short answer is: $$ h m = K \frac{V^2}{2g} $$ with loss coefficient $K$.
+So the required inlet gauge pressure is about $78.2\ \text{kPa}$.
 :::
 
 ---
-id: "engineering-fluid-mechanics-315"
-note: "engineering-fluid-mechanics"
-title: "Review: Moody chart use"
-type: "text"
-answer: "Compute $\\mathrm{Re}$."
-skills:
-  - "Moody chart use"
+id: fluid-mechanics-32
+note: engineering-fluid-mechanics
+title: "Find the Force of a Jet on a Flat Plate"
+skills: [Momentum Equation, Jets]
 ---
+
+A $50$ mm diameter water jet moves at $20\ \text{m/s}$ and is brought to rest in the jet direction by a flat plate.
 
-What is the main idea of **Moody chart use**?
+What average force does the jet exert on the plate?
 
 :::solution
-One short answer is: Compute $\mathrm{Re}$.
-:::
+The jet area is
 
----
-id: "engineering-fluid-mechanics-316"
-note: "engineering-fluid-mechanics"
-title: "Review: Common pitfall"
-type: "text"
-answer: "Do not mix Darcy friction factor and Fanning friction factor. Relationship: $$ f {Darcy} = 4 f {Fanning} $$ ---"
-skills:
-  - "Common pitfall"
----
+$$
+A = \frac{\pi}{4}(0.050)^2
+$$
 
-Name one common mistake the note warns about in **Common pitfall**.
+The mass flow rate is
 
-:::solution
-One short answer is: Do not mix Darcy friction factor and Fanning friction factor. Relationship: $$ f {Darcy} = 4 f {Fanning} $$ ---
-:::
+$$
+\dot{m} = \rho AV = 1000\left(\frac{\pi}{4}(0.050)^2\right)(20)
+\approx 39.3\ \text{kg/s}
+$$
 
----
-id: "engineering-fluid-mechanics-317"
-note: "engineering-fluid-mechanics"
-title: "Review: External flow and boundary layers"
-type: "text"
-answer: "When a fluid flows over a surface, viscosity creates a thin region near the wall called the boundary layer ."
-skills:
-  - "10. External flow and boundary layers"
----
+The change in velocity in the jet direction is from $20\ \text{m/s}$ to $0$, so the force magnitude is
 
-What is the main idea of **External flow and boundary layers**?
+$$
+F = \dot{m}V \approx 39.3(20) \approx 785\ \text{N}
+$$
 
-:::solution
-One short answer is: When a fluid flows over a surface, viscosity creates a thin region near the wall called the boundary layer .
+So the jet exerts about $785\ \text{N}$ on the plate.
 :::
 
 ---
-id: "engineering-fluid-mechanics-318"
-note: "engineering-fluid-mechanics"
-title: "Review: Boundary-layer idea"
-type: "text"
-answer: "At the wall, the no-slip condition gives: $$ u = 0 $$ Away from the wall, velocity approaches the free-stream value."
-skills:
-  - "Boundary-layer idea"
+id: fluid-mechanics-33
+note: engineering-fluid-mechanics
+title: "Choose the Right Similarity Condition for a Spillway Model"
+skills: [Froude Number, Similitude, Free-Surface Flow]
 ---
 
-What is the main idea of **Boundary-layer idea**?
+A spillway model is built at $1:36$ scale in the same fluid as the prototype.
 
+The prototype surface speed is $6\ \text{m/s}$.
+
+Which similarity condition should be matched, and what model speed follows from that choice?
+
 :::solution
-One short answer is: At the wall, the no-slip condition gives: $$ u = 0 $$ Away from the wall, velocity approaches the free-stream value.
-:::
+For a free-surface flow, the key similarity condition is Froude similarity because gravity effects control the wave pattern and surface profile.
 
----
-id: "engineering-fluid-mechanics-319"
-note: "engineering-fluid-mechanics"
-title: "Review: Drag"
-type: "text"
-answer: "Skin-friction drag from shear stress"
-skills:
-  - "Drag"
----
+So
 
-What is the main idea of **Drag**?
+$$
+\frac{V_m}{V_p} = \sqrt{\frac{L_m}{L_p}} = \sqrt{\frac{1}{36}} = \frac{1}{6}
+$$
 
-:::solution
-One short answer is: Skin-friction drag from shear stress
+Therefore
+
+$$
+V_m = 6\left(\frac{1}{6}\right) = 1\ \text{m/s}
+$$
+
+Reynolds similarity is not matched exactly at this scale, but Froude similarity is the dominant choice.
 :::
 
 ---
-id: "engineering-fluid-mechanics-41"
-note: "engineering-fluid-mechanics"
-title: "Review: Lift and circulation"
-type: "text"
-answer: "For lifting bodies, pressure differences and circulation produce lift. This is central in airfoil and hydrofoil analysis."
-skills:
-  - "Lift and circulation"
+id: fluid-mechanics-34
+note: engineering-fluid-mechanics
+title: "Check Whether a Converging Nozzle Chokes"
+skills: [Mach Number, Choked Flow, Isentropic Relations]
 ---
 
-What is the main idea of **Lift and circulation**?
+Air flows from a large reservoir with stagnation pressure $500\ \text{kPa}$ and stagnation temperature $300\ \text{K}$ through a converging nozzle.
 
+The back pressure is $200\ \text{kPa}$.
+
+Determine whether the nozzle is choked. If it is, find the throat pressure and throat temperature.
+
 :::solution
-One short answer is: For lifting bodies, pressure differences and circulation produce lift. This is central in airfoil and hydrofoil analysis.
-:::
+For air, take $\gamma = 1.4$.
 
----
-id: "engineering-fluid-mechanics-42"
-note: "engineering-fluid-mechanics"
-title: "Review: Flow separation"
-type: "text"
-answer: "Separation occurs when the boundary layer can no longer overcome an adverse pressure gradient. It increases drag and can reduce lift."
-skills:
-  - "Flow separation"
----
+The critical pressure ratio for choking is
 
-What is the main idea of **Flow separation**?
+$$
+\left(\frac{p^*}{p_0}\right)
+=
+\left(\frac{2}{\gamma+1}\right)^{\gamma/(\gamma-1)}
+=
+\left(\frac{2}{2.4}\right)^{3.5}
+\approx 0.528
+$$
 
-:::solution
-One short answer is: Separation occurs when the boundary layer can no longer overcome an adverse pressure gradient. It increases drag and can reduce lift.
-:::
+The back-pressure ratio is
 
----
-id: "engineering-fluid-mechanics-43"
-note: "engineering-fluid-mechanics"
-title: "Review: Lift and drag coefficients"
-type: "text"
-answer: "For a reference area $A$: $$ C D = \\frac{D}{\\tfrac{1}{2}\\rho V^2 A} $$ $$ C L = \\frac{L}{\\tfrac{1}{2}\\rho V^2 A} $$ These coefficients are often determined experimentally or from correlations. ---"
-skills:
-  - "Lift and drag coefficients"
----
+$$
+\frac{p_b}{p_0} = \frac{200}{500} = 0.40
+$$
 
-What is the main idea of **Lift and drag coefficients**?
+Since $0.40 < 0.528$, the nozzle is choked.
 
-:::solution
-One short answer is: For a reference area $A$: $$ C D = \frac{D}{\tfrac{1}{2}\rho V^2 A} $$ $$ C L = \frac{L}{\tfrac{1}{2}\rho V^2 A} $$ These coefficients are often determined experimentally or from correlations. ---
-:::
+At the throat, $\mathrm{Ma}=1$, so
 
----
-id: "engineering-fluid-mechanics-44"
-note: "engineering-fluid-mechanics"
-title: "Review: Compressible flow basics"
-type: "text"
-answer: "Compressibility matters when density changes are not negligible, especially for gases at high speed."
-skills:
-  - "11. Compressible flow basics"
----
+$$
+p^* = 0.528(500\ \text{kPa}) \approx 264\ \text{kPa}
+$$
 
-What is the main idea of **Compressible flow basics**?
+Also,
 
-:::solution
-One short answer is: Compressibility matters when density changes are not negligible, especially for gases at high speed.
+$$
+\frac{T_0}{T^*} = 1 + \frac{\gamma-1}{2}(1^2) = 1.2
+$$
+
+so
+
+$$
+T^* = \frac{300}{1.2} = 250\ \text{K}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-45"
-note: "engineering-fluid-mechanics"
-title: "Review: Mach number"
-type: "text"
-answer: "$\\mathrm{Ma} < 0.3$: compressibility is often negligible"
-skills:
-  - "Mach number"
+id: fluid-mechanics-35
+note: engineering-fluid-mechanics
+title: "Estimate the Minimum Flight Speed for Level Lift"
+skills: [Lift Coefficient, External Flow, Force Balance]
 ---
+
+A glider must support a weight of $5400\ \text{N}$ in level flight.
 
-What is the main idea of **Mach number**?
+Its wing area is $16\ \text{m}^2$, the air density is $1.2\ \text{kg/m}^3$, and the lift coefficient is $0.8$.
 
+Estimate the minimum speed for level flight.
+
 :::solution
-One short answer is: $\mathrm{Ma} < 0.3$: compressibility is often negligible
-:::
+For level flight, lift equals weight:
 
----
-id: "engineering-fluid-mechanics-46"
-note: "engineering-fluid-mechanics"
-title: "Review: Isentropic relations"
-type: "text"
-answer: "For a perfect gas undergoing isentropic flow: $$ \\frac{T 0}{T} = 1 + \\frac{\\gamma - 1}{2}\\mathrm{Ma}^2 $$ $$ \\frac{p 0}{p} = \\left(1 + \\frac{\\gamma - 1}{2}\\mathrm{Ma}^2\\right)^{\\gamma/(\\gamma-1)} $$ $$ \\frac{\\rho 0}{\\rh…"
-skills:
-  - "Isentropic relations"
----
+$$
+L = \frac{1}{2}\rho V^2 A C_L = W
+$$
 
-What is the main idea of **Isentropic relations**?
+Solve for $V$:
 
-:::solution
-One short answer is: For a perfect gas undergoing isentropic flow: $$ \frac{T 0}{T} = 1 + \frac{\gamma - 1}{2}\mathrm{Ma}^2 $$ $$ \frac{p 0}{p} = \left(1 + \frac{\gamma - 1}{2}\mathrm{Ma}^2\right)^{\gamma/(\gamma-1)} $$ $$ \frac{\rho 0}{\rh…
-:::
+$$
+V = \sqrt{\frac{2W}{\rho A C_L}}
+$$
 
----
-id: "engineering-fluid-mechanics-47"
-note: "engineering-fluid-mechanics"
-title: "Review: Choked flow"
-type: "text"
-answer: "In a converging nozzle, the flow becomes choked when the throat reaches sonic conditions: $$ \\mathrm{Ma} = 1 $$ At that point, mass flow rate reaches a maximum for the given upstream conditions. ---"
-skills:
-  - "Choked flow"
----
+Substitute the values:
 
-What is the main idea of **Choked flow**?
+$$
+V = \sqrt{\frac{2(5400)}{(1.2)(16)(0.8)}}
+$$
 
-:::solution
-One short answer is: In a converging nozzle, the flow becomes choked when the throat reaches sonic conditions: $$ \mathrm{Ma} = 1 $$ At that point, mass flow rate reaches a maximum for the given upstream conditions. ---
+$$
+V = \sqrt{703.125} \approx 26.5\ \text{m/s}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-48"
-note: "engineering-fluid-mechanics"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Problem-solving workflow"
-skills:
-  - "12. Problem-solving workflow"
+id: fluid-mechanics-41
+note: engineering-fluid-mechanics
+title: "Balance a Multi-Fluid Manometer"
+skills: [Hydrostatics, Manometers, Pressure]
 ---
+
+An open mercury surface is connected to a tank through a multi-fluid column. Starting at the open surface, move down $0.12$ m in mercury, then up $0.40$ m in water, then up $0.18$ m in oil with density $850\ \text{kg/m}^3$ to reach the tank gas.
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+What is the tank gauge pressure?
 
 :::solution
-One short answer is: Problem-solving workflow
-:::
+Follow the pressure changes along the path:
 
----
-id: "engineering-fluid-mechanics-49"
-note: "engineering-fluid-mechanics"
-title: "Review: General workflow"
-type: "text"
-answer: "Identify the system or control volume."
-skills:
-  - "General workflow"
----
+$$
+p_g = \rho_{\text{Hg}}g(0.12) - \rho_w g(0.40) - \rho_o g(0.18)
+$$
 
-According to the note, what sequence of steps is recommended in **General workflow**?
+Using $\rho_{\text{Hg}} = 13600\ \text{kg/m}^3$, $\rho_w = 1000\ \text{kg/m}^3$, and $\rho_o = 850\ \text{kg/m}^3$:
 
-:::solution
-One short answer is: Identify the system or control volume.
+$$
+p_g = 13600(9.81)(0.12) - 1000(9.81)(0.40) - 850(9.81)(0.18)
+$$
+
+$$
+p_g \approx 10.6\ \text{kPa}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-410"
-note: "engineering-fluid-mechanics"
-title: "Review: Sanity checks"
-type: "text"
-answer: "Pressure should generally increase with depth in a static fluid."
-skills:
-  - "Sanity checks"
+id: fluid-mechanics-42
+note: engineering-fluid-mechanics
+title: "Size the Pump for a Reservoir-to-Reservoir Line"
+skills: [Continuity, Bernoulli Equation, Head Loss, Pumps]
 ---
 
-What is the main idea of **Sanity checks**?
+Water is pumped from one large open reservoir to another large open reservoir that is $12$ m higher.
 
-:::solution
-One short answer is: Pressure should generally increase with depth in a static fluid.
-:::
+The line is $120$ m long, the pipe diameter is $0.08$ m, the Darcy friction factor is $0.025$, and the flow rate is $0.010\ \text{m}^3/\text{s}$.
 
----
-id: "engineering-fluid-mechanics-411"
-note: "engineering-fluid-mechanics"
-title: "Review: Common errors"
-type: "text"
-answer: "Confusing gauge and absolute pressure"
-skills:
-  - "Common errors"
----
+Two 90-degree elbows have loss coefficients of $0.9$ each.
 
-Name one common mistake the note warns about in **Common errors**.
+What pump head is required?
 
 :::solution
-One short answer is: Confusing gauge and absolute pressure
-:::
+First find the pipe speed:
 
----
-id: "engineering-fluid-mechanics-412"
-note: "engineering-fluid-mechanics"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "13. Formula summary"
----
+$$
+A = \frac{\pi}{4}(0.08)^2
+$$
 
-What core formulas or relations are summarized in **Formula summary**?
+$$
+V = \frac{Q}{A} = \frac{0.010}{\pi(0.08)^2/4} \approx 1.99\ \text{m/s}
+$$
 
-:::solution
-One short answer is: Formula summary
-:::
+Then compute the velocity head:
 
----
-id: "engineering-fluid-mechanics-413"
-note: "engineering-fluid-mechanics"
-title: "Review: Fluid properties"
-type: "text"
-answer: "$$ \\gamma = \\rho g $$ $$ \\nu = \\frac{\\mu}{\\rho} $$ $$ \\mathrm{Re} = \\frac{\\rho V L}{\\mu} $$"
-skills:
-  - "Fluid properties"
----
+$$
+\frac{V^2}{2g} \approx \frac{1.99^2}{2(9.81)} \approx 0.202\ \text{m}
+$$
 
-What is the main idea of **Fluid properties**?
+Major loss:
 
-:::solution
-One short answer is: $$ \gamma = \rho g $$ $$ \nu = \frac{\mu}{\rho} $$ $$ \mathrm{Re} = \frac{\rho V L}{\mu} $$
-:::
+$$
+h_f = f\frac{L}{D}\frac{V^2}{2g}
+= 0.025\left(\frac{120}{0.08}\right)(0.202)
+\approx 7.56\ \text{m}
+$$
 
----
-id: "engineering-fluid-mechanics-414"
-note: "engineering-fluid-mechanics"
-title: "Review: Hydrostatics"
-type: "text"
-answer: "$$ \\frac{dp}{dz} = -\\rho g $$ $$ F B = \\rho g V {\\text{disp}} $$"
-skills:
-  - "Hydrostatics"
----
+Minor loss:
 
-What is the main idea of **Hydrostatics**?
+$$
+h_m = K\frac{V^2}{2g}
+= (0.9+0.9)(0.202)
+\approx 0.36\ \text{m}
+$$
 
-:::solution
-One short answer is: $$ \frac{dp}{dz} = -\rho g $$ $$ F B = \rho g V {\text{disp}} $$
+Between the two reservoir surfaces, the pump must supply the elevation rise plus the losses:
+
+$$
+h_p = 12 + 7.56 + 0.36 \approx 19.9\ \text{m}
+$$
 :::
 
 ---
-id: "engineering-fluid-mechanics-415"
-note: "engineering-fluid-mechanics"
-title: "Review: Continuity"
-type: "text"
-answer: "$$ \\dot{m} = \\rho A V $$ $$ \\dot{m} {in} = \\dot{m} {out} $$"
-skills:
-  - "Continuity"
+id: fluid-mechanics-43
+note: engineering-fluid-mechanics
+title: "Match Reynolds Number in a Wind-Tunnel Model"
+skills: [Reynolds Number, Similitude, External Flow]
 ---
+
+A car is tested in a wind tunnel with a $1:5$ scale model.
 
-What is the main idea of **Continuity**?
+The prototype speed is $30\ \text{m/s}$, and the same air is used in both cases.
 
+What model speed is needed to match Reynolds number?
+
 :::solution
-One short answer is: $$ \dot{m} = \rho A V $$ $$ \dot{m} {in} = \dot{m} {out} $$
-:::
+For Reynolds similarity,
 
----
-id: "engineering-fluid-mechanics-416"
-note: "engineering-fluid-mechanics"
-title: "Review: Bernoulli and energy"
-type: "text"
-answer: "$$ \\frac{p}{\\gamma} + \\frac{V^2}{2g} + z = \\text{constant} $$ $$ h f = f \\frac{L}{D}\\frac{V^2}{2g} $$ $$ h m = K \\frac{V^2}{2g} $$"
-skills:
-  - "Bernoulli and energy"
----
+$$
+\mathrm{Re} \propto VL
+$$
 
-What is the main idea of **Bernoulli and energy**?
+So
 
-:::solution
-One short answer is: $$ \frac{p}{\gamma} + \frac{V^2}{2g} + z = \text{constant} $$ $$ h f = f \frac{L}{D}\frac{V^2}{2g} $$ $$ h m = K \frac{V^2}{2g} $$
-:::
+$$
+V_mL_m = V_pL_p
+$$
 
----
-id: "engineering-fluid-mechanics-417"
-note: "engineering-fluid-mechanics"
-title: "Review: Momentum"
-type: "text"
-answer: "$$ \\sum \\mathbf{F} = \\dot{m}(\\mathbf{V} {out} - \\mathbf{V} {in}) $$"
-skills:
-  - "Momentum"
----
+With a $1:5$ model, $L_m = L_p/5$, so
 
-What is the main idea of **Momentum**?
+$$
+V_m = 5V_p = 5(30) = 150\ \text{m/s}
+$$
 
-:::solution
-One short answer is: $$ \sum \mathbf{F} = \dot{m}(\mathbf{V} {out} - \mathbf{V} {in}) $$
+That speed is often impractical, which is why exact dynamic similarity is not always achievable in a wind tunnel.
 :::
 
 ---
-id: "engineering-fluid-mechanics-418"
-note: "engineering-fluid-mechanics"
-title: "Review: Compressible flow"
-type: "text"
-answer: "$$ \\mathrm{Ma} = \\frac{V}{a} $$ $$ \\frac{T 0}{T} = 1 + \\frac{\\gamma - 1}{2}\\mathrm{Ma}^2 $$ ---"
-skills:
-  - "Compressible flow"
+id: fluid-mechanics-44
+note: engineering-fluid-mechanics
+title: "Use Critical Pressure Ratio to Test for Choking"
+skills: [Mach Number, Choked Flow, Isentropic Relations]
 ---
+
+A converging nozzle receives air from a large reservoir at $p_0 = 500\ \text{kPa}$ and $T_0 = 300\ \text{K}$.
 
-What is the main idea of **Compressible flow**?
+What is the largest back pressure that still allows choking? If the nozzle is choked, what are the throat pressure and throat temperature?
 
 :::solution
-One short answer is: $$ \mathrm{Ma} = \frac{V}{a} $$ $$ \frac{T 0}{T} = 1 + \frac{\gamma - 1}{2}\mathrm{Ma}^2 $$ ---
-:::
+For air, take $\gamma = 1.4$.
 
----
-id: "engineering-fluid-mechanics-419"
-note: "engineering-fluid-mechanics"
-title: "Review: Quick reference"
-type: "text"
-answer: "Pressure at depth : use hydrostatics"
-skills:
-  - "Quick reference"
----
+The critical pressure ratio is
 
-What is the main idea of **Quick reference**?
+$$
+\frac{p^*}{p_0} = \left(\frac{2}{\gamma+1}\right)^{\gamma/(\gamma-1)} \approx 0.528
+$$
 
-:::solution
-One short answer is: Pressure at depth : use hydrostatics
+So the largest back pressure that still allows choking is
+
+$$
+p_{b,\text{crit}} = 0.528(500\ \text{kPa}) \approx 264\ \text{kPa}
+$$
+
+At choking, the throat Mach number is $1$ and
+
+$$
+p^* \approx 264\ \text{kPa}
+$$
+
+Also,
+
+$$
+\frac{T_0}{T^*} = 1 + \frac{\gamma-1}{2}(1^2) = 1.2
+$$
+
+so
+
+$$
+T^* = \frac{300}{1.2} = 250\ \text{K}
+$$
 :::

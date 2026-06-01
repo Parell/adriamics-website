@@ -1,1071 +1,458 @@
 ---
-id: "medical-biology-organic-chemistry-11"
-note: "medical-biology-organic-chemistry"
-title: "Review: What organic chemistry studies"
-type: "text"
-answer: "What is the structure?"
-skills:
-  - "1. What organic chemistry studies"
+id: organic-chemistry-11
+note: medical-biology-organic-chemistry
+title: "Identify an sp2 Carbon"
+skills: [Hybridization, Carbonyls]
 ---
 
-What is the main idea of **What organic chemistry studies**?
+What is the hybridization and approximate geometry of the carbonyl carbon in acetone, $(CH_3)_2CO$?
 
 :::solution
-One short answer is: What is the structure?
-:::
-
----
-id: "medical-biology-organic-chemistry-12"
-note: "medical-biology-organic-chemistry"
-title: "Review: Atomic structure and bonding"
-type: "text"
-answer: "Atomic structure and bonding"
-skills:
-  - "2. Atomic structure and bonding"
----
-
-What is the main idea of **Atomic structure and bonding**?
+The carbonyl carbon has three electron groups, so it is $sp^2$ hybridized.
 
-:::solution
-One short answer is: Atomic structure and bonding
+Its geometry is trigonal planar, with bond angles of about 120 degrees.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-13"
-note: "medical-biology-organic-chemistry"
-title: "Review: Carbon bonding"
-type: "text"
-answer: "Carbon is tetravalent and most commonly forms four bonds by using hybrid orbitals."
-skills:
-  - "Carbon bonding"
+id: organic-chemistry-12
+note: medical-biology-organic-chemistry
+title: "Count Sigma and Pi Bonds"
+skills: [Sigma and Pi Bonds]
 ---
 
-What is the main idea of **Carbon bonding**?
+How many sigma bonds and pi bonds are in $CH_3-CH=CH-CH_3$?
 
 :::solution
-One short answer is: Carbon is tetravalent and most commonly forms four bonds by using hybrid orbitals.
-:::
+Count the bonds carefully:
 
----
-id: "medical-biology-organic-chemistry-14"
-note: "medical-biology-organic-chemistry"
-title: "Review: Sigma and pi bonds"
-type: "text"
-answer: "Sigma bonds are formed by end-to-end orbital overlap and allow free rotation unless restricted by the molecular framework."
-skills:
-  - "Sigma and pi bonds"
----
-
-What is the main idea of **Sigma and pi bonds**?
+- $8$ C-H sigma bonds
+- $3$ C-C sigma bonds
+- $1$ pi bond from the double bond
 
-:::solution
-One short answer is: Sigma bonds are formed by end-to-end orbital overlap and allow free rotation unless restricted by the molecular framework.
+So the molecule has $11$ sigma bonds and $1$ pi bond.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-15"
-note: "medical-biology-organic-chemistry"
-title: "Review: Resonance"
-type: "text"
-answer: "Lone pair adjacent to a pi bond"
-skills:
-  - "Resonance"
+id: organic-chemistry-13
+note: medical-biology-organic-chemistry
+title: "Choose the Principal Functional Group"
+skills: [Functional Groups, Naming]
 ---
 
-What is the main idea of **Resonance**?
+In $HOCH_2CH_2CHO$, which functional group determines the suffix, and how should the other group be named?
 
 :::solution
-One short answer is: Lone pair adjacent to a pi bond
-:::
-
----
-id: "medical-biology-organic-chemistry-16"
-note: "medical-biology-organic-chemistry"
-title: "Review: Inductive effects"
-type: "text"
-answer: "Carbonyls"
-skills:
-  - "Inductive effects"
----
+The aldehyde is the highest-priority functional group, so it determines the suffix.
 
-What is the main idea of **Inductive effects**?
-
-:::solution
-One short answer is: Carbonyls
+The suffix is $-al$, and the hydroxyl group is named as a hydroxy substituent.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-17"
-note: "medical-biology-organic-chemistry"
-title: "Review: Functional groups and naming"
-type: "text"
-answer: "Functional groups determine the identity and reactivity of a molecule."
-skills:
-  - "3. Functional groups and naming"
+id: organic-chemistry-14
+note: medical-biology-organic-chemistry
+title: "Distinguish Constitutional Isomers"
+skills: [Constitutional Isomers]
 ---
-
-What is the main idea of **Functional groups and naming**?
-
-:::solution
-One short answer is: Functional groups determine the identity and reactivity of a molecule.
-:::
 
----
-id: "medical-biology-organic-chemistry-18"
-note: "medical-biology-organic-chemistry"
-title: "Review: Naming strategy"
-type: "text"
-answer: "Find the longest carbon chain or parent ring."
-skills:
-  - "Naming strategy"
----
+1-propanol and 2-propanol have the same molecular formula, $C_3H_8O$.
 
-What is the main idea of **Naming strategy**?
+What type of isomers are they?
 
 :::solution
-One short answer is: Find the longest carbon chain or parent ring.
-:::
-
----
-id: "medical-biology-organic-chemistry-19"
-note: "medical-biology-organic-chemistry"
-title: "Review: Ring and aromatic naming"
-type: "text"
-answer: "Benzene derivatives are common. If a benzene ring contains a principal functional group, that group defines the parent name. Otherwise, the ring can be named as a phenyl substituent or as a substituted benzene. ---"
-skills:
-  - "Ring and aromatic naming"
----
+They are constitutional isomers because the atoms are connected differently.
 
-What is the main idea of **Ring and aromatic naming**?
-
-:::solution
-One short answer is: Benzene derivatives are common. If a benzene ring contains a principal functional group, that group defines the parent name. Otherwise, the ring can be named as a phenyl substituent or as a substituted benzene. ---
+The molecular formula is the same, but the connectivity is not.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-110"
-note: "medical-biology-organic-chemistry"
-title: "Review: Isomerism and stereochemistry"
-type: "text"
-answer: "Isomerism and stereochemistry"
-skills:
-  - "4. Isomerism and stereochemistry"
+id: organic-chemistry-15
+note: medical-biology-organic-chemistry
+title: "Assign an R Configuration"
+skills: [R/S Assignment]
 ---
 
-What is the main idea of **Isomerism and stereochemistry**?
+A stereocenter has priorities $1 = OH$, $2 = CH_2CH_3$, $3 = CH_3$, and $4 = H$.
 
-:::solution
-One short answer is: Isomerism and stereochemistry
-:::
-
----
-id: "medical-biology-organic-chemistry-111"
-note: "medical-biology-organic-chemistry"
-title: "Review: Constitutional isomers"
-type: "text"
-answer: "Butane and isobutane both have formula $C 4H {10}$, but the atoms are connected differently."
-skills:
-  - "Constitutional isomers"
----
+If the $H$ group points away from you and the order $1 \to 2 \to 3$ is clockwise, what is the configuration?
 
-What is the main idea of **Constitutional isomers**?
-
 :::solution
-One short answer is: Butane and isobutane both have formula $C 4H {10}$, but the atoms are connected differently.
-:::
+With the lowest-priority group pointing away, a clockwise $1 \to 2 \to 3$ path is $R$.
 
----
-id: "medical-biology-organic-chemistry-112"
-note: "medical-biology-organic-chemistry"
-title: "Review: Stereoisomers"
-type: "text"
-answer: "Stereoisomers have the same connectivity but differ in 3D arrangement."
-skills:
-  - "Stereoisomers"
----
-
-What is the main idea of **Stereoisomers**?
-
-:::solution
-One short answer is: Stereoisomers have the same connectivity but differ in 3D arrangement.
+So the configuration is $R$.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-113"
-note: "medical-biology-organic-chemistry"
-title: "Review: Enantiomers"
-type: "text"
-answer: "Enantiomers are non-superimposable mirror images. They usually have identical physical properties in achiral environments except for optical rotation and behavior in chiral systems."
-skills:
-  - "Enantiomers"
+id: organic-chemistry-16
+note: medical-biology-organic-chemistry
+title: "Identify E or Z"
+skills: [E/Z Isomers]
 ---
-
-What is the main idea of **Enantiomers**?
-
-:::solution
-One short answer is: Enantiomers are non-superimposable mirror images. They usually have identical physical properties in achiral environments except for optical rotation and behavior in chiral systems.
-:::
 
----
-id: "medical-biology-organic-chemistry-114"
-note: "medical-biology-organic-chemistry"
-title: "Review: Diastereomers"
-type: "text"
-answer: "Diastereomers are stereoisomers that are not mirror images. They usually have different physical and chemical properties."
-skills:
-  - "Diastereomers"
----
+At an alkene, the highest-priority groups on each double-bond carbon are on opposite sides.
 
-What is the main idea of **Diastereomers**?
+Is the alkene $E$ or $Z$?
 
 :::solution
-One short answer is: Diastereomers are stereoisomers that are not mirror images. They usually have different physical and chemical properties.
-:::
-
----
-id: "medical-biology-organic-chemistry-115"
-note: "medical-biology-organic-chemistry"
-title: "Review: Chirality"
-type: "text"
-answer: "A tetrahedral carbon bonded to four different groups"
-skills:
-  - "Chirality"
----
+If the highest-priority groups are on opposite sides, the alkene is $E$.
 
-What is the main idea of **Chirality**?
-
-:::solution
-One short answer is: A tetrahedral carbon bonded to four different groups
+If they were on the same side, it would be $Z$.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-116"
-note: "medical-biology-organic-chemistry"
-title: "Review: R/S assignment"
-type: "text"
-answer: "Rank substituents by atomic number."
-skills:
-  - "R/S assignment"
+id: organic-chemistry-17
+note: medical-biology-organic-chemistry
+title: "Compare Acid Strength in a Simple Pair"
+skills: [Acidity and Basicity, Resonance]
 ---
 
-What is the main idea of **R/S assignment**?
+Between acetic acid and ethanol, which is the stronger acid? Briefly explain why.
 
 :::solution
-One short answer is: Rank substituents by atomic number.
-:::
-
----
-id: "medical-biology-organic-chemistry-117"
-note: "medical-biology-organic-chemistry"
-title: "Review: E/Z alkenes"
-type: "text"
-answer: "If the highest-priority groups on each alkene carbon are on the same side, the alkene is $Z$."
-skills:
-  - "E/Z alkenes"
----
+Acetic acid is the stronger acid.
 
-What is the main idea of **E/Z alkenes**?
-
-:::solution
-One short answer is: If the highest-priority groups on each alkene carbon are on the same side, the alkene is $Z$.
+Its conjugate base, the carboxylate ion, is resonance-stabilized, so it is much more stable than the ethoxide ion.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-21"
-note: "medical-biology-organic-chemistry"
-title: "Review: Conformations"
-type: "text"
-answer: "Staggered conformations are lower in energy than eclipsed conformations."
-skills:
-  - "Conformations"
+id: organic-chemistry-18
+note: medical-biology-organic-chemistry
+title: "Name the Nucleophile and Electrophile"
+skills: [Nucleophiles and Electrophiles]
 ---
 
-What is the main idea of **Conformations**?
+In the reaction of hydroxide ion with methyl bromide, identify the nucleophile and the electrophile.
 
 :::solution
-One short answer is: Staggered conformations are lower in energy than eclipsed conformations.
-:::
-
----
-id: "medical-biology-organic-chemistry-22"
-note: "medical-biology-organic-chemistry"
-title: "Review: Acidity, basicity, and electron flow"
-type: "text"
-answer: "Organic chemistry problems often begin with a proton transfer or end with one. Acidity and basicity control what species are present and therefore what can react."
-skills:
-  - "5. Acidity, basicity, and electron flow"
----
-
-What is the main idea of **Acidity, basicity, and electron flow**?
+The nucleophile is hydroxide, $OH^-$, because it donates an electron pair.
 
-:::solution
-One short answer is: Organic chemistry problems often begin with a proton transfer or end with one. Acidity and basicity control what species are present and therefore what can react.
+The electrophile is the methyl carbon attached to bromine, because that carbon is attacked as bromide leaves.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-23"
-note: "medical-biology-organic-chemistry"
-title: "Review: Definitions"
-type: "text"
-answer: "An acid donates a proton."
-skills:
-  - "Definitions"
+id: organic-chemistry-19
+note: medical-biology-organic-chemistry
+title: "Predict SN1 or SN2"
+skills: [SN1 and SN2, Reaction Mechanisms]
 ---
-
-What core idea is introduced in **Definitions**?
 
-:::solution
-One short answer is: An acid donates a proton.
-:::
-
----
-id: "medical-biology-organic-chemistry-24"
-note: "medical-biology-organic-chemistry"
-title: "Review: pKa as a stability measure"
-type: "text"
-answer: "More electronegative atom bearing the charge"
-skills:
-  - "pKa as a stability measure"
----
+A tertiary alkyl bromide is dissolved in methanol with no strong base.
 
-What is the main idea of **pKa as a stability measure**?
+Which substitution mechanism is most likely?
 
 :::solution
-One short answer is: More electronegative atom bearing the charge
-:::
-
----
-id: "medical-biology-organic-chemistry-25"
-note: "medical-biology-organic-chemistry"
-title: "Review: Curved arrows"
-type: "text"
-answer: "Starting an arrow at an atom instead of electrons"
-skills:
-  - "Curved arrows"
----
-
-What is the main idea of **Curved arrows**?
+SN1 is most likely.
 
-:::solution
-One short answer is: Starting an arrow at an atom instead of electrons
+The tertiary substrate can form a relatively stable carbocation, and methanol is a polar protic solvent that supports ionization.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-26"
-note: "medical-biology-organic-chemistry"
-title: "Review: Hard and soft intuition"
-type: "text"
-answer: "In many cases, harder and smaller nucleophiles favor more polar, less polarizable centers, while softer and more polarizable nucleophiles are better matched to softer electrophiles."
-skills:
-  - "Hard and soft intuition"
+id: organic-chemistry-110
+note: medical-biology-organic-chemistry
+title: "Compute Degrees of Unsaturation"
+skills: [Degree of Unsaturation]
 ---
 
-What is the main idea of **Hard and soft intuition**?
+Compute the degree of unsaturation for $C_6H_{10}O$.
 
 :::solution
-One short answer is: In many cases, harder and smaller nucleophiles favor more polar, less polarizable centers, while softer and more polarizable nucleophiles are better matched to softer electrophiles.
-:::
-
----
-id: "medical-biology-organic-chemistry-27"
-note: "medical-biology-organic-chemistry"
-title: "Review: Reaction mechanisms"
-type: "text"
-answer: "Mechanisms explain how a reaction happens step by step. A mechanism should conserve atoms, charge, and valence at every stage."
-skills:
-  - "6. Reaction mechanisms"
----
-
-What is the main idea of **Reaction mechanisms**?
+Use the DBE formula:
 
-:::solution
-One short answer is: Mechanisms explain how a reaction happens step by step. A mechanism should conserve atoms, charge, and valence at every stage.
-:::
+$$
+\text{DBE} = \frac{2C + 2 - H}{2}
+$$
 
----
-id: "medical-biology-organic-chemistry-28"
-note: "medical-biology-organic-chemistry"
-title: "Review: The main mechanistic families"
-type: "text"
-answer: "Family Core idea Common setting --- --- --- Substitution One group replaces another Alkyl halides, sulfonates Elimination Small molecule leaves to form a pi bond Alkyl halides, alcohol derivatives Addition Atoms add acr…"
-skills:
-  - "The main mechanistic families"
----
+For $C_6H_{10}O$:
 
-What is the main idea of **The main mechanistic families**?
+$$
+\text{DBE} = \frac{2(6) + 2 - 10}{2} = \frac{4}{2} = 2
+$$
 
-:::solution
-One short answer is: Family Core idea Common setting --- --- --- Substitution One group replaces another Alkyl halides, sulfonates Elimination Small molecule leaves to form a pi bond Alkyl halides, alcohol derivatives Addition Atoms add acr…
+So the degree of unsaturation is $2$.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-29"
-note: "medical-biology-organic-chemistry"
-title: "Review: Rate and selectivity"
-type: "text"
-answer: "Substrate structure"
-skills:
-  - "Rate and selectivity"
+id: organic-chemistry-21
+note: medical-biology-organic-chemistry
+title: "Number a Chain with Competing Functional Groups"
+skills: [Naming, Functional Groups]
 ---
-
-What is the main idea of **Rate and selectivity**?
 
-:::solution
-One short answer is: Substrate structure
-:::
-
----
-id: "medical-biology-organic-chemistry-210"
-note: "medical-biology-organic-chemistry"
-title: "Review: Energy profile thinking"
-type: "text"
-answer: "Kinetic control: product forms fastest"
-skills:
-  - "Energy profile thinking"
----
+A molecule has both a ketone and an alcohol, such as $CH_3COCH_2CH_2OH$.
 
-What is the main idea of **Energy profile thinking**?
+Which group controls the suffix, and from which end should numbering start?
 
 :::solution
-One short answer is: Kinetic control: product forms fastest
-:::
-
----
-id: "medical-biology-organic-chemistry-211"
-note: "medical-biology-organic-chemistry"
-title: "Review: Core reaction families"
-type: "text"
-answer: "Core reaction families"
-skills:
-  - "7. Core reaction families"
----
+The ketone has higher naming priority than the alcohol, so it controls the suffix.
 
-What core idea is introduced in **Core reaction families**?
+The suffix is $-one$, and numbering should start from the end that gives the carbonyl carbon the lowest possible locant.
 
-:::solution
-One short answer is: Core reaction families
+The alcohol is then named as a hydroxy substituent.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-212"
-note: "medical-biology-organic-chemistry"
-title: "Review: Substitution reactions"
-type: "text"
-answer: "Substitution reactions"
-skills:
-  - "Substitution reactions"
+id: organic-chemistry-22
+note: medical-biology-organic-chemistry
+title: "Explain Amide Basicity"
+skills: [Resonance, Basicity]
 ---
 
-What is the main idea of **Substitution reactions**?
+Why is an amide much less basic than an amine?
 
 :::solution
-One short answer is: Substitution reactions
-:::
-
----
-id: "medical-biology-organic-chemistry-213"
-note: "medical-biology-organic-chemistry"
-title: "Review: SN2"
-type: "text"
-answer: "Methyl or primary substrates"
-skills:
-  - "SN2"
----
-
-What is the main idea of **SN2**?
+The nitrogen lone pair in an amide is delocalized into the carbonyl by resonance.
 
-:::solution
-One short answer is: Methyl or primary substrates
+Because that lone pair is less available to accept a proton, amides are much less basic than amines.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-214"
-note: "medical-biology-organic-chemistry"
-title: "Review: SN1"
-type: "text"
-answer: "Tertiary substrates"
-skills:
-  - "SN1"
+id: organic-chemistry-23
+note: medical-biology-organic-chemistry
+title: "Order Hydrocarbon Acidity"
+skills: [Acidity and Basicity, Hybridization]
 ---
-
-What is the main idea of **SN1**?
-
-:::solution
-One short answer is: Tertiary substrates
-:::
 
----
-id: "medical-biology-organic-chemistry-215"
-note: "medical-biology-organic-chemistry"
-title: "Review: Elimination reactions"
-type: "text"
-answer: "Elimination reactions"
-skills:
-  - "Elimination reactions"
----
+Rank these from most acidic to least acidic:
 
-What is the main idea of **Elimination reactions**?
+terminal alkyne, alkene, alkane
 
 :::solution
-One short answer is: Elimination reactions
-:::
-
----
-id: "medical-biology-organic-chemistry-216"
-note: "medical-biology-organic-chemistry"
-title: "Review: E2"
-type: "text"
-answer: "Strong base"
-skills:
-  - "E2"
----
+The order is:
 
-What is the main idea of **E2**?
+$$
+\text{terminal alkyne} > \text{alkene} > \text{alkane}
+$$
 
-:::solution
-One short answer is: Strong base
+An sp carbon has more s-character, so its conjugate base is more stable.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-217"
-note: "medical-biology-organic-chemistry"
-title: "Review: E1"
-type: "text"
-answer: "E1 proceeds through a carbocation and often competes with SN1. Heat often shifts the balance toward elimination."
-skills:
-  - "E1"
+id: organic-chemistry-24
+note: medical-biology-organic-chemistry
+title: "Predict Hydroboration-Oxidation Product"
+skills: [Alkene Addition, Regiochemistry]
 ---
-
-What is the main idea of **E1**?
-
-:::solution
-One short answer is: E1 proceeds through a carbocation and often competes with SN1. Heat often shifts the balance toward elimination.
-:::
 
----
-id: "medical-biology-organic-chemistry-31"
-note: "medical-biology-organic-chemistry"
-title: "Review: Addition to alkenes"
-type: "text"
-answer: "Hydrogenation"
-skills:
-  - "Addition to alkenes"
----
+Propene undergoes hydroboration-oxidation.
 
-What is the main idea of **Addition to alkenes**?
+What alcohol is formed?
 
 :::solution
-One short answer is: Hydrogenation
-:::
-
----
-id: "medical-biology-organic-chemistry-32"
-note: "medical-biology-organic-chemistry"
-title: "Review: Radical chemistry"
-type: "text"
-answer: "Initiation creates radicals."
-skills:
-  - "Radical chemistry"
----
+Hydroboration-oxidation gives anti-Markovnikov addition.
 
-What is the main idea of **Radical chemistry**?
-
-:::solution
-One short answer is: Initiation creates radicals.
+So the OH group ends up on the less substituted carbon, and the product is 1-propanol.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-33"
-note: "medical-biology-organic-chemistry"
-title: "Review: Carbonyl chemistry"
-type: "text"
-answer: "Carbonyl compounds are central because the C=O bond is polarized and the carbon is electrophilic."
-skills:
-  - "8. Carbonyl chemistry"
+id: organic-chemistry-25
+note: medical-biology-organic-chemistry
+title: "Identify the E2 Requirement"
+skills: [Elimination, Reaction Mechanisms]
 ---
-
-What is the main idea of **Carbonyl chemistry**?
 
-:::solution
-One short answer is: Carbonyl compounds are central because the C=O bond is polarized and the carbon is electrophilic.
-:::
-
----
-id: "medical-biology-organic-chemistry-34"
-note: "medical-biology-organic-chemistry"
-title: "Review: Why carbonyls react"
-type: "text"
-answer: "The carbonyl carbon is electron-poor because oxygen withdraws electron density and stabilizes the resulting oxyanion after nucleophilic attack."
-skills:
-  - "Why carbonyls react"
----
+A secondary alkyl bromide is treated with a strong base and heat.
 
-What is the main idea of **Why carbonyls react**?
+What mechanism is favored, and what geometric requirement must be met?
 
 :::solution
-One short answer is: The carbonyl carbon is electron-poor because oxygen withdraws electron density and stabilizes the resulting oxyanion after nucleophilic attack.
-:::
-
----
-id: "medical-biology-organic-chemistry-35"
-note: "medical-biology-organic-chemistry"
-title: "Review: Nucleophilic addition"
-type: "text"
-answer: "Reduction to alcohols"
-skills:
-  - "Nucleophilic addition"
----
+E2 is favored because the substrate is secondary, the base is strong, and heat promotes elimination.
 
-What is the main idea of **Nucleophilic addition**?
-
-:::solution
-One short answer is: Reduction to alcohols
+For E2, the leaving group and the beta hydrogen must be anti-periplanar.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-36"
-note: "medical-biology-organic-chemistry"
-title: "Review: Carboxylic acid derivatives"
-type: "text"
-answer: "Acyl derivatives usually undergo nucleophilic acyl substitution."
-skills:
-  - "Carboxylic acid derivatives"
+id: organic-chemistry-26
+note: medical-biology-organic-chemistry
+title: "Compare Cyclohexane Conformations"
+skills: [Conformations]
 ---
 
-What is the main idea of **Carboxylic acid derivatives**?
+In methylcyclohexane, which chair conformation is more stable, with the methyl group axial or equatorial?
 
 :::solution
-One short answer is: Acyl derivatives usually undergo nucleophilic acyl substitution.
-:::
-
----
-id: "medical-biology-organic-chemistry-37"
-note: "medical-biology-organic-chemistry"
-title: "Review: Alpha chemistry"
-type: "text"
-answer: "Aldol reactions"
-skills:
-  - "Alpha chemistry"
----
+The equatorial methyl conformation is more stable.
 
-What is the main idea of **Alpha chemistry**?
-
-:::solution
-One short answer is: Aldol reactions
+An axial methyl group experiences 1,3-diaxial strain, so it is less favorable.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-38"
-note: "medical-biology-organic-chemistry"
-title: "Review: Aldol logic"
-type: "text"
-answer: "An aldol reaction forms a new carbon-carbon bond by coupling an enolate with a carbonyl compound."
-skills:
-  - "Aldol logic"
+id: organic-chemistry-27
+note: medical-biology-organic-chemistry
+title: "Read an IR Spectrum"
+skills: [IR Spectroscopy, Functional Groups]
 ---
-
-What is the main idea of **Aldol logic**?
-
-:::solution
-One short answer is: An aldol reaction forms a new carbon-carbon bond by coupling an enolate with a carbonyl compound.
-:::
 
----
-id: "medical-biology-organic-chemistry-39"
-note: "medical-biology-organic-chemistry"
-title: "Review: Spectroscopy and structure determination"
-type: "text"
-answer: "Structure determination is usually a puzzle with several data sources."
-skills:
-  - "9. Spectroscopy and structure determination"
----
+An IR spectrum shows a broad O-H stretch and a strong C=O band.
 
-What is the main idea of **Spectroscopy and structure determination**?
+What class of compound is suggested?
 
 :::solution
-One short answer is: Structure determination is usually a puzzle with several data sources.
-:::
-
----
-id: "medical-biology-organic-chemistry-310"
-note: "medical-biology-organic-chemistry"
-title: "Review: IR spectroscopy"
-type: "text"
-answer: "IR detects bond vibrations and is especially useful for identifying functional groups."
-skills:
-  - "IR spectroscopy"
----
-
-What is the main idea of **IR spectroscopy**?
+This pattern suggests a carboxylic acid.
 
-:::solution
-One short answer is: IR detects bond vibrations and is especially useful for identifying functional groups.
+Carboxylic acids show both a carbonyl stretch and a very broad O-H stretch.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-311"
-note: "medical-biology-organic-chemistry"
-title: "Review: NMR spectroscopy"
-type: "text"
-answer: "NMR is the most important structure tool in organic chemistry."
-skills:
-  - "NMR spectroscopy"
+id: organic-chemistry-28
+note: medical-biology-organic-chemistry
+title: "Interpret an M+2 Pattern"
+skills: [Mass Spectrometry, Isotopes]
 ---
-
-What is the main idea of **NMR spectroscopy**?
 
-:::solution
-One short answer is: NMR is the most important structure tool in organic chemistry.
-:::
-
----
-id: "medical-biology-organic-chemistry-312"
-note: "medical-biology-organic-chemistry"
-title: "Review: 1H NMR"
-type: "text"
-answer: "Chemical shift gives electronic environment"
-skills:
-  - "1H NMR"
----
+A mass spectrum has M and M+2 peaks in about a 3:1 ratio.
 
-What is the main idea of **1H NMR**?
+Which halogen is likely present?
 
 :::solution
-One short answer is: Chemical shift gives electronic environment
-:::
-
----
-id: "medical-biology-organic-chemistry-313"
-note: "medical-biology-organic-chemistry"
-title: "Review: 13C NMR"
-type: "text"
-answer: "13C NMR shows the number and type of carbon environments. Carbonyl carbons appear far downfield compared with alkyl carbons."
-skills:
-  - "13C NMR"
----
+Chlorine is likely present.
 
-What is the main idea of **13C NMR**?
-
-:::solution
-One short answer is: 13C NMR shows the number and type of carbon environments. Carbonyl carbons appear far downfield compared with alkyl carbons.
+A 3:1 M to M+2 pattern is characteristic of chlorine, while a roughly 1:1 pattern suggests bromine.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-314"
-note: "medical-biology-organic-chemistry"
-title: "Review: Mass spectrometry"
-type: "text"
-answer: "A strong M+2 peak can suggest chlorine or bromine."
-skills:
-  - "Mass spectrometry"
+id: organic-chemistry-31
+note: medical-biology-organic-chemistry
+title: "Predict a Grignard Addition Product"
+skills: [Carbonyl Addition, Grignard Reactions]
 ---
 
-What is the main idea of **Mass spectrometry**?
+Acetone reacts with $CH_3MgBr$, then water.
 
-:::solution
-One short answer is: A strong M+2 peak can suggest chlorine or bromine.
-:::
-
----
-id: "medical-biology-organic-chemistry-315"
-note: "medical-biology-organic-chemistry"
-title: "Review: Degree of unsaturation"
-type: "text"
-answer: "The degree of unsaturation, also called index of hydrogen deficiency, helps count rings and pi bonds."
-skills:
-  - "Degree of unsaturation"
----
-
-What is the main idea of **Degree of unsaturation**?
+What product forms?
 
 :::solution
-One short answer is: The degree of unsaturation, also called index of hydrogen deficiency, helps count rings and pi bonds.
-:::
-
----
-id: "medical-biology-organic-chemistry-316"
-note: "medical-biology-organic-chemistry"
-title: "Review: Organic chemistry in biology"
-type: "text"
-answer: "Organic chemistry is the language of biology at the molecular level."
-skills:
-  - "10. Organic chemistry in biology"
----
-
-What is the main idea of **Organic chemistry in biology**?
+The methyl group adds to the carbonyl carbon, and workup protonates the alkoxide.
 
-:::solution
-One short answer is: Organic chemistry is the language of biology at the molecular level.
+The product is tert-butanol, also called 2-methyl-2-propanol.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-317"
-note: "medical-biology-organic-chemistry"
-title: "Review: Amino acids and proteins"
-type: "text"
-answer: "Side chains control polarity and charge"
-skills:
-  - "Amino acids and proteins"
+id: organic-chemistry-32
+note: medical-biology-organic-chemistry
+title: "Form an Ester by Acyl Substitution"
+skills: [Acyl Substitution, Carboxylic Acid Derivatives]
 ---
 
-What is the main idea of **Amino acids and proteins**?
+What ester forms when acetyl chloride reacts with methanol?
 
 :::solution
-One short answer is: Side chains control polarity and charge
-:::
-
----
-id: "medical-biology-organic-chemistry-41"
-note: "medical-biology-organic-chemistry"
-title: "Review: Carbohydrates"
-type: "text"
-answer: "Anomers differ at the anomeric carbon"
-skills:
-  - "Carbohydrates"
----
-
-What is the main idea of **Carbohydrates**?
+Acyl chlorides undergo nucleophilic acyl substitution, and methanol replaces chloride.
 
-:::solution
-One short answer is: Anomers differ at the anomeric carbon
+The product is methyl acetate.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-42"
-note: "medical-biology-organic-chemistry"
-title: "Review: Lipids"
-type: "text"
-answer: "Fatty acids"
-skills:
-  - "Lipids"
+id: organic-chemistry-33
+note: medical-biology-organic-chemistry
+title: "Recognize an Aldol Product"
+skills: [Aldol Reactions, Enolates]
 ---
-
-What is the main idea of **Lipids**?
 
-:::solution
-One short answer is: Fatty acids
-:::
-
----
-id: "medical-biology-organic-chemistry-43"
-note: "medical-biology-organic-chemistry"
-title: "Review: Nucleic acids"
-type: "text"
-answer: "DNA and RNA are polymers of nucleotides connected by phosphodiester bonds."
-skills:
-  - "Nucleic acids"
----
+Ethanal undergoes base-catalyzed self-aldol addition before dehydration.
 
-What is the main idea of **Nucleic acids**?
+What product is formed at the addition stage?
 
 :::solution
-One short answer is: DNA and RNA are polymers of nucleotides connected by phosphodiester bonds.
-:::
-
----
-id: "medical-biology-organic-chemistry-44"
-note: "medical-biology-organic-chemistry"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "When a problem looks unfamiliar, use the same sequence every time."
-skills:
-  - "11. Problem-solving workflow"
----
+An enolate from one ethanal molecule adds to another ethanal molecule.
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: When a problem looks unfamiliar, use the same sequence every time.
+The addition product is 3-hydroxybutanal, a beta-hydroxy aldehyde.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-45"
-note: "medical-biology-organic-chemistry"
-title: "Review: Step 1: Identify the functional group"
-type: "text"
-answer: "Name every functional group first. This narrows the reaction class dramatically."
-skills:
-  - "Step 1: Identify the functional group"
+id: organic-chemistry-34
+note: medical-biology-organic-chemistry
+title: "Identify a Cyclic Hemiacetal"
+skills: [Carbohydrates, Hemiacetals]
 ---
 
-What is the main idea of **Step 1: Identify the functional group**?
+When a glucose-like aldehyde cyclizes by reaction with an internal OH group, what functional group is formed, and what is the new carbon called?
 
 :::solution
-One short answer is: Name every functional group first. This narrows the reaction class dramatically.
-:::
-
----
-id: "medical-biology-organic-chemistry-46"
-note: "medical-biology-organic-chemistry"
-title: "Review: Step 2: Count electrons and charges"
-type: "text"
-answer: "Check formal charge, lone pairs, and possible resonance forms."
-skills:
-  - "Step 2: Count electrons and charges"
----
+A cyclic hemiacetal is formed.
 
-What is the main idea of **Step 2: Count electrons and charges**?
-
-:::solution
-One short answer is: Check formal charge, lone pairs, and possible resonance forms.
+The former carbonyl carbon becomes the anomeric carbon.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-47"
-note: "medical-biology-organic-chemistry"
-title: "Review: Step 3: Look for the reactive site"
-type: "text"
-answer: "Nucleophilic"
-skills:
-  - "Step 3: Look for the reactive site"
+id: organic-chemistry-35
+note: medical-biology-organic-chemistry
+title: "Identify an Unknown from Spectral Clues"
+skills: [IR Spectroscopy, NMR Spectroscopy, Degree of Unsaturation]
 ---
-
-What is the main idea of **Step 3: Look for the reactive site**?
-
-:::solution
-One short answer is: Nucleophilic
-:::
 
----
-id: "medical-biology-organic-chemistry-48"
-note: "medical-biology-organic-chemistry"
-title: "Review: Step 4: Check stereochemistry"
-type: "text"
-answer: "Configuration ($R/S$)"
-skills:
-  - "Step 4: Check stereochemistry"
----
+An unknown has formula $C_4H_8O$, DBE $1$, a strong IR band near $1720\ \text{cm}^{-1}$, and a 1H NMR signal near 9-10 ppm.
 
-What is the main idea of **Step 4: Check stereochemistry**?
+What functional group is most likely?
 
 :::solution
-One short answer is: Configuration ($R/S$)
-:::
-
----
-id: "medical-biology-organic-chemistry-49"
-note: "medical-biology-organic-chemistry"
-title: "Review: Step 5: Apply conditions"
-type: "text"
-answer: "Reagents matter as much as the substrate. The same starting material can give different products under acidic, basic, oxidative, reductive, or radical conditions."
-skills:
-  - "Step 5: Apply conditions"
----
-
-What is the main idea of **Step 5: Apply conditions**?
+The formula gives one degree of unsaturation, and the IR band shows a carbonyl.
 
-:::solution
-One short answer is: Reagents matter as much as the substrate. The same starting material can give different products under acidic, basic, oxidative, reductive, or radical conditions.
+The 9-10 ppm proton is characteristic of an aldehyde hydrogen, so the functional group is an aldehyde.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-410"
-note: "medical-biology-organic-chemistry"
-title: "Review: Step 6: Verify the product"
-type: "text"
-answer: "Atom count is conserved"
-skills:
-  - "Step 6: Verify the product"
+id: organic-chemistry-41
+note: medical-biology-organic-chemistry
+title: "Predict a Carbocation Rearrangement"
+skills: [Carbocations, Reaction Mechanisms, SN1 and SN2]
 ---
-
-What is the main idea of **Step 6: Verify the product**?
 
-:::solution
-One short answer is: Atom count is conserved
-:::
-
----
-id: "medical-biology-organic-chemistry-411"
-note: "medical-biology-organic-chemistry"
-title: "Review: Common traps"
-type: "text"
-answer: "Confusing SN1 with SN2"
-skills:
-  - "Common traps"
----
+A secondary carbocation forms next to a tertiary carbon in a polar protic solvent.
 
-Name one common mistake the note warns about in **Common traps**.
+What rearrangement can occur before nucleophilic attack, and why?
 
 :::solution
-One short answer is: Confusing SN1 with SN2
-:::
-
----
-id: "medical-biology-organic-chemistry-412"
-note: "medical-biology-organic-chemistry"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "12. Formula summary"
----
+A hydride shift can occur to move the positive charge to the more stable tertiary carbon.
 
-What core formulas or relations are summarized in **Formula summary**?
-
-:::solution
-One short answer is: Formula summary
+Carbocations rearrange when a shift gives a more stable intermediate before the nucleophile attacks.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-413"
-note: "medical-biology-organic-chemistry"
-title: "Review: Core relations"
-type: "text"
-answer: "$$ \\text{DBE} = \\frac{2C + 2 + N - H - X}{2} $$ $$ pK a = -\\log {10} K a $$ $$ \\Delta G = \\Delta H - T \\Delta S $$ $$ \\Delta G^\\circ = -RT \\ln K $$"
-skills:
-  - "Core relations"
+id: organic-chemistry-42
+note: medical-biology-organic-chemistry
+title: "Choose Kinetic or Thermodynamic Control"
+skills: [Kinetic and Thermodynamic Control, Elimination]
 ---
 
-What core idea is introduced in **Core relations**?
+Two elimination products are possible. One forms faster, but the other is more stable and dominates when the reaction is reversible and heated.
 
+Which control is operating, and which product wins?
+
 :::solution
-One short answer is: $$ \text{DBE} = \frac{2C + 2 + N - H - X}{2} $$ $$ pK a = -\log {10} K a $$ $$ \Delta G = \Delta H - T \Delta S $$ $$ \Delta G^\circ = -RT \ln K $$
+This is thermodynamic control.
+
+When the reaction can equilibrate, the more stable product dominates, so the more substituted alkene is favored.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-414"
-note: "medical-biology-organic-chemistry"
-title: "Review: Quick reactivity summary"
-type: "text"
-answer: "Topic Quick rule --- --- SN2 Strong nucleophile, low steric hindrance, inversion SN1 Carbocation, rearrangements possible E2 Strong base, anti-periplanar, heat helps E1 Carbocation elimination, often competes with SN1 C…"
-skills:
-  - "Quick reactivity summary"
+id: organic-chemistry-43
+note: medical-biology-organic-chemistry
+title: "Classify Ring Aromaticity"
+skills: [Aromaticity, Conjugation]
 ---
 
-What core formulas or relations are summarized in **Quick reactivity summary**?
+Classify each ring:
 
+1. A planar, cyclic, fully conjugated ring with 6 pi electrons.
+2. A cyclic, conjugated ring with 4 pi electrons.
+
 :::solution
-One short answer is: Topic Quick rule --- --- SN2 Strong nucleophile, low steric hindrance, inversion SN1 Carbocation, rearrangements possible E2 Strong base, anti-periplanar, heat helps E1 Carbocation elimination, often competes with SN1 C…
+1. The first ring is aromatic because it is cyclic, planar, fully conjugated, and has $4n+2$ pi electrons.
+2. The second ring is antiaromatic if it is planar, because it has $4n$ pi electrons.
 :::
 
 ---
-id: "medical-biology-organic-chemistry-415"
-note: "medical-biology-organic-chemistry"
-title: "Review: Aromaticity checklist"
-type: "text"
-answer: "Cyclic"
-skills:
-  - "Aromaticity checklist"
+id: organic-chemistry-44
+note: medical-biology-organic-chemistry
+title: "Explain Peptide Bond Stability"
+skills: [Amino Acids, Amides, Resonance]
 ---
 
-According to the note, what sequence of steps is recommended in **Aromaticity checklist**?
+Why are peptide bonds relatively stable and weakly basic?
 
 :::solution
-One short answer is: Cyclic
-:::
+A peptide bond is an amide linkage between amino acids.
 
----
-id: "medical-biology-organic-chemistry-416"
-note: "medical-biology-organic-chemistry"
-title: "Review: Final study rule"
-type: "text"
-answer: "What is the nucleophile?"
-skills:
-  - "Final study rule"
----
+Its nitrogen lone pair is delocalized into the carbonyl by resonance, which gives the C-N bond partial double-bond character and makes the carbonyl less reactive.
 
-What is the main idea of **Final study rule**?
-
-:::solution
-One short answer is: What is the nucleophile?
+That same resonance makes the nitrogen much less basic.
 :::

@@ -1,671 +1,947 @@
 ---
-id: "math-vectors-11"
-note: "math-vectors"
-title: "Review: What a vector is"
-type: "text"
-answer: "A vector is an object with both magnitude and direction."
-skills:
-  - "1. What a vector is"
+id: vectors-11
+note: math-vectors
+title: "Find a Position Vector"
+skills: [Position Vectors]
 ---
 
-What core idea is introduced in **What a vector is**?
+If $P = (4, -1, 3)$, what is the position vector of $P$?
 
 :::solution
-One short answer is: A vector is an object with both magnitude and direction.
+The position vector of a point is the vector from the origin to that point.
+
+So the position vector of $P$ is
+
+$$
+\langle 4, -1, 3 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-12"
-note: "math-vectors"
-title: "Review: Geometric view"
-type: "text"
-answer: "Length represents magnitude"
-skills:
-  - "Geometric view"
+id: vectors-12
+note: math-vectors
+title: "Convert to Component Form"
+skills: [Notation, Component Form]
 ---
 
-What is the main idea of **Geometric view**?
+Write $6\mathbf{i} - 2\mathbf{j} + 5\mathbf{k}$ in component form.
 
 :::solution
-One short answer is: Length represents magnitude
+Use the standard basis vectors:
+
+$$
+\mathbf{i} = \langle 1, 0, 0 \rangle,\quad
+\mathbf{j} = \langle 0, 1, 0 \rangle,\quad
+\mathbf{k} = \langle 0, 0, 1 \rangle
+$$
+
+So
+
+$$
+6\mathbf{i} - 2\mathbf{j} + 5\mathbf{k}
+= \langle 6, -2, 5 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-13"
-note: "math-vectors"
-title: "Review: Free vectors and position vectors"
-type: "text"
-answer: "A free vector can be translated anywhere without changing it."
-skills:
-  - "Free vectors and position vectors"
+id: vectors-13
+note: math-vectors
+title: "Find a Vector from Two Points"
+skills: [Two Points, Component Form]
 ---
 
-What is the main idea of **Free vectors and position vectors**?
+Find $\overrightarrow{AB}$ where $A = (-1, 3)$ and $B = (5, -2)$.
 
 :::solution
-One short answer is: A free vector can be translated anywhere without changing it.
+Subtract the coordinates in the order $B - A$:
+
+$$
+\overrightarrow{AB} = \langle 5 - (-1),\ -2 - 3 \rangle
+$$
+
+$$
+\overrightarrow{AB} = \langle 6, -5 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-14"
-note: "math-vectors"
-title: "Review: Notation and components"
-type: "text"
-answer: "Vectors may be written in several equivalent forms: $$ \\mathbf{v} = \\langle 3, -2 \\rangle $$ $$ \\mathbf{v} = \\begin{bmatrix} 3 \\\\ -2 \\end{bmatrix} $$ $$ \\mathbf{v} = 3\\mathbf{i} - 2\\mathbf{j} $$ In 3D: $$ \\mathbf{v} = a…"
-skills:
-  - "2. Notation and components"
+id: vectors-14
+note: math-vectors
+title: "Find a Magnitude"
+skills: [Magnitude]
 ---
 
-What core idea is introduced in **Notation and components**?
+Find the magnitude of $\langle 9, 12 \rangle$.
 
 :::solution
-One short answer is: Vectors may be written in several equivalent forms: $$ \mathbf{v} = \langle 3, -2 \rangle $$ $$ \mathbf{v} = \begin{bmatrix} 3 \\ -2 \end{bmatrix} $$ $$ \mathbf{v} = 3\mathbf{i} - 2\mathbf{j} $$ In 3D: $$ \mathbf{v} = a…
+Use the magnitude formula:
+
+$$
+\|\mathbf{v}\| = \sqrt{x^2 + y^2}
+$$
+
+So
+
+$$
+\|\langle 9, 12 \rangle\| = \sqrt{9^2 + 12^2}
+$$
+
+$$
+= \sqrt{81 + 144} = \sqrt{225} = 15
+$$
 :::
 
 ---
-id: "math-vectors-15"
-note: "math-vectors"
-title: "Review: Component form from two points"
-type: "text"
-answer: "If a vector goes from point $A(x 1, y 1)$ to point $B(x 2, y 2)$, then $$ \\overrightarrow{AB} = \\langle x 2 - x 1,\\ y 2 - y 1 \\rangle $$ In 3D: $$ \\overrightarrow{AB} = \\langle x 2 - x 1,\\ y 2 - y 1,\\ z 2 - z 1 \\rangle…"
-skills:
-  - "Component form from two points"
+id: vectors-15
+note: math-vectors
+title: "Find a Unit Vector"
+skills: [Unit Vectors, Magnitude]
 ---
 
-What is the main idea of **Component form from two points**?
+Find the unit vector in the direction of $\langle 5, 12 \rangle$.
 
 :::solution
-One short answer is: If a vector goes from point $A(x 1, y 1)$ to point $B(x 2, y 2)$, then $$ \overrightarrow{AB} = \langle x 2 - x 1,\ y 2 - y 1 \rangle $$ In 3D: $$ \overrightarrow{AB} = \langle x 2 - x 1,\ y 2 - y 1,\ z 2 - z 1 \rangle…
+First find the magnitude:
+
+$$
+\|\langle 5, 12 \rangle\| = \sqrt{5^2 + 12^2} = \sqrt{169} = 13
+$$
+
+Then divide the vector by its magnitude:
+
+$$
+\hat{\mathbf{v}} = \frac{\langle 5, 12 \rangle}{13}
+= \left\langle \frac{5}{13}, \frac{12}{13} \right\rangle
+$$
 :::
 
 ---
-id: "math-vectors-16"
-note: "math-vectors"
-title: "Review: Magnitude and unit vectors"
-type: "text"
-answer: "The magnitude or length of $\\mathbf{v} = \\langle v 1, v 2, \\dots, v n \\rangle$ is $$ \\ \\mathbf{v}\\ = \\sqrt{v 1^2 + v 2^2 + \\cdots + v n^2} $$ In 2D: $$ \\ \\mathbf{v}\\ = \\sqrt{x^2 + y^2} $$ In 3D: $$ \\ \\mathbf{v}\\ = \\sqrt…"
-skills:
-  - "3. Magnitude and unit vectors"
+id: vectors-16
+note: math-vectors
+title: "Add Two Vectors"
+skills: [Vector Addition]
 ---
 
-What is the main idea of **Magnitude and unit vectors**?
+Compute the sum:
+
+$$
+\langle 2, -7 \rangle + \langle -5, 4 \rangle
+$$
 
 :::solution
-One short answer is: The magnitude or length of $\mathbf{v} = \langle v 1, v 2, \dots, v n \rangle$ is $$ \ \mathbf{v}\ = \sqrt{v 1^2 + v 2^2 + \cdots + v n^2} $$ In 2D: $$ \ \mathbf{v}\ = \sqrt{x^2 + y^2} $$ In 3D: $$ \ \mathbf{v}\ = \sqrt…
+Add corresponding components:
+
+$$
+\langle 2 + (-5),\ -7 + 4 \rangle = \langle -3, -3 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-17"
-note: "math-vectors"
-title: "Review: Unit vectors"
-type: "text"
-answer: "A unit vector has length 1."
-skills:
-  - "Unit vectors"
+id: vectors-17
+note: math-vectors
+title: "Subtract Two Vectors"
+skills: [Vector Subtraction]
 ---
 
-What is the main idea of **Unit vectors**?
+Compute the difference:
+
+$$
+\langle 6, 1, -2 \rangle - \langle 3, -4, 5 \rangle
+$$
 
 :::solution
-One short answer is: A unit vector has length 1.
+Subtract corresponding components:
+
+$$
+\langle 6 - 3,\ 1 - (-4),\ -2 - 5 \rangle
+= \langle 3, 5, -7 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-18"
-note: "math-vectors"
-title: "Review: Direction in 2D"
-type: "text"
-answer: "If $\\mathbf{v} = \\langle x, y \\rangle$, then the direction angle $\\theta$ satisfies $$ \\tan \\theta = \\frac{y}{x} $$ with the correct quadrant chosen from the signs of $x$ and $y$. ---"
-skills:
-  - "Direction in 2D"
+id: vectors-18
+note: math-vectors
+title: "Multiply by a Scalar"
+skills: [Scalar Multiplication]
 ---
 
-What is the main idea of **Direction in 2D**?
+Compute
+
+$$
+-3 \langle 4, -2, 1 \rangle
+$$
 
 :::solution
-One short answer is: If $\mathbf{v} = \langle x, y \rangle$, then the direction angle $\theta$ satisfies $$ \tan \theta = \frac{y}{x} $$ with the correct quadrant chosen from the signs of $x$ and $y$. ---
+Multiply each component by $-3$:
+
+$$
+-3 \langle 4, -2, 1 \rangle
+= \langle -12, 6, -3 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-19"
-note: "math-vectors"
-title: "Review: Basic vector operations"
-type: "text"
-answer: "Basic vector operations"
-skills:
-  - "4. Basic vector operations"
+id: vectors-19
+note: math-vectors
+title: "Compute a Dot Product"
+skills: [Dot Product]
 ---
 
-What is the main idea of **Basic vector operations**?
+Find the dot product:
+
+$$
+\langle 2, -1, 3 \rangle \cdot \langle 4, 5, -2 \rangle
+$$
 
 :::solution
-One short answer is: Basic vector operations
+Multiply matching components and add:
+
+$$
+2(4) + (-1)(5) + 3(-2)
+$$
+
+$$
+= 8 - 5 - 6 = -3
+$$
 :::
 
 ---
-id: "math-vectors-110"
-note: "math-vectors"
-title: "Review: Addition and subtraction"
-type: "text"
-answer: "For $\\mathbf{u} = \\langle u 1, u 2, \\dots \\rangle$ and $\\mathbf{v} = \\langle v 1, v 2, \\dots \\rangle$: $$ \\mathbf{u} + \\mathbf{v} = \\langle u 1 + v 1,\\ u 2 + v 2,\\ \\dots \\rangle $$ $$ \\mathbf{u} - \\mathbf{v} = \\langle u…"
-skills:
-  - "Addition and subtraction"
+id: vectors-110
+note: math-vectors
+title: "Compute a Cross Product"
+skills: [Cross Product]
 ---
 
-What is the main idea of **Addition and subtraction**?
+Find
+
+$$
+\langle 1, 2, 3 \rangle \times \langle 4, 0, -1 \rangle
+$$
 
 :::solution
-One short answer is: For $\mathbf{u} = \langle u 1, u 2, \dots \rangle$ and $\mathbf{v} = \langle v 1, v 2, \dots \rangle$: $$ \mathbf{u} + \mathbf{v} = \langle u 1 + v 1,\ u 2 + v 2,\ \dots \rangle $$ $$ \mathbf{u} - \mathbf{v} = \langle u…
+Use the component formula:
+
+$$
+\mathbf{u} \times \mathbf{v}
+= \langle u_2v_3 - u_3v_2,\ u_3v_1 - u_1v_3,\ u_1v_2 - u_2v_1 \rangle
+$$
+
+So
+
+$$
+\langle 1, 2, 3 \rangle \times \langle 4, 0, -1 \rangle
+= \langle 2(-1) - 3(0),\ 3(4) - 1(-1),\ 1(0) - 2(4) \rangle
+$$
+
+$$
+= \langle -2, 13, -8 \rangle
+$$
 :::
 
 ---
-id: "math-vectors-111"
-note: "math-vectors"
-title: "Review: Scalar multiplication"
-type: "text"
-answer: "If $ c > 1$, the vector stretches"
-skills:
-  - "Scalar multiplication"
+id: vectors-21
+note: math-vectors
+title: "Find a Direction Angle"
+skills: [Direction Angle, Trigonometry]
 ---
 
-What is the main idea of **Scalar multiplication**?
+Find the direction angle of $\langle 1, \sqrt{3} \rangle$.
 
 :::solution
-One short answer is: If $ c > 1$, the vector stretches
+Use
+
+$$
+\tan \theta = \frac{y}{x}
+$$
+
+Here,
+
+$$
+\tan \theta = \frac{\sqrt{3}}{1} = \sqrt{3}
+$$
+
+Since the vector is in the first quadrant, the angle is
+
+$$
+\theta = 60^\circ
+$$
 :::
 
 ---
-id: "math-vectors-21"
-note: "math-vectors"
-title: "Review: Zero vector"
-type: "text"
-answer: "The zero vector is $$ \\mathbf{0} = \\langle 0, 0, \\dots, 0 \\rangle $$ It has zero magnitude and no direction. ---"
-skills:
-  - "Zero vector"
+id: vectors-22
+note: math-vectors
+title: "Find a Vector and Its Length"
+skills: [Two Points, Magnitude]
 ---
 
-What is the main idea of **Zero vector**?
+A vector goes from $A = (2, -1, 5)$ to $B = (7, 3, 2)$.
+
+Find $\overrightarrow{AB}$ and its magnitude.
 
 :::solution
-One short answer is: The zero vector is $$ \mathbf{0} = \langle 0, 0, \dots, 0 \rangle $$ It has zero magnitude and no direction. ---
+Subtract the coordinates:
+
+$$
+\overrightarrow{AB} = \langle 7 - 2,\ 3 - (-1),\ 2 - 5 \rangle
+= \langle 5, 4, -3 \rangle
+$$
+
+Now find the magnitude:
+
+$$
+\|\overrightarrow{AB}\| = \sqrt{5^2 + 4^2 + (-3)^2}
+$$
+
+$$
+= \sqrt{25 + 16 + 9} = \sqrt{50} = 5\sqrt{2}
+$$
 :::
 
 ---
-id: "math-vectors-22"
-note: "math-vectors"
-title: "Review: Dot product"
-type: "text"
-answer: "The dot product of two vectors in $\\mathbb{R}^n$ is $$ \\mathbf{u} \\cdot \\mathbf{v} = u 1v 1 + u 2v 2 + \\cdots + u nv n $$ In 2D: $$ \\langle a, b \\rangle \\cdot \\langle c, d \\rangle = ac + bd $$ In 3D: $$ \\langle a, b, c…"
-skills:
-  - "5. Dot product"
+id: vectors-23
+note: math-vectors
+title: "Find the Angle Between Two Vectors"
+skills: [Dot Product, Angle Between Vectors]
 ---
 
-What is the main idea of **Dot product**?
+Find the angle between
+
+$$
+\mathbf{u} = \langle 1, 2 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 2, 1 \rangle.
+$$
 
 :::solution
-One short answer is: The dot product of two vectors in $\mathbb{R}^n$ is $$ \mathbf{u} \cdot \mathbf{v} = u 1v 1 + u 2v 2 + \cdots + u nv n $$ In 2D: $$ \langle a, b \rangle \cdot \langle c, d \rangle = ac + bd $$ In 3D: $$ \langle a, b, c…
+Use the dot product formula:
+
+$$
+\mathbf{u} \cdot \mathbf{v} = \|\mathbf{u}\| \, \|\mathbf{v}\| \cos \theta
+$$
+
+First compute the dot product:
+
+$$
+\mathbf{u} \cdot \mathbf{v} = 1(2) + 2(1) = 4
+$$
+
+Then the magnitudes:
+
+$$
+\|\mathbf{u}\| = \sqrt{1^2 + 2^2} = \sqrt{5},\qquad
+\|\mathbf{v}\| = \sqrt{2^2 + 1^2} = \sqrt{5}
+$$
+
+So
+
+$$
+\cos \theta = \frac{4}{\sqrt{5}\sqrt{5}} = \frac{4}{5}
+$$
+
+Therefore,
+
+$$
+\theta = \cos^{-1}\!\left(\frac{4}{5}\right)
+$$
 :::
 
 ---
-id: "math-vectors-23"
-note: "math-vectors"
-title: "Review: Angle between vectors"
-type: "text"
-answer: "The dot product also satisfies $$ \\mathbf{u} \\cdot \\mathbf{v} = \\ \\mathbf{u}\\ \\, \\ \\mathbf{v}\\ \\cos \\theta $$ where $\\theta$ is the angle between the vectors."
-skills:
-  - "Angle between vectors"
+id: vectors-24
+note: math-vectors
+title: "Project One Vector Onto Another"
+skills: [Projection, Dot Product]
 ---
 
-What is the main idea of **Angle between vectors**?
+Find the vector projection of $\mathbf{v} = \langle 4, 3 \rangle$ onto $\mathbf{u} = \langle 3, 4 \rangle$.
 
 :::solution
-One short answer is: The dot product also satisfies $$ \mathbf{u} \cdot \mathbf{v} = \ \mathbf{u}\ \, \ \mathbf{v}\ \cos \theta $$ where $\theta$ is the angle between the vectors.
+Use
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{\mathbf{v} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u}
+$$
+
+Compute the dot products:
+
+$$
+\mathbf{v} \cdot \mathbf{u} = 4(3) + 3(4) = 24
+$$
+
+$$
+\mathbf{u} \cdot \mathbf{u} = 3^2 + 4^2 = 25
+$$
+
+So
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{24}{25}\langle 3, 4 \rangle
+= \left\langle \frac{72}{25}, \frac{96}{25} \right\rangle
+$$
 :::
 
 ---
-id: "math-vectors-24"
-note: "math-vectors"
-title: "Review: Orthogonality"
-type: "text"
-answer: "Two nonzero vectors are orthogonal if their dot product is zero: $$ \\mathbf{u} \\cdot \\mathbf{v} = 0 $$ This means the vectors are perpendicular."
-skills:
-  - "Orthogonality"
+id: vectors-25
+note: math-vectors
+title: "Split a Vector into Parallel and Perpendicular Parts"
+skills: [Projection, Orthogonal Decomposition]
 ---
 
-What is the main idea of **Orthogonality**?
+Let
+
+$$
+\mathbf{u} = \langle 1, 2 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 4, 1 \rangle.
+$$
+
+Find $\operatorname{proj}_{\mathbf{u}} \mathbf{v}$ and $\mathbf{v}_\perp$.
 
 :::solution
-One short answer is: Two nonzero vectors are orthogonal if their dot product is zero: $$ \mathbf{u} \cdot \mathbf{v} = 0 $$ This means the vectors are perpendicular.
+First compute the projection:
+
+$$
+\mathbf{v} \cdot \mathbf{u} = 4(1) + 1(2) = 6
+$$
+
+$$
+\mathbf{u} \cdot \mathbf{u} = 1^2 + 2^2 = 5
+$$
+
+So
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{6}{5}\langle 1, 2 \rangle
+= \left\langle \frac{6}{5}, \frac{12}{5} \right\rangle
+$$
+
+Now subtract to get the perpendicular part:
+
+$$
+\mathbf{v}_\perp
+= \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+$$
+
+$$
+= \left\langle 4, 1 \right\rangle
+- \left\langle \frac{6}{5}, \frac{12}{5} \right\rangle
+= \left\langle \frac{14}{5}, -\frac{7}{5} \right\rangle
+$$
 :::
 
 ---
-id: "math-vectors-25"
-note: "math-vectors"
-title: "Review: Projection idea from the dot product"
-type: "text"
-answer: "The scalar component of $\\mathbf{v}$ along $\\mathbf{u}$ is $$ \\operatorname{comp} {\\mathbf{u}} \\mathbf{v} = \\frac{\\mathbf{v} \\cdot \\mathbf{u}}{\\ \\mathbf{u}\\ } $$ The vector projection is covered in the next section. ---"
-skills:
-  - "Projection idea from the dot product"
+id: vectors-26
+note: math-vectors
+title: "Find the Area of a Parallelogram"
+skills: [Cross Product, Area]
 ---
 
-What is the main idea of **Projection idea from the dot product**?
+Find the area of the parallelogram spanned by
+
+$$
+\mathbf{u} = \langle 2, 1, 1 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 1, 3, 2 \rangle.
+$$
 
 :::solution
-One short answer is: The scalar component of $\mathbf{v}$ along $\mathbf{u}$ is $$ \operatorname{comp} {\mathbf{u}} \mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\ \mathbf{u}\ } $$ The vector projection is covered in the next section. ---
+The area of the parallelogram is
+
+$$
+\|\mathbf{u} \times \mathbf{v}\|
+$$
+
+Compute the cross product:
+
+$$
+\mathbf{u} \times \mathbf{v}
+= \langle 1(2) - 1(3),\ 1(1) - 2(2),\ 2(3) - 1(1) \rangle
+$$
+
+$$
+= \langle -1, -3, 5 \rangle
+$$
+
+Now find its magnitude:
+
+$$
+\sqrt{(-1)^2 + (-3)^2 + 5^2}
+= \sqrt{1 + 9 + 25}
+= \sqrt{35}
+$$
+
+So the area is
+
+$$
+\sqrt{35}
+$$
 :::
 
 ---
-id: "math-vectors-26"
-note: "math-vectors"
-title: "Review: Cross product"
-type: "text"
-answer: "The cross product is defined for vectors in $\\mathbb{R}^3$."
-skills:
-  - "6. Cross product"
+id: vectors-27
+note: math-vectors
+title: "Write an Equation of a Plane"
+skills: [Planes, Normal Vector]
 ---
 
-What is the main idea of **Cross product**?
+Find the equation of the plane through $(1, 4, -2)$ with normal vector $\langle 2, -1, 3 \rangle$.
 
 :::solution
-One short answer is: The cross product is defined for vectors in $\mathbb{R}^3$.
+Use point-normal form:
+
+$$
+\mathbf{n} \cdot (\mathbf{r} - \mathbf{r}_0) = 0
+$$
+
+So
+
+$$
+2(x - 1) - (y - 4) + 3(z + 2) = 0
+$$
+
+Expand and simplify:
+
+$$
+2x - 2 - y + 4 + 3z + 6 = 0
+$$
+
+$$
+2x - y + 3z + 8 = 0
+$$
 :::
 
 ---
-id: "math-vectors-27"
-note: "math-vectors"
-title: "Review: Geometric meaning"
-type: "text"
-answer: "$\\mathbf{u} \\times \\mathbf{v}$ is perpendicular to both $\\mathbf{u}$ and $\\mathbf{v}$"
-skills:
-  - "Geometric meaning"
+id: vectors-28
+note: math-vectors
+title: "Find the Distance from a Point to a Plane"
+skills: [Planes, Distance Formula]
 ---
 
-What is the main idea of **Geometric meaning**?
+Find the distance from the point $(2, 1, 0)$ to the plane
+
+$$
+x + 2y + 2z - 9 = 0.
+$$
 
 :::solution
-One short answer is: $\mathbf{u} \times \mathbf{v}$ is perpendicular to both $\mathbf{u}$ and $\mathbf{v}$
+Use the distance formula:
+
+$$
+\frac{|Ax_0 + By_0 + Cz_0 + D|}{\sqrt{A^2 + B^2 + C^2}}
+$$
+
+Here, $A = 1$, $B = 2$, $C = 2$, and $D = -9$.
+
+Substitute the point $(2, 1, 0)$:
+
+$$
+\frac{|1(2) + 2(1) + 2(0) - 9|}{\sqrt{1^2 + 2^2 + 2^2}}
+$$
+
+$$
+= \frac{|2 + 2 - 9|}{\sqrt{9}}
+= \frac{5}{3}
+$$
 :::
 
 ---
-id: "math-vectors-28"
-note: "math-vectors"
-title: "Review: Orientation"
-type: "text"
-answer: "The cross product is not commutative: $$ \\mathbf{u} \\times \\mathbf{v} = -(\\mathbf{v} \\times \\mathbf{u}) $$ Use the right-hand rule to determine direction. ---"
-skills:
-  - "Orientation"
+id: vectors-31
+note: math-vectors
+title: "Model a Displacement"
+skills: [Displacement, Magnitude]
 ---
 
-What is the main idea of **Orientation**?
+A drone flies $3$ km east, $4$ km north, and $12$ km upward.
+
+What is its displacement vector, and how far is it from the starting point?
 
 :::solution
-One short answer is: The cross product is not commutative: $$ \mathbf{u} \times \mathbf{v} = -(\mathbf{v} \times \mathbf{u}) $$ Use the right-hand rule to determine direction. ---
+The displacement vector is
+
+$$
+\langle 3, 4, 12 \rangle
+$$
+
+Now find its magnitude:
+
+$$
+\|\langle 3, 4, 12 \rangle\|
+= \sqrt{3^2 + 4^2 + 12^2}
+$$
+
+$$
+= \sqrt{9 + 16 + 144} = \sqrt{169} = 13
+$$
+
+So the drone is $13$ km from the starting point.
 :::
 
 ---
-id: "math-vectors-29"
-note: "math-vectors"
-title: "Review: Vector projections"
-type: "text"
-answer: "The projection of $\\mathbf{v}$ onto $\\mathbf{u}$ is the component of $\\mathbf{v}$ that points along $\\mathbf{u}$."
-skills:
-  - "7. Vector projections"
+id: vectors-32
+note: math-vectors
+title: "Write a Line Through Two Points"
+skills: [Lines, Two Points]
 ---
 
-What is the main idea of **Vector projections**?
+Write a vector equation of the line through $A = (1, 2, -1)$ and $B = (5, 0, 3)$.
 
 :::solution
-One short answer is: The projection of $\mathbf{v}$ onto $\mathbf{u}$ is the component of $\mathbf{v}$ that points along $\mathbf{u}$.
+First find a direction vector:
+
+$$
+\overrightarrow{AB} = \langle 5 - 1,\ 0 - 2,\ 3 - (-1) \rangle
+= \langle 4, -2, 4 \rangle
+$$
+
+A simpler direction vector is $\langle 2, -1, 2 \rangle$.
+
+So a vector equation is
+
+$$
+\mathbf{r}(t) = \langle 1, 2, -1 \rangle + t\langle 2, -1, 2 \rangle
+$$
+
+In component form,
+
+$$
+x = 1 + 2t,\qquad y = 2 - t,\qquad z = -1 + 2t
+$$
 :::
 
 ---
-id: "math-vectors-210"
-note: "math-vectors"
-title: "Review: Scalar projection"
-type: "text"
-answer: "$$ \\operatorname{comp} {\\mathbf{u}} \\mathbf{v} = \\frac{\\mathbf{v} \\cdot \\mathbf{u}}{\\ \\mathbf{u}\\ } $$"
-skills:
-  - "Scalar projection"
+id: vectors-33
+note: math-vectors
+title: "Find a Plane Through Three Points"
+skills: [Planes, Cross Product, Two Points]
 ---
 
-What is the main idea of **Scalar projection**?
+Find the equation of the plane through
+
+$$
+A = (1, 0, 0),\quad B = (0, 2, 0),\quad C = (0, 0, 3).
+$$
 
 :::solution
-One short answer is: $$ \operatorname{comp} {\mathbf{u}} \mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\ \mathbf{u}\ } $$
+Form two direction vectors in the plane:
+
+$$
+\overrightarrow{AB} = \langle -1, 2, 0 \rangle,\qquad
+\overrightarrow{AC} = \langle -1, 0, 3 \rangle
+$$
+
+Their cross product gives a normal vector:
+
+$$
+\overrightarrow{AB} \times \overrightarrow{AC}
+= \langle 6, 3, 2 \rangle
+$$
+
+Now use point-normal form with point $A = (1, 0, 0)$:
+
+$$
+6(x - 1) + 3(y - 0) + 2(z - 0) = 0
+$$
+
+$$
+6x + 3y + 2z - 6 = 0
+$$
 :::
 
 ---
-id: "math-vectors-31"
-note: "math-vectors"
-title: "Review: Vector projection"
-type: "text"
-answer: "$$ \\operatorname{proj} {\\mathbf{u}} \\mathbf{v} = \\frac{\\mathbf{v} \\cdot \\mathbf{u}}{\\mathbf{u} \\cdot \\mathbf{u}} \\mathbf{u} $$ This formula is useful in decomposition problems and least-squares geometry."
-skills:
-  - "Vector projection"
+id: vectors-34
+note: math-vectors
+title: "Find the Area of a Triangle from Coordinates"
+skills: [Cross Product, Area, Two Points]
 ---
 
-What is the main idea of **Vector projection**?
+Find the area of the triangle with vertices
+
+$$
+A = (0, 0, 0),\quad B = (2, 1, 0),\quad C = (1, 3, 0).
+$$
 
 :::solution
-One short answer is: $$ \operatorname{proj} {\mathbf{u}} \mathbf{v} = \frac{\mathbf{v} \cdot \mathbf{u}}{\mathbf{u} \cdot \mathbf{u}} \mathbf{u} $$ This formula is useful in decomposition problems and least-squares geometry.
+Use two side vectors from $A$:
+
+$$
+\overrightarrow{AB} = \langle 2, 1, 0 \rangle,\qquad
+\overrightarrow{AC} = \langle 1, 3, 0 \rangle
+$$
+
+Compute the cross product:
+
+$$
+\overrightarrow{AB} \times \overrightarrow{AC}
+= \langle 0, 0, 5 \rangle
+$$
+
+The parallelogram area is
+
+$$
+\|\langle 0, 0, 5 \rangle\| = 5
+$$
+
+The triangle area is half of that:
+
+$$
+\frac{1}{2}\cdot 5 = \frac{5}{2}
+$$
 :::
 
 ---
-id: "math-vectors-32"
-note: "math-vectors"
-title: "Review: Orthogonal decomposition"
-type: "text"
-answer: "Any vector can be split into parallel and perpendicular parts relative to $\\mathbf{u}$: $$ \\mathbf{v} = \\operatorname{proj} {\\mathbf{u}} \\mathbf{v} + \\mathbf{v} \\perp $$ where $$ \\mathbf{v} \\perp = \\mathbf{v} - \\operato…"
-skills:
-  - "Orthogonal decomposition"
+id: vectors-35
+note: math-vectors
+title: "Decide the Relationship Between a Line and a Plane"
+skills: [Lines, Planes, Dot Product]
 ---
 
-What is the main idea of **Orthogonal decomposition**?
+Consider the line
+
+$$
+\mathbf{r}(t) = \langle 1, 0, 2 \rangle + t\langle 2, -1, 1 \rangle
+$$
+
+and the plane
+
+$$
+2x + y - 3z = 7.
+$$
+
+Are the line and plane parallel, perpendicular, or neither?
 
 :::solution
-One short answer is: Any vector can be split into parallel and perpendicular parts relative to $\mathbf{u}$: $$ \mathbf{v} = \operatorname{proj} {\mathbf{u}} \mathbf{v} + \mathbf{v} \perp $$ where $$ \mathbf{v} \perp = \mathbf{v} - \operato…
+The direction vector of the line is
+
+$$
+\mathbf{d} = \langle 2, -1, 1 \rangle
+$$
+
+and the normal vector of the plane is
+
+$$
+\mathbf{n} = \langle 2, 1, -3 \rangle
+$$
+
+Check the dot product:
+
+$$
+\mathbf{d} \cdot \mathbf{n}
+= 2(2) + (-1)(1) + 1(-3)
+= 4 - 1 - 3 = 0
+$$
+
+Since the direction vector is orthogonal to the plane's normal vector, the line is parallel to the plane.
 :::
 
 ---
-id: "math-vectors-33"
-note: "math-vectors"
-title: "Review: Lines and planes"
-type: "text"
-answer: "Vectors provide compact equations for geometric objects."
-skills:
-  - "8. Lines and planes"
+id: vectors-41
+note: math-vectors
+title: "Find the Intersection of a Line and a Plane"
+skills: [Lines, Planes, Substitution]
 ---
 
-What is the main idea of **Lines and planes**?
+Find the point where the line
+
+$$
+\mathbf{r}(t) = \langle 1, 2, 3 \rangle + t\langle 2, -1, 1 \rangle
+$$
+
+intersects the plane
+
+$$
+x + 2y - z = 4.
+$$
 
 :::solution
-One short answer is: Vectors provide compact equations for geometric objects.
+Write the line in component form:
+
+$$
+x = 1 + 2t,\qquad y = 2 - t,\qquad z = 3 + t
+$$
+
+Substitute into the plane equation:
+
+$$
+(1 + 2t) + 2(2 - t) - (3 + t) = 4
+$$
+
+Simplify:
+
+$$
+1 + 2t + 4 - 2t - 3 - t = 4
+$$
+
+$$
+2 - t = 4
+$$
+
+$$
+t = -2
+$$
+
+Now substitute back into the line:
+
+$$
+x = 1 + 2(-2) = -3,\quad y = 2 - (-2) = 4,\quad z = 3 + (-2) = 1
+$$
+
+So the intersection point is
+
+$$
+(-3, 4, 1)
+$$
 :::
 
 ---
-id: "math-vectors-34"
-note: "math-vectors"
-title: "Review: Line in 2D or 3D"
-type: "text"
-answer: "A line through point $\\mathbf{r} 0$ with direction vector $\\mathbf{d}$ has vector equation $$ \\mathbf{r}(t) = \\mathbf{r} 0 + t\\mathbf{d} $$ where $t$ is a parameter."
-skills:
-  - "Line in 2D or 3D"
+id: vectors-42
+note: math-vectors
+title: "Find the Closest Point on a Line"
+skills: [Projection, Lines, Orthogonal Decomposition]
 ---
 
-What is the main idea of **Line in 2D or 3D**?
+Let the line be
+
+$$
+\mathbf{r}(t) = \langle 1, 0, 0 \rangle + t\langle 2, 1, 0 \rangle
+$$
+
+and let $Q = (4, 2, 0)$ be a point in the plane.
+
+Find the point on the line that is closest to $Q$.
 
 :::solution
-One short answer is: A line through point $\mathbf{r} 0$ with direction vector $\mathbf{d}$ has vector equation $$ \mathbf{r}(t) = \mathbf{r} 0 + t\mathbf{d} $$ where $t$ is a parameter.
+Let $P_0 = (1, 0, 0)$ and $\mathbf{d} = \langle 2, 1, 0 \rangle$.
+
+The closest point occurs where the vector from the line to $Q$ is perpendicular to the direction vector, so we use projection.
+
+First compute
+
+$$
+Q - P_0 = \langle 3, 2, 0 \rangle
+$$
+
+The parameter is
+
+$$
+t = \frac{(Q - P_0)\cdot \mathbf{d}}{\mathbf{d}\cdot \mathbf{d}}
+= \frac{3(2) + 2(1)}{2^2 + 1^2}
+= \frac{8}{5}
+$$
+
+Now find the point:
+
+$$
+P = P_0 + t\mathbf{d}
+= \langle 1, 0, 0 \rangle + \frac{8}{5}\langle 2, 1, 0 \rangle
+$$
+
+$$
+= \left\langle \frac{21}{5}, \frac{8}{5}, 0 \right\rangle
+$$
 :::
 
 ---
-id: "math-vectors-35"
-note: "math-vectors"
-title: "Review: Plane in 3D"
-type: "text"
-answer: "A plane through point $\\mathbf{r} 0$ with normal vector $\\mathbf{n}$ satisfies $$ \\mathbf{n} \\cdot (\\mathbf{r} - \\mathbf{r} 0) = 0 $$ If $\\mathbf{n} = \\langle A, B, C \\rangle$ and $\\mathbf{r} 0 = (x 0, y 0, z 0)$, then…"
-skills:
-  - "Plane in 3D"
+id: vectors-43
+note: math-vectors
+title: "Decompose a Vector and Measure the Perpendicular Part"
+skills: [Projection, Orthogonal Decomposition, Magnitude]
 ---
 
-What is the main idea of **Plane in 3D**?
+Let
+
+$$
+\mathbf{u} = \langle 2, 1, 2 \rangle
+\quad \text{and} \quad
+\mathbf{v} = \langle 4, 1, 0 \rangle.
+$$
+
+Find the part of $\mathbf{v}$ parallel to $\mathbf{u}$ and the magnitude of the perpendicular part.
 
 :::solution
-One short answer is: A plane through point $\mathbf{r} 0$ with normal vector $\mathbf{n}$ satisfies $$ \mathbf{n} \cdot (\mathbf{r} - \mathbf{r} 0) = 0 $$ If $\mathbf{n} = \langle A, B, C \rangle$ and $\mathbf{r} 0 = (x 0, y 0, z 0)$, then…
+First compute the projection:
+
+$$
+\mathbf{v} \cdot \mathbf{u} = 4(2) + 1(1) + 0(2) = 9
+$$
+
+$$
+\mathbf{u} \cdot \mathbf{u} = 2^2 + 1^2 + 2^2 = 9
+$$
+
+So
+
+$$
+\operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \frac{9}{9}\mathbf{u}
+= \langle 2, 1, 2 \rangle
+$$
+
+Now find the perpendicular part:
+
+$$
+\mathbf{v}_\perp = \mathbf{v} - \operatorname{proj}_{\mathbf{u}} \mathbf{v}
+= \langle 4, 1, 0 \rangle - \langle 2, 1, 2 \rangle
+= \langle 2, 0, -2 \rangle
+$$
+
+Its magnitude is
+
+$$
+\|\mathbf{v}_\perp\| = \sqrt{2^2 + 0^2 + (-2)^2} = \sqrt{8} = 2\sqrt{2}
+$$
 :::
 
 ---
-id: "math-vectors-36"
-note: "math-vectors"
-title: "Review: Distance from a point to a plane"
-type: "text"
-answer: "For plane $$ Ax + By + Cz + D = 0 $$ and point $(x 0, y 0, z 0)$, the distance is $$ \\frac{ Ax 0 + By 0 + Cz 0 + D }{\\sqrt{A^2 + B^2 + C^2}} $$ ---"
-skills:
-  - "Distance from a point to a plane"
+id: vectors-44
+note: math-vectors
+title: "Use Dot and Cross Products Together"
+skills: [Dot Product, Cross Product, Angle Between Vectors]
 ---
 
-What is the main idea of **Distance from a point to a plane**?
+Two nonzero vectors satisfy
+
+$$
+\|\mathbf{u}\| = 5,\qquad \|\mathbf{v}\| = 12,\qquad \mathbf{u}\cdot \mathbf{v} = 30.
+$$
+
+Find the angle between the vectors and the magnitude of $\mathbf{u} \times \mathbf{v}$.
 
 :::solution
-One short answer is: For plane $$ Ax + By + Cz + D = 0 $$ and point $(x 0, y 0, z 0)$, the distance is $$ \frac{ Ax 0 + By 0 + Cz 0 + D }{\sqrt{A^2 + B^2 + C^2}} $$ ---
-:::
+Use the dot product formula:
 
----
-id: "math-vectors-37"
-note: "math-vectors"
-title: "Review: Common workflows"
-type: "text"
-answer: "Common workflows"
-skills:
-  - "9. Common workflows"
----
+$$
+\mathbf{u}\cdot \mathbf{v} = \|\mathbf{u}\|\,\|\mathbf{v}\|\cos\theta
+$$
 
-According to the note, what sequence of steps is recommended in **Common workflows**?
+So
 
-:::solution
-One short answer is: Common workflows
-:::
+$$
+30 = 5(12)\cos\theta
+$$
 
----
-id: "math-vectors-38"
-note: "math-vectors"
-title: "Review: Find the vector from one point to another"
-type: "text"
-answer: "Identify the initial point $A$ and terminal point $B$"
-skills:
-  - "Find the vector from one point to another"
----
+$$
+\cos\theta = \frac{30}{60} = \frac{1}{2}
+$$
 
-What is the main idea of **Find the vector from one point to another**?
+Therefore,
 
-:::solution
-One short answer is: Identify the initial point $A$ and terminal point $B$
-:::
+$$
+\theta = 60^\circ
+$$
 
----
-id: "math-vectors-39"
-note: "math-vectors"
-title: "Review: Find an angle between vectors"
-type: "text"
-answer: "Compute $\\mathbf{u} \\cdot \\mathbf{v}$"
-skills:
-  - "Find an angle between vectors"
----
+Now use the cross product magnitude formula:
 
-What is the main idea of **Find an angle between vectors**?
+$$
+\|\mathbf{u}\times\mathbf{v}\| = \|\mathbf{u}\|\,\|\mathbf{v}\|\sin\theta
+$$
 
-:::solution
-One short answer is: Compute $\mathbf{u} \cdot \mathbf{v}$
-:::
+Since $\sin 60^\circ = \frac{\sqrt{3}}{2}$,
 
----
-id: "math-vectors-310"
-note: "math-vectors"
-title: "Review: Test perpendicularity or parallelism"
-type: "text"
-answer: "Perpendicular: $\\mathbf{u} \\cdot \\mathbf{v} = 0$"
-skills:
-  - "Test perpendicularity or parallelism"
----
-
-What is the main idea of **Test perpendicularity or parallelism**?
-
-:::solution
-One short answer is: Perpendicular: $\mathbf{u} \cdot \mathbf{v} = 0$
-:::
-
----
-id: "math-vectors-311"
-note: "math-vectors"
-title: "Review: Build a line or plane"
-type: "text"
-answer: "Line: point plus direction vector"
-skills:
-  - "Build a line or plane"
----
-
-What is the main idea of **Build a line or plane**?
-
-:::solution
-One short answer is: Line: point plus direction vector
-:::
-
----
-id: "math-vectors-41"
-note: "math-vectors"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "10. Formula summary"
----
-
-What core formulas or relations are summarized in **Formula summary**?
-
-:::solution
-One short answer is: Formula summary
-:::
-
----
-id: "math-vectors-42"
-note: "math-vectors"
-title: "Review: Core formulas"
-type: "text"
-answer: "$$ \\mathbf{u} + \\mathbf{v} = \\langle u 1 + v 1, \\dots, u n + v n \\rangle $$ $$ c\\mathbf{v} = \\langle cv 1, \\dots, cv n \\rangle $$ $$ \\ \\mathbf{v}\\ = \\sqrt{v 1^2 + \\cdots + v n^2} $$ $$ \\mathbf{u} \\cdot \\mathbf{v} = \\sum…"
-skills:
-  - "Core formulas"
----
-
-What core formulas or relations are summarized in **Core formulas**?
-
-:::solution
-One short answer is: $$ \mathbf{u} + \mathbf{v} = \langle u 1 + v 1, \dots, u n + v n \rangle $$ $$ c\mathbf{v} = \langle cv 1, \dots, cv n \rangle $$ $$ \ \mathbf{v}\ = \sqrt{v 1^2 + \cdots + v n^2} $$ $$ \mathbf{u} \cdot \mathbf{v} = \sum…
-:::
-
----
-id: "math-vectors-43"
-note: "math-vectors"
-title: "Review: Pitfalls"
-type: "text"
-answer: "Pitfalls"
-skills:
-  - "11. Pitfalls"
----
-
-Name one common mistake the note warns about in **Pitfalls**.
-
-:::solution
-One short answer is: Pitfalls
-:::
-
----
-id: "math-vectors-44"
-note: "math-vectors"
-title: "Review: Sign mistakes in components"
-type: "text"
-answer: "When subtracting coordinates, always use $$ \\overrightarrow{AB} = B - A $$ not the other way around unless the direction is intentionally reversed."
-skills:
-  - "Sign mistakes in components"
----
-
-Name one common mistake the note warns about in **Sign mistakes in components**.
-
-:::solution
-One short answer is: When subtracting coordinates, always use $$ \overrightarrow{AB} = B - A $$ not the other way around unless the direction is intentionally reversed.
-:::
-
----
-id: "math-vectors-45"
-note: "math-vectors"
-title: "Review: Confusing dot product with multiplication"
-type: "text"
-answer: "The dot product produces a scalar, not a vector."
-skills:
-  - "Confusing dot product with multiplication"
----
-
-What is the main idea of **Confusing dot product with multiplication**?
-
-:::solution
-One short answer is: The dot product produces a scalar, not a vector.
-:::
-
----
-id: "math-vectors-46"
-note: "math-vectors"
-title: "Review: Confusing dot and cross products"
-type: "text"
-answer: "Dot product measures alignment and angle"
-skills:
-  - "Confusing dot and cross products"
----
-
-What is the main idea of **Confusing dot and cross products**?
-
-:::solution
-One short answer is: Dot product measures alignment and angle
-:::
-
----
-id: "math-vectors-47"
-note: "math-vectors"
-title: "Review: Forgetting absolute value in distance formulas"
-type: "text"
-answer: "Distance is always nonnegative. Use absolute value when needed."
-skills:
-  - "Forgetting absolute value in distance formulas"
----
-
-What core formulas or relations are summarized in **Forgetting absolute value in distance formulas**?
-
-:::solution
-One short answer is: Distance is always nonnegative. Use absolute value when needed.
-:::
-
----
-id: "math-vectors-48"
-note: "math-vectors"
-title: "Review: Using the wrong dimension"
-type: "text"
-answer: "Dot product works in any dimension"
-skills:
-  - "Using the wrong dimension"
----
-
-What is the main idea of **Using the wrong dimension**?
-
-:::solution
-One short answer is: Dot product works in any dimension
-:::
-
----
-id: "math-vectors-49"
-note: "math-vectors"
-title: "Review: Losing the direction of a vector"
-type: "text"
-answer: "A vector is not just its length. Reversing a vector changes its direction even if the magnitude stays the same. ---"
-skills:
-  - "Losing the direction of a vector"
----
-
-What is the main idea of **Losing the direction of a vector**?
-
-:::solution
-One short answer is: A vector is not just its length. Reversing a vector changes its direction even if the magnitude stays the same. ---
-:::
-
----
-id: "math-vectors-410"
-note: "math-vectors"
-title: "Review: Final checks"
-type: "text"
-answer: "The components point the correct way"
-skills:
-  - "Final checks"
----
-
-What is the main idea of **Final checks**?
-
-:::solution
-One short answer is: The components point the correct way
+$$
+\|\mathbf{u}\times\mathbf{v}\|
+= 5(12)\cdot \frac{\sqrt{3}}{2}
+= 30\sqrt{3}
+$$
 :::

@@ -1,1455 +1,1286 @@
 ---
-id: "engineering-mechanics-of-materials-11"
-note: "engineering-mechanics-of-materials"
-title: "Review: Scope and core ideas"
-type: "text"
-answer: "External loads and supports"
-skills:
-  - "1. Scope and core ideas"
+id: mechanics-of-materials-11
+note: engineering-mechanics-of-materials
+title: "Compute the Normal Stress in a Tension Member"
+skills: [Normal Stress, Axial Loading]
 ---
 
-What core idea is introduced in **Scope and core ideas**?
+A steel bar carries a tensile force of $24\ \text{kN}$ and has a cross-sectional area of $600\ \text{mm}^2$.
 
+What is the average normal stress in the bar?
+
 :::solution
-One short answer is: External loads and supports
-:::
+Use the axial stress formula:
 
----
-id: "engineering-mechanics-of-materials-12"
-note: "engineering-mechanics-of-materials"
-title: "Review: The engineering chain"
-type: "text"
-answer: "Most problems follow this chain: $$ \\text{loads} \\rightarrow \\text{internal forces} \\rightarrow \\text{stress} \\rightarrow \\text{strain} \\rightarrow \\text{deformation} \\rightarrow \\text{failure check} $$ If any link is w…"
-skills:
-  - "The engineering chain"
----
+$$
+\sigma = \frac{P}{A}
+$$
 
-What is the main idea of **The engineering chain**?
+Substitute the values:
 
-:::solution
-One short answer is: Most problems follow this chain: $$ \text{loads} \rightarrow \text{internal forces} \rightarrow \text{stress} \rightarrow \text{strain} \rightarrow \text{deformation} \rightarrow \text{failure check} $$ If any link is w…
+$$
+\sigma = \frac{24\,000}{600} = 40\ \text{N/mm}^2
+$$
+
+So the normal stress is
+
+$$
+40\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-13"
-note: "engineering-mechanics-of-materials"
-title: "Review: Main failure modes"
-type: "text"
-answer: "Yielding in ductile materials"
-skills:
-  - "Main failure modes"
+id: mechanics-of-materials-12
+note: engineering-mechanics-of-materials
+title: "Find Engineering Strain from Elongation"
+skills: [Strain, Deformation]
 ---
+
+A bar with original length $750\ \text{mm}$ elongates by $1.5\ \text{mm}$.
 
-What is the main idea of **Main failure modes**?
+What is the engineering strain?
 
 :::solution
-One short answer is: Yielding in ductile materials
-:::
+Use the strain definition:
 
----
-id: "engineering-mechanics-of-materials-14"
-note: "engineering-mechanics-of-materials"
-title: "Review: Stress, strain, and constitutive behavior"
-type: "text"
-answer: "Stress, strain, and constitutive behavior"
-skills:
-  - "2. Stress, strain, and constitutive behavior"
----
+$$
+\varepsilon = \frac{\delta}{L}
+$$
 
-What is the main idea of **Stress, strain, and constitutive behavior**?
+Substitute the values:
 
-:::solution
-One short answer is: Stress, strain, and constitutive behavior
+$$
+\varepsilon = \frac{1.5}{750} = 0.002
+$$
+
+So the engineering strain is
+
+$$
+2.0 \times 10^{-3}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-15"
-note: "engineering-mechanics-of-materials"
-title: "Review: Normal stress"
-type: "text"
-answer: "$P$ is the internal axial force"
-skills:
-  - "Normal stress"
+id: mechanics-of-materials-13
+note: engineering-mechanics-of-materials
+title: "Use Hooke's Law for a Linear Elastic Material"
+skills: [Hooke's Law, Stress-Strain]
 ---
 
-What is the main idea of **Normal stress**?
+A linearly elastic material has Young's modulus $E = 210\ \text{GPa}$.
+If it experiences a normal stress of $105\ \text{MPa}$, what is the axial strain?
 
 :::solution
-One short answer is: $P$ is the internal axial force
-:::
+Use Hooke's law:
 
----
-id: "engineering-mechanics-of-materials-16"
-note: "engineering-mechanics-of-materials"
-title: "Review: Shear stress"
-type: "text"
-answer: "Average shear stress: $$ \\tau = \\frac{V}{A} $$ where $V$ is the shear force acting over the area. For nonuniform shear, the average stress is not enough. Use the appropriate distribution formula for the geometry."
-skills:
-  - "Shear stress"
----
+$$
+\sigma = E\varepsilon
+$$
 
-What is the main idea of **Shear stress**?
+Solve for strain:
 
-:::solution
-One short answer is: Average shear stress: $$ \tau = \frac{V}{A} $$ where $V$ is the shear force acting over the area. For nonuniform shear, the average stress is not enough. Use the appropriate distribution formula for the geometry.
-:::
+$$
+\varepsilon = \frac{\sigma}{E}
+$$
 
----
-id: "engineering-mechanics-of-materials-17"
-note: "engineering-mechanics-of-materials"
-title: "Review: Normal strain"
-type: "text"
-answer: "$\\delta$ is the change in length"
-skills:
-  - "Normal strain"
----
+Substitute:
 
-What is the main idea of **Normal strain**?
+$$
+\varepsilon = \frac{105}{210\,000} = 0.0005
+$$
 
-:::solution
-One short answer is: $\delta$ is the change in length
+So the axial strain is
+
+$$
+5.0 \times 10^{-4}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-18"
-note: "engineering-mechanics-of-materials"
-title: "Review: Shear strain"
-type: "text"
-answer: "Shear strain $\\gamma$ measures angular distortion. For small angles, $$ \\gamma \\approx \\theta $$ with $\\gamma$ in radians."
-skills:
-  - "Shear strain"
+id: mechanics-of-materials-14
+note: engineering-mechanics-of-materials
+title: "Compute Free Thermal Expansion"
+skills: [Thermal Strain, Expansion]
 ---
+
+A steel rod has length $2.5\ \text{m}$ and coefficient of thermal expansion
 
-What is the main idea of **Shear strain**?
+$$
+\alpha = 12 \times 10^{-6}/^\circ\text{C}.
+$$
 
+If the temperature increases by $20^\circ\text{C}$ and the rod is free to expand, how much does its length change?
+
 :::solution
-One short answer is: Shear strain $\gamma$ measures angular distortion. For small angles, $$ \gamma \approx \theta $$ with $\gamma$ in radians.
-:::
+Use free thermal expansion:
 
----
-id: "engineering-mechanics-of-materials-19"
-note: "engineering-mechanics-of-materials"
-title: "Review: Hooke's law"
-type: "text"
-answer: "For linear elastic uniaxial behavior: $$ \\sigma = E\\varepsilon $$ where $E$ is Young's modulus."
-skills:
-  - "Hooke's law"
----
+$$
+\delta_{th} = \alpha L \Delta T
+$$
 
-What is the main idea of **Hooke's law**?
+Substitute:
 
-:::solution
-One short answer is: For linear elastic uniaxial behavior: $$ \sigma = E\varepsilon $$ where $E$ is Young's modulus.
-:::
+$$
+\delta_{th} = (12 \times 10^{-6})(2.5)(20)
+$$
 
----
-id: "engineering-mechanics-of-materials-110"
-note: "engineering-mechanics-of-materials"
-title: "Review: Poisson effect"
-type: "text"
-answer: "Under axial tension, a material usually contracts laterally: $$ \\varepsilon {lat} = -\\nu \\varepsilon {ax} $$ This matters in three-dimensional stress states and constrained members. ---"
-skills:
-  - "Poisson effect"
----
+$$
+\delta_{th} = 6.0 \times 10^{-4}\ \text{m}
+$$
 
-What is the main idea of **Poisson effect**?
+Convert to millimeters:
 
-:::solution
-One short answer is: Under axial tension, a material usually contracts laterally: $$ \varepsilon {lat} = -\nu \varepsilon {ax} $$ This matters in three-dimensional stress states and constrained members. ---
+$$
+\delta_{th} = 0.6\ \text{mm}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-111"
-note: "engineering-mechanics-of-materials"
-title: "Review: Axial loading of bars"
-type: "text"
-answer: "Axial loading of bars"
-skills:
-  - "3. Axial loading of bars"
+id: mechanics-of-materials-15
+note: engineering-mechanics-of-materials
+title: "Find the Maximum Shear Stress in a Circular Shaft"
+skills: [Torsion, Shear Stress]
 ---
 
-What is the main idea of **Axial loading of bars**?
+A solid circular shaft with diameter $60\ \text{mm}$ carries a torque of $600\ \text{N}\cdot\text{m}$.
 
+What is the maximum shear stress in the shaft?
+
 :::solution
-One short answer is: Axial loading of bars
-:::
+Use the torsion formula at the outer surface:
 
----
-id: "engineering-mechanics-of-materials-112"
-note: "engineering-mechanics-of-materials"
-title: "Review: Deformation of a prismatic bar"
-type: "text"
-answer: "For a bar with constant area and axial force: $$ \\delta = \\frac{PL}{AE} $$ If the axial force or area changes along the length: $$ \\delta = \\int 0^L \\frac{P(x)}{A(x)E(x)}\\,dx $$ For piecewise constant segments, sum the…"
-skills:
-  - "Deformation of a prismatic bar"
----
+$$
+\tau_{max} = \frac{Tc}{J}
+$$
 
-What is the main idea of **Deformation of a prismatic bar**?
+For a solid circular shaft,
 
-:::solution
-One short answer is: For a bar with constant area and axial force: $$ \delta = \frac{PL}{AE} $$ If the axial force or area changes along the length: $$ \delta = \int 0^L \frac{P(x)}{A(x)E(x)}\,dx $$ For piecewise constant segments, sum the…
-:::
+$$
+J = \frac{\pi d^4}{32}, \quad c = \frac{d}{2}
+$$
 
----
-id: "engineering-mechanics-of-materials-113"
-note: "engineering-mechanics-of-materials"
-title: "Review: Stress in axial members"
-type: "text"
-answer: "If the internal axial force is constant over a segment: $$ \\sigma = \\frac{P}{A} $$ Sign matters. Tension and compression should not be mixed in the same formula without a sign convention."
-skills:
-  - "Stress in axial members"
----
+Substitute $T = 600\,000\ \text{N}\cdot\text{mm}$ and $d = 60\ \text{mm}$:
 
-What is the main idea of **Stress in axial members**?
+$$
+\tau_{max} = \frac{600\,000(30)}{\pi(60^4)/32}
+$$
 
-:::solution
-One short answer is: If the internal axial force is constant over a segment: $$ \sigma = \frac{P}{A} $$ Sign matters. Tension and compression should not be mixed in the same formula without a sign convention.
+$$
+\tau_{max} \approx 14.1\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-114"
-note: "engineering-mechanics-of-materials"
-title: "Review: Statically determinate axial problems"
-type: "text"
-answer: "Draw the free-body diagram."
-skills:
-  - "Statically determinate axial problems"
+id: mechanics-of-materials-16
+note: engineering-mechanics-of-materials
+title: "Compute the Angle of Twist"
+skills: [Angle of Twist, Torsion]
 ---
 
-What is the main idea of **Statically determinate axial problems**?
+A solid circular shaft has length $1.5\ \text{m}$, diameter $50\ \text{mm}$, shear modulus $G = 80\ \text{GPa}$, and applied torque $900\ \text{N}\cdot\text{m}$.
 
+What is the angle of twist?
+
 :::solution
-One short answer is: Draw the free-body diagram.
-:::
+Use the torsion deformation formula:
 
----
-id: "engineering-mechanics-of-materials-115"
-note: "engineering-mechanics-of-materials"
-title: "Review: Example pattern"
-type: "text"
-answer: "If a bar has two segments in series, the total deformation is $$ \\delta {tot} = \\sum i \\frac{P iL i}{A iE i} $$ If the same axial force passes through all segments, each segment contributes according to its own $L$, $A$…"
-skills:
-  - "Example pattern"
----
+$$
+\phi = \frac{TL}{JG}
+$$
 
-What is the main idea of **Example pattern**?
+For a solid circular shaft,
 
-:::solution
-One short answer is: If a bar has two segments in series, the total deformation is $$ \delta {tot} = \sum i \frac{P iL i}{A iE i} $$ If the same axial force passes through all segments, each segment contributes according to its own $L$, $A$…
-:::
+$$
+J = \frac{\pi d^4}{32}
+$$
 
----
-id: "engineering-mechanics-of-materials-116"
-note: "engineering-mechanics-of-materials"
-title: "Review: Stress concentration"
-type: "text"
-answer: "A sudden change in geometry creates a local stress concentration."
-skills:
-  - "Stress concentration"
----
+Substitute in consistent units:
 
-What is the main idea of **Stress concentration**?
+$$
+T = 900\,000\ \text{N}\cdot\text{mm}, \quad L = 1500\ \text{mm}, \quad G = 80\,000\ \text{N/mm}^2
+$$
 
-:::solution
-One short answer is: A sudden change in geometry creates a local stress concentration.
-:::
+Then
 
----
-id: "engineering-mechanics-of-materials-117"
-note: "engineering-mechanics-of-materials"
-title: "Review: Thermal strain and statically indeterminate axial systems"
-type: "text"
-answer: "Thermal strain and statically indeterminate axial systems"
-skills:
-  - "4. Thermal strain and statically indeterminate axial systems"
----
+$$
+\phi = \frac{900\,000(1500)}{\left[\pi(50^4)/32\right](80\,000)}
+$$
 
-What is the main idea of **Thermal strain and statically indeterminate axial systems**?
+$$
+\phi \approx 0.0275\ \text{rad}
+$$
 
-:::solution
-One short answer is: Thermal strain and statically indeterminate axial systems
+In degrees, this is about
+
+$$
+1.6^\circ
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-118"
-note: "engineering-mechanics-of-materials"
-title: "Review: Free thermal expansion"
-type: "text"
-answer: "For uniform temperature change: $$ \\delta {th} = \\alpha L \\Delta T $$ where $\\alpha$ is the coefficient of thermal expansion."
-skills:
-  - "Free thermal expansion"
+id: mechanics-of-materials-17
+note: engineering-mechanics-of-materials
+title: "Find the Maximum Bending Stress in a Rectangle"
+skills: [Bending Stress, Section Properties]
 ---
 
-What is the main idea of **Free thermal expansion**?
+A beam section is rectangular with width $100\ \text{mm}$ and height $150\ \text{mm}$.
+The internal bending moment at a section is $8\ \text{kN}\cdot\text{m}$.
 
+What is the maximum bending stress?
+
 :::solution
-One short answer is: For uniform temperature change: $$ \delta {th} = \alpha L \Delta T $$ where $\alpha$ is the coefficient of thermal expansion.
-:::
+Use the flexure formula:
 
----
-id: "engineering-mechanics-of-materials-119"
-note: "engineering-mechanics-of-materials"
-title: "Review: Constrained thermal stress"
-type: "text"
-answer: "If expansion is fully prevented: $$ \\varepsilon {total} = 0 $$ so $$ \\sigma = E\\alpha\\Delta T $$ The sign depends on whether the temperature increase is constrained in compression or the temperature decrease is constrai…"
-skills:
-  - "Constrained thermal stress"
----
+$$
+\sigma_{max} = \frac{Mc}{I}
+$$
 
-What is the main idea of **Constrained thermal stress**?
+For a rectangle,
 
-:::solution
-One short answer is: If expansion is fully prevented: $$ \varepsilon {total} = 0 $$ so $$ \sigma = E\alpha\Delta T $$ The sign depends on whether the temperature increase is constrained in compression or the temperature decrease is constrai…
-:::
+$$
+I = \frac{bh^3}{12}
+$$
 
----
-id: "engineering-mechanics-of-materials-120"
-note: "engineering-mechanics-of-materials"
-title: "Review: Statically indeterminate members"
-type: "text"
-answer: "Force equilibrium"
-skills:
-  - "Statically indeterminate members"
----
+Here,
 
-What is the main idea of **Statically indeterminate members**?
+$$
+I = \frac{100(150^3)}{12} = 28\,125\,000\ \text{mm}^4
+$$
 
-:::solution
-One short answer is: Force equilibrium
-:::
+and
 
----
-id: "engineering-mechanics-of-materials-121"
-note: "engineering-mechanics-of-materials"
-title: "Review: Rigid supports and multiple materials"
-type: "text"
-answer: "For bars in series with different $E$ or $A$ values, compatibility requires that the total change in length matches the support spacing or imposed displacement."
-skills:
-  - "Rigid supports and multiple materials"
----
+$$
+c = \frac{150}{2} = 75\ \text{mm}
+$$
 
-What is the main idea of **Rigid supports and multiple materials**?
+Convert the moment:
 
-:::solution
-One short answer is: For bars in series with different $E$ or $A$ values, compatibility requires that the total change in length matches the support spacing or imposed displacement.
+$$
+M = 8\ \text{kN}\cdot\text{m} = 8\,000\,000\ \text{N}\cdot\text{mm}
+$$
+
+Now compute:
+
+$$
+\sigma_{max} = \frac{8\,000\,000(75)}{28\,125\,000} \approx 21.3\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-122"
-note: "engineering-mechanics-of-materials"
-title: "Review: Torsion of circular shafts"
-type: "text"
-answer: "Torsion of circular shafts"
-skills:
-  - "5. Torsion of circular shafts"
+id: mechanics-of-materials-18
+note: engineering-mechanics-of-materials
+title: "Compute Maximum Beam Shear Stress in a Rectangle"
+skills: [Beam Shear Stress, Shear Force]
 ---
+
+A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$.
+The internal shear force is $15\ \text{kN}$.
 
-What is the main idea of **Torsion of circular shafts**?
+What is the maximum shear stress at the neutral axis?
 
 :::solution
-One short answer is: Torsion of circular shafts
-:::
+For a rectangular section, the maximum shear stress is
 
----
-id: "engineering-mechanics-of-materials-123"
-note: "engineering-mechanics-of-materials"
-title: "Review: Torsion formula"
-type: "text"
-answer: "$\\tau$ is the shear stress at radius $r$"
-skills:
-  - "Torsion formula"
----
+$$
+\tau_{max} = \frac{3V}{2A}
+$$
 
-What core formulas or relations are summarized in **Torsion formula**?
+where
 
-:::solution
-One short answer is: $\tau$ is the shear stress at radius $r$
-:::
+$$
+A = bh = 50(150) = 7500\ \text{mm}^2
+$$
 
----
-id: "engineering-mechanics-of-materials-21"
-note: "engineering-mechanics-of-materials"
-title: "Review: Polar moment of inertia"
-type: "text"
-answer: "For a solid circular shaft: $$ J = \\frac{\\pi d^4}{32} $$ For a hollow circular shaft: $$ J = \\frac{\\pi (d o^4 - d i^4)}{32} $$"
-skills:
-  - "Polar moment of inertia"
----
+Substitute:
 
-What is the main idea of **Polar moment of inertia**?
+$$
+\tau_{max} = \frac{3(15\,000)}{2(7500)} = 3.0\ \text{MPa}
+$$
 
-:::solution
-One short answer is: For a solid circular shaft: $$ J = \frac{\pi d^4}{32} $$ For a hollow circular shaft: $$ J = \frac{\pi (d o^4 - d i^4)}{32} $$
+So the maximum shear stress is
+
+$$
+3.0\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-22"
-note: "engineering-mechanics-of-materials"
-title: "Review: Angle of twist"
-type: "text"
-answer: "For constant $T$, $J$, and $G$: $$ \\phi = \\frac{TL}{JG} $$ For varying geometry: $$ \\phi = \\int 0^L \\frac{T(x)}{J(x)G(x)}\\,dx $$"
-skills:
-  - "Angle of twist"
+id: mechanics-of-materials-19
+note: engineering-mechanics-of-materials
+title: "Interpret a Concentrated Load in a Shear Diagram"
+skills: [Internal Force Resultants, Shear Diagrams]
 ---
 
-What is the main idea of **Angle of twist**?
+A beam's shear-force diagram is being drawn from left to right.
+At one point, the beam crosses a $12\ \text{kN}$ downward concentrated load.
 
+What happens to the shear-force diagram at that point?
+
 :::solution
-One short answer is: For constant $T$, $J$, and $G$: $$ \phi = \frac{TL}{JG} $$ For varying geometry: $$ \phi = \int 0^L \frac{T(x)}{J(x)G(x)}\,dx $$
-:::
+A downward concentrated load causes a downward jump in the shear diagram by the same magnitude.
 
----
-id: "engineering-mechanics-of-materials-23"
-note: "engineering-mechanics-of-materials"
-title: "Review: Shaft design checks"
-type: "text"
-answer: "Stress must stay below the allowable shear stress."
-skills:
-  - "Shaft design checks"
----
+So the shear-force diagram drops by
 
-What is the main idea of **Shaft design checks**?
+$$
+12\ \text{kN}
+$$
 
-:::solution
-One short answer is: Stress must stay below the allowable shear stress.
+at that point.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-24"
-note: "engineering-mechanics-of-materials"
-title: "Review: Power transmission"
-type: "text"
-answer: "$P$ is power"
-skills:
-  - "Power transmission"
+id: mechanics-of-materials-110
+note: engineering-mechanics-of-materials
+title: "Find the Euler Buckling Load"
+skills: [Euler Buckling, Columns]
 ---
+
+A pinned-pinned column has
 
-What is the main idea of **Power transmission**?
+$$
+E = 200\ \text{GPa}, \quad I = 1.0 \times 10^6\ \text{mm}^4, \quad L = 3\ \text{m}.
+$$
 
+What is the critical buckling load?
+
 :::solution
-One short answer is: $P$ is power
-:::
+Use Euler buckling with $K = 1$ for pinned-pinned ends:
 
----
-id: "engineering-mechanics-of-materials-25"
-note: "engineering-mechanics-of-materials"
-title: "Review: Shear and internal force resultants"
-type: "text"
-answer: "Shear and internal force resultants"
-skills:
-  - "6. Shear and internal force resultants"
----
+$$
+P_{cr} = \frac{\pi^2EI}{(KL)^2}
+$$
 
-What is the main idea of **Shear and internal force resultants**?
+Substitute in consistent units:
 
-:::solution
-One short answer is: Shear and internal force resultants
-:::
+$$
+E = 200\,000\ \text{N/mm}^2, \quad L = 3000\ \text{mm}
+$$
 
----
-id: "engineering-mechanics-of-materials-26"
-note: "engineering-mechanics-of-materials"
-title: "Review: Internal resultants"
-type: "text"
-answer: "Axial force $N$"
-skills:
-  - "Internal resultants"
----
+So
 
-What is the main idea of **Internal resultants**?
+$$
+P_{cr} = \frac{\pi^2(200\,000)(1.0 \times 10^6)}{3000^2}
+$$
 
-:::solution
-One short answer is: Axial force $N$
+$$
+P_{cr} \approx 219\ \text{kN}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-27"
-note: "engineering-mechanics-of-materials"
-title: "Review: Sign convention"
-type: "text"
-answer: "Equilibrium equations match the chosen convention"
-skills:
-  - "Sign convention"
+id: mechanics-of-materials-21
+note: engineering-mechanics-of-materials
+title: "Sum the Elongation of a Two-Segment Bar"
+skills: [Axial Deformation, Piecewise Segments]
 ---
 
-What is the main idea of **Sign convention**?
+A steel bar has two segments in series. Segment 1 has length $400\ \text{mm}$ and area $200\ \text{mm}^2$. Segment 2 has length $600\ \text{mm}$ and area $300\ \text{mm}^2$.
+The bar carries a tensile force of $12\ \text{kN}$ throughout, and $E = 200\ \text{GPa}$.
 
+What is the total elongation?
+
 :::solution
-One short answer is: Equilibrium equations match the chosen convention
-:::
+Use the deformation formula on each segment:
 
----
-id: "engineering-mechanics-of-materials-28"
-note: "engineering-mechanics-of-materials"
-title: "Review: Shear force and bending moment diagrams"
-type: "text"
-answer: "The slope of the shear diagram equals the distributed load, up to sign convention."
-skills:
-  - "Shear force and bending moment diagrams"
----
+$$
+\delta = \sum \frac{PL}{AE}
+$$
 
-What is the main idea of **Shear force and bending moment diagrams**?
+For segment 1:
 
-:::solution
-One short answer is: The slope of the shear diagram equals the distributed load, up to sign convention.
-:::
+$$
+\delta_1 = \frac{12\,000(400)}{200(200\,000)} = 0.12\ \text{mm}
+$$
 
----
-id: "engineering-mechanics-of-materials-29"
-note: "engineering-mechanics-of-materials"
-title: "Review: Useful diagram facts"
-type: "text"
-answer: "A concentrated force causes a jump in the shear diagram."
-skills:
-  - "Useful diagram facts"
----
+For segment 2:
 
-What is the main idea of **Useful diagram facts**?
+$$
+\delta_2 = \frac{12\,000(600)}{300(200\,000)} = 0.12\ \text{mm}
+$$
 
-:::solution
-One short answer is: A concentrated force causes a jump in the shear diagram.
+So the total elongation is
+
+$$
+\delta_{tot} = 0.24\ \text{mm}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-210"
-note: "engineering-mechanics-of-materials"
-title: "Review: Bending stress in beams"
-type: "text"
-answer: "Bending stress in beams"
-skills:
-  - "7. Bending stress in beams"
+id: mechanics-of-materials-22
+note: engineering-mechanics-of-materials
+title: "Analyze a Stepped Bar with Constant Axial Force"
+skills: [Axial Stress, Piecewise Segments, Deformation]
 ---
 
-What is the main idea of **Bending stress in beams**?
+A stepped steel bar is in tension with an axial force of $18\ \text{kN}$.
+Its segments are:
 
-:::solution
-One short answer is: Bending stress in beams
-:::
+$$
+(500\ \text{mm}, 250\ \text{mm}^2),\quad (300\ \text{mm}, 500\ \text{mm}^2),\quad (700\ \text{mm}, 250\ \text{mm}^2)
+$$
 
----
-id: "engineering-mechanics-of-materials-211"
-note: "engineering-mechanics-of-materials"
-title: "Review: Flexure formula"
-type: "text"
-answer: "$M$ is the internal bending moment"
-skills:
-  - "Flexure formula"
----
+Take $E = 200\ \text{GPa}$.
 
-What core formulas or relations are summarized in **Flexure formula**?
+Find the stress in each segment and the total elongation.
 
 :::solution
-One short answer is: $M$ is the internal bending moment
-:::
+The axial force is the same in every segment, so the stress in each segment is
 
----
-id: "engineering-mechanics-of-materials-212"
-note: "engineering-mechanics-of-materials"
-title: "Review: Neutral axis"
-type: "text"
-answer: "The neutral axis is the line in the cross-section where the normal stress from bending is zero. For homogeneous, symmetric sections in pure bending, the neutral axis passes through the centroid."
-skills:
-  - "Neutral axis"
----
+$$
+\sigma = \frac{P}{A}
+$$
 
-What is the main idea of **Neutral axis**?
+Segment 1:
 
-:::solution
-One short answer is: The neutral axis is the line in the cross-section where the normal stress from bending is zero. For homogeneous, symmetric sections in pure bending, the neutral axis passes through the centroid.
-:::
+$$
+\sigma_1 = \frac{18\,000}{250} = 72\ \text{MPa}
+$$
 
----
-id: "engineering-mechanics-of-materials-213"
-note: "engineering-mechanics-of-materials"
-title: "Review: Section modulus"
-type: "text"
-answer: "Section modulus is $$ S = \\frac{I}{c} $$ so the maximum bending stress becomes $$ \\sigma {max} = \\frac{M}{S} $$ This is useful in design because it packages geometry into one quantity."
-skills:
-  - "Section modulus"
----
+Segment 2:
 
-What is the main idea of **Section modulus**?
+$$
+\sigma_2 = \frac{18\,000}{500} = 36\ \text{MPa}
+$$
 
-:::solution
-One short answer is: Section modulus is $$ S = \frac{I}{c} $$ so the maximum bending stress becomes $$ \sigma {max} = \frac{M}{S} $$ This is useful in design because it packages geometry into one quantity.
-:::
+Segment 3:
 
----
-id: "engineering-mechanics-of-materials-214"
-note: "engineering-mechanics-of-materials"
-title: "Review: Second moment of area"
-type: "text"
-answer: "Common results: Solid rectangle about centroidal axis: $$ I = \\frac{bh^3}{12} $$ Solid circle: $$ I = \\frac{\\pi d^4}{64} $$ Parallel-axis theorem: $$ I = I c + Ad^2 $$ where $I c$ is about the centroidal axis and $d$ is…"
-skills:
-  - "Second moment of area"
----
+$$
+\sigma_3 = \frac{18\,000}{250} = 72\ \text{MPa}
+$$
 
-What is the main idea of **Second moment of area**?
+Now compute elongation segment by segment:
 
-:::solution
-One short answer is: Common results: Solid rectangle about centroidal axis: $$ I = \frac{bh^3}{12} $$ Solid circle: $$ I = \frac{\pi d^4}{64} $$ Parallel-axis theorem: $$ I = I c + Ad^2 $$ where $I c$ is about the centroidal axis and $d$ is…
+$$
+\delta_{tot} = \sum \frac{PL}{AE}
+$$
+
+$$
+\delta_{tot} =
+\frac{18\,000(500)}{250(200\,000)}
++\frac{18\,000(300)}{500(200\,000)}
++\frac{18\,000(700)}{250(200\,000)}
+$$
+
+$$
+\delta_{tot} = 0.36 + 0.054 + 0.252 = 0.486\ \text{mm}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-215"
-note: "engineering-mechanics-of-materials"
-title: "Review: Composite beams"
-type: "text"
-answer: "Perfect bond between materials"
-skills:
-  - "Composite beams"
+id: mechanics-of-materials-23
+note: engineering-mechanics-of-materials
+title: "Find the Stress from a Fully Restrained Temperature Rise"
+skills: [Thermal Stress, Constrained Expansion]
 ---
+
+A steel bar with length $2\ \text{m}$ is fixed between rigid walls.
+Its coefficient of thermal expansion is
+
+$$
+\alpha = 12 \times 10^{-6}/^\circ\text{C},
+$$
 
-What is the main idea of **Composite beams**?
+and $E = 200\ \text{GPa}$.
+If the temperature rises by $35^\circ\text{C}$, what thermal stress develops?
 
 :::solution
-One short answer is: Perfect bond between materials
-:::
+For a fully restrained bar, the total strain is zero, so the thermal stress is
 
----
-id: "engineering-mechanics-of-materials-216"
-note: "engineering-mechanics-of-materials"
-title: "Review: Beam shear stress"
-type: "text"
-answer: "Beam shear stress"
-skills:
-  - "8. Beam shear stress"
----
+$$
+\sigma = E\alpha\Delta T
+$$
 
-What is the main idea of **Beam shear stress**?
+Substitute:
 
-:::solution
-One short answer is: Beam shear stress
+$$
+\sigma = (200\,000)(12 \times 10^{-6})(35)
+$$
+
+$$
+\sigma = 84\ \text{MPa}
+$$
+
+Because the bar is prevented from expanding, the stress is compressive.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-217"
-note: "engineering-mechanics-of-materials"
-title: "Review: General shear formula"
-type: "text"
-answer: "$V$ is the internal shear force"
-skills:
-  - "General shear formula"
+id: mechanics-of-materials-24
+note: engineering-mechanics-of-materials
+title: "Share Load Between Parallel Bars"
+skills: [Parallel Members, Compatibility, Stiffness]
 ---
 
-What core formulas or relations are summarized in **General shear formula**?
+Two bars connect rigid plates in parallel. Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$.
+One bar is steel with $E = 200\ \text{GPa}$, and the other is aluminum with $E = 70\ \text{GPa}$.
+The plates are pulled by a total tensile load of $27\ \text{kN}$.
 
+How much force does each bar carry?
+
 :::solution
-One short answer is: $V$ is the internal shear force
-:::
+Because the bars are in parallel between rigid plates, they have the same elongation.
+So the force in each bar is proportional to its stiffness:
 
----
-id: "engineering-mechanics-of-materials-218"
-note: "engineering-mechanics-of-materials"
-title: "Review: Interpretation of Q"
-type: "text"
-answer: "The first moment of area is $$ Q = \\bar{y}A' $$ where $A'$ is the portion of area on one side of the cut and $\\bar{y}$ is the distance from its centroid to the neutral axis."
-skills:
-  - "Interpretation of Q"
----
+$$
+k = \frac{AE}{L}
+$$
 
-What is the main idea of **Interpretation of Q**?
+Since $A$ and $L$ are the same, the force ratio is
 
-:::solution
-One short answer is: The first moment of area is $$ Q = \bar{y}A' $$ where $A'$ is the portion of area on one side of the cut and $\bar{y}$ is the distance from its centroid to the neutral axis.
-:::
+$$
+F_s : F_a = E_s : E_a = 200 : 70 = 20 : 7
+$$
 
----
-id: "engineering-mechanics-of-materials-219"
-note: "engineering-mechanics-of-materials"
-title: "Review: Important distribution facts"
-type: "text"
-answer: "Shear stress is zero at free top and bottom surfaces of common beam sections."
-skills:
-  - "Important distribution facts"
----
+The total load is $27\ \text{kN}$, so there are $27$ parts total.
 
-What is the main idea of **Important distribution facts**?
+Steel bar:
 
-:::solution
-One short answer is: Shear stress is zero at free top and bottom surfaces of common beam sections.
-:::
+$$
+F_s = 27 \cdot \frac{20}{27} = 20\ \text{kN}
+$$
 
----
-id: "engineering-mechanics-of-materials-220"
-note: "engineering-mechanics-of-materials"
-title: "Review: Average vs local shear"
-type: "text"
-answer: "The average shear stress $$ \\tau {avg} = \\frac{V}{A} $$ is rarely sufficient for beam sections because the local distribution is not uniform. ---"
-skills:
-  - "Average vs local shear"
----
+Aluminum bar:
 
-What is the main idea of **Average vs local shear**?
+$$
+F_a = 27 \cdot \frac{7}{27} = 7\ \text{kN}
+$$
 
-:::solution
-One short answer is: The average shear stress $$ \tau {avg} = \frac{V}{A} $$ is rarely sufficient for beam sections because the local distribution is not uniform. ---
+The common elongation is
+
+$$
+\delta = \frac{F_sL}{AE_s} = \frac{20\,000(800)}{400(200\,000)} = 0.2\ \text{mm}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-221"
-note: "engineering-mechanics-of-materials"
-title: "Review: Stress and strain transformations"
-type: "text"
-answer: "Stress and strain transformations"
-skills:
-  - "9. Stress and strain transformations"
+id: mechanics-of-materials-25
+note: engineering-mechanics-of-materials
+title: "Find Principal Stresses from a Plane Stress State"
+skills: [Stress Transformation, Principal Stress, Mohr's Circle]
 ---
 
-What is the main idea of **Stress and strain transformations**?
+A point in a member is under the plane stress state
 
+$$
+\sigma_x = 84\ \text{MPa}, \quad \sigma_y = 36\ \text{MPa}, \quad \tau_{xy} = 18\ \text{MPa}.
+$$
+
+Find the principal stresses and the maximum in-plane shear stress.
+
 :::solution
-One short answer is: Stress and strain transformations
-:::
+Use the plane stress transformation results:
 
----
-id: "engineering-mechanics-of-materials-222"
-note: "engineering-mechanics-of-materials"
-title: "Review: Plane stress state"
-type: "text"
-answer: "A 2D stress state usually has: $$ \\sigma x,\\quad \\sigma y,\\quad \\tau {xy} $$ Normal and shear stresses on a rotated plane are found with transformation equations."
-skills:
-  - "Plane stress state"
----
+$$
+\sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2}
+\pm
+\sqrt{
+\left(\frac{\sigma_x-\sigma_y}{2}\right)^2 + \tau_{xy}^2
+}
+$$
 
-What is the main idea of **Plane stress state**?
+Compute the average stress:
 
-:::solution
-One short answer is: A 2D stress state usually has: $$ \sigma x,\quad \sigma y,\quad \tau {xy} $$ Normal and shear stresses on a rotated plane are found with transformation equations.
-:::
+$$
+\frac{84+36}{2} = 60\ \text{MPa}
+$$
 
----
-id: "engineering-mechanics-of-materials-223"
-note: "engineering-mechanics-of-materials"
-title: "Review: Stress transformation equations"
-type: "text"
-answer: "\\frac{\\sigma x-\\sigma y}{2}\\cos 2\\theta"
-skills:
-  - "Stress transformation equations"
----
+and the radius:
 
-What is the main idea of **Stress transformation equations**?
+$$
+\sqrt{24^2 + 18^2} = \sqrt{900} = 30\ \text{MPa}
+$$
 
-:::solution
-One short answer is: \frac{\sigma x-\sigma y}{2}\cos 2\theta
-:::
+So the principal stresses are
 
----
-id: "engineering-mechanics-of-materials-31"
-note: "engineering-mechanics-of-materials"
-title: "Review: Principal stresses"
-type: "text"
-answer: "Principal stresses occur where shear stress is zero."
-skills:
-  - "Principal stresses"
----
+$$
+\sigma_1 = 90\ \text{MPa}, \quad \sigma_2 = 30\ \text{MPa}
+$$
 
-What is the main idea of **Principal stresses**?
+The maximum in-plane shear stress is
 
-:::solution
-One short answer is: Principal stresses occur where shear stress is zero.
+$$
+\tau_{max} = 30\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-32"
-note: "engineering-mechanics-of-materials"
-title: "Review: Principal planes"
-type: "text"
-answer: "The principal angle satisfies $$ \\tan 2\\theta p = \\frac{2\\tau {xy}}{\\sigma x-\\sigma y} $$ The maximum shear planes are 45 degrees from the principal planes in the stress-transformation sense."
-skills:
-  - "Principal planes"
+id: mechanics-of-materials-26
+note: engineering-mechanics-of-materials
+title: "Transform Stress to a Rotated Plane"
+skills: [Stress Transformation, Rotated Planes]
 ---
 
-What is the main idea of **Principal planes**?
+Using the same plane stress state
 
+$$
+\sigma_x = 84\ \text{MPa}, \quad \sigma_y = 36\ \text{MPa}, \quad \tau_{xy} = 18\ \text{MPa},
+$$
+
+find the normal stress and shear stress on a plane rotated $45^\circ$ counterclockwise.
+
 :::solution
-One short answer is: The principal angle satisfies $$ \tan 2\theta p = \frac{2\tau {xy}}{\sigma x-\sigma y} $$ The maximum shear planes are 45 degrees from the principal planes in the stress-transformation sense.
-:::
+Use the stress transformation equations:
 
----
-id: "engineering-mechanics-of-materials-33"
-note: "engineering-mechanics-of-materials"
-title: "Review: Strain transformation"
-type: "text"
-answer: "Strains transform similarly, but use engineering shear strain and the appropriate strain relationships."
-skills:
-  - "Strain transformation"
----
+$$
+\sigma_{x'} = \frac{\sigma_x+\sigma_y}{2}
++ \frac{\sigma_x-\sigma_y}{2}\cos 2\theta
++ \tau_{xy}\sin 2\theta
+$$
 
-What is the main idea of **Strain transformation**?
+$$
+\tau_{x'y'} = -\frac{\sigma_x-\sigma_y}{2}\sin 2\theta
++ \tau_{xy}\cos 2\theta
+$$
 
-:::solution
-One short answer is: Strains transform similarly, but use engineering shear strain and the appropriate strain relationships.
-:::
+With $\theta = 45^\circ$, we have
 
----
-id: "engineering-mechanics-of-materials-34"
-note: "engineering-mechanics-of-materials"
-title: "Review: Mohr's circle"
-type: "text"
-answer: "Mohr's circle is a graphical method for plane stress or plane strain transformation."
-skills:
-  - "10. Mohr's circle"
----
+$$
+\cos 90^\circ = 0, \quad \sin 90^\circ = 1
+$$
 
-What is the main idea of **Mohr's circle**?
+So
 
-:::solution
-One short answer is: Mohr's circle is a graphical method for plane stress or plane strain transformation.
-:::
+$$
+\sigma_{x'} = 60 + 18 = 78\ \text{MPa}
+$$
 
----
-id: "engineering-mechanics-of-materials-35"
-note: "engineering-mechanics-of-materials"
-title: "Review: What it gives"
-type: "text"
-answer: "Normal stress on rotated planes"
-skills:
-  - "What it gives"
----
+and
 
-What is the main idea of **What it gives**?
+$$
+\tau_{x'y'} = -24\ \text{MPa}
+$$
 
-:::solution
-One short answer is: Normal stress on rotated planes
+The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress is $-24\ \text{MPa}$.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-36"
-note: "engineering-mechanics-of-materials"
-title: "Review: Construction idea"
-type: "text"
-answer: "For plane stress, plot the points: $$ (\\sigma x,\\ \\tau {xy}) $$ and $$ (\\sigma y,\\ -\\tau {xy}) $$ The center is $$ C = \\left(\\frac{\\sigma x+\\sigma y}{2}, 0\\right) $$ and the radius is $$ R = \\sqrt{ \\left(\\frac{\\sigma x-…"
-skills:
-  - "Construction idea"
+id: mechanics-of-materials-27
+note: engineering-mechanics-of-materials
+title: "Use the Beam Shear Formula on a Rectangular Section"
+skills: [Beam Shear Stress, Shear Formula]
 ---
+
+A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$.
+The internal shear force is $15\ \text{kN}$.
 
-What is the main idea of **Construction idea**?
+Find the maximum shear stress at the neutral axis using the beam shear formula.
 
 :::solution
-One short answer is: For plane stress, plot the points: $$ (\sigma x,\ \tau {xy}) $$ and $$ (\sigma y,\ -\tau {xy}) $$ The center is $$ C = \left(\frac{\sigma x+\sigma y}{2}, 0\right) $$ and the radius is $$ R = \sqrt{ \left(\frac{\sigma x-…
-:::
+For a rectangular section, the maximum shear stress occurs at the neutral axis and can be found from
 
----
-id: "engineering-mechanics-of-materials-37"
-note: "engineering-mechanics-of-materials"
-title: "Review: Common use"
-type: "text"
-answer: "Mohr's circle is especially useful when a problem asks for stresses on an inclined plane or the orientation of a critical plane."
-skills:
-  - "Common use"
----
+$$
+\tau = \frac{VQ}{It}
+$$
 
-Name one common mistake the note warns about in **Common use**.
+Here,
 
-:::solution
-One short answer is: Mohr's circle is especially useful when a problem asks for stresses on an inclined plane or the orientation of a critical plane.
-:::
+$$
+I = \frac{bh^3}{12} = \frac{50(150^3)}{12}
+$$
 
----
-id: "engineering-mechanics-of-materials-38"
-note: "engineering-mechanics-of-materials"
-title: "Review: Deflection of beams and shafts"
-type: "text"
-answer: "Deflection of beams and shafts"
-skills:
-  - "11. Deflection of beams and shafts"
----
+At the neutral axis, the area above the cut is
 
-What is the main idea of **Deflection of beams and shafts**?
+$$
+A' = b\left(\frac{h}{2}\right) = 50(75)
+$$
 
-:::solution
-One short answer is: Deflection of beams and shafts
-:::
+and its centroid is $37.5\ \text{mm}$ from the neutral axis, so
 
----
-id: "engineering-mechanics-of-materials-39"
-note: "engineering-mechanics-of-materials"
-title: "Review: Beam curvature relation"
-type: "text"
-answer: "For small deflections of an Euler-Bernoulli beam: $$ \\frac{1}{\\rho} = \\frac{M}{EI} $$ and for small slopes: $$ \\frac{d^2v}{dx^2} = \\frac{M(x)}{EI} $$ with sign depending on convention."
-skills:
-  - "Beam curvature relation"
----
+$$
+Q = A'\bar{y} = 50(75)(37.5)
+$$
 
-What is the main idea of **Beam curvature relation**?
+Using $t = b = 50\ \text{mm}$, the result simplifies to
 
-:::solution
-One short answer is: For small deflections of an Euler-Bernoulli beam: $$ \frac{1}{\rho} = \frac{M}{EI} $$ and for small slopes: $$ \frac{d^2v}{dx^2} = \frac{M(x)}{EI} $$ with sign depending on convention.
-:::
+$$
+\tau_{max} = \frac{3V}{2A}
+$$
 
----
-id: "engineering-mechanics-of-materials-310"
-note: "engineering-mechanics-of-materials"
-title: "Review: Integration method"
-type: "text"
-answer: "Starting from the bending moment function: $$ EI\\frac{d^2v}{dx^2} = M(x) $$ Integrate twice to obtain slope and deflection: $$ EI\\frac{dv}{dx} = \\int M(x)\\,dx + C 1 $$ $$ EIv = \\int\\!\\!\\int M(x)\\,dx\\,dx + C 1x + C 2 $$…"
-skills:
-  - "Integration method"
----
+with
 
-What is the main idea of **Integration method**?
+$$
+A = bh = 50(150) = 7500\ \text{mm}^2
+$$
 
-:::solution
-One short answer is: Starting from the bending moment function: $$ EI\frac{d^2v}{dx^2} = M(x) $$ Integrate twice to obtain slope and deflection: $$ EI\frac{dv}{dx} = \int M(x)\,dx + C 1 $$ $$ EIv = \int\!\!\int M(x)\,dx\,dx + C 1x + C 2 $$…
+So
+
+$$
+\tau_{max} = \frac{3(15\,000)}{2(7500)} = 3.0\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-311"
-note: "engineering-mechanics-of-materials"
-title: "Review: Common boundary conditions"
-type: "text"
-answer: "Simply supported end: deflection is zero"
-skills:
-  - "Common boundary conditions"
+id: mechanics-of-materials-31
+note: engineering-mechanics-of-materials
+title: "Integrate the Deflection of a Cantilever"
+skills: [Beam Deflection, Integration]
 ---
 
-Name one common mistake the note warns about in **Common boundary conditions**.
+A cantilever beam has length $2\ \text{m}$ and an end load of $4\ \text{kN}$.
+The beam has $E = 200\ \text{GPa}$ and $I = 8.0 \times 10^6\ \text{mm}^4$.
 
+Find the tip deflection using the moment-curvature relation.
+
 :::solution
-One short answer is: Simply supported end: deflection is zero
-:::
+Take $x$ from the fixed end. The bending moment is
 
----
-id: "engineering-mechanics-of-materials-312"
-note: "engineering-mechanics-of-materials"
-title: "Review: Superposition"
-type: "text"
-answer: "If the material remains linear elastic and deflections are small, use superposition: $$ v {total} = \\sum i v i $$ This is often the fastest way to handle several load cases."
-skills:
-  - "Superposition"
----
+$$
+M(x) = -P(L-x)
+$$
 
-What is the main idea of **Superposition**?
+and the beam equation is
 
-:::solution
-One short answer is: If the material remains linear elastic and deflections are small, use superposition: $$ v {total} = \sum i v i $$ This is often the fastest way to handle several load cases.
-:::
+$$
+EI\frac{d^2v}{dx^2} = M(x)
+$$
 
----
-id: "engineering-mechanics-of-materials-313"
-note: "engineering-mechanics-of-materials"
-title: "Review: Area-moment and conjugate-beam ideas"
-type: "text"
-answer: "Area-moment method"
-skills:
-  - "Area-moment and conjugate-beam ideas"
----
+So
 
-What is the main idea of **Area-moment and conjugate-beam ideas**?
+$$
+EI\frac{d^2v}{dx^2} = -P(L-x)
+$$
 
-:::solution
-One short answer is: Area-moment method
-:::
+Integrate once:
 
----
-id: "engineering-mechanics-of-materials-314"
-note: "engineering-mechanics-of-materials"
-title: "Review: Shaft twist revisited"
-type: "text"
-answer: "For torsion, the analogous relation is $$ \\frac{d\\phi}{dx} = \\frac{T(x)}{J(x)G(x)} $$ so $$ \\phi = \\int 0^L \\frac{T(x)}{J(x)G(x)}\\,dx $$ ---"
-skills:
-  - "Shaft twist revisited"
----
+$$
+EI\frac{dv}{dx} = -PLx + \frac{Px^2}{2} + C_1
+$$
 
-What is the main idea of **Shaft twist revisited**?
+At the fixed end, the slope is zero, so $C_1 = 0$.
 
-:::solution
-One short answer is: For torsion, the analogous relation is $$ \frac{d\phi}{dx} = \frac{T(x)}{J(x)G(x)} $$ so $$ \phi = \int 0^L \frac{T(x)}{J(x)G(x)}\,dx $$ ---
-:::
+Integrate again:
 
----
-id: "engineering-mechanics-of-materials-315"
-note: "engineering-mechanics-of-materials"
-title: "Review: Columns and buckling"
-type: "text"
-answer: "Columns and buckling"
-skills:
-  - "12. Columns and buckling"
----
+$$
+EIv = -\frac{PLx^2}{2} + \frac{Px^3}{6} + C_2
+$$
 
-What is the main idea of **Columns and buckling**?
+At the fixed end, the deflection is zero, so $C_2 = 0$.
 
-:::solution
-One short answer is: Columns and buckling
-:::
+At $x = L$,
 
----
-id: "engineering-mechanics-of-materials-316"
-note: "engineering-mechanics-of-materials"
-title: "Review: Euler buckling"
-type: "text"
-answer: "$K$ is the effective length factor"
-skills:
-  - "Euler buckling"
----
+$$
+v(L) = -\frac{PL^3}{3EI}
+$$
 
-What is the main idea of **Euler buckling**?
+Substitute $P = 4000\ \text{N}$, $L = 2000\ \text{mm}$, $E = 200\,000\ \text{N/mm}^2$, and $I = 8.0 \times 10^6\ \text{mm}^4$:
 
-:::solution
-One short answer is: $K$ is the effective length factor
+$$
+|v(L)| = \frac{4000(2000^3)}{3(200\,000)(8.0 \times 10^6)} \approx 6.7\ \text{mm}
+$$
+
+So the tip deflection is about $6.7\ \text{mm}$ downward.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-317"
-note: "engineering-mechanics-of-materials"
-title: "Review: Effective length factor"
-type: "text"
-answer: "Pinned-pinned: $K = 1$"
-skills:
-  - "Effective length factor"
+id: mechanics-of-materials-32
+note: engineering-mechanics-of-materials
+title: "Convert Power to Shaft Diameter"
+skills: [Power Transmission, Torsion, Shaft Design]
 ---
 
-What is the main idea of **Effective length factor**?
+A motor delivers $12\ \text{kW}$ at $900\ \text{rpm}$ to a solid circular shaft.
+If the allowable shear stress is $40\ \text{MPa}$, what minimum shaft diameter is required?
 
 :::solution
-One short answer is: Pinned-pinned: $K = 1$
-:::
+First convert power and speed to torque:
 
----
-id: "engineering-mechanics-of-materials-318"
-note: "engineering-mechanics-of-materials"
-title: "Review: Slenderness"
-type: "text"
-answer: "Buckling becomes more likely as the slenderness ratio increases: $$ \\lambda = \\frac{KL}{r} $$ where $$ r = \\sqrt{\\frac{I}{A}} $$ is the radius of gyration."
-skills:
-  - "Slenderness"
----
+$$
+P = T\omega
+$$
 
-What is the main idea of **Slenderness**?
+The angular speed is
 
-:::solution
-One short answer is: Buckling becomes more likely as the slenderness ratio increases: $$ \lambda = \frac{KL}{r} $$ where $$ r = \sqrt{\frac{I}{A}} $$ is the radius of gyration.
-:::
+$$
+\omega = 2\pi\left(\frac{900}{60}\right) = 30\pi\ \text{rad/s}
+$$
 
----
-id: "engineering-mechanics-of-materials-319"
-note: "engineering-mechanics-of-materials"
-title: "Review: Design implication"
-type: "text"
-answer: "A short stocky column usually fails by material yielding or crushing. A slender column usually fails by elastic or inelastic buckling. You must identify which regime applies before choosing the allowable load. ---"
-skills:
-  - "Design implication"
----
+So the torque is
 
-What is the main idea of **Design implication**?
+$$
+T = \frac{12\,000}{30\pi} \approx 127.3\ \text{N}\cdot\text{m}
+$$
 
-:::solution
-One short answer is: A short stocky column usually fails by material yielding or crushing. A slender column usually fails by elastic or inelastic buckling. You must identify which regime applies before choosing the allowable load. ---
-:::
+Now use the torsion stress formula for a solid shaft:
 
----
-id: "engineering-mechanics-of-materials-320"
-note: "engineering-mechanics-of-materials"
-title: "Review: Combined loading and failure criteria"
-type: "text"
-answer: "Combined loading and failure criteria"
-skills:
-  - "13. Combined loading and failure criteria"
----
+$$
+\tau_{max} = \frac{16T}{\pi d^3}
+$$
 
-What is the main idea of **Combined loading and failure criteria**?
+Solve for $d$:
 
-:::solution
-One short answer is: Combined loading and failure criteria
-:::
+$$
+d = \left(\frac{16T}{\pi\tau_{allow}}\right)^{1/3}
+$$
 
----
-id: "engineering-mechanics-of-materials-321"
-note: "engineering-mechanics-of-materials"
-title: "Review: Superposition of stress components"
-type: "text"
-answer: "Axial load"
-skills:
-  - "Superposition of stress components"
----
+Substitute $T = 127\,300\ \text{N}\cdot\text{mm}$ and $\tau_{allow} = 40\ \text{N/mm}^2$:
 
-What is the main idea of **Superposition of stress components**?
+$$
+d \approx 25.4\ \text{mm}
+$$
 
-:::solution
-One short answer is: Axial load
+So the minimum practical diameter is
+
+$$
+26\ \text{mm}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-322"
-note: "engineering-mechanics-of-materials"
-title: "Review: Combined bending and torsion"
-type: "text"
-answer: "Normal stress from bending"
-skills:
-  - "Combined bending and torsion"
+id: mechanics-of-materials-33
+note: engineering-mechanics-of-materials
+title: "Combine Axial Load and Bending"
+skills: [Combined Loading, Axial Stress, Bending Stress]
 ---
 
-What is the main idea of **Combined bending and torsion**?
+A member carries a compressive axial load of $30\ \text{kN}$ and an internal bending moment of $6\ \text{kN}\cdot\text{m}$.
+Its cross-section is a rectangle with width $80\ \text{mm}$ and height $160\ \text{mm}$.
 
+Find the normal stress at the top fiber and at the bottom fiber.
+
 :::solution
-One short answer is: Normal stress from bending
-:::
+First compute the axial stress:
 
----
-id: "engineering-mechanics-of-materials-323"
-note: "engineering-mechanics-of-materials"
-title: "Review: Maximum normal stress criterion"
-type: "text"
-answer: "For brittle materials, one simple check is: $$ \\sigma {max} \\le \\sigma {allow} $$ using the maximum principal stress."
-skills:
-  - "Maximum normal stress criterion"
----
+$$
+\sigma_{ax} = \frac{P}{A} = \frac{30\,000}{80(160)} = 2.34\ \text{MPa}
+$$
 
-What is the main idea of **Maximum normal stress criterion**?
+This is compressive.
 
-:::solution
-One short answer is: For brittle materials, one simple check is: $$ \sigma {max} \le \sigma {allow} $$ using the maximum principal stress.
-:::
+Next compute the bending stress:
 
----
-id: "engineering-mechanics-of-materials-41"
-note: "engineering-mechanics-of-materials"
-title: "Review: Maximum shear stress criterion"
-type: "text"
-answer: "For ductile materials, a common conservative check uses the maximum shear stress: $$ \\tau {max} \\le \\tau {allow} $$ This is closely related to yielding in ductile metals."
-skills:
-  - "Maximum shear stress criterion"
----
+$$
+\sigma_b = \frac{Mc}{I}
+$$
 
-What is the main idea of **Maximum shear stress criterion**?
+For a rectangle,
 
-:::solution
-One short answer is: For ductile materials, a common conservative check uses the maximum shear stress: $$ \tau {max} \le \tau {allow} $$ This is closely related to yielding in ductile metals.
-:::
+$$
+I = \frac{bh^3}{12} = \frac{80(160^3)}{12} = 34\,133\,333\ \text{mm}^4
+$$
 
----
-id: "engineering-mechanics-of-materials-42"
-note: "engineering-mechanics-of-materials"
-title: "Review: Distortion-energy idea"
-type: "text"
-answer: "The von Mises criterion is widely used for ductile materials under multiaxial stress."
-skills:
-  - "Distortion-energy idea"
----
+and
 
-What is the main idea of **Distortion-energy idea**?
+$$
+c = 80\ \text{mm}
+$$
 
-:::solution
-One short answer is: The von Mises criterion is widely used for ductile materials under multiaxial stress.
-:::
+Convert the moment:
 
----
-id: "engineering-mechanics-of-materials-43"
-note: "engineering-mechanics-of-materials"
-title: "Review: Engineering judgment"
-type: "text"
-answer: "Ductile metal: often von Mises or maximum shear stress"
-skills:
-  - "Engineering judgment"
----
+$$
+M = 6\ \text{kN}\cdot\text{m} = 6\,000\,000\ \text{N}\cdot\text{mm}
+$$
 
-What is the main idea of **Engineering judgment**?
+So
 
-:::solution
-One short answer is: Ductile metal: often von Mises or maximum shear stress
-:::
+$$
+\sigma_b = \frac{6\,000\,000(80)}{34\,133\,333} \approx 14.1\ \text{MPa}
+$$
 
----
-id: "engineering-mechanics-of-materials-44"
-note: "engineering-mechanics-of-materials"
-title: "Review: Fatigue and design checks"
-type: "text"
-answer: "Fatigue and design checks"
-skills:
-  - "14. Fatigue and design checks"
----
+If the moment puts the top fiber in compression, then:
 
-What is the main idea of **Fatigue and design checks**?
+$$
+\sigma_{top} = 2.34 + 14.1 = 16.4\ \text{MPa}
+$$
 
-:::solution
-One short answer is: Fatigue and design checks
+$$
+\sigma_{bottom} = 14.1 - 2.34 = 11.8\ \text{MPa}
+$$
+
+So the top fiber is more highly compressed, and the bottom fiber is in tension.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-45"
-note: "engineering-mechanics-of-materials"
-title: "Review: Fatigue basics"
-type: "text"
-answer: "Stress amplitude"
-skills:
-  - "Fatigue basics"
+id: mechanics-of-materials-34
+note: engineering-mechanics-of-materials
+title: "Decide Which Column Failure Mode Governs"
+skills: [Euler Buckling, Yielding, Design Check]
 ---
 
-What is the main idea of **Fatigue basics**?
+A steel column has length $3\ \text{m}$, pinned-pinned ends, Young's modulus $E = 200\ \text{GPa}$, and a circular cross-section with diameter $40\ \text{mm}$.
+The yield strength is $250\ \text{MPa}$.
 
+Compute the Euler critical load and the yield load. Which one is smaller?
+
 :::solution
-One short answer is: Stress amplitude
-:::
+First compute the second moment of area for a solid circle:
 
----
-id: "engineering-mechanics-of-materials-46"
-note: "engineering-mechanics-of-materials"
-title: "Review: S-N concept"
-type: "text"
-answer: "An S-N curve relates stress amplitude to fatigue life. Lower stress generally means longer life."
-skills:
-  - "S-N concept"
----
+$$
+I = \frac{\pi d^4}{64}
+$$
 
-What is the main idea of **S-N concept**?
+With $d = 40\ \text{mm}$,
 
-:::solution
-One short answer is: An S-N curve relates stress amplitude to fatigue life. Lower stress generally means longer life.
-:::
+$$
+I = \frac{\pi(40^4)}{64} \approx 1.26 \times 10^5\ \text{mm}^4
+$$
 
----
-id: "engineering-mechanics-of-materials-47"
-note: "engineering-mechanics-of-materials"
-title: "Review: Goodman-type design idea"
-type: "text"
-answer: "$S e$ is endurance limit"
-skills:
-  - "Goodman-type design idea"
----
+Euler buckling load:
 
-What is the main idea of **Goodman-type design idea**?
+$$
+P_{cr} = \frac{\pi^2EI}{L^2}
+$$
 
-:::solution
-One short answer is: $S e$ is endurance limit
-:::
+Substitute:
 
----
-id: "engineering-mechanics-of-materials-48"
-note: "engineering-mechanics-of-materials"
-title: "Review: Practical check list"
-type: "text"
-answer: "Identify whether loading is static or cyclic."
-skills:
-  - "Practical check list"
----
+$$
+P_{cr} \approx \frac{\pi^2(200\,000)(1.26 \times 10^5)}{3000^2} \approx 27.6\ \text{kN}
+$$
 
-What is the main idea of **Practical check list**?
+Now compute the yield load:
 
-:::solution
-One short answer is: Identify whether loading is static or cyclic.
+$$
+A = \frac{\pi d^2}{4} \approx 1257\ \text{mm}^2
+$$
+
+$$
+P_y = \sigma_y A = 250(1257) \approx 314\ \text{kN}
+$$
+
+Since $27.6\ \text{kN} < 314\ \text{kN}$, Euler buckling governs.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-49"
-note: "engineering-mechanics-of-materials"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Problem-solving workflow"
-skills:
-  - "15. Problem-solving workflow"
+id: mechanics-of-materials-35
+note: engineering-mechanics-of-materials
+title: "Check a Plane Stress State with von Mises"
+skills: [von Mises, Failure Criterion, Plane Stress]
 ---
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+A ductile part has the plane stress state
 
+$$
+\sigma_x = 70\ \text{MPa}, \quad \sigma_y = 10\ \text{MPa}, \quad \tau_{xy} = 20\ \text{MPa}.
+$$
+
+If the yield strength is $75\ \text{MPa}$, find the von Mises stress and decide whether yielding is predicted.
+
 :::solution
-One short answer is: Problem-solving workflow
-:::
+Use the plane-stress von Mises formula:
 
----
-id: "engineering-mechanics-of-materials-410"
-note: "engineering-mechanics-of-materials"
-title: "Review: General workflow"
-type: "text"
-answer: "Read the problem carefully and identify what must be found."
-skills:
-  - "General workflow"
----
+$$
+\sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}
+$$
 
-According to the note, what sequence of steps is recommended in **General workflow**?
+Substitute:
 
-:::solution
-One short answer is: Read the problem carefully and identify what must be found.
-:::
+$$
+\sigma_{vm} = \sqrt{70^2 - 70(10) + 10^2 + 3(20^2)}
+$$
 
----
-id: "engineering-mechanics-of-materials-411"
-note: "engineering-mechanics-of-materials"
-title: "Review: What to ask yourself"
-type: "text"
-answer: "Is the member in axial, torsional, bending, shear, or combined loading?"
-skills:
-  - "What to ask yourself"
----
+$$
+\sigma_{vm} = \sqrt{4900 - 700 + 100 + 1200}
+$$
 
-What is the main idea of **What to ask yourself**?
+$$
+\sigma_{vm} = \sqrt{5500} \approx 74.2\ \text{MPa}
+$$
 
-:::solution
-One short answer is: Is the member in axial, torsional, bending, shear, or combined loading?
+Because $74.2\ \text{MPa} < 75\ \text{MPa}$, yielding is not predicted.
+The part is just barely safe.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-412"
-note: "engineering-mechanics-of-materials"
-title: "Review: Fast validation"
-type: "text"
-answer: "Stress units should be force per area."
-skills:
-  - "Fast validation"
+id: mechanics-of-materials-41
+note: engineering-mechanics-of-materials
+title: "Include a Stress Concentration in a Torsion Design Check"
+skills: [Stress Concentration, Torsion, Design Check]
 ---
 
-What is the main idea of **Fast validation**?
+A solid circular shaft has diameter $50\ \text{mm}$ and a shoulder with stress concentration factor $K_t = 1.6$.
+If the allowable maximum shear stress is $50\ \text{MPa}$, what is the largest torque the shaft can carry?
 
 :::solution
-One short answer is: Stress units should be force per area.
-:::
+The local maximum shear stress is
 
----
-id: "engineering-mechanics-of-materials-413"
-note: "engineering-mechanics-of-materials"
-title: "Review: If the answer seems unreasonable"
-type: "text"
-answer: "Sign convention"
-skills:
-  - "If the answer seems unreasonable"
----
+$$
+\tau_{max} = K_t \tau_{nom}
+$$
 
-What is the main idea of **If the answer seems unreasonable**?
+So the nominal stress must satisfy
 
-:::solution
-One short answer is: Sign convention
-:::
+$$
+\tau_{nom} \le \frac{50}{1.6} = 31.25\ \text{MPa}
+$$
 
----
-id: "engineering-mechanics-of-materials-414"
-note: "engineering-mechanics-of-materials"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "16. Formula sheet"
----
+For a solid circular shaft,
 
-What core formulas or relations are summarized in **Formula sheet**?
+$$
+\tau_{nom} = \frac{16T}{\pi d^3}
+$$
 
-:::solution
-One short answer is: Formula sheet
-:::
+Solve for $T$:
 
----
-id: "engineering-mechanics-of-materials-415"
-note: "engineering-mechanics-of-materials"
-title: "Review: Axial"
-type: "text"
-answer: "$$ \\sigma = \\frac{P}{A} $$ $$ \\delta = \\frac{PL}{AE} $$ $$ \\delta {th} = \\alpha L\\Delta T $$"
-skills:
-  - "Axial"
----
+$$
+T = \frac{\tau_{nom}\pi d^3}{16}
+$$
 
-What is the main idea of **Axial**?
+Substitute $d = 50\ \text{mm}$:
 
-:::solution
-One short answer is: $$ \sigma = \frac{P}{A} $$ $$ \delta = \frac{PL}{AE} $$ $$ \delta {th} = \alpha L\Delta T $$
+$$
+T = \frac{31.25\pi(50^3)}{16} \approx 7.67 \times 10^5\ \text{N}\cdot\text{mm}
+$$
+
+So the largest torque is
+
+$$
+767\ \text{N}\cdot\text{m}
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-416"
-note: "engineering-mechanics-of-materials"
-title: "Review: Torsion"
-type: "text"
-answer: "$$ \\tau = \\frac{Tr}{J} $$ $$ \\phi = \\frac{TL}{JG} $$ $$ J {solid} = \\frac{\\pi d^4}{32} $$ $$ J {hollow} = \\frac{\\pi(d o^4-d i^4)}{32} $$"
-skills:
-  - "Torsion"
+id: mechanics-of-materials-42
+note: engineering-mechanics-of-materials
+title: "Solve a Thermal-Indeterminate Parallel-Bar System"
+skills: [Thermal Stress, Parallel Members, Compatibility]
 ---
+
+Two bars connect rigid plates in parallel.
+Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$.
+One bar is steel with $E = 200\ \text{GPa}$ and $\alpha = 12 \times 10^{-6}/^\circ\text{C}$.
+The other is aluminum with $E = 70\ \text{GPa}$ and $\alpha = 23 \times 10^{-6}/^\circ\text{C}$.
 
-What is the main idea of **Torsion**?
+The temperature rises by $10^\circ\text{C}$, and the plates are also pulled by a total tensile load of $18\ \text{kN}$.
 
+Find the force in each bar.
+
 :::solution
-One short answer is: $$ \tau = \frac{Tr}{J} $$ $$ \phi = \frac{TL}{JG} $$ $$ J {solid} = \frac{\pi d^4}{32} $$ $$ J {hollow} = \frac{\pi(d o^4-d i^4)}{32} $$
-:::
+Because the plates are rigid, both bars have the same total elongation.
+Let $\delta$ be that common elongation.
 
----
-id: "engineering-mechanics-of-materials-417"
-note: "engineering-mechanics-of-materials"
-title: "Review: Bending"
-type: "text"
-answer: "$$ \\sigma = \\frac{My}{I} $$ $$ \\sigma {max} = \\frac{Mc}{I} = \\frac{M}{S} $$ $$ I {rect} = \\frac{bh^3}{12} $$ $$ I {circle} = \\frac{\\pi d^4}{64} $$ $$ I = I c + Ad^2 $$"
-skills:
-  - "Bending"
----
+For each bar,
 
-What is the main idea of **Bending**?
+$$
+F_i = k_i(\delta - \delta_{th,i}), \quad k_i = \frac{AE_i}{L}
+$$
 
-:::solution
-One short answer is: $$ \sigma = \frac{My}{I} $$ $$ \sigma {max} = \frac{Mc}{I} = \frac{M}{S} $$ $$ I {rect} = \frac{bh^3}{12} $$ $$ I {circle} = \frac{\pi d^4}{64} $$ $$ I = I c + Ad^2 $$
-:::
+Compute the stiffnesses:
 
----
-id: "engineering-mechanics-of-materials-418"
-note: "engineering-mechanics-of-materials"
-title: "Review: Beam shear"
-type: "text"
-answer: "$$ \\tau = \\frac{VQ}{It} $$"
-skills:
-  - "Beam shear"
----
+$$
+k_s = \frac{400(200\,000)}{800} = 100\,000\ \text{N/mm}
+$$
 
-What is the main idea of **Beam shear**?
+$$
+k_a = \frac{400(70\,000)}{800} = 35\,000\ \text{N/mm}
+$$
 
-:::solution
-One short answer is: $$ \tau = \frac{VQ}{It} $$
-:::
+Compute the free thermal expansions:
 
----
-id: "engineering-mechanics-of-materials-419"
-note: "engineering-mechanics-of-materials"
-title: "Review: Stress transformation"
-type: "text"
-answer: "$$ \\sigma {1,2} = \\frac{\\sigma x+\\sigma y}{2} \\pm \\sqrt{ \\left(\\frac{\\sigma x-\\sigma y}{2}\\right)^2 + \\tau {xy}^2 } $$ $$ \\tau {max} = \\sqrt{ \\left(\\frac{\\sigma x-\\sigma y}{2}\\right)^2 + \\tau {xy}^2 } $$"
-skills:
-  - "Stress transformation"
----
+$$
+\delta_{th,s} = (12 \times 10^{-6})(800)(10) = 0.12\ \text{mm}
+$$
 
-What is the main idea of **Stress transformation**?
+$$
+\delta_{th,a} = (23 \times 10^{-6})(800)(10) = 0.23\ \text{mm}
+$$
 
-:::solution
-One short answer is: $$ \sigma {1,2} = \frac{\sigma x+\sigma y}{2} \pm \sqrt{ \left(\frac{\sigma x-\sigma y}{2}\right)^2 + \tau {xy}^2 } $$ $$ \tau {max} = \sqrt{ \left(\frac{\sigma x-\sigma y}{2}\right)^2 + \tau {xy}^2 } $$
+Force equilibrium gives
+
+$$
+F_s + F_a = 18\,000
+$$
+
+and
+
+$$
+100\,000(\delta - 0.12) + 35\,000(\delta - 0.23) = 18\,000
+$$
+
+So
+
+$$
+135\,000\delta = 38\,050
+$$
+
+$$
+\delta \approx 0.282\ \text{mm}
+$$
+
+Now compute the forces:
+
+$$
+F_s = 100\,000(0.282 - 0.12) \approx 16.2\ \text{kN}
+$$
+
+$$
+F_a = 35\,000(0.282 - 0.23) \approx 1.8\ \text{kN}
+$$
+
+So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries about $1.8\ \text{kN}$.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-420"
-note: "engineering-mechanics-of-materials"
-title: "Review: Deflection and buckling"
-type: "text"
-answer: "$$ \\frac{d^2v}{dx^2} = \\frac{M(x)}{EI} $$ $$ P {cr} = \\frac{\\pi^2EI}{(KL)^2} $$ $$ r = \\sqrt{\\frac{I}{A}} $$"
-skills:
-  - "Deflection and buckling"
+id: mechanics-of-materials-43
+note: engineering-mechanics-of-materials
+title: "Check a Shaft in Combined Bending and Torsion"
+skills: [Combined Loading, Torsion, Failure Criterion]
 ---
 
-What is the main idea of **Deflection and buckling**?
+A solid circular shaft with diameter $60\ \text{mm}$ carries a bending moment of $300\ \text{N}\cdot\text{m}$ and a torque of $500\ \text{N}\cdot\text{m}$.
 
+Find the principal stresses at the outer surface and the von Mises stress.
+If the yield strength is $40\ \text{MPa}$, is the shaft safe?
+
 :::solution
-One short answer is: $$ \frac{d^2v}{dx^2} = \frac{M(x)}{EI} $$ $$ P {cr} = \frac{\pi^2EI}{(KL)^2} $$ $$ r = \sqrt{\frac{I}{A}} $$
+At the outer surface, the bending stress is
+
+$$
+\sigma = \frac{32M}{\pi d^3}
+$$
+
+and the torsional shear stress is
+
+$$
+\tau = \frac{16T}{\pi d^3}
+$$
+
+Substitute $d = 60\ \text{mm}$, $M = 300\,000\ \text{N}\cdot\text{mm}$, and $T = 500\,000\ \text{N}\cdot\text{mm}$:
+
+$$
+\sigma \approx 14.1\ \text{MPa}, \quad \tau \approx 11.8\ \text{MPa}
+$$
+
+Now treat this as a plane stress state with $\sigma_x = 14.1\ \text{MPa}$, $\sigma_y = 0$, and $\tau_{xy} = 11.8\ \text{MPa}$.
+
+The principal stresses are
+
+$$
+\sigma_{1,2} = \frac{\sigma_x}{2} \pm \sqrt{\left(\frac{\sigma_x}{2}\right)^2 + \tau_{xy}^2}
+$$
+
+So
+
+$$
+\sigma_1 \approx 20.8\ \text{MPa}, \quad \sigma_2 \approx -6.7\ \text{MPa}
+$$
+
+The von Mises stress is
+
+$$
+\sigma_{vm} = \sqrt{\sigma_x^2 + 3\tau_{xy}^2}
+$$
+
+$$
+\sigma_{vm} \approx \sqrt{14.1^2 + 3(11.8^2)} \approx 24.8\ \text{MPa}
+$$
+
+Since $24.8\ \text{MPa} < 40\ \text{MPa}$, the shaft is safe by the von Mises criterion.
 :::
 
 ---
-id: "engineering-mechanics-of-materials-421"
-note: "engineering-mechanics-of-materials"
-title: "Review: Multiaxial failure"
-type: "text"
-answer: "$$ \\sigma {vm} = \\sqrt{\\sigma x^2 - \\sigma x\\sigma y + \\sigma y^2 + 3\\tau {xy}^2} $$ ---"
-skills:
-  - "Multiaxial failure"
+id: mechanics-of-materials-44
+note: engineering-mechanics-of-materials
+title: "Apply Goodman Fatigue Design"
+skills: [Fatigue, Goodman Diagram, Design Check]
 ---
+
+A member has alternating stress and mean stress
+
+$$
+\sigma_a = 40\ \text{MPa}, \quad \sigma_m = 100\ \text{MPa}.
+$$
 
-What is the main idea of **Multiaxial failure**?
+The endurance limit is $S_e = 240\ \text{MPa}$ and the ultimate tensile strength is $S_{ut} = 600\ \text{MPa}$.
 
+What factor of safety does the Goodman relation predict?
+
 :::solution
-One short answer is: $$ \sigma {vm} = \sqrt{\sigma x^2 - \sigma x\sigma y + \sigma y^2 + 3\tau {xy}^2} $$ ---
+Use the Goodman design relation:
+
+$$
+\frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} \le \frac{1}{n}
+$$
+
+Substitute the values:
+
+$$
+\frac{40}{240} + \frac{100}{600} = \frac{1}{6} + \frac{1}{6} = \frac{1}{3}
+$$
+
+So
+
+$$
+\frac{1}{n} = \frac{1}{3}
+$$
+
+which gives
+
+$$
+n = 3
+$$
 :::
 
 ---
-id: "engineering-mechanics-of-materials-422"
-note: "engineering-mechanics-of-materials"
-title: "Review: Common mistakes"
-type: "text"
-answer: "Using the wrong area moment of inertia for the bending axis."
-skills:
-  - "17. Common mistakes"
+id: mechanics-of-materials-45
+note: engineering-mechanics-of-materials
+title: "Check an Eccentrically Loaded Column"
+skills: [Combined Loading, Euler Buckling, Design Check]
 ---
 
-Name one common mistake the note warns about in **Common mistakes**.
+A solid steel column has diameter $30\ \text{mm}$, length $3\ \text{m}$, and modulus $E = 200\ \text{GPa}$.
+It carries a compressive load of $8\ \text{kN}$ applied with eccentricity $15\ \text{mm}$.
 
+Find the maximum compressive stress and the Euler buckling load.
+If the allowable compressive stress is $70\ \text{MPa}$, which check is more restrictive?
+
 :::solution
-One short answer is: Using the wrong area moment of inertia for the bending axis.
+The eccentric load creates both axial stress and bending stress.
+
+Area:
+
+$$
+A = \frac{\pi d^2}{4} = \frac{\pi(30^2)}{4} \approx 706.9\ \text{mm}^2
+$$
+
+Axial stress:
+
+$$
+\sigma_{ax} = \frac{P}{A} = \frac{8000}{706.9} \approx 11.3\ \text{MPa}
+$$
+
+Bending moment from eccentricity:
+
+$$
+M = Pe = 8000(15) = 120\,000\ \text{N}\cdot\text{mm}
+$$
+
+For a solid circular section,
+
+$$
+I = \frac{\pi d^4}{64} \approx 39\,789\ \text{mm}^4
+$$
+
+and
+
+$$
+c = 15\ \text{mm}
+$$
+
+Bending stress:
+
+$$
+\sigma_b = \frac{Mc}{I} = \frac{120\,000(15)}{39\,789} \approx 45.3\ \text{MPa}
+$$
+
+So the maximum compressive stress is
+
+$$
+\sigma_{max} \approx 11.3 + 45.3 = 56.6\ \text{MPa}
+$$
+
+Now compute Euler buckling:
+
+$$
+P_{cr} = \frac{\pi^2EI}{L^2}
+$$
+
+with $L = 3000\ \text{mm}$:
+
+$$
+P_{cr} \approx \frac{\pi^2(200\,000)(39\,789)}{3000^2} \approx 8.7\ \text{kN}
+$$
+
+Since the applied load is $8\ \text{kN}$, the column is below the Euler load but only by a small margin.
+
+The compressive stress check is also below the $70\ \text{MPa}$ allowable.
+The more restrictive check is buckling, because $8\ \text{kN}$ is close to $8.7\ \text{kN}$.
 :::

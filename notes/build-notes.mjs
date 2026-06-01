@@ -285,8 +285,8 @@ function parsePracticeProblemId(id, sourcePath, problemIndex) {
   const level = Number.parseInt(match[2], 10);
   const position = Number.parseInt(match[3], 10);
 
-  if (!Number.isFinite(level) || level <= 0 || !Number.isFinite(position) || position <= 0) {
-    throw new Error(`Practice problem id "${problemId}" in ${sourcePath} (problem ${problemIndex + 1}) must encode a positive level and position.`);
+  if (!Number.isFinite(level) || level <= 0 || !Number.isFinite(position) || position < 0) {
+    throw new Error(`Practice problem id "${problemId}" in ${sourcePath} (problem ${problemIndex + 1}) must encode a positive level and a non-negative position.`);
   }
 
   return { level, position };
@@ -871,7 +871,7 @@ function renderSearchPanel() {
           <p class="section-label">Search</p>
           <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
         </div>
-        <button class="search-panel__close" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
       <label class="search-panel__field">
         <span class="sr-only">Search all notes</span>
@@ -880,6 +880,12 @@ function renderSearchPanel() {
       <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
       <div class="search-results" id="search-results" role="list"></div>
     </div>
+  </aside>`;
+}
+
+function renderTimerPanel() {
+  return `<aside class="timer-panel" id="timer-panel" role="dialog" aria-modal="true" aria-label="Timer" hidden>
+    <div class="timer-panel__card panel" tabindex="-1"></div>
   </aside>`;
 }
 
@@ -919,21 +925,30 @@ function buildLandingRedirectHtml() {
 </html>`;
 }
 
-function renderQuickActions(practiceUrl = null) {
+function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
   const actions = [
-    `<button class="notes-search-trigger" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
+    `<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
+    </button>`,
+    `<button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
+      Timer
     </button>`,
   ];
 
-  if (practiceUrl) {
-    actions.push(`<a class="notes-practice-trigger" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>`);
+  if (backToNoteUrl) {
+    actions.push(`<a class="notes-action-chip" href="${escapeHtml(backToNoteUrl)}" data-notes-nav-item>Notes</a>`);
+  } else if (practiceUrl) {
+    actions.push(`<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>`);
   }
 
   return actions.join('');
 }
 
-function renderHeader(structures, activeStructureId = null, includeIntro = false, actionsHtml = '') {
+function renderFloatingActions(quickActionsHtml) {
+  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>`;
+}
+
+function renderHeader(structures, activeStructureId = null, includeIntro = false) {
   const intro = includeIntro
     ? `
         <p class="notes-intro">
@@ -946,7 +961,6 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
   return `<header class="shell notes-header">
     <div class="notes-header__inner">
       ${renderSubjectLinks(structures, activeStructureId)}
-      ${actionsHtml ? `<div class="notes-header__actions" role="group" aria-label="Quick actions">${actionsHtml}</div>` : ''}
       <img class="notes-header__art" src="${headerArtworkUrl}" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>`;
@@ -963,7 +977,6 @@ function renderNotesPageDocument({
   structures,
   activeStructureId = null,
   includeIntro = false,
-  headerActionsHtml = '',
   floatingActionsHtml = '',
   stylesheetHref = '/notes/notes.css',
   scriptHref = '/notes/notes.js',
@@ -1002,13 +1015,13 @@ function renderNotesPageDocument({
   <a class="skip-link" href="#content">Skip to content</a>
   ${floatingActionsHtml}
 
-  ${renderHeader(structures, activeStructureId, includeIntro, headerActionsHtml)}
+  ${renderHeader(structures, activeStructureId, includeIntro)}
 
   <main id="content" class="${escapeHtml(mainClass)}" aria-label="${escapeHtml(mainAriaLabel)}">
     ${mainHtml}
   </main>
   ${renderSearchPanel()}
-  <a class="back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a>
+  ${renderTimerPanel()}
 </body>
 </html>`;
 }
@@ -1076,7 +1089,8 @@ function buildNoteHtml({
   const layoutClass = tocHtml ? ' notes-layout--has-toc' : '';
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
-  const quickActionsHtml = renderQuickActions(practiceUrl);
+  const quickActionsHtml = renderQuickActions({ practiceUrl });
+  const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
   const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -1094,7 +1108,7 @@ function buildNoteHtml({
           <p class="viewer-meta">${escapeHtml(metadataLabel)}</p>
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -1113,8 +1127,7 @@ function buildNoteHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
-    headerActionsHtml: `<div class="notes-header__actions-inner">${quickActionsHtml}</div>`,
-    floatingActionsHtml: `<div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}</div>`,
+    floatingActionsHtml,
     stylesheetHref,
     scriptHref,
     extraHead: `<script>
@@ -1195,8 +1208,8 @@ function parsePracticeSolutionBlock(markdown, sourcePath, problemId) {
   };
 }
 
-function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, seenProblemIds) {
-  const requiredFields = ['id', 'note', 'title', 'type', 'answer', 'skills'];
+function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, seenProblemIds, solutionMarkdown) {
+  const requiredFields = ['id', 'note', 'title', 'skills'];
 
   for (const field of requiredFields) {
     const value = metadata?.[field];
@@ -1223,10 +1236,17 @@ function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, see
 
   const { level, position } = parsePracticeProblemId(id, sourcePath, problemIndex);
 
-  const type = String(metadata.type).trim().toLowerCase();
+  const type = metadata.type === undefined || metadata.type === null || String(metadata.type).trim() === ''
+    ? ''
+    : String(metadata.type).trim().toLowerCase();
+  const derivedAnswer = String(metadata.answer ?? solutionMarkdown ?? '').trim();
 
   if (type === 'numeric') {
-    const numericAnswer = Number(String(metadata.answer).trim());
+    if (!derivedAnswer) {
+      throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a numeric answer.`);
+    }
+
+    const numericAnswer = Number(derivedAnswer);
 
     if (!Number.isFinite(numericAnswer)) {
       throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a numeric answer.`);
@@ -1248,7 +1268,7 @@ function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, see
     note: String(metadata.note).trim(),
     title: String(metadata.title).trim(),
     type,
-    answer: metadata.answer,
+    answer: derivedAnswer,
     tolerance: metadata.tolerance,
     unit: metadata.unit,
     skills: metadata.skills,
@@ -1296,7 +1316,7 @@ function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
     }
 
     const { promptMarkdown, solutionMarkdown } = parsePracticeSolutionBlock(bodyLines.join('\n'), sourcePath, metadata.id);
-    const problem = validatePracticeProblemMetadata(metadata, sourcePath, problems.length, seenProblemIds);
+    const problem = validatePracticeProblemMetadata(metadata, sourcePath, problems.length, seenProblemIds, solutionMarkdown);
 
     problems.push({
       ...problem,
@@ -1323,12 +1343,15 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
     ? ''
     : String(problem.tolerance).trim();
   const unit = problem.unit === undefined || problem.unit === null ? '' : String(problem.unit).trim();
+  const type = problem.type === undefined || problem.type === null || String(problem.type).trim() === ''
+    ? ''
+    : String(problem.type).trim();
   const metadataBits = [
     skills ? `<span class="practice-problem__uses"><span class="practice-problem__skills">${skills}</span></span>` : null,
     unit ? `<span>Unit ${escapeHtml(unit)}</span>` : null,
   ].filter(Boolean).join(' | ');
 
-  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem data-problem-type="${escapeHtml(problem.type)}" data-problem-answer="${escapeHtml(String(problem.answer).trim())}"${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
+  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem${type ? ` data-problem-type="${escapeHtml(type)}"` : ''}${problem.answer ? ` data-problem-answer="${escapeHtml(String(problem.answer).trim())}"` : ''}${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">${escapeHtml(`${String(problem.level).trim()}.${String(problem.position).trim()}`)}</span><span class="practice-problem__title-text">${escapeHtml(problem.title)}</span></h2>
@@ -1399,7 +1422,8 @@ function buildPracticeHtml({
         </div>
       </section>`;
   }).join('');
-  const quickActionsHtml = renderQuickActions();
+  const quickActionsHtml = renderQuickActions({ backToNoteUrl: noteUrl });
+  const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
   const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -1417,8 +1441,8 @@ function buildPracticeHtml({
           ${renderPracticeMetadataLine(problemCount, noteMetadata)}
         </div>
         <div class="viewer-head__actions">
-          <a class="suggest-edit-link" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
-          <a class="practice-back-link" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to note</a>
+          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="practice-back-link notes-action-chip" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to notes</a>
         </div>
       </div>
       <div class="practice-problem-list">
@@ -1436,8 +1460,7 @@ function buildPracticeHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
-    headerActionsHtml: `<div class="notes-header__actions-inner">${quickActionsHtml}</div>`,
-    floatingActionsHtml: `<div class="notes-actions notes-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}</div>`,
+    floatingActionsHtml,
     stylesheetHref,
     scriptHref,
     extraHead: `<script>

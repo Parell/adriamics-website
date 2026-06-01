@@ -1,1535 +1,1005 @@
 ---
-id: "engineering-electrical-circuit-analysis-11"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Core quantities and circuit elements"
-type: "text"
-answer: "Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components."
-skills:
-  - "1. Core quantities and circuit elements"
+id: electrical-circuit-analysis-11
+note: engineering-electrical-circuit-analysis
+title: "Differentiate a Charge Function"
+skills: [Current, Derivatives]
 ---
 
-What core idea is introduced in **Core quantities and circuit elements**?
+If
 
-:::solution
-One short answer is: Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components.
-:::
-
----
-id: "engineering-electrical-circuit-analysis-12"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Fundamental quantities"
-type: "text"
-answer: "Current, $i(t)$: rate of charge flow, $i = \\dfrac{dq}{dt}$"
-skills:
-  - "Fundamental quantities"
----
+$$
+q(t) = 4t^2 + 3t
+$$
 
-What core idea is introduced in **Fundamental quantities**?
+in coulombs, what is the current at $t = 2$ s?
 
 :::solution
-One short answer is: Current, $i(t)$: rate of charge flow, $i = \dfrac{dq}{dt}$
-:::
+Current is the derivative of charge:
 
----
-id: "engineering-electrical-circuit-analysis-13"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Ideal circuit elements"
-type: "text"
-answer: "Element Constitutive relation Notes --- --- --- Resistor $v = Ri$ Dissipates energy as heat Capacitor $i = C\\dfrac{dv}{dt}$ Stores energy in an electric field Inductor $v = L\\dfrac{di}{dt}$ Stores energy in a magnetic f…"
-skills:
-  - "Ideal circuit elements"
----
+$$
+i(t) = \frac{dq}{dt} = 8t + 3
+$$
 
-What is the main idea of **Ideal circuit elements**?
+Evaluate at $t = 2$:
 
-:::solution
-One short answer is: Element Constitutive relation Notes --- --- --- Resistor $v = Ri$ Dissipates energy as heat Capacitor $i = C\dfrac{dv}{dt}$ Stores energy in an electric field Inductor $v = L\dfrac{di}{dt}$ Stores energy in a magnetic f…
+$$
+i(2) = 8(2) + 3 = 19
+$$
+
+So the current is $19$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-14"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Energy storage"
-type: "text"
-answer: "Stored energy in a capacitor: $$ w C = \\frac{1}{2}Cv^2 $$ Stored energy in an inductor: $$ w L = \\frac{1}{2}Li^2 $$ Resistors do not store energy. They dissipate it: $$ p R = i^2R = \\frac{v^2}{R} $$ ---"
-skills:
-  - "Energy storage"
+id: electrical-circuit-analysis-12
+note: engineering-electrical-circuit-analysis
+title: "Compute Power with Passive Sign Convention"
+skills: [Passive Sign Convention, Power]
 ---
 
-What is the main idea of **Energy storage**?
+A device has $v = 9$ V across it, and the current of $2$ A enters the positive-labeled terminal.
 
+What is the power absorbed by the device?
+
 :::solution
-One short answer is: Stored energy in a capacitor: $$ w C = \frac{1}{2}Cv^2 $$ Stored energy in an inductor: $$ w L = \frac{1}{2}Li^2 $$ Resistors do not store energy. They dissipate it: $$ p R = i^2R = \frac{v^2}{R} $$ ---
-:::
+Under the passive sign convention,
 
----
-id: "engineering-electrical-circuit-analysis-15"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Reference directions and sign conventions"
-type: "text"
-answer: "Circuit equations are only consistent when voltage and current references are chosen deliberately."
-skills:
-  - "2. Reference directions and sign conventions"
----
+$$
+p = vi
+$$
 
-What is the main idea of **Reference directions and sign conventions**?
+so
 
-:::solution
-One short answer is: Circuit equations are only consistent when voltage and current references are chosen deliberately.
+$$
+p = 9 \cdot 2 = 18
+$$
+
+The device absorbs $18$ W.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-16"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Passive sign convention"
-type: "text"
-answer: "If current enters the positive-labeled terminal of an element, then $$ p = vi $$ is positive when the element absorbs power."
-skills:
-  - "Passive sign convention"
+id: electrical-circuit-analysis-13
+note: engineering-electrical-circuit-analysis
+title: "Find Current from Ohm's Law"
+skills: [Ohm's Law, Resistors]
 ---
+
+A $6~\Omega$ resistor has $24$ V across it.
 
-What is the main idea of **Passive sign convention**?
+What current flows through the resistor?
 
 :::solution
-One short answer is: If current enters the positive-labeled terminal of an element, then $$ p = vi $$ is positive when the element absorbs power.
-:::
+Use Ohm's law:
 
----
-id: "engineering-electrical-circuit-analysis-17"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Practical rule"
-type: "text"
-answer: "Assign a current direction before solving."
-skills:
-  - "Practical rule"
----
+$$
+v = Ri
+$$
 
-What is the main idea of **Practical rule**?
+Solve for current:
 
-:::solution
-One short answer is: Assign a current direction before solving.
+$$
+i = \frac{v}{R} = \frac{24}{6} = 4
+$$
+
+So the current is $4$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-18"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Common mistake"
-type: "text"
-answer: "Do not mix reference directions in the same equation set. Pick one sign convention and keep it everywhere. ---"
-skills:
-  - "Common mistake"
+id: electrical-circuit-analysis-14
+note: engineering-electrical-circuit-analysis
+title: "Add Series Resistors"
+skills: [Series Resistance]
 ---
 
-Name one common mistake the note warns about in **Common mistake**.
+Find the equivalent resistance of three series resistors:
 
-:::solution
-One short answer is: Do not mix reference directions in the same equation set. Pick one sign convention and keep it everywhere. ---
-:::
+$$
+3~\Omega,\quad 5~\Omega,\quad 7~\Omega
+$$
 
----
-id: "engineering-electrical-circuit-analysis-19"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Ohm's law and Kirchhoff's laws"
-type: "text"
-answer: "Ohm's law and Kirchhoff's laws"
-skills:
-  - "3. Ohm's law and Kirchhoff's laws"
----
+:::solution
+For series resistors, add the values:
 
-What is the main idea of **Ohm's law and Kirchhoff's laws**?
+$$
+R_{eq} = 3 + 5 + 7 = 15
+$$
 
-:::solution
-One short answer is: Ohm's law and Kirchhoff's laws
+So the equivalent resistance is $15~\Omega$.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-110"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Ohm's law"
-type: "text"
-answer: "For a resistor: $$ v = Ri $$ This relation is linear and valid only for ideal resistors or elements behaving approximately resistively."
-skills:
-  - "Ohm's law"
+id: electrical-circuit-analysis-15
+note: engineering-electrical-circuit-analysis
+title: "Combine Two Parallel Resistors"
+skills: [Parallel Resistance]
 ---
 
-What is the main idea of **Ohm's law**?
+Find the equivalent resistance of $4~\Omega$ and $12~\Omega$ in parallel.
 
 :::solution
-One short answer is: For a resistor: $$ v = Ri $$ This relation is linear and valid only for ideal resistors or elements behaving approximately resistively.
-:::
+For two parallel resistors,
 
----
-id: "engineering-electrical-circuit-analysis-111"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Kirchhoff's Current Law"
-type: "text"
-answer: "At any node, the algebraic sum of currents is zero: $$ \\sum i k = 0 $$ Interpretation: current entering a node equals current leaving it."
-skills:
-  - "Kirchhoff's Current Law"
----
+$$
+R_{eq} = \frac{R_1R_2}{R_1 + R_2}
+$$
 
-What is the main idea of **Kirchhoff's Current Law**?
+So
 
-:::solution
-One short answer is: At any node, the algebraic sum of currents is zero: $$ \sum i k = 0 $$ Interpretation: current entering a node equals current leaving it.
+$$
+R_{eq} = \frac{4 \cdot 12}{4 + 12} = \frac{48}{16} = 3
+$$
+
+The equivalent resistance is $3~\Omega$.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-112"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Kirchhoff's Voltage Law"
-type: "text"
-answer: "Around any closed loop, the algebraic sum of voltages is zero: $$ \\sum v k = 0 $$ Interpretation: total voltage rise equals total voltage drop."
-skills:
-  - "Kirchhoff's Voltage Law"
+id: electrical-circuit-analysis-16
+note: engineering-electrical-circuit-analysis
+title: "Use a Voltage Divider"
+skills: [Voltage Divider, Series Resistance]
 ---
 
-What is the main idea of **Kirchhoff's Voltage Law**?
+A $12$ V source drives two series resistors, $2~k\Omega$ and $4~k\Omega$.
 
+If the output is taken across the $4~k\Omega$ resistor, what is $V_{out}$?
+
 :::solution
-One short answer is: Around any closed loop, the algebraic sum of voltages is zero: $$ \sum v k = 0 $$ Interpretation: total voltage rise equals total voltage drop.
-:::
+Use the voltage divider formula:
 
----
-id: "engineering-electrical-circuit-analysis-113"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Where they come from"
-type: "text"
-answer: "KCL reflects conservation of charge."
-skills:
-  - "Where they come from"
----
+$$
+V_{out} = V_{in}\frac{R_2}{R_1 + R_2}
+$$
 
-What is the main idea of **Where they come from**?
+Substitute the values:
 
-:::solution
-One short answer is: KCL reflects conservation of charge.
+$$
+V_{out} = 12\frac{4}{2 + 4} = 12\cdot\frac{2}{3} = 8
+$$
+
+So $V_{out} = 8$ V.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-114"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Applicability limits"
-type: "text"
-answer: "KCL and KVL work cleanly in lumped circuits where physical dimensions are small compared with signal wavelengths and distributed effects can be neglected. ---"
-skills:
-  - "Applicability limits"
+id: electrical-circuit-analysis-17
+note: engineering-electrical-circuit-analysis
+title: "Use a Current Divider"
+skills: [Current Divider, Parallel Resistance]
 ---
+
+A total current of $6$ A enters two parallel resistors, $3~\Omega$ and $6~\Omega$.
 
-What is the main idea of **Applicability limits**?
+What current flows through the $3~\Omega$ branch?
 
 :::solution
-One short answer is: KCL and KVL work cleanly in lumped circuits where physical dimensions are small compared with signal wavelengths and distributed effects can be neglected. ---
-:::
+For two parallel resistors, the current in one branch is
 
----
-id: "engineering-electrical-circuit-analysis-115"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Series, parallel, and equivalent reduction"
-type: "text"
-answer: "Series, parallel, and equivalent reduction"
-skills:
-  - "4. Series, parallel, and equivalent reduction"
----
+$$
+I_1 = I_{in}\frac{R_2}{R_1 + R_2}
+$$
 
-What is the main idea of **Series, parallel, and equivalent reduction**?
+Here,
 
-:::solution
-One short answer is: Series, parallel, and equivalent reduction
+$$
+I_{3\Omega} = 6\frac{6}{3 + 6} = 6\cdot\frac{2}{3} = 4
+$$
+
+So the $3~\Omega$ branch carries $4$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-116"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Resistors in series"
-type: "text"
-answer: "Same current flows through each resistor: $$ R {eq} = R 1 + R 2 + \\cdots + R n $$"
-skills:
-  - "Resistors in series"
+id: electrical-circuit-analysis-18
+note: engineering-electrical-circuit-analysis
+title: "Energy in a Capacitor"
+skills: [Energy Storage, Capacitors]
 ---
 
-What is the main idea of **Resistors in series**?
+A capacitor has $C = 2~\mu\text{F}$ and voltage $v = 10$ V.
 
-:::solution
-One short answer is: Same current flows through each resistor: $$ R {eq} = R 1 + R 2 + \cdots + R n $$
-:::
+How much energy is stored in the capacitor?
 
----
-id: "engineering-electrical-circuit-analysis-117"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Resistors in parallel"
-type: "text"
-answer: "Same voltage appears across each branch: $$ \\frac{1}{R {eq}} = \\sum {k=1}^n \\frac{1}{R k} $$ For two resistors: $$ R {eq} = \\frac{R 1R 2}{R 1 + R 2} $$"
-skills:
-  - "Resistors in parallel"
----
+:::solution
+Use the capacitor energy formula:
 
-What is the main idea of **Resistors in parallel**?
+$$
+w_C = \frac{1}{2}Cv^2
+$$
 
-:::solution
-One short answer is: Same voltage appears across each branch: $$ \frac{1}{R {eq}} = \sum {k=1}^n \frac{1}{R k} $$ For two resistors: $$ R {eq} = \frac{R 1R 2}{R 1 + R 2} $$
-:::
+Substitute the values:
 
----
-id: "engineering-electrical-circuit-analysis-118"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Voltage divider"
-type: "text"
-answer: "For series resistors with input voltage $V {in}$: $$ V {out} = V {in}\\frac{R 2}{R 1 + R 2} $$ if $V {out}$ is taken across $R 2$."
-skills:
-  - "Voltage divider"
----
+$$
+w_C = \frac{1}{2}(2\times 10^{-6})(10^2)
+$$
 
-What is the main idea of **Voltage divider**?
+$$
+w_C = 10^{-4}\ \text{J}
+$$
 
-:::solution
-One short answer is: For series resistors with input voltage $V {in}$: $$ V {out} = V {in}\frac{R 2}{R 1 + R 2} $$ if $V {out}$ is taken across $R 2$.
+So the stored energy is $1.0\times 10^{-4}$ J.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-119"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Current divider"
-type: "text"
-answer: "For two parallel resistors: $$ I 1 = I {in}\\frac{R 2}{R 1 + R 2}, \\qquad I 2 = I {in}\\frac{R 1}{R 1 + R 2} $$ The branch with smaller resistance carries more current."
-skills:
-  - "Current divider"
+id: electrical-circuit-analysis-19
+note: engineering-electrical-circuit-analysis
+title: "Write an Element Impedance"
+skills: [Phasors, Impedance]
 ---
 
-What is the main idea of **Current divider**?
+At angular frequency $\omega = 1000$ rad/s, what is the impedance of a $2~\mu\text{F}$ capacitor?
 
 :::solution
-One short answer is: For two parallel resistors: $$ I 1 = I {in}\frac{R 2}{R 1 + R 2}, \qquad I 2 = I {in}\frac{R 1}{R 1 + R 2} $$ The branch with smaller resistance carries more current.
-:::
-
----
-id: "engineering-electrical-circuit-analysis-120"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Reduction workflow"
-type: "text"
-answer: "Look for obvious series or parallel groups."
-skills:
-  - "Reduction workflow"
----
+For a capacitor,
 
-According to the note, what sequence of steps is recommended in **Reduction workflow**?
+$$
+Z_C = \frac{1}{j\omega C}
+$$
 
-:::solution
-One short answer is: Look for obvious series or parallel groups.
-:::
+Substitute the values:
 
----
-id: "engineering-electrical-circuit-analysis-121"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Node-voltage analysis"
-type: "text"
-answer: "Node-voltage analysis is usually the most efficient method for circuits with many current sources or many branches tied to a few nodes."
-skills:
-  - "5. Node-voltage analysis"
----
+$$
+Z_C = \frac{1}{j(1000)(2\times 10^{-6})}
+$$
 
-What is the main idea of **Node-voltage analysis**?
+$$
+Z_C = \frac{1}{j0.002} = -j500
+$$
 
-:::solution
-One short answer is: Node-voltage analysis is usually the most efficient method for circuits with many current sources or many branches tied to a few nodes.
+So the impedance is $-j500~\Omega$.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-122"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Method"
-type: "text"
-answer: "Choose a reference node, usually ground."
-skills:
-  - "Method"
+id: electrical-circuit-analysis-110
+note: engineering-electrical-circuit-analysis
+title: "Balance Currents at a Node"
+skills: [KCL]
 ---
 
-What is the main idea of **Method**?
+At a node, $2$ A and $5$ A enter, and $3$ A leaves through one branch.
 
-:::solution
-One short answer is: Choose a reference node, usually ground.
-:::
+How much current must leave through the other branch?
 
----
-id: "engineering-electrical-circuit-analysis-123"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Resistor current form"
-type: "text"
-answer: "Current from node $a$ to node $b$ through resistor $R$: $$ i {ab} = \\frac{V a - V b}{R} $$"
-skills:
-  - "Resistor current form"
----
+:::solution
+By KCL, the total current entering equals the total current leaving:
 
-What is the main idea of **Resistor current form**?
+$$
+2 + 5 = 3 + I
+$$
 
-:::solution
-One short answer is: Current from node $a$ to node $b$ through resistor $R$: $$ i {ab} = \frac{V a - V b}{R} $$
-:::
+So
 
----
-id: "engineering-electrical-circuit-analysis-124"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Supernode"
-type: "text"
-answer: "One KCL equation for the supernode"
-skills:
-  - "Supernode"
----
+$$
+7 = 3 + I
+$$
 
-What is the main idea of **Supernode**?
+$$
+I = 4
+$$
 
-:::solution
-One short answer is: One KCL equation for the supernode
+The other branch must carry $4$ A leaving the node.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-21"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Advantages"
-type: "text"
-answer: "Scales well for large circuits"
-skills:
-  - "Advantages"
+id: electrical-circuit-analysis-21
+note: engineering-electrical-circuit-analysis
+title: "Write a Branch Current from Node Voltages"
+skills: [Node Voltage, Ohm's Law]
 ---
+
+Node $a$ is at $12$ V and node $b$ is at $5$ V.
 
-What is the main idea of **Advantages**?
+If a $7~\Omega$ resistor connects $a$ to $b$, what is the current from $a$ to $b$?
 
 :::solution
-One short answer is: Scales well for large circuits
-:::
+Use the resistor current form:
 
----
-id: "engineering-electrical-circuit-analysis-22"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Common pitfall"
-type: "text"
-answer: "Do not write KCL separately for nodes connected by an ideal voltage source unless you also include the source constraint. ---"
-skills:
-  - "Common pitfall"
----
+$$
+i_{ab} = \frac{V_a - V_b}{R}
+$$
 
-Name one common mistake the note warns about in **Common pitfall**.
+So
 
-:::solution
-One short answer is: Do not write KCL separately for nodes connected by an ideal voltage source unless you also include the source constraint. ---
+$$
+i_{ab} = \frac{12 - 5}{7} = 1
+$$
+
+The current from $a$ to $b$ is $1$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-23"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Mesh-current analysis"
-type: "text"
-answer: "Mesh-current analysis is efficient for planar circuits with many voltage sources."
-skills:
-  - "6. Mesh-current analysis"
+id: electrical-circuit-analysis-22
+note: engineering-electrical-circuit-analysis
+title: "Solve a Simple Supernode"
+skills: [Supernodes, KCL, Ohm's Law]
 ---
-
-What is the main idea of **Mesh-current analysis**?
 
-:::solution
-One short answer is: Mesh-current analysis is efficient for planar circuits with many voltage sources.
-:::
+A supernode contains two unknown node voltages $V_a$ and $V_b$.
 
----
-id: "engineering-electrical-circuit-analysis-24"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Method"
-type: "text"
-answer: "Identify the meshes of the planar circuit."
-skills:
-  - "Method"
----
+Node $a$ connects to ground through $6~\Omega$, node $b$ connects to ground through $3~\Omega$, and a $9$ V source connects $b$ to $a$ with the positive terminal at $a$.
 
-What is the main idea of **Method**?
+If a total of $3$ A enters the supernode from an external source, what is $V_a$?
 
 :::solution
-One short answer is: Identify the meshes of the planar circuit.
-:::
+Use KCL on the supernode:
 
----
-id: "engineering-electrical-circuit-analysis-25"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Shared resistor"
-type: "text"
-answer: "If two meshes share resistor $R$, the voltage drop across that resistor is $$ R(i 1 - i 2) $$ when traversed in the direction of mesh current $i 1$."
-skills:
-  - "Shared resistor"
----
+$$
+\frac{V_a}{6} + \frac{V_b}{3} = 3
+$$
 
-What is the main idea of **Shared resistor**?
+The voltage source gives the constraint:
 
-:::solution
-One short answer is: If two meshes share resistor $R$, the voltage drop across that resistor is $$ R(i 1 - i 2) $$ when traversed in the direction of mesh current $i 1$.
-:::
+$$
+V_a - V_b = 9
+$$
 
----
-id: "engineering-electrical-circuit-analysis-26"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Supermesh"
-type: "text"
-answer: "Write one KVL equation around the outer perimeter"
-skills:
-  - "Supermesh"
----
+Substitute $V_a = V_b + 9$ into KCL:
 
-What is the main idea of **Supermesh**?
+$$
+\frac{V_b + 9}{6} + \frac{V_b}{3} = 3
+$$
 
-:::solution
-One short answer is: Write one KVL equation around the outer perimeter
-:::
+Multiply by $6$:
 
----
-id: "engineering-electrical-circuit-analysis-27"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Advantages"
-type: "text"
-answer: "Fewer equations than node analysis in some circuits"
-skills:
-  - "Advantages"
----
+$$
+V_b + 9 + 2V_b = 18
+$$
 
-What is the main idea of **Advantages**?
+$$
+3V_b = 9
+$$
 
-:::solution
-One short answer is: Fewer equations than node analysis in some circuits
-:::
+$$
+V_b = 3
+$$
 
----
-id: "engineering-electrical-circuit-analysis-28"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Common pitfall"
-type: "text"
-answer: "Mesh analysis only applies directly to planar circuits unless the circuit is re-drawn into a planar equivalent. ---"
-skills:
-  - "Common pitfall"
----
+Then
 
-Name one common mistake the note warns about in **Common pitfall**.
+$$
+V_a = 3 + 9 = 12
+$$
 
-:::solution
-One short answer is: Mesh analysis only applies directly to planar circuits unless the circuit is re-drawn into a planar equivalent. ---
+So $V_a = 12$ V.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-29"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Source transformations and superposition"
-type: "text"
-answer: "Source transformations and superposition"
-skills:
-  - "7. Source transformations and superposition"
+id: electrical-circuit-analysis-23
+note: engineering-electrical-circuit-analysis
+title: "Solve Two Mesh Currents"
+skills: [Mesh Analysis, KVL, Shared Resistor]
 ---
 
-What is the main idea of **Source transformations and superposition**?
+Two clockwise mesh currents $i_1$ and $i_2$ share a $1~\Omega$ resistor.
 
-:::solution
-One short answer is: Source transformations and superposition
-:::
-
----
-id: "engineering-electrical-circuit-analysis-210"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Source transformation"
-type: "text"
-answer: "A voltage source $V s$ in series with resistance $R$ can be transformed into an equivalent current source: $$ I s = \\frac{V s}{R} $$ in parallel with the same resistance $R$."
-skills:
-  - "Source transformation"
----
+The left mesh has a $1~\Omega$ resistor and a $12$ V source. The right mesh has a $1~\Omega$ resistor and no source.
 
-What is the main idea of **Source transformation**?
+What are $i_1$ and $i_2$?
 
 :::solution
-One short answer is: A voltage source $V s$ in series with resistance $R$ can be transformed into an equivalent current source: $$ I s = \frac{V s}{R} $$ in parallel with the same resistance $R$.
-:::
-
----
-id: "engineering-electrical-circuit-analysis-211"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Superposition principle"
-type: "text"
-answer: "Replace independent voltage sources with short circuits"
-skills:
-  - "Superposition principle"
----
+Write KVL for each mesh.
 
-What is the main idea of **Superposition principle**?
+Left mesh:
 
-:::solution
-One short answer is: Replace independent voltage sources with short circuits
-:::
+$$
+1i_1 + 1(i_1 - i_2) = 12
+$$
 
----
-id: "engineering-electrical-circuit-analysis-212"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: When to use it"
-type: "text"
-answer: "Superposition is useful when a circuit has multiple independent sources and a desired response is linear in the source excitations."
-skills:
-  - "When to use it"
----
+which simplifies to
 
-What is the main idea of **When to use it**?
+$$
+2i_1 - i_2 = 12
+$$
 
-:::solution
-One short answer is: Superposition is useful when a circuit has multiple independent sources and a desired response is linear in the source excitations.
-:::
+Right mesh:
 
----
-id: "engineering-electrical-circuit-analysis-213"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Limitation"
-type: "text"
-answer: "You cannot superpose power directly, because power is not linear in voltage or current. ---"
-skills:
-  - "Limitation"
----
+$$
+1i_2 + 1(i_2 - i_1) = 0
+$$
 
-What is the main idea of **Limitation**?
+which simplifies to
 
-:::solution
-One short answer is: You cannot superpose power directly, because power is not linear in voltage or current. ---
-:::
+$$
+-i_1 + 2i_2 = 0
+$$
 
----
-id: "engineering-electrical-circuit-analysis-214"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Thevenin and Norton equivalents"
-type: "text"
-answer: "Any linear two-terminal network can be replaced by an equivalent source-resistance pair."
-skills:
-  - "8. Thevenin and Norton equivalents"
----
+From the second equation,
 
-What is the main idea of **Thevenin and Norton equivalents**?
+$$
+i_1 = 2i_2
+$$
 
-:::solution
-One short answer is: Any linear two-terminal network can be replaced by an equivalent source-resistance pair.
-:::
+Substitute into the first:
 
----
-id: "engineering-electrical-circuit-analysis-215"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Thevenin equivalent"
-type: "text"
-answer: "A voltage source $V {th}$"
-skills:
-  - "Thevenin equivalent"
----
+$$
+2(2i_2) - i_2 = 12
+$$
 
-What is the main idea of **Thevenin equivalent**?
+$$
+3i_2 = 12
+$$
 
-:::solution
-One short answer is: A voltage source $V {th}$
-:::
+$$
+i_2 = 4
+$$
 
----
-id: "engineering-electrical-circuit-analysis-216"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Norton equivalent"
-type: "text"
-answer: "A current source $I N$"
-skills:
-  - "Norton equivalent"
----
+Then
 
-What is the main idea of **Norton equivalent**?
+$$
+i_1 = 8
+$$
 
-:::solution
-One short answer is: A current source $I N$
+So $i_1 = 8$ A and $i_2 = 4$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-217"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Conversion"
-type: "text"
-answer: "$$ R {th} = R N $$ $$ V {th} = I NR {th} $$ $$ I N = \\frac{V {th}}{R {th}} $$"
-skills:
-  - "Conversion"
+id: electrical-circuit-analysis-24
+note: engineering-electrical-circuit-analysis
+title: "Use a Supermesh"
+skills: [Supermesh, Mesh Analysis, KVL]
 ---
 
-What is the main idea of **Conversion**?
+Two clockwise mesh currents $i_1$ and $i_2$ share a branch with a $1$ A current source.
 
-:::solution
-One short answer is: $$ R {th} = R N $$ $$ V {th} = I NR {th} $$ $$ I N = \frac{V {th}}{R {th}} $$
-:::
+The current source forces
 
----
-id: "engineering-electrical-circuit-analysis-218"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Finding $R_{th}$"
-type: "text"
-answer: "Deactivate all independent sources."
-skills:
-  - "Finding $R_{th}$"
----
+$$
+i_2 - i_1 = 1
+$$
+
+The outer loop contains two $3~\Omega$ resistors and a $15$ V source.
 
-What is the main idea of **Finding $R_{th}$**?
+What are $i_1$ and $i_2$?
 
 :::solution
-One short answer is: Deactivate all independent sources.
-:::
+Write KVL around the outer perimeter of the supermesh:
 
----
-id: "engineering-electrical-circuit-analysis-219"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Test-source method"
-type: "text"
-answer: "Apply a test voltage or current at the terminals and compute: $$ R {th} = \\frac{V {test}}{I {test}} $$"
-skills:
-  - "Test-source method"
----
+$$
+3i_1 + 3i_2 = 15
+$$
 
-What is the main idea of **Test-source method**?
+The current-source constraint is
 
-:::solution
-One short answer is: Apply a test voltage or current at the terminals and compute: $$ R {th} = \frac{V {test}}{I {test}} $$
-:::
+$$
+i_2 - i_1 = 1
+$$
 
----
-id: "engineering-electrical-circuit-analysis-220"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Why these equivalents matter"
-type: "text"
-answer: "They simplify repeated load calculations and make maximum power transfer analysis straightforward. ---"
-skills:
-  - "Why these equivalents matter"
----
+From the constraint,
 
-What is the main idea of **Why these equivalents matter**?
+$$
+i_2 = i_1 + 1
+$$
 
-:::solution
-One short answer is: They simplify repeated load calculations and make maximum power transfer analysis straightforward. ---
-:::
+Substitute into the KVL equation:
 
----
-id: "engineering-electrical-circuit-analysis-221"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Power, energy, and maximum power transfer"
-type: "text"
-answer: "Power, energy, and maximum power transfer"
-skills:
-  - "9. Power, energy, and maximum power transfer"
----
+$$
+3i_1 + 3(i_1 + 1) = 15
+$$
 
-What is the main idea of **Power, energy, and maximum power transfer**?
+$$
+6i_1 + 3 = 15
+$$
 
-:::solution
-One short answer is: Power, energy, and maximum power transfer
-:::
+$$
+6i_1 = 12
+$$
 
----
-id: "engineering-electrical-circuit-analysis-222"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Instantaneous power"
-type: "text"
-answer: "$$ p(t) = v(t)i(t) $$ If $p > 0$, the element absorbs power. If $p < 0$, it delivers power."
-skills:
-  - "Instantaneous power"
----
+$$
+i_1 = 2
+$$
 
-What is the main idea of **Instantaneous power**?
+Then
 
-:::solution
-One short answer is: $$ p(t) = v(t)i(t) $$ If $p > 0$, the element absorbs power. If $p < 0$, it delivers power.
+$$
+i_2 = 3
+$$
+
+So $i_1 = 2$ A and $i_2 = 3$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-223"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: DC resistor power"
-type: "text"
-answer: "$$ p = i^2R = \\frac{v^2}{R} $$"
-skills:
-  - "DC resistor power"
+id: electrical-circuit-analysis-25
+note: engineering-electrical-circuit-analysis
+title: "Apply Superposition to a Node"
+skills: [Superposition, Node Voltage, Voltage Divider]
 ---
 
-What is the main idea of **DC resistor power**?
-
-:::solution
-One short answer is: $$ p = i^2R = \frac{v^2}{R} $$
-:::
+A node is connected to ground through a $6~\Omega$ resistor.
 
----
-id: "engineering-electrical-circuit-analysis-224"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Average power"
-type: "text"
-answer: "For periodic signals: $$ P {avg} = \\frac{1}{T}\\int 0^T p(t)\\,dt $$"
-skills:
-  - "Average power"
----
+The same node is also connected through another $6~\Omega$ resistor to a $12$ V source, and a $3$ A current source injects current into the node from ground.
 
-What is the main idea of **Average power**?
+What is the node voltage?
 
 :::solution
-One short answer is: For periodic signals: $$ P {avg} = \frac{1}{T}\int 0^T p(t)\,dt $$
-:::
+Use superposition.
 
----
-id: "engineering-electrical-circuit-analysis-31"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Maximum power transfer for resistive circuits"
-type: "text"
-answer: "If a Thevenin equivalent $V {th}$ in series with $R {th}$ drives a load $R L$, the load receives maximum power when $$ R L = R {th} $$ The maximum load power is $$ P {max} = \\frac{V {th}^2}{4R {th}} $$"
-skills:
-  - "Maximum power transfer for resistive circuits"
----
+First, keep the $12$ V source and open the current source. The node is then a divider between $12$ V and ground through two equal $6~\Omega$ resistors, so the node voltage is:
 
-What is the main idea of **Maximum power transfer for resistive circuits**?
+$$
+V_1 = 12\frac{6}{6+6} = 6
+$$
 
-:::solution
-One short answer is: If a Thevenin equivalent $V {th}$ in series with $R {th}$ drives a load $R L$, the load receives maximum power when $$ R L = R {th} $$ The maximum load power is $$ P {max} = \frac{V {th}^2}{4R {th}} $$
-:::
+Next, keep the $3$ A source and short the $12$ V source. Then the node sees two $6~\Omega$ resistors in parallel:
 
----
-id: "engineering-electrical-circuit-analysis-32"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Efficiency note"
-type: "text"
-answer: "Maximum power transfer does not mean maximum efficiency. At $R L = R {th}$, half the power is dissipated internally in the source resistance. ---"
-skills:
-  - "Efficiency note"
----
+$$
+R_{eq} = \frac{6\cdot 6}{6+6} = 3
+$$
 
-What is the main idea of **Efficiency note**?
+So the voltage contribution is
 
-:::solution
-One short answer is: Maximum power transfer does not mean maximum efficiency. At $R L = R {th}$, half the power is dissipated internally in the source resistance. ---
-:::
+$$
+V_2 = IR = 3 \cdot 3 = 9
+$$
 
----
-id: "engineering-electrical-circuit-analysis-33"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: First-order transients: RC and RL"
-type: "text"
-answer: "First-order circuits contain one energy storage element and produce exponential responses."
-skills:
-  - "10. First-order transients: RC and RL"
----
+Add the contributions:
 
-What is the main idea of **First-order transients: RC and RL**?
+$$
+V = V_1 + V_2 = 6 + 9 = 15
+$$
 
-:::solution
-One short answer is: First-order circuits contain one energy storage element and produce exponential responses.
+So the node voltage is $15$ V.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-34"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Capacitor laws"
-type: "text"
-answer: "Capacitor voltage cannot change instantaneously: $$ v C(0^+) = v C(0^-) $$ Current through a capacitor is $$ i C = C\\frac{dv C}{dt} $$"
-skills:
-  - "Capacitor laws"
+id: electrical-circuit-analysis-26
+note: engineering-electrical-circuit-analysis
+title: "Find a Thevenin Equivalent"
+skills: [Thevenin Equivalent, Resistance Reduction, Voltage Divider]
 ---
 
-What is the main idea of **Capacitor laws**?
-
-:::solution
-One short answer is: Capacitor voltage cannot change instantaneously: $$ v C(0^+) = v C(0^-) $$ Current through a capacitor is $$ i C = C\frac{dv C}{dt} $$
-:::
+A $12$ V source feeds a $2~\Omega$ resistor in series with a node.
 
----
-id: "engineering-electrical-circuit-analysis-35"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Inductor laws"
-type: "text"
-answer: "Inductor current cannot change instantaneously: $$ i L(0^+) = i L(0^-) $$ Voltage across an inductor is $$ v L = L\\frac{di L}{dt} $$"
-skills:
-  - "Inductor laws"
----
+From that node to ground is a $4~\Omega$ resistor.
 
-What is the main idea of **Inductor laws**?
+Find the Thevenin equivalent voltage and resistance seen at the node with respect to ground.
 
 :::solution
-One short answer is: Inductor current cannot change instantaneously: $$ i L(0^+) = i L(0^-) $$ Voltage across an inductor is $$ v L = L\frac{di L}{dt} $$
-:::
+The open-circuit voltage is the divider voltage across the $4~\Omega$ resistor:
 
----
-id: "engineering-electrical-circuit-analysis-36"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: RC step response"
-type: "text"
-answer: "For a simple RC circuit with time constant $$ \\tau = RC $$ the capacitor voltage typically has the form $$ v C(t) = v C(\\infty) + \\bigl(v C(0^+) - v C(\\infty)\\bigr)e^{-t/\\tau} $$"
-skills:
-  - "RC step response"
----
+$$
+V_{th} = 12\frac{4}{2+4} = 8
+$$
 
-What is the main idea of **RC step response**?
+To find $R_{th}$, deactivate the independent source. The $12$ V source becomes a short circuit, so the $2~\Omega$ and $4~\Omega$ resistors are both from the node to ground:
 
-:::solution
-One short answer is: For a simple RC circuit with time constant $$ \tau = RC $$ the capacitor voltage typically has the form $$ v C(t) = v C(\infty) + \bigl(v C(0^+) - v C(\infty)\bigr)e^{-t/\tau} $$
+$$
+R_{th} = \frac{2\cdot 4}{2+4} = \frac{8}{6} = \frac{4}{3}
+$$
+
+So the Thevenin equivalent is $V_{th} = 8$ V in series with $R_{th} = \frac{4}{3}~\Omega$.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-37"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: RL step response"
-type: "text"
-answer: "For a simple RL circuit with time constant $$ \\tau = \\frac{L}{R} $$ the inductor current typically has the form $$ i L(t) = i L(\\infty) + \\bigl(i L(0^+) - i L(\\infty)\\bigr)e^{-t/\\tau} $$"
-skills:
-  - "RL step response"
+id: electrical-circuit-analysis-27
+note: engineering-electrical-circuit-analysis
+title: "Find an RC Step Response"
+skills: [RC Circuits, Time Constant, Capacitors]
 ---
 
-What is the main idea of **RL step response**?
-
-:::solution
-One short answer is: For a simple RL circuit with time constant $$ \tau = \frac{L}{R} $$ the inductor current typically has the form $$ i L(t) = i L(\infty) + \bigl(i L(0^+) - i L(\infty)\bigr)e^{-t/\tau} $$
-:::
+A $12$ V source charges a $100~\mu\text{F}$ capacitor through a $3~k\Omega$ resistor.
 
----
-id: "engineering-electrical-circuit-analysis-38"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Interpretation of the time constant"
-type: "text"
-answer: "At $t = \\tau$, the response has moved about $63.2\\%$ of the way from its initial value toward its final value."
-skills:
-  - "Interpretation of the time constant"
----
+The capacitor starts at $0$ V.
 
-What is the main idea of **Interpretation of the time constant**?
+What is $v_C(t)$ at $t = RC$?
 
 :::solution
-One short answer is: At $t = \tau$, the response has moved about $63.2\%$ of the way from its initial value toward its final value.
-:::
+First find the time constant:
 
----
-id: "engineering-electrical-circuit-analysis-39"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Initial and final conditions"
-type: "text"
-answer: "At $t = 0^+$, use continuity of capacitor voltage and inductor current."
-skills:
-  - "Initial and final conditions"
----
+$$
+\tau = RC = (3000)(100\times 10^{-6}) = 0.3\ \text{s}
+$$
 
-What is the main idea of **Initial and final conditions**?
+For a charging capacitor,
 
-:::solution
-One short answer is: At $t = 0^+$, use continuity of capacitor voltage and inductor current.
-:::
+$$
+v_C(t) = v_C(\infty) + \bigl(v_C(0^+) - v_C(\infty)\bigr)e^{-t/\tau}
+$$
 
----
-id: "engineering-electrical-circuit-analysis-310"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Sinusoidal steady state and phasors"
-type: "text"
-answer: "Sinusoidal steady-state analysis converts differential equations into algebraic equations at a fixed angular frequency $\\omega$."
-skills:
-  - "11. Sinusoidal steady state and phasors"
----
+Here,
 
-What is the main idea of **Sinusoidal steady state and phasors**?
+$$
+v_C(0^+) = 0,\qquad v_C(\infty) = 12
+$$
 
-:::solution
-One short answer is: Sinusoidal steady-state analysis converts differential equations into algebraic equations at a fixed angular frequency $\omega$.
-:::
+So
 
----
-id: "engineering-electrical-circuit-analysis-311"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Sinusoidal signals"
-type: "text"
-answer: "$V m$ is the peak amplitude"
-skills:
-  - "Sinusoidal signals"
----
+$$
+v_C(t) = 12\bigl(1 - e^{-t/0.3}\bigr)
+$$
 
-What is the main idea of **Sinusoidal signals**?
+At $t = \tau$,
 
-:::solution
-One short answer is: $V m$ is the peak amplitude
+$$
+v_C(\tau) = 12(1 - e^{-1})
+$$
+
+which is about $7.6$ V.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-312"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: RMS value"
-type: "text"
-answer: "For a sinusoid: $$ V {rms} = \\frac{V m}{\\sqrt{2}} $$ Similarly, $$ I {rms} = \\frac{I m}{\\sqrt{2}} $$"
-skills:
-  - "RMS value"
+id: electrical-circuit-analysis-28
+note: engineering-electrical-circuit-analysis
+title: "Find a Series AC Current"
+skills: [Phasors, Impedance, Ohm's Law]
 ---
+
+A source of $10\angle 0^\circ$ V at $\omega = 1000$ rad/s drives a series $100~\Omega$ resistor and $0.1$ H inductor.
 
-What is the main idea of **RMS value**?
+What is the current phasor?
 
 :::solution
-One short answer is: For a sinusoid: $$ V {rms} = \frac{V m}{\sqrt{2}} $$ Similarly, $$ I {rms} = \frac{I m}{\sqrt{2}} $$
-:::
+Find each impedance:
 
----
-id: "engineering-electrical-circuit-analysis-313"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Phasor representation"
-type: "text"
-answer: "A sinusoid can be represented by a complex phasor: $$ v(t) = \\Re\\{ \\tilde{V}e^{j\\omega t}\\} $$ where $\\tilde{V}$ contains magnitude and phase."
-skills:
-  - "Phasor representation"
----
+$$
+Z_R = 100
+$$
 
-What is the main idea of **Phasor representation**?
+$$
+Z_L = j\omega L = j(1000)(0.1) = j100
+$$
 
-:::solution
-One short answer is: A sinusoid can be represented by a complex phasor: $$ v(t) = \Re\{ \tilde{V}e^{j\omega t}\} $$ where $\tilde{V}$ contains magnitude and phase.
-:::
+So the total impedance is
 
----
-id: "engineering-electrical-circuit-analysis-314"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Converting elements to impedance"
-type: "text"
-answer: "In phasor form: $$ Z R = R $$ $$ Z C = \\frac{1}{j\\omega C} $$ $$ Z L = j\\omega L $$ This makes Ohm's law look like $$ \\tilde{V} = \\tilde{I}Z $$ ---"
-skills:
-  - "Converting elements to impedance"
----
+$$
+Z = 100 + j100
+$$
 
-What is the main idea of **Converting elements to impedance**?
+Apply phasor Ohm's law:
 
-:::solution
-One short answer is: In phasor form: $$ Z R = R $$ $$ Z C = \frac{1}{j\omega C} $$ $$ Z L = j\omega L $$ This makes Ohm's law look like $$ \tilde{V} = \tilde{I}Z $$ ---
-:::
+$$
+\tilde{I} = \frac{\tilde{V}}{Z} = \frac{10}{100+j100}
+$$
 
----
-id: "engineering-electrical-circuit-analysis-315"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Impedance, admittance, and AC power"
-type: "text"
-answer: "Impedance, admittance, and AC power"
-skills:
-  - "12. Impedance, admittance, and AC power"
----
+Multiply by the complex conjugate:
 
-What is the main idea of **Impedance, admittance, and AC power**?
+$$
+\tilde{I} = \frac{10(100-j100)}{100^2+100^2}
+$$
 
-:::solution
-One short answer is: Impedance, admittance, and AC power
-:::
+$$
+\tilde{I} = 0.05 - j0.05
+$$
 
----
-id: "engineering-electrical-circuit-analysis-316"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Admittance"
-type: "text"
-answer: "Admittance is the reciprocal of impedance: $$ Y = \\frac{1}{Z} $$ Its unit is siemens, S. For a resistor, $$ Y R = \\frac{1}{R} $$"
-skills:
-  - "Admittance"
----
+In polar form, this is
 
-What is the main idea of **Admittance**?
+$$
+\tilde{I} \approx 0.0707\angle -45^\circ\ \text{A}
+$$
 
-:::solution
-One short answer is: Admittance is the reciprocal of impedance: $$ Y = \frac{1}{Z} $$ Its unit is siemens, S. For a resistor, $$ Y R = \frac{1}{R} $$
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-317"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Series and parallel in AC"
-type: "text"
-answer: "Impedances in series add directly."
-skills:
-  - "Series and parallel in AC"
+id: electrical-circuit-analysis-31
+note: engineering-electrical-circuit-analysis
+title: "Transform a Source to Simplify a Load"
+skills: [Source Transformation, Current Divider, Norton Equivalent]
 ---
 
-What is the main idea of **Series and parallel in AC**?
+A $12$ V source in series with a $6~\Omega$ resistor drives a $6~\Omega$ load.
 
-:::solution
-One short answer is: Impedances in series add directly.
-:::
+Use source transformation to find the current through the load.
 
----
-id: "engineering-electrical-circuit-analysis-318"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Complex power"
-type: "text"
-answer: "$P$ is real power, in watts"
-skills:
-  - "Complex power"
----
+:::solution
+Convert the voltage source and series resistor to a Norton equivalent:
 
-What is the main idea of **Complex power**?
+$$
+I_N = \frac{V_s}{R} = \frac{12}{6} = 2
+$$
 
-:::solution
-One short answer is: $P$ is real power, in watts
-:::
+So the source becomes a $2$ A current source in parallel with $6~\Omega$.
 
----
-id: "engineering-electrical-circuit-analysis-319"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Power factor"
-type: "text"
-answer: "Power factor is $$ \\text{pf} = \\cos\\theta = \\frac{P}{ \\tilde{S} } $$ where $\\theta$ is the phase angle between voltage and current."
-skills:
-  - "Power factor"
----
+The load is also $6~\Omega$, so the two parallel resistors split the current equally:
 
-What is the main idea of **Power factor**?
+$$
+I_L = 2\frac{6}{6+6} = 1
+$$
 
-:::solution
-One short answer is: Power factor is $$ \text{pf} = \cos\theta = \frac{P}{ \tilde{S} } $$ where $\theta$ is the phase angle between voltage and current.
+So the load current is $1$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-320"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Interpreting reactive elements"
-type: "text"
-answer: "Inductive loads draw lagging current."
-skills:
-  - "Interpreting reactive elements"
+id: electrical-circuit-analysis-32
+note: engineering-electrical-circuit-analysis
+title: "Compute Load Power from a Thevenin Model"
+skills: [Thevenin Equivalent, Power]
 ---
 
-What is the main idea of **Interpreting reactive elements**?
+A sensor port is modeled by a Thevenin equivalent of $18$ V in series with $3~\Omega$.
 
+If it drives a $6~\Omega$ load, what power does the load absorb?
+
 :::solution
-One short answer is: Inductive loads draw lagging current.
-:::
+The total series resistance is
 
----
-id: "engineering-electrical-circuit-analysis-321"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: AC analysis workflow"
-type: "text"
-answer: "Convert the source to phasor form."
-skills:
-  - "AC analysis workflow"
----
+$$
+R_{tot} = 3 + 6 = 9
+$$
 
-According to the note, what sequence of steps is recommended in **AC analysis workflow**?
+So the load current is
 
-:::solution
-One short answer is: Convert the source to phasor form.
-:::
+$$
+I = \frac{18}{9} = 2
+$$
 
----
-id: "engineering-electrical-circuit-analysis-322"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Resonance and frequency response"
-type: "text"
-answer: "Resonance and frequency response"
-skills:
-  - "13. Resonance and frequency response"
----
+The load power is
 
-What is the main idea of **Resonance and frequency response**?
+$$
+P_L = I^2R_L = 2^2 \cdot 6 = 24
+$$
 
-:::solution
-One short answer is: Resonance and frequency response
+So the load absorbs $24$ W.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-323"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Series resonance"
-type: "text"
-answer: "In a series RLC circuit, resonance occurs when $$ \\omega L = \\frac{1}{\\omega C} $$ so the reactive parts cancel. The resonant frequency is $$ \\omega 0 = \\frac{1}{\\sqrt{LC}} $$ or $$ f 0 = \\frac{1}{2\\pi\\sqrt{LC}} $$"
-skills:
-  - "Series resonance"
+id: electrical-circuit-analysis-33
+note: engineering-electrical-circuit-analysis
+title: "Estimate an RL Current After a Switch Closes"
+skills: [RL Circuits, Time Constant, Inductors]
 ---
 
-What is the main idea of **Series resonance**?
-
-:::solution
-One short answer is: In a series RLC circuit, resonance occurs when $$ \omega L = \frac{1}{\omega C} $$ so the reactive parts cancel. The resonant frequency is $$ \omega 0 = \frac{1}{\sqrt{LC}} $$ or $$ f 0 = \frac{1}{2\pi\sqrt{LC}} $$
-:::
+A $10$ V source, $5~\Omega$ resistor, and $0.5$ H inductor are connected in series when a switch closes at $t=0$.
 
----
-id: "engineering-electrical-circuit-analysis-324"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Parallel resonance"
-type: "text"
-answer: "In a parallel RLC circuit, the total admittance is minimized at resonance, and the input impedance is maximized."
-skills:
-  - "Parallel resonance"
----
+The inductor current is initially zero.
 
-What is the main idea of **Parallel resonance**?
+What is $i_L(0.2\ \text{s})$?
 
 :::solution
-One short answer is: In a parallel RLC circuit, the total admittance is minimized at resonance, and the input impedance is maximized.
-:::
-
----
-id: "engineering-electrical-circuit-analysis-41"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Quality factor"
-type: "text"
-answer: "The quality factor $Q$ measures how sharp or selective a resonance is. For many simple resonant circuits, a larger $Q$ implies a narrower bandwidth."
-skills:
-  - "Quality factor"
----
+First find the time constant:
 
-What is the main idea of **Quality factor**?
+$$
+\tau = \frac{L}{R} = \frac{0.5}{5} = 0.1\ \text{s}
+$$
 
-:::solution
-One short answer is: The quality factor $Q$ measures how sharp or selective a resonance is. For many simple resonant circuits, a larger $Q$ implies a narrower bandwidth.
-:::
+The final current is
 
----
-id: "engineering-electrical-circuit-analysis-42"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Filters"
-type: "text"
-answer: "Low-pass: passes low frequencies, attenuates high frequencies"
-skills:
-  - "Filters"
----
+$$
+i_L(\infty) = \frac{10}{5} = 2
+$$
 
-What is the main idea of **Filters**?
+So the current is
 
-:::solution
-One short answer is: Low-pass: passes low frequencies, attenuates high frequencies
-:::
+$$
+i_L(t) = 2\bigl(1 - e^{-t/0.1}\bigr)
+$$
 
----
-id: "engineering-electrical-circuit-analysis-43"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Bode plot basics"
-type: "text"
-answer: "One pole: $-20$ dB/decade"
-skills:
-  - "Bode plot basics"
----
+At $t = 0.2$ s,
 
-What is the main idea of **Bode plot basics**?
+$$
+i_L(0.2) = 2(1 - e^{-2})
+$$
 
-:::solution
-One short answer is: One pole: $-20$ dB/decade
+which is about $1.73$ A.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-44"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Operational amplifier basics"
-type: "text"
-answer: "Ideal op-amp analysis is a standard tool in circuit theory."
-skills:
-  - "14. Operational amplifier basics"
+id: electrical-circuit-analysis-34
+note: engineering-electrical-circuit-analysis
+title: "Find Real Power and Power Factor"
+skills: [AC Power, Power Factor, Phasors]
 ---
 
-What is the main idea of **Operational amplifier basics**?
+A $120$ V rms source supplies a load current of $4$ A rms that lags the voltage by $30^\circ$.
 
-:::solution
-One short answer is: Ideal op-amp analysis is a standard tool in circuit theory.
-:::
+What are the real power and the power factor?
 
----
-id: "engineering-electrical-circuit-analysis-45"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Ideal assumptions"
-type: "text"
-answer: "Infinite open-loop gain"
-skills:
-  - "Ideal assumptions"
----
+:::solution
+The power factor is
 
-What is the main idea of **Ideal assumptions**?
+$$
+\text{pf} = \cos 30^\circ = 0.866
+$$
 
-:::solution
-One short answer is: Infinite open-loop gain
-:::
+Real power is
 
----
-id: "engineering-electrical-circuit-analysis-46"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Golden rules with negative feedback"
-type: "text"
-answer: "Input currents are approximately zero:"
-skills:
-  - "Golden rules with negative feedback"
----
+$$
+P = VI\cos\theta = 120 \cdot 4 \cdot 0.866
+$$
 
-What is the main idea of **Golden rules with negative feedback**?
+$$
+P \approx 416\ \text{W}
+$$
 
-:::solution
-One short answer is: Input currents are approximately zero:
+So the load has real power about $416$ W and power factor $0.866$ lagging.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-47"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Common configurations"
-type: "text"
-answer: "Common configurations"
-skills:
-  - "Common configurations"
+id: electrical-circuit-analysis-35
+note: engineering-electrical-circuit-analysis
+title: "Evaluate an Inverting Amplifier"
+skills: [Operational Amplifiers, Inverting Amplifier, Negative Feedback]
 ---
 
-Name one common mistake the note warns about in **Common configurations**.
+An ideal inverting op-amp has $R_{in} = 2~k\Omega$ and $R_f = 8~k\Omega$.
 
-:::solution
-One short answer is: Common configurations
-:::
+If $V_{in} = 0.5$ V, what is the output voltage?
 
----
-id: "engineering-electrical-circuit-analysis-48"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Inverting amplifier"
-type: "text"
-answer: "$$ V {out} = -\\frac{R f}{R {in}}V {in} $$"
-skills:
-  - "Inverting amplifier"
----
+:::solution
+For an ideal inverting amplifier,
 
-What is the main idea of **Inverting amplifier**?
+$$
+V_{out} = -\frac{R_f}{R_{in}}V_{in}
+$$
 
-:::solution
-One short answer is: $$ V {out} = -\frac{R f}{R {in}}V {in} $$
-:::
+Substitute the values:
 
----
-id: "engineering-electrical-circuit-analysis-49"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Noninverting amplifier"
-type: "text"
-answer: "$$ V {out} = \\left(1 + \\frac{R f}{R g}\\right)V {in} $$"
-skills:
-  - "Noninverting amplifier"
----
+$$
+V_{out} = -\frac{8}{2}(0.5)
+$$
 
-What is the main idea of **Noninverting amplifier**?
+$$
+V_{out} = -2
+$$
 
-:::solution
-One short answer is: $$ V {out} = \left(1 + \frac{R f}{R g}\right)V {in} $$
+So the output is $-2$ V.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-410"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Summing amplifier"
-type: "text"
-answer: "Multiple inputs contribute linearly through weighted resistors."
-skills:
-  - "Summing amplifier"
+id: electrical-circuit-analysis-41
+note: engineering-electrical-circuit-analysis
+title: "Maximize Power to a Load"
+skills: [Thevenin Equivalent, Maximum Power Transfer, Power]
 ---
+
+A linear network seen from two terminals has a Thevenin equivalent of $20$ V in series with $5~\Omega$.
 
-What is the main idea of **Summing amplifier**?
+What load resistance maximizes the power transfer, and what is the maximum load power?
 
 :::solution
-One short answer is: Multiple inputs contribute linearly through weighted resistors.
-:::
+Maximum power transfer occurs when
 
----
-id: "engineering-electrical-circuit-analysis-411"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Voltage follower"
-type: "text"
-answer: "Output is tied to the inverting input, so $$ V {out} \\approx V {in} $$"
-skills:
-  - "Voltage follower"
----
+$$
+R_L = R_{th}
+$$
 
-What is the main idea of **Voltage follower**?
+So the best load is
 
-:::solution
-One short answer is: Output is tied to the inverting input, so $$ V {out} \approx V {in} $$
-:::
+$$
+R_L = 5~\Omega
+$$
 
----
-id: "engineering-electrical-circuit-analysis-412"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Caution"
-type: "text"
-answer: "Ideal op-amp rules fail if the output saturates or if feedback is not negative. ---"
-skills:
-  - "Caution"
----
+The maximum power is
 
-What is the main idea of **Caution**?
+$$
+P_{max} = \frac{V_{th}^2}{4R_{th}} = \frac{20^2}{4\cdot 5}
+$$
 
-:::solution
-One short answer is: Ideal op-amp rules fail if the output saturates or if feedback is not negative. ---
+$$
+P_{max} = 20\ \text{W}
+$$
+
+So $R_L = 5~\Omega$ and the maximum load power is $20$ W.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-413"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Problem-solving workflow"
-skills:
-  - "15. Problem-solving workflow"
+id: electrical-circuit-analysis-42
+note: engineering-electrical-circuit-analysis
+title: "Use Continuity in an RC Transient"
+skills: [RC Circuits, Time Constant, Energy Storage]
 ---
+
+A capacitor of $200~\mu\text{F}$ is initially at $6$ V.
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+At $t = 0$, it is connected through a $1~k\Omega$ resistor to an $18$ V source.
 
+Find $v_C(t)$ and the time when the capacitor reaches $12$ V.
+
 :::solution
-One short answer is: Problem-solving workflow
-:::
+The capacitor voltage cannot change instantly, so
 
----
-id: "engineering-electrical-circuit-analysis-414"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Recommended workflow"
-type: "text"
-answer: "Read the problem statement carefully and identify the unknowns."
-skills:
-  - "Recommended workflow"
----
+$$
+v_C(0^+) = 6
+$$
 
-According to the note, what sequence of steps is recommended in **Recommended workflow**?
+The final value is
 
-:::solution
-One short answer is: Read the problem statement carefully and identify the unknowns.
-:::
+$$
+v_C(\infty) = 18
+$$
 
----
-id: "engineering-electrical-circuit-analysis-415"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Sanity checks"
-type: "text"
-answer: "Does the answer have the right units?"
-skills:
-  - "Sanity checks"
----
+The time constant is
 
-What is the main idea of **Sanity checks**?
+$$
+\tau = RC = (1000)(200\times 10^{-6}) = 0.2\ \text{s}
+$$
 
-:::solution
-One short answer is: Does the answer have the right units?
-:::
+So
 
----
-id: "engineering-electrical-circuit-analysis-416"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Mixing peak and RMS values"
-skills:
-  - "Common pitfalls"
----
+$$
+v_C(t) = 18 + (6 - 18)e^{-t/0.2}
+$$
 
-Name one common mistake the note warns about in **Common pitfalls**.
+or
 
-:::solution
-One short answer is: Mixing peak and RMS values
-:::
+$$
+v_C(t) = 18 - 12e^{-t/0.2}
+$$
 
----
-id: "engineering-electrical-circuit-analysis-417"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "16. Formula sheet"
----
+To find when $v_C(t) = 12$ V:
 
-What core formulas or relations are summarized in **Formula sheet**?
+$$
+12 = 18 - 12e^{-t/0.2}
+$$
 
-:::solution
-One short answer is: Formula sheet
-:::
+$$
+12e^{-t/0.2} = 6
+$$
 
----
-id: "engineering-electrical-circuit-analysis-418"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: DC relations"
-type: "text"
-answer: "$$ v = Ri $$ $$ \\sum i = 0 $$ $$ \\sum v = 0 $$"
-skills:
-  - "DC relations"
----
+$$
+e^{-t/0.2} = \frac{1}{2}
+$$
 
-What is the main idea of **DC relations**?
+$$
+t = 0.2\ln 2
+$$
 
-:::solution
-One short answer is: $$ v = Ri $$ $$ \sum i = 0 $$ $$ \sum v = 0 $$
+So the capacitor reaches $12$ V after $0.2\ln 2 \approx 0.139$ s.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-419"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Source and network equivalents"
-type: "text"
-answer: "$$ I N = \\frac{V {th}}{R {th}} $$ $$ V {th} = I NR {th} $$"
-skills:
-  - "Source and network equivalents"
+id: electrical-circuit-analysis-43
+note: engineering-electrical-circuit-analysis
+title: "Find the Resonant Frequency of a Series RLC Circuit"
+skills: [Resonance, Series RLC, Frequency Response]
 ---
+
+A series RLC circuit has $L = 50$ mH and $C = 200~\mu\text{F}$.
 
-What is the main idea of **Source and network equivalents**?
+At what resonant frequency does the reactive part cancel?
 
 :::solution
-One short answer is: $$ I N = \frac{V {th}}{R {th}} $$ $$ V {th} = I NR {th} $$
-:::
+For series resonance,
 
----
-id: "engineering-electrical-circuit-analysis-420"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Energy storage"
-type: "text"
-answer: "$$ w C = \\frac{1}{2}Cv^2 $$ $$ w L = \\frac{1}{2}Li^2 $$"
-skills:
-  - "Energy storage"
----
+$$
+\omega_0 = \frac{1}{\sqrt{LC}}
+$$
 
-What is the main idea of **Energy storage**?
+Substitute the values:
 
-:::solution
-One short answer is: $$ w C = \frac{1}{2}Cv^2 $$ $$ w L = \frac{1}{2}Li^2 $$
-:::
+$$
+\omega_0 = \frac{1}{\sqrt{(0.05)(200\times 10^{-6})}}
+$$
 
----
-id: "engineering-electrical-circuit-analysis-421"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Time constants"
-type: "text"
-answer: "$$ \\tau {RC} = RC $$ $$ \\tau {RL} = \\frac{L}{R} $$"
-skills:
-  - "Time constants"
----
+$$
+\omega_0 = \frac{1}{\sqrt{10^{-5}}} \approx 316.2\ \text{rad/s}
+$$
 
-What is the main idea of **Time constants**?
+Convert to hertz:
 
-:::solution
-One short answer is: $$ \tau {RC} = RC $$ $$ \tau {RL} = \frac{L}{R} $$
+$$
+f_0 = \frac{\omega_0}{2\pi} \approx \frac{316.2}{2\pi} \approx 50.3\ \text{Hz}
+$$
+
+So the resonant frequency is about $50.3$ Hz.
 :::
 
 ---
-id: "engineering-electrical-circuit-analysis-422"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Phasor impedances"
-type: "text"
-answer: "$$ Z R = R $$ $$ Z C = \\frac{1}{j\\omega C} $$ $$ Z L = j\\omega L $$"
-skills:
-  - "Phasor impedances"
+id: electrical-circuit-analysis-44
+note: engineering-electrical-circuit-analysis
+title: "Evaluate an Inverting Summing Amplifier"
+skills: [Operational Amplifiers, Summing Amplifier, Negative Feedback]
 ---
+
+An ideal inverting summing amplifier has feedback resistor $R_f = 12~k\Omega$.
 
-What is the main idea of **Phasor impedances**?
+Two inputs are applied through $R_1 = 3~k\Omega$ with $V_1 = 1$ V and $R_2 = 6~k\Omega$ with $V_2 = 2$ V.
 
+What is the output voltage?
+
 :::solution
-One short answer is: $$ Z R = R $$ $$ Z C = \frac{1}{j\omega C} $$ $$ Z L = j\omega L $$
-:::
+For an ideal inverting summing amplifier,
 
----
-id: "engineering-electrical-circuit-analysis-423"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Power"
-type: "text"
-answer: "$$ p = vi $$ $$ \\tilde{S} = \\tilde{V}\\tilde{I}^ $$ $$ P {max} = \\frac{V {th}^2}{4R {th}} $$"
-skills:
-  - "Power"
----
+$$
+V_{out} = -R_f\left(\frac{V_1}{R_1} + \frac{V_2}{R_2}\right)
+$$
 
-What is the main idea of **Power**?
+Substitute the values:
 
-:::solution
-One short answer is: $$ p = vi $$ $$ \tilde{S} = \tilde{V}\tilde{I}^ $$ $$ P {max} = \frac{V {th}^2}{4R {th}} $$
-:::
+$$
+V_{out} = -12\left(\frac{1}{3} + \frac{2}{6}\right)
+$$
 
----
-id: "engineering-electrical-circuit-analysis-424"
-note: "engineering-electrical-circuit-analysis"
-title: "Review: Resonance"
-type: "text"
-answer: "$$ \\omega 0 = \\frac{1}{\\sqrt{LC}} $$ $$ f 0 = \\frac{1}{2\\pi\\sqrt{LC}} $$"
-skills:
-  - "Resonance"
----
+$$
+V_{out} = -12\left(\frac{1}{3} + \frac{1}{3}\right)
+$$
 
-What is the main idea of **Resonance**?
+$$
+V_{out} = -12\left(\frac{2}{3}\right) = -8
+$$
 
-:::solution
-One short answer is: $$ \omega 0 = \frac{1}{\sqrt{LC}} $$ $$ f 0 = \frac{1}{2\pi\sqrt{LC}} $$
+So the output voltage is $-8$ V.
 :::

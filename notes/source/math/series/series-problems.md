@@ -1,1007 +1,993 @@
 ---
-id: "math-series-11"
-note: "math-series"
-title: "Review: What a series is"
-type: "text"
-answer: "A series is the sum of the terms of a sequence."
-skills:
-  - "1. What a series is"
+id: series-11
+note: math-series
+title: "Necessary Condition for Convergence"
+skills: [Necessary condition for convergence]
 ---
 
-What core idea is introduced in **What a series is**?
+If the series
+
+$$
+\sum_{n=1}^{\infty} a_n
+$$
+
+converges, what must
+
+$$
+\lim_{n\to\infty} a_n
+$$
+
+be?
 
 :::solution
-One short answer is: A series is the sum of the terms of a sequence.
+If a series converges, its terms must go to $0$.
+
+So
+
+$$
+\lim_{n\to\infty} a_n = 0.
+$$
+
+This condition is necessary, but not sufficient.
 :::
 
 ---
-id: "math-series-12"
-note: "math-series"
-title: "Review: Partial sums"
-type: "text"
-answer: "The $n$th partial sum is $$ s n = \\sum {k=1}^{n} a k $$ The series converges if the sequence of partial sums converges: $$ \\sum {n=1}^{\\infty} a n = S \\quad \\Longleftrightarrow \\quad s n \\to S $$ If the partial sums do…"
-skills:
-  - "Partial sums"
+id: series-12
+note: math-series
+title: "Sum a Geometric Series"
+skills: [Geometric series]
 ---
 
-What is the main idea of **Partial sums**?
+Find the sum of
+
+$$
+\sum_{n=0}^{\infty} 6\left(\frac{1}{4}\right)^n.
+$$
 
 :::solution
-One short answer is: The $n$th partial sum is $$ s n = \sum {k=1}^{n} a k $$ The series converges if the sequence of partial sums converges: $$ \sum {n=1}^{\infty} a n = S \quad \Longleftrightarrow \quad s n \to S $$ If the partial sums do…
+This is a geometric series with first term $a=6$ and ratio $r=\frac14$.
+
+Since $|r|<1$, it converges and
+
+$$
+\sum_{n=0}^{\infty} 6\left(\frac{1}{4}\right)^n
+= \frac{6}{1-\frac14}
+= \frac{6}{\frac34}
+= 8.
+$$
 :::
 
 ---
-id: "math-series-13"
-note: "math-series"
-title: "Review: Why series matter"
-type: "text"
-answer: "Approximate functions"
-skills:
-  - "Why series matter"
+id: series-13
+note: math-series
+title: "Compute a Finite Geometric Sum"
+skills: [Finite geometric sum]
 ---
 
-What is the main idea of **Why series matter**?
+Compute
+
+$$
+\sum_{n=0}^{3} 2\left(\frac12\right)^n.
+$$
 
 :::solution
-One short answer is: Approximate functions
+Use the finite geometric sum formula:
+
+$$
+\sum_{n=0}^{N-1} ar^n = a\frac{1-r^N}{1-r}.
+$$
+
+Here $a=2$, $r=\frac12$, and $N=4$:
+
+$$
+\sum_{n=0}^{3} 2\left(\frac12\right)^n
+= 2\cdot \frac{1-(\frac12)^4}{1-\frac12}
+= 2\cdot \frac{1-\frac1{16}}{\frac12}
+= \frac{15}{4}.
+$$
 :::
 
 ---
-id: "math-series-14"
-note: "math-series"
-title: "Review: Core vocabulary"
-type: "text"
-answer: "Core vocabulary"
-skills:
-  - "2. Core vocabulary"
+id: series-14
+note: math-series
+title: "Evaluate a Telescoping Sum"
+skills: [Telescoping series]
 ---
 
-What core idea is introduced in **Core vocabulary**?
+Evaluate
+
+$$
+\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+2}\right).
+$$
 
 :::solution
-One short answer is: Core vocabulary
+Write out the partial sums:
+
+$$
+s_N = \left(1-\frac13\right) + \left(\frac12-\frac14\right) + \cdots + \left(\frac1N-\frac1{N+2}\right).
+$$
+
+Most terms cancel, leaving
+
+$$
+s_N = 1+\frac12-\frac{1}{N+1}-\frac{1}{N+2}.
+$$
+
+Now let $N\to\infty$:
+
+$$
+\sum_{n=1}^{\infty}\left(\frac{1}{n}-\frac{1}{n+2}\right)
+= 1+\frac12
+= \frac32.
+$$
 :::
 
 ---
-id: "math-series-15"
-note: "math-series"
-title: "Review: Convergent and divergent"
-type: "text"
-answer: "A series is convergent if its partial sums approach a finite value."
-skills:
-  - "Convergent and divergent"
+id: series-15
+note: math-series
+title: "Decide a p-Series"
+skills: [p-series]
 ---
 
-What is the main idea of **Convergent and divergent**?
+Does
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^{3/2}}
+$$
+
+converge or diverge?
 
 :::solution
-One short answer is: A series is convergent if its partial sums approach a finite value.
+This is a $p$-series with
+
+$$
+p=\frac32.
+$$
+
+Since $p>1$, the series converges.
 :::
 
 ---
-id: "math-series-16"
-note: "math-series"
-title: "Review: Necessary condition for convergence"
-type: "text"
-answer: "If $$ \\sum a n $$ converges, then $$ \\lim {n\\to\\infty} a n = 0 $$ This condition is necessary but not sufficient. For example, $$ \\sum {n=1}^{\\infty} \\frac{1}{n} $$ diverges even though the terms go to $0$."
-skills:
-  - "Necessary condition for convergence"
+id: series-16
+note: math-series
+title: "Classify an Alternating p-Series"
+skills: [Alternating series test, Absolute convergence check]
 ---
 
-What is the main idea of **Necessary condition for convergence**?
+Classify the series
+
+$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{\sqrt{n}}
+$$
+
+as absolutely convergent, conditionally convergent, or divergent.
 
 :::solution
-One short answer is: If $$ \sum a n $$ converges, then $$ \lim {n\to\infty} a n = 0 $$ This condition is necessary but not sufficient. For example, $$ \sum {n=1}^{\infty} \frac{1}{n} $$ diverges even though the terms go to $0$.
+First check absolute convergence:
+
+$$
+\sum_{n=1}^{\infty}\left|(-1)^{n+1}\frac{1}{\sqrt{n}}\right|
+= \sum_{n=1}^{\infty}\frac{1}{n^{1/2}}.
+$$
+
+This is a $p$-series with $p=\frac12$, so it diverges.
+
+Now apply the alternating series test to
+
+$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{\sqrt{n}}.
+$$
+
+The terms decrease to $0$, so the series converges.
+
+Therefore, the series is conditionally convergent.
 :::
 
 ---
-id: "math-series-17"
-note: "math-series"
-title: "Review: Absolute and conditional convergence"
-type: "text"
-answer: "Absolutely convergent if $\\sum a n $ converges"
-skills:
-  - "Absolute and conditional convergence"
+id: series-17
+note: math-series
+title: "Spot Divergence from the Terms"
+skills: [Divergence test]
 ---
 
-What is the main idea of **Absolute and conditional convergence**?
+Does
+
+$$
+\sum_{n=1}^{\infty}\frac{2n+1}{n+2}
+$$
+
+converge or diverge?
 
 :::solution
-One short answer is: Absolutely convergent if $\sum a n $ converges
+Use the divergence test by checking the term limit:
+
+$$
+\lim_{n\to\infty}\frac{2n+1}{n+2} = 2.
+$$
+
+Since the terms do not go to $0$, the series diverges.
 :::
 
 ---
-id: "math-series-18"
-note: "math-series"
-title: "Review: Rearrangement warning"
-type: "text"
-answer: "For absolutely convergent series, rearranging terms does not change the sum."
-skills:
-  - "Rearrangement warning"
+id: series-18
+note: math-series
+title: "Compare to a Known Convergent Series"
+skills: [Comparison test]
 ---
 
-What is the main idea of **Rearrangement warning**?
+Does
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}
+$$
+
+converge or diverge?
 
 :::solution
-One short answer is: For absolutely convergent series, rearranging terms does not change the sum.
+For $n\ge 1$,
+
+$$
+0<\frac{1}{n^2+1}\le \frac{1}{n^2}.
+$$
+
+Since
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2}
+$
+converges, the comparison test shows that
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+1}
+$$
+
+also converges.
 :::
 
 ---
-id: "math-series-19"
-note: "math-series"
-title: "Review: Geometric and telescoping series"
-type: "text"
-answer: "Geometric and telescoping series"
-skills:
-  - "3. Geometric and telescoping series"
+id: series-19
+note: math-series
+title: "Geometric Series with a Negative Ratio"
+skills: [Geometric series]
 ---
 
-What is the main idea of **Geometric and telescoping series**?
+Find the sum of
+
+$$
+\sum_{n=0}^{\infty} 5\left(-\frac34\right)^n.
+$$
 
 :::solution
-One short answer is: Geometric and telescoping series
+This is geometric with first term $a=5$ and ratio $r=-\frac34$.
+
+Since $|r|<1$, it converges and
+
+$$
+\sum_{n=0}^{\infty} 5\left(-\frac34\right)^n
+= \frac{5}{1-(-\frac34)}
+= \frac{5}{\frac74}
+= \frac{20}{7}.
+$$
 :::
 
 ---
-id: "math-series-110"
-note: "math-series"
-title: "Review: Geometric series"
-type: "text"
-answer: "The standard geometric series is $$ \\sum {n=0}^{\\infty} ar^n $$ It converges when $$ r < 1 $$ and its sum is $$ \\sum {n=0}^{\\infty} ar^n = \\frac{a}{1-r} $$ If the index starts at $n=1$, adjust the first term accordingly."
-skills:
-  - "Geometric series"
+id: series-110
+note: math-series
+title: "Check Absolute Convergence"
+skills: [Absolute convergence check]
 ---
 
-What is the main idea of **Geometric series**?
+Determine whether
+
+$$
+\sum_{n=1}^{\infty}(-1)^n\frac{1}{n^2}
+$$
+
+is absolutely convergent, conditionally convergent, or divergent.
 
 :::solution
-One short answer is: The standard geometric series is $$ \sum {n=0}^{\infty} ar^n $$ It converges when $$ r < 1 $$ and its sum is $$ \sum {n=0}^{\infty} ar^n = \frac{a}{1-r} $$ If the index starts at $n=1$, adjust the first term accordingly.
+Check the absolute series:
+
+$$
+\sum_{n=1}^{\infty}\left|(-1)^n\frac{1}{n^2}\right|
+= \sum_{n=1}^{\infty}\frac{1}{n^2}.
+$$
+
+This is a $p$-series with $p=2$, so it converges.
+
+Therefore, the original series converges absolutely.
 :::
 
 ---
-id: "math-series-111"
-note: "math-series"
-title: "Review: Finite geometric sum"
-type: "text"
-answer: "For $N \\ge 1$, $$ \\sum {n=0}^{N-1} ar^n = a\\frac{1-r^N}{1-r}, \\quad r \\ne 1 $$"
-skills:
-  - "Finite geometric sum"
+id: series-21
+note: math-series
+title: "Use Direct Comparison"
+skills: [Comparison test]
 ---
 
-What is the main idea of **Finite geometric sum**?
+Determine whether
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+3n}
+$$
+
+converges or diverges.
 
 :::solution
-One short answer is: For $N \ge 1$, $$ \sum {n=0}^{N-1} ar^n = a\frac{1-r^N}{1-r}, \quad r \ne 1 $$
+For $n\ge 1$,
+
+$$
+0<\frac{1}{n^2+3n}\le \frac{1}{n^2}.
+$$
+
+Since $\sum \frac{1}{n^2}$ converges, the comparison test gives convergence of the given series.
 :::
 
 ---
-id: "math-series-112"
-note: "math-series"
-title: "Review: Telescoping series"
-type: "text"
-answer: "A telescoping series is one where successive terms cancel after rewriting."
-skills:
-  - "Telescoping series"
+id: series-22
+note: math-series
+title: "Use Limit Comparison"
+skills: [Limit comparison test]
 ---
 
-What is the main idea of **Telescoping series**?
+Determine whether
+
+$$
+\sum_{n=1}^{\infty}\frac{4n+1}{n^2+n}
+$$
+
+converges or diverges.
 
 :::solution
-One short answer is: A telescoping series is one where successive terms cancel after rewriting.
+Compare with
+
+$$
+b_n=\frac1n.
+$$
+
+Then
+
+$$
+\lim_{n\to\infty}\frac{\frac{4n+1}{n^2+n}}{\frac1n}
+= \lim_{n\to\infty}\frac{4n^2+n}{n^2+n}
+= 4.
+$$
+
+Because the limit is a positive finite number, the two series behave the same way.
+
+Since
+
+$$
+\sum_{n=1}^{\infty}\frac1n
+$$
+
+diverges, the given series also diverges.
 :::
 
 ---
-id: "math-series-113"
-note: "math-series"
-title: "Review: Strategy for telescoping"
-type: "text"
-answer: "Rewrite the term using partial fractions or algebra."
-skills:
-  - "Strategy for telescoping"
+id: series-23
+note: math-series
+title: "Apply the Integral Test"
+skills: [Integral test]
 ---
 
-What is the main idea of **Strategy for telescoping**?
+Determine whether
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n^2+4}
+$$
+
+converges or diverges using the integral test.
 
 :::solution
-One short answer is: Rewrite the term using partial fractions or algebra.
+Let
+
+$$
+f(x)=\frac{1}{x^2+4}.
+$$
+
+For $x\ge 1$, this function is positive, continuous, and decreasing, so the integral test applies.
+
+Compute the improper integral:
+
+$$
+\int_1^{\infty}\frac{1}{x^2+4}\,dx
+= \frac12\int_1^{\infty}\frac{1}{(x/2)^2+1}\,dx
+= \frac12\left[\arctan\!\left(\frac{x}{2}\right)\right]_1^{\infty}.
+$$
+
+This is finite, so the series converges.
 :::
 
 ---
-id: "math-series-114"
-note: "math-series"
-title: "Review: Convergence tests"
-type: "text"
-answer: "No single test works best in every case. Choose the test that matches the structure of the series."
-skills:
-  - "4. Convergence tests"
+id: series-24
+note: math-series
+title: "Apply the Ratio Test"
+skills: [Ratio test]
 ---
 
-What is the main idea of **Convergence tests**?
+Determine whether
+
+$$
+\sum_{n=0}^{\infty}\frac{n!}{3^n}
+$$
+
+converges or diverges.
 
 :::solution
-One short answer is: No single test works best in every case. Choose the test that matches the structure of the series.
+Let
+
+$$
+a_n=\frac{n!}{3^n}.
+$$
+
+Then
+
+$$
+\left|\frac{a_{n+1}}{a_n}\right|
+= \frac{(n+1)!}{3^{n+1}}\cdot \frac{3^n}{n!}
+= \frac{n+1}{3}.
+$$
+
+As $n\to\infty$,
+
+$$
+\frac{n+1}{3}\to\infty.
+$$
+
+So the ratio test gives divergence.
 :::
 
 ---
-id: "math-series-115"
-note: "math-series"
-title: "Review: Divergence test"
-type: "text"
-answer: "If $$ \\lim {n\\to\\infty} a n \\ne 0 $$ or the limit does not exist, then $$ \\sum a n $$ diverges. If the limit is $0$, the test is inconclusive."
-skills:
-  - "Divergence test"
+id: series-25
+note: math-series
+title: "Apply the Root Test"
+skills: [Root test]
 ---
 
-What is the main idea of **Divergence test**?
+Determine whether
+
+$$
+\sum_{n=1}^{\infty}\left(\frac{2n}{3n+1}\right)^n
+$$
+
+converges or diverges.
 
 :::solution
-One short answer is: If $$ \lim {n\to\infty} a n \ne 0 $$ or the limit does not exist, then $$ \sum a n $$ diverges. If the limit is $0$, the test is inconclusive.
+Use the root test:
+
+$$
+L=\lim_{n\to\infty}\sqrt[n]{\left|\left(\frac{2n}{3n+1}\right)^n\right|}
+= \lim_{n\to\infty}\frac{2n}{3n+1}
+= \frac23.
+$$
+
+Since $L<1$, the series converges absolutely.
 :::
 
 ---
-id: "math-series-116"
-note: "math-series"
-title: "Review: $p$-series"
-type: "text"
-answer: "The $p$-series $$ \\sum {n=1}^{\\infty} \\frac{1}{n^p} $$ converges if and only if $$ p > 1 $$ and diverges for $p \\le 1$."
-skills:
-  - "$p$-series"
+id: series-26
+note: math-series
+title: "Find an Interval of Convergence"
+skills: [Power series, Radius and interval of convergence]
 ---
 
-What is the main idea of **$p$-series**?
+Find the interval of convergence of
+
+$$
+\sum_{n=1}^{\infty}\frac{(x-2)^n}{n4^n}.
+$$
 
 :::solution
-One short answer is: The $p$-series $$ \sum {n=1}^{\infty} \frac{1}{n^p} $$ converges if and only if $$ p > 1 $$ and diverges for $p \le 1$.
+Apply the ratio test to the general term
+
+$$
+a_n=\frac{(x-2)^n}{n4^n}.
+$$
+
+Then
+
+$$
+\left|\frac{a_{n+1}}{a_n}\right|
+= \left|\frac{x-2}{4}\right|\cdot \frac{n}{n+1}.
+$$
+
+The limit is
+
+$$
+\left|\frac{x-2}{4}\right|.
+$$
+
+So the series converges when
+
+$$
+\left|\frac{x-2}{4}\right|<1,
+$$
+
+which gives
+
+$$
+-2<x<6.
+$$
+
+Check the endpoints:
+
+At $x=6$,
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n}
+$$
+
+diverges.
+
+At $x=-2$,
+
+$$
+\sum_{n=1}^{\infty}\frac{(-1)^n}{n}
+$$
+
+converges conditionally by the alternating series test.
+
+Therefore the interval of convergence is
+
+$$
+[-2,6).
+$$
 :::
 
 ---
-id: "math-series-21"
-note: "math-series"
-title: "Review: Comparison test"
-type: "text"
-answer: "For series with nonnegative terms, compare to a known benchmark series."
-skills:
-  - "Comparison test"
+id: series-27
+note: math-series
+title: "Differentiate a Power Series"
+skills: [Differentiation and integration, Power series]
 ---
 
-What is the main idea of **Comparison test**?
+For $|x|<1$, find a power series for
+
+$$
+\frac{x}{(1-x)^2}.
+$$
 
 :::solution
-One short answer is: For series with nonnegative terms, compare to a known benchmark series.
+Start with the geometric series:
+
+$$
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|<1.
+$$
+
+Differentiate term by term:
+
+$$
+\frac{1}{(1-x)^2}=\sum_{n=1}^{\infty} n x^{n-1}.
+$$
+
+Multiply both sides by $x$:
+
+$$
+\frac{x}{(1-x)^2}=\sum_{n=1}^{\infty} n x^n,\quad |x|<1.
+$$
 :::
 
 ---
-id: "math-series-22"
-note: "math-series"
-title: "Review: Limit comparison test"
-type: "text"
-answer: "If $a n, b n > 0$ and $$ \\lim {n\\to\\infty}\\frac{a n}{b n} = c $$ with $0 < c < \\infty$, then $\\sum a n$ and $\\sum b n$ behave the same way. This is useful when the terms have the same dominant growth rate."
-skills:
-  - "Limit comparison test"
+id: series-28
+note: math-series
+title: "Expand a Rational Function by Substitution"
+skills: [Geometric series, Power series]
 ---
 
-What is the main idea of **Limit comparison test**?
+For $|x|<1$, write
+
+$$
+\frac{1}{1-x^2}
+$$
+
+as a power series.
 
 :::solution
-One short answer is: If $a n, b n > 0$ and $$ \lim {n\to\infty}\frac{a n}{b n} = c $$ with $0 < c < \infty$, then $\sum a n$ and $\sum b n$ behave the same way. This is useful when the terms have the same dominant growth rate.
+Start with the geometric series
+
+$$
+\frac{1}{1-u}=\sum_{n=0}^{\infty}u^n,\quad |u|<1.
+$$
+
+Substitute $u=x^2$:
+
+$$
+\frac{1}{1-x^2}=\sum_{n=0}^{\infty}x^{2n}.
+$$
+
+This is valid when
+
+$$
+|x^2|<1,
+$$
+
+so the interval of convergence is
+
+$$
+|x|<1.
+$$
 :::
 
 ---
-id: "math-series-23"
-note: "math-series"
-title: "Review: Integral test"
-type: "text"
-answer: "If $a n = f(n)$ where $f$ is positive, continuous, and decreasing on $[N,\\infty)$, then $$ \\sum {n=N}^{\\infty} a n $$ and $$ \\int N^{\\infty} f(x)\\,dx $$ either both converge or both diverge."
-skills:
-  - "Integral test"
+id: series-31
+note: math-series
+title: "Reindex a Series"
+skills: [Index shifting]
 ---
 
-What is the main idea of **Integral test**?
+Rewrite
+
+$$
+\sum_{n=2}^{\infty}\frac{1}{(n-1)^2}
+$$
+
+in standard form, and decide whether it converges.
 
 :::solution
-One short answer is: If $a n = f(n)$ where $f$ is positive, continuous, and decreasing on $[N,\infty)$, then $$ \sum {n=N}^{\infty} a n $$ and $$ \int N^{\infty} f(x)\,dx $$ either both converge or both diverge.
+Let $k=n-1$. Then when $n=2$, $k=1$, and the series becomes
+
+$$
+\sum_{k=1}^{\infty}\frac{1}{k^2}.
+$$
+
+This is a $p$-series with $p=2$, so it converges.
 :::
 
 ---
-id: "math-series-24"
-note: "math-series"
-title: "Review: Ratio test"
-type: "text"
-answer: "If $L < 1$, the series converges absolutely."
-skills:
-  - "Ratio test"
+id: series-32
+note: math-series
+title: "Choose the Right Comparison"
+skills: [Limit comparison test]
 ---
 
-What is the main idea of **Ratio test**?
+Determine whether
+
+$$
+\sum_{n=1}^{\infty}\frac{n^2}{n^3+5}
+$$
+
+converges or diverges.
 
 :::solution
-One short answer is: If $L < 1$, the series converges absolutely.
+Compare with
+
+$$
+b_n=\frac1n.
+$$
+
+Compute
+
+$$
+\lim_{n\to\infty}\frac{\frac{n^2}{n^3+5}}{\frac1n}
+= \lim_{n\to\infty}\frac{n^3}{n^3+5}
+= 1.
+$$
+
+So the series behaves like $\sum \frac1n$.
+
+Because the harmonic series diverges, the given series diverges as well.
 :::
 
 ---
-id: "math-series-25"
-note: "math-series"
-title: "Review: Root test"
-type: "text"
-answer: "Consider $$ L = \\lim {n\\to\\infty}\\sqrt[n]{ a n } $$ with the same conclusions as the ratio test. Use this when the $n$th power is built into the term."
-skills:
-  - "Root test"
+id: series-33
+note: math-series
+title: "Evaluate a Telescoping Series"
+skills: [Telescoping series]
 ---
 
-What is the main idea of **Root test**?
+Evaluate
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n(n+1)}.
+$$
 
 :::solution
-One short answer is: Consider $$ L = \lim {n\to\infty}\sqrt[n]{ a n } $$ with the same conclusions as the ratio test. Use this when the $n$th power is built into the term.
+Use partial fractions:
+
+$$
+\frac{1}{n(n+1)}=\frac{1}{n}-\frac{1}{n+1}.
+$$
+
+So the partial sums telescope:
+
+$$
+s_N=\left(1-\frac12\right)+\left(\frac12-\frac13\right)+\cdots+\left(\frac1N-\frac{1}{N+1}\right).
+$$
+
+Everything cancels except the first and last pieces:
+
+$$
+s_N=1-\frac{1}{N+1}.
+$$
+
+Taking the limit gives
+
+$$
+\sum_{n=1}^{\infty}\frac{1}{n(n+1)}=1.
+$$
 :::
 
 ---
-id: "math-series-26"
-note: "math-series"
-title: "Review: Alternating series test"
-type: "text"
-answer: "$b n \\ge 0$"
-skills:
-  - "Alternating series test"
+id: series-34
+note: math-series
+title: "Build a Logarithm Series"
+skills: [Geometric series, Integration]
 ---
 
-What is the main idea of **Alternating series test**?
+Use the geometric series to write the Maclaurin series for
+
+$$
+-\ln(1-x).
+$$
+
+State the interval where the series converges.
 
 :::solution
-One short answer is: $b n \ge 0$
+Start with
+
+$$
+\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|<1.
+$$
+
+Integrate both sides term by term:
+
+$$
+\int \frac{1}{1-x}\,dx = \int \sum_{n=0}^{\infty}x^n\,dx.
+$$
+
+This gives
+
+$$
+-\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n},\quad |x|<1.
+$$
+
+The first four nonzero terms are
+
+$$
+x+\frac{x^2}{2}+\frac{x^3}{3}+\frac{x^4}{4}.
+$$
 :::
 
 ---
-id: "math-series-27"
-note: "math-series"
-title: "Review: Absolute convergence check"
-type: "text"
-answer: "If a series alternates or has mixed signs, first test $$ \\sum a n $$ If the absolute series converges, the original series converges absolutely. ---"
-skills:
-  - "Absolute convergence check"
+id: series-35
+note: math-series
+title: "Use a Power Series to Sum a Series"
+skills: [Differentiation and integration, Power series]
 ---
 
-What is the main idea of **Absolute convergence check**?
+Evaluate
+
+$$
+\sum_{n=1}^{\infty}\frac{n}{2^n}.
+$$
 
 :::solution
-One short answer is: If a series alternates or has mixed signs, first test $$ \sum a n $$ If the absolute series converges, the original series converges absolutely. ---
+Differentiate the geometric series:
+
+$$
+\sum_{n=0}^{\infty}x^n=\frac{1}{1-x},\quad |x|<1
+$$
+
+so
+
+$$
+\sum_{n=1}^{\infty}n x^{n-1}=\frac{1}{(1-x)^2}.
+$$
+
+Now set $x=\frac12$:
+
+$$
+\sum_{n=1}^{\infty}n\left(\frac12\right)^{n-1}
+= \frac{1}{(1-\frac12)^2}
+= 4.
+$$
+
+Multiply both sides by $\frac12$:
+
+$$
+\sum_{n=1}^{\infty}\frac{n}{2^n}=2.
+$$
 :::
 
 ---
-id: "math-series-28"
-note: "math-series"
-title: "Review: Power series"
-type: "text"
-answer: "A power series centered at $c$ has the form $$ \\sum {n=0}^{\\infty} a n (x-c)^n $$ It behaves like an infinite polynomial within its interval of convergence."
-skills:
-  - "5. Power series"
+id: series-41
+note: math-series
+title: "Approximate with a Taylor Polynomial"
+skills: [Taylor and Maclaurin series, Error thinking]
 ---
 
-What is the main idea of **Power series**?
+Use the Maclaurin series for $\sin x$ to approximate $\sin(0.2)$ with the first two nonzero terms.
 
 :::solution
-One short answer is: A power series centered at $c$ has the form $$ \sum {n=0}^{\infty} a n (x-c)^n $$ It behaves like an infinite polynomial within its interval of convergence.
+The Maclaurin series for sine is
+
+$$
+\sin x = x - \frac{x^3}{3!} + \cdots
+$$
+
+Use the first two nonzero terms:
+
+$$
+\sin(0.2)\approx 0.2-\frac{(0.2)^3}{6}.
+$$
+
+Since
+
+$$
+0.2^3=0.008,
+$$
+
+we get
+
+$$
+\sin(0.2)\approx 0.2-\frac{0.008}{6}
+= 0.198666\ldots
+= \frac{149}{750}.
+$$
+
+The next omitted term is very small, so this is a good local approximation.
 :::
 
 ---
-id: "math-series-29"
-note: "math-series"
-title: "Review: Radius and interval of convergence"
-type: "text"
-answer: "Absolutely for $ x-c < R$"
-skills:
-  - "Radius and interval of convergence"
+id: series-42
+note: math-series
+title: "Find a Binomial Coefficient"
+skills: [Binomial-type expansion]
 ---
 
-What is the main idea of **Radius and interval of convergence**?
+In the expansion of
+
+$$
+(1+x)^{1/2},
+$$
+
+what is the coefficient of $x^3$?
 
 :::solution
-One short answer is: Absolutely for $ x-c < R$
+Use the binomial-type expansion:
+
+$$
+(1+x)^\alpha = \sum_{n=0}^{\infty}\binom{\alpha}{n}x^n.
+$$
+
+For $\alpha=\frac12$, the coefficient of $x^3$ is
+
+$$
+\binom{1/2}{3}
+= \frac{\left(\frac12\right)\left(-\frac12\right)\left(-\frac32\right)}{3!}
+= \frac{1}{16}.
+$$
 :::
 
 ---
-id: "math-series-210"
-note: "math-series"
-title: "Review: Finding the radius"
-type: "text"
-answer: "The ratio test is the standard tool. Compute $$ \\lim {n\\to\\infty}\\left \\frac{a {n+1}(x-c)^{n+1}}{a n(x-c)^n}\\right $$ and solve for the values of $x$ that make the limit less than $1$."
-skills:
-  - "Finding the radius"
+id: series-43
+note: math-series
+title: "Match Coefficients"
+skills: [Matching coefficients]
 ---
 
-What is the main idea of **Finding the radius**?
+Suppose
+
+$$
+f(x)=\sum_{n=0}^{\infty}a_n x^n
+$$
+
+and
+
+$$
+(1-x)f(x)=1+x.
+$$
+
+Find the coefficients $a_n$.
 
 :::solution
-One short answer is: The ratio test is the standard tool. Compute $$ \lim {n\to\infty}\left \frac{a {n+1}(x-c)^{n+1}}{a n(x-c)^n}\right $$ and solve for the values of $x$ that make the limit less than $1$.
+Expand the left-hand side:
+
+$$
+(1-x)\sum_{n=0}^{\infty}a_n x^n
+= \sum_{n=0}^{\infty}a_n x^n - \sum_{n=0}^{\infty}a_n x^{n+1}.
+$$
+
+Reindex the second sum:
+
+$$
+\sum_{n=0}^{\infty}a_n x^n - \sum_{n=1}^{\infty}a_{n-1}x^n.
+$$
+
+So
+
+$$
+(1-x)f(x)=a_0+\sum_{n=1}^{\infty}(a_n-a_{n-1})x^n.
+$$
+
+Match coefficients with
+
+$$
+1+x.
+$$
+
+This gives
+
+$$
+a_0=1,
+$$
+
+$$
+a_1-a_0=1,
+$$
+
+and for $n\ge 2$,
+
+$$
+a_n-a_{n-1}=0.
+$$
+
+So
+
+$$
+a_1=2
+$$
+
+and
+
+$$
+a_n=2 \quad \text{for all } n\ge 1.
+$$
 :::
 
 ---
-id: "math-series-211"
-note: "math-series"
-title: "Review: Differentiation and integration"
-type: "text"
-answer: "Within the interval of convergence, a power series may be differentiated and integrated term by term."
-skills:
-  - "Differentiation and integration"
+id: series-44
+note: math-series
+title: "Classify a Mixed-Sign Series"
+skills: [Alternating series test, Absolute convergence check]
 ---
 
-What is the main idea of **Differentiation and integration**?
+Classify
 
-:::solution
-One short answer is: Within the interval of convergence, a power series may be differentiated and integrated term by term.
-:::
+$$
+\sum_{n=1}^{\infty}(-1)^{n+1}\frac{n}{n^2+1}
+$$
 
----
-id: "math-series-212"
-note: "math-series"
-title: "Review: Why power series are powerful"
-type: "text"
-answer: "Differentiated and integrated term by term"
-skills:
-  - "Why power series are powerful"
----
-
-What is the main idea of **Why power series are powerful**?
+as absolutely convergent, conditionally convergent, or divergent.
 
 :::solution
-One short answer is: Differentiated and integrated term by term
-:::
+First check absolute convergence:
 
----
-id: "math-series-213"
-note: "math-series"
-title: "Review: Taylor and Maclaurin series"
-type: "text"
-answer: "The Taylor series of a function $f$ centered at $a$ is $$ f(x)=\\sum {n=0}^{\\infty} \\frac{f^{(n)}(a)}{n!}(x-a)^n $$ If $a=0$, it is called a Maclaurin series ."
-skills:
-  - "6. Taylor and Maclaurin series"
----
+$$
+\sum_{n=1}^{\infty}\left|(-1)^{n+1}\frac{n}{n^2+1}\right|
+= \sum_{n=1}^{\infty}\frac{n}{n^2+1}.
+$$
 
-What is the main idea of **Taylor and Maclaurin series**?
+Since
 
-:::solution
-One short answer is: The Taylor series of a function $f$ centered at $a$ is $$ f(x)=\sum {n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n $$ If $a=0$, it is called a Maclaurin series .
-:::
+$$
+\frac{n}{n^2+1}\sim \frac1n,
+$$
 
----
-id: "math-series-214"
-note: "math-series"
-title: "Review: Common expansions"
-type: "text"
-answer: "Common expansions"
-skills:
-  - "Common expansions"
----
+this absolute series diverges.
 
-Name one common mistake the note warns about in **Common expansions**.
+Now check the alternating series test. Let
 
-:::solution
-One short answer is: Common expansions
-:::
+$$
+b_n=\frac{n}{n^2+1}.
+$$
 
----
-id: "math-series-215"
-note: "math-series"
-title: "Review: Exponential"
-type: "text"
-answer: "$$ e^x = \\sum {n=0}^{\\infty}\\frac{x^n}{n!} $$"
-skills:
-  - "Exponential"
----
+Then $b_n\to 0$, and $b_n$ is decreasing for $n\ge 1$ because the function
 
-What is the main idea of **Exponential**?
+$$
+f(x)=\frac{x}{x^2+1}
+$$
 
-:::solution
-One short answer is: $$ e^x = \sum {n=0}^{\infty}\frac{x^n}{n!} $$
-:::
+has derivative
 
----
-id: "math-series-216"
-note: "math-series"
-title: "Review: Sine"
-type: "text"
-answer: "$$ \\sin x = \\sum {n=0}^{\\infty} (-1)^n \\frac{x^{2n+1}}{(2n+1)!} $$"
-skills:
-  - "Sine"
----
+$$
+f'(x)=\frac{1-x^2}{(x^2+1)^2}\le 0
+$$
 
-What is the main idea of **Sine**?
+for $x\ge 1$.
 
-:::solution
-One short answer is: $$ \sin x = \sum {n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!} $$
-:::
+So the alternating series converges, but not absolutely.
 
----
-id: "math-series-31"
-note: "math-series"
-title: "Review: Cosine"
-type: "text"
-answer: "$$ \\cos x = \\sum {n=0}^{\\infty} (-1)^n \\frac{x^{2n}}{(2n)!} $$"
-skills:
-  - "Cosine"
----
-
-What is the main idea of **Cosine**?
-
-:::solution
-One short answer is: $$ \cos x = \sum {n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!} $$
-:::
-
----
-id: "math-series-32"
-note: "math-series"
-title: "Review: Binomial-type expansion"
-type: "text"
-answer: "For $ x <1$, $$ \\frac{1}{1-x} = \\sum {n=0}^{\\infty} x^n $$ and more generally, for real exponent $\\alpha$, $$ (1+x)^\\alpha = \\sum {n=0}^{\\infty} \\binom{\\alpha}{n} x^n $$ where $$ \\binom{\\alpha}{n} = \\frac{\\alpha(\\alpha-…"
-skills:
-  - "Binomial-type expansion"
----
-
-What is the main idea of **Binomial-type expansion**?
-
-:::solution
-One short answer is: For $ x <1$, $$ \frac{1}{1-x} = \sum {n=0}^{\infty} x^n $$ and more generally, for real exponent $\alpha$, $$ (1+x)^\alpha = \sum {n=0}^{\infty} \binom{\alpha}{n} x^n $$ where $$ \binom{\alpha}{n} = \frac{\alpha(\alpha-…
-:::
-
----
-id: "math-series-33"
-note: "math-series"
-title: "Review: Remainder and approximation"
-type: "text"
-answer: "The Taylor polynomial of degree $N$ is $$ P N(x)=\\sum {n=0}^{N} \\frac{f^{(n)}(a)}{n!}(x-a)^n $$ The remainder is $$ R N(x)=f(x)-P N(x) $$ For many problems, a low-degree Taylor polynomial gives a useful local approximat…"
-skills:
-  - "Remainder and approximation"
----
-
-What is the main idea of **Remainder and approximation**?
-
-:::solution
-One short answer is: The Taylor polynomial of degree $N$ is $$ P N(x)=\sum {n=0}^{N} \frac{f^{(n)}(a)}{n!}(x-a)^n $$ The remainder is $$ R N(x)=f(x)-P N(x) $$ For many problems, a low-degree Taylor polynomial gives a useful local approximat…
-:::
-
----
-id: "math-series-34"
-note: "math-series"
-title: "Review: Error thinking"
-type: "text"
-answer: "How many terms are enough?"
-skills:
-  - "Error thinking"
----
-
-What is the main idea of **Error thinking**?
-
-:::solution
-One short answer is: How many terms are enough?
-:::
-
----
-id: "math-series-35"
-note: "math-series"
-title: "Review: Manipulating series"
-type: "text"
-answer: "Manipulating series"
-skills:
-  - "7. Manipulating series"
----
-
-What is the main idea of **Manipulating series**?
-
-:::solution
-One short answer is: Manipulating series
-:::
-
----
-id: "math-series-36"
-note: "math-series"
-title: "Review: Index shifting"
-type: "text"
-answer: "Series are often easier to compare after rewriting them with the same index. Example: $$ \\sum {n=2}^{\\infty} \\frac{1}{n-1} $$ Let $k=n-1$. Then the series becomes $$ \\sum {k=1}^{\\infty} \\frac{1}{k} $$"
-skills:
-  - "Index shifting"
----
-
-What is the main idea of **Index shifting**?
-
-:::solution
-One short answer is: Series are often easier to compare after rewriting them with the same index. Example: $$ \sum {n=2}^{\infty} \frac{1}{n-1} $$ Let $k=n-1$. Then the series becomes $$ \sum {k=1}^{\infty} \frac{1}{k} $$
-:::
-
----
-id: "math-series-37"
-note: "math-series"
-title: "Review: Splitting and combining"
-type: "text"
-answer: "Linearity holds where the series converge appropriately: $$ \\sum (a n + b n)=\\sum a n + \\sum b n $$ $$ \\sum c a n = c\\sum a n $$ Use this carefully."
-skills:
-  - "Splitting and combining"
----
-
-What is the main idea of **Splitting and combining**?
-
-:::solution
-One short answer is: Linearity holds where the series converge appropriately: $$ \sum (a n + b n)=\sum a n + \sum b n $$ $$ \sum c a n = c\sum a n $$ Use this carefully.
-:::
-
----
-id: "math-series-38"
-note: "math-series"
-title: "Review: Termwise operations on power series"
-type: "text"
-answer: "Differentiated term by term"
-skills:
-  - "Termwise operations on power series"
----
-
-What is the main idea of **Termwise operations on power series**?
-
-:::solution
-One short answer is: Differentiated term by term
-:::
-
----
-id: "math-series-39"
-note: "math-series"
-title: "Review: Matching coefficients"
-type: "text"
-answer: "Solving identities"
-skills:
-  - "Matching coefficients"
----
-
-What is the main idea of **Matching coefficients**?
-
-:::solution
-One short answer is: Solving identities
-:::
-
----
-id: "math-series-310"
-note: "math-series"
-title: "Review: Common examples to know"
-type: "text"
-answer: "Common examples to know"
-skills:
-  - "8. Common examples to know"
----
-
-Name one common mistake the note warns about in **Common examples to know**.
-
-:::solution
-One short answer is: Common examples to know
-:::
-
----
-id: "math-series-311"
-note: "math-series"
-title: "Review: Harmonic series"
-type: "text"
-answer: "$$ \\sum {n=1}^{\\infty}\\frac{1}{n} $$ diverges."
-skills:
-  - "Harmonic series"
----
-
-What is the main idea of **Harmonic series**?
-
-:::solution
-One short answer is: $$ \sum {n=1}^{\infty}\frac{1}{n} $$ diverges.
-:::
-
----
-id: "math-series-312"
-note: "math-series"
-title: "Review: Alternating harmonic series"
-type: "text"
-answer: "$$ \\sum {n=1}^{\\infty}(-1)^{n+1}\\frac{1}{n} $$ converges conditionally."
-skills:
-  - "Alternating harmonic series"
----
-
-What is the main idea of **Alternating harmonic series**?
-
-:::solution
-One short answer is: $$ \sum {n=1}^{\infty}(-1)^{n+1}\frac{1}{n} $$ converges conditionally.
-:::
-
----
-id: "math-series-313"
-note: "math-series"
-title: "Review: $p$-series template"
-type: "text"
-answer: "$$ \\sum {n=1}^{\\infty}\\frac{1}{n^p} $$ converges if $p>1$."
-skills:
-  - "$p$-series template"
----
-
-What is the main idea of **$p$-series template**?
-
-:::solution
-One short answer is: $$ \sum {n=1}^{\infty}\frac{1}{n^p} $$ converges if $p>1$.
-:::
-
----
-id: "math-series-314"
-note: "math-series"
-title: "Review: Geometric template"
-type: "text"
-answer: "$$ \\sum {n=0}^{\\infty} ar^n = \\frac{a}{1-r}, \\quad r <1 $$"
-skills:
-  - "Geometric template"
----
-
-What is the main idea of **Geometric template**?
-
-:::solution
-One short answer is: $$ \sum {n=0}^{\infty} ar^n = \frac{a}{1-r}, \quad r <1 $$
-:::
-
----
-id: "math-series-315"
-note: "math-series"
-title: "Review: Exponential, sine, cosine"
-type: "text"
-answer: "These three are the most important Maclaurin series to memorize. Many other expansions come from differentiating or integrating them."
-skills:
-  - "Exponential, sine, cosine"
----
-
-What is the main idea of **Exponential, sine, cosine**?
-
-:::solution
-One short answer is: These three are the most important Maclaurin series to memorize. Many other expansions come from differentiating or integrating them.
-:::
-
----
-id: "math-series-316"
-note: "math-series"
-title: "Review: Logarithm from geometric series"
-type: "text"
-answer: "Starting from $$ \\frac{1}{1-x} = \\sum {n=0}^{\\infty} x^n $$ integrating term by term gives $$ -\\ln(1-x)=\\sum {n=1}^{\\infty}\\frac{x^n}{n}, \\quad x"
-skills:
-  - "Logarithm from geometric series"
----
-
-What is the main idea of **Logarithm from geometric series**?
-
-:::solution
-One short answer is: Starting from $$ \frac{1}{1-x} = \sum {n=0}^{\infty} x^n $$ integrating term by term gives $$ -\ln(1-x)=\sum {n=1}^{\infty}\frac{x^n}{n}, \quad x
-:::
-
----
-id: "math-series-41"
-note: "math-series"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Problem-solving workflow"
-skills:
-  - "9. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Problem-solving workflow
-:::
-
----
-id: "math-series-42"
-note: "math-series"
-title: "Review: For convergence questions"
-type: "text"
-answer: "Check the term limit: if $a n \\not\\to 0$, stop and declare divergence."
-skills:
-  - "For convergence questions"
----
-
-What is the main idea of **For convergence questions**?
-
-:::solution
-One short answer is: Check the term limit: if $a n \not\to 0$, stop and declare divergence.
-:::
-
----
-id: "math-series-43"
-note: "math-series"
-title: "Review: For Taylor/power series problems"
-type: "text"
-answer: "Write the known base series."
-skills:
-  - "For Taylor/power series problems"
----
-
-What is the main idea of **For Taylor/power series problems**?
-
-:::solution
-One short answer is: Write the known base series.
-:::
-
----
-id: "math-series-44"
-note: "math-series"
-title: "Review: For approximation questions"
-type: "text"
-answer: "Choose the center close to the evaluation point."
-skills:
-  - "For approximation questions"
----
-
-What is the main idea of **For approximation questions**?
-
-:::solution
-One short answer is: Choose the center close to the evaluation point.
-:::
-
----
-id: "math-series-45"
-note: "math-series"
-title: "Review: Pitfalls"
-type: "text"
-answer: "Confusing the term test with a convergence test. Terms going to $0$ are necessary, not sufficient."
-skills:
-  - "10. Pitfalls"
----
-
-Name one common mistake the note warns about in **Pitfalls**.
-
-:::solution
-One short answer is: Confusing the term test with a convergence test. Terms going to $0$ are necessary, not sufficient.
-:::
-
----
-id: "math-series-46"
-note: "math-series"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "11. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-series-47"
-note: "math-series"
-title: "Review: Core definitions"
-type: "text"
-answer: "$$ s n = \\sum {k=1}^{n} a k $$ $$ \\sum {n=1}^{\\infty} a n \\text{ converges } \\Longleftrightarrow s n \\text{ converges} $$"
-skills:
-  - "Core definitions"
----
-
-What core idea is introduced in **Core definitions**?
-
-:::solution
-One short answer is: $$ s n = \sum {k=1}^{n} a k $$ $$ \sum {n=1}^{\infty} a n \text{ converges } \Longleftrightarrow s n \text{ converges} $$
-:::
-
----
-id: "math-series-48"
-note: "math-series"
-title: "Review: Geometric series"
-type: "text"
-answer: "$$ \\sum {n=0}^{\\infty} ar^n = \\frac{a}{1-r}, \\quad r <1 $$"
-skills:
-  - "Geometric series"
----
-
-What is the main idea of **Geometric series**?
-
-:::solution
-One short answer is: $$ \sum {n=0}^{\infty} ar^n = \frac{a}{1-r}, \quad r <1 $$
-:::
-
----
-id: "math-series-49"
-note: "math-series"
-title: "Review: $p$-series"
-type: "text"
-answer: "$$ \\sum {n=1}^{\\infty}\\frac{1}{n^p} \\begin{cases} \\text{converges}, & p>1 \\\\ \\text{diverges}, & p\\le 1 \\end{cases} $$"
-skills:
-  - "$p$-series"
----
-
-What is the main idea of **$p$-series**?
-
-:::solution
-One short answer is: $$ \sum {n=1}^{\infty}\frac{1}{n^p} \begin{cases} \text{converges}, & p>1 \\ \text{diverges}, & p\le 1 \end{cases} $$
-:::
-
----
-id: "math-series-410"
-note: "math-series"
-title: "Review: Ratio test"
-type: "text"
-answer: "$$ L = \\lim {n\\to\\infty}\\left \\frac{a {n+1}}{a n}\\right $$"
-skills:
-  - "Ratio test"
----
-
-What is the main idea of **Ratio test**?
-
-:::solution
-One short answer is: $$ L = \lim {n\to\infty}\left \frac{a {n+1}}{a n}\right $$
-:::
-
----
-id: "math-series-411"
-note: "math-series"
-title: "Review: Root test"
-type: "text"
-answer: "$$ L = \\lim {n\\to\\infty}\\sqrt[n]{ a n } $$"
-skills:
-  - "Root test"
----
-
-What is the main idea of **Root test**?
-
-:::solution
-One short answer is: $$ L = \lim {n\to\infty}\sqrt[n]{ a n } $$
-:::
-
----
-id: "math-series-412"
-note: "math-series"
-title: "Review: Alternating series test"
-type: "text"
-answer: "If $b n \\downarrow 0$, then $$ \\sum (-1)^n b n $$ converges."
-skills:
-  - "Alternating series test"
----
-
-What is the main idea of **Alternating series test**?
-
-:::solution
-One short answer is: If $b n \downarrow 0$, then $$ \sum (-1)^n b n $$ converges.
-:::
-
----
-id: "math-series-413"
-note: "math-series"
-title: "Review: Taylor series"
-type: "text"
-answer: "$$ f(x)=\\sum {n=0}^{\\infty}\\frac{f^{(n)}(a)}{n!}(x-a)^n $$"
-skills:
-  - "Taylor series"
----
-
-What is the main idea of **Taylor series**?
-
-:::solution
-One short answer is: $$ f(x)=\sum {n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n $$
-:::
-
----
-id: "math-series-414"
-note: "math-series"
-title: "Review: Maclaurin series"
-type: "text"
-answer: "$$ f(x)=\\sum {n=0}^{\\infty}\\frac{f^{(n)}(0)}{n!}x^n $$"
-skills:
-  - "Maclaurin series"
----
-
-What is the main idea of **Maclaurin series**?
-
-:::solution
-One short answer is: $$ f(x)=\sum {n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n $$
-:::
-
----
-id: "math-series-415"
-note: "math-series"
-title: "Review: Standard Maclaurin series"
-type: "text"
-answer: "$$ e^x=\\sum {n=0}^{\\infty}\\frac{x^n}{n!} $$ $$ \\sin x=\\sum {n=0}^{\\infty}(-1)^n\\frac{x^{2n+1}}{(2n+1)!} $$ $$ \\cos x=\\sum {n=0}^{\\infty}(-1)^n\\frac{x^{2n}}{(2n)!} $$ $$ \\frac{1}{1-x}=\\sum {n=0}^{\\infty}x^n,\\quad x <1 $$…"
-skills:
-  - "Standard Maclaurin series"
----
-
-What is the main idea of **Standard Maclaurin series**?
-
-:::solution
-One short answer is: $$ e^x=\sum {n=0}^{\infty}\frac{x^n}{n!} $$ $$ \sin x=\sum {n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!} $$ $$ \cos x=\sum {n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!} $$ $$ \frac{1}{1-x}=\sum {n=0}^{\infty}x^n,\quad x <1 $$…
+Therefore, it is conditionally convergent.
 :::

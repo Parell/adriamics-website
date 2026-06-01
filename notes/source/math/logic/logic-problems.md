@@ -1,1407 +1,780 @@
 ---
-id: "math-logic-11"
-note: "math-logic"
-title: "Review: What logic studies"
-type: "text"
-answer: "Syntax : the symbols and formulas you are allowed to write."
-skills:
-  - "1. What logic studies"
+id: logic-11
+note: math-logic
+title: "Identify Propositions"
+skills: [Propositions, Truth Values]
 ---
 
-What is the main idea of **What logic studies**?
+Which of the following are propositions?
 
-:::solution
-One short answer is: Syntax : the symbols and formulas you are allowed to write.
-:::
-
----
-id: "math-logic-12"
-note: "math-logic"
-title: "Review: Two levels of reasoning"
-type: "text"
-answer: "Set theory"
-skills:
-  - "Two levels of reasoning"
----
-
-What is the main idea of **Two levels of reasoning**?
+1. $x > 3$
+2. $7$ is prime
+3. Close the door.
+4. Every even integer is divisible by $2$.
 
 :::solution
-One short answer is: Set theory
+1. This is not a proposition because the truth value depends on the unspecified variable $x$.
+2. This is a proposition, and it is true.
+3. This is not a proposition because it is a command.
+4. This is a proposition, and it is true.
 :::
 
 ---
-id: "math-logic-13"
-note: "math-logic"
-title: "Review: Propositions and truth values"
-type: "text"
-answer: "\"$7$ is prime.\" is a proposition."
-skills:
-  - "2. Propositions and truth values"
+id: logic-12
+note: math-logic
+title: "Evaluate a Compound Statement"
+skills: [Logical Connectives, Truth Tables]
 ---
-
-What is the main idea of **Propositions and truth values**?
-
-:::solution
-One short answer is: "$7$ is prime." is a proposition.
-:::
 
----
-id: "math-logic-14"
-note: "math-logic"
-title: "Review: Atomic and compound propositions"
-type: "text"
-answer: "Atomic propositions are basic statements such as $P$, $Q$, or $R$."
-skills:
-  - "Atomic and compound propositions"
----
+Let $P$ be true and $Q$ be false. Find the truth value of
 
-What is the main idea of **Atomic and compound propositions**?
+$$
+(P \land \neg Q) \lor (\neg P \to Q).
+$$
 
 :::solution
-One short answer is: Atomic propositions are basic statements such as $P$, $Q$, or $R$.
-:::
+Since $Q$ is false, $\neg Q$ is true, so
 
----
-id: "math-logic-15"
-note: "math-logic"
-title: "Review: Truth tables"
-type: "text"
-answer: "Truth tables list the truth value of a compound proposition for every combination of inputs. They are the most direct way to test equivalence or validity for small propositional formulas. ---"
-skills:
-  - "Truth tables"
----
+$$
+P \land \neg Q = T \land T = T.
+$$
 
-What is the main idea of **Truth tables**?
-
-:::solution
-One short answer is: Truth tables list the truth value of a compound proposition for every combination of inputs. They are the most direct way to test equivalence or validity for small propositional formulas. ---
-:::
+Also, $\neg P$ is false, so
 
----
-id: "math-logic-16"
-note: "math-logic"
-title: "Review: Logical connectives"
-type: "text"
-answer: "The standard connectives are negation, conjunction, disjunction, implication, and biconditional."
-skills:
-  - "3. Logical connectives"
----
+$$
+\neg P \to Q = F \to F = T.
+$$
 
-What is the main idea of **Logical connectives**?
+Therefore,
 
-:::solution
-One short answer is: The standard connectives are negation, conjunction, disjunction, implication, and biconditional.
+$$
+(P \land \neg Q) \lor (\neg P \to Q) = T \lor T = T.
+$$
 :::
 
 ---
-id: "math-logic-17"
-note: "math-logic"
-title: "Review: Negation"
-type: "text"
-answer: "$$ \\neg P $$ Meaning: \"not $P$\". Truth table: $P$ $\\neg P$ --- -------- T F F T"
-skills:
-  - "Negation"
+id: logic-13
+note: math-logic
+title: "Read an Implication Correctly"
+skills: [Implication, Biconditional]
 ---
 
-What is the main idea of **Negation**?
+If $P$ is false and $Q$ is false, determine the truth values of $P \to Q$ and $P \leftrightarrow Q$.
 
 :::solution
-One short answer is: $$ \neg P $$ Meaning: "not $P$". Truth table: $P$ $\neg P$ --- -------- T F F T
-:::
+An implication is false only when the antecedent is true and the conclusion is false. Since $P$ is false,
 
----
-id: "math-logic-18"
-note: "math-logic"
-title: "Review: Conjunction"
-type: "text"
-answer: "$$ P \\land Q $$ Meaning: \"$P$ and $Q$\". True only when both parts are true. $P$ $Q$ $P \\land Q$ --- --- ------------ T T T T F F F T F F F F"
-skills:
-  - "Conjunction"
----
+$$
+P \to Q = T.
+$$
 
-What is the main idea of **Conjunction**?
+A biconditional is true when both statements have the same truth value. Since both $P$ and $Q$ are false,
 
-:::solution
-One short answer is: $$ P \land Q $$ Meaning: "$P$ and $Q$". True only when both parts are true. $P$ $Q$ $P \land Q$ --- --- ------------ T T T T F F F T F F F F
+$$
+P \leftrightarrow Q = T.
+$$
 :::
 
 ---
-id: "math-logic-19"
-note: "math-logic"
-title: "Review: Disjunction"
-type: "text"
-answer: "$$ P \\lor Q $$ Meaning: \"$P$ or $Q$\" in the inclusive sense: at least one is true. $P$ $Q$ $P \\lor Q$ --- --- ----------- T T T T F T F T T F F F"
-skills:
-  - "Disjunction"
+id: logic-14
+note: math-logic
+title: "Find the Contrapositive"
+skills: [Implication, Contrapositive]
 ---
-
-What is the main idea of **Disjunction**?
-
-:::solution
-One short answer is: $$ P \lor Q $$ Meaning: "$P$ or $Q$" in the inclusive sense: at least one is true. $P$ $Q$ $P \lor Q$ --- --- ----------- T T T T F T F T T F F F
-:::
 
----
-id: "math-logic-110"
-note: "math-logic"
-title: "Review: Implication"
-type: "text"
-answer: "$P$ implies $Q$"
-skills:
-  - "Implication"
----
+Write the contrapositive of the statement:
 
-What is the main idea of **Implication**?
+If a number is divisible by $6$, then it is divisible by $3$.
 
 :::solution
-One short answer is: $P$ implies $Q$
-:::
+Let $P$ be "the number is divisible by $6$" and $Q$ be "the number is divisible by $3$."
 
----
-id: "math-logic-111"
-note: "math-logic"
-title: "Review: Biconditional"
-type: "text"
-answer: "$$ P \\leftrightarrow Q $$ Meaning: \"$P$ if and only if $Q$.\" True when both statements have the same truth value. $P$ $Q$ $P \\leftrightarrow Q$ --- --- --------------------- T T T T F F F T F F F T"
-skills:
-  - "Biconditional"
----
-
-What is the main idea of **Biconditional**?
-
-:::solution
-One short answer is: $$ P \leftrightarrow Q $$ Meaning: "$P$ if and only if $Q$." True when both statements have the same truth value. $P$ $Q$ $P \leftrightarrow Q$ --- --- --------------------- T T T T F F F T F F F T
-:::
+The contrapositive of $P \to Q$ is
 
----
-id: "math-logic-112"
-note: "math-logic"
-title: "Review: Exclusive or"
-type: "text"
-answer: "The exclusive or is often written as $P \\oplus Q$. It is true when exactly one of $P$ and $Q$ is true. ---"
-skills:
-  - "Exclusive or"
----
+$$
+\neg Q \to \neg P.
+$$
 
-What is the main idea of **Exclusive or**?
+So the contrapositive is:
 
-:::solution
-One short answer is: The exclusive or is often written as $P \oplus Q$. It is true when exactly one of $P$ and $Q$ is true. ---
+If a number is not divisible by $3$, then it is not divisible by $6$.
 :::
 
 ---
-id: "math-logic-113"
-note: "math-logic"
-title: "Review: Logical equivalence and algebra of propositions"
-type: "text"
-answer: "Two propositions are logically equivalent if they have the same truth table. Write this as: $$ P \\equiv Q $$ Equivalent formulas can replace each other in proofs and simplification."
-skills:
-  - "4. Logical equivalence and algebra of propositions"
+id: logic-15
+note: math-logic
+title: "Negate a Conjunction with a Disjunction"
+skills: [De Morgan's Laws, Negation]
 ---
 
-What is the main idea of **Logical equivalence and algebra of propositions**?
-
-:::solution
-One short answer is: Two propositions are logically equivalent if they have the same truth table. Write this as: $$ P \equiv Q $$ Equivalent formulas can replace each other in proofs and simplification.
-:::
-
----
-id: "math-logic-114"
-note: "math-logic"
-title: "Review: Core equivalences"
-type: "text"
-answer: "Core equivalences"
-skills:
-  - "Core equivalences"
----
+Find a logically equivalent formula for
 
-What core idea is introduced in **Core equivalences**?
+$$
+\neg(P \land (Q \lor R)).
+$$
 
 :::solution
-One short answer is: Core equivalences
-:::
-
----
-id: "math-logic-115"
-note: "math-logic"
-title: "Review: Double negation"
-type: "text"
-answer: "$$ \\neg(\\neg P) \\equiv P $$"
-skills:
-  - "Double negation"
----
+Apply De Morgan's laws:
 
-What is the main idea of **Double negation**?
+$$
+\neg(P \land (Q \lor R)) \equiv \neg P \lor \neg(Q \lor R).
+$$
 
-:::solution
-One short answer is: $$ \neg(\neg P) \equiv P $$
-:::
+Then negate the disjunction:
 
----
-id: "math-logic-116"
-note: "math-logic"
-title: "Review: De Morgan's laws"
-type: "text"
-answer: "$$ \\neg(P \\land Q) \\equiv \\neg P \\lor \\neg Q $$ $$ \\neg(P \\lor Q) \\equiv \\neg P \\land \\neg Q $$"
-skills:
-  - "De Morgan's laws"
----
+$$
+\neg(Q \lor R) \equiv \neg Q \land \neg R.
+$$
 
-What is the main idea of **De Morgan's laws**?
+So an equivalent formula is
 
-:::solution
-One short answer is: $$ \neg(P \land Q) \equiv \neg P \lor \neg Q $$ $$ \neg(P \lor Q) \equiv \neg P \land \neg Q $$
+$$
+\neg P \lor (\neg Q \land \neg R).
+$$
 :::
 
 ---
-id: "math-logic-117"
-note: "math-logic"
-title: "Review: Implication"
-type: "text"
-answer: "$$ P \\to Q \\equiv \\neg P \\lor Q $$"
-skills:
-  - "Implication"
+id: logic-16
+note: math-logic
+title: "Expand a Biconditional"
+skills: [Biconditional, Logical Equivalence]
 ---
 
-What is the main idea of **Implication**?
+Rewrite $P \leftrightarrow Q$ using only implications.
 
 :::solution
-One short answer is: $$ P \to Q \equiv \neg P \lor Q $$
-:::
-
----
-id: "math-logic-118"
-note: "math-logic"
-title: "Review: Contrapositive"
-type: "text"
-answer: "$$ P \\to Q \\equiv \\neg Q \\to \\neg P $$"
-skills:
-  - "Contrapositive"
----
+A biconditional means both implications hold:
 
-What is the main idea of **Contrapositive**?
+$$
+P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P).
+$$
 
-:::solution
-One short answer is: $$ P \to Q \equiv \neg Q \to \neg P $$
+This matches the definition of "if and only if."
 :::
 
 ---
-id: "math-logic-119"
-note: "math-logic"
-title: "Review: Biconditional"
-type: "text"
-answer: "$$ P \\leftrightarrow Q \\equiv (P \\to Q) \\land (Q \\to P) $$"
-skills:
-  - "Biconditional"
+id: logic-17
+note: math-logic
+title: "Negate a Universal Statement"
+skills: [Quantifiers, Negating Quantifiers]
 ---
-
-What is the main idea of **Biconditional**?
-
-:::solution
-One short answer is: $$ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P) $$
-:::
 
----
-id: "math-logic-120"
-note: "math-logic"
-title: "Review: Distributive laws"
-type: "text"
-answer: "$$ P \\land (Q \\lor R) \\equiv (P \\land Q) \\lor (P \\land R) $$ $$ P \\lor (Q \\land R) \\equiv (P \\lor Q) \\land (P \\lor R) $$"
-skills:
-  - "Distributive laws"
----
+Negate the statement
 
-What is the main idea of **Distributive laws**?
+$$
+\forall x\, P(x).
+$$
 
 :::solution
-One short answer is: $$ P \land (Q \lor R) \equiv (P \land Q) \lor (P \land R) $$ $$ P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R) $$
-:::
-
----
-id: "math-logic-121"
-note: "math-logic"
-title: "Review: Identity and domination"
-type: "text"
-answer: "$$ P \\land T \\equiv P, \\qquad P \\lor F \\equiv P $$ $$ P \\land F \\equiv F, \\qquad P \\lor T \\equiv T $$"
-skills:
-  - "Identity and domination"
----
+The negation of a universal statement is existential:
 
-What is the main idea of **Identity and domination**?
+$$
+\neg \forall x\, P(x) \equiv \exists x\, \neg P(x).
+$$
 
-:::solution
-One short answer is: $$ P \land T \equiv P, \qquad P \lor F \equiv P $$ $$ P \land F \equiv F, \qquad P \lor T \equiv T $$
+In words: there exists at least one $x$ for which $P(x)$ is false.
 :::
 
 ---
-id: "math-logic-122"
-note: "math-logic"
-title: "Review: Idempotent laws"
-type: "text"
-answer: "$$ P \\land P \\equiv P, \\qquad P \\lor P \\equiv P $$"
-skills:
-  - "Idempotent laws"
+id: logic-18
+note: math-logic
+title: "Negate an Existential Statement"
+skills: [Quantifiers, Negating Quantifiers]
 ---
-
-What is the main idea of **Idempotent laws**?
-
-:::solution
-One short answer is: $$ P \land P \equiv P, \qquad P \lor P \equiv P $$
-:::
 
----
-id: "math-logic-21"
-note: "math-logic"
-title: "Review: Complement laws"
-type: "text"
-answer: "$$ P \\land \\neg P \\equiv F, \\qquad P \\lor \\neg P \\equiv T $$"
-skills:
-  - "Complement laws"
----
+Negate the statement
 
-What is the main idea of **Complement laws**?
+$$
+\exists x\, (P(x) \land Q(x)).
+$$
 
 :::solution
-One short answer is: $$ P \land \neg P \equiv F, \qquad P \lor \neg P \equiv T $$
-:::
+The negation of an existential statement is universal:
 
----
-id: "math-logic-22"
-note: "math-logic"
-title: "Review: Tautology, contradiction, contingency"
-type: "text"
-answer: "A tautology is always true."
-skills:
-  - "Tautology, contradiction, contingency"
----
+$$
+\neg \exists x\, (P(x) \land Q(x)) \equiv \forall x\, \neg(P(x) \land Q(x)).
+$$
 
-What is the main idea of **Tautology, contradiction, contingency**?
+Now apply De Morgan's law inside the predicate:
 
-:::solution
-One short answer is: A tautology is always true.
+$$
+\forall x\, (\neg P(x) \lor \neg Q(x)).
+$$
 :::
 
 ---
-id: "math-logic-23"
-note: "math-logic"
-title: "Review: Common implication patterns"
-type: "text"
-answer: "Converse of $P \\to Q$ is $Q \\to P$."
-skills:
-  - "Common implication patterns"
+id: logic-19
+note: math-logic
+title: "Compare Quantifier Order"
+skills: [Quantifiers, Order Matters]
 ---
-
-Name one common mistake the note warns about in **Common implication patterns**.
-
-:::solution
-One short answer is: Converse of $P \to Q$ is $Q \to P$.
-:::
 
----
-id: "math-logic-24"
-note: "math-logic"
-title: "Review: Predicates and quantifiers"
-type: "text"
-answer: "Predicate logic extends propositional logic by allowing statements about objects."
-skills:
-  - "5. Predicates and quantifiers"
----
+Are the statements
 
-What is the main idea of **Predicates and quantifiers**?
+$$
+\forall x\, \exists y\, P(x,y)
+$$
 
-:::solution
-One short answer is: Predicate logic extends propositional logic by allowing statements about objects.
-:::
+and
 
----
-id: "math-logic-25"
-note: "math-logic"
-title: "Review: Quantifiers"
-type: "text"
-answer: "Quantifiers"
-skills:
-  - "Quantifiers"
----
+$$
+\exists y\, \forall x\, P(x,y)
+$$
 
-What is the main idea of **Quantifiers**?
+logically equivalent?
 
 :::solution
-One short answer is: Quantifiers
-:::
+No. The order of quantifiers matters.
 
----
-id: "math-logic-26"
-note: "math-logic"
-title: "Review: Universal quantifier"
-type: "text"
-answer: "$$ \\forall x\\, P(x) $$ Meaning: \"for all $x$, $P(x)$ holds.\""
-skills:
-  - "Universal quantifier"
----
+The first statement says that for every $x$, you may choose a possibly different $y$.
 
-What is the main idea of **Universal quantifier**?
+The second statement says there is one single $y$ that works for every $x$.
 
-:::solution
-One short answer is: $$ \forall x\, P(x) $$ Meaning: "for all $x$, $P(x)$ holds."
+These are different claims, so they are not logically equivalent.
 :::
 
 ---
-id: "math-logic-27"
-note: "math-logic"
-title: "Review: Existential quantifier"
-type: "text"
-answer: "$$ \\exists x\\, P(x) $$ Meaning: \"there exists at least one $x$ such that $P(x)$ holds.\""
-skills:
-  - "Existential quantifier"
+id: logic-110
+note: math-logic
+title: "Tautology or Contradiction"
+skills: [Tautology, Contradiction]
 ---
-
-What is the main idea of **Existential quantifier**?
-
-:::solution
-One short answer is: $$ \exists x\, P(x) $$ Meaning: "there exists at least one $x$ such that $P(x)$ holds."
-:::
 
----
-id: "math-logic-28"
-note: "math-logic"
-title: "Review: Negating quantifiers"
-type: "text"
-answer: "Negation flips the quantifier and negates the predicate: $$ \\neg \\forall x\\, P(x) \\equiv \\exists x\\, \\neg P(x) $$ $$ \\neg \\exists x\\, P(x) \\equiv \\forall x\\, \\neg P(x) $$ These are among the most important rules in logi…"
-skills:
-  - "Negating quantifiers"
----
+Classify each formula:
 
-What is the main idea of **Negating quantifiers**?
+1. $P \lor \neg P$
+2. $P \land \neg P$
 
 :::solution
-One short answer is: Negation flips the quantifier and negates the predicate: $$ \neg \forall x\, P(x) \equiv \exists x\, \neg P(x) $$ $$ \neg \exists x\, P(x) \equiv \forall x\, \neg P(x) $$ These are among the most important rules in logi…
+1. $P \lor \neg P$ is a tautology because it is true for every truth value of $P$.
+2. $P \land \neg P$ is a contradiction because it is never true.
 :::
 
 ---
-id: "math-logic-29"
-note: "math-logic"
-title: "Review: Order matters"
-type: "text"
-answer: "For every person, there exists a friend."
-skills:
-  - "Order matters"
+id: logic-21
+note: math-logic
+title: "Simplify an Expression with an Implication"
+skills: [Implication, De Morgan's Laws, Logical Equivalence]
 ---
-
-What is the main idea of **Order matters**?
 
-:::solution
-One short answer is: For every person, there exists a friend.
-:::
-
----
-id: "math-logic-210"
-note: "math-logic"
-title: "Review: Domain of discourse"
-type: "text"
-answer: "The meaning of a quantified statement depends on the domain. Example: $$ \\forall x\\, (x^2 \\ge 0) $$ is true over the real numbers, integers, and natural numbers, but not meaningful without a specified domain. ---"
-skills:
-  - "Domain of discourse"
----
+Simplify the formula
 
-What is the main idea of **Domain of discourse**?
+$$
+\neg(P \land Q) \land P.
+$$
 
 :::solution
-One short answer is: The meaning of a quantified statement depends on the domain. Example: $$ \forall x\, (x^2 \ge 0) $$ is true over the real numbers, integers, and natural numbers, but not meaningful without a specified domain. ---
-:::
-
----
-id: "math-logic-211"
-note: "math-logic"
-title: "Review: Rules of inference"
-type: "text"
-answer: "Rules of inference describe valid argument forms."
-skills:
-  - "6. Rules of inference"
----
-
-What is the main idea of **Rules of inference**?
+First apply De Morgan's law:
 
-:::solution
-One short answer is: Rules of inference describe valid argument forms.
-:::
+$$
+\neg(P \land Q) \equiv \neg P \lor \neg Q.
+$$
 
----
-id: "math-logic-212"
-note: "math-logic"
-title: "Review: Propositional rules"
-type: "text"
-answer: "Propositional rules"
-skills:
-  - "Propositional rules"
----
+So the formula becomes
 
-What is the main idea of **Propositional rules**?
+$$
+(\neg P \lor \neg Q) \land P.
+$$
 
-:::solution
-One short answer is: Propositional rules
-:::
+Distribute $P$ across the disjunction:
 
----
-id: "math-logic-213"
-note: "math-logic"
-title: "Review: Modus ponens"
-type: "text"
-answer: "$$ P \\to Q, \\quad P \\implies Q $$"
-skills:
-  - "Modus ponens"
----
+$$
+(\neg P \land P) \lor (\neg Q \land P).
+$$
 
-What is the main idea of **Modus ponens**?
+Since $\neg P \land P \equiv F$, this simplifies to
 
-:::solution
-One short answer is: $$ P \to Q, \quad P \implies Q $$
+$$
+P \land \neg Q.
+$$
 :::
 
 ---
-id: "math-logic-214"
-note: "math-logic"
-title: "Review: Modus tollens"
-type: "text"
-answer: "$$ P \\to Q, \\quad \\neg Q \\implies \\neg P $$"
-skills:
-  - "Modus tollens"
+id: logic-22
+note: math-logic
+title: "Negate a Universal Conditional"
+skills: [Quantifiers, Implication, Negating Quantifiers]
 ---
 
-What is the main idea of **Modus tollens**?
+Negate the statement
 
-:::solution
-One short answer is: $$ P \to Q, \quad \neg Q \implies \neg P $$
-:::
-
----
-id: "math-logic-215"
-note: "math-logic"
-title: "Review: Hypothetical syllogism"
-type: "text"
-answer: "$$ P \\to Q, \\quad Q \\to R \\implies P \\to R $$"
-skills:
-  - "Hypothetical syllogism"
----
+$$
+\forall x\, (P(x) \to Q(x)).
+$$
 
-What is the main idea of **Hypothetical syllogism**?
-
 :::solution
-One short answer is: $$ P \to Q, \quad Q \to R \implies P \to R $$
-:::
-
----
-id: "math-logic-216"
-note: "math-logic"
-title: "Review: Disjunctive syllogism"
-type: "text"
-answer: "$$ P \\lor Q, \\quad \\neg P \\implies Q $$"
-skills:
-  - "Disjunctive syllogism"
----
+First flip the universal quantifier:
 
-What is the main idea of **Disjunctive syllogism**?
+$$
+\neg \forall x\, (P(x) \to Q(x)) \equiv \exists x\, \neg(P(x) \to Q(x)).
+$$
 
-:::solution
-One short answer is: $$ P \lor Q, \quad \neg P \implies Q $$
-:::
-
----
-id: "math-logic-217"
-note: "math-logic"
-title: "Review: Addition"
-type: "text"
-answer: "$$ P \\implies P \\lor Q $$"
-skills:
-  - "Addition"
----
+Then use the implication equivalence:
 
-What is the main idea of **Addition**?
+$$
+P(x) \to Q(x) \equiv \neg P(x) \lor Q(x).
+$$
 
-:::solution
-One short answer is: $$ P \implies P \lor Q $$
-:::
+So
 
----
-id: "math-logic-218"
-note: "math-logic"
-title: "Review: Simplification"
-type: "text"
-answer: "$$ P \\land Q \\implies P $$"
-skills:
-  - "Simplification"
----
+$$
+\neg(P(x) \to Q(x)) \equiv P(x) \land \neg Q(x).
+$$
 
-What is the main idea of **Simplification**?
+Therefore the negation is
 
-:::solution
-One short answer is: $$ P \land Q \implies P $$
+$$
+\exists x\, (P(x) \land \neg Q(x)).
+$$
 :::
 
 ---
-id: "math-logic-219"
-note: "math-logic"
-title: "Review: Conjunction"
-type: "text"
-answer: "$$ P, \\ Q \\implies P \\land Q $$"
-skills:
-  - "Conjunction"
+id: logic-23
+note: math-logic
+title: "Chain Two Implications"
+skills: [Rules of Inference, Hypothetical Syllogism]
 ---
-
-What is the main idea of **Conjunction**?
 
-:::solution
-One short answer is: $$ P, \ Q \implies P \land Q $$
-:::
+From the premises
 
----
-id: "math-logic-220"
-note: "math-logic"
-title: "Review: Resolution"
-type: "text"
-answer: "$$ (P \\lor Q), \\ (\\neg P \\lor R) \\implies (Q \\lor R) $$"
-skills:
-  - "Resolution"
----
+$$
+P \to Q,\qquad Q \to R,\qquad P,
+$$
 
-What is the main idea of **Resolution**?
+what conclusion follows?
 
 :::solution
-One short answer is: $$ (P \lor Q), \ (\neg P \lor R) \implies (Q \lor R) $$
-:::
-
----
-id: "math-logic-221"
-note: "math-logic"
-title: "Review: Quantifier rules"
-type: "text"
-answer: "Quantifier rules"
-skills:
-  - "Quantifier rules"
----
+Use hypothetical syllogism on the first two premises:
 
-What is the main idea of **Quantifier rules**?
+$$
+P \to Q,\ Q \to R \implies P \to R.
+$$
 
-:::solution
-One short answer is: Quantifier rules
-:::
+Then apply modus ponens with $P$:
 
----
-id: "math-logic-222"
-note: "math-logic"
-title: "Review: Universal instantiation"
-type: "text"
-answer: "From $\\forall x\\, P(x)$, infer $P(c)$ for any specific $c$ in the domain."
-skills:
-  - "Universal instantiation"
----
+$$
+P \to R,\ P \implies R.
+$$
 
-What is the main idea of **Universal instantiation**?
+So the conclusion is
 
-:::solution
-One short answer is: From $\forall x\, P(x)$, infer $P(c)$ for any specific $c$ in the domain.
+$$
+R.
+$$
 :::
 
 ---
-id: "math-logic-31"
-note: "math-logic"
-title: "Review: Universal generalization"
-type: "text"
-answer: "If $P(c)$ is true for an arbitrary element $c$, infer $\\forall x\\, P(x)$."
-skills:
-  - "Universal generalization"
+id: logic-24
+note: math-logic
+title: "Use Disjunctive Syllogism"
+skills: [Rules of Inference, Disjunctive Syllogism]
 ---
-
-What is the main idea of **Universal generalization**?
 
-:::solution
-One short answer is: If $P(c)$ is true for an arbitrary element $c$, infer $\forall x\, P(x)$.
-:::
+From the premises
 
----
-id: "math-logic-32"
-note: "math-logic"
-title: "Review: Existential instantiation"
-type: "text"
-answer: "From $\\exists x\\, P(x)$, introduce a new symbol $c$ with $P(c)$."
-skills:
-  - "Existential instantiation"
----
+$$
+P \lor Q,\qquad \neg P,\qquad Q \to R,
+$$
 
-What is the main idea of **Existential instantiation**?
+what conclusion follows?
 
 :::solution
-One short answer is: From $\exists x\, P(x)$, introduce a new symbol $c$ with $P(c)$.
-:::
-
----
-id: "math-logic-33"
-note: "math-logic"
-title: "Review: Existential generalization"
-type: "text"
-answer: "From $P(c)$, infer $\\exists x\\, P(x)$."
-skills:
-  - "Existential generalization"
----
+First use disjunctive syllogism:
 
-What is the main idea of **Existential generalization**?
+$$
+P \lor Q,\ \neg P \implies Q.
+$$
 
-:::solution
-One short answer is: From $P(c)$, infer $\exists x\, P(x)$.
-:::
+Then apply modus ponens to $Q \to R$ and $Q$:
 
----
-id: "math-logic-34"
-note: "math-logic"
-title: "Review: Valid argument form"
-type: "text"
-answer: "Truth tables for small propositional arguments"
-skills:
-  - "Valid argument form"
----
+$$
+Q \to R,\ Q \implies R.
+$$
 
-What is the main idea of **Valid argument form**?
+So the conclusion is
 
-:::solution
-One short answer is: Truth tables for small propositional arguments
+$$
+R.
+$$
 :::
 
 ---
-id: "math-logic-35"
-note: "math-logic"
-title: "Review: Proof methods"
-type: "text"
-answer: "Proof methods"
-skills:
-  - "7. Proof methods"
+id: logic-25
+note: math-logic
+title: "Prove by Cases"
+skills: [Proof Methods, Proof by Cases]
 ---
+
+Show that $R$ follows from the premises
 
-What is the main idea of **Proof methods**?
+$$
+P \lor Q,\qquad P \to R,\qquad Q \to R.
+$$
 
 :::solution
-One short answer is: Proof methods
-:::
+Use proof by cases on $P \lor Q$.
 
----
-id: "math-logic-36"
-note: "math-logic"
-title: "Review: Direct proof"
-type: "text"
-answer: "Assume the given premises."
-skills:
-  - "Direct proof"
----
+If $P$ is true, then $P \to R$ gives $R$.
 
-What is the main idea of **Direct proof**?
+If $Q$ is true, then $Q \to R$ gives $R$.
 
-:::solution
-One short answer is: Assume the given premises.
+Since one of the two cases must hold, $R$ follows in either case. Therefore,
+
+$$
+R
+$$
+is a valid conclusion.
 :::
 
 ---
-id: "math-logic-37"
-note: "math-logic"
-title: "Review: Contrapositive proof"
-type: "text"
-answer: "To prove $P \\to Q$, prove the equivalent statement: $$ \\neg Q \\to \\neg P $$ This is often useful when the negated conclusion is easier to work with."
-skills:
-  - "Contrapositive proof"
+id: logic-26
+note: math-logic
+title: "Put a Formula into CNF"
+skills: [Normal Forms, Distributive Laws]
 ---
 
-What is the main idea of **Contrapositive proof**?
-
-:::solution
-One short answer is: To prove $P \to Q$, prove the equivalent statement: $$ \neg Q \to \neg P $$ This is often useful when the negated conclusion is easier to work with.
-:::
+Convert
 
----
-id: "math-logic-38"
-note: "math-logic"
-title: "Review: Proof by contradiction"
-type: "text"
-answer: "Assume the statement is false and derive a contradiction."
-skills:
-  - "Proof by contradiction"
----
+$$
+P \lor (Q \land R)
+$$
 
-What is the main idea of **Proof by contradiction**?
+to an equivalent formula in conjunctive normal form.
 
 :::solution
-One short answer is: Assume the statement is false and derive a contradiction.
-:::
-
----
-id: "math-logic-39"
-note: "math-logic"
-title: "Review: Proof by cases"
-type: "text"
-answer: "Split into exhaustive cases and prove the conclusion in each one. If $P \\lor Q$ is known, prove the result separately under $P$ and under $Q$."
-skills:
-  - "Proof by cases"
----
+Use the distributive law:
 
-What is the main idea of **Proof by cases**?
+$$
+P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R).
+$$
 
-:::solution
-One short answer is: Split into exhaustive cases and prove the conclusion in each one. If $P \lor Q$ is known, prove the result separately under $P$ and under $Q$.
+This is in conjunctive normal form because it is an AND of OR-clauses.
 :::
 
 ---
-id: "math-logic-310"
-note: "math-logic"
-title: "Review: Biconditional proofs"
-type: "text"
-answer: "To prove $P \\leftrightarrow Q$, prove both directions: $$ P \\to Q \\qquad \\text{and} \\qquad Q \\to P $$"
-skills:
-  - "Biconditional proofs"
+id: logic-27
+note: math-logic
+title: "Prove a Simple Subset Relation"
+skills: [Logic and Sets, Subset Proof]
 ---
 
-What is the main idea of **Biconditional proofs**?
+Prove that
 
+$$
+A \cap B \subseteq A.
+$$
+
 :::solution
-One short answer is: To prove $P \leftrightarrow Q$, prove both directions: $$ P \to Q \qquad \text{and} \qquad Q \to P $$
-:::
+Let $x$ be arbitrary and assume $x \in A \cap B$.
 
----
-id: "math-logic-311"
-note: "math-logic"
-title: "Review: Counterexample"
-type: "text"
-answer: "To disprove a universal statement, it is enough to find one counterexample. Example: To disprove \"all even numbers are prime,\" use $4$. ---"
-skills:
-  - "Counterexample"
----
+By the definition of intersection, this means $x \in A$ and $x \in B$.
 
-What is the main idea of **Counterexample**?
+In particular, $x \in A$.
 
-:::solution
-One short answer is: To disprove a universal statement, it is enough to find one counterexample. Example: To disprove "all even numbers are prime," use $4$. ---
+Since every element of $A \cap B$ is in $A$, we conclude
+
+$$
+A \cap B \subseteq A.
+$$
 :::
 
 ---
-id: "math-logic-312"
-note: "math-logic"
-title: "Review: Normal forms and simplification"
-type: "text"
-answer: "Normal forms standardize formulas so they can be compared or processed systematically."
-skills:
-  - "8. Normal forms and simplification"
+id: logic-28
+note: math-logic
+title: "Apply Resolution"
+skills: [Rules of Inference, Resolution]
 ---
 
-What is the main idea of **Normal forms and simplification**?
+From the premises
 
-:::solution
-One short answer is: Normal forms standardize formulas so they can be compared or processed systematically.
-:::
-
----
-id: "math-logic-313"
-note: "math-logic"
-title: "Review: Conjunctive normal form"
-type: "text"
-answer: "A formula is in conjunctive normal form (CNF) if it is an AND of OR-clauses. Example: $$ (P \\lor Q) \\land (\\neg P \\lor R) $$"
-skills:
-  - "Conjunctive normal form"
----
+$$
+P \lor Q,\qquad \neg P \lor R,\qquad \neg R,
+$$
 
-What is the main idea of **Conjunctive normal form**?
+what conclusion follows?
 
 :::solution
-One short answer is: A formula is in conjunctive normal form (CNF) if it is an AND of OR-clauses. Example: $$ (P \lor Q) \land (\neg P \lor R) $$
-:::
-
----
-id: "math-logic-314"
-note: "math-logic"
-title: "Review: Disjunctive normal form"
-type: "text"
-answer: "A formula is in disjunctive normal form (DNF) if it is an OR of AND-terms. Example: $$ (P \\land Q) \\lor (\\neg P \\land R) $$"
-skills:
-  - "Disjunctive normal form"
----
+Apply resolution to the first two premises:
 
-What is the main idea of **Disjunctive normal form**?
+$$
+(P \lor Q),\ (\neg P \lor R) \implies Q \lor R.
+$$
 
-:::solution
-One short answer is: A formula is in disjunctive normal form (DNF) if it is an OR of AND-terms. Example: $$ (P \land Q) \lor (\neg P \land R) $$
-:::
+Now use disjunctive syllogism with $\neg R$:
 
----
-id: "math-logic-315"
-note: "math-logic"
-title: "Review: How to simplify a formula"
-type: "text"
-answer: "Remove biconditionals."
-skills:
-  - "How to simplify a formula"
----
+$$
+Q \lor R,\ \neg R \implies Q.
+$$
 
-What core formulas or relations are summarized in **How to simplify a formula**?
+So the conclusion is
 
-:::solution
-One short answer is: Remove biconditionals.
+$$
+Q.
+$$
 :::
 
 ---
-id: "math-logic-316"
-note: "math-logic"
-title: "Review: Example transformation"
-type: "text"
-answer: "Convert $$ \\neg(P \\to Q) $$ into an equivalent formula. Solution: $$ \\neg(P \\to Q) \\equiv \\neg(\\neg P \\lor Q) $$ $$ \\equiv P \\land \\neg Q $$"
-skills:
-  - "Example transformation"
+id: logic-31
+note: math-logic
+title: "Find a Counterexample"
+skills: [Counterexample, Proof Methods]
 ---
 
-What is the main idea of **Example transformation**?
+Disprove the claim that every integer is even.
 
 :::solution
-One short answer is: Convert $$ \neg(P \to Q) $$ into an equivalent formula. Solution: $$ \neg(P \to Q) \equiv \neg(\neg P \lor Q) $$ $$ \equiv P \land \neg Q $$
-:::
+It is enough to give one counterexample.
 
----
-id: "math-logic-317"
-note: "math-logic"
-title: "Review: Tautology checking"
-type: "text"
-answer: "A formula is a tautology if its negation is unsatisfiable. Equivalently, to test whether $\\phi$ is always true, check whether $\\neg \\phi$ can ever be true. ---"
-skills:
-  - "Tautology checking"
----
+Take the integer $1$. It is not even, so the claim "every integer is even" is false.
 
-What is the main idea of **Tautology checking**?
-
-:::solution
-One short answer is: A formula is a tautology if its negation is unsatisfiable. Equivalently, to test whether $\phi$ is always true, check whether $\neg \phi$ can ever be true. ---
+Thus a single counterexample disproof is sufficient.
 :::
 
 ---
-id: "math-logic-318"
-note: "math-logic"
-title: "Review: Logic and sets"
-type: "text"
-answer: "Set operations mirror logical connectives closely."
-skills:
-  - "9. Logic and sets"
+id: logic-32
+note: math-logic
+title: "Spot a Common Invalid Argument"
+skills: [Pitfalls, Rules of Inference]
 ---
 
-What is the main idea of **Logic and sets**?
+Consider the argument:
 
-:::solution
-One short answer is: Set operations mirror logical connectives closely.
-:::
-
----
-id: "math-logic-319"
-note: "math-logic"
-title: "Review: De Morgan for sets"
-type: "text"
-answer: "$$ (A \\cap B)^c = A^c \\cup B^c $$ $$ (A \\cup B)^c = A^c \\cap B^c $$ These are direct analogues of the logical laws."
-skills:
-  - "De Morgan for sets"
----
+If a shape is a square, then it is a rectangle. This shape is a rectangle. Therefore, it is a square.
 
-What is the main idea of **De Morgan for sets**?
+Is the argument valid?
 
 :::solution
-One short answer is: $$ (A \cap B)^c = A^c \cup B^c $$ $$ (A \cup B)^c = A^c \cap B^c $$ These are direct analogues of the logical laws.
-:::
-
----
-id: "math-logic-320"
-note: "math-logic"
-title: "Review: Subset proof pattern"
-type: "text"
-answer: "Let $x \\in A$ be arbitrary."
-skills:
-  - "Subset proof pattern"
----
+No. This is the fallacy of affirming the consequent.
 
-What is the main idea of **Subset proof pattern**?
+The premise $P \to Q$ does not allow you to conclude $P$ from $Q$.
 
-:::solution
-One short answer is: Let $x \in A$ be arbitrary.
+In this example, many shapes are rectangles without being squares, so the conclusion does not follow.
 :::
 
 ---
-id: "math-logic-321"
-note: "math-logic"
-title: "Review: Satisfiability and consistency"
-type: "text"
-answer: "A formula is satisfiable if there exists at least one assignment of truth values that makes it true. A set of formulas is consistent if all of them can be true at the same time."
-skills:
-  - "10. Satisfiability and consistency"
+id: logic-33
+note: math-logic
+title: "Translate Necessary and Sufficient"
+skills: [Implication, Common Pitfalls]
 ---
 
-What is the main idea of **Satisfiability and consistency**?
+Let $L$ mean "the person is licensed" and $D$ mean "the person is driving."
 
-:::solution
-One short answer is: A formula is satisfiable if there exists at least one assignment of truth values that makes it true. A set of formulas is consistent if all of them can be true at the same time.
-:::
-
----
-id: "math-logic-322"
-note: "math-logic"
-title: "Review: Relationships"
-type: "text"
-answer: "Unsatisfiable means no assignment makes the formula true."
-skills:
-  - "Relationships"
----
+Translate these statements into symbols:
 
-What is the main idea of **Relationships**?
+1. Being licensed is necessary for driving.
+2. Being licensed is sufficient for driving.
 
 :::solution
-One short answer is: Unsatisfiable means no assignment makes the formula true.
-:::
+If being licensed is necessary for driving, then driving cannot happen without being licensed:
 
----
-id: "math-logic-41"
-note: "math-logic"
-title: "Review: Why satisfiability matters"
-type: "text"
-answer: "Automated theorem proving"
-skills:
-  - "Why satisfiability matters"
----
+$$
+D \to L.
+$$
 
-What is the main idea of **Why satisfiability matters**?
+If being licensed is sufficient for driving, then licensed implies driving:
 
-:::solution
-One short answer is: Automated theorem proving
+$$
+L \to D.
+$$
 :::
 
 ---
-id: "math-logic-42"
-note: "math-logic"
-title: "Review: Quick checks"
-type: "text"
-answer: "A formula is unsatisfiable if you can derive both $P$ and $\\neg P$ from it, or if every simplification path leads to contradiction."
-skills:
-  - "Quick checks"
+id: logic-34
+note: math-logic
+title: "Find a Satisfying Assignment"
+skills: [Satisfiability, Truth Tables]
 ---
 
-What is the main idea of **Quick checks**?
+Find truth values for $P$ and $Q$ that make
 
-:::solution
-One short answer is: A formula is unsatisfiable if you can derive both $P$ and $\neg P$ from it, or if every simplification path leads to contradiction.
-:::
-
----
-id: "math-logic-43"
-note: "math-logic"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Common pitfalls"
-skills:
-  - "11. Common pitfalls"
----
+$$
+(P \lor Q) \land \neg P
+$$
 
-Name one common mistake the note warns about in **Common pitfalls**.
+true.
 
 :::solution
-One short answer is: Common pitfalls
-:::
+Since $\neg P$ must be true, choose
 
----
-id: "math-logic-44"
-note: "math-logic"
-title: "Review: Confusing implication with causation"
-type: "text"
-answer: "$P \\to Q$ is a logical relation, not a causal claim."
-skills:
-  - "Confusing implication with causation"
----
+$$
+P = F.
+$$
 
-What is the main idea of **Confusing implication with causation**?
+Then $P \lor Q$ becomes true only if $Q$ is true, so choose
 
-:::solution
-One short answer is: $P \to Q$ is a logical relation, not a causal claim.
+$$
+Q = T.
+$$
+
+One satisfying assignment is $P = F$ and $Q = T$.
 :::
 
 ---
-id: "math-logic-45"
-note: "math-logic"
-title: "Review: Mixing up converse and contrapositive"
-type: "text"
-answer: "Only the contrapositive is equivalent to the original implication."
-skills:
-  - "Mixing up converse and contrapositive"
+id: logic-35
+note: math-logic
+title: "Classify a Formula"
+skills: [Tautology, Contradiction, Contingency]
 ---
 
-What is the main idea of **Mixing up converse and contrapositive**?
+Is
 
-:::solution
-One short answer is: Only the contrapositive is equivalent to the original implication.
-:::
-
----
-id: "math-logic-46"
-note: "math-logic"
-title: "Review: Negating quantifiers incorrectly"
-type: "text"
-answer: "Remember: $$ \\neg \\forall x\\, P(x) \\equiv \\exists x\\, \\neg P(x) $$ not $\\forall x\\, \\neg P(x)$."
-skills:
-  - "Negating quantifiers incorrectly"
----
+$$
+(P \to Q) \land P \land \neg Q
+$$
 
-What is the main idea of **Negating quantifiers incorrectly**?
+a tautology, a contradiction, or a contingency?
 
 :::solution
-One short answer is: Remember: $$ \neg \forall x\, P(x) \equiv \exists x\, \neg P(x) $$ not $\forall x\, \neg P(x)$.
-:::
-
----
-id: "math-logic-47"
-note: "math-logic"
-title: "Review: Ignoring the domain"
-type: "text"
-answer: "A quantified statement can change meaning if the domain changes."
-skills:
-  - "Ignoring the domain"
----
+The formula requires both $P \to Q$ and $P$ to be true, which forces $Q$ to be true by modus ponens.
 
-What is the main idea of **Ignoring the domain**?
+But the formula also requires $\neg Q$.
 
-:::solution
-One short answer is: A quantified statement can change meaning if the domain changes.
+So the formula cannot be true under any assignment. It is a contradiction.
 :::
 
 ---
-id: "math-logic-48"
-note: "math-logic"
-title: "Review: Using existential instantiation carelessly"
-type: "text"
-answer: "When you instantiate $\\exists x\\, P(x)$, the symbol you introduce must represent an arbitrary witness, not a special value you are free to reuse later."
-skills:
-  - "Using existential instantiation carelessly"
+id: logic-41
+note: math-logic
+title: "Simplify a Nested Formula"
+skills: [Logical Equivalence, De Morgan's Laws, Implication]
 ---
-
-What is the main idea of **Using existential instantiation carelessly**?
 
-:::solution
-One short answer is: When you instantiate $\exists x\, P(x)$, the symbol you introduce must represent an arbitrary witness, not a special value you are free to reuse later.
-:::
+Simplify
 
----
-id: "math-logic-49"
-note: "math-logic"
-title: "Review: Treating \"or\" as exclusive by default"
-type: "text"
-answer: "In mathematics, $\\lor$ is usually inclusive unless explicitly stated otherwise."
-skills:
-  - "Treating \"or\" as exclusive by default"
----
+$$
+\neg\bigl((P \to Q) \land (Q \to R)\bigr)
+$$
 
-What is the main idea of **Treating "or" as exclusive by default**?
+into an equivalent formula using only $\neg$, $\land$, and $\lor$.
 
 :::solution
-One short answer is: In mathematics, $\lor$ is usually inclusive unless explicitly stated otherwise.
-:::
-
----
-id: "math-logic-410"
-note: "math-logic"
-title: "Review: Assuming converse laws"
-type: "text"
-answer: "From $P \\to Q$, you cannot conclude $Q \\to P$. ---"
-skills:
-  - "Assuming converse laws"
----
+First replace each implication:
 
-What is the main idea of **Assuming converse laws**?
+$$
+(P \to Q) \land (Q \to R) \equiv (\neg P \lor Q) \land (\neg Q \lor R).
+$$
 
-:::solution
-One short answer is: From $P \to Q$, you cannot conclude $Q \to P$. ---
-:::
+Now negate the conjunction:
 
----
-id: "math-logic-411"
-note: "math-logic"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Identify whether the task is propositional logic, predicate logic, set logic, or proof construction."
-skills:
-  - "12. Problem-solving workflow"
----
+$$
+\neg\bigl((\neg P \lor Q) \land (\neg Q \lor R)\bigr)
+$$
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+Use De Morgan's law:
 
-:::solution
-One short answer is: Identify whether the task is propositional logic, predicate logic, set logic, or proof construction.
-:::
+$$
+\equiv \neg(\neg P \lor Q) \lor \neg(\neg Q \lor R).
+$$
 
----
-id: "math-logic-412"
-note: "math-logic"
-title: "Review: Workflow examples"
-type: "text"
-answer: "Workflow examples"
-skills:
-  - "Workflow examples"
----
+Negate each disjunction:
 
-According to the note, what sequence of steps is recommended in **Workflow examples**?
+$$
+\equiv (P \land \neg Q) \lor (Q \land \neg R).
+$$
 
-:::solution
-One short answer is: Workflow examples
+This is an equivalent formula using only $\neg$, $\land$, and $\lor$.
 :::
 
 ---
-id: "math-logic-413"
-note: "math-logic"
-title: "Review: To prove an implication"
-type: "text"
-answer: "Assume $P$."
-skills:
-  - "To prove an implication"
+id: logic-42
+note: math-logic
+title: "Compare Nested Quantifiers on a Finite Domain"
+skills: [Quantifiers, Order Matters, Domain of Discourse]
 ---
 
-What is the main idea of **To prove an implication**?
+Let the domain be $\{1,2\}$, and let $P(x,y)$ mean $x=y$.
 
-:::solution
-One short answer is: Assume $P$.
-:::
+Determine the truth values of
 
----
-id: "math-logic-414"
-note: "math-logic"
-title: "Review: To disprove a universal claim"
-type: "text"
-answer: "Find one $x$ such that $\\neg P(x)$."
-skills:
-  - "To disprove a universal claim"
----
+$$
+\forall x\, \exists y\, P(x,y)
+$$
 
-What is the main idea of **To disprove a universal claim**?
+and
 
-:::solution
-One short answer is: Find one $x$ such that $\neg P(x)$.
-:::
+$$
+\exists y\, \forall x\, P(x,y).
+$$
 
----
-id: "math-logic-415"
-note: "math-logic"
-title: "Review: To prove equality of sets"
-type: "text"
-answer: "Show both inclusions: $$ A \\subseteq B \\qquad \\text{and} \\qquad B \\subseteq A $$"
-skills:
-  - "To prove equality of sets"
----
+:::solution
+For $\forall x\, \exists y\, P(x,y)$, every $x$ can choose itself as $y$. So this statement is true.
 
-What is the main idea of **To prove equality of sets**?
+For $\exists y\, \forall x\, P(x,y)$, we would need one single $y$ that equals both $1$ and $2$. That is impossible, so this statement is false.
 
-:::solution
-One short answer is: Show both inclusions: $$ A \subseteq B \qquad \text{and} \qquad B \subseteq A $$
+Thus the first statement is true and the second is false.
 :::
 
 ---
-id: "math-logic-416"
-note: "math-logic"
-title: "Review: To negate a statement"
-type: "text"
-answer: "Flip $\\forall$ to $\\exists$"
-skills:
-  - "To negate a statement"
+id: logic-43
+note: math-logic
+title: "Prove a Set Identity"
+skills: [Logic and Sets, De Morgan's Laws]
 ---
 
-What is the main idea of **To negate a statement**?
+Prove that
 
+$$
+(A \cap B)^c = A^c \cup B^c.
+$$
+
 :::solution
-One short answer is: Flip $\forall$ to $\exists$
-:::
+Let $x$ be arbitrary. Then
 
----
-id: "math-logic-417"
-note: "math-logic"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "13. Formula sheet"
----
+$$
+x \in (A \cap B)^c
+$$
 
-What core formulas or relations are summarized in **Formula sheet**?
+means
 
-:::solution
-One short answer is: Formula sheet
-:::
+$$
+x \notin A \cap B.
+$$
 
----
-id: "math-logic-418"
-note: "math-logic"
-title: "Review: Core equivalences"
-type: "text"
-answer: "$$ \\neg\\neg P \\equiv P $$ $$ P \\to Q \\equiv \\neg P \\lor Q $$ $$ P \\leftrightarrow Q \\equiv (P \\to Q) \\land (Q \\to P) $$ $$ \\neg(P \\land Q) \\equiv \\neg P \\lor \\neg Q $$ $$ \\neg(P \\lor Q) \\equiv \\neg P \\land \\neg Q $$ $$…"
-skills:
-  - "Core equivalences"
----
+That is equivalent to saying $x$ is not in both $A$ and $B$, so
 
-What core idea is introduced in **Core equivalences**?
+$$
+x \notin A \quad \text{or} \quad x \notin B.
+$$
 
-:::solution
-One short answer is: $$ \neg\neg P \equiv P $$ $$ P \to Q \equiv \neg P \lor Q $$ $$ P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P) $$ $$ \neg(P \land Q) \equiv \neg P \lor \neg Q $$ $$ \neg(P \lor Q) \equiv \neg P \land \neg Q $$ $$…
-:::
+This is the same as
 
----
-id: "math-logic-419"
-note: "math-logic"
-title: "Review: Quantifiers"
-type: "text"
-answer: "$$ \\neg \\forall x\\, P(x) \\equiv \\exists x\\, \\neg P(x) $$ $$ \\neg \\exists x\\, P(x) \\equiv \\forall x\\, \\neg P(x) $$"
-skills:
-  - "Quantifiers"
----
+$$
+x \in A^c \quad \text{or} \quad x \in B^c,
+$$
 
-What is the main idea of **Quantifiers**?
+which means
 
-:::solution
-One short answer is: $$ \neg \forall x\, P(x) \equiv \exists x\, \neg P(x) $$ $$ \neg \exists x\, P(x) \equiv \forall x\, \neg P(x) $$
+$$
+x \in A^c \cup B^c.
+$$
+
+Since the two sides contain exactly the same elements, the sets are equal.
 :::
 
 ---
-id: "math-logic-420"
-note: "math-logic"
-title: "Review: Standard inference rules"
-type: "text"
-answer: "$$ P \\to Q,\\ P \\implies Q $$ $$ P \\to Q,\\ \\neg Q \\implies \\neg P $$ $$ P \\land Q \\implies P $$ $$ P,\\ Q \\implies P \\land Q $$"
-skills:
-  - "Standard inference rules"
+id: logic-44
+note: math-logic
+title: "Check a Mixed Consistency Claim"
+skills: [Satisfiability, Quantifiers, Rules of Inference]
 ---
 
-What is the main idea of **Standard inference rules**?
+Is the set of statements
 
-:::solution
-One short answer is: $$ P \to Q,\ P \implies Q $$ $$ P \to Q,\ \neg Q \implies \neg P $$ $$ P \land Q \implies P $$ $$ P,\ Q \implies P \land Q $$
-:::
-
----
-id: "math-logic-421"
-note: "math-logic"
-title: "Review: Set analogues"
-type: "text"
-answer: "$$ (A \\cap B)^c = A^c \\cup B^c $$ $$ (A \\cup B)^c = A^c \\cap B^c $$"
-skills:
-  - "Set analogues"
----
+$$
+\{\forall x(P(x) \to Q(x)),\ \exists x\, P(x),\ \forall x\, \neg Q(x)\}
+$$
 
-What is the main idea of **Set analogues**?
+consistent?
 
 :::solution
-One short answer is: $$ (A \cap B)^c = A^c \cup B^c $$ $$ (A \cup B)^c = A^c \cap B^c $$
-:::
+No, the set is inconsistent.
 
----
-id: "math-logic-422"
-note: "math-logic"
-title: "Review: Quick reminders"
-type: "text"
-answer: "A universal statement is disproved by one counterexample."
-skills:
-  - "Quick reminders"
----
+From $\exists x\, P(x)$, choose a witness $c$ such that $P(c)$ is true.
 
-What is the main idea of **Quick reminders**?
+From $\forall x(P(x) \to Q(x))$, we get $P(c) \to Q(c)$, so $Q(c)$ is true.
 
-:::solution
-One short answer is: A universal statement is disproved by one counterexample.
+But $\forall x\, \neg Q(x)$ gives $\neg Q(c)$.
+
+So we obtain both $Q(c)$ and $\neg Q(c)$, which is impossible. Therefore the set is not consistent.
 :::

@@ -1,735 +1,1293 @@
 ---
-id: "math-first-order-odes-11"
-note: "math-first-order-odes"
-title: "Review: First-Order ODEs"
-type: "text"
-answer: "First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y'$."
-skills:
-  - "First-Order ODEs"
+id: first-order-odes-11
+note: math-first-order-odes
+title: "Classify a Basic First-Order Equation"
+skills: [Order, Linear vs. Nonlinear]
 ---
 
-What is the main idea of **First-Order ODEs**?
+For the equation
+
+$$
+y' = x^2 y,
+$$
+
+state whether it is first-order and whether it is linear.
 
 :::solution
-One short answer is: First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y'$.
+The highest derivative is $y'$, so the equation is first-order.
+
+Rewrite it in standard linear form:
+
+$$
+y' - x^2 y = 0.
+$$
+
+This matches
+
+$$
+y' + p(x)y = q(x),
+$$
+
+with $p(x) = -x^2$ and $q(x)=0$. So the equation is linear.
 :::
 
 ---
-id: "math-first-order-odes-12"
-note: "math-first-order-odes"
-title: "Review: What a first-order ODE is"
-type: "text"
-answer: "A first-order ODE is any equation of the form $$ F(x,y,y') = 0 $$ or, when solved for the derivative, $$ \\frac{dy}{dx} = f(x,y) $$ where $y$ is an unknown function of $x$."
-skills:
-  - "1. What a first-order ODE is"
+id: first-order-odes-12
+note: math-first-order-odes
+title: "Read a Slope from the Differential Equation"
+skills: [Direction Fields, Slope]
 ---
 
-What core idea is introduced in **What a first-order ODE is**?
+For
+
+$$
+y' = x - y,
+$$
+
+what is the slope of the solution curve at the point $(3,1)$?
 
 :::solution
-One short answer is: A first-order ODE is any equation of the form $$ F(x,y,y') = 0 $$ or, when solved for the derivative, $$ \frac{dy}{dx} = f(x,y) $$ where $y$ is an unknown function of $x$.
+Substitute the point into the right-hand side:
+
+$$
+y' = 3 - 1 = 2.
+$$
+
+So the slope at $(3,1)$ is $2$.
 :::
 
 ---
-id: "math-first-order-odes-13"
-note: "math-first-order-odes"
-title: "Review: Ordinary vs. partial"
-type: "text"
-answer: "An ordinary differential equation involves derivatives with respect to one independent variable."
-skills:
-  - "Ordinary vs. partial"
+id: first-order-odes-13
+note: math-first-order-odes
+title: "Solve a Simple Separable Equation"
+skills: [Separable Equations]
 ---
 
-What is the main idea of **Ordinary vs. partial**?
+Solve for $y$:
+
+$$
+\frac{dy}{dx} = 4x.
+$$
 
 :::solution
-One short answer is: An ordinary differential equation involves derivatives with respect to one independent variable.
+Integrate both sides with respect to $x$:
+
+$$
+y = \int 4x\,dx = 2x^2 + C.
+$$
+
+So the general solution is
+
+$$
+y = 2x^2 + C.
+$$
 :::
 
 ---
-id: "math-first-order-odes-14"
-note: "math-first-order-odes"
-title: "Review: Order"
-type: "text"
-answer: "The order of a differential equation is the highest derivative that appears. For a first-order ODE, the highest derivative is $y'$."
-skills:
-  - "Order"
+id: first-order-odes-14
+note: math-first-order-odes
+title: "Apply an Initial Condition"
+skills: [Initial Value Problems]
 ---
 
-What is the main idea of **Order**?
+Solve the initial value problem:
+
+$$
+y' = 2x, \qquad y(1)=5.
+$$
 
 :::solution
-One short answer is: The order of a differential equation is the highest derivative that appears. For a first-order ODE, the highest derivative is $y'$.
+Integrate the differential equation:
+
+$$
+y = x^2 + C.
+$$
+
+Use the initial condition $y(1)=5$:
+
+$$
+5 = 1 + C
+$$
+
+so
+
+$$
+C = 4.
+$$
+
+Therefore,
+
+$$
+y = x^2 + 4.
+$$
 :::
 
 ---
-id: "math-first-order-odes-15"
-note: "math-first-order-odes"
-title: "Review: Linear vs. nonlinear"
-type: "text"
-answer: "Linear: $y' + 3y = e^x$"
-skills:
-  - "Linear vs. nonlinear"
+id: first-order-odes-15
+note: math-first-order-odes
+title: "Find Equilibrium Solutions"
+skills: [Autonomous Equations, Equilibria]
 ---
 
-What is the main idea of **Linear vs. nonlinear**?
+For the autonomous equation
+
+$$
+y' = y(y-4),
+$$
+
+find all equilibrium solutions.
 
 :::solution
-One short answer is: Linear: $y' + 3y = e^x$
+Equilibria occur when the right-hand side is zero:
+
+$$
+y(y-4)=0.
+$$
+
+So
+
+$$
+y=0 \quad \text{or} \quad y=4.
+$$
+
+The equilibrium solutions are $y(t)=0$ and $y(t)=4$.
 :::
 
 ---
-id: "math-first-order-odes-16"
-note: "math-first-order-odes"
-title: "Review: Initial value problems and geometric meaning"
-type: "text"
-answer: "A first-order ODE usually becomes a specific problem once an initial condition is given: $$ \\frac{dy}{dx} = f(x,y), \\qquad y(x 0)=y 0 $$ This is an initial value problem (IVP)."
-skills:
-  - "2. Initial value problems and geometric meaning"
+id: first-order-odes-16
+note: math-first-order-odes
+title: "Test for Exactness"
+skills: [Exact Equations]
 ---
 
-What is the main idea of **Initial value problems and geometric meaning**?
+Determine whether
+
+$$
+(2xy+1)\,dx + (x^2+3y^2)\,dy = 0
+$$
+
+is exact.
 
 :::solution
-One short answer is: A first-order ODE usually becomes a specific problem once an initial condition is given: $$ \frac{dy}{dx} = f(x,y), \qquad y(x 0)=y 0 $$ This is an initial value problem (IVP).
+Let
+
+$$
+M(x,y)=2xy+1, \qquad N(x,y)=x^2+3y^2.
+$$
+
+Compute the partial derivatives:
+
+$$
+\frac{\partial M}{\partial y} = 2x, \qquad \frac{\partial N}{\partial x} = 2x.
+$$
+
+Since these are equal, the equation is exact.
 :::
 
 ---
-id: "math-first-order-odes-17"
-note: "math-first-order-odes"
-title: "Review: General solution vs. particular solution"
-type: "text"
-answer: "The general solution contains one arbitrary constant."
-skills:
-  - "General solution vs. particular solution"
+id: first-order-odes-17
+note: math-first-order-odes
+title: "Recognize a Homogeneous Equation"
+skills: [Homogeneous Equations]
 ---
 
-What is the main idea of **General solution vs. particular solution**?
+Is
+
+$$
+\frac{dy}{dx} = 1 + \frac{y}{x}
+$$
+
+homogeneous in the first-order sense?
 
 :::solution
-One short answer is: The general solution contains one arbitrary constant.
+Yes. The right-hand side can be written as a function of $y/x$:
+
+$$
+1+\frac{y}{x} = F\!\left(\frac{y}{x}\right)
+$$
+
+with
+
+$$
+F(v)=1+v.
+$$
+
+So the equation is homogeneous.
 :::
 
 ---
-id: "math-first-order-odes-18"
-note: "math-first-order-odes"
-title: "Review: Direction fields"
-type: "text"
-answer: "Where slopes are zero"
-skills:
-  - "Direction fields"
+id: first-order-odes-18
+note: math-first-order-odes
+title: "Solve a Linear Homogeneous Equation"
+skills: [Linear First-Order Equations]
 ---
 
-What is the main idea of **Direction fields**?
+Solve for $y$:
+
+$$
+y' + 3y = 0.
+$$
 
 :::solution
-One short answer is: Where slopes are zero
+This is a linear first-order equation with $p(x)=3$ and $q(x)=0$.
+
+The integrating factor is
+
+$$
+\mu(x)=e^{\int 3\,dx}=e^{3x}.
+$$
+
+Multiply through:
+
+$$
+e^{3x}y' + 3e^{3x}y = 0.
+$$
+
+So
+
+$$
+\frac{d}{dx}(e^{3x}y)=0.
+$$
+
+Integrate:
+
+$$
+e^{3x}y = C,
+$$
+
+and therefore
+
+$$
+y = Ce^{-3x}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-19"
-note: "math-first-order-odes"
-title: "Review: Separable equations"
-type: "text"
-answer: "A first-order ODE is separable if it can be written as $$ \\frac{dy}{dx} = g(x)h(y) $$ so that variables can be separated: $$ \\frac{1}{h(y)}\\,dy = g(x)\\,dx $$ Then integrate both sides: $$ \\int \\frac{1}{h(y)}\\,dy = \\int…"
-skills:
-  - "3. Separable equations"
+id: first-order-odes-19
+note: math-first-order-odes
+title: "Identify a Bernoulli Equation"
+skills: [Bernoulli Equations, Classification]
 ---
 
-What is the main idea of **Separable equations**?
+Which value of $n$ makes
+
+$$
+y' + y = x y^n
+$$
+
+a Bernoulli equation?
 
 :::solution
-One short answer is: A first-order ODE is separable if it can be written as $$ \frac{dy}{dx} = g(x)h(y) $$ so that variables can be separated: $$ \frac{1}{h(y)}\,dy = g(x)\,dx $$ Then integrate both sides: $$ \int \frac{1}{h(y)}\,dy = \int…
+A Bernoulli equation has the form
+
+$$
+y' + p(x)y = q(x)y^n
+$$
+
+with $n \neq 0,1$.
+
+Here the equation already matches that form, with
+
+$$
+p(x)=1, \qquad q(x)=x, \qquad n=2.
+$$
+
+So the equation is Bernoulli with $n=2$.
 :::
 
 ---
-id: "math-first-order-odes-110"
-note: "math-first-order-odes"
-title: "Review: Standard workflow"
-type: "text"
-answer: "Rewrite the equation so all $y$ terms are with $dy$ and all $x$ terms are with $dx$."
-skills:
-  - "Standard workflow"
+id: first-order-odes-110
+note: math-first-order-odes
+title: "Interpret a Logistic Growth Model"
+skills: [Logistic Equation, Equilibria]
 ---
 
-According to the note, what sequence of steps is recommended in **Standard workflow**?
+For
+
+$$
+\frac{dP}{dt} = rP\left(1-\frac{P}{K}\right),
+$$
+
+state the equilibrium values and describe what happens when $0<P<K$.
 
 :::solution
-One short answer is: Rewrite the equation so all $y$ terms are with $dy$ and all $x$ terms are with $dx$.
+Set the right-hand side equal to zero:
+
+$$
+rP\left(1-\frac{P}{K}\right)=0.
+$$
+
+So the equilibria are
+
+$$
+P=0 \quad \text{and} \quad P=K.
+$$
+
+If $0<P<K$, then both factors are positive, so
+
+$$
+\frac{dP}{dt} > 0.
+$$
+
+That means the population increases when it is between $0$ and $K$.
 :::
 
 ---
-id: "math-first-order-odes-111"
-note: "math-first-order-odes"
-title: "Review: Example"
-type: "text"
-answer: "Solve $$ \\frac{dy}{dx} = xy $$ Separate: $$ \\frac{1}{y}\\,dy = x\\,dx $$ Integrate: $$ \\int \\frac{1}{y}\\,dy = \\int x\\,dx $$ $$ \\ln y = \\frac{x^2}{2} + C $$ Exponentiate: $$ y = Ce^{x^2/2} $$ where the constant has been re…"
-skills:
-  - "Example"
+id: first-order-odes-21
+note: math-first-order-odes
+title: "Solve a Separable IVP"
+skills: [Separable Equations, Initial Value Problems]
 ---
 
-What is the main idea of **Example**?
+Solve the initial value problem
+
+$$
+\frac{dy}{dx} = 2xy^2, \qquad y(0)=1.
+$$
 
 :::solution
-One short answer is: Solve $$ \frac{dy}{dx} = xy $$ Separate: $$ \frac{1}{y}\,dy = x\,dx $$ Integrate: $$ \int \frac{1}{y}\,dy = \int x\,dx $$ $$ \ln y = \frac{x^2}{2} + C $$ Exponentiate: $$ y = Ce^{x^2/2} $$ where the constant has been re…
+Separate variables:
+
+$$
+\frac{1}{y^2}\,dy = 2x\,dx.
+$$
+
+Integrate:
+
+$$
+\int y^{-2}\,dy = \int 2x\,dx
+$$
+
+so
+
+$$
+-\frac{1}{y} = x^2 + C.
+$$
+
+Use $y(0)=1$:
+
+$$
+-1 = C.
+$$
+
+Then
+
+$$
+-\frac{1}{y} = x^2 - 1
+$$
+
+which gives
+
+$$
+y = \frac{1}{1-x^2}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-112"
-note: "math-first-order-odes"
-title: "Review: Logistic equation"
-type: "text"
-answer: "$P(t)$ is population"
-skills:
-  - "Logistic equation"
+id: first-order-odes-22
+note: math-first-order-odes
+title: "Use an Integrating Factor"
+skills: [Linear First-Order Equations, Integrating Factors]
 ---
 
-What is the main idea of **Logistic equation**?
+Solve for $y$:
+
+$$
+y' - 2y = e^x.
+$$
 
 :::solution
-One short answer is: $P(t)$ is population
+The integrating factor is
+
+$$
+\mu(x)=e^{\int -2\,dx}=e^{-2x}.
+$$
+
+Multiply through:
+
+$$
+e^{-2x}y' - 2e^{-2x}y = e^{-x}.
+$$
+
+So
+
+$$
+\frac{d}{dx}(e^{-2x}y)=e^{-x}.
+$$
+
+Integrate:
+
+$$
+e^{-2x}y = -e^{-x} + C.
+$$
+
+Multiply by $e^{2x}$:
+
+$$
+y = -e^x + Ce^{2x}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-21"
-note: "math-first-order-odes"
-title: "Review: Linear first-order equations"
-type: "text"
-answer: "A first-order linear ODE has the standard form $$ y' + p(x)y = q(x) $$ The main tool is an integrating factor ."
-skills:
-  - "4. Linear first-order equations"
+id: first-order-odes-23
+note: math-first-order-odes
+title: "Solve an Exact Equation"
+skills: [Exact Equations]
 ---
 
-What is the main idea of **Linear first-order equations**?
+Solve
+
+$$
+(3x^2y+2x)\,dx + (x^3+4y)\,dy = 0.
+$$
 
 :::solution
-One short answer is: A first-order linear ODE has the standard form $$ y' + p(x)y = q(x) $$ The main tool is an integrating factor .
+Let
+
+$$
+M(x,y)=3x^2y+2x, \qquad N(x,y)=x^3+4y.
+$$
+
+Check exactness:
+
+$$
+M_y = 3x^2, \qquad N_x = 3x^2.
+$$
+
+The equation is exact.
+
+Integrate $M$ with respect to $x$:
+
+$$
+\Psi(x,y) = \int (3x^2y+2x)\,dx = x^3y + x^2 + g(y).
+$$
+
+Differentiate with respect to $y$:
+
+$$
+\Psi_y = x^3 + g'(y).
+$$
+
+Match this with $N$:
+
+$$
+x^3 + g'(y) = x^3 + 4y,
+$$
+
+so
+
+$$
+g'(y)=4y
+$$
+
+and
+
+$$
+g(y)=2y^2.
+$$
+
+Thus the implicit solution is
+
+$$
+x^3y + x^2 + 2y^2 = C.
+$$
 :::
 
 ---
-id: "math-first-order-odes-22"
-note: "math-first-order-odes"
-title: "Review: Integrating factor"
-type: "text"
-answer: "Define $$ \\mu(x) = e^{\\int p(x)\\,dx} $$ Multiplying the ODE by $\\mu(x)$ gives $$ \\mu y' + \\mu p y = \\mu q $$ and the left side becomes $$ \\frac{d}{dx}\\big(\\mu y\\big) = \\mu q $$ So $$ \\mu y = \\int \\mu q\\,dx + C $$ and th…"
-skills:
-  - "Integrating factor"
+id: first-order-odes-24
+note: math-first-order-odes
+title: "Solve a Homogeneous Equation"
+skills: [Homogeneous Equations, Substitution]
 ---
 
-What is the main idea of **Integrating factor**?
+Solve
+
+$$
+\frac{dy}{dx} = 1 + \frac{y}{x}.
+$$
 
 :::solution
-One short answer is: Define $$ \mu(x) = e^{\int p(x)\,dx} $$ Multiplying the ODE by $\mu(x)$ gives $$ \mu y' + \mu p y = \mu q $$ and the left side becomes $$ \frac{d}{dx}\big(\mu y\big) = \mu q $$ So $$ \mu y = \int \mu q\,dx + C $$ and th…
+Use the substitution
+
+$$
+y=vx,
+$$
+
+so
+
+$$
+\frac{dy}{dx}=v+x\frac{dv}{dx}.
+$$
+
+Substitute into the equation:
+
+$$
+v+x\frac{dv}{dx}=1+v.
+$$
+
+Then
+
+$$
+x\frac{dv}{dx}=1.
+$$
+
+Separate and integrate:
+
+$$
+dv = \frac{1}{x}\,dx
+$$
+
+so
+
+$$
+v=\ln|x|+C.
+$$
+
+Since $v=y/x$,
+
+$$
+\frac{y}{x}=\ln|x|+C
+$$
+
+and therefore
+
+$$
+y=x\ln|x|+Cx.
+$$
 :::
 
 ---
-id: "math-first-order-odes-23"
-note: "math-first-order-odes"
-title: "Review: Example"
-type: "text"
-answer: "Solve $$ y' + 2y = e^{-x} $$ Here $$ p(x)=2, \\qquad q(x)=e^{-x} $$ The integrating factor is $$ \\mu(x)=e^{\\int 2\\,dx}=e^{2x} $$ Multiply through: $$ e^{2x}y' + 2e^{2x}y = e^x $$ So $$ \\frac{d}{dx}(e^{2x}y)=e^x $$ Integr…"
-skills:
-  - "Example"
+id: first-order-odes-25
+note: math-first-order-odes
+title: "Solve a Bernoulli Equation"
+skills: [Bernoulli Equations, Linear First-Order Equations]
 ---
 
-What is the main idea of **Example**?
+Solve
+
+$$
+y' + y = xy^2.
+$$
 
 :::solution
-One short answer is: Solve $$ y' + 2y = e^{-x} $$ Here $$ p(x)=2, \qquad q(x)=e^{-x} $$ The integrating factor is $$ \mu(x)=e^{\int 2\,dx}=e^{2x} $$ Multiply through: $$ e^{2x}y' + 2e^{2x}y = e^x $$ So $$ \frac{d}{dx}(e^{2x}y)=e^x $$ Integr…
+This is a Bernoulli equation with $n=2$.
+
+Multiply by $y^{-2}$:
+
+$$
+y^{-2}y' + y^{-1} = x.
+$$
+
+Let
+
+$$
+u=y^{-1}.
+$$
+
+Then
+
+$$
+u'=-y^{-2}y',
+$$
+
+so the equation becomes
+
+$$
+-u' + u = x.
+$$
+
+Rearrange:
+
+$$
+u' - u = -x.
+$$
+
+This is linear. The integrating factor is
+
+$$
+\mu(x)=e^{\int -1\,dx}=e^{-x}.
+$$
+
+Multiply through:
+
+$$
+\frac{d}{dx}(e^{-x}u)=-xe^{-x}.
+$$
+
+Integrate:
+
+$$
+e^{-x}u = (x+1)e^{-x} + C.
+$$
+
+So
+
+$$
+u = x+1+Ce^x.
+$$
+
+Since $u=1/y$,
+
+$$
+y=\frac{1}{x+1+Ce^x}.
+$$
+
+Also, $y=0$ is a constant solution of the original equation.
 :::
 
 ---
-id: "math-first-order-odes-24"
-note: "math-first-order-odes"
-title: "Review: Common source of mistakes"
-type: "text"
-answer: "The integrating factor depends only on $p(x)$, not on $q(x)$."
-skills:
-  - "Common source of mistakes"
+id: first-order-odes-26
+note: math-first-order-odes
+title: "Analyze an Autonomous Equation"
+skills: [Autonomous Equations, Phase Lines]
 ---
 
-Name one common mistake the note warns about in **Common source of mistakes**.
+For
+
+$$
+y' = y(2-y),
+$$
+
+find the equilibrium solutions and classify each as stable or unstable.
 
 :::solution
-One short answer is: The integrating factor depends only on $p(x)$, not on $q(x)$.
+Equilibria occur when
+
+$$
+y(2-y)=0,
+$$
+
+so the equilibrium values are
+
+$$
+y=0 \quad \text{and} \quad y=2.
+$$
+
+Check the sign of $y(2-y)$ on each interval:
+
+$$
+y<0 \Rightarrow y(2-y)<0,
+$$
+
+so solutions decrease below $0$.
+
+$$
+0<y<2 \Rightarrow y(2-y)>0,
+$$
+
+so solutions increase toward $2$.
+
+$$
+y>2 \Rightarrow y(2-y)<0,
+$$
+
+so solutions decrease toward $2$.
+
+Thus $y=0$ is unstable and $y=2$ is stable.
 :::
 
 ---
-id: "math-first-order-odes-25"
-note: "math-first-order-odes"
-title: "Review: Exact equations"
-type: "text"
-answer: "An equation of the form $$ M(x,y)\\,dx + N(x,y)\\,dy = 0 $$ is exact if there exists a potential function $\\Psi(x,y)$ such that $$ \\frac{\\partial \\Psi}{\\partial x} = M, \\qquad \\frac{\\partial \\Psi}{\\partial y} = N $$ Then…"
-skills:
-  - "5. Exact equations"
+id: first-order-odes-27
+note: math-first-order-odes
+title: "Apply the Existence-Uniqueness Theorem"
+skills: [Existence and Uniqueness]
 ---
 
-What is the main idea of **Exact equations**?
+Consider the IVP
+
+$$
+y' = \frac{x+y}{1+y^2}, \qquad y(0)=0.
+$$
+
+Does the existence-uniqueness theorem from the note guarantee a unique local solution?
 
 :::solution
-One short answer is: An equation of the form $$ M(x,y)\,dx + N(x,y)\,dy = 0 $$ is exact if there exists a potential function $\Psi(x,y)$ such that $$ \frac{\partial \Psi}{\partial x} = M, \qquad \frac{\partial \Psi}{\partial y} = N $$ Then…
+Let
+
+$$
+f(x,y)=\frac{x+y}{1+y^2}.
+$$
+
+This function is continuous everywhere, and its partial derivative with respect to $y$ is also continuous because the denominator $1+y^2$ never vanishes.
+
+So the theorem applies in a rectangle around $(0,0)$, and it guarantees a unique local solution.
 :::
 
 ---
-id: "math-first-order-odes-26"
-note: "math-first-order-odes"
-title: "Review: Test for exactness"
-type: "text"
-answer: "If $M$ and $N$ have continuous first partial derivatives, test whether $$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $$ If this holds on a region, the equation is exact there."
-skills:
-  - "Test for exactness"
+id: first-order-odes-28
+note: math-first-order-odes
+title: "Interpret a Cooling Model"
+skills: [Newton's Law of Cooling, Autonomous Equations]
 ---
 
-What is the main idea of **Test for exactness**?
+An object obeys
+
+$$
+\frac{dT}{dt} = -0.2(T-18).
+$$
+
+What is the equilibrium temperature, and what happens when $T>18$ and when $T<18$?
 
 :::solution
-One short answer is: If $M$ and $N$ have continuous first partial derivatives, test whether $$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $$ If this holds on a region, the equation is exact there.
+Set the right-hand side equal to zero:
+
+$$
+-0.2(T-18)=0.
+$$
+
+So the equilibrium temperature is
+
+$$
+T=18.
+$$
+
+If $T>18$, then $T-18>0$, so
+
+$$
+\frac{dT}{dt}<0.
+$$
+
+The object cools toward $18$.
+
+If $T<18$, then $T-18<0$, so
+
+$$
+\frac{dT}{dt}>0.
+$$
+
+The object warms toward $18$.
 :::
 
 ---
-id: "math-first-order-odes-27"
-note: "math-first-order-odes"
-title: "Review: Solution procedure"
-type: "text"
-answer: "Verify exactness."
-skills:
-  - "Solution procedure"
+id: first-order-odes-31
+note: math-first-order-odes
+title: "Build an Exponential Growth Model"
+skills: [Modeling Patterns, Exponential Growth]
 ---
 
-According to the note, what sequence of steps is recommended in **Solution procedure**?
+A bacterial culture has $250$ bacteria at $t=0$ and $500$ bacteria at $t=5$ hours. Assuming exponential growth, find the model $P(t)$.
 
 :::solution
-One short answer is: Verify exactness.
+Exponential growth has the form
+
+$$
+P(t)=Ce^{kt}.
+$$
+
+From $P(0)=250$, we get
+
+$$
+C=250.
+$$
+
+Use $P(5)=500$:
+
+$$
+500 = 250e^{5k}.
+$$
+
+Divide by $250$:
+
+$$
+2 = e^{5k}.
+$$
+
+Take logs:
+
+$$
+5k = \ln 2
+$$
+
+so
+
+$$
+k = \frac{\ln 2}{5}.
+$$
+
+Therefore,
+
+$$
+P(t)=250e^{(\ln 2)t/5}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-28"
-note: "math-first-order-odes"
-title: "Review: Example"
-type: "text"
-answer: "Solve $$ (2xy+1)\\,dx + (x^2+3y^2)\\,dy = 0 $$ Here $$ M(x,y)=2xy+1, \\qquad N(x,y)=x^2+3y^2 $$ Check: $$ M y = 2x, \\qquad N x = 2x $$ so the equation is exact."
-skills:
-  - "Example"
+id: first-order-odes-32
+note: math-first-order-odes
+title: "Solve a Newton Cooling Problem"
+skills: [Newton's Law of Cooling, Initial Value Problems]
 ---
 
-What is the main idea of **Example**?
+A cup of coffee starts at $90^\circ$C in a room at $20^\circ$C and satisfies
+
+$$
+\frac{dT}{dt}=-0.3(T-20), \qquad T(0)=90.
+$$
+
+Find $T(t)$ and the time when the coffee reaches $30^\circ$C.
 
 :::solution
-One short answer is: Solve $$ (2xy+1)\,dx + (x^2+3y^2)\,dy = 0 $$ Here $$ M(x,y)=2xy+1, \qquad N(x,y)=x^2+3y^2 $$ Check: $$ M y = 2x, \qquad N x = 2x $$ so the equation is exact.
+The cooling model has the form
+
+$$
+T(t)=20+Ce^{-0.3t}.
+$$
+
+Use $T(0)=90$:
+
+$$
+90=20+C
+$$
+
+so
+
+$$
+C=70.
+$$
+
+Thus
+
+$$
+T(t)=20+70e^{-0.3t}.
+$$
+
+Now set $T(t)=30$:
+
+$$
+30=20+70e^{-0.3t}.
+$$
+
+Subtract $20$:
+
+$$
+10=70e^{-0.3t}.
+$$
+
+Divide by $70$:
+
+$$
+\frac{1}{7}=e^{-0.3t}.
+$$
+
+Take logs:
+
+$$
+-0.3t = \ln\!\left(\frac{1}{7}\right) = -\ln 7.
+$$
+
+So
+
+$$
+t=\frac{\ln 7}{0.3}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-29"
-note: "math-first-order-odes"
-title: "Review: Homogeneous first-order equations"
-type: "text"
-answer: "A first-order ODE of the form $$ \\frac{dy}{dx} = F\\left(\\frac{y}{x}\\right) $$ is called homogeneous in the first-order sense."
-skills:
-  - "6. Homogeneous first-order equations"
+id: first-order-odes-33
+note: math-first-order-odes
+title: "Write a Mixing Equation"
+skills: [Mixing Problems, Linear First-Order Equations]
 ---
 
-What is the main idea of **Homogeneous first-order equations**?
+A tank starts with $100$ liters of brine containing $8$ grams of salt. Pure water flows in at $3$ liters per minute, and the well-mixed solution flows out at the same rate.
+
+Let $Q(t)$ be the amount of salt in grams. Write and solve the differential equation for $Q(t)$.
 
 :::solution
-One short answer is: A first-order ODE of the form $$ \frac{dy}{dx} = F\left(\frac{y}{x}\right) $$ is called homogeneous in the first-order sense.
+Since pure water enters, the rate in is $0$.
+
+The volume stays constant at $100$ liters, so the concentration in the tank is
+
+$$
+\frac{Q(t)}{100}\ \text{grams per liter}.
+$$
+
+The outflow rate of salt is
+
+$$
+3\cdot \frac{Q}{100}=\frac{3}{100}Q.
+$$
+
+So the differential equation is
+
+$$
+\frac{dQ}{dt}=-\frac{3}{100}Q.
+$$
+
+This is linear and separable. Its solution is
+
+$$
+Q(t)=Ce^{-3t/100}.
+$$
+
+Use $Q(0)=8$:
+
+$$
+C=8.
+$$
+
+Therefore,
+
+$$
+Q(t)=8e^{-3t/100}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-210"
-note: "math-first-order-odes"
-title: "Review: Example pattern"
-type: "text"
-answer: "If $$ \\frac{dy}{dx} = \\frac{x+y}{x} = 1 + \\frac{y}{x} $$ set $y=vx$."
-skills:
-  - "Example pattern"
+id: first-order-odes-34
+note: math-first-order-odes
+title: "Interpret a Logistic Model with Initial Data"
+skills: [Logistic Equation, Modeling Patterns]
 ---
 
-What is the main idea of **Example pattern**?
+A population satisfies
+
+$$
+\frac{dP}{dt}=0.4P\left(1-\frac{P}{1000}\right), \qquad P(0)=200.
+$$
+
+Find the explicit solution.
 
 :::solution
-One short answer is: If $$ \frac{dy}{dx} = \frac{x+y}{x} = 1 + \frac{y}{x} $$ set $y=vx$.
+For a logistic equation,
+
+$$
+P(t)=\frac{K}{1+Ae^{-rt}}.
+$$
+
+Here $K=1000$ and $r=0.4$, so
+
+$$
+P(t)=\frac{1000}{1+Ae^{-0.4t}}.
+$$
+
+Use $P(0)=200$:
+
+$$
+200=\frac{1000}{1+A}.
+$$
+
+So
+
+$$
+1+A=5
+$$
+
+and
+
+$$
+A=4.
+$$
+
+Therefore,
+
+$$
+P(t)=\frac{1000}{1+4e^{-0.4t}}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-211"
-note: "math-first-order-odes"
-title: "Review: Bernoulli equations"
-type: "text"
-answer: "A Bernoulli equation has the form $$ y' + p(x)y = q(x)y^n $$ with $n \\neq 0,1$. It is nonlinear, but becomes linear after the substitution $$ u = y^{1-n} $$"
-skills:
-  - "7. Bernoulli equations"
+id: first-order-odes-35
+note: math-first-order-odes
+title: "Spot a Lost Constant Solution"
+skills: [Common Pitfalls, Separable Equations]
 ---
 
-What is the main idea of **Bernoulli equations**?
+A student solves
+
+$$
+\frac{dy}{dx}=xy
+$$
+
+by dividing by $y$ and gets
+
+$$
+y = Ce^{x^2/2}.
+$$
+
+What solution was lost, and why does it need to be checked separately?
 
 :::solution
-One short answer is: A Bernoulli equation has the form $$ y' + p(x)y = q(x)y^n $$ with $n \neq 0,1$. It is nonlinear, but becomes linear after the substitution $$ u = y^{1-n} $$
+Dividing by $y$ assumes $y\neq 0$.
+
+The constant solution
+
+$$
+y=0
+$$
+
+also satisfies
+
+$$
+\frac{dy}{dx}=xy.
+$$
+
+It must be checked separately because it is lost when the equation is divided by $y$.
 :::
 
 ---
-id: "math-first-order-odes-31"
-note: "math-first-order-odes"
-title: "Review: Derivation"
-type: "text"
-answer: "Differentiate: $$ u' = (1-n)y^{-n}y' $$ After multiplying the original equation by $y^{-n}$, the equation becomes linear in $u$."
-skills:
-  - "Derivation"
+id: first-order-odes-41
+note: math-first-order-odes
+title: "Solve a Bernoulli Initial Value Problem"
+skills: [Bernoulli Equations, Initial Value Problems]
 ---
 
-What is the main idea of **Derivation**?
+Solve
+
+$$
+y' + \frac{1}{x}y = xy^2, \qquad y(1)=1.
+$$
 
 :::solution
-One short answer is: Differentiate: $$ u' = (1-n)y^{-n}y' $$ After multiplying the original equation by $y^{-n}$, the equation becomes linear in $u$.
+This is a Bernoulli equation with $n=2$.
+
+Multiply by $y^{-2}$:
+
+$$
+y^{-2}y' + \frac{1}{x}y^{-1} = x.
+$$
+
+Let
+
+$$
+u=y^{-1}.
+$$
+
+Then
+
+$$
+u'=-y^{-2}y',
+$$
+
+so
+
+$$
+-u' + \frac{1}{x}u = x.
+$$
+
+Rearrange:
+
+$$
+u' - \frac{1}{x}u = -x.
+$$
+
+This is linear. The integrating factor is
+
+$$
+\mu(x)=e^{\int -1/x\,dx}=e^{-\ln x}=\frac{1}{x}
+$$
+
+for $x>0$.
+
+Multiply through:
+
+$$
+\frac{d}{dx}\!\left(\frac{u}{x}\right)=-1.
+$$
+
+Integrate:
+
+$$
+\frac{u}{x}=-x+C.
+$$
+
+So
+
+$$
+u=-x^2+Cx.
+$$
+
+Use $y(1)=1$, so $u(1)=1$:
+
+$$
+1=-1+C
+$$
+
+which gives
+
+$$
+C=2.
+$$
+
+Thus
+
+$$
+u=x(2-x),
+$$
+
+and since $u=1/y$,
+
+$$
+y=\frac{1}{x(2-x)}.
+$$
 :::
 
 ---
-id: "math-first-order-odes-32"
-note: "math-first-order-odes"
-title: "Review: Why it matters"
-type: "text"
-answer: "Bernoulli equations are one of the cleanest examples of a nonlinear ODE that reduces to a linear one by a well-chosen substitution. ---"
-skills:
-  - "Why it matters"
+id: first-order-odes-42
+note: math-first-order-odes
+title: "Solve an Exact IVP"
+skills: [Exact Equations, Initial Value Problems]
 ---
 
-What is the main idea of **Why it matters**?
+Solve
+
+$$
+(2xy+1)\,dx + (x^2+2y)\,dy = 0, \qquad y(0)=1.
+$$
 
 :::solution
-One short answer is: Bernoulli equations are one of the cleanest examples of a nonlinear ODE that reduces to a linear one by a well-chosen substitution. ---
+Let
+
+$$
+M(x,y)=2xy+1, \qquad N(x,y)=x^2+2y.
+$$
+
+Check exactness:
+
+$$
+M_y=2x, \qquad N_x=2x.
+$$
+
+So the equation is exact.
+
+Integrate $M$ with respect to $x$:
+
+$$
+\Psi(x,y)=\int (2xy+1)\,dx = x^2y + x + g(y).
+$$
+
+Differentiate with respect to $y$:
+
+$$
+\Psi_y = x^2 + g'(y).
+$$
+
+Match with $N$:
+
+$$
+x^2 + g'(y)=x^2+2y,
+$$
+
+so
+
+$$
+g'(y)=2y
+$$
+
+and
+
+$$
+g(y)=y^2.
+$$
+
+Thus
+
+$$
+x^2y + x + y^2 = C.
+$$
+
+Use $y(0)=1$:
+
+$$
+1=C.
+$$
+
+So the implicit solution is
+
+$$
+x^2y + x + y^2 = 1.
+$$
 :::
 
 ---
-id: "math-first-order-odes-33"
-note: "math-first-order-odes"
-title: "Review: Autonomous equations and equilibria"
-type: "text"
-answer: "An autonomous first-order ODE has the form $$ \\frac{dy}{dt} = f(y) $$ The independent variable does not appear explicitly."
-skills:
-  - "8. Autonomous equations and equilibria"
+id: first-order-odes-43
+note: math-first-order-odes
+title: "Classify Stability on a Phase Line"
+skills: [Autonomous Equations, Phase Lines, Stability]
 ---
 
-What is the main idea of **Autonomous equations and equilibria**?
+For
+
+$$
+y' = y(1-y)^2,
+$$
+
+find the equilibrium solutions and classify each as stable, unstable, or semistable.
 
 :::solution
-One short answer is: An autonomous first-order ODE has the form $$ \frac{dy}{dt} = f(y) $$ The independent variable does not appear explicitly.
+Set the right-hand side equal to zero:
+
+$$
+y(1-y)^2=0.
+$$
+
+So the equilibria are
+
+$$
+y=0 \quad \text{and} \quad y=1.
+$$
+
+Now check the sign of $y(1-y)^2$:
+
+$$
+y<0 \Rightarrow y(1-y)^2<0,
+$$
+
+so solutions move downward on the left of $0$.
+
+$$
+0<y<1 \Rightarrow y(1-y)^2>0,
+$$
+
+so solutions move upward toward $1$ from the left.
+
+$$
+y>1 \Rightarrow y(1-y)^2>0,
+$$
+
+so solutions move upward away from $1$ on the right.
+
+Therefore:
+
+$$
+y=0 \text{ is unstable,}
+$$
+
+and
+
+$$
+y=1 \text{ is semistable.}
+$$
 :::
 
 ---
-id: "math-first-order-odes-34"
-note: "math-first-order-odes"
-title: "Review: Equilibrium solutions"
-type: "text"
-answer: "An equilibrium occurs when $$ f(y)=0 $$ If $y=y^ $ satisfies this, then the constant function $y(t)=y^ $ is a solution."
-skills:
-  - "Equilibrium solutions"
+id: first-order-odes-44
+note: math-first-order-odes
+title: "Compare Two Existence Questions"
+skills: [Existence and Uniqueness, Common Pitfalls]
 ---
 
-What is the main idea of **Equilibrium solutions**?
+For each IVP, decide whether the theorem from the note guarantees a unique local solution.
+
+1. $y' = \dfrac{1}{1+y^2}, \qquad y(0)=0$
+2. $y' = \sqrt{|y|}, \qquad y(0)=0$
 
 :::solution
-One short answer is: An equilibrium occurs when $$ f(y)=0 $$ If $y=y^ $ satisfies this, then the constant function $y(t)=y^ $ is a solution.
-:::
+For the first IVP, let
 
----
-id: "math-first-order-odes-35"
-note: "math-first-order-odes"
-title: "Review: Stability"
-type: "text"
-answer: "If nearby arrows point toward the equilibrium, it is stable ."
-skills:
-  - "Stability"
----
+$$
+f(x,y)=\frac{1}{1+y^2}.
+$$
 
-What is the main idea of **Stability**?
+Both $f$ and $\partial f/\partial y$ are continuous everywhere, so the theorem guarantees a unique local solution.
 
-:::solution
-One short answer is: If nearby arrows point toward the equilibrium, it is stable .
-:::
+For the second IVP,
 
----
-id: "math-first-order-odes-36"
-note: "math-first-order-odes"
-title: "Review: Phase line analysis"
-type: "text"
-answer: "Find equilibrium values by solving $f(y)=0$."
-skills:
-  - "Phase line analysis"
----
+$$
+f(x,y)=\sqrt{|y|}.
+$$
 
-What is the main idea of **Phase line analysis**?
+This function is continuous, but $\partial f/\partial y$ is not continuous at $y=0$, so the theorem does not guarantee uniqueness.
 
-:::solution
-One short answer is: Find equilibrium values by solving $f(y)=0$.
-:::
-
----
-id: "math-first-order-odes-37"
-note: "math-first-order-odes"
-title: "Review: Existence and uniqueness"
-type: "text"
-answer: "Does a solution exist?"
-skills:
-  - "9. Existence and uniqueness"
----
-
-What is the main idea of **Existence and uniqueness**?
-
-:::solution
-One short answer is: Does a solution exist?
-:::
-
----
-id: "math-first-order-odes-38"
-note: "math-first-order-odes"
-title: "Review: Practical theorem"
-type: "text"
-answer: "If $f(x,y)$ and $\\partial f/\\partial y$ are continuous in a rectangle containing $(x 0,y 0)$, then there exists a unique local solution through that point."
-skills:
-  - "Practical theorem"
----
-
-What is the main idea of **Practical theorem**?
-
-:::solution
-One short answer is: If $f(x,y)$ and $\partial f/\partial y$ are continuous in a rectangle containing $(x 0,y 0)$, then there exists a unique local solution through that point.
-:::
-
----
-id: "math-first-order-odes-39"
-note: "math-first-order-odes"
-title: "Review: Interpretation"
-type: "text"
-answer: "Continuity of $f$ supports existence."
-skills:
-  - "Interpretation"
----
-
-What is the main idea of **Interpretation**?
-
-:::solution
-One short answer is: Continuity of $f$ supports existence.
-:::
-
----
-id: "math-first-order-odes-310"
-note: "math-first-order-odes"
-title: "Review: Example of non-uniqueness"
-type: "text"
-answer: "Consider $$ y' = \\sqrt{ y }, \\qquad y(0)=0 $$ The constant solution $y=0$ works, but nonzero solutions can also be patched through the same initial point."
-skills:
-  - "Example of non-uniqueness"
----
-
-What is the main idea of **Example of non-uniqueness**?
-
-:::solution
-One short answer is: Consider $$ y' = \sqrt{ y }, \qquad y(0)=0 $$ The constant solution $y=0$ works, but nonzero solutions can also be patched through the same initial point.
-:::
-
----
-id: "math-first-order-odes-311"
-note: "math-first-order-odes"
-title: "Review: Modeling patterns"
-type: "text"
-answer: "First-order ODEs appear naturally in rate laws where the rate of change depends on the current state."
-skills:
-  - "10. Modeling patterns"
----
-
-What is the main idea of **Modeling patterns**?
-
-:::solution
-One short answer is: First-order ODEs appear naturally in rate laws where the rate of change depends on the current state.
-:::
-
----
-id: "math-first-order-odes-312"
-note: "math-first-order-odes"
-title: "Review: Exponential growth and decay"
-type: "text"
-answer: "$k>0$: growth"
-skills:
-  - "Exponential growth and decay"
----
-
-What is the main idea of **Exponential growth and decay**?
-
-:::solution
-One short answer is: $k>0$: growth
-:::
-
----
-id: "math-first-order-odes-41"
-note: "math-first-order-odes"
-title: "Review: Newton's law of cooling"
-type: "text"
-answer: "If an object's temperature $T$ moves toward ambient temperature $T a$: $$ \\frac{dT}{dt} = -k(T-T a) $$ Then $$ T(t)=T a + Ce^{-kt} $$"
-skills:
-  - "Newton's law of cooling"
----
-
-What is the main idea of **Newton's law of cooling**?
-
-:::solution
-One short answer is: If an object's temperature $T$ moves toward ambient temperature $T a$: $$ \frac{dT}{dt} = -k(T-T a) $$ Then $$ T(t)=T a + Ce^{-kt} $$
-:::
-
----
-id: "math-first-order-odes-42"
-note: "math-first-order-odes"
-title: "Review: Mixing problems"
-type: "text"
-answer: "If a tank has inflow and outflow, a common model is $$ \\frac{dQ}{dt} = \\text{rate in} - \\text{rate out} $$ where $Q(t)$ is the amount of substance in the tank."
-skills:
-  - "Mixing problems"
----
-
-What is the main idea of **Mixing problems**?
-
-:::solution
-One short answer is: If a tank has inflow and outflow, a common model is $$ \frac{dQ}{dt} = \text{rate in} - \text{rate out} $$ where $Q(t)$ is the amount of substance in the tank.
-:::
-
----
-id: "math-first-order-odes-43"
-note: "math-first-order-odes"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "When facing a first-order ODE, classification is the main step."
-skills:
-  - "11. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: When facing a first-order ODE, classification is the main step.
-:::
-
----
-id: "math-first-order-odes-44"
-note: "math-first-order-odes"
-title: "Review: Fast recognition checklist"
-type: "text"
-answer: "Can the variables be separated?"
-skills:
-  - "Fast recognition checklist"
----
-
-According to the note, what sequence of steps is recommended in **Fast recognition checklist**?
-
-:::solution
-One short answer is: Can the variables be separated?
-:::
-
----
-id: "math-first-order-odes-45"
-note: "math-first-order-odes"
-title: "Review: Practical workflow"
-type: "text"
-answer: "Rewrite the equation into a recognizable form."
-skills:
-  - "Practical workflow"
----
-
-According to the note, what sequence of steps is recommended in **Practical workflow**?
-
-:::solution
-One short answer is: Rewrite the equation into a recognizable form.
-:::
-
----
-id: "math-first-order-odes-46"
-note: "math-first-order-odes"
-title: "Review: Strategy note"
-type: "text"
-answer: "Many errors happen because a student starts manipulating symbols before identifying the equation type. Classification usually matters more than raw integration skill. ---"
-skills:
-  - "Strategy note"
----
-
-What is the main idea of **Strategy note**?
-
-:::solution
-One short answer is: Many errors happen because a student starts manipulating symbols before identifying the equation type. Classification usually matters more than raw integration skill. ---
-:::
-
----
-id: "math-first-order-odes-47"
-note: "math-first-order-odes"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Treating a nonlinear equation as if the superposition principle applies. It does not."
-skills:
-  - "12. Common pitfalls"
----
-
-Name one common mistake the note warns about in **Common pitfalls**.
-
-:::solution
-One short answer is: Treating a nonlinear equation as if the superposition principle applies. It does not.
-:::
-
----
-id: "math-first-order-odes-48"
-note: "math-first-order-odes"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "13. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-first-order-odes-49"
-note: "math-first-order-odes"
-title: "Review: Core forms"
-type: "text"
-answer: "Separable: $$ \\frac{dy}{dx} = g(x)h(y) $$ Linear: $$ y' + p(x)y = q(x) $$ Exact: $$ M(x,y)\\,dx + N(x,y)\\,dy = 0 $$ Homogeneous: $$ \\frac{dy}{dx} = F\\left(\\frac{y}{x}\\right) $$ Bernoulli: $$ y' + p(x)y = q(x)y^n $$ Auton…"
-skills:
-  - "Core forms"
----
-
-What core idea is introduced in **Core forms**?
-
-:::solution
-One short answer is: Separable: $$ \frac{dy}{dx} = g(x)h(y) $$ Linear: $$ y' + p(x)y = q(x) $$ Exact: $$ M(x,y)\,dx + N(x,y)\,dy = 0 $$ Homogeneous: $$ \frac{dy}{dx} = F\left(\frac{y}{x}\right) $$ Bernoulli: $$ y' + p(x)y = q(x)y^n $$ Auton…
-:::
-
----
-id: "math-first-order-odes-410"
-note: "math-first-order-odes"
-title: "Review: Key tools"
-type: "text"
-answer: "Integrating factor for linear equations: $$ \\mu(x)=e^{\\int p(x)\\,dx} $$ Exactness test: $$ \\frac{\\partial M}{\\partial y} = \\frac{\\partial N}{\\partial x} $$ Homogeneous substitution: $$ y=vx, \\qquad y' = v + x\\frac{dv}{d…"
-skills:
-  - "Key tools"
----
-
-What is the main idea of **Key tools**?
-
-:::solution
-One short answer is: Integrating factor for linear equations: $$ \mu(x)=e^{\int p(x)\,dx} $$ Exactness test: $$ \frac{\partial M}{\partial y} = \frac{\partial N}{\partial x} $$ Homogeneous substitution: $$ y=vx, \qquad y' = v + x\frac{dv}{d…
-:::
-
----
-id: "math-first-order-odes-411"
-note: "math-first-order-odes"
-title: "Review: High-yield reminders"
-type: "text"
-answer: "First classify, then solve."
-skills:
-  - "High-yield reminders"
----
-
-What is the main idea of **High-yield reminders**?
-
-:::solution
-One short answer is: First classify, then solve.
+In fact, this is the kind of example in the note where non-uniqueness can occur.
 :::

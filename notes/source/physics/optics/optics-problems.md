@@ -1,1023 +1,1052 @@
 ---
-id: "physics-optics-11"
-note: "physics-optics"
-title: "Review: What optics studies"
-type: "text"
-answer: "Geometric optics : treats light as rays and is accurate when optical components are much larger than the wavelength."
-skills:
-  - "1. What optics studies"
+id: optics-11
+note: physics-optics
+title: "Choose the Right Optics Model"
+skills: [Wave Optics, Model Choice]
 ---
 
-What is the main idea of **What optics studies**?
+A student is studying the bright and dark bands produced by light passing through two slits.
+
+Which optics model should they use?
 
 :::solution
-One short answer is: Geometric optics : treats light as rays and is accurate when optical components are much larger than the wavelength.
+The pattern comes from interference and diffraction, so the correct model is **wave optics**.
+
+Geometric optics treats light as rays, but it does not explain the fringe pattern.
 :::
 
 ---
-id: "physics-optics-12"
-note: "physics-optics"
-title: "Review: Core ideas"
-type: "text"
-answer: "Rays show the direction of energy flow in the short-wavelength limit."
-skills:
-  - "Core ideas"
+id: optics-12
+note: physics-optics
+title: "Find a Wavelength in Vacuum"
+skills: [Wave Speed, Frequency-Wavelength Relation]
 ---
 
-What core idea is introduced in **Core ideas**?
+Light in vacuum has frequency
+
+$$
+f = 5.0 \times 10^{14}\ \text{Hz}.
+$$
+
+What is its wavelength?
 
 :::solution
-One short answer is: Rays show the direction of energy flow in the short-wavelength limit.
+Use
+
+$$
+c = \lambda f.
+$$
+
+So
+
+$$
+\lambda = \frac{c}{f}
+= \frac{3.0 \times 10^8}{5.0 \times 10^{14}}
+= 6.0 \times 10^{-7}\ \text{m}.
+$$
+
+That is
+
+$$
+600\ \text{nm}.
+$$
 :::
 
 ---
-id: "physics-optics-13"
-note: "physics-optics"
-title: "Review: Light as a wave and a ray"
-type: "text"
-answer: "Light as a wave and a ray"
-skills:
-  - "2. Light as a wave and a ray"
+id: optics-13
+note: physics-optics
+title: "Find Light Speed in Glass"
+skills: [Refractive Index, Wave Speed]
 ---
 
-What is the main idea of **Light as a wave and a ray**?
+A piece of glass has refractive index
+
+$$
+n = 1.5.
+$$
+
+What is the speed of light in the glass?
 
 :::solution
-One short answer is: Light as a wave and a ray
+Use
+
+$$
+v = \frac{c}{n}.
+$$
+
+So
+
+$$
+v = \frac{3.0 \times 10^8}{1.5} = 2.0 \times 10^8\ \text{m/s}.
+$$
 :::
 
 ---
-id: "physics-optics-14"
-note: "physics-optics"
-title: "Review: Ray model"
-type: "text"
-answer: "Optical parts are much larger than the wavelength."
-skills:
-  - "Ray model"
+id: optics-14
+note: physics-optics
+title: "Refraction Direction at an Interface"
+skills: [Snell's Law, Refraction]
 ---
 
-What is the main idea of **Ray model**?
+A ray of light goes from air into water.
+
+Does it bend toward the normal or away from the normal?
 
 :::solution
-One short answer is: Optical parts are much larger than the wavelength.
+Water has a larger refractive index than air, so the light slows down as it enters the water.
+
+That means the ray bends **toward the normal**.
 :::
 
 ---
-id: "physics-optics-15"
-note: "physics-optics"
-title: "Review: Wave model"
-type: "text"
-answer: "A monochromatic plane wave can be described by $$ y(x,t) = A \\cos(kx - \\omega t + \\phi) $$ with $$ k = \\frac{2\\pi}{\\lambda}, \\qquad \\omega = 2\\pi f $$ and $$ v = \\lambda f $$ For light in vacuum, $$ c = \\lambda f $$"
-skills:
-  - "Wave model"
+id: optics-15
+note: physics-optics
+title: "Plane Mirror Image Location"
+skills: [Plane Mirrors, Image Type]
 ---
 
-What is the main idea of **Wave model**?
+An object is placed 1.8 m in front of a plane mirror.
+
+How far behind the mirror is the image?
 
 :::solution
-One short answer is: A monochromatic plane wave can be described by $$ y(x,t) = A \cos(kx - \omega t + \phi) $$ with $$ k = \frac{2\pi}{\lambda}, \qquad \omega = 2\pi f $$ and $$ v = \lambda f $$ For light in vacuum, $$ c = \lambda f $$
+A plane mirror forms an image the same distance behind the mirror as the object is in front of it.
+
+So the image is
+
+$$
+1.8\ \text{m}
+$$
+behind the mirror.
 :::
 
 ---
-id: "physics-optics-16"
-note: "physics-optics"
-title: "Review: Refractive index"
-type: "text"
-answer: "Air: approximately $1.0003$"
-skills:
-  - "Refractive index"
+id: optics-16
+note: physics-optics
+title: "Find a Mirror Focal Length"
+skills: [Spherical Mirrors, Focal Length]
 ---
 
-What is the main idea of **Refractive index**?
+A concave mirror has radius of curvature
+
+$$
+R = 40\ \text{cm}.
+$$
+
+What is its focal length?
 
 :::solution
-One short answer is: Air: approximately $1.0003$
+For a spherical mirror,
+
+$$
+f = \frac{R}{2}.
+$$
+
+So
+
+$$
+f = \frac{40}{2} = 20\ \text{cm}.
+$$
 :::
 
 ---
-id: "physics-optics-17"
-note: "physics-optics"
-title: "Review: Geometric optics"
-type: "text"
-answer: "Light travels in straight lines in a uniform medium."
-skills:
-  - "3. Geometric optics"
+id: optics-17
+note: physics-optics
+title: "Solve a Thin Lens Image Distance"
+skills: [Thin Lens Equation]
 ---
 
-What is the main idea of **Geometric optics**?
+A converging lens has focal length
+
+$$
+f = 12\ \text{cm}
+$$
+
+and an object is placed
+
+$$
+d_o = 36\ \text{cm}
+$$
+
+in front of the lens.
+
+Find the image distance.
 
 :::solution
-One short answer is: Light travels in straight lines in a uniform medium.
+Use the thin lens equation:
+
+$$
+\frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}.
+$$
+
+Substitute the values:
+
+$$
+\frac{1}{12} = \frac{1}{36} + \frac{1}{d_i}.
+$$
+
+Subtract:
+
+$$
+\frac{1}{d_i} = \frac{1}{12} - \frac{1}{36} = \frac{2}{36} = \frac{1}{18}.
+$$
+
+So
+
+$$
+d_i = 18\ \text{cm}.
+$$
 :::
 
 ---
-id: "physics-optics-18"
-note: "physics-optics"
-title: "Review: Paraxial approximation"
-type: "text"
-answer: "Many optical formulas assume small angles relative to the optical axis. Under this approximation: $$ \\sin \\theta \\approx \\theta, \\qquad \\tan \\theta \\approx \\theta $$ This makes ray tracing and lens formulas much simpler."
-skills:
-  - "Paraxial approximation"
+id: optics-18
+note: physics-optics
+title: "Find the Magnification"
+skills: [Magnification, Thin Lenses]
 ---
 
-What is the main idea of **Paraxial approximation**?
+In the previous lens setup, what is the magnification?
 
 :::solution
-One short answer is: Many optical formulas assume small angles relative to the optical axis. Under this approximation: $$ \sin \theta \approx \theta, \qquad \tan \theta \approx \theta $$ This makes ray tracing and lens formulas much simpler.
+Use
+
+$$
+m = -\frac{d_i}{d_o}.
+$$
+
+Substitute:
+
+$$
+m = -\frac{18}{36} = -\frac{1}{2}.
+$$
+
+The negative sign means the image is inverted, and the magnitude shows it is half the object size.
 :::
 
 ---
-id: "physics-optics-19"
-note: "physics-optics"
-title: "Review: Image types"
-type: "text"
-answer: "Image type Rays actually meet? Can be projected on a screen? Typical sign behavior --- ---: ---: --- Real image Yes Yes Usually inverted Virtual image No, rays only appear to meet No Usually upright"
-skills:
-  - "Image types"
+id: optics-19
+note: physics-optics
+title: "Compute a Critical Angle"
+skills: [Critical Angle, Total Internal Reflection]
 ---
 
-What is the main idea of **Image types**?
+Light goes from a material with index
+
+$$
+n_1 = 2.0
+$$
+
+into a material with index
+
+$$
+n_2 = 1.0.
+$$
+
+What is the critical angle?
 
 :::solution
-One short answer is: Image type Rays actually meet? Can be projected on a screen? Typical sign behavior --- ---: ---: --- Real image Yes Yes Usually inverted Virtual image No, rays only appear to meet No Usually upright
+Use
+
+$$
+\sin \theta_c = \frac{n_2}{n_1}.
+$$
+
+So
+
+$$
+\sin \theta_c = \frac{1.0}{2.0} = \frac{1}{2}.
+$$
+
+Therefore,
+
+$$
+\theta_c = 30^\circ.
+$$
 :::
 
 ---
-id: "physics-optics-110"
-note: "physics-optics"
-title: "Review: Object and image conventions"
-type: "text"
-answer: "Real object distances are positive."
-skills:
-  - "Object and image conventions"
+id: optics-110
+note: physics-optics
+title: "Intensity Through a Polarizer"
+skills: [Malus Law, Polarizers]
 ---
 
-What is the main idea of **Object and image conventions**?
+Linearly polarized light with intensity
+
+$$
+I_0
+$$
+
+passes through an ideal polarizer whose axis makes a 60 degree angle with the light's polarization direction.
+
+What is the transmitted intensity?
 
 :::solution
-One short answer is: Real object distances are positive.
+Use Malus's law:
+
+$$
+I = I_0 \cos^2 \theta.
+$$
+
+With $\theta = 60^\circ$,
+
+$$
+I = I_0 \cos^2 60^\circ = I_0 \left(\frac{1}{2}\right)^2 = \frac{I_0}{4}.
+$$
 :::
 
 ---
-id: "physics-optics-111"
-note: "physics-optics"
-title: "Review: Reflection and mirrors"
-type: "text"
-answer: "Reflection and mirrors"
-skills:
-  - "4. Reflection and mirrors"
+id: optics-21
+note: physics-optics
+title: "A Converging Lens with Object Inside the Focal Length"
+skills: [Thin Lenses, Magnification, Image Type]
 ---
 
-What is the main idea of **Reflection and mirrors**?
+A converging lens has focal length
+
+$$
+f = 15\ \text{cm}.
+$$
+
+An object is placed
+
+$$
+d_o = 10\ \text{cm}
+$$
+
+in front of the lens.
+
+Find the image distance, and state whether the image is real or virtual.
 
 :::solution
-One short answer is: Reflection and mirrors
+Use the thin lens equation:
+
+$$
+\frac{1}{15} = \frac{1}{10} + \frac{1}{d_i}.
+$$
+
+So
+
+$$
+\frac{1}{d_i} = \frac{1}{15} - \frac{1}{10} = -\frac{1}{30}.
+$$
+
+Thus
+
+$$
+d_i = -30\ \text{cm}.
+$$
+
+The negative sign means the image is **virtual** and on the same side as the object.
+
+The magnification is
+
+$$
+m = -\frac{d_i}{d_o} = -\frac{-30}{10} = 3.
+$$
+
+So the image is upright and enlarged.
 :::
 
 ---
-id: "physics-optics-112"
-note: "physics-optics"
-title: "Review: Law of reflection"
-type: "text"
-answer: "The angle of incidence equals the angle of reflection: $$ \\theta i = \\theta r $$ Both angles are measured from the normal to the surface."
-skills:
-  - "Law of reflection"
+id: optics-22
+note: physics-optics
+tolerance: 0.2
+title: "Refraction and Speed Change in Water"
+skills: [Snell's Law, Refractive Index, Wave Speed]
 ---
 
-What is the main idea of **Law of reflection**?
+Light travels from air into water. The angle of incidence in air is
+
+$$
+30^\circ
+$$
+
+and the refractive index of water is
+
+$$
+n = 1.33.
+$$
+
+Find the refracted angle in water and the speed of light in water.
 
 :::solution
-One short answer is: The angle of incidence equals the angle of reflection: $$ \theta i = \theta r $$ Both angles are measured from the normal to the surface.
+Use Snell's law with $n_1 \approx 1$ for air:
+
+$$
+n_1 \sin \theta_1 = n_2 \sin \theta_2.
+$$
+
+So
+
+$$
+\sin \theta_2 = \frac{1}{1.33}\sin 30^\circ
+= \frac{1}{1.33}\cdot \frac{1}{2}
+\approx 0.376.
+$$
+
+That gives
+
+$$
+\theta_2 \approx 22^\circ.
+$$
+
+The speed in water is
+
+$$
+v = \frac{c}{n} = \frac{3.0 \times 10^8}{1.33} \approx 2.26 \times 10^8\ \text{m/s}.
+$$
 :::
 
 ---
-id: "physics-optics-113"
-note: "physics-optics"
-title: "Review: Plane mirrors"
-type: "text"
-answer: "Virtual"
-skills:
-  - "Plane mirrors"
+id: optics-23
+note: physics-optics
+title: "Two Lenses in Series"
+skills: [Thin Lenses, Multiple Optical Elements, Magnification]
 ---
 
-What is the main idea of **Plane mirrors**?
+A converging lens with focal length
+
+$$
+f_1 = 10\ \text{cm}
+$$
+
+forms an image from an object placed
+
+$$
+d_{o1} = 30\ \text{cm}
+$$
+
+in front of it.
+
+A second converging lens with focal length
+
+$$
+f_2 = 15\ \text{cm}
+$$
+
+is placed 20 cm to the right of the first lens.
+
+Find the final image position relative to the second lens and describe the final image.
 
 :::solution
-One short answer is: Virtual
+First lens:
+
+$$
+\frac{1}{10} = \frac{1}{30} + \frac{1}{d_{i1}}
+$$
+
+so
+
+$$
+\frac{1}{d_{i1}} = \frac{1}{10} - \frac{1}{30} = \frac{1}{15},
+$$
+
+and
+
+$$
+d_{i1} = 15\ \text{cm}.
+$$
+
+That image is 15 cm to the right of the first lens, so it is 5 cm to the left of the second lens. Thus the second lens has object distance
+
+$$
+d_{o2} = 5\ \text{cm}.
+$$
+
+Second lens:
+
+$$
+\frac{1}{15} = \frac{1}{5} + \frac{1}{d_{i2}}.
+$$
+
+So
+
+$$
+\frac{1}{d_{i2}} = \frac{1}{15} - \frac{1}{5} = -\frac{2}{15},
+$$
+
+and
+
+$$
+d_{i2} = -7.5\ \text{cm}.
+$$
+
+The negative sign means the final image is virtual and on the left side of the second lens.
+
+The magnifications are
+
+$$
+m_1 = -\frac{15}{30} = -\frac{1}{2},
+\qquad
+m_2 = -\frac{-7.5}{5} = \frac{3}{2}.
+$$
+
+So the total magnification is
+
+$$
+m = m_1 m_2 = -\frac{3}{4}.
+$$
+
+The final image is virtual, inverted relative to the original object, and slightly smaller.
 :::
 
 ---
-id: "physics-optics-114"
-note: "physics-optics"
-title: "Review: Spherical mirrors"
-type: "text"
-answer: "Concave mirror : converging"
-skills:
-  - "Spherical mirrors"
+id: optics-24
+note: physics-optics
+title: "Correct a Nearsighted Eye"
+skills: [Human Eye, Vision Defects, Corrective Lenses]
 ---
 
-What is the main idea of **Spherical mirrors**?
+A student can see nearby objects clearly, but distant street signs are blurry because the image would form in front of the retina.
+
+What vision defect is this, and what kind of corrective lens is used?
 
 :::solution
-One short answer is: Concave mirror : converging
+This is **myopia** or nearsightedness.
+
+It is corrected with a **diverging lens**, which spreads incoming rays slightly so the eye focuses the image farther back, onto the retina.
 :::
 
 ---
-id: "physics-optics-115"
-note: "physics-optics"
-title: "Review: Mirror equation"
-type: "text"
-answer: "$m < 0$: inverted image"
-skills:
-  - "Mirror equation"
+id: optics-25
+note: physics-optics
+title: "Bright or Dark in a Thin Film?"
+skills: [Thin-Film Interference, Phase Shift]
 ---
 
-What is the main idea of **Mirror equation**?
+A thin film produces a path difference equal to
+
+$$
+\frac{\lambda}{2}
+$$
+
+between two reflected rays. Also, one of the reflections occurs from a lower-index medium to a higher-index medium, so that reflection adds a phase shift of $\pi$.
+
+Is the reflected light bright or dark?
 
 :::solution
-One short answer is: $m < 0$: inverted image
+The path difference of $\lambda/2$ contributes a phase shift of $\pi$.
+
+The reflection from lower index to higher index adds another phase shift of $\pi$.
+
+The total phase difference is therefore
+
+$$
+\pi + \pi = 2\pi,
+$$
+
+which corresponds to constructive interference.
+
+So the reflected light is **bright**.
 :::
 
 ---
-id: "physics-optics-116"
-note: "physics-optics"
-title: "Review: Ray tracing for mirrors"
-type: "text"
-answer: "A ray parallel to the axis reflects through the focal point."
-skills:
-  - "Ray tracing for mirrors"
+id: optics-26
+note: physics-optics
+title: "Angle of a Diffraction Grating Maximum"
+skills: [Diffraction Grating, Interference]
 ---
 
-What is the main idea of **Ray tracing for mirrors**?
+A diffraction grating has slit spacing
+
+$$
+d = 2.0 \times 10^{-6}\ \text{m}.
+$$
+
+Light of wavelength
+
+$$
+\lambda = 500\ \text{nm}
+$$
+
+falls on the grating.
+
+What is the angle of the second-order bright maximum?
 
 :::solution
-One short answer is: A ray parallel to the axis reflects through the focal point.
+Use the grating equation:
+
+$$
+d \sin \theta = m\lambda.
+$$
+
+For second order, $m=2$:
+
+$$
+2.0 \times 10^{-6} \sin \theta = 2(500 \times 10^{-9}).
+$$
+
+So
+
+$$
+\sin \theta = \frac{1.0 \times 10^{-6}}{2.0 \times 10^{-6}} = 0.5.
+$$
+
+Therefore,
+
+$$
+\theta = 30^\circ.
+$$
 :::
 
 ---
-id: "physics-optics-21"
-note: "physics-optics"
-title: "Review: Common mirror cases"
-type: "text"
-answer: "Object beyond the center of curvature: real, inverted, reduced image between $f$ and $R$."
-skills:
-  - "Common mirror cases"
+id: optics-27
+note: physics-optics
+title: "Two Polarizers in Sequence"
+skills: [Polarizers, Malus Law]
 ---
 
-Name one common mistake the note warns about in **Common mirror cases**.
+Unpolarized light with intensity
+
+$$
+I_0
+$$
+
+passes through an ideal polarizer, then a second polarizer set at 30 degrees relative to the first.
+
+What is the final intensity?
 
 :::solution
-One short answer is: Object beyond the center of curvature: real, inverted, reduced image between $f$ and $R$.
+Unpolarized light loses half its intensity in the first polarizer:
+
+$$
+I = \frac{I_0}{2}.
+$$
+
+Through the second polarizer, Malus's law gives
+
+$$
+I = \frac{I_0}{2}\cos^2 30^\circ.
+$$
+
+Since
+
+$$
+\cos^2 30^\circ = \left(\frac{\sqrt{3}}{2}\right)^2 = \frac{3}{4},
+$$
+
+the final intensity is
+
+$$
+\frac{I_0}{2}\cdot \frac{3}{4} = \frac{3I_0}{8}.
+$$
 :::
 
 ---
-id: "physics-optics-22"
-note: "physics-optics"
-title: "Review: Refraction and Snell's law"
-type: "text"
-answer: "Refraction occurs when light crosses into a medium with a different refractive index. The speed changes, and the direction usually changes too."
-skills:
-  - "5. Refraction and Snell's law"
+id: optics-28
+note: physics-optics
+title: "Choose the Better Resolving Aperture"
+skills: [Diffraction, Resolution]
 ---
 
-What is the main idea of **Refraction and Snell's law**?
+Two telescopes observe the same light. Telescope A has aperture diameter 5.0 cm, and telescope B has aperture diameter 10.0 cm.
+
+Which telescope has the smaller minimum resolvable angle, and by what factor?
 
 :::solution
-One short answer is: Refraction occurs when light crosses into a medium with a different refractive index. The speed changes, and the direction usually changes too.
+The Rayleigh criterion says
+
+$$
+\theta_{\min} \approx 1.22 \frac{\lambda}{D}.
+$$
+
+For the same wavelength, $\theta_{\min}$ is inversely proportional to aperture diameter.
+
+Since telescope B has twice the diameter of telescope A, its minimum resolvable angle is half as large.
+
+So **telescope B** has the better resolution, by a factor of **2**.
 :::
 
 ---
-id: "physics-optics-23"
-note: "physics-optics"
-title: "Review: Snell's law"
-type: "text"
-answer: "$$ n 1 \\sin \\theta 1 = n 2 \\sin \\theta 2 $$ where angles are measured from the normal."
-skills:
-  - "Snell's law"
+id: optics-31
+note: physics-optics
+title: "Choose the Correct Vision Aid"
+skills: [Human Eye, Vision Defects, Corrective Lenses]
 ---
 
-What is the main idea of **Snell's law**?
+A person can read a book clearly, but distant road signs are blurry.
+
+What type of corrective lens should they use, and why?
 
 :::solution
-One short answer is: $$ n 1 \sin \theta 1 = n 2 \sin \theta 2 $$ where angles are measured from the normal.
+This is **myopia**.
+
+A **diverging lens** is used because it reduces the convergence of incoming parallel rays so the eye can focus the image onto the retina instead of in front of it.
 :::
 
 ---
-id: "physics-optics-24"
-note: "physics-optics"
-title: "Review: Physical meaning"
-type: "text"
-answer: "If $n 2 > n 1$, the ray bends toward the normal."
-skills:
-  - "Physical meaning"
+id: optics-32
+note: physics-optics
+title: "Check Total Internal Reflection in a Fiber"
+skills: [Critical Angle, Total Internal Reflection, Fiber Optics]
 ---
 
-What is the main idea of **Physical meaning**?
+A fiber-optic core has refractive index
+
+$$
+n_1 = 1.50,
+$$
+
+and the cladding has refractive index
+
+$$
+n_2 = 1.30.
+$$
+
+A ray inside the core hits the boundary at an angle of 65 degrees from the normal.
+
+Will the ray undergo total internal reflection?
 
 :::solution
-One short answer is: If $n 2 > n 1$, the ray bends toward the normal.
+First find the critical angle:
+
+$$
+\sin \theta_c = \frac{n_2}{n_1} = \frac{1.30}{1.50} \approx 0.867.
+$$
+
+So
+
+$$
+\theta_c \approx 60^\circ.
+$$
+
+The incident angle is 65 degrees, which is larger than the critical angle.
+
+Therefore the ray undergoes **total internal reflection** and stays confined in the fiber.
 :::
 
 ---
-id: "physics-optics-25"
-note: "physics-optics"
-title: "Review: Critical angle and total internal reflection"
-type: "text"
-answer: "Fiber optics"
-skills:
-  - "Critical angle and total internal reflection"
+id: optics-33
+note: physics-optics
+title: "Which Instrument Fits the Job?"
+skills: [Telescopes, Angular Magnification]
 ---
 
-What is the main idea of **Critical angle and total internal reflection**?
+You want a distant planet to appear larger in angular size.
+
+Should you use a microscope or a telescope?
 
 :::solution
-One short answer is: Fiber optics
+Use a **telescope**.
+
+Microscopes are for very small nearby objects, while telescopes are designed to view far objects with larger angular size.
 :::
 
 ---
-id: "physics-optics-26"
-note: "physics-optics"
-title: "Review: Dispersion"
-type: "text"
-answer: "Shorter wavelengths usually have larger $n$."
-skills:
-  - "Dispersion"
+id: optics-34
+note: physics-optics
+title: "Compare Two Apertures"
+skills: [Diffraction, Resolution]
 ---
 
-What is the main idea of **Dispersion**?
+Two cameras use the same wavelength of light.
+
+Camera A has an aperture diameter of 4.0 cm, and camera B has an aperture diameter of 10.0 cm.
+
+Which camera has the better resolution?
 
 :::solution
-One short answer is: Shorter wavelengths usually have larger $n$.
+By the Rayleigh criterion,
+
+$$
+\theta_{\min} \approx 1.22 \frac{\lambda}{D}.
+$$
+
+For the same wavelength, a larger aperture means a smaller minimum resolvable angle.
+
+Since camera B has the larger aperture, it has the **better resolution**.
+
+In fact, its minimum angle is smaller by a factor of
+
+$$
+\frac{10.0}{4.0} = 2.5.
+$$
 :::
 
 ---
-id: "physics-optics-27"
-note: "physics-optics"
-title: "Review: Thin lenses and image formation"
-type: "text"
-answer: "Thin lenses are idealized as lenses with negligible thickness compared to object and image distances."
-skills:
-  - "6. Thin lenses and image formation"
+id: optics-35
+note: physics-optics
+title: "Which Color Bends More in a Prism?"
+skills: [Dispersion, Refraction]
 ---
 
-What is the main idea of **Thin lenses and image formation**?
+White light passes through a prism.
+
+Which color bends more in normal dispersion, red or blue?
 
 :::solution
-One short answer is: Thin lenses are idealized as lenses with negligible thickness compared to object and image distances.
+In normal dispersion, shorter wavelengths have larger refractive index.
+
+Blue light has a shorter wavelength than red light, so it bends more.
+
+Therefore, **blue** bends more than red.
 :::
 
 ---
-id: "physics-optics-28"
-note: "physics-optics"
-title: "Review: Lens types"
-type: "text"
-answer: "Converging lens : thicker in the middle, positive focal length"
-skills:
-  - "Lens types"
+id: optics-41
+note: physics-optics
+title: "Two-Lens System With a Final Virtual Image"
+skills: [Multiple Optical Elements, Thin Lenses, Magnification]
 ---
 
-What is the main idea of **Lens types**?
+A converging lens has focal length
+
+$$
+f_1 = 12\ \text{cm}
+$$
+
+and forms an image from an object placed
+
+$$
+d_{o1} = 18\ \text{cm}
+$$
+
+in front of it.
+
+A diverging lens with focal length
+
+$$
+f_2 = -28\ \text{cm}
+$$
+
+is placed 50 cm to the right of the first lens.
+
+Find the final image position relative to the second lens, and state whether the final image is upright or inverted.
 
 :::solution
-One short answer is: Converging lens : thicker in the middle, positive focal length
+For the first lens:
+
+$$
+\frac{1}{12} = \frac{1}{18} + \frac{1}{d_{i1}}.
+$$
+
+So
+
+$$
+\frac{1}{d_{i1}} = \frac{1}{12} - \frac{1}{18} = \frac{1}{36},
+$$
+
+and
+
+$$
+d_{i1} = 36\ \text{cm}.
+$$
+
+That image is 36 cm to the right of the first lens, so it is 14 cm to the left of the second lens. Thus the second lens has object distance
+
+$$
+d_{o2} = 14\ \text{cm}.
+$$
+
+For the second lens:
+
+$$
+\frac{1}{-28} = \frac{1}{14} + \frac{1}{d_{i2}}.
+$$
+
+So
+
+$$
+\frac{1}{d_{i2}} = -\frac{1}{28} - \frac{1}{14} = -\frac{3}{28},
+$$
+
+which gives
+
+$$
+d_{i2} = -\frac{28}{3}\ \text{cm}.
+$$
+
+The negative sign means the final image is virtual and on the left side of the second lens.
+
+The magnifications are
+
+$$
+m_1 = -\frac{36}{18} = -2,
+\qquad
+m_2 = -\frac{-28/3}{14} = \frac{2}{3}.
+$$
+
+So the total magnification is
+
+$$
+m = m_1 m_2 = -\frac{4}{3}.
+$$
+
+The final image is **virtual, inverted, and enlarged**.
 :::
 
 ---
-id: "physics-optics-29"
-note: "physics-optics"
-title: "Review: Thin lens equation"
-type: "text"
-answer: "$$ \\frac{1}{f} = \\frac{1}{d o} + \\frac{1}{d i} $$ Magnification: $$ m = \\frac{h i}{h o} = -\\frac{d i}{d o} $$"
-skills:
-  - "Thin lens equation"
+id: optics-42
+note: physics-optics
+title: "Constructive Thin-Film Reflection"
+skills: [Thin-Film Interference, Phase Shift]
 ---
 
-What is the main idea of **Thin lens equation**?
+A thin film has refractive index
+
+$$
+n = 1.50
+$$
+
+and is surrounded by air. Light of wavelength
+
+$$
+\lambda = 600\ \text{nm}
+$$
+
+in air strikes the film.
+
+What is the smallest film thickness that gives constructive reflection?
 
 :::solution
-One short answer is: $$ \frac{1}{f} = \frac{1}{d o} + \frac{1}{d i} $$ Magnification: $$ m = \frac{h i}{h o} = -\frac{d i}{d o} $$
+Because the reflection from air to film is from lower index to higher index, one reflected ray gets a phase shift of $\pi$.
+
+For constructive reflection with one phase reversal, the film thickness must satisfy
+
+$$
+2nt = \left(m + \frac{1}{2}\right)\lambda.
+$$
+
+The smallest positive thickness uses $m=0$:
+
+$$
+2(1.50)t = \frac{1}{2}(600\ \text{nm}).
+$$
+
+So
+
+$$
+3t = 300\ \text{nm}
+$$
+
+and
+
+$$
+t = 100\ \text{nm}.
+$$
 :::
 
 ---
-id: "physics-optics-210"
-note: "physics-optics"
-title: "Review: Ray tracing for lenses"
-type: "text"
-answer: "A ray parallel to the axis passes through the far focal point in a converging lens."
-skills:
-  - "Ray tracing for lenses"
+id: optics-43
+note: physics-optics
+title: "Compare Two Resolving Powers"
+skills: [Diffraction, Resolution]
 ---
 
-What is the main idea of **Ray tracing for lenses**?
+Two telescopes observe light of wavelength
+
+$$
+500\ \text{nm}.
+$$
+
+Telescope A has aperture diameter 4.0 cm, and telescope B has aperture diameter 10.0 cm.
+
+Find the Rayleigh minimum angle for each telescope, and state which one resolves finer detail.
 
 :::solution
-One short answer is: A ray parallel to the axis passes through the far focal point in a converging lens.
+Use
+
+$$
+\theta_{\min} \approx 1.22 \frac{\lambda}{D}.
+$$
+
+For telescope A:
+
+$$
+\theta_A = 1.22 \frac{5.0 \times 10^{-7}}{0.040}
+= 1.525 \times 10^{-5}\ \text{rad}.
+$$
+
+For telescope B:
+
+$$
+\theta_B = 1.22 \frac{5.0 \times 10^{-7}}{0.10}
+= 6.10 \times 10^{-6}\ \text{rad}.
+$$
+
+Because telescope B has the smaller minimum angle, it resolves finer detail.
+
+Its minimum angle is smaller by a factor of
+
+$$
+\frac{1.525 \times 10^{-5}}{6.10 \times 10^{-6}} = 2.5.
+$$
 :::
 
 ---
-id: "physics-optics-211"
-note: "physics-optics"
-title: "Review: Image behavior"
-type: "text"
-answer: "Image behavior"
-skills:
-  - "Image behavior"
+id: optics-44
+note: physics-optics
+title: "Three Polarizers With a Fixed Output"
+skills: [Polarizers, Malus Law, Inverse Reasoning]
 ---
 
-What is the main idea of **Image behavior**?
+Unpolarized light of intensity $I_0$ passes through three polarizers.
 
-:::solution
-One short answer is: Image behavior
-:::
+The first and third polarizers are crossed, and the middle polarizer is rotated by an angle $\theta$ from the first.
 
----
-id: "physics-optics-212"
-note: "physics-optics"
-title: "Review: Converging lens"
-type: "text"
-answer: "Object beyond $f$: real, inverted image on the opposite side."
-skills:
-  - "Converging lens"
----
+If the final intensity is
 
-What is the main idea of **Converging lens**?
+$$
+\frac{I_0}{16},
+$$
+
+what is one possible value of $\theta$?
 
 :::solution
-One short answer is: Object beyond $f$: real, inverted image on the opposite side.
-:::
+After the first polarizer, the intensity is
 
----
-id: "physics-optics-213"
-note: "physics-optics"
-title: "Review: Diverging lens"
-type: "text"
-answer: "Always forms a virtual, upright, reduced image on the object side."
-skills:
-  - "Diverging lens"
----
+$$
+\frac{I_0}{2}.
+$$
 
-What is the main idea of **Diverging lens**?
+After the middle polarizer,
 
-:::solution
-One short answer is: Always forms a virtual, upright, reduced image on the object side.
-:::
+$$
+I = \frac{I_0}{2}\cos^2 \theta.
+$$
 
----
-id: "physics-optics-214"
-note: "physics-optics"
-title: "Review: Lensmaker's equation"
-type: "text"
-answer: "For a thin lens in air, $$ \\frac{1}{f} = (n - 1)\\left(\\frac{1}{R 1} - \\frac{1}{R 2}\\right) $$ where $R 1$ and $R 2$ are the radii of curvature using the chosen sign convention."
-skills:
-  - "Lensmaker's equation"
----
+The third polarizer is crossed with the first, so it makes an angle of $90^\circ - \theta$ with the middle one. The final intensity is
 
-What is the main idea of **Lensmaker's equation**?
+$$
+I = \frac{I_0}{2}\cos^2 \theta \sin^2 \theta.
+$$
 
-:::solution
-One short answer is: For a thin lens in air, $$ \frac{1}{f} = (n - 1)\left(\frac{1}{R 1} - \frac{1}{R 2}\right) $$ where $R 1$ and $R 2$ are the radii of curvature using the chosen sign convention.
-:::
+Use
 
----
-id: "physics-optics-215"
-note: "physics-optics"
-title: "Review: Multiple optical elements"
-type: "text"
-answer: "Find the image formed by the first element."
-skills:
-  - "Multiple optical elements"
----
+$$
+\sin 2\theta = 2\sin\theta\cos\theta
+$$
 
-What is the main idea of **Multiple optical elements**?
+to rewrite this as
 
-:::solution
-One short answer is: Find the image formed by the first element.
-:::
+$$
+I = \frac{I_0}{8}\sin^2(2\theta).
+$$
 
----
-id: "physics-optics-216"
-note: "physics-optics"
-title: "Review: Optical instruments"
-type: "text"
-answer: "Optical instruments"
-skills:
-  - "7. Optical instruments"
----
+Set this equal to $I_0/16$:
 
-What is the main idea of **Optical instruments**?
+$$
+\frac{I_0}{8}\sin^2(2\theta) = \frac{I_0}{16}.
+$$
 
-:::solution
-One short answer is: Optical instruments
-:::
+So
 
----
-id: "physics-optics-31"
-note: "physics-optics"
-title: "Review: Human eye"
-type: "text"
-answer: "Cornea and lens : provide most of the focusing power"
-skills:
-  - "Human eye"
----
+$$
+\sin^2(2\theta) = \frac{1}{2}.
+$$
 
-What is the main idea of **Human eye**?
+One possible choice is
 
-:::solution
-One short answer is: Cornea and lens : provide most of the focusing power
-:::
+$$
+2\theta = 45^\circ,
+$$
 
----
-id: "physics-optics-32"
-note: "physics-optics"
-title: "Review: Magnifiers"
-type: "text"
-answer: "A simple magnifier is a converging lens used to form a larger angular image. The key idea is angular magnification, not linear magnification."
-skills:
-  - "Magnifiers"
----
+which gives
 
-What is the main idea of **Magnifiers**?
+$$
+\theta = 22.5^\circ.
+$$
 
-:::solution
-One short answer is: A simple magnifier is a converging lens used to form a larger angular image. The key idea is angular magnification, not linear magnification.
-:::
-
----
-id: "physics-optics-33"
-note: "physics-optics"
-title: "Review: Microscopes"
-type: "text"
-answer: "An objective lens to create a real, enlarged intermediate image"
-skills:
-  - "Microscopes"
----
-
-What is the main idea of **Microscopes**?
-
-:::solution
-One short answer is: An objective lens to create a real, enlarged intermediate image
-:::
-
----
-id: "physics-optics-34"
-note: "physics-optics"
-title: "Review: Telescopes"
-type: "text"
-answer: "Refracting telescope : uses lenses"
-skills:
-  - "Telescopes"
----
-
-What is the main idea of **Telescopes**?
-
-:::solution
-One short answer is: Refracting telescope : uses lenses
-:::
-
----
-id: "physics-optics-35"
-note: "physics-optics"
-title: "Review: Camera and sensor systems"
-type: "text"
-answer: "Aperture controls light gathering and depth of field."
-skills:
-  - "Camera and sensor systems"
----
-
-What is the main idea of **Camera and sensor systems**?
-
-:::solution
-One short answer is: Aperture controls light gathering and depth of field.
-:::
-
----
-id: "physics-optics-36"
-note: "physics-optics"
-title: "Review: Wave optics"
-type: "text"
-answer: "Wave optics becomes essential when the wavelength cannot be neglected relative to the size of the slit, aperture, or obstacle."
-skills:
-  - "8. Wave optics"
----
-
-What is the main idea of **Wave optics**?
-
-:::solution
-One short answer is: Wave optics becomes essential when the wavelength cannot be neglected relative to the size of the slit, aperture, or obstacle.
-:::
-
----
-id: "physics-optics-37"
-note: "physics-optics"
-title: "Review: Superposition principle"
-type: "text"
-answer: "When waves overlap, the resulting displacement is the sum of the individual displacements: $$ y {total} = y 1 + y 2 + \\cdots $$ Interference and diffraction are both consequences of superposition."
-skills:
-  - "Superposition principle"
----
-
-What is the main idea of **Superposition principle**?
-
-:::solution
-One short answer is: When waves overlap, the resulting displacement is the sum of the individual displacements: $$ y {total} = y 1 + y 2 + \cdots $$ Interference and diffraction are both consequences of superposition.
-:::
-
----
-id: "physics-optics-38"
-note: "physics-optics"
-title: "Review: Coherence"
-type: "text"
-answer: "Same frequency"
-skills:
-  - "Coherence"
----
-
-What is the main idea of **Coherence**?
-
-:::solution
-One short answer is: Same frequency
-:::
-
----
-id: "physics-optics-39"
-note: "physics-optics"
-title: "Review: Path difference"
-type: "text"
-answer: "Interference depends on path difference $\\Delta r$ and phase difference $\\Delta \\phi$: $$ \\Delta \\phi = \\frac{2\\pi}{\\lambda}\\Delta r $$ ---"
-skills:
-  - "Path difference"
----
-
-What is the main idea of **Path difference**?
-
-:::solution
-One short answer is: Interference depends on path difference $\Delta r$ and phase difference $\Delta \phi$: $$ \Delta \phi = \frac{2\pi}{\lambda}\Delta r $$ ---
-:::
-
----
-id: "physics-optics-310"
-note: "physics-optics"
-title: "Review: Interference"
-type: "text"
-answer: "Interference is the constructive or destructive addition of waves."
-skills:
-  - "9. Interference"
----
-
-What is the main idea of **Interference**?
-
-:::solution
-One short answer is: Interference is the constructive or destructive addition of waves.
-:::
-
----
-id: "physics-optics-311"
-note: "physics-optics"
-title: "Review: Double-slit interference"
-type: "text"
-answer: "For slit separation $d$ and screen distance $L$ with small angles: $$ d \\sin \\theta = m \\lambda $$ for bright fringes, where $m = 0, 1, 2, \\dots$ For dark fringes: $$ d \\sin \\theta = \\left(m + \\frac{1}{2}\\right)\\lambda…"
-skills:
-  - "Double-slit interference"
----
-
-What is the main idea of **Double-slit interference**?
-
-:::solution
-One short answer is: For slit separation $d$ and screen distance $L$ with small angles: $$ d \sin \theta = m \lambda $$ for bright fringes, where $m = 0, 1, 2, \dots$ For dark fringes: $$ d \sin \theta = \left(m + \frac{1}{2}\right)\lambda…
-:::
-
----
-id: "physics-optics-312"
-note: "physics-optics"
-title: "Review: Thin-film interference"
-type: "text"
-answer: "Path length through the film"
-skills:
-  - "Thin-film interference"
----
-
-What is the main idea of **Thin-film interference**?
-
-:::solution
-One short answer is: Path length through the film
-:::
-
----
-id: "physics-optics-313"
-note: "physics-optics"
-title: "Review: Newton's rings and related patterns"
-type: "text"
-answer: "Find the optical path difference."
-skills:
-  - "Newton's rings and related patterns"
----
-
-What is the main idea of **Newton's rings and related patterns**?
-
-:::solution
-One short answer is: Find the optical path difference.
-:::
-
----
-id: "physics-optics-314"
-note: "physics-optics"
-title: "Review: Diffraction"
-type: "text"
-answer: "Diffraction is the spreading of waves around obstacles and through apertures."
-skills:
-  - "10. Diffraction"
----
-
-What is the main idea of **Diffraction**?
-
-:::solution
-One short answer is: Diffraction is the spreading of waves around obstacles and through apertures.
-:::
-
----
-id: "physics-optics-315"
-note: "physics-optics"
-title: "Review: Single-slit diffraction"
-type: "text"
-answer: "For a slit of width $a$, dark fringes occur at $$ a \\sin \\theta = m \\lambda \\qquad m = 1, 2, 3, \\dots $$ The central maximum is the widest and brightest part of the pattern."
-skills:
-  - "Single-slit diffraction"
----
-
-What is the main idea of **Single-slit diffraction**?
-
-:::solution
-One short answer is: For a slit of width $a$, dark fringes occur at $$ a \sin \theta = m \lambda \qquad m = 1, 2, 3, \dots $$ The central maximum is the widest and brightest part of the pattern.
-:::
-
----
-id: "physics-optics-316"
-note: "physics-optics"
-title: "Review: Diffraction grating"
-type: "text"
-answer: "For a grating with line spacing $d$, $$ d \\sin \\theta = m \\lambda $$ This is the same mathematical condition as double-slit bright fringes, but with many slits the maxima are much sharper."
-skills:
-  - "Diffraction grating"
----
-
-What is the main idea of **Diffraction grating**?
-
-:::solution
-One short answer is: For a grating with line spacing $d$, $$ d \sin \theta = m \lambda $$ This is the same mathematical condition as double-slit bright fringes, but with many slits the maxima are much sharper.
-:::
-
----
-id: "physics-optics-41"
-note: "physics-optics"
-title: "Review: Resolution"
-type: "text"
-answer: "Larger aperture improves resolution."
-skills:
-  - "Resolution"
----
-
-What is the main idea of **Resolution**?
-
-:::solution
-One short answer is: Larger aperture improves resolution.
-:::
-
----
-id: "physics-optics-42"
-note: "physics-optics"
-title: "Review: Common misconceptions"
-type: "text"
-answer: "Diffraction is not the same as interference, but both are wave effects and often occur together."
-skills:
-  - "Common misconceptions"
----
-
-Name one common mistake the note warns about in **Common misconceptions**.
-
-:::solution
-One short answer is: Diffraction is not the same as interference, but both are wave effects and often occur together.
-:::
-
----
-id: "physics-optics-43"
-note: "physics-optics"
-title: "Review: Polarization"
-type: "text"
-answer: "Polarization describes the orientation of the electric field in a transverse wave."
-skills:
-  - "11. Polarization"
----
-
-What is the main idea of **Polarization**?
-
-:::solution
-One short answer is: Polarization describes the orientation of the electric field in a transverse wave.
-:::
-
----
-id: "physics-optics-44"
-note: "physics-optics"
-title: "Review: Types of polarization"
-type: "text"
-answer: "Linear polarization : electric field oscillates in one fixed plane"
-skills:
-  - "Types of polarization"
----
-
-What is the main idea of **Types of polarization**?
-
-:::solution
-One short answer is: Linear polarization : electric field oscillates in one fixed plane
-:::
-
----
-id: "physics-optics-45"
-note: "physics-optics"
-title: "Review: Polarizers"
-type: "text"
-answer: "An ideal polarizer transmits only the component of the electric field along its transmission axis."
-skills:
-  - "Polarizers"
----
-
-What is the main idea of **Polarizers**?
-
-:::solution
-One short answer is: An ideal polarizer transmits only the component of the electric field along its transmission axis.
-:::
-
----
-id: "physics-optics-46"
-note: "physics-optics"
-title: "Review: Brewster's angle"
-type: "text"
-answer: "Reducing glare"
-skills:
-  - "Brewster's angle"
----
-
-What is the main idea of **Brewster's angle**?
-
-:::solution
-One short answer is: Reducing glare
-:::
-
----
-id: "physics-optics-47"
-note: "physics-optics"
-title: "Review: Common problem-solving workflow"
-type: "text"
-answer: "Optics problems usually become manageable if you classify them correctly first."
-skills:
-  - "12. Common problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Common problem-solving workflow**?
-
-:::solution
-One short answer is: Optics problems usually become manageable if you classify them correctly first.
-:::
-
----
-id: "physics-optics-48"
-note: "physics-optics"
-title: "Review: Step-by-step workflow"
-type: "text"
-answer: "Decide whether the problem is geometric or wave optics."
-skills:
-  - "Step-by-step workflow"
----
-
-According to the note, what sequence of steps is recommended in **Step-by-step workflow**?
-
-:::solution
-One short answer is: Decide whether the problem is geometric or wave optics.
-:::
-
----
-id: "physics-optics-49"
-note: "physics-optics"
-title: "Review: Fast checks"
-type: "text"
-answer: "If a lens is converging and the object is inside the focal length, the image should be virtual and upright."
-skills:
-  - "Fast checks"
----
-
-What is the main idea of **Fast checks**?
-
-:::solution
-One short answer is: If a lens is converging and the object is inside the focal length, the image should be virtual and upright.
-:::
-
----
-id: "physics-optics-410"
-note: "physics-optics"
-title: "Review: Frequent pitfalls"
-type: "text"
-answer: "Mixing up angle measured from the normal with angle measured from the surface."
-skills:
-  - "Frequent pitfalls"
----
-
-Name one common mistake the note warns about in **Frequent pitfalls**.
-
-:::solution
-One short answer is: Mixing up angle measured from the normal with angle measured from the surface.
-:::
-
----
-id: "physics-optics-411"
-note: "physics-optics"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "13. Formula summary"
----
-
-What core formulas or relations are summarized in **Formula summary**?
-
-:::solution
-One short answer is: Formula summary
-:::
-
----
-id: "physics-optics-412"
-note: "physics-optics"
-title: "Review: Geometry and rays"
-type: "text"
-answer: "$$ \\theta i = \\theta r $$ $$ n 1 \\sin \\theta 1 = n 2 \\sin \\theta 2 $$ $$ v = \\frac{c}{n} $$ $$ \\sin \\theta c = \\frac{n 2}{n 1} \\quad (n 1 > n 2) $$"
-skills:
-  - "Geometry and rays"
----
-
-What is the main idea of **Geometry and rays**?
-
-:::solution
-One short answer is: $$ \theta i = \theta r $$ $$ n 1 \sin \theta 1 = n 2 \sin \theta 2 $$ $$ v = \frac{c}{n} $$ $$ \sin \theta c = \frac{n 2}{n 1} \quad (n 1 > n 2) $$
-:::
-
----
-id: "physics-optics-413"
-note: "physics-optics"
-title: "Review: Mirrors and lenses"
-type: "text"
-answer: "$$ \\frac{1}{f} = \\frac{1}{d o} + \\frac{1}{d i} $$ $$ m = \\frac{h i}{h o} = -\\frac{d i}{d o} $$ $$ f = \\frac{R}{2} $$ $$ \\frac{1}{f} = (n - 1)\\left(\\frac{1}{R 1} - \\frac{1}{R 2}\\right) $$"
-skills:
-  - "Mirrors and lenses"
----
-
-What is the main idea of **Mirrors and lenses**?
-
-:::solution
-One short answer is: $$ \frac{1}{f} = \frac{1}{d o} + \frac{1}{d i} $$ $$ m = \frac{h i}{h o} = -\frac{d i}{d o} $$ $$ f = \frac{R}{2} $$ $$ \frac{1}{f} = (n - 1)\left(\frac{1}{R 1} - \frac{1}{R 2}\right) $$
-:::
-
----
-id: "physics-optics-414"
-note: "physics-optics"
-title: "Review: Wave optics"
-type: "text"
-answer: "$$ v = \\lambda f $$ $$ d \\sin \\theta = m \\lambda $$ $$ d \\sin \\theta = \\left(m + \\frac{1}{2}\\right)\\lambda $$ $$ a \\sin \\theta = m \\lambda $$ $$ \\theta {min} \\approx 1.22 \\frac{\\lambda}{D} $$"
-skills:
-  - "Wave optics"
----
-
-What is the main idea of **Wave optics**?
-
-:::solution
-One short answer is: $$ v = \lambda f $$ $$ d \sin \theta = m \lambda $$ $$ d \sin \theta = \left(m + \frac{1}{2}\right)\lambda $$ $$ a \sin \theta = m \lambda $$ $$ \theta {min} \approx 1.22 \frac{\lambda}{D} $$
-:::
-
----
-id: "physics-optics-415"
-note: "physics-optics"
-title: "Review: Polarization"
-type: "text"
-answer: "$$ I = I 0 \\cos^2 \\theta $$ $$ \\tan \\theta B = \\frac{n 2}{n 1} $$ ---"
-skills:
-  - "Polarization"
----
-
-What is the main idea of **Polarization**?
-
-:::solution
-One short answer is: $$ I = I 0 \cos^2 \theta $$ $$ \tan \theta B = \frac{n 2}{n 1} $$ ---
-:::
-
----
-id: "physics-optics-416"
-note: "physics-optics"
-title: "Review: Summary"
-type: "text"
-answer: "Use geometric optics for mirrors, lenses, refraction, and image formation."
-skills:
-  - "Summary"
----
-
-What core formulas or relations are summarized in **Summary**?
-
-:::solution
-One short answer is: Use geometric optics for mirrors, lenses, refraction, and image formation.
+Because of symmetry, $67.5^\circ$ is also a valid answer.
 :::

@@ -1,1199 +1,873 @@
 ---
-id: "physics-electricity-and-magnetism-11"
-note: "physics-electricity-and-magnetism"
-title: "Review: Scope and core ideas"
-type: "text"
-answer: "Electricity and magnetism describe how charges interact, how fields store and transfer energy, and how changing fields generate each other."
-skills:
-  - "1. Scope and core ideas"
+id: electricity-and-magnetism-11
+note: physics-electricity-and-magnetism
+title: "Force Between Two Point Charges"
+skills: [Coulomb's law, Point charges]
 ---
 
-What core idea is introduced in **Scope and core ideas**?
+Two point charges, $q_1 = +3\,\mu\text{C}$ and $q_2 = -2\,\mu\text{C}$, are separated by $0.50\ \text{m}$.
 
-:::solution
-One short answer is: Electricity and magnetism describe how charges interact, how fields store and transfer energy, and how changing fields generate each other.
-:::
+Find the magnitude of the force between them and state whether the force is attractive or repulsive.
 
----
-id: "physics-electricity-and-magnetism-12"
-note: "physics-electricity-and-magnetism"
-title: "Review: Big-picture relationships"
-type: "text"
-answer: "Electric charge creates electric fields."
-skills:
-  - "Big-picture relationships"
----
+:::solution
+Use Coulomb's law:
 
-What is the main idea of **Big-picture relationships**?
+$$
+F = k\frac{|q_1q_2|}{r^2}
+$$
 
-:::solution
-One short answer is: Electric charge creates electric fields.
-:::
+Substitute the values:
 
----
-id: "physics-electricity-and-magnetism-13"
-note: "physics-electricity-and-magnetism"
-title: "Review: Key quantities"
-type: "text"
-answer: "Quantity Symbol Typical SI unit --- --- --- Charge $q$ coulomb, C Electric field $\\mathbf{E}$ N/C or V/m Electric potential $V$ volt, V Current $I$ ampere, A Resistance $R$ ohm, $\\Omega$ Magnetic field $\\mathbf{B}$ tesl…"
-skills:
-  - "Key quantities"
----
+$$
+F = 9.0\times 10^9 \frac{(3\times 10^{-6})(2\times 10^{-6})}{(0.50)^2}
+$$
 
-What is the main idea of **Key quantities**?
+$$
+F = 0.216\ \text{N}
+$$
 
-:::solution
-One short answer is: Quantity Symbol Typical SI unit --- --- --- Charge $q$ coulomb, C Electric field $\mathbf{E}$ N/C or V/m Electric potential $V$ volt, V Current $I$ ampere, A Resistance $R$ ohm, $\Omega$ Magnetic field $\mathbf{B}$ tesl…
+Because the charges have opposite signs, the force is attractive.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-14"
-note: "physics-electricity-and-magnetism"
-title: "Review: Useful constants"
-type: "text"
-answer: "$$ \\varepsilon 0 \\approx 8.854\\times 10^{-12}\\ \\text{F/m} $$ $$ \\mu 0 = 4\\pi\\times 10^{-7}\\ \\text{N/A}^2 $$ $$ k = \\frac{1}{4\\pi\\varepsilon 0} $$ ---"
-skills:
-  - "Useful constants"
+id: electricity-and-magnetism-12
+note: physics-electricity-and-magnetism
+title: "Electric Field of a Point Charge"
+skills: [Electric field, Point charges]
 ---
 
-What is the main idea of **Useful constants**?
+A charge of $+5.0\ \text{nC}$ is located in space.
 
-:::solution
-One short answer is: $$ \varepsilon 0 \approx 8.854\times 10^{-12}\ \text{F/m} $$ $$ \mu 0 = 4\pi\times 10^{-7}\ \text{N/A}^2 $$ $$ k = \frac{1}{4\pi\varepsilon 0} $$ ---
-:::
+What is the magnitude of the electric field $0.20\ \text{m}$ away from the charge, and what is its direction?
 
----
-id: "physics-electricity-and-magnetism-15"
-note: "physics-electricity-and-magnetism"
-title: "Review: Charge, force, and electric field"
-type: "text"
-answer: "Electric charge comes in positive and negative signs. Like charges repel, unlike charges attract."
-skills:
-  - "2. Charge, force, and electric field"
----
+:::solution
+For a point charge,
 
-What is the main idea of **Charge, force, and electric field**?
+$$
+E = k\frac{|q|}{r^2}
+$$
 
-:::solution
-One short answer is: Electric charge comes in positive and negative signs. Like charges repel, unlike charges attract.
-:::
+Substitute:
 
----
-id: "physics-electricity-and-magnetism-16"
-note: "physics-electricity-and-magnetism"
-title: "Review: Coulomb's law"
-type: "text"
-answer: "The force between two point charges is $$ \\mathbf{F} {12} = k\\frac{q 1 q 2}{r^2}\\hat{\\mathbf{r}} $$ where $\\hat{\\mathbf{r}}$ points from one charge to the other along the line joining them."
-skills:
-  - "Coulomb's law"
----
+$$
+E = 9.0\times 10^9 \frac{5.0\times 10^{-9}}{(0.20)^2}
+$$
 
-What is the main idea of **Coulomb's law**?
+$$
+E = 1125\ \text{N/C}
+$$
 
-:::solution
-One short answer is: The force between two point charges is $$ \mathbf{F} {12} = k\frac{q 1 q 2}{r^2}\hat{\mathbf{r}} $$ where $\hat{\mathbf{r}}$ points from one charge to the other along the line joining them.
+Since the charge is positive, the field points away from the charge.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-17"
-note: "physics-electricity-and-magnetism"
-title: "Review: Superposition"
-type: "text"
-answer: "For multiple charges, add the individual forces or fields vectorially: $$ \\mathbf{F} {\\text{net}} = \\sum i \\mathbf{F} i,\\qquad \\mathbf{E} {\\text{net}} = \\sum i \\mathbf{E} i $$"
-skills:
-  - "Superposition"
+id: electricity-and-magnetism-13
+note: physics-electricity-and-magnetism
+title: "Linear Charge Density"
+skills: [Charge densities, Continuous charge distributions]
 ---
 
-What is the main idea of **Superposition**?
+A uniform charge of $12\ \mu\text{C}$ is spread along a thin wire of length $3.0\ \text{m}$.
 
-:::solution
-One short answer is: For multiple charges, add the individual forces or fields vectorially: $$ \mathbf{F} {\text{net}} = \sum i \mathbf{F} i,\qquad \mathbf{E} {\text{net}} = \sum i \mathbf{E} i $$
-:::
+What is the linear charge density $\lambda$?
 
----
-id: "physics-electricity-and-magnetism-18"
-note: "physics-electricity-and-magnetism"
-title: "Review: Electric field"
-type: "text"
-answer: "Field points away from positive charge."
-skills:
-  - "Electric field"
----
+:::solution
+Linear charge density is
 
-What is the main idea of **Electric field**?
+$$
+\lambda = \frac{dq}{dl}
+$$
 
-:::solution
-One short answer is: Field points away from positive charge.
-:::
+For a uniform wire, this becomes
 
----
-id: "physics-electricity-and-magnetism-19"
-note: "physics-electricity-and-magnetism"
-title: "Review: Continuous charge distributions"
-type: "text"
-answer: "When charge is spread over a line, surface, or volume, use charge density: $$ \\lambda = \\frac{dq}{dl},\\qquad \\sigma = \\frac{dq}{dA},\\qquad \\rho = \\frac{dq}{dV} $$ Then integrate: $$ d\\mathbf{E} = k\\frac{dq}{r^2}\\hat{\\ma…"
-skills:
-  - "Continuous charge distributions"
----
+$$
+\lambda = \frac{Q}{L}
+$$
 
-What is the main idea of **Continuous charge distributions**?
+So
 
-:::solution
-One short answer is: When charge is spread over a line, surface, or volume, use charge density: $$ \lambda = \frac{dq}{dl},\qquad \sigma = \frac{dq}{dA},\qquad \rho = \frac{dq}{dV} $$ Then integrate: $$ d\mathbf{E} = k\frac{dq}{r^2}\hat{\ma…
+$$
+\lambda = \frac{12\ \mu\text{C}}{3.0\ \text{m}} = 4.0\ \mu\text{C/m}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-110"
-note: "physics-electricity-and-magnetism"
-title: "Review: Common symmetry idea"
-type: "text"
-answer: "The hardest step is usually choosing the right symmetry. If a distribution has spherical, cylindrical, or planar symmetry, field calculations can simplify dramatically. ---"
-skills:
-  - "Common symmetry idea"
+id: electricity-and-magnetism-14
+note: physics-electricity-and-magnetism
+title: "Electric Flux Through a Flat Surface"
+skills: [Electric flux]
 ---
 
-Name one common mistake the note warns about in **Common symmetry idea**.
+A uniform electric field of magnitude $200\ \text{N/C}$ passes through a flat surface of area $0.15\ \text{m}^2$.
 
-:::solution
-One short answer is: The hardest step is usually choosing the right symmetry. If a distribution has spherical, cylindrical, or planar symmetry, field calculations can simplify dramatically. ---
-:::
-
----
-id: "physics-electricity-and-magnetism-111"
-note: "physics-electricity-and-magnetism"
-title: "Review: Electric flux and Gauss's law"
-type: "text"
-answer: "Electric flux measures how much electric field passes through a surface."
-skills:
-  - "3. Electric flux and Gauss's law"
----
+The angle between the field and the surface normal is $30^\circ$.
 
-What is the main idea of **Electric flux and Gauss's law**?
+What is the electric flux?
 
 :::solution
-One short answer is: Electric flux measures how much electric field passes through a surface.
-:::
+For a flat surface in a uniform field,
 
----
-id: "physics-electricity-and-magnetism-112"
-note: "physics-electricity-and-magnetism"
-title: "Review: Flux"
-type: "text"
-answer: "For a flat surface in a uniform field: $$ \\Phi E = \\mathbf{E}\\cdot \\mathbf{A} = EA\\cos\\theta $$ More generally: $$ \\Phi E = \\int \\mathbf{E}\\cdot d\\mathbf{A} $$"
-skills:
-  - "Flux"
----
+$$
+\Phi_E = EA\cos\theta
+$$
 
-What is the main idea of **Flux**?
+Substitute the values:
 
-:::solution
-One short answer is: For a flat surface in a uniform field: $$ \Phi E = \mathbf{E}\cdot \mathbf{A} = EA\cos\theta $$ More generally: $$ \Phi E = \int \mathbf{E}\cdot d\mathbf{A} $$
+$$
+\Phi_E = (200)(0.15)\cos 30^\circ
+$$
+
+$$
+\Phi_E \approx 26\ \text{N}\cdot\text{m}^2/\text{C}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-113"
-note: "physics-electricity-and-magnetism"
-title: "Review: Gauss's law"
-type: "text"
-answer: "$$ \\oint \\mathbf{E}\\cdot d\\mathbf{A} = \\frac{Q {\\text{enc}}}{\\varepsilon 0} $$ This is always true, but it is especially useful when symmetry makes $E$ constant on the chosen Gaussian surface."
-skills:
-  - "Gauss's law"
+id: electricity-and-magnetism-15
+note: physics-electricity-and-magnetism
+title: "Charge Enclosed by a Gaussian Surface"
+skills: [Gauss's law, Electric flux]
 ---
-
-What is the main idea of **Gauss's law**?
 
-:::solution
-One short answer is: $$ \oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q {\text{enc}}}{\varepsilon 0} $$ This is always true, but it is especially useful when symmetry makes $E$ constant on the chosen Gaussian surface.
-:::
+A closed surface has electric flux
 
----
-id: "physics-electricity-and-magnetism-114"
-note: "physics-electricity-and-magnetism"
-title: "Review: When Gauss's law is useful"
-type: "text"
-answer: "$E$ is constant on the surface, and"
-skills:
-  - "When Gauss's law is useful"
----
+$$
+\Phi_E = 5.0\times 10^3\ \text{N}\cdot\text{m}^2/\text{C}.
+$$
 
-What is the main idea of **When Gauss's law is useful**?
+What charge is enclosed by the surface?
 
 :::solution
-One short answer is: $E$ is constant on the surface, and
-:::
+Gauss's law says
 
----
-id: "physics-electricity-and-magnetism-115"
-note: "physics-electricity-and-magnetism"
-title: "Review: Standard results"
-type: "text"
-answer: "For a point charge or spherically symmetric distribution outside the charge: $$ E = k\\frac{Q}{r^2} $$ For an infinite line charge: $$ E = \\frac{\\lambda}{2\\pi\\varepsilon 0 r} $$ For an infinite sheet of charge: $$ E = \\f…"
-skills:
-  - "Standard results"
----
+$$
+\oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q_{\text{enc}}}{\varepsilon_0}
+$$
 
-What is the main idea of **Standard results**?
+So
 
-:::solution
-One short answer is: For a point charge or spherically symmetric distribution outside the charge: $$ E = k\frac{Q}{r^2} $$ For an infinite line charge: $$ E = \frac{\lambda}{2\pi\varepsilon 0 r} $$ For an infinite sheet of charge: $$ E = \f…
-:::
+$$
+Q_{\text{enc}} = \varepsilon_0\Phi_E
+$$
 
----
-id: "physics-electricity-and-magnetism-116"
-note: "physics-electricity-and-magnetism"
-title: "Review: Pitfalls"
-type: "text"
-answer: "Flux is not the same as field strength."
-skills:
-  - "Pitfalls"
----
+Substitute:
 
-Name one common mistake the note warns about in **Pitfalls**.
+$$
+Q_{\text{enc}} = (8.854\times 10^{-12})(5.0\times 10^3)
+$$
 
-:::solution
-One short answer is: Flux is not the same as field strength.
+$$
+Q_{\text{enc}} = 4.4\times 10^{-8}\ \text{C}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-117"
-note: "physics-electricity-and-magnetism"
-title: "Review: Electric potential and energy"
-type: "text"
-answer: "Electric potential gives a scalar description of electric energy per unit charge."
-skills:
-  - "4. Electric potential and energy"
+id: electricity-and-magnetism-16
+note: physics-electricity-and-magnetism
+title: "Potential from Two Point Charges"
+skills: [Electric potential, Superposition]
 ---
+
+At a point in space, a $+4.0\ \text{nC}$ charge is $0.30\ \text{m}$ away and a $-1.0\ \text{nC}$ charge is $0.20\ \text{m}$ away.
 
-What is the main idea of **Electric potential and energy**?
+What is the electric potential at that point?
 
 :::solution
-One short answer is: Electric potential gives a scalar description of electric energy per unit charge.
-:::
+Electric potential adds as a scalar:
 
----
-id: "physics-electricity-and-magnetism-118"
-note: "physics-electricity-and-magnetism"
-title: "Review: Potential difference"
-type: "text"
-answer: "The potential difference between two points is $$ \\Delta V = -\\int a^b \\mathbf{E}\\cdot d\\mathbf{\\ell} $$ Potential is often easier to work with than field because it adds as a scalar."
-skills:
-  - "Potential difference"
----
+$$
+V = \sum_i k\frac{q_i}{r_i}
+$$
 
-What is the main idea of **Potential difference**?
+Compute each contribution:
 
-:::solution
-One short answer is: The potential difference between two points is $$ \Delta V = -\int a^b \mathbf{E}\cdot d\mathbf{\ell} $$ Potential is often easier to work with than field because it adds as a scalar.
-:::
+$$
+V_1 = 9.0\times 10^9 \frac{4.0\times 10^{-9}}{0.30} = 120\ \text{V}
+$$
 
----
-id: "physics-electricity-and-magnetism-119"
-note: "physics-electricity-and-magnetism"
-title: "Review: Potential due to a point charge"
-type: "text"
-answer: "$$ V = k\\frac{q}{r} $$ For many charges: $$ V {\\text{net}} = \\sum i k\\frac{q i}{r i} $$"
-skills:
-  - "Potential due to a point charge"
----
+$$
+V_2 = 9.0\times 10^9 \frac{-1.0\times 10^{-9}}{0.20} = -45\ \text{V}
+$$
 
-What is the main idea of **Potential due to a point charge**?
+So
 
-:::solution
-One short answer is: $$ V = k\frac{q}{r} $$ For many charges: $$ V {\text{net}} = \sum i k\frac{q i}{r i} $$
+$$
+V = 120 - 45 = 75\ \text{V}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-21"
-note: "physics-electricity-and-magnetism"
-title: "Review: Relationship between field and potential"
-type: "text"
-answer: "In one dimension: $$ E x = -\\frac{dV}{dx} $$ In vector form: $$ \\mathbf{E} = -\\nabla V $$ The field points in the direction of steepest decrease in potential."
-skills:
-  - "Relationship between field and potential"
+id: electricity-and-magnetism-17
+note: physics-electricity-and-magnetism
+title: "Change in Potential Energy"
+skills: [Electric potential, Potential energy]
 ---
+
+A charge of $+3.0\ \mu\text{C}$ moves from a point at $20\ \text{V}$ to a point at $-10\ \text{V}$.
 
-What is the main idea of **Relationship between field and potential**?
+What is the change in its electric potential energy?
 
 :::solution
-One short answer is: In one dimension: $$ E x = -\frac{dV}{dx} $$ In vector form: $$ \mathbf{E} = -\nabla V $$ The field points in the direction of steepest decrease in potential.
-:::
+Use
 
----
-id: "physics-electricity-and-magnetism-22"
-note: "physics-electricity-and-magnetism"
-title: "Review: Potential energy"
-type: "text"
-answer: "The potential energy of a charge in a potential is $$ U = qV $$ For two point charges: $$ U = k\\frac{q 1 q 2}{r} $$ Work done by the electric field is related to the change in potential energy: $$ W {\\text{field}} = -\\D…"
-skills:
-  - "Potential energy"
----
+$$
+\Delta U = q\Delta V
+$$
 
-What is the main idea of **Potential energy**?
+with
 
-:::solution
-One short answer is: The potential energy of a charge in a potential is $$ U = qV $$ For two point charges: $$ U = k\frac{q 1 q 2}{r} $$ Work done by the electric field is related to the change in potential energy: $$ W {\text{field}} = -\D…
-:::
+$$
+\Delta V = V_f - V_i = -10 - 20 = -30\ \text{V}
+$$
 
----
-id: "physics-electricity-and-magnetism-23"
-note: "physics-electricity-and-magnetism"
-title: "Review: Equipotential surfaces"
-type: "text"
-answer: "No work is required to move a charge along an equipotential."
-skills:
-  - "Equipotential surfaces"
----
+Then
 
-What is the main idea of **Equipotential surfaces**?
+$$
+\Delta U = (3.0\times 10^{-6})(-30)
+$$
 
-:::solution
-One short answer is: No work is required to move a charge along an equipotential.
+$$
+\Delta U = -9.0\times 10^{-5}\ \text{J}
+$$
+
+The potential energy decreases.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-24"
-note: "physics-electricity-and-magnetism"
-title: "Review: Capacitance and dielectrics"
-type: "text"
-answer: "A capacitor stores separated charge and electric energy."
-skills:
-  - "5. Capacitance and dielectrics"
+id: electricity-and-magnetism-18
+note: physics-electricity-and-magnetism
+title: "Dielectric Constant from Capacitance"
+skills: [Capacitance, Dielectrics]
 ---
+
+A capacitor has capacitance $2.0\ \mu\text{F}$ in vacuum. After a dielectric is inserted, its capacitance becomes $6.0\ \mu\text{F}$.
 
-What is the main idea of **Capacitance and dielectrics**?
+What is the dielectric constant $\kappa$?
 
 :::solution
-One short answer is: A capacitor stores separated charge and electric energy.
-:::
+With a dielectric,
 
----
-id: "physics-electricity-and-magnetism-25"
-note: "physics-electricity-and-magnetism"
-title: "Review: Capacitance"
-type: "text"
-answer: "$$ C = \\frac{Q}{\\Delta V} $$ Capacitance depends on geometry and dielectric material, not on the amount of charge stored."
-skills:
-  - "Capacitance"
----
+$$
+C = \kappa \varepsilon_0 \frac{A}{d}
+$$
 
-What is the main idea of **Capacitance**?
+So the capacitance increases by a factor of $\kappa$:
 
-:::solution
-One short answer is: $$ C = \frac{Q}{\Delta V} $$ Capacitance depends on geometry and dielectric material, not on the amount of charge stored.
+$$
+\kappa = \frac{6.0}{2.0} = 3.0
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-26"
-note: "physics-electricity-and-magnetism"
-title: "Review: Parallel-plate capacitor"
-type: "text"
-answer: "For ideal parallel plates: $$ C = \\varepsilon 0\\frac{A}{d} $$ With dielectric constant $\\kappa$: $$ C = \\kappa\\varepsilon 0\\frac{A}{d} $$"
-skills:
-  - "Parallel-plate capacitor"
+id: electricity-and-magnetism-19
+note: physics-electricity-and-magnetism
+title: "Resistance of a Uniform Wire"
+skills: [Resistance, Ohm's law]
 ---
+
+A wire has resistivity $2.0\times 10^{-6}\ \Omega\cdot\text{m}$, length $4.0\ \text{m}$, and cross-sectional area $2.0\times 10^{-6}\ \text{m}^2$.
 
-What is the main idea of **Parallel-plate capacitor**?
+Find its resistance, and then find the current if a $12\ \text{V}$ potential difference is applied across it.
 
 :::solution
-One short answer is: For ideal parallel plates: $$ C = \varepsilon 0\frac{A}{d} $$ With dielectric constant $\kappa$: $$ C = \kappa\varepsilon 0\frac{A}{d} $$
-:::
+For a uniform conductor,
 
----
-id: "physics-electricity-and-magnetism-27"
-note: "physics-electricity-and-magnetism"
-title: "Review: Energy stored"
-type: "text"
-answer: "$$ U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C} = \\frac{1}{2}QV $$ Energy density in an electric field: $$ u E = \\frac{1}{2}\\varepsilon 0 E^2 $$ With a dielectric: $$ u E = \\frac{1}{2}\\varepsilon E^2 $$ where $\\varepsilon = \\ka…"
-skills:
-  - "Energy stored"
----
+$$
+R = \rho\frac{L}{A}
+$$
 
-What is the main idea of **Energy stored**?
+Substitute:
 
-:::solution
-One short answer is: $$ U = \frac{1}{2}CV^2 = \frac{Q^2}{2C} = \frac{1}{2}QV $$ Energy density in an electric field: $$ u E = \frac{1}{2}\varepsilon 0 E^2 $$ With a dielectric: $$ u E = \frac{1}{2}\varepsilon E^2 $$ where $\varepsilon = \ka…
-:::
+$$
+R = (2.0\times 10^{-6})\frac{4.0}{2.0\times 10^{-6}} = 4.0\ \Omega
+$$
 
----
-id: "physics-electricity-and-magnetism-28"
-note: "physics-electricity-and-magnetism"
-title: "Review: Dielectrics"
-type: "text"
-answer: "Increases capacitance"
-skills:
-  - "Dielectrics"
----
+Now use Ohm's law:
 
-What is the main idea of **Dielectrics**?
+$$
+V = IR
+$$
 
-:::solution
-One short answer is: Increases capacitance
+So
+
+$$
+I = \frac{V}{R} = \frac{12}{4.0} = 3.0\ \text{A}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-29"
-note: "physics-electricity-and-magnetism"
-title: "Review: Capacitor combinations"
-type: "text"
-answer: "Series: $$ \\frac{1}{C {\\text{eq}}} = \\sum i \\frac{1}{C i} $$ Parallel: $$ C {\\text{eq}} = \\sum i C i $$"
-skills:
-  - "Capacitor combinations"
+id: electricity-and-magnetism-110
+note: physics-electricity-and-magnetism
+title: "Magnetic Force on a Current-Carrying Wire"
+skills: [Magnetic force, Current]
 ---
+
+A straight wire segment of length $0.30\ \text{m}$ carries a current of $5.0\ \text{A}$.
+It is placed in a uniform magnetic field of magnitude $0.40\ \text{T}$, and the wire is perpendicular to the field.
 
-What is the main idea of **Capacitor combinations**?
+What is the magnitude of the magnetic force on the wire?
 
 :::solution
-One short answer is: Series: $$ \frac{1}{C {\text{eq}}} = \sum i \frac{1}{C i} $$ Parallel: $$ C {\text{eq}} = \sum i C i $$
-:::
+For a straight wire in a uniform field,
 
----
-id: "physics-electricity-and-magnetism-210"
-note: "physics-electricity-and-magnetism"
-title: "Review: Common reasoning"
-type: "text"
-answer: "In series, charge magnitude is the same on each capacitor."
-skills:
-  - "Common reasoning"
----
+$$
+F = ILB\sin\theta
+$$
 
-Name one common mistake the note warns about in **Common reasoning**.
+Here $\theta = 90^\circ$, so
 
-:::solution
-One short answer is: In series, charge magnitude is the same on each capacitor.
+$$
+F = (5.0)(0.30)(0.40)
+$$
+
+$$
+F = 0.60\ \text{N}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-211"
-note: "physics-electricity-and-magnetism"
-title: "Review: Current, resistance, and DC circuits"
-type: "text"
-answer: "Current is the rate at which charge flows: $$ I = \\frac{dQ}{dt} $$ Conventional current is defined as the direction positive charge would move."
-skills:
-  - "6. Current, resistance, and DC circuits"
+id: electricity-and-magnetism-21
+note: physics-electricity-and-magnetism
+title: "Net Field from Two Point Charges on a Line"
+skills: [Superposition, Electric field]
 ---
 
-What is the main idea of **Current, resistance, and DC circuits**?
+Two charges lie on a line: a $+6.0\ \text{nC}$ charge on the left and a $-6.0\ \text{nC}$ charge on the right. A point is exactly halfway between them, $0.10\ \text{m}$ from each charge.
 
+What is the net electric field at the midpoint?
+
 :::solution
-One short answer is: Current is the rate at which charge flows: $$ I = \frac{dQ}{dt} $$ Conventional current is defined as the direction positive charge would move.
-:::
+Each charge produces a field of magnitude
 
----
-id: "physics-electricity-and-magnetism-212"
-note: "physics-electricity-and-magnetism"
-title: "Review: Microscopic form of Ohm's law"
-type: "text"
-answer: "$$ \\mathbf{J} = \\sigma \\mathbf{E} $$ where $\\mathbf{J}$ is current density and $\\sigma$ is conductivity."
-skills:
-  - "Microscopic form of Ohm's law"
----
+$$
+E = k\frac{|q|}{r^2}
+$$
 
-What is the main idea of **Microscopic form of Ohm's law**?
+So for one charge,
 
-:::solution
-One short answer is: $$ \mathbf{J} = \sigma \mathbf{E} $$ where $\mathbf{J}$ is current density and $\sigma$ is conductivity.
-:::
+$$
+E_1 = 9.0\times 10^9 \frac{6.0\times 10^{-9}}{(0.10)^2} = 5400\ \text{N/C}
+$$
 
----
-id: "physics-electricity-and-magnetism-213"
-note: "physics-electricity-and-magnetism"
-title: "Review: Resistance"
-type: "text"
-answer: "For a uniform conductor: $$ R = \\rho\\frac{L}{A} $$ where $\\rho$ is resistivity. Ohm's law in circuit form: $$ V = IR $$"
-skills:
-  - "Resistance"
----
+At the midpoint, the field from the positive charge points to the right, and the field from the negative charge also points to the right.
 
-What is the main idea of **Resistance**?
+So the fields add:
 
-:::solution
-One short answer is: For a uniform conductor: $$ R = \rho\frac{L}{A} $$ where $\rho$ is resistivity. Ohm's law in circuit form: $$ V = IR $$
+$$
+E_{\text{net}} = 2(5400) = 1.08\times 10^4\ \text{N/C}
+$$
+
+The direction is to the right, from the positive charge toward the negative charge.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-214"
-note: "physics-electricity-and-magnetism"
-title: "Review: Power"
-type: "text"
-answer: "$$ P = IV = I^2R = \\frac{V^2}{R} $$"
-skills:
-  - "Power"
+id: electricity-and-magnetism-22
+note: physics-electricity-and-magnetism
+title: "Gauss's Law for an Infinite Sheet"
+skills: [Gauss's law, Electric field]
 ---
 
-What is the main idea of **Power**?
-
-:::solution
-One short answer is: $$ P = IV = I^2R = \frac{V^2}{R} $$
-:::
+An infinite sheet of charge has surface charge density
 
----
-id: "physics-electricity-and-magnetism-215"
-note: "physics-electricity-and-magnetism"
-title: "Review: Kirchhoff's rules"
-type: "text"
-answer: "Kirchhoff's current law: $$ \\sum I {\\text{in}} = \\sum I {\\text{out}} $$ Kirchhoff's voltage law: $$ \\sum \\Delta V = 0 $$ for any closed loop."
-skills:
-  - "Kirchhoff's rules"
----
+$$
+\sigma = 3.5\ \mu\text{C/m}^2.
+$$
 
-What is the main idea of **Kirchhoff's rules**?
+What is the electric field magnitude on either side of the sheet, and what is the direction?
 
 :::solution
-One short answer is: Kirchhoff's current law: $$ \sum I {\text{in}} = \sum I {\text{out}} $$ Kirchhoff's voltage law: $$ \sum \Delta V = 0 $$ for any closed loop.
-:::
+For an infinite sheet,
 
----
-id: "physics-electricity-and-magnetism-216"
-note: "physics-electricity-and-magnetism"
-title: "Review: Circuit analysis workflow"
-type: "text"
-answer: "Label nodes and currents."
-skills:
-  - "Circuit analysis workflow"
----
+$$
+E = \frac{\sigma}{2\varepsilon_0}
+$$
 
-According to the note, what sequence of steps is recommended in **Circuit analysis workflow**?
-
-:::solution
-One short answer is: Label nodes and currents.
-:::
+Substitute:
 
----
-id: "physics-electricity-and-magnetism-217"
-note: "physics-electricity-and-magnetism"
-title: "Review: RC circuits"
-type: "text"
-answer: "Charging reaches about $63.2\\%$ of final value."
-skills:
-  - "RC circuits"
----
+$$
+E = \frac{3.5\times 10^{-6}}{2(8.854\times 10^{-12})}
+$$
 
-What is the main idea of **RC circuits**?
+$$
+E \approx 2.0\times 10^5\ \text{N/C}
+$$
 
-:::solution
-One short answer is: Charging reaches about $63.2\%$ of final value.
+Because the sheet is positively charged, the field points away from the sheet on both sides.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-218"
-note: "physics-electricity-and-magnetism"
-title: "Review: Magnetic fields and magnetic forces"
-type: "text"
-answer: "Magnetic fields act on moving charges and currents."
-skills:
-  - "7. Magnetic fields and magnetic forces"
+id: electricity-and-magnetism-23
+note: physics-electricity-and-magnetism
+title: "Work from a Potential Difference"
+skills: [Electric potential, Potential energy]
 ---
 
-What is the main idea of **Magnetic fields and magnetic forces**?
+A $3.0\ \mu\text{C}$ charge moves from a point at $20\ \text{V}$ to a point at $-10\ \text{V}$.
 
+How much work does the electric field do on the charge?
+
 :::solution
-One short answer is: Magnetic fields act on moving charges and currents.
-:::
+The work done by the field is
 
----
-id: "physics-electricity-and-magnetism-219"
-note: "physics-electricity-and-magnetism"
-title: "Review: Force on a moving charge"
-type: "text"
-answer: "The magnetic force is perpendicular to velocity."
-skills:
-  - "Force on a moving charge"
----
+$$
+W_{\text{field}} = -\Delta U = -q\Delta V
+$$
 
-What is the main idea of **Force on a moving charge**?
+Here,
 
-:::solution
-One short answer is: The magnetic force is perpendicular to velocity.
-:::
+$$
+\Delta V = -10 - 20 = -30\ \text{V}
+$$
 
----
-id: "physics-electricity-and-magnetism-31"
-note: "physics-electricity-and-magnetism"
-title: "Review: Force on a current-carrying wire"
-type: "text"
-answer: "For a wire segment: $$ d\\mathbf{F} = I\\,d\\mathbf{\\ell}\\times \\mathbf{B} $$ For a straight wire in uniform field: $$ \\mathbf{F} = I\\mathbf{L}\\times \\mathbf{B} $$"
-skills:
-  - "Force on a current-carrying wire"
----
+So
 
-What is the main idea of **Force on a current-carrying wire**?
+$$
+W_{\text{field}} = -(3.0\times 10^{-6})(-30)
+$$
 
-:::solution
-One short answer is: For a wire segment: $$ d\mathbf{F} = I\,d\mathbf{\ell}\times \mathbf{B} $$ For a straight wire in uniform field: $$ \mathbf{F} = I\mathbf{L}\times \mathbf{B} $$
+$$
+W_{\text{field}} = 9.0\times 10^{-5}\ \text{J}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-32"
-note: "physics-electricity-and-magnetism"
-title: "Review: Motion in a uniform magnetic field"
-type: "text"
-answer: "A charge moving perpendicular to a uniform field follows circular motion."
-skills:
-  - "Motion in a uniform magnetic field"
+id: electricity-and-magnetism-24
+note: physics-electricity-and-magnetism
+title: "Capacitors in Series"
+skills: [Capacitor combinations, Capacitance]
 ---
 
-What is the main idea of **Motion in a uniform magnetic field**?
+Two capacitors of $3.0\ \mu\text{F}$ and $6.0\ \mu\text{F}$ are connected in series across a $12\ \text{V}$ battery.
 
+Find the equivalent capacitance and the charge on each capacitor.
+
 :::solution
-One short answer is: A charge moving perpendicular to a uniform field follows circular motion.
-:::
+For capacitors in series,
 
----
-id: "physics-electricity-and-magnetism-33"
-note: "physics-electricity-and-magnetism"
-title: "Review: Sources of magnetic fields"
-type: "text"
-answer: "Moving charge creates magnetic fields."
-skills:
-  - "8. Sources of magnetic fields"
----
+$$
+\frac{1}{C_{\text{eq}}} = \frac{1}{3.0} + \frac{1}{6.0} = \frac{1}{2.0}
+$$
 
-What is the main idea of **Sources of magnetic fields**?
+So
 
-:::solution
-One short answer is: Moving charge creates magnetic fields.
-:::
+$$
+C_{\text{eq}} = 2.0\ \mu\text{F}
+$$
 
----
-id: "physics-electricity-and-magnetism-34"
-note: "physics-electricity-and-magnetism"
-title: "Review: Biot-Savart law"
-type: "text"
-answer: "For a current element: $$ d\\mathbf{B} = \\frac{\\mu 0}{4\\pi}\\frac{I\\,d\\mathbf{\\ell}\\times \\hat{\\mathbf{r}}}{r^2} $$ This is useful for direct integration when symmetry is limited."
-skills:
-  - "Biot-Savart law"
----
+The charge stored by the series combination is
 
-What is the main idea of **Biot-Savart law**?
+$$
+Q = C_{\text{eq}}V = (2.0\ \mu\text{F})(12\ \text{V}) = 24\ \mu\text{C}
+$$
 
-:::solution
-One short answer is: For a current element: $$ d\mathbf{B} = \frac{\mu 0}{4\pi}\frac{I\,d\mathbf{\ell}\times \hat{\mathbf{r}}}{r^2} $$ This is useful for direct integration when symmetry is limited.
+In series, each capacitor has the same charge, so each one stores $24\ \mu\text{C}$.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-35"
-note: "physics-electricity-and-magnetism"
-title: "Review: Ampere's law"
-type: "text"
-answer: "$$ \\oint \\mathbf{B}\\cdot d\\mathbf{\\ell} = \\mu 0 I {\\text{enc}} $$ This is especially effective for highly symmetric current distributions."
-skills:
-  - "Ampere's law"
+id: electricity-and-magnetism-25
+note: physics-electricity-and-magnetism
+title: "Kirchhoff Loop with Power"
+skills: [Kirchhoff's rules, Power]
 ---
 
-What is the main idea of **Ampere's law**?
+A $12\ \text{V}$ battery is connected in series with a $2\ \Omega$ resistor and a $4\ \Omega$ resistor.
 
-:::solution
-One short answer is: $$ \oint \mathbf{B}\cdot d\mathbf{\ell} = \mu 0 I {\text{enc}} $$ This is especially effective for highly symmetric current distributions.
-:::
+Find the circuit current and the power dissipated by the $4\ \Omega$ resistor.
 
----
-id: "physics-electricity-and-magnetism-36"
-note: "physics-electricity-and-magnetism"
-title: "Review: Standard magnetic-field results"
-type: "text"
-answer: "Long straight wire: $$ B = \\frac{\\mu 0 I}{2\\pi r} $$ Long solenoid: $$ B \\approx \\mu 0 n I $$ where $n$ is turns per unit length. Toroid: $$ B = \\frac{\\mu 0 N I}{2\\pi r} $$ inside the core region."
-skills:
-  - "Standard magnetic-field results"
----
+:::solution
+The total resistance is
 
-What is the main idea of **Standard magnetic-field results**?
+$$
+R_{\text{tot}} = 2 + 4 = 6\ \Omega
+$$
 
-:::solution
-One short answer is: Long straight wire: $$ B = \frac{\mu 0 I}{2\pi r} $$ Long solenoid: $$ B \approx \mu 0 n I $$ where $n$ is turns per unit length. Toroid: $$ B = \frac{\mu 0 N I}{2\pi r} $$ inside the core region.
-:::
+So the current is
 
----
-id: "physics-electricity-and-magnetism-37"
-note: "physics-electricity-and-magnetism"
-title: "Review: Direction rules"
-type: "text"
-answer: "Use the right-hand rule for current and magnetic field direction."
-skills:
-  - "Direction rules"
----
+$$
+I = \frac{V}{R_{\text{tot}}} = \frac{12}{6} = 2\ \text{A}
+$$
 
-What is the main idea of **Direction rules**?
+The power in the $4\ \Omega$ resistor is
 
-:::solution
-One short answer is: Use the right-hand rule for current and magnetic field direction.
+$$
+P = I^2R = (2)^2(4) = 16\ \text{W}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-38"
-note: "physics-electricity-and-magnetism"
-title: "Review: Electromagnetic induction"
-type: "text"
-answer: "Changing magnetic flux induces an electromotive force."
-skills:
-  - "9. Electromagnetic induction"
+id: electricity-and-magnetism-26
+note: physics-electricity-and-magnetism
+title: "RC Charging After One Time Constant"
+skills: [RC circuits, Time constant]
 ---
 
-What is the main idea of **Electromagnetic induction**?
+An RC circuit has $R = 2.0\ \text{k}\Omega$, $C = 100\ \mu\text{F}$, and is connected to a $12\ \text{V}$ battery.
 
+Find the time constant and the charge on the capacitor after one time constant has passed.
+
 :::solution
-One short answer is: Changing magnetic flux induces an electromotive force.
-:::
+The time constant is
 
----
-id: "physics-electricity-and-magnetism-39"
-note: "physics-electricity-and-magnetism"
-title: "Review: Magnetic flux"
-type: "text"
-answer: "$$ \\Phi B = \\int \\mathbf{B}\\cdot d\\mathbf{A} $$ For uniform field: $$ \\Phi B = BA\\cos\\theta $$"
-skills:
-  - "Magnetic flux"
----
+$$
+\tau = RC = (2.0\times 10^3)(100\times 10^{-6}) = 0.20\ \text{s}
+$$
 
-What is the main idea of **Magnetic flux**?
+The final charge is
 
-:::solution
-One short answer is: $$ \Phi B = \int \mathbf{B}\cdot d\mathbf{A} $$ For uniform field: $$ \Phi B = BA\cos\theta $$
-:::
+$$
+Q_{\infty} = CV = (100\times 10^{-6})(12) = 1.2\times 10^{-3}\ \text{C}
+$$
 
----
-id: "physics-electricity-and-magnetism-310"
-note: "physics-electricity-and-magnetism"
-title: "Review: Faraday's law"
-type: "text"
-answer: "$$ \\mathcal{E} = -\\frac{d\\Phi B}{dt} $$ The negative sign is Lenz's law: the induced effect opposes the change in flux."
-skills:
-  - "Faraday's law"
----
+After one time constant, the charge is about $63.2\%$ of the final value:
 
-What is the main idea of **Faraday's law**?
+$$
+Q(\tau) = 0.632Q_{\infty}
+$$
 
-:::solution
-One short answer is: $$ \mathcal{E} = -\frac{d\Phi B}{dt} $$ The negative sign is Lenz's law: the induced effect opposes the change in flux.
+$$
+Q(\tau) \approx 0.632(1.2\times 10^{-3}) = 7.6\times 10^{-4}\ \text{C}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-311"
-note: "physics-electricity-and-magnetism"
-title: "Review: Induced emf in a loop"
-type: "text"
-answer: "changing field strength"
-skills:
-  - "Induced emf in a loop"
+id: electricity-and-magnetism-27
+note: physics-electricity-and-magnetism
+title: "Magnetic Field of a Long Straight Wire"
+skills: [Ampere's law, Magnetic field]
 ---
 
-What is the main idea of **Induced emf in a loop**?
+A long straight wire carries a current of $8.0\ \text{A}$.
 
+What is the magnetic field magnitude $5.0\ \text{cm}$ from the wire?
+
 :::solution
-One short answer is: changing field strength
-:::
+For a long straight wire,
 
----
-id: "physics-electricity-and-magnetism-312"
-note: "physics-electricity-and-magnetism"
-title: "Review: Motional emf"
-type: "text"
-answer: "For a conductor of length $L$ moving with speed $v$ perpendicular to a magnetic field: $$ \\mathcal{E} = BLv $$"
-skills:
-  - "Motional emf"
----
+$$
+B = \frac{\mu_0 I}{2\pi r}
+$$
 
-What is the main idea of **Motional emf**?
+Substitute:
 
-:::solution
-One short answer is: For a conductor of length $L$ moving with speed $v$ perpendicular to a magnetic field: $$ \mathcal{E} = BLv $$
+$$
+B = \frac{(4\pi\times 10^{-7})(8.0)}{2\pi(0.050)}
+$$
+
+$$
+B = 3.2\times 10^{-5}\ \text{T}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-313"
-note: "physics-electricity-and-magnetism"
-title: "Review: Lenz's law"
-type: "text"
-answer: "Determine whether magnetic flux through the loop is increasing or decreasing."
-skills:
-  - "Lenz's law"
+id: electricity-and-magnetism-28
+note: physics-electricity-and-magnetism
+title: "Motion in a Uniform Magnetic Field"
+skills: [Magnetic force, Circular motion]
 ---
 
-What is the main idea of **Lenz's law**?
+A proton moves perpendicular to a uniform magnetic field of magnitude $0.50\ \text{T}$ with speed $2.0\times 10^5\ \text{m/s}$.
 
+What is the radius of its circular path?
+
 :::solution
-One short answer is: Determine whether magnetic flux through the loop is increasing or decreasing.
-:::
+For circular motion in a magnetic field,
 
----
-id: "physics-electricity-and-magnetism-314"
-note: "physics-electricity-and-magnetism"
-title: "Review: Inductance and RL transients"
-type: "text"
-answer: "An inductor resists changes in current because changing current changes magnetic flux."
-skills:
-  - "10. Inductance and RL transients"
----
+$$
+r = \frac{mv}{|q|B}
+$$
 
-What is the main idea of **Inductance and RL transients**?
+Using the proton mass $m = 1.67\times 10^{-27}\ \text{kg}$ and charge $q = 1.60\times 10^{-19}\ \text{C}$:
 
-:::solution
-One short answer is: An inductor resists changes in current because changing current changes magnetic flux.
+$$
+r = \frac{(1.67\times 10^{-27})(2.0\times 10^5)}{(1.60\times 10^{-19})(0.50)}
+$$
+
+$$
+r \approx 4.2\times 10^{-3}\ \text{m}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-315"
-note: "physics-electricity-and-magnetism"
-title: "Review: Self-inductance"
-type: "text"
-answer: "$$ \\Phi B = LI $$ Induced emf in an inductor: $$ \\mathcal{E} = -L\\frac{dI}{dt} $$"
-skills:
-  - "Self-inductance"
+id: electricity-and-magnetism-31
+note: physics-electricity-and-magnetism
+title: "Field from an Infinite Line Charge"
+skills: [Gauss's law, Electric field]
 ---
 
-What is the main idea of **Self-inductance**?
+An infinite line of charge has linear charge density
 
-:::solution
-One short answer is: $$ \Phi B = LI $$ Induced emf in an inductor: $$ \mathcal{E} = -L\frac{dI}{dt} $$
-:::
-
----
-id: "physics-electricity-and-magnetism-316"
-note: "physics-electricity-and-magnetism"
-title: "Review: Energy stored in an inductor"
-type: "text"
-answer: "$$ U = \\frac{1}{2}LI^2 $$ Energy density in a magnetic field: $$ u B = \\frac{B^2}{2\\mu 0} $$"
-skills:
-  - "Energy stored in an inductor"
----
+$$
+\lambda = 5.0\ \text{nC/m}.
+$$
 
-What is the main idea of **Energy stored in an inductor**?
+What is the electric field magnitude $0.20\ \text{m}$ from the line?
 
 :::solution
-One short answer is: $$ U = \frac{1}{2}LI^2 $$ Energy density in a magnetic field: $$ u B = \frac{B^2}{2\mu 0} $$
-:::
-
----
-id: "physics-electricity-and-magnetism-317"
-note: "physics-electricity-and-magnetism"
-title: "Review: RL circuits"
-type: "text"
-answer: "Current growth in a series RL circuit: $$ I(t) = I {\\infty}\\left(1-e^{-tR/L}\\right) $$ Current decay: $$ I(t) = I 0 e^{-tR/L} $$ Time constant: $$ \\tau = \\frac{L}{R} $$"
-skills:
-  - "RL circuits"
----
+For an infinite line charge,
 
-What is the main idea of **RL circuits**?
+$$
+E = \frac{\lambda}{2\pi\varepsilon_0 r}
+$$
 
-:::solution
-One short answer is: Current growth in a series RL circuit: $$ I(t) = I {\infty}\left(1-e^{-tR/L}\right) $$ Current decay: $$ I(t) = I 0 e^{-tR/L} $$ Time constant: $$ \tau = \frac{L}{R} $$
-:::
+Substitute:
 
----
-id: "physics-electricity-and-magnetism-318"
-note: "physics-electricity-and-magnetism"
-title: "Review: Mutual inductance"
-type: "text"
-answer: "Changing current in one coil can induce emf in another nearby coil. This is the principle behind transformers and many sensing systems. ---"
-skills:
-  - "Mutual inductance"
----
+$$
+E = \frac{5.0\times 10^{-9}}{2\pi(8.854\times 10^{-12})(0.20)}
+$$
 
-What is the main idea of **Mutual inductance**?
+$$
+E \approx 4.5\times 10^2\ \text{N/C}
+$$
 
-:::solution
-One short answer is: Changing current in one coil can induce emf in another nearby coil. This is the principle behind transformers and many sensing systems. ---
+Since the line charge is positive, the field points away from the line.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-319"
-note: "physics-electricity-and-magnetism"
-title: "Review: Maxwell's equations"
-type: "text"
-answer: "Maxwell's equations unify electricity and magnetism."
-skills:
-  - "11. Maxwell's equations"
+id: electricity-and-magnetism-32
+note: physics-electricity-and-magnetism
+title: "Magnetic Field Inside a Solenoid"
+skills: [Ampere's law, Magnetic field]
 ---
+
+A solenoid has $900$ turns over a length of $0.30\ \text{m}$ and carries a current of $2.0\ \text{A}$.
 
-What is the main idea of **Maxwell's equations**?
+What is the magnetic field inside the solenoid?
 
 :::solution
-One short answer is: Maxwell's equations unify electricity and magnetism.
-:::
+First find the number of turns per unit length:
 
----
-id: "physics-electricity-and-magnetism-41"
-note: "physics-electricity-and-magnetism"
-title: "Review: Integral form"
-type: "text"
-answer: "Gauss's law for electricity: $$ \\oint \\mathbf{E}\\cdot d\\mathbf{A} = \\frac{Q {\\text{enc}}}{\\varepsilon 0} $$ Gauss's law for magnetism: $$ \\oint \\mathbf{B}\\cdot d\\mathbf{A} = 0 $$ Faraday's law: $$ \\oint \\mathbf{E}\\cdot…"
-skills:
-  - "Integral form"
----
+$$
+n = \frac{900}{0.30} = 3000\ \text{m}^{-1}
+$$
 
-What is the main idea of **Integral form**?
+For a long solenoid,
 
-:::solution
-One short answer is: Gauss's law for electricity: $$ \oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q {\text{enc}}}{\varepsilon 0} $$ Gauss's law for magnetism: $$ \oint \mathbf{B}\cdot d\mathbf{A} = 0 $$ Faraday's law: $$ \oint \mathbf{E}\cdot…
-:::
+$$
+B \approx \mu_0 n I
+$$
 
----
-id: "physics-electricity-and-magnetism-42"
-note: "physics-electricity-and-magnetism"
-title: "Review: What they mean"
-type: "text"
-answer: "Electric charges create electric fields."
-skills:
-  - "What they mean"
----
+Substitute:
 
-What is the main idea of **What they mean**?
+$$
+B = (4\pi\times 10^{-7})(3000)(2.0)
+$$
 
-:::solution
-One short answer is: Electric charges create electric fields.
+$$
+B \approx 7.5\times 10^{-3}\ \text{T}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-43"
-note: "physics-electricity-and-magnetism"
-title: "Review: Why the displacement current term matters"
-type: "text"
-answer: "The term $$ \\mu 0\\varepsilon 0 \\frac{d\\Phi E}{dt} $$ fixes the inconsistency of Ampere's law for charging capacitors and makes the equations symmetric enough to predict electromagnetic waves."
-skills:
-  - "Why the displacement current term matters"
+id: electricity-and-magnetism-33
+note: physics-electricity-and-magnetism
+title: "Direction of an Induced Current"
+skills: [Faraday's law, Lenz's law]
 ---
+
+A circular loop lies in the page. The magnetic field through the loop points into the page and is increasing.
 
-What is the main idea of **Why the displacement current term matters**?
+What is the direction of the induced current?
 
 :::solution
-One short answer is: The term $$ \mu 0\varepsilon 0 \frac{d\Phi E}{dt} $$ fixes the inconsistency of Ampere's law for charging capacitors and makes the equations symmetric enough to predict electromagnetic waves.
+The increasing flux into the page must be opposed by an induced field out of the page.
+
+Using the right-hand rule, a field out of the page is produced by a counterclockwise current.
+
+So the induced current is counterclockwise.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-44"
-note: "physics-electricity-and-magnetism"
-title: "Review: Electromagnetic waves"
-type: "text"
-answer: "Maxwell's equations imply that self-propagating electric and magnetic fields travel at $$ c = \\frac{1}{\\sqrt{\\mu 0\\varepsilon 0}} $$ which is the speed of light in vacuum. ---"
-skills:
-  - "Electromagnetic waves"
+id: electricity-and-magnetism-34
+note: physics-electricity-and-magnetism
+title: "Motional EMF in a Sliding Bar"
+skills: [Motional emf, Current]
 ---
 
-What is the main idea of **Electromagnetic waves**?
+A metal bar of length $0.40\ \text{m}$ slides at $5.0\ \text{m/s}$ through a magnetic field of magnitude $0.80\ \text{T}$.
+The bar and its motion are perpendicular to the field.
+The circuit resistance is $2.0\ \Omega$.
 
+Find the induced emf and the current in the circuit.
+
 :::solution
-One short answer is: Maxwell's equations imply that self-propagating electric and magnetic fields travel at $$ c = \frac{1}{\sqrt{\mu 0\varepsilon 0}} $$ which is the speed of light in vacuum. ---
-:::
+The motional emf is
 
----
-id: "physics-electricity-and-magnetism-45"
-note: "physics-electricity-and-magnetism"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Electromagnetism problems usually become manageable if you classify them correctly before doing algebra."
-skills:
-  - "12. Problem-solving workflow"
----
+$$
+\mathcal{E} = BLv
+$$
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+So
 
-:::solution
-One short answer is: Electromagnetism problems usually become manageable if you classify them correctly before doing algebra.
+$$
+\mathcal{E} = (0.80)(0.40)(5.0) = 1.6\ \text{V}
+$$
+
+Then use Ohm's law:
+
+$$
+I = \frac{\mathcal{E}}{R} = \frac{1.6}{2.0} = 0.80\ \text{A}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-46"
-note: "physics-electricity-and-magnetism"
-title: "Review: Step 1: Identify the regime"
-type: "text"
-answer: "Electrostatics: charges at rest"
-skills:
-  - "Step 1: Identify the regime"
+id: electricity-and-magnetism-35
+note: physics-electricity-and-magnetism
+title: "Current Growth in an RL Circuit"
+skills: [RL circuits, Time constant]
 ---
 
-What is the main idea of **Step 1: Identify the regime**?
+An RL circuit has resistance $4.0\ \Omega$, inductance $0.20\ \text{H}$, and final current $3.0\ \text{A}$.
 
+What is the time constant, and what is the current after $0.05\ \text{s}$?
+
 :::solution
-One short answer is: Electrostatics: charges at rest
-:::
+The time constant is
 
----
-id: "physics-electricity-and-magnetism-47"
-note: "physics-electricity-and-magnetism"
-title: "Review: Step 2: Choose the best law"
-type: "text"
-answer: "Coulomb's law for point charges"
-skills:
-  - "Step 2: Choose the best law"
----
+$$
+\tau = \frac{L}{R} = \frac{0.20}{4.0} = 0.050\ \text{s}
+$$
 
-What is the main idea of **Step 2: Choose the best law**?
+For current growth,
 
-:::solution
-One short answer is: Coulomb's law for point charges
-:::
+$$
+I(t) = I_{\infty}\left(1-e^{-tR/L}\right)
+$$
 
----
-id: "physics-electricity-and-magnetism-48"
-note: "physics-electricity-and-magnetism"
-title: "Review: Step 3: Use symmetry aggressively"
-type: "text"
-answer: "the direction of the field"
-skills:
-  - "Step 3: Use symmetry aggressively"
----
+At $t = 0.05\ \text{s}$,
 
-What is the main idea of **Step 3: Use symmetry aggressively**?
+$$
+I = 3.0\left(1-e^{-1}\right)
+$$
 
-:::solution
-One short answer is: the direction of the field
+$$
+I \approx 1.9\ \text{A}
+$$
 :::
 
 ---
-id: "physics-electricity-and-magnetism-49"
-note: "physics-electricity-and-magnetism"
-title: "Review: Step 4: Track signs carefully"
-type: "text"
-answer: "mixing up field direction and force direction"
-skills:
-  - "Step 4: Track signs carefully"
+id: electricity-and-magnetism-41
+note: physics-electricity-and-magnetism
+title: "Charging Capacitor and the Displacement Current"
+skills: [Maxwell's equations, Current circuits]
 ---
+
+A capacitor is charging in a circuit, and the conduction current in the wire is $0.40\ \text{A}$.
 
-What is the main idea of **Step 4: Track signs carefully**?
+According to Maxwell's equations, what must the displacement current term between the capacitor plates be, and why?
 
 :::solution
-One short answer is: mixing up field direction and force direction
-:::
+The Ampere-Maxwell law is
 
----
-id: "physics-electricity-and-magnetism-410"
-note: "physics-electricity-and-magnetism"
-title: "Review: Step 5: Sanity-check the result"
-type: "text"
-answer: "Does the units match?"
-skills:
-  - "Step 5: Sanity-check the result"
----
+$$
+\oint \mathbf{B}\cdot d\mathbf{\ell}
+= \mu_0 I_{\text{enc}} + \mu_0\varepsilon_0 \frac{d\Phi_E}{dt}
+$$
 
-What is the main idea of **Step 5: Sanity-check the result**?
+For the magnetic field prediction to be the same no matter which surface is chosen, the displacement current term must match the conduction current.
 
-:::solution
-One short answer is: Does the units match?
+So the displacement current is
+
+$$
+0.40\ \text{A}
+$$
+
+in magnitude.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-411"
-note: "physics-electricity-and-magnetism"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "13. Formula summary"
+id: electricity-and-magnetism-42
+note: physics-electricity-and-magnetism
+title: "Zero Potential, Nonzero Field"
+skills: [Electric potential, Electric field]
 ---
+
+Two charges, $+2.0\ \text{nC}$ and $-2.0\ \text{nC}$, are placed on a line, each $0.10\ \text{m}$ from the midpoint.
 
-What core formulas or relations are summarized in **Formula summary**?
+What are the electric potential and the electric field at the midpoint?
 
 :::solution
-One short answer is: Formula summary
-:::
+The electric potential adds as a scalar:
 
----
-id: "physics-electricity-and-magnetism-412"
-note: "physics-electricity-and-magnetism"
-title: "Review: Electrostatics"
-type: "text"
-answer: "$$ \\mathbf{F} = k\\frac{q 1 q 2}{r^2}\\hat{\\mathbf{r}} $$ $$ \\mathbf{E} = \\frac{\\mathbf{F}}{q 0} $$ $$ \\Phi E = \\int \\mathbf{E}\\cdot d\\mathbf{A} $$ $$ \\oint \\mathbf{E}\\cdot d\\mathbf{A} = \\frac{Q {\\text{enc}}}{\\varepsilon…"
-skills:
-  - "Electrostatics"
----
+$$
+V = k\frac{2.0\times 10^{-9}}{0.10} + k\frac{-2.0\times 10^{-9}}{0.10} = 0
+$$
 
-What is the main idea of **Electrostatics**?
+So the potential at the midpoint is zero.
 
-:::solution
-One short answer is: $$ \mathbf{F} = k\frac{q 1 q 2}{r^2}\hat{\mathbf{r}} $$ $$ \mathbf{E} = \frac{\mathbf{F}}{q 0} $$ $$ \Phi E = \int \mathbf{E}\cdot d\mathbf{A} $$ $$ \oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q {\text{enc}}}{\varepsilon…
-:::
+For the field, each charge contributes a field of magnitude
 
----
-id: "physics-electricity-and-magnetism-413"
-note: "physics-electricity-and-magnetism"
-title: "Review: Capacitors"
-type: "text"
-answer: "$$ C = \\frac{Q}{\\Delta V} $$ $$ U = \\frac{1}{2}CV^2 = \\frac{Q^2}{2C} $$ $$ C {\\text{series}}^{-1} = \\sum i C i^{-1},\\qquad C {\\text{parallel}} = \\sum i C i $$"
-skills:
-  - "Capacitors"
----
+$$
+E_1 = 9.0\times 10^9 \frac{2.0\times 10^{-9}}{(0.10)^2} = 1800\ \text{N/C}
+$$
 
-What is the main idea of **Capacitors**?
+At the midpoint, both fields point from the positive charge toward the negative charge, so they add:
 
-:::solution
-One short answer is: $$ C = \frac{Q}{\Delta V} $$ $$ U = \frac{1}{2}CV^2 = \frac{Q^2}{2C} $$ $$ C {\text{series}}^{-1} = \sum i C i^{-1},\qquad C {\text{parallel}} = \sum i C i $$
+$$
+E = 3600\ \text{N/C}
+$$
+
+The field points toward the negative charge.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-414"
-note: "physics-electricity-and-magnetism"
-title: "Review: Circuits"
-type: "text"
-answer: "$$ I = \\frac{dQ}{dt} $$ $$ V = IR $$ $$ P = IV = I^2R = \\frac{V^2}{R} $$ $$ \\tau {RC} = RC,\\qquad \\tau {RL} = \\frac{L}{R} $$"
-skills:
-  - "Circuits"
+id: electricity-and-magnetism-43
+note: physics-electricity-and-magnetism
+title: "Electric and Magnetic Flux Through a Closed Surface"
+skills: [Gauss's law, Maxwell's equations]
 ---
+
+A closed surface encloses a net charge of $+3.0\ \text{nC}$ and also surrounds a bar magnet.
 
-What is the main idea of **Circuits**?
+What are the net electric flux and the net magnetic flux through the surface?
 
 :::solution
-One short answer is: $$ I = \frac{dQ}{dt} $$ $$ V = IR $$ $$ P = IV = I^2R = \frac{V^2}{R} $$ $$ \tau {RC} = RC,\qquad \tau {RL} = \frac{L}{R} $$
-:::
+By Gauss's law for electricity,
 
----
-id: "physics-electricity-and-magnetism-415"
-note: "physics-electricity-and-magnetism"
-title: "Review: Magnetism"
-type: "text"
-answer: "$$ \\mathbf{F} = q\\mathbf{v}\\times \\mathbf{B} $$ $$ d\\mathbf{B} = \\frac{\\mu 0}{4\\pi}\\frac{I\\,d\\mathbf{\\ell}\\times \\hat{\\mathbf{r}}}{r^2} $$ $$ \\oint \\mathbf{B}\\cdot d\\mathbf{\\ell} = \\mu 0 I {\\text{enc}} $$"
-skills:
-  - "Magnetism"
----
+$$
+\Phi_E = \frac{Q_{\text{enc}}}{\varepsilon_0}
+$$
 
-What is the main idea of **Magnetism**?
+So
 
-:::solution
-One short answer is: $$ \mathbf{F} = q\mathbf{v}\times \mathbf{B} $$ $$ d\mathbf{B} = \frac{\mu 0}{4\pi}\frac{I\,d\mathbf{\ell}\times \hat{\mathbf{r}}}{r^2} $$ $$ \oint \mathbf{B}\cdot d\mathbf{\ell} = \mu 0 I {\text{enc}} $$
-:::
+$$
+\Phi_E = \frac{3.0\times 10^{-9}}{8.854\times 10^{-12}}
+\approx 3.4\times 10^2\ \text{N}\cdot\text{m}^2/\text{C}
+$$
 
----
-id: "physics-electricity-and-magnetism-416"
-note: "physics-electricity-and-magnetism"
-title: "Review: Induction"
-type: "text"
-answer: "$$ \\Phi B = \\int \\mathbf{B}\\cdot d\\mathbf{A} $$ $$ \\mathcal{E} = -\\frac{d\\Phi B}{dt} $$ $$ \\mathcal{E} = -L\\frac{dI}{dt} $$"
-skills:
-  - "Induction"
----
+By Gauss's law for magnetism,
 
-What is the main idea of **Induction**?
+$$
+\Phi_B = 0
+$$
 
-:::solution
-One short answer is: $$ \Phi B = \int \mathbf{B}\cdot d\mathbf{A} $$ $$ \mathcal{E} = -\frac{d\Phi B}{dt} $$ $$ \mathcal{E} = -L\frac{dI}{dt} $$
+So the surface has nonzero electric flux, but zero net magnetic flux.
 :::
 
 ---
-id: "physics-electricity-and-magnetism-417"
-note: "physics-electricity-and-magnetism"
-title: "Review: Maxwell's equations"
-type: "text"
-answer: "$$ \\oint \\mathbf{E}\\cdot d\\mathbf{A} = \\frac{Q {\\text{enc}}}{\\varepsilon 0} $$ $$ \\oint \\mathbf{B}\\cdot d\\mathbf{A} = 0 $$ $$ \\oint \\mathbf{E}\\cdot d\\mathbf{\\ell} = -\\frac{d\\Phi B}{dt} $$ $$ \\oint \\mathbf{B}\\cdot d\\math…"
-skills:
-  - "Maxwell's equations"
+id: electricity-and-magnetism-44
+note: physics-electricity-and-magnetism
+title: "Faraday Sign Convention"
+skills: [Faraday's law, Lenz's law]
 ---
 
-What is the main idea of **Maxwell's equations**?
+A circular loop lies in the page. The magnetic field through the loop points out of the page and is increasing.
 
+Take counterclockwise circulation as the positive loop direction.
+
+What is the sign of the induced emf, and what is the actual current direction?
+
 :::solution
-One short answer is: $$ \oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q {\text{enc}}}{\varepsilon 0} $$ $$ \oint \mathbf{B}\cdot d\mathbf{A} = 0 $$ $$ \oint \mathbf{E}\cdot d\mathbf{\ell} = -\frac{d\Phi B}{dt} $$ $$ \oint \mathbf{B}\cdot d\math…
-:::
+With counterclockwise chosen as positive, the associated area vector points out of the page.
 
----
-id: "physics-electricity-and-magnetism-418"
-note: "physics-electricity-and-magnetism"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Treating $E$ and $V$ as interchangeable."
-skills:
-  - "Common pitfalls"
----
+The magnetic flux is therefore positive, and because the field is increasing, $d\Phi_B/dt > 0$.
 
-Name one common mistake the note warns about in **Common pitfalls**.
+Faraday's law gives
 
-:::solution
-One short answer is: Treating $E$ and $V$ as interchangeable.
+$$
+\mathcal{E} = -\frac{d\Phi_B}{dt}
+$$
+
+So the induced emf is negative.
+
+A negative emf means the actual current goes opposite the positive loop direction, so the current is clockwise.
 :::

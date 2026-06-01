@@ -1,879 +1,725 @@
 ---
-id: "math-geometry-11"
-note: "math-geometry"
-title: "Review: Foundations and notation"
-type: "text"
-answer: "Point: location with no size"
-skills:
-  - "1. Foundations and notation"
+id: geometry-11
+note: math-geometry
+title: "Write the Notation for a Segment"
+skills: [Notation, Segments]
 ---
 
-What core idea is introduced in **Foundations and notation**?
+What is the notation for the line segment with endpoints $A$ and $B$?
 
 :::solution
-One short answer is: Point: location with no size
+The notation for the segment is
+
+$$
+\overline{AB}
+$$
+
+A segment has two endpoints and finite length.
 :::
 
 ---
-id: "math-geometry-12"
-note: "math-geometry"
-title: "Review: Basic ideas"
-type: "text"
-answer: "A line segment has length, a line does not."
-skills:
-  - "Basic ideas"
+id: geometry-12
+note: math-geometry
+title: "Find a Complementary Angle"
+skills: [Angle Relationships]
 ---
 
-What is the main idea of **Basic ideas**?
+One angle measures $37^\circ$. If it is complementary to another angle, what is the measure of the other angle?
 
 :::solution
-One short answer is: A line segment has length, a line does not.
+Complementary angles sum to $90^\circ$.
+
+So the other angle is
+
+$$
+90^\circ - 37^\circ = 53^\circ
+$$
 :::
 
 ---
-id: "math-geometry-13"
-note: "math-geometry"
-title: "Review: Postulates and theorems you use constantly"
-type: "text"
-answer: "Through any two points there is exactly one line."
-skills:
-  - "Postulates and theorems you use constantly"
+id: geometry-13
+note: math-geometry
+title: "Use Vertical Angles"
+skills: [Vertical Angles, Angle Relationships]
 ---
 
-What is the main idea of **Postulates and theorems you use constantly**?
+Two lines intersect. One angle measures $128^\circ$. What is the measure of its vertical angle?
 
 :::solution
-One short answer is: Through any two points there is exactly one line.
+Vertical angles are congruent, so the vertical angle has the same measure.
+
+$$
+128^\circ
+$$
 :::
 
 ---
-id: "math-geometry-14"
-note: "math-geometry"
-title: "Review: Angles, lines, and parallelism"
-type: "text"
-answer: "Angles, lines, and parallelism"
-skills:
-  - "2. Angles, lines, and parallelism"
+id: geometry-14
+note: math-geometry
+title: "Complete a Triangle Angle Sum"
+skills: [Triangle Angle Sum]
 ---
 
-What is the main idea of **Angles, lines, and parallelism**?
+In a triangle, two angles measure $48^\circ$ and $67^\circ$. What is the measure of the third angle?
 
 :::solution
-One short answer is: Angles, lines, and parallelism
+The angles of a triangle sum to $180^\circ$.
+
+So the third angle is
+
+$$
+180^\circ - 48^\circ - 67^\circ = 65^\circ
+$$
 :::
 
 ---
-id: "math-geometry-15"
-note: "math-geometry"
-title: "Review: Angle types"
-type: "text"
-answer: "Type Measure --- ---: Acute $0^\\circ < \\theta < 90^\\circ$ Right $90^\\circ$ Obtuse $90^\\circ < \\theta < 180^\\circ$ Straight $180^\\circ$ Reflex $180^\\circ < \\theta < 360^\\circ$"
-skills:
-  - "Angle types"
+id: geometry-15
+note: math-geometry
+title: "Find the Base Angles of an Isosceles Triangle"
+skills: [Isosceles Triangles, Triangle Angle Sum]
 ---
 
-What is the main idea of **Angle types**?
+An isosceles triangle has a vertex angle of $46^\circ$. What is the measure of each base angle?
 
 :::solution
-One short answer is: Type Measure --- ---: Acute $0^\circ < \theta < 90^\circ$ Right $90^\circ$ Obtuse $90^\circ < \theta < 180^\circ$ Straight $180^\circ$ Reflex $180^\circ < \theta < 360^\circ$
+The two base angles are congruent.
+
+First find their total:
+
+$$
+180^\circ - 46^\circ = 134^\circ
+$$
+
+Then divide by $2$:
+
+$$
+\frac{134^\circ}{2} = 67^\circ
+$$
+
+Each base angle measures $67^\circ$.
 :::
 
 ---
-id: "math-geometry-16"
-note: "math-geometry"
-title: "Review: Angle relationships"
-type: "text"
-answer: "Complementary angles sum to $90^\\circ$."
-skills:
-  - "Angle relationships"
+id: geometry-16
+note: math-geometry
+title: "Check the Triangle Inequality"
+skills: [Triangle Inequality]
 ---
 
-What is the main idea of **Angle relationships**?
+Can side lengths $5$, $7$, and $13$ form a triangle?
 
 :::solution
-One short answer is: Complementary angles sum to $90^\circ$.
+No. For a triangle to exist, the sum of any two side lengths must be greater than the third.
+
+Here,
+
+$$
+5+7=12
+$$
+
+and $12$ is not greater than $13$.
+
+So these side lengths do not form a triangle.
 :::
 
 ---
-id: "math-geometry-17"
-note: "math-geometry"
-title: "Review: Slope intuition for parallel and perpendicular lines"
-type: "text"
-answer: "Parallel lines have equal slope."
-skills:
-  - "Slope intuition for parallel and perpendicular lines"
+id: geometry-17
+note: math-geometry
+title: "Identify a Triangle Congruence Criterion"
+skills: [Congruence, Triangle Congruence Criteria]
 ---
 
-What is the main idea of **Slope intuition for parallel and perpendicular lines**?
+Two triangles have two corresponding sides and the included angle congruent. Which triangle congruence criterion applies?
 
 :::solution
-One short answer is: Parallel lines have equal slope.
+That is the SAS criterion:
+
+- Side
+- Angle
+- Side
+
+The angle must be included between the two sides.
 :::
 
 ---
-id: "math-geometry-18"
-note: "math-geometry"
-title: "Review: Triangles"
-type: "text"
-answer: "Triangles are central because many geometric problems reduce to triangle relationships."
-skills:
-  - "3. Triangles"
+id: geometry-18
+note: math-geometry
+title: "Scale a Similar Triangle"
+skills: [Similarity, Scale Factor]
 ---
 
-What is the main idea of **Triangles**?
+Two similar triangles have a scale factor of $4$ from the smaller triangle to the larger triangle. If a side of the smaller triangle is $6$ cm, what is the corresponding side of the larger triangle?
 
 :::solution
-One short answer is: Triangles are central because many geometric problems reduce to triangle relationships.
+Multiply the smaller side by the scale factor:
+
+$$
+6 \times 4 = 24
+$$
+
+The corresponding side is $24$ cm.
 :::
 
 ---
-id: "math-geometry-19"
-note: "math-geometry"
-title: "Review: Angle sum and exterior angles"
-type: "text"
-answer: "For any triangle: $$ A + B + C = 180^\\circ $$ An exterior angle equals the sum of the two remote interior angles: $$ m\\angle ext = m\\angle 1 + m\\angle 2 $$"
-skills:
-  - "Angle sum and exterior angles"
+id: geometry-19
+note: math-geometry
+title: "Use the Pythagorean Theorem"
+skills: [Right Triangles, Pythagorean Theorem]
 ---
 
-What is the main idea of **Angle sum and exterior angles**?
+A right triangle has legs of lengths $8$ and $15$. What is the length of the hypotenuse?
 
 :::solution
-One short answer is: For any triangle: $$ A + B + C = 180^\circ $$ An exterior angle equals the sum of the two remote interior angles: $$ m\angle ext = m\angle 1 + m\angle 2 $$
+Use the Pythagorean theorem:
+
+$$
+a^2+b^2=c^2
+$$
+
+So,
+
+$$
+8^2+15^2=c^2
+$$
+
+$$
+64+225=c^2
+$$
+
+$$
+289=c^2
+$$
+
+$$
+c=17
+$$
 :::
 
 ---
-id: "math-geometry-110"
-note: "math-geometry"
-title: "Review: Special triangles"
-type: "text"
-answer: "Special triangles"
-skills:
-  - "Special triangles"
+id: geometry-110
+note: math-geometry
+title: "Find an Inscribed Angle"
+skills: [Circles, Inscribed Angles]
 ---
 
-What is the main idea of **Special triangles**?
+An inscribed angle intercepts an arc that measures $124^\circ$. What is the measure of the inscribed angle?
 
 :::solution
-One short answer is: Special triangles
+An inscribed angle measures half its intercepted arc.
+
+So,
+
+$$
+\frac{124^\circ}{2}=62^\circ
+$$
+
+The inscribed angle measures $62^\circ$.
 :::
 
 ---
-id: "math-geometry-111"
-note: "math-geometry"
-title: "Review: Isosceles triangle"
-type: "text"
-answer: "Two sides are congruent."
-skills:
-  - "Isosceles triangle"
+id: geometry-21
+note: math-geometry
+title: "Solve with Parallel Lines"
+skills: [Parallel Lines, Corresponding Angles, Linear Equations]
 ---
 
-What is the main idea of **Isosceles triangle**?
+Two parallel lines are cut by a transversal. One corresponding angle measures $3x+7^\circ$ and the matching angle measures $5x-9^\circ$. Find $x$.
 
 :::solution
-One short answer is: Two sides are congruent.
+Corresponding angles are congruent, so set the expressions equal:
+
+$$
+3x+7=5x-9
+$$
+
+Subtract $3x$:
+
+$$
+7=2x-9
+$$
+
+Add $9$:
+
+$$
+16=2x
+$$
+
+Divide by $2$:
+
+$$
+x=8
+$$
 :::
 
 ---
-id: "math-geometry-112"
-note: "math-geometry"
-title: "Review: Equilateral triangle"
-type: "text"
-answer: "All sides are congruent."
-skills:
-  - "Equilateral triangle"
+id: geometry-22
+note: math-geometry
+title: "Exterior Angle in an Isosceles Triangle"
+skills: [Isosceles Triangles, Triangle Angle Sum, Supplementary Angles]
 ---
 
-What is the main idea of **Equilateral triangle**?
+An isosceles triangle has a vertex angle of $34^\circ$. What is the measure of an exterior angle at one base?
 
 :::solution
-One short answer is: All sides are congruent.
+The two base angles are congruent.
+
+First find one base angle:
+
+$$
+180^\circ - 34^\circ = 146^\circ
+$$
+
+$$
+\frac{146^\circ}{2}=73^\circ
+$$
+
+An exterior angle at the base is supplementary to the base angle:
+
+$$
+180^\circ - 73^\circ = 107^\circ
+$$
+
+The exterior angle measures $107^\circ$.
 :::
 
 ---
-id: "math-geometry-113"
-note: "math-geometry"
-title: "Review: Right triangle"
-type: "text"
-answer: "One angle is $90^\\circ$."
-skills:
-  - "Right triangle"
+id: geometry-23
+note: math-geometry
+title: "Use Similarity with Perimeter"
+skills: [Similarity, Perimeter, Scale Factor]
 ---
 
-What is the main idea of **Right triangle**?
+Two similar triangles have a scale factor of $3:2$ from the smaller triangle to the larger triangle. If the smaller triangle has perimeter $20$ cm, what is the larger perimeter?
 
 :::solution
-One short answer is: One angle is $90^\circ$.
+Perimeters scale by the same factor as corresponding side lengths.
+
+So multiply by $\frac{3}{2}$:
+
+$$
+20 \cdot \frac{3}{2} = 30
+$$
+
+The larger perimeter is $30$ cm.
 :::
 
 ---
-id: "math-geometry-114"
-note: "math-geometry"
-title: "Review: Triangle inequality"
-type: "text"
-answer: "For side lengths $a$, $b$, and $c$: $$ a+b>c,\\quad a+c>b,\\quad b+c>a $$ A triangle exists only if the sum of any two side lengths is greater than the third."
-skills:
-  - "Triangle inequality"
+id: geometry-24
+note: math-geometry
+title: "Apply a Dilation and a Reflection"
+skills: [Dilations, Reflections, Coordinate Geometry]
 ---
 
-What is the main idea of **Triangle inequality**?
+A point is at $(2,-3)$. It is dilated about the origin by a factor of $4$ and then reflected across the $x$-axis. Where does it land?
 
 :::solution
-One short answer is: For side lengths $a$, $b$, and $c$: $$ a+b>c,\quad a+c>b,\quad b+c>a $$ A triangle exists only if the sum of any two side lengths is greater than the third.
+First apply the dilation by factor $4$:
+
+$$
+(2,-3)\mapsto(8,-12)
+$$
+
+Then reflect across the $x$-axis, which changes the sign of the $y$-coordinate:
+
+$$
+(8,-12)\mapsto(8,12)
+$$
+
+The image is $(8,12)$.
 :::
 
 ---
-id: "math-geometry-21"
-note: "math-geometry"
-title: "Review: Medians, altitudes, angle bisectors, and perpendicular bisectors"
-type: "text"
-answer: "A median connects a vertex to the midpoint of the opposite side."
-skills:
-  - "Medians, altitudes, angle bisectors, and perpendicular bisectors"
+id: geometry-25
+note: math-geometry
+title: "Use Parallelogram Angle Properties"
+skills: [Parallelograms, Angle Relationships]
 ---
 
-What is the main idea of **Medians, altitudes, angle bisectors, and perpendicular bisectors**?
+A parallelogram has one angle that measures $68^\circ$. What are the measures of an adjacent angle and the opposite angle?
 
 :::solution
-One short answer is: A median connects a vertex to the midpoint of the opposite side.
+In a parallelogram, opposite angles are congruent and adjacent angles are supplementary.
+
+The opposite angle is
+
+$$
+68^\circ
+$$
+
+The adjacent angle is
+
+$$
+180^\circ - 68^\circ = 112^\circ
+$$
+
+So the angles are $112^\circ$ and $68^\circ$.
 :::
 
 ---
-id: "math-geometry-22"
-note: "math-geometry"
-title: "Review: Congruence and similarity"
-type: "text"
-answer: "Congruence and similarity"
-skills:
-  - "4. Congruence and similarity"
+id: geometry-26
+note: math-geometry
+title: "Find the Number of Sides of a Polygon"
+skills: [Polygons, Interior Angle Sum]
 ---
 
-What is the main idea of **Congruence and similarity**?
+A polygon has an interior angle sum of $1260^\circ$. How many sides does it have?
 
 :::solution
-One short answer is: Congruence and similarity
+Use the interior angle sum formula:
+
+$$
+(n-2)180^\circ = 1260^\circ
+$$
+
+Divide by $180$:
+
+$$
+n-2=7
+$$
+
+Add $2$:
+
+$$
+n=9
+$$
+
+The polygon has $9$ sides.
 :::
 
 ---
-id: "math-geometry-23"
-note: "math-geometry"
-title: "Review: Congruence"
-type: "text"
-answer: "SSS: three corresponding sides congruent"
-skills:
-  - "Congruence"
+id: geometry-27
+note: math-geometry
+title: "Find the Radius from Coordinates"
+skills: [Circles, Distance Formula, Coordinate Geometry]
 ---
 
-What is the main idea of **Congruence**?
+A circle has center $(2,-1)$ and passes through $(6,2)$. What is its radius?
 
 :::solution
-One short answer is: SSS: three corresponding sides congruent
+The radius is the distance from the center to a point on the circle:
+
+$$
+r=\sqrt{(6-2)^2+(2-(-1))^2}
+$$
+
+$$
+r=\sqrt{4^2+3^2}
+$$
+
+$$
+r=\sqrt{16+9}=\sqrt{25}=5
+$$
+
+The radius is $5$.
 :::
 
 ---
-id: "math-geometry-24"
-note: "math-geometry"
-title: "Review: Similarity"
-type: "text"
-answer: "AA: two angles congruent"
-skills:
-  - "Similarity"
+id: geometry-28
+note: math-geometry
+title: "Use a Radius and a Tangent"
+skills: [Circles, Tangents, Triangle Angle Sum]
 ---
 
-What is the main idea of **Similarity**?
+A radius is drawn to a point of tangency, and a segment from that same point of tangency goes to an external point. If the angle at the external point is $27^\circ$, what is the angle at the center?
 
 :::solution
-One short answer is: AA: two angles congruent
+The radius is perpendicular to the tangent, so one angle in the triangle is $90^\circ$.
+
+The angles of a triangle sum to $180^\circ$, so the angle at the center is
+
+$$
+180^\circ - 90^\circ - 27^\circ = 63^\circ
+$$
+
+The angle at the center is $63^\circ$.
 :::
 
 ---
-id: "math-geometry-25"
-note: "math-geometry"
-title: "Review: Common uses"
-type: "text"
-answer: "Indirect measurement"
-skills:
-  - "Common uses"
+id: geometry-31
+note: math-geometry
+title: "Use Similar Triangles in a Shadow Problem"
+skills: [Similarity, Proportional Reasoning]
 ---
 
-Name one common mistake the note warns about in **Common uses**.
+A $6$-foot person casts an $8$-foot shadow. At the same time, a tree casts a $20$-foot shadow. How tall is the tree?
 
 :::solution
-One short answer is: Indirect measurement
+The triangles are similar, so corresponding sides are proportional:
+
+$$
+\frac{6}{8}=\frac{h}{20}
+$$
+
+Solve for $h$:
+
+$$
+8h=120
+$$
+
+$$
+h=15
+$$
+
+The tree is $15$ feet tall.
 :::
 
 ---
-id: "math-geometry-26"
-note: "math-geometry"
-title: "Review: Right triangles and trigonometry"
-type: "text"
-answer: "Right triangles and trigonometry"
-skills:
-  - "5. Right triangles and trigonometry"
+id: geometry-32
+note: math-geometry
+title: "Solve a Ladder Problem"
+skills: [Right Triangles, Pythagorean Theorem]
 ---
 
-What is the main idea of **Right triangles and trigonometry**?
+A $13$-foot ladder reaches a window $12$ feet above the ground. How far is the base of the ladder from the wall?
 
 :::solution
-One short answer is: Right triangles and trigonometry
+Use the Pythagorean theorem with the ladder as the hypotenuse:
+
+$$
+x^2+12^2=13^2
+$$
+
+$$
+x^2+144=169
+$$
+
+$$
+x^2=25
+$$
+
+$$
+x=5
+$$
+
+The base of the ladder is $5$ feet from the wall.
 :::
 
 ---
-id: "math-geometry-27"
-note: "math-geometry"
-title: "Review: Pythagorean theorem"
-type: "text"
-answer: "$3,4,5$"
-skills:
-  - "Pythagorean theorem"
+id: geometry-33
+note: math-geometry
+title: "Find the Area of a Sector"
+skills: [Circles, Sector Area, Area]
 ---
 
-What is the main idea of **Pythagorean theorem**?
+Find the area of a sector with radius $10$ m and central angle $72^\circ$.
 
 :::solution
-One short answer is: $3,4,5$
+Use the sector area formula:
+
+$$
+A=\frac{\theta}{360^\circ}\cdot \pi r^2
+$$
+
+Substitute the values:
+
+$$
+A=\frac{72}{360}\cdot \pi(10^2)
+$$
+
+$$
+A=\frac{1}{5}\cdot 100\pi
+$$
+
+$$
+A=20\pi
+$$
+
+The area is $20\pi$ square meters.
 :::
 
 ---
-id: "math-geometry-28"
-note: "math-geometry"
-title: "Review: Distance and midpoint"
-type: "text"
-answer: "For points $(x 1,y 1)$ and $(x 2,y 2)$: $$ d=\\sqrt{(x 2-x 1)^2+(y 2-y 1)^2} $$ Midpoint: $$ M=\\left(\\frac{x 1+x 2}{2},\\frac{y 1+y 2}{2}\\right) $$"
-skills:
-  - "Distance and midpoint"
+id: geometry-34
+note: math-geometry
+title: "Find the Surface Area of a Rectangular Prism"
+skills: [Surface Area, Rectangular Prisms]
 ---
 
-What is the main idea of **Distance and midpoint**?
+A rectangular prism has length $8$ cm, width $5$ cm, and height $3$ cm. What is its surface area?
 
 :::solution
-One short answer is: For points $(x 1,y 1)$ and $(x 2,y 2)$: $$ d=\sqrt{(x 2-x 1)^2+(y 2-y 1)^2} $$ Midpoint: $$ M=\left(\frac{x 1+x 2}{2},\frac{y 1+y 2}{2}\right) $$
+Use the surface area of a rectangular prism:
+
+$$
+SA=2(lw+lh+wh)
+$$
+
+Substitute:
+
+$$
+SA=2(8\cdot 5+8\cdot 3+5\cdot 3)
+$$
+
+$$
+SA=2(40+24+15)
+$$
+
+$$
+SA=2(79)=158
+$$
+
+The surface area is $158$ cm$^2$.
 :::
 
 ---
-id: "math-geometry-29"
-note: "math-geometry"
-title: "Review: Basic trigonometric ratios"
-type: "text"
-answer: "In a right triangle: $$ \\sin\\theta=\\frac{\\text{opposite}}{\\text{hypotenuse}} $$ $$ \\cos\\theta=\\frac{\\text{adjacent}}{\\text{hypotenuse}} $$ $$ \\tan\\theta=\\frac{\\text{opposite}}{\\text{adjacent}} $$ Use trig when the probl…"
-skills:
-  - "Basic trigonometric ratios"
+id: geometry-35
+note: math-geometry
+title: "Show a Rectangle with Coordinates"
+skills: [Coordinate Geometry, Proof Strategies, Rectangles]
 ---
 
-What is the main idea of **Basic trigonometric ratios**?
+Use coordinates to show that the quadrilateral with vertices $A(0,0)$, $B(4,0)$, $C(4,3)$, and $D(0,3)$ is a rectangle.
 
 :::solution
-One short answer is: In a right triangle: $$ \sin\theta=\frac{\text{opposite}}{\text{hypotenuse}} $$ $$ \cos\theta=\frac{\text{adjacent}}{\text{hypotenuse}} $$ $$ \tan\theta=\frac{\text{opposite}}{\text{adjacent}} $$ Use trig when the probl…
+Check the side directions:
+
+- $AB$ is horizontal, so its slope is $0$.
+- $BC$ is vertical, so its slope is undefined.
+- $CD$ is horizontal, so its slope is $0$.
+- $DA$ is vertical, so its slope is undefined.
+
+Horizontal and vertical lines are perpendicular, so each corner angle is $90^\circ$.
+
+Also, opposite sides are parallel:
+
+- $AB \parallel CD$
+- $BC \parallel DA$
+
+Since the quadrilateral has four right angles, it is a rectangle.
 :::
 
 ---
-id: "math-geometry-210"
-note: "math-geometry"
-title: "Review: Quadrilaterals and polygons"
-type: "text"
-answer: "Quadrilaterals and polygons"
-skills:
-  - "6. Quadrilaterals and polygons"
+id: geometry-41
+note: math-geometry
+title: "Use the Power of a Point"
+skills: [Circles, Power of a Point, Tangents]
 ---
 
-What is the main idea of **Quadrilaterals and polygons**?
+From an external point, a tangent segment has length $12$ cm and a secant has external part $9$ cm and whole length $x$ cm. Find $x$.
 
 :::solution
-One short answer is: Quadrilaterals and polygons
+Use the tangent-secant relationship:
+
+$$
+(\text{tangent})^2=(\text{external})(\text{whole})
+$$
+
+So,
+
+$$
+12^2=9x
+$$
+
+$$
+144=9x
+$$
+
+$$
+x=16
+$$
+
+The whole secant length is $16$ cm.
 :::
 
 ---
-id: "math-geometry-211"
-note: "math-geometry"
-title: "Review: Quadrilateral families"
-type: "text"
-answer: "Diagonals bisect each other."
-skills:
-  - "Quadrilateral families"
+id: geometry-42
+note: math-geometry
+title: "Classify a Square by Coordinates"
+skills: [Coordinate Geometry, Quadrilaterals, Slopes, Distance Formula]
 ---
 
-What is the main idea of **Quadrilateral families**?
+Determine whether the quadrilateral with vertices $A(0,0)$, $B(4,2)$, $C(2,6)$, and $D(-2,4)$ is a square.
 
 :::solution
-One short answer is: Diagonals bisect each other.
+First check the side lengths:
+
+$$
+AB=\sqrt{(4-0)^2+(2-0)^2}=\sqrt{20}
+$$
+
+$$
+BC=\sqrt{(2-4)^2+(6-2)^2}=\sqrt{20}
+$$
+
+Similarly, $CD=\sqrt{20}$ and $DA=\sqrt{20}$, so all four sides are equal.
+
+Now check the slopes of adjacent sides:
+
+$$
+m_{AB}=\frac{2-0}{4-0}=\frac{1}{2}
+$$
+
+$$
+m_{BC}=\frac{6-2}{2-4}=-2
+$$
+
+The slopes are negative reciprocals, so $AB \perp BC$.
+
+Since the figure has four equal sides and a right angle, it is a square.
 :::
 
 ---
-id: "math-geometry-212"
-note: "math-geometry"
-title: "Review: Polygon angle sums"
-type: "text"
-answer: "For an $n$-gon, the sum of interior angles is: $$ (n-2)180^\\circ $$ Each interior angle of a regular $n$-gon is: $$ \\frac{(n-2)180^\\circ}{n} $$ Each exterior angle of a regular $n$-gon is: $$ \\frac{360^\\circ}{n} $$ The…"
-skills:
-  - "Polygon angle sums"
+id: geometry-43
+note: math-geometry
+title: "Scale Area and Volume Under a Dilation"
+skills: [Dilations, Area Scale Factor, Volume Scale Factor]
 ---
 
-What is the main idea of **Polygon angle sums**?
+A figure is dilated by a factor of $3$. If its original area is $14\text{ cm}^2$ and its original volume is $14\text{ cm}^3$, what are the new area and new volume?
 
 :::solution
-One short answer is: For an $n$-gon, the sum of interior angles is: $$ (n-2)180^\circ $$ Each interior angle of a regular $n$-gon is: $$ \frac{(n-2)180^\circ}{n} $$ Each exterior angle of a regular $n$-gon is: $$ \frac{360^\circ}{n} $$ The…
+Under a dilation by factor $k$:
+
+- area scales by $k^2$
+- volume scales by $k^3$
+
+Here, $k=3$.
+
+New area:
+
+$$
+14\cdot 3^2 = 14\cdot 9 = 126
+$$
+
+New volume:
+
+$$
+14\cdot 3^3 = 14\cdot 27 = 378
+$$
+
+The new area is $126\text{ cm}^2$ and the new volume is $378\text{ cm}^3$.
 :::
 
 ---
-id: "math-geometry-213"
-note: "math-geometry"
-title: "Review: Circles"
-type: "text"
-answer: "Circles"
-skills:
-  - "7. Circles"
+id: geometry-44
+note: math-geometry
+title: "Find a Chord Length from the Center"
+skills: [Circles, Right Triangles, Perpendicular Bisectors]
 ---
 
-What is the main idea of **Circles**?
+A circle has center $O$ and radius $10$ cm. A chord $AB$ is $16$ cm long, and the segment from $O$ to the chord meets the chord at its midpoint $M$. Find the length of $OM$.
 
 :::solution
-One short answer is: Circles
-:::
+Because the segment from the center meets the chord at its midpoint, $AM=MB=8$ cm.
 
----
-id: "math-geometry-214"
-note: "math-geometry"
-title: "Review: Core definitions"
-type: "text"
-answer: "Center: fixed point in the middle"
-skills:
-  - "Core definitions"
----
+Then $\triangle OMA$ is a right triangle with hypotenuse $OA=10$ and one leg $AM=8$.
 
-What core idea is introduced in **Core definitions**?
+Use the Pythagorean theorem:
 
-:::solution
-One short answer is: Center: fixed point in the middle
-:::
+$$
+OM^2+8^2=10^2
+$$
 
----
-id: "math-geometry-31"
-note: "math-geometry"
-title: "Review: Circle relationships"
-type: "text"
-answer: "A radius is perpendicular to a tangent at the point of tangency."
-skills:
-  - "Circle relationships"
----
+$$
+OM^2+64=100
+$$
 
-What is the main idea of **Circle relationships**?
+$$
+OM^2=36
+$$
 
-:::solution
-One short answer is: A radius is perpendicular to a tangent at the point of tangency.
-:::
+$$
+OM=6
+$$
 
----
-id: "math-geometry-32"
-note: "math-geometry"
-title: "Review: Angle measures in circles"
-type: "text"
-answer: "Central angle measure equals its intercepted arc."
-skills:
-  - "Angle measures in circles"
----
-
-What is the main idea of **Angle measures in circles**?
-
-:::solution
-One short answer is: Central angle measure equals its intercepted arc.
-:::
-
----
-id: "math-geometry-33"
-note: "math-geometry"
-title: "Review: Arc and sector length"
-type: "text"
-answer: "Arc length: $$ s=\\frac{\\theta}{360^\\circ}\\cdot 2\\pi r $$ Sector area: $$ A=\\frac{\\theta}{360^\\circ}\\cdot \\pi r^2 $$"
-skills:
-  - "Arc and sector length"
----
-
-What is the main idea of **Arc and sector length**?
-
-:::solution
-One short answer is: Arc length: $$ s=\frac{\theta}{360^\circ}\cdot 2\pi r $$ Sector area: $$ A=\frac{\theta}{360^\circ}\cdot \pi r^2 $$
-:::
-
----
-id: "math-geometry-34"
-note: "math-geometry"
-title: "Review: Power of a point"
-type: "text"
-answer: "Tangent segments from the same external point are congruent."
-skills:
-  - "Power of a point"
----
-
-What is the main idea of **Power of a point**?
-
-:::solution
-One short answer is: Tangent segments from the same external point are congruent.
-:::
-
----
-id: "math-geometry-35"
-note: "math-geometry"
-title: "Review: Coordinate geometry"
-type: "text"
-answer: "Coordinate geometry lets you translate geometric questions into algebra."
-skills:
-  - "8. Coordinate geometry"
----
-
-What is the main idea of **Coordinate geometry**?
-
-:::solution
-One short answer is: Coordinate geometry lets you translate geometric questions into algebra.
-:::
-
----
-id: "math-geometry-36"
-note: "math-geometry"
-title: "Review: Line formulas"
-type: "text"
-answer: "Slope between two points: $$ m=\\frac{y 2-y 1}{x 2-x 1} $$ Slope-intercept form: $$ y=mx+b $$ Point-slope form: $$ y-y 1=m(x-x 1) $$"
-skills:
-  - "Line formulas"
----
-
-What core formulas or relations are summarized in **Line formulas**?
-
-:::solution
-One short answer is: Slope between two points: $$ m=\frac{y 2-y 1}{x 2-x 1} $$ Slope-intercept form: $$ y=mx+b $$ Point-slope form: $$ y-y 1=m(x-x 1) $$
-:::
-
----
-id: "math-geometry-37"
-note: "math-geometry"
-title: "Review: Equation of a circle"
-type: "text"
-answer: "Circle centered at $(h,k)$ with radius $r$: $$ (x-h)^2+(y-k)^2=r^2 $$"
-skills:
-  - "Equation of a circle"
----
-
-What is the main idea of **Equation of a circle**?
-
-:::solution
-One short answer is: Circle centered at $(h,k)$ with radius $r$: $$ (x-h)^2+(y-k)^2=r^2 $$
-:::
-
----
-id: "math-geometry-38"
-note: "math-geometry"
-title: "Review: Common coordinate proofs"
-type: "text"
-answer: "Show two segments are congruent by comparing distances."
-skills:
-  - "Common coordinate proofs"
----
-
-Name one common mistake the note warns about in **Common coordinate proofs**.
-
-:::solution
-One short answer is: Show two segments are congruent by comparing distances.
-:::
-
----
-id: "math-geometry-39"
-note: "math-geometry"
-title: "Review: Transformations and symmetry"
-type: "text"
-answer: "Transformations and symmetry"
-skills:
-  - "9. Transformations and symmetry"
----
-
-What is the main idea of **Transformations and symmetry**?
-
-:::solution
-One short answer is: Transformations and symmetry
-:::
-
----
-id: "math-geometry-310"
-note: "math-geometry"
-title: "Review: Rigid motions"
-type: "text"
-answer: "Translation"
-skills:
-  - "Rigid motions"
----
-
-What is the main idea of **Rigid motions**?
-
-:::solution
-One short answer is: Translation
-:::
-
----
-id: "math-geometry-311"
-note: "math-geometry"
-title: "Review: Dilations"
-type: "text"
-answer: "Lengths multiply by $k$"
-skills:
-  - "Dilations"
----
-
-What is the main idea of **Dilations**?
-
-:::solution
-One short answer is: Lengths multiply by $k$
-:::
-
----
-id: "math-geometry-312"
-note: "math-geometry"
-title: "Review: Symmetry"
-type: "text"
-answer: "Line symmetry: a figure matches itself across a line"
-skills:
-  - "Symmetry"
----
-
-What is the main idea of **Symmetry**?
-
-:::solution
-One short answer is: Line symmetry: a figure matches itself across a line
-:::
-
----
-id: "math-geometry-313"
-note: "math-geometry"
-title: "Review: Area, perimeter, surface area, and volume"
-type: "text"
-answer: "Area, perimeter, surface area, and volume"
-skills:
-  - "10. Area, perimeter, surface area, and volume"
----
-
-What is the main idea of **Area, perimeter, surface area, and volume**?
-
-:::solution
-One short answer is: Area, perimeter, surface area, and volume
-:::
-
----
-id: "math-geometry-314"
-note: "math-geometry"
-title: "Review: Perimeter and area"
-type: "text"
-answer: "Figure Formula --- --- Rectangle $A=lw$ Square $A=s^2$ Triangle $A=\\frac12 bh$ Parallelogram $A=bh$ Trapezoid $A=\\frac12(b 1+b 2)h$ Circle $A=\\pi r^2$"
-skills:
-  - "Perimeter and area"
----
-
-What is the main idea of **Perimeter and area**?
-
-:::solution
-One short answer is: Figure Formula --- --- Rectangle $A=lw$ Square $A=s^2$ Triangle $A=\frac12 bh$ Parallelogram $A=bh$ Trapezoid $A=\frac12(b 1+b 2)h$ Circle $A=\pi r^2$
-:::
-
----
-id: "math-geometry-41"
-note: "math-geometry"
-title: "Review: Common volumes"
-type: "text"
-answer: "Solid Formula --- --- Rectangular prism $V=lwh$ Prism $V=Bh$ Cylinder $V=\\pi r^2h$ Pyramid $V=\\frac13Bh$ Cone $V=\\frac13\\pi r^2h$ Sphere $V=\\frac43\\pi r^3$"
-skills:
-  - "Common volumes"
----
-
-Name one common mistake the note warns about in **Common volumes**.
-
-:::solution
-One short answer is: Solid Formula --- --- Rectangular prism $V=lwh$ Prism $V=Bh$ Cylinder $V=\pi r^2h$ Pyramid $V=\frac13Bh$ Cone $V=\frac13\pi r^2h$ Sphere $V=\frac43\pi r^3$
-:::
-
----
-id: "math-geometry-42"
-note: "math-geometry"
-title: "Review: Surface area mindset"
-type: "text"
-answer: "Unfold or visualize the net."
-skills:
-  - "Surface area mindset"
----
-
-What is the main idea of **Surface area mindset**?
-
-:::solution
-One short answer is: Unfold or visualize the net.
-:::
-
----
-id: "math-geometry-43"
-note: "math-geometry"
-title: "Review: Proof strategies and problem-solving workflow"
-type: "text"
-answer: "Proof strategies and problem-solving workflow"
-skills:
-  - "11. Proof strategies and problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Proof strategies and problem-solving workflow**?
-
-:::solution
-One short answer is: Proof strategies and problem-solving workflow
-:::
-
----
-id: "math-geometry-44"
-note: "math-geometry"
-title: "Review: Common proof tools"
-type: "text"
-answer: "Definitions: use the meaning of congruent, midpoint, bisector, tangent, and so on."
-skills:
-  - "Common proof tools"
----
-
-Name one common mistake the note warns about in **Common proof tools**.
-
-:::solution
-One short answer is: Definitions: use the meaning of congruent, midpoint, bisector, tangent, and so on.
-:::
-
----
-id: "math-geometry-45"
-note: "math-geometry"
-title: "Review: Clean problem-solving workflow"
-type: "text"
-answer: "Sketch the figure and label all givens."
-skills:
-  - "Clean problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Clean problem-solving workflow**?
-
-:::solution
-One short answer is: Sketch the figure and label all givens.
-:::
-
----
-id: "math-geometry-46"
-note: "math-geometry"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Mixing up diameter and radius"
-skills:
-  - "Common pitfalls"
----
-
-Name one common mistake the note warns about in **Common pitfalls**.
-
-:::solution
-One short answer is: Mixing up diameter and radius
-:::
-
----
-id: "math-geometry-47"
-note: "math-geometry"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "12. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-geometry-48"
-note: "math-geometry"
-title: "Review: Angle and triangle formulas"
-type: "text"
-answer: "$$ A+B+C=180^\\circ $$ $$ a^2+b^2=c^2 $$ $$ (\\text{triangle exterior angle})=(\\text{two remote interior angles}) $$"
-skills:
-  - "Angle and triangle formulas"
----
-
-What core formulas or relations are summarized in **Angle and triangle formulas**?
-
-:::solution
-One short answer is: $$ A+B+C=180^\circ $$ $$ a^2+b^2=c^2 $$ $$ (\text{triangle exterior angle})=(\text{two remote interior angles}) $$
-:::
-
----
-id: "math-geometry-49"
-note: "math-geometry"
-title: "Review: Similarity and scaling"
-type: "text"
-answer: "$$ \\text{scale factor}=\\frac{\\text{new length}}{\\text{original length}} $$ $$ \\text{area scale factor}=k^2 $$ $$ \\text{volume scale factor}=k^3 $$"
-skills:
-  - "Similarity and scaling"
----
-
-What is the main idea of **Similarity and scaling**?
-
-:::solution
-One short answer is: $$ \text{scale factor}=\frac{\text{new length}}{\text{original length}} $$ $$ \text{area scale factor}=k^2 $$ $$ \text{volume scale factor}=k^3 $$
-:::
-
----
-id: "math-geometry-410"
-note: "math-geometry"
-title: "Review: Coordinate geometry"
-type: "text"
-answer: "$$ d=\\sqrt{(x 2-x 1)^2+(y 2-y 1)^2} $$ $$ M=\\left(\\frac{x 1+x 2}{2},\\frac{y 1+y 2}{2}\\right) $$ $$ m=\\frac{y 2-y 1}{x 2-x 1} $$"
-skills:
-  - "Coordinate geometry"
----
-
-What is the main idea of **Coordinate geometry**?
-
-:::solution
-One short answer is: $$ d=\sqrt{(x 2-x 1)^2+(y 2-y 1)^2} $$ $$ M=\left(\frac{x 1+x 2}{2},\frac{y 1+y 2}{2}\right) $$ $$ m=\frac{y 2-y 1}{x 2-x 1} $$
-:::
-
----
-id: "math-geometry-411"
-note: "math-geometry"
-title: "Review: Circle formulas"
-type: "text"
-answer: "$$ C=2\\pi r $$ $$ A=\\pi r^2 $$ $$ s=\\frac{\\theta}{360^\\circ}\\cdot 2\\pi r $$ $$ A {sector}=\\frac{\\theta}{360^\\circ}\\cdot \\pi r^2 $$"
-skills:
-  - "Circle formulas"
----
-
-What core formulas or relations are summarized in **Circle formulas**?
-
-:::solution
-One short answer is: $$ C=2\pi r $$ $$ A=\pi r^2 $$ $$ s=\frac{\theta}{360^\circ}\cdot 2\pi r $$ $$ A {sector}=\frac{\theta}{360^\circ}\cdot \pi r^2 $$
-:::
-
----
-id: "math-geometry-412"
-note: "math-geometry"
-title: "Review: Surface area and volume"
-type: "text"
-answer: "$$ V {prism}=Bh $$ $$ V {cylinder}=\\pi r^2h $$ $$ V {pyramid}=\\frac13Bh $$ $$ V {cone}=\\frac13\\pi r^2h $$ $$ V {sphere}=\\frac43\\pi r^3 $$ ---"
-skills:
-  - "Surface area and volume"
----
-
-What is the main idea of **Surface area and volume**?
-
-:::solution
-One short answer is: $$ V {prism}=Bh $$ $$ V {cylinder}=\pi r^2h $$ $$ V {pyramid}=\frac13Bh $$ $$ V {cone}=\frac13\pi r^2h $$ $$ V {sphere}=\frac43\pi r^3 $$ ---
-:::
-
----
-id: "math-geometry-413"
-note: "math-geometry"
-title: "Review: Quick self-check"
-type: "text"
-answer: "Units are correct"
-skills:
-  - "Quick self-check"
----
-
-What is the main idea of **Quick self-check**?
-
-:::solution
-One short answer is: Units are correct
+So $OM=6$ cm.
 :::

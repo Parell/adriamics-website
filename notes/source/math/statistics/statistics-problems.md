@@ -1,1071 +1,726 @@
 ---
-id: "math-statistics-11"
-note: "math-statistics"
-title: "Review: What statistics studies"
-type: "text"
-answer: "Descriptive statistics summarize what the data show."
-skills:
-  - "1. What statistics studies"
+id: statistics-11
+note: math-statistics
+title: "Identify the Population and Sample"
+skills: [Population, Sample]
 ---
 
-What is the main idea of **What statistics studies**?
+A researcher wants to study sleep habits of all first-year students at a college. She surveys 120 first-year students. Which group is the population, and which group is the sample?
 
 :::solution
-One short answer is: Descriptive statistics summarize what the data show.
-:::
-
----
-id: "math-statistics-12"
-note: "math-statistics"
-title: "Review: Core ideas"
-type: "text"
-answer: "Variation is real and expected."
-skills:
-  - "Core ideas"
----
-
-What core idea is introduced in **Core ideas**?
+The **population** is the full group of interest: all first-year students at the college.
 
-:::solution
-One short answer is: Variation is real and expected.
+The **sample** is the subset actually observed: the 120 first-year students who were surveyed.
 :::
 
 ---
-id: "math-statistics-13"
-note: "math-statistics"
-title: "Review: Data, variables, and measurement scales"
-type: "text"
-answer: "Data, variables, and measurement scales"
-skills:
-  - "2. Data, variables, and measurement scales"
+id: statistics-12
+note: math-statistics
+title: "Classify the Variable"
+skills: [Variable Types, Discrete and Continuous]
 ---
 
-What is the main idea of **Data, variables, and measurement scales**?
+Classify each variable as categorical, ordinal, or quantitative. If it is quantitative, say whether it is discrete or continuous.
 
+- blood type
+- class rank
+- number of siblings
+- time to finish a race
+
 :::solution
-One short answer is: Data, variables, and measurement scales
+- Blood type is **categorical**.
+- Class rank is **ordinal**.
+- Number of siblings is **quantitative discrete**.
+- Time to finish a race is **quantitative continuous**.
 :::
 
 ---
-id: "math-statistics-14"
-note: "math-statistics"
-title: "Review: Types of variables"
-type: "text"
-answer: "Discrete : countable values, such as number of calls"
-skills:
-  - "Types of variables"
+id: statistics-13
+note: math-statistics
+title: "Match the Measurement Scale"
+skills: [Measurement Scales]
 ---
+
+State the measurement scale for each variable: nominal, ordinal, interval, or ratio.
 
-What is the main idea of **Types of variables**?
+- jersey number
+- class rank
+- Celsius temperature
+- body mass
 
 :::solution
-One short answer is: Discrete : countable values, such as number of calls
+- Jersey number is **nominal** because it is a label.
+- Class rank is **ordinal** because order matters but differences do not have a natural numerical meaning.
+- Celsius temperature is **interval** because differences are meaningful but there is no true zero.
+- Body mass is **ratio** because differences and ratios are meaningful and there is a true zero.
 :::
 
 ---
-id: "math-statistics-15"
-note: "math-statistics"
-title: "Review: Measurement scales"
-type: "text"
-answer: "Scale Has order?"
-skills:
-  - "Measurement scales"
+id: statistics-14
+note: math-statistics
+title: "Choose Mean or Median"
+skills: [Mean, Median, Outliers]
 ---
 
-What is the main idea of **Measurement scales**?
-
-:::solution
-One short answer is: Scale Has order?
-:::
+For the data set
 
----
-id: "math-statistics-16"
-note: "math-statistics"
-title: "Review: Common data issues"
-type: "text"
-answer: "Missing values"
-skills:
-  - "Common data issues"
----
+$$
+3,\ 4,\ 4,\ 5,\ 40
+$$
 
-Name one common mistake the note warns about in **Common data issues**.
+find the mean and the median. Which measure of center better describes the data?
 
 :::solution
-One short answer is: Missing values
-:::
+The mean is
 
----
-id: "math-statistics-17"
-note: "math-statistics"
-title: "Review: Describing a distribution"
-type: "text"
-answer: "A distribution describes how values are spread across a variable."
-skills:
-  - "3. Describing a distribution"
----
+$$
+\bar{x} = \frac{3+4+4+5+40}{5} = \frac{56}{5} = 11.2
+$$
 
-What is the main idea of **Describing a distribution**?
+The median is the middle value after sorting, which is
 
-:::solution
-One short answer is: A distribution describes how values are spread across a variable.
+$$
+4
+$$
+
+The value $40$ is an outlier compared with the rest of the data, so the **median** is the better measure of center.
 :::
 
 ---
-id: "math-statistics-18"
-note: "math-statistics"
-title: "Review: Center"
-type: "text"
-answer: "Mean"
-skills:
-  - "Center"
+id: statistics-15
+note: math-statistics
+title: "Find the Interquartile Range"
+skills: [Quartiles, Interquartile Range]
 ---
 
-What is the main idea of **Center**?
-
-:::solution
-One short answer is: Mean
-:::
+If a data set has
 
----
-id: "math-statistics-19"
-note: "math-statistics"
-title: "Review: Spread"
-type: "text"
-answer: "Range : $\\max(x) - \\min(x)$"
-skills:
-  - "Spread"
----
+$$
+Q_1 = 18 \quad \text{and} \quad Q_3 = 31,
+$$
 
-What is the main idea of **Spread**?
+what is the interquartile range?
 
 :::solution
-One short answer is: Range : $\max(x) - \min(x)$
-:::
+Use the formula
 
----
-id: "math-statistics-110"
-note: "math-statistics"
-title: "Review: Shape"
-type: "text"
-answer: "Symmetric or skewed"
-skills:
-  - "Shape"
----
+$$
+\mathrm{IQR} = Q_3 - Q_1
+$$
 
-What is the main idea of **Shape**?
+So
 
-:::solution
-One short answer is: Symmetric or skewed
+$$
+\mathrm{IQR} = 31 - 18 = 13
+$$
 :::
 
 ---
-id: "math-statistics-111"
-note: "math-statistics"
-title: "Review: Z-scores"
-type: "text"
-answer: "A z-score tells how many standard deviations a value lies from the mean: $$ z = \\frac{x - \\mu}{\\sigma} $$ For sample data: $$ z = \\frac{x - \\bar{x}}{s} $$ Z-scores are useful for comparing values across different scales."
-skills:
-  - "Z-scores"
+id: statistics-16
+note: math-statistics
+title: "Compute a Z-Score"
+skills: [Z-scores, Standard Deviation]
 ---
 
-What core idea is introduced in **Z-scores**?
+A score of $80$ comes from a distribution with mean $72$ and standard deviation $4$. What is the z-score?
 
 :::solution
-One short answer is: A z-score tells how many standard deviations a value lies from the mean: $$ z = \frac{x - \mu}{\sigma} $$ For sample data: $$ z = \frac{x - \bar{x}}{s} $$ Z-scores are useful for comparing values across different scales.
-:::
+Use
 
----
-id: "math-statistics-112"
-note: "math-statistics"
-title: "Review: Five-number summary"
-type: "text"
-answer: "Minimum"
-skills:
-  - "Five-number summary"
----
+$$
+z = \frac{x - \mu}{\sigma}
+$$
 
-What core formulas or relations are summarized in **Five-number summary**?
+Substitute the values:
 
-:::solution
-One short answer is: Minimum
+$$
+z = \frac{80 - 72}{4} = \frac{8}{4} = 2
+$$
+
+The score is 2 standard deviations above the mean.
 :::
 
 ---
-id: "math-statistics-113"
-note: "math-statistics"
-title: "Review: Probability essentials"
-type: "text"
-answer: "Probability models uncertainty mathematically."
-skills:
-  - "4. Probability essentials"
+id: statistics-17
+note: math-statistics
+title: "Use the Complement Rule"
+skills: [Complement Rule, Probability]
 ---
 
-What is the main idea of **Probability essentials**?
+If the probability of rain tomorrow is $0.3$, what is the probability that it will not rain tomorrow?
 
 :::solution
-One short answer is: Probability models uncertainty mathematically.
-:::
+Use the complement rule:
 
----
-id: "math-statistics-114"
-note: "math-statistics"
-title: "Review: Sample spaces and events"
-type: "text"
-answer: "A sample space is the set of all possible outcomes."
-skills:
-  - "Sample spaces and events"
----
+$$
+P(A^c) = 1 - P(A)
+$$
 
-What is the main idea of **Sample spaces and events**?
+So
 
-:::solution
-One short answer is: A sample space is the set of all possible outcomes.
+$$
+P(\text{no rain}) = 1 - 0.3 = 0.7
+$$
 :::
 
 ---
-id: "math-statistics-115"
-note: "math-statistics"
-title: "Review: Rules"
-type: "text"
-answer: "Rules"
-skills:
-  - "Rules"
+id: statistics-18
+note: math-statistics
+title: "Apply Conditional Probability"
+skills: [Conditional Probability, Probability]
 ---
 
-What is the main idea of **Rules**?
+In a survey, $20\%$ of students take the bus to school, and $5\%$ of students both take the bus and arrive late. What is the probability that a student is late given that the student takes the bus?
 
 :::solution
-One short answer is: Rules
-:::
+Use conditional probability:
 
----
-id: "math-statistics-116"
-note: "math-statistics"
-title: "Review: Complement"
-type: "text"
-answer: "$$ P(A^c) = 1 - P(A) $$"
-skills:
-  - "Complement"
----
+$$
+P(\text{late} \mid \text{bus}) = \frac{P(\text{late and bus})}{P(\text{bus})}
+$$
 
-What is the main idea of **Complement**?
+Substitute the values:
 
-:::solution
-One short answer is: $$ P(A^c) = 1 - P(A) $$
+$$
+P(\text{late} \mid \text{bus}) = \frac{0.05}{0.20} = 0.25
+$$
+
+So the probability is $0.25$.
 :::
 
 ---
-id: "math-statistics-117"
-note: "math-statistics"
-title: "Review: Addition rule"
-type: "text"
-answer: "For any events $A$ and $B$: $$ P(A \\cup B) = P(A) + P(B) - P(A \\cap B) $$ If $A$ and $B$ are mutually exclusive, then $P(A \\cap B)=0$."
-skills:
-  - "Addition rule"
+id: statistics-19
+note: math-statistics
+title: "Check Independence"
+skills: [Independence, Probability]
 ---
 
-What is the main idea of **Addition rule**?
+Suppose $P(A) = 0.4$, $P(B) = 0.5$, and $P(A \cap B) = 0.2$. Are $A$ and $B$ independent?
 
 :::solution
-One short answer is: For any events $A$ and $B$: $$ P(A \cup B) = P(A) + P(B) - P(A \cap B) $$ If $A$ and $B$ are mutually exclusive, then $P(A \cap B)=0$.
-:::
+Check whether
 
----
-id: "math-statistics-21"
-note: "math-statistics"
-title: "Review: Conditional probability"
-type: "text"
-answer: "$$ P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} $$ provided $P(B) > 0$."
-skills:
-  - "Conditional probability"
----
+$$
+P(A \cap B) = P(A)P(B)
+$$
 
-What is the main idea of **Conditional probability**?
+Compute the product:
 
-:::solution
-One short answer is: $$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $$ provided $P(B) > 0$.
+$$
+P(A)P(B) = 0.4 \cdot 0.5 = 0.2
+$$
+
+This matches $P(A \cap B)$, so the events are **independent**.
 :::
 
 ---
-id: "math-statistics-22"
-note: "math-statistics"
-title: "Review: Independence"
-type: "text"
-answer: "Events $A$ and $B$ are independent if: $$ P(A \\cap B) = P(A)P(B) $$ equivalently, $$ P(A \\mid B) = P(A) $$"
-skills:
-  - "Independence"
+id: statistics-110
+note: math-statistics
+title: "Standardize a Normal Value"
+skills: [Normal Distribution, Standardization]
 ---
 
-What is the main idea of **Independence**?
+Let $X \sim \mathcal{N}(50, 9)$. What is the z-score for the value $56$?
 
 :::solution
-One short answer is: Events $A$ and $B$ are independent if: $$ P(A \cap B) = P(A)P(B) $$ equivalently, $$ P(A \mid B) = P(A) $$
-:::
+Since $X \sim \mathcal{N}(50, 9)$, the standard deviation is
 
----
-id: "math-statistics-23"
-note: "math-statistics"
-title: "Review: Bayes' rule"
-type: "text"
-answer: "$$ P(A \\mid B) = \\frac{P(B \\mid A)P(A)}{P(B)} $$ Bayes' rule reverses conditioning. It is especially important in diagnostics and classification. ---"
-skills:
-  - "Bayes' rule"
----
+$$
+\sigma = 3
+$$
 
-What is the main idea of **Bayes' rule**?
+Now standardize:
 
-:::solution
-One short answer is: $$ P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)} $$ Bayes' rule reverses conditioning. It is especially important in diagnostics and classification. ---
+$$
+z = \frac{56 - 50}{3} = 2
+$$
+
+So the z-score is $2$.
 :::
 
 ---
-id: "math-statistics-24"
-note: "math-statistics"
-title: "Review: Common distributions"
-type: "text"
-answer: "Common distributions"
-skills:
-  - "5. Common distributions"
+id: statistics-21
+note: math-statistics
+title: "Find the Mean and Median"
+skills: [Mean, Median, Outliers]
 ---
 
-Name one common mistake the note warns about in **Common distributions**.
-
-:::solution
-One short answer is: Common distributions
-:::
+For the data set
 
----
-id: "math-statistics-25"
-note: "math-statistics"
-title: "Review: Bernoulli"
-type: "text"
-answer: "A Bernoulli random variable takes values 1 and 0 with: $$ P(X=1)=p,\\qquad P(X=0)=1-p $$ Mean: $$ \\mathbb{E}[X] = p $$ Variance: $$ \\mathrm{Var}(X) = p(1-p) $$"
-skills:
-  - "Bernoulli"
----
+$$
+1,\ 2,\ 2,\ 7,\ 10
+$$
 
-What is the main idea of **Bernoulli**?
+find the mean and the median. Which measure is more resistant to the large value?
 
 :::solution
-One short answer is: A Bernoulli random variable takes values 1 and 0 with: $$ P(X=1)=p,\qquad P(X=0)=1-p $$ Mean: $$ \mathbb{E}[X] = p $$ Variance: $$ \mathrm{Var}(X) = p(1-p) $$
-:::
+The mean is
 
----
-id: "math-statistics-26"
-note: "math-statistics"
-title: "Review: Binomial"
-type: "text"
-answer: "Counts successes in $n$ independent Bernoulli trials with success probability $p$: $$ X \\sim \\mathrm{Binomial}(n,p) $$ Probability mass function: $$ P(X=k) = {n \\choose k} p^k(1-p)^{n-k} $$ Mean and variance: $$ \\mathbb…"
-skills:
-  - "Binomial"
----
+$$
+\bar{x} = \frac{1+2+2+7+10}{5} = \frac{22}{5} = 4.4
+$$
 
-What is the main idea of **Binomial**?
+The median is the middle value:
 
-:::solution
-One short answer is: Counts successes in $n$ independent Bernoulli trials with success probability $p$: $$ X \sim \mathrm{Binomial}(n,p) $$ Probability mass function: $$ P(X=k) = {n \choose k} p^k(1-p)^{n-k} $$ Mean and variance: $$ \mathbb…
+$$
+2
+$$
+
+The value $10$ pulls the mean upward, so the **median** is more resistant to the large value.
 :::
 
 ---
-id: "math-statistics-27"
-note: "math-statistics"
-title: "Review: Normal"
-type: "text"
-answer: "The normal distribution is symmetric and bell-shaped: $$ X \\sim \\mathcal{N}(\\mu,\\sigma^2) $$ Standardization: $$ Z = \\frac{X-\\mu}{\\sigma} \\sim \\mathcal{N}(0,1) $$ The normal distribution is central because many sums and…"
-skills:
-  - "Normal"
+id: statistics-22
+note: math-statistics
+title: "Compute the Sample Standard Deviation"
+skills: [Variance, Standard Deviation]
 ---
-
-What is the main idea of **Normal**?
 
-:::solution
-One short answer is: The normal distribution is symmetric and bell-shaped: $$ X \sim \mathcal{N}(\mu,\sigma^2) $$ Standardization: $$ Z = \frac{X-\mu}{\sigma} \sim \mathcal{N}(0,1) $$ The normal distribution is central because many sums and…
-:::
+For the data set
 
----
-id: "math-statistics-28"
-note: "math-statistics"
-title: "Review: Poisson"
-type: "text"
-answer: "Models counts over time, space, or area when events occur independently at a constant average rate: $$ P(X=k)=\\frac{e^{-\\lambda}\\lambda^k}{k!} $$ Mean and variance: $$ \\mathbb{E}[X]=\\lambda,\\qquad \\mathrm{Var}(X)=\\lambd…"
-skills:
-  - "Poisson"
----
+$$
+2,\ 4,\ 6,\ 8
+$$
 
-What is the main idea of **Poisson**?
+compute the sample mean and the sample standard deviation.
 
 :::solution
-One short answer is: Models counts over time, space, or area when events occur independently at a constant average rate: $$ P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!} $$ Mean and variance: $$ \mathbb{E}[X]=\lambda,\qquad \mathrm{Var}(X)=\lambd…
-:::
-
----
-id: "math-statistics-29"
-note: "math-statistics"
-title: "Review: Exponential"
-type: "text"
-answer: "Models waiting time between Poisson events: $$ f(x)=\\lambda e^{-\\lambda x},\\quad x \\ge 0 $$ Memoryless property: $$ P(X>s+t \\mid X>s)=P(X>t) $$ ---"
-skills:
-  - "Exponential"
----
+First find the mean:
 
-What is the main idea of **Exponential**?
+$$
+\bar{x} = \frac{2+4+6+8}{4} = 5
+$$
 
-:::solution
-One short answer is: Models waiting time between Poisson events: $$ f(x)=\lambda e^{-\lambda x},\quad x \ge 0 $$ Memoryless property: $$ P(X>s+t \mid X>s)=P(X>t) $$ ---
-:::
+Now compute the squared deviations:
 
----
-id: "math-statistics-210"
-note: "math-statistics"
-title: "Review: Sampling and the central limit theorem"
-type: "text"
-answer: "Sampling and the central limit theorem"
-skills:
-  - "6. Sampling and the central limit theorem"
----
+$$
+(2-5)^2 = 9,\ (4-5)^2 = 1,\ (6-5)^2 = 1,\ (8-5)^2 = 9
+$$
 
-What is the main idea of **Sampling and the central limit theorem**?
+So
 
-:::solution
-One short answer is: Sampling and the central limit theorem
-:::
+$$
+s^2 = \frac{9+1+1+9}{4-1} = \frac{20}{3}
+$$
 
----
-id: "math-statistics-211"
-note: "math-statistics"
-title: "Review: Sampling distributions"
-type: "text"
-answer: "A statistic is a random variable because it depends on the sample."
-skills:
-  - "Sampling distributions"
----
+and
 
-What is the main idea of **Sampling distributions**?
+$$
+s = \sqrt{\frac{20}{3}}
+$$
 
-:::solution
-One short answer is: A statistic is a random variable because it depends on the sample.
+So the sample standard deviation is $\sqrt{20/3}$, about $2.58$.
 :::
 
 ---
-id: "math-statistics-212"
-note: "math-statistics"
-title: "Review: Central limit theorem"
-type: "text"
-answer: "If observations are independent and have finite variance, then for sufficiently large $n$ the distribution of the sample mean is approximately normal: $$ \\bar{X} \\approx \\mathcal{N}\\left(\\mu,\\frac{\\sigma^2}{n}\\right) $$…"
-skills:
-  - "Central limit theorem"
+id: statistics-23
+note: math-statistics
+title: "Find an Exact Binomial Probability"
+skills: [Binomial Distribution, Probability]
 ---
 
-What is the main idea of **Central limit theorem**?
+A basketball player makes each free throw with probability $0.7$. Assuming the shots are independent, what is the probability of making exactly 4 out of 5 free throws?
 
 :::solution
-One short answer is: If observations are independent and have finite variance, then for sufficiently large $n$ the distribution of the sample mean is approximately normal: $$ \bar{X} \approx \mathcal{N}\left(\mu,\frac{\sigma^2}{n}\right) $$…
-:::
+This is a binomial probability with $n=5$, $k=4$, and $p=0.7$:
 
----
-id: "math-statistics-213"
-note: "math-statistics"
-title: "Review: Practical implications"
-type: "text"
-answer: "Large samples reduce random error."
-skills:
-  - "Practical implications"
----
+$$
+P(X=4) = {5 \choose 4}(0.7)^4(0.3)^1
+$$
 
-What is the main idea of **Practical implications**?
+Compute:
 
-:::solution
-One short answer is: Large samples reduce random error.
+$$
+P(X=4) = 5(0.2401)(0.3) = 0.36015
+$$
+
+So the probability is about $0.360$.
 :::
 
 ---
-id: "math-statistics-214"
-note: "math-statistics"
-title: "Review: Independence and sampling quality"
-type: "text"
-answer: "Random sampling or random assignment"
-skills:
-  - "Independence and sampling quality"
+id: statistics-24
+note: math-statistics
+title: "Compare Two Standardized Scores"
+skills: [Normal Distribution, Standardization, Z-scores]
 ---
 
-What is the main idea of **Independence and sampling quality**?
-
-:::solution
-One short answer is: Random sampling or random assignment
-:::
+Two values come from different normal distributions:
 
----
-id: "math-statistics-215"
-note: "math-statistics"
-title: "Review: Estimation and confidence intervals"
-type: "text"
-answer: "Estimation and confidence intervals"
-skills:
-  - "7. Estimation and confidence intervals"
----
+- $56$ from a distribution with mean $50$ and standard deviation $3$
+- $68$ from a distribution with mean $60$ and standard deviation $4$
 
-What is the main idea of **Estimation and confidence intervals**?
+Which value is more unusual relative to its own distribution?
 
 :::solution
-One short answer is: Estimation and confidence intervals
-:::
-
----
-id: "math-statistics-216"
-note: "math-statistics"
-title: "Review: Point estimates"
-type: "text"
-answer: "$\\bar{x}$ estimates $\\mu$"
-skills:
-  - "Point estimates"
----
+Standardize each value.
 
-What is the main idea of **Point estimates**?
+For $56$:
 
-:::solution
-One short answer is: $\bar{x}$ estimates $\mu$
-:::
+$$
+z = \frac{56 - 50}{3} = 2
+$$
 
----
-id: "math-statistics-217"
-note: "math-statistics"
-title: "Review: Confidence intervals"
-type: "text"
-answer: "A confidence interval gives a range of plausible values for a parameter."
-skills:
-  - "Confidence intervals"
----
+For $68$:
 
-What is the main idea of **Confidence intervals**?
+$$
+z = \frac{68 - 60}{4} = 2
+$$
 
-:::solution
-One short answer is: A confidence interval gives a range of plausible values for a parameter.
+The two values have the same z-score, so they are **equally unusual** relative to their own distributions.
 :::
 
 ---
-id: "math-statistics-31"
-note: "math-statistics"
-title: "Review: Interpreting confidence intervals"
-type: "text"
-answer: "A 95% confidence method produces intervals that capture the true parameter about 95% of the time in repeated sampling."
-skills:
-  - "Interpreting confidence intervals"
+id: statistics-25
+note: math-statistics
+title: "Use Standard Error and the CLT"
+skills: [Sampling Distributions, Standard Error, Central Limit Theorem]
 ---
 
-What is the main idea of **Interpreting confidence intervals**?
+Suppose a population has standard deviation $12$. If the sample size is $36$, what is the standard error of the sample mean? What happens to the standard error if the sample size increases to $144$?
 
 :::solution
-One short answer is: A 95% confidence method produces intervals that capture the true parameter about 95% of the time in repeated sampling.
-:::
+For the sample mean,
 
----
-id: "math-statistics-32"
-note: "math-statistics"
-title: "Review: Margin of error"
-type: "text"
-answer: "Sample size increases"
-skills:
-  - "Margin of error"
----
+$$
+\mathrm{SE}(\bar{x}) = \frac{\sigma}{\sqrt{n}}
+$$
 
-What is the main idea of **Margin of error**?
+When $n=36$:
 
-:::solution
-One short answer is: Sample size increases
-:::
+$$
+\mathrm{SE}(\bar{x}) = \frac{12}{\sqrt{36}} = \frac{12}{6} = 2
+$$
 
----
-id: "math-statistics-33"
-note: "math-statistics"
-title: "Review: Hypothesis testing"
-type: "text"
-answer: "Hypothesis testing is a framework for deciding whether observed data are consistent with a null model."
-skills:
-  - "8. Hypothesis testing"
----
+When $n=144$:
 
-What is the main idea of **Hypothesis testing**?
+$$
+\mathrm{SE}(\bar{x}) = \frac{12}{\sqrt{144}} = \frac{12}{12} = 1
+$$
 
-:::solution
-One short answer is: Hypothesis testing is a framework for deciding whether observed data are consistent with a null model.
+So the standard error gets smaller as the sample size increases. This matches the central limit theorem idea that larger samples reduce random error in the sample mean.
 :::
 
 ---
-id: "math-statistics-34"
-note: "math-statistics"
-title: "Review: Setup"
-type: "text"
-answer: "Null hypothesis : $H 0$"
-skills:
-  - "Setup"
+id: statistics-26
+note: math-statistics
+title: "Construct a Confidence Interval"
+skills: [Confidence Intervals, Interpretation]
 ---
 
-What is the main idea of **Setup**?
+A sample has mean $52$ and margin of error $4.3$. Construct the confidence interval and interpret it correctly.
 
 :::solution
-One short answer is: Null hypothesis : $H 0$
-:::
+Use the general form
 
----
-id: "math-statistics-35"
-note: "math-statistics"
-title: "Review: Decision logic"
-type: "text"
-answer: "Small p-value: evidence against $H 0$"
-skills:
-  - "Decision logic"
----
+$$
+\text{estimate} \pm \text{margin of error}
+$$
 
-What is the main idea of **Decision logic**?
+So the interval is
 
-:::solution
-One short answer is: Small p-value: evidence against $H 0$
-:::
+$$
+52 \pm 4.3
+$$
 
----
-id: "math-statistics-36"
-note: "math-statistics"
-title: "Review: Error types"
-type: "text"
-answer: "Type I error probability is $\\alpha$."
-skills:
-  - "Error types"
----
+which gives
 
-What is the main idea of **Error types**?
+$$
+(47.7,\ 56.3)
+$$
 
-:::solution
-One short answer is: Type I error probability is $\alpha$.
+This means the method produces intervals that would capture the true parameter about the stated confidence level in repeated sampling. It does not mean there is a probability of 1 particular interval being correct.
 :::
 
 ---
-id: "math-statistics-37"
-note: "math-statistics"
-title: "Review: Common test statistics"
-type: "text"
-answer: "Common test statistics"
-skills:
-  - "Common test statistics"
+id: statistics-27
+note: math-statistics
+title: "Compute a One-Sample t Statistic"
+skills: [Hypothesis Testing, Test Statistic]
 ---
 
-Name one common mistake the note warns about in **Common test statistics**.
+A sample has $\bar{x} = 105$, $s = 15$, and $n = 25$. Compute the one-sample t statistic for testing $H_0: \mu = 100$. If the two-sided p-value is about $0.11$, what should you conclude at $\alpha = 0.05$?
 
 :::solution
-One short answer is: Common test statistics
-:::
+Use
 
----
-id: "math-statistics-38"
-note: "math-statistics"
-title: "Review: One-sample mean"
-type: "text"
-answer: "$$ t = \\frac{\\bar{x}-\\mu 0}{s/\\sqrt{n}} $$"
-skills:
-  - "One-sample mean"
----
+$$
+t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}
+$$
 
-What is the main idea of **One-sample mean**?
+Substitute the values:
 
-:::solution
-One short answer is: $$ t = \frac{\bar{x}-\mu 0}{s/\sqrt{n}} $$
+$$
+t = \frac{105 - 100}{15/\sqrt{25}} = \frac{5}{15/5} = \frac{5}{3} \approx 1.67
+$$
+
+Since the p-value is about $0.11$, and $0.11 > 0.05$, you **fail to reject** $H_0$ at the $5\%$ level. The data are reasonably consistent with the null model.
 :::
 
 ---
-id: "math-statistics-39"
-note: "math-statistics"
-title: "Review: One-sample proportion"
-type: "text"
-answer: "$$ z = \\frac{\\hat{p}-p 0}{\\sqrt{p 0(1-p 0)/n}} $$"
-skills:
-  - "One-sample proportion"
+id: statistics-28
+note: math-statistics
+title: "Interpret a Linear Regression Model"
+skills: [Simple Linear Regression, Residuals]
 ---
 
-What is the main idea of **One-sample proportion**?
+Suppose a regression model is
 
-:::solution
-One short answer is: $$ z = \frac{\hat{p}-p 0}{\sqrt{p 0(1-p 0)/n}} $$
-:::
-
----
-id: "math-statistics-310"
-note: "math-statistics"
-title: "Review: Good testing practice"
-type: "text"
-answer: "State hypotheses before seeing the result."
-skills:
-  - "Good testing practice"
----
+$$
+\hat{y} = 12 + 3x
+$$
 
-What is the main idea of **Good testing practice**?
+If $x=4$ and the observed value is $20$, find the predicted value, the residual, and the meaning of the slope.
 
 :::solution
-One short answer is: State hypotheses before seeing the result.
-:::
+The predicted value is
 
----
-id: "math-statistics-311"
-note: "math-statistics"
-title: "Review: Correlation and regression"
-type: "text"
-answer: "Correlation and regression"
-skills:
-  - "9. Correlation and regression"
----
+$$
+\hat{y} = 12 + 3(4) = 24
+$$
 
-What is the main idea of **Correlation and regression**?
+The residual is
 
-:::solution
-One short answer is: Correlation and regression
+$$
+e = y - \hat{y} = 20 - 24 = -4
+$$
+
+The slope is $3$, so each 1-unit increase in $x$ is associated with an increase of 3 units in the predicted value of $y$.
 :::
 
 ---
-id: "math-statistics-312"
-note: "math-statistics"
-title: "Review: Correlation"
-type: "text"
-answer: "$r \\approx 1$: strong positive linear relationship"
-skills:
-  - "Correlation"
+id: statistics-31
+note: math-statistics
+title: "Choose a Summary for Skewed Data"
+skills: [Median, IQR, Outliers]
 ---
 
-What is the main idea of **Correlation**?
+A store manager records weekly customer spending. Most customers spend between $20$ and $60$, but a few large orders are much higher. Which measure of center and which measure of spread should the manager report: mean and standard deviation, or median and IQR? Explain why.
 
 :::solution
-One short answer is: $r \approx 1$: strong positive linear relationship
+The better choices are the **median** and **IQR**.
+
+The data are skewed by a few large orders, so the mean would be pulled upward and the standard deviation would be more sensitive to the extreme values. The median and IQR are more robust and better summarize the typical spending.
 :::
 
 ---
-id: "math-statistics-313"
-note: "math-statistics"
-title: "Review: Simple linear regression"
-type: "text"
-answer: "$b 0$ is the predicted response when $x=0$"
-skills:
-  - "Simple linear regression"
+id: statistics-32
+note: math-statistics
+title: "Model a Count with Poisson"
+skills: [Poisson Distribution, Applied Probability]
 ---
 
-What is the main idea of **Simple linear regression**?
+A help desk receives an average of $3$ calls per hour, and calls arrive independently at a roughly constant rate. What distribution is the best model for the number of calls in one hour, and what is its parameter?
 
 :::solution
-One short answer is: $b 0$ is the predicted response when $x=0$
-:::
+This is a **Poisson** model, because it counts events over a fixed interval when events occur independently at a constant average rate.
 
----
-id: "math-statistics-314"
-note: "math-statistics"
-title: "Review: Residuals"
-type: "text"
-answer: "Nonlinearity"
-skills:
-  - "Residuals"
----
+The parameter is
 
-What is the main idea of **Residuals**?
+$$
+\lambda = 3
+$$
 
-:::solution
-One short answer is: Nonlinearity
+So the number of calls in one hour can be modeled by
+
+$$
+X \sim \mathrm{Poisson}(3)
+$$
 :::
 
 ---
-id: "math-statistics-315"
-note: "math-statistics"
-title: "Review: Coefficient of determination"
-type: "text"
-answer: "$$ R^2 $$ is the proportion of variability in the response explained by the model."
-skills:
-  - "Coefficient of determination"
+id: statistics-33
+note: math-statistics
+title: "Use the CLT for a Sample Mean"
+skills: [Central Limit Theorem, Sampling Distributions]
 ---
 
-What is the main idea of **Coefficient of determination**?
+A population has mean $50$ and standard deviation $10$. A random sample of size $64$ is taken. Approximate the mean and standard deviation of the sampling distribution of the sample mean.
 
 :::solution
-One short answer is: $$ R^2 $$ is the proportion of variability in the response explained by the model.
-:::
-
----
-id: "math-statistics-316"
-note: "math-statistics"
-title: "Review: Regression pitfalls"
-type: "text"
-answer: "Extrapolation beyond the observed range"
-skills:
-  - "Regression pitfalls"
----
+By the central limit theorem, the sample mean is approximately normal for a large enough sample size.
 
-Name one common mistake the note warns about in **Regression pitfalls**.
+Its mean is the population mean:
 
-:::solution
-One short answer is: Extrapolation beyond the observed range
-:::
+$$
+\mu_{\bar{x}} = 50
+$$
 
----
-id: "math-statistics-317"
-note: "math-statistics"
-title: "Review: Nonparametric and categorical methods"
-type: "text"
-answer: "Nonparametric and categorical methods"
-skills:
-  - "10. Nonparametric and categorical methods"
----
+Its standard deviation is the standard error:
 
-What is the main idea of **Nonparametric and categorical methods**?
+$$
+\sigma_{\bar{x}} = \frac{10}{\sqrt{64}} = \frac{10}{8} = 1.25
+$$
 
-:::solution
-One short answer is: Nonparametric and categorical methods
+So the sampling distribution is approximately normal with mean $50$ and standard deviation $1.25$.
 :::
 
 ---
-id: "math-statistics-41"
-note: "math-statistics"
-title: "Review: Categorical data"
-type: "text"
-answer: "When variables are categorical, analysis often uses counts and proportions."
-skills:
-  - "Categorical data"
+id: statistics-34
+note: math-statistics
+title: "Test a Population Proportion"
+skills: [Hypothesis Testing, One-Sample Proportion]
 ---
 
-What is the main idea of **Categorical data**?
+A manufacturer claims that only $2\%$ of its items are defective. In a random sample of $200$ items, $8$ are defective. Use a one-sample proportion test to compute the z statistic for $H_0: p = 0.02$, and decide whether the result gives evidence against the claim at the $5\%$ level.
 
 :::solution
-One short answer is: When variables are categorical, analysis often uses counts and proportions.
-:::
+The sample proportion is
 
----
-id: "math-statistics-42"
-note: "math-statistics"
-title: "Review: Chi-square goodness-of-fit"
-type: "text"
-answer: "Tests whether observed counts differ from expected counts: $$ \\chi^2 = \\sum \\frac{(O-E)^2}{E} $$"
-skills:
-  - "Chi-square goodness-of-fit"
----
+$$
+\hat{p} = \frac{8}{200} = 0.04
+$$
 
-What is the main idea of **Chi-square goodness-of-fit**?
+Use
 
-:::solution
-One short answer is: Tests whether observed counts differ from expected counts: $$ \chi^2 = \sum \frac{(O-E)^2}{E} $$
-:::
+$$
+z = \frac{\hat{p} - p_0}{\sqrt{p_0(1-p_0)/n}}
+$$
 
----
-id: "math-statistics-43"
-note: "math-statistics"
-title: "Review: Chi-square test of independence"
-type: "text"
-answer: "Used for contingency tables to test whether two categorical variables are associated."
-skills:
-  - "Chi-square test of independence"
----
+Substitute:
 
-What is the main idea of **Chi-square test of independence**?
+$$
+z = \frac{0.04 - 0.02}{\sqrt{0.02(0.98)/200}}
+$$
 
-:::solution
-One short answer is: Used for contingency tables to test whether two categorical variables are associated.
-:::
+Compute the denominator:
 
----
-id: "math-statistics-44"
-note: "math-statistics"
-title: "Review: Nonparametric ideas"
-type: "text"
-answer: "Sign test"
-skills:
-  - "Nonparametric ideas"
----
+$$
+\sqrt{0.02(0.98)/200} \approx 0.0099
+$$
 
-What is the main idea of **Nonparametric ideas**?
+So
 
-:::solution
-One short answer is: Sign test
+$$
+z \approx \frac{0.02}{0.0099} \approx 2.0
+$$
+
+That is enough evidence to reject the null at the $5\%$ level, so the sample suggests the defect rate may be higher than claimed.
 :::
 
 ---
-id: "math-statistics-45"
-note: "math-statistics"
-title: "Review: When they help"
-type: "text"
-answer: "Small samples with unknown shape"
-skills:
-  - "When they help"
+id: statistics-35
+note: math-statistics
+title: "Compute a Chi-Square Goodness-of-Fit Statistic"
+skills: [Chi-Square, Categorical Data]
 ---
 
-What is the main idea of **When they help**?
+A survey asks 60 people to choose one of three categories. If all three categories were equally likely, the expected count would be 20 in each category. The observed counts are 18, 22, and 20. Compute the chi-square goodness-of-fit statistic.
 
 :::solution
-One short answer is: Small samples with unknown shape
-:::
-
----
-id: "math-statistics-46"
-note: "math-statistics"
-title: "Review: Practical workflow and pitfalls"
-type: "text"
-answer: "Practical workflow and pitfalls"
-skills:
-  - "11. Practical workflow and pitfalls"
----
+Use
 
-According to the note, what sequence of steps is recommended in **Practical workflow and pitfalls**?
+$$
+\chi^2 = \sum \frac{(O-E)^2}{E}
+$$
 
-:::solution
-One short answer is: Practical workflow and pitfalls
-:::
+Compute each term:
 
----
-id: "math-statistics-47"
-note: "math-statistics"
-title: "Review: A reliable analysis workflow"
-type: "text"
-answer: "Define the question precisely."
-skills:
-  - "A reliable analysis workflow"
----
+$$
+\frac{(18-20)^2}{20} = \frac{4}{20} = 0.2
+$$
 
-According to the note, what sequence of steps is recommended in **A reliable analysis workflow**?
+$$
+\frac{(22-20)^2}{20} = \frac{4}{20} = 0.2
+$$
 
-:::solution
-One short answer is: Define the question precisely.
-:::
+$$
+\frac{(20-20)^2}{20} = 0
+$$
 
----
-id: "math-statistics-48"
-note: "math-statistics"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Confusing sample statistics with population parameters"
-skills:
-  - "Common pitfalls"
----
+Add them:
 
-Name one common mistake the note warns about in **Common pitfalls**.
+$$
+\chi^2 = 0.2 + 0.2 + 0 = 0.4
+$$
 
-:::solution
-One short answer is: Confusing sample statistics with population parameters
+So the chi-square statistic is $0.4$.
 :::
 
 ---
-id: "math-statistics-49"
-note: "math-statistics"
-title: "Review: Model-checking checklist"
-type: "text"
-answer: "Is the sample representative?"
-skills:
-  - "Model-checking checklist"
+id: statistics-41
+note: math-statistics
+title: "Plan a Simple Statistical Workflow"
+skills: [Workflow, Bias, Outliers]
 ---
 
-According to the note, what sequence of steps is recommended in **Model-checking checklist**?
+A hospital wants to understand patient wait times. It sends an optional online survey to people who recently visited the emergency room, and only 300 people respond. What is the likely sample, what is the population of interest, and what are two problems with this data collection process?
 
 :::solution
-One short answer is: Is the sample representative?
-:::
+The **population of interest** is all emergency-room patients whose wait times the hospital wants to understand.
 
----
-id: "math-statistics-410"
-note: "math-statistics"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "12. Formula sheet"
----
+The **sample** is the 300 people who responded to the survey.
 
-What core formulas or relations are summarized in **Formula sheet**?
+Two major problems are:
 
-:::solution
-One short answer is: Formula sheet
+1. **Selection bias**: the survey is optional, so the respondents may not represent all patients.
+2. **Missing or nonresponse bias**: people with especially good or bad experiences may be more likely to respond.
+
+Because of these issues, the hospital should be cautious about generalizing the results. A good workflow would include checking data quality, assessing representativeness, and reporting limitations.
 :::
 
 ---
-id: "math-statistics-411"
-note: "math-statistics"
-title: "Review: Descriptive statistics"
-type: "text"
-answer: "$$ \\bar{x} = \\frac{1}{n}\\sum {i=1}^n x i $$ $$ s^2 = \\frac{1}{n-1}\\sum {i=1}^n (x i-\\bar{x})^2 $$ $$ s = \\sqrt{s^2} $$ $$ \\mathrm{IQR} = Q 3 - Q 1 $$"
-skills:
-  - "Descriptive statistics"
+id: statistics-42
+note: math-statistics
+title: "Choose a Nonparametric Method"
+skills: [Nonparametric Methods, Ordinal Data]
 ---
 
-What is the main idea of **Descriptive statistics**?
+A researcher measures pain on a 1-to-10 rating scale for the same 12 patients before and after a treatment. The paired differences are skewed and include an outlier. Which method from the note is the safest choice: the sign test or the Wilcoxon signed-rank test? Explain your choice.
 
 :::solution
-One short answer is: $$ \bar{x} = \frac{1}{n}\sum {i=1}^n x i $$ $$ s^2 = \frac{1}{n-1}\sum {i=1}^n (x i-\bar{x})^2 $$ $$ s = \sqrt{s^2} $$ $$ \mathrm{IQR} = Q 3 - Q 1 $$
+The safer choice is the **sign test**.
+
+The data are paired and ordinal, but the differences are skewed and include an outlier. The sign test makes fewer assumptions because it uses only the direction of the change, not the size of each difference. That makes it more robust in this situation.
 :::
 
 ---
-id: "math-statistics-412"
-note: "math-statistics"
-title: "Review: Probability"
-type: "text"
-answer: "$$ P(A^c)=1-P(A) $$ $$ P(A\\cup B)=P(A)+P(B)-P(A\\cap B) $$ $$ P(A\\mid B)=\\frac{P(A\\cap B)}{P(B)} $$ $$ P(A\\cap B)=P(A)P(B)\\quad \\text{if independent} $$"
-skills:
-  - "Probability"
+id: statistics-43
+note: math-statistics
+title: "Interpret Correlation and Regression Together"
+skills: [Correlation, Regression, Residuals]
 ---
 
-What is the main idea of **Probability**?
-
-:::solution
-One short answer is: $$ P(A^c)=1-P(A) $$ $$ P(A\cup B)=P(A)+P(B)-P(A\cap B) $$ $$ P(A\mid B)=\frac{P(A\cap B)}{P(B)} $$ $$ P(A\cap B)=P(A)P(B)\quad \text{if independent} $$
-:::
+A model predicts exam score from study hours with
 
----
-id: "math-statistics-413"
-note: "math-statistics"
-title: "Review: Distributions"
-type: "text"
-answer: "$$ P(X=k)= {n \\choose k}p^k(1-p)^{n-k} $$ $$ P(X=k)=\\frac{e^{-\\lambda}\\lambda^k}{k!} $$ $$ Z=\\frac{X-\\mu}{\\sigma} $$"
-skills:
-  - "Distributions"
----
+$$
+\hat{y} = 50 + 4x
+$$
 
-What is the main idea of **Distributions**?
+The correlation is $r = 0.92$ and $R^2 = 0.85$. For a student who studies 8 hours, the observed score is 80. Interpret the slope, the correlation, the $R^2$ value, the residual, and one important caution.
 
 :::solution
-One short answer is: $$ P(X=k)= {n \choose k}p^k(1-p)^{n-k} $$ $$ P(X=k)=\frac{e^{-\lambda}\lambda^k}{k!} $$ $$ Z=\frac{X-\mu}{\sigma} $$
-:::
+The slope is $4$, so each additional study hour is associated with an increase of 4 points in the predicted exam score.
 
----
-id: "math-statistics-414"
-note: "math-statistics"
-title: "Review: Inference"
-type: "text"
-answer: "$$ \\mathrm{SE}(\\bar{x})=\\frac{\\sigma}{\\sqrt{n}} $$ $$ t=\\frac{\\bar{x}-\\mu 0}{s/\\sqrt{n}} $$ $$ z=\\frac{\\hat{p}-p 0}{\\sqrt{p 0(1-p 0)/n}} $$ $$ \\bar{x}\\pm t {\\alpha/2,\\;n-1}\\frac{s}{\\sqrt{n}} $$ $$ \\hat{p}\\pm z {\\alpha/2…"
-skills:
-  - "Inference"
----
+The correlation $r = 0.92$ indicates a strong positive linear relationship.
 
-What is the main idea of **Inference**?
+$R^2 = 0.85$ means that about 85% of the variability in exam scores is explained by the linear model.
 
-:::solution
-One short answer is: $$ \mathrm{SE}(\bar{x})=\frac{\sigma}{\sqrt{n}} $$ $$ t=\frac{\bar{x}-\mu 0}{s/\sqrt{n}} $$ $$ z=\frac{\hat{p}-p 0}{\sqrt{p 0(1-p 0)/n}} $$ $$ \bar{x}\pm t {\alpha/2,\;n-1}\frac{s}{\sqrt{n}} $$ $$ \hat{p}\pm z {\alpha/2…
-:::
+For $x=8$:
 
----
-id: "math-statistics-415"
-note: "math-statistics"
-title: "Review: Regression"
-type: "text"
-answer: "$$ y=\\beta 0+\\beta 1x+\\varepsilon $$ $$ e i = y i - \\hat{y} i $$"
-skills:
-  - "Regression"
----
+$$
+\hat{y} = 50 + 4(8) = 82
+$$
 
-What is the main idea of **Regression**?
+So the residual is
 
-:::solution
-One short answer is: $$ y=\beta 0+\beta 1x+\varepsilon $$ $$ e i = y i - \hat{y} i $$
+$$
+e = 80 - 82 = -2
+$$
+
+One important caution is that correlation does not imply causation, so the model does not by itself prove that studying causes the higher scores. Also, predictions should not be trusted far outside the observed range.
 :::
 
 ---
-id: "math-statistics-416"
-note: "math-statistics"
-title: "Review: Problem-solving notes"
-type: "text"
-answer: "Start by naming the parameter."
-skills:
-  - "Problem-solving notes"
+id: statistics-44
+note: math-statistics
+title: "Spot Confounding and Correlation Pitfalls"
+skills: [Confounding, Correlation, Bias]
 ---
 
-According to the note, what sequence of steps is recommended in **Problem-solving notes**?
+A newspaper reports that people who drink more coffee also have higher rates of heart disease. The article does not mention smoking, diet, or exercise. What is the main statistical pitfall here, and what would a better analysis need to address?
 
 :::solution
-One short answer is: Start by naming the parameter.
+The main pitfall is **confounding**. Coffee drinking may be associated with other variables, such as smoking, diet, or exercise, that also affect heart disease risk.
+
+Because this is an observational association, the result does not show causation. A better analysis would need to control for potential confounders, use a stronger study design if possible, and state the limitations clearly.
 :::

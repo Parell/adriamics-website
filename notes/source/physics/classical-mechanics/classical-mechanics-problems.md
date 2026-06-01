@@ -1,1295 +1,948 @@
 ---
-id: "physics-classical-mechanics-11"
-note: "physics-classical-mechanics"
-title: "Review: Scope and core ideas"
-type: "text"
-answer: "particle dynamics"
-skills:
-  - "1. Scope and core ideas"
+id: classical-mechanics-11
+note: physics-classical-mechanics
+title: "Model a Body as a Particle"
+skills: [Modeling assumptions, Scope and core ideas]
 ---
 
-What core idea is introduced in **Scope and core ideas**?
+A large object is represented by a single position vector in a mechanics model. What simplifying assumption is being used?
 
 :::solution
-One short answer is: particle dynamics
+The object is being treated as a particle.
+
+That means we ignore its size and rotation and focus only on its translational motion.
 :::
 
 ---
-id: "physics-classical-mechanics-12"
-note: "physics-classical-mechanics"
-title: "Review: Modeling assumptions"
-type: "text"
-answer: "bodies can be treated as particles"
-skills:
-  - "Modeling assumptions"
+id: classical-mechanics-12
+note: physics-classical-mechanics
+title: "Differentiate a Position Function"
+skills: [Position, velocity, and acceleration, Kinematics]
 ---
 
-What is the main idea of **Modeling assumptions**?
-
-:::solution
-One short answer is: bodies can be treated as particles
-:::
+If
 
----
-id: "physics-classical-mechanics-13"
-note: "physics-classical-mechanics"
-title: "Review: Kinematics in one and three dimensions"
-type: "text"
-answer: "Kinematics describes motion without explaining its cause."
-skills:
-  - "2. Kinematics in one and three dimensions"
----
+$$
+x(t) = 2t^2 - 3t + 1,
+$$
 
-What is the main idea of **Kinematics in one and three dimensions**?
+what are $v(2)$ and $a(2)$?
 
 :::solution
-One short answer is: Kinematics describes motion without explaining its cause.
-:::
+Differentiate once to get velocity:
 
----
-id: "physics-classical-mechanics-14"
-note: "physics-classical-mechanics"
-title: "Review: Position, velocity, and acceleration"
-type: "text"
-answer: "In one dimension: $$ v = \\frac{dx}{dt} $$ $$ a = \\frac{dv}{dt} = \\frac{d^2x}{dt^2} $$ In vector form: $$ \\mathbf{v} = \\frac{d\\mathbf{r}}{dt} $$ $$ \\mathbf{a} = \\frac{d\\mathbf{v}}{dt} $$"
-skills:
-  - "Position, velocity, and acceleration"
----
+$$
+v(t) = \frac{dx}{dt} = 4t - 3
+$$
 
-What is the main idea of **Position, velocity, and acceleration**?
+So
 
-:::solution
-One short answer is: In one dimension: $$ v = \frac{dx}{dt} $$ $$ a = \frac{dv}{dt} = \frac{d^2x}{dt^2} $$ In vector form: $$ \mathbf{v} = \frac{d\mathbf{r}}{dt} $$ $$ \mathbf{a} = \frac{d\mathbf{v}}{dt} $$
-:::
+$$
+v(2) = 4(2) - 3 = 5
+$$
 
----
-id: "physics-classical-mechanics-15"
-note: "physics-classical-mechanics"
-title: "Review: Constant-acceleration relations"
-type: "text"
-answer: "For constant acceleration in one dimension: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \\frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x - x 0) $$ $$ x - x 0 = \\frac{1}{2}(v + v 0)t $$ These are valid only when acceleration is cons…"
-skills:
-  - "Constant-acceleration relations"
----
+Differentiate again to get acceleration:
 
-What is the main idea of **Constant-acceleration relations**?
+$$
+a(t) = \frac{dv}{dt} = 4
+$$
 
-:::solution
-One short answer is: For constant acceleration in one dimension: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x - x 0) $$ $$ x - x 0 = \frac{1}{2}(v + v 0)t $$ These are valid only when acceleration is cons…
+So
+
+$$
+a(2) = 4
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-16"
-note: "physics-classical-mechanics"
-title: "Review: Projectile motion"
-type: "text"
-answer: "horizontal acceleration is zero"
-skills:
-  - "Projectile motion"
+id: classical-mechanics-13
+note: physics-classical-mechanics
+title: "Find the Net Force"
+skills: [Newton's second law]
 ---
 
-What is the main idea of **Projectile motion**?
+A $4$ kg cart accelerates at $3\ \text{m/s}^2$ to the east. What is the net force on the cart?
 
 :::solution
-One short answer is: horizontal acceleration is zero
-:::
+Use Newton's second law:
 
----
-id: "physics-classical-mechanics-17"
-note: "physics-classical-mechanics"
-title: "Review: Relative motion"
-type: "text"
-answer: "If frame $B$ moves relative to frame $A$, then: $$ \\mathbf{r} {P/A} = \\mathbf{r} {P/B} + \\mathbf{r} {B/A} $$ Velocities and accelerations follow by differentiating with respect to time."
-skills:
-  - "Relative motion"
----
+$$
+\sum \mathbf{F} = m\mathbf{a}
+$$
 
-What is the main idea of **Relative motion**?
+So the net force is
 
-:::solution
-One short answer is: If frame $B$ moves relative to frame $A$, then: $$ \mathbf{r} {P/A} = \mathbf{r} {P/B} + \mathbf{r} {B/A} $$ Velocities and accelerations follow by differentiating with respect to time.
+$$
+F = ma = 4(3) = 12\ \text{N}
+$$
+
+to the east.
 :::
 
 ---
-id: "physics-classical-mechanics-18"
-note: "physics-classical-mechanics"
-title: "Review: Newton's laws and free-body diagrams"
-type: "text"
-answer: "Newton's laws connect force to motion."
-skills:
-  - "3. Newton's laws and free-body diagrams"
+id: classical-mechanics-14
+note: physics-classical-mechanics
+title: "Compute Work from a Constant Force"
+skills: [Work]
 ---
 
-What is the main idea of **Newton's laws and free-body diagrams**?
+A constant force of $15\ \text{N}$ acts at an angle of $60^\circ$ to a displacement of $4\ \text{m}$. How much work is done?
 
 :::solution
-One short answer is: Newton's laws connect force to motion.
-:::
-
----
-id: "physics-classical-mechanics-19"
-note: "physics-classical-mechanics"
-title: "Review: Newton's first law"
-type: "text"
-answer: "A body remains at rest or moves with constant velocity unless acted on by a net external force. This defines an inertial frame."
-skills:
-  - "Newton's first law"
----
+For a constant force,
 
-What is the main idea of **Newton's first law**?
+$$
+W = Fd\cos\theta
+$$
 
-:::solution
-One short answer is: A body remains at rest or moves with constant velocity unless acted on by a net external force. This defines an inertial frame.
-:::
+Substitute the values:
 
----
-id: "physics-classical-mechanics-110"
-note: "physics-classical-mechanics"
-title: "Review: Newton's second law"
-type: "text"
-answer: "For a particle: $$ \\sum \\mathbf{F} = m\\mathbf{a} $$ In components: $$ \\sum F x = ma x,\\quad \\sum F y = ma y,\\quad \\sum F z = ma z $$"
-skills:
-  - "Newton's second law"
----
+$$
+W = 15(4)\cos 60^\circ
+$$
 
-What is the main idea of **Newton's second law**?
+Since $\cos 60^\circ = \tfrac{1}{2}$,
 
-:::solution
-One short answer is: For a particle: $$ \sum \mathbf{F} = m\mathbf{a} $$ In components: $$ \sum F x = ma x,\quad \sum F y = ma y,\quad \sum F z = ma z $$
+$$
+W = 60 \cdot \frac{1}{2} = 30\ \text{J}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-111"
-note: "physics-classical-mechanics"
-title: "Review: Newton's third law"
-type: "text"
-answer: "For every action there is an equal and opposite reaction. If body A exerts a force on body B, then body B exerts an equal-magnitude opposite-direction force on body A."
-skills:
-  - "Newton's third law"
+id: classical-mechanics-15
+note: physics-classical-mechanics
+title: "Compute Linear Momentum"
+skills: [Linear momentum]
 ---
 
-What is the main idea of **Newton's third law**?
+A $0.5$ kg puck moves at $8\ \text{m/s}$. What is its momentum?
 
 :::solution
-One short answer is: For every action there is an equal and opposite reaction. If body A exerts a force on body B, then body B exerts an equal-magnitude opposite-direction force on body A.
-:::
+Momentum is
 
----
-id: "physics-classical-mechanics-112"
-note: "physics-classical-mechanics"
-title: "Review: Free-body diagrams"
-type: "text"
-answer: "weight: $\\mathbf{W} = m\\mathbf{g}$"
-skills:
-  - "Free-body diagrams"
----
+$$
+\mathbf{p} = m\mathbf{v}
+$$
 
-What is the main idea of **Free-body diagrams**?
+So the magnitude is
 
-:::solution
-One short answer is: weight: $\mathbf{W} = m\mathbf{g}$
+$$
+p = 0.5(8) = 4\ \text{kg}\cdot\text{m/s}
+$$
+
+The momentum points in the same direction as the velocity.
 :::
 
 ---
-id: "physics-classical-mechanics-113"
-note: "physics-classical-mechanics"
-title: "Review: Friction"
-type: "text"
-answer: "Static friction satisfies: $$ f s \\le \\mu s N $$ Kinetic friction is approximately: $$ f k = \\mu k N $$ Friction opposes relative or impending motion."
-skills:
-  - "Friction"
+id: classical-mechanics-16
+note: physics-classical-mechanics
+title: "Compute Average Power"
+skills: [Power]
 ---
 
-What is the main idea of **Friction**?
+A machine does $180\ \text{J}$ of work in $3\ \text{s}$. What is its average power?
 
 :::solution
-One short answer is: Static friction satisfies: $$ f s \le \mu s N $$ Kinetic friction is approximately: $$ f k = \mu k N $$ Friction opposes relative or impending motion.
-:::
+Power is the rate of doing work:
 
----
-id: "physics-classical-mechanics-114"
-note: "physics-classical-mechanics"
-title: "Review: Inertial and non-inertial frames"
-type: "text"
-answer: "Newton's second law holds in inertial frames. In accelerating or rotating frames, fictitious forces may be needed to preserve a Newtonian form. ---"
-skills:
-  - "Inertial and non-inertial frames"
----
+$$
+P = \frac{W}{t}
+$$
 
-What is the main idea of **Inertial and non-inertial frames**?
+So
 
-:::solution
-One short answer is: Newton's second law holds in inertial frames. In accelerating or rotating frames, fictitious forces may be needed to preserve a Newtonian form. ---
+$$
+P = \frac{180}{3} = 60\ \text{W}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-115"
-note: "physics-classical-mechanics"
-title: "Review: Work, energy, and power"
-type: "text"
-answer: "Energy methods are often simpler than force balance when displacement is the main unknown."
-skills:
-  - "4. Work, energy, and power"
+id: classical-mechanics-17
+note: physics-classical-mechanics
+title: "Use Rotational Kinematics"
+skills: [Rotational kinematics]
 ---
 
-What is the main idea of **Work, energy, and power**?
+A wheel starts with angular velocity $\omega_0 = 2\ \text{rad/s}$ and angular acceleration $\alpha = 4\ \text{rad/s}^2$. What is its angular velocity after $3\ \text{s}$?
 
 :::solution
-One short answer is: Energy methods are often simpler than force balance when displacement is the main unknown.
-:::
+Use
 
----
-id: "physics-classical-mechanics-116"
-note: "physics-classical-mechanics"
-title: "Review: Work"
-type: "text"
-answer: "For a force $\\mathbf{F}$ along displacement $d\\mathbf{r}$: $$ dW = \\mathbf{F}\\cdot d\\mathbf{r} $$ So total work is: $$ W = \\int \\mathbf{F}\\cdot d\\mathbf{r} $$ For constant force over displacement $\\Delta \\mathbf{r}$: $$…"
-skills:
-  - "Work"
----
+$$
+\omega = \omega_0 + \alpha t
+$$
 
-What is the main idea of **Work**?
+Substitute:
 
-:::solution
-One short answer is: For a force $\mathbf{F}$ along displacement $d\mathbf{r}$: $$ dW = \mathbf{F}\cdot d\mathbf{r} $$ So total work is: $$ W = \int \mathbf{F}\cdot d\mathbf{r} $$ For constant force over displacement $\Delta \mathbf{r}$: $$…
+$$
+\omega = 2 + 4(3) = 14\ \text{rad/s}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-117"
-note: "physics-classical-mechanics"
-title: "Review: Kinetic energy"
-type: "text"
-answer: "$$ T = \\frac{1}{2}mv^2 $$"
-skills:
-  - "Kinetic energy"
+id: classical-mechanics-18
+note: physics-classical-mechanics
+title: "Find a Torque"
+skills: [Torque]
 ---
 
-What is the main idea of **Kinetic energy**?
+A $12\ \text{N}$ force is applied perpendicular to a wrench $0.25\ \text{m}$ from the pivot. What is the torque?
 
 :::solution
-One short answer is: $$ T = \frac{1}{2}mv^2 $$
-:::
+Use
 
----
-id: "physics-classical-mechanics-118"
-note: "physics-classical-mechanics"
-title: "Review: Work-energy theorem"
-type: "text"
-answer: "Net work equals change in kinetic energy: $$ W {\\text{net}} = \\Delta T $$"
-skills:
-  - "Work-energy theorem"
----
+$$
+\tau = rF\sin\phi
+$$
 
-What is the main idea of **Work-energy theorem**?
+Because the force is perpendicular, $\sin\phi = 1$. So
 
-:::solution
-One short answer is: Net work equals change in kinetic energy: $$ W {\text{net}} = \Delta T $$
+$$
+\tau = 0.25(12) = 3\ \text{N}\cdot\text{m}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-119"
-note: "physics-classical-mechanics"
-title: "Review: Conservative forces and potential energy"
-type: "text"
-answer: "gravity"
-skills:
-  - "Conservative forces and potential energy"
+id: classical-mechanics-19
+note: physics-classical-mechanics
+title: "Find the Period of SHM"
+skills: [Simple harmonic motion, Period and frequency]
 ---
 
-What is the main idea of **Conservative forces and potential energy**?
+A mass-spring system has $m = 2\ \text{kg}$ and $k = 8\ \text{N/m}$. What is its period?
 
 :::solution
-One short answer is: gravity
-:::
+For simple harmonic motion,
 
----
-id: "physics-classical-mechanics-120"
-note: "physics-classical-mechanics"
-title: "Review: Conservation of mechanical energy"
-type: "text"
-answer: "If only conservative forces act: $$ T 1 + V 1 = T 2 + V 2 $$ More generally, nonconservative work changes mechanical energy: $$ T 1 + V 1 + W {nc} = T 2 + V 2 $$"
-skills:
-  - "Conservation of mechanical energy"
----
+$$
+\omega = \sqrt{\frac{k}{m}} = \sqrt{\frac{8}{2}} = 2
+$$
 
-What is the main idea of **Conservation of mechanical energy**?
+Then
 
-:::solution
-One short answer is: If only conservative forces act: $$ T 1 + V 1 = T 2 + V 2 $$ More generally, nonconservative work changes mechanical energy: $$ T 1 + V 1 + W {nc} = T 2 + V 2 $$
+$$
+T = \frac{2\pi}{\omega} = \frac{2\pi}{2} = \pi\ \text{s}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-121"
-note: "physics-classical-mechanics"
-title: "Review: Power"
-type: "text"
-answer: "Power is the rate of doing work: $$ P = \\frac{dW}{dt} $$ For a force: $$ P = \\mathbf{F}\\cdot \\mathbf{v} $$ ---"
-skills:
-  - "Power"
+id: classical-mechanics-110
+note: physics-classical-mechanics
+title: "Write a Lagrangian"
+skills: [Lagrangian]
 ---
 
-What is the main idea of **Power**?
+For a mass-spring system with kinetic energy
 
-:::solution
-One short answer is: Power is the rate of doing work: $$ P = \frac{dW}{dt} $$ For a force: $$ P = \mathbf{F}\cdot \mathbf{v} $$ ---
-:::
+$$
+T = \frac{1}{2}m\dot{x}^2
+$$
 
----
-id: "physics-classical-mechanics-21"
-note: "physics-classical-mechanics"
-title: "Review: Momentum, impulse, and collisions"
-type: "text"
-answer: "Momentum, impulse, and collisions"
-skills:
-  - "5. Momentum, impulse, and collisions"
----
+and potential energy
+
+$$
+V = \frac{1}{2}kx^2,
+$$
 
-What is the main idea of **Momentum, impulse, and collisions**?
+what is the Lagrangian $\mathcal{L}$?
 
 :::solution
-One short answer is: Momentum, impulse, and collisions
-:::
+The Lagrangian is
 
----
-id: "physics-classical-mechanics-22"
-note: "physics-classical-mechanics"
-title: "Review: Linear momentum"
-type: "text"
-answer: "$$ \\mathbf{p} = m\\mathbf{v} $$ Newton's second law can be written as: $$ \\sum \\mathbf{F} = \\frac{d\\mathbf{p}}{dt} $$"
-skills:
-  - "Linear momentum"
----
+$$
+\mathcal{L} = T - V
+$$
 
-What is the main idea of **Linear momentum**?
+So
 
-:::solution
-One short answer is: $$ \mathbf{p} = m\mathbf{v} $$ Newton's second law can be written as: $$ \sum \mathbf{F} = \frac{d\mathbf{p}}{dt} $$
+$$
+\mathcal{L} = \frac{1}{2}m\dot{x}^2 - \frac{1}{2}kx^2
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-23"
-note: "physics-classical-mechanics"
-title: "Review: Impulse"
-type: "text"
-answer: "Impulse is the time integral of force: $$ \\mathbf{J} = \\int {t 1}^{t 2} \\mathbf{F}\\,dt $$ Impulse-momentum relation: $$ \\mathbf{J} = \\Delta \\mathbf{p} $$ This is especially useful for short-duration forces like impacts."
-skills:
-  - "Impulse"
+id: classical-mechanics-21
+note: physics-classical-mechanics
+title: "Projectile Motion to the Peak"
+skills: [Projectile motion, Kinematics]
 ---
 
-What is the main idea of **Impulse**?
+A ball is launched from level ground at $20\ \text{m/s}$ at an angle of $60^\circ$ above the horizontal. Take $g = 10\ \text{m/s}^2$. How far horizontally has it traveled when it reaches its highest point?
 
 :::solution
-One short answer is: Impulse is the time integral of force: $$ \mathbf{J} = \int {t 1}^{t 2} \mathbf{F}\,dt $$ Impulse-momentum relation: $$ \mathbf{J} = \Delta \mathbf{p} $$ This is especially useful for short-duration forces like impacts.
-:::
+At the top of the flight, the vertical velocity is zero.
 
----
-id: "physics-classical-mechanics-24"
-note: "physics-classical-mechanics"
-title: "Review: Conservation of linear momentum"
-type: "text"
-answer: "If the net external impulse is negligible, total momentum is conserved: $$ \\sum \\mathbf{p} {\\text{before}} = \\sum \\mathbf{p} {\\text{after}} $$ This is often the best approach for collisions and explosions."
-skills:
-  - "Conservation of linear momentum"
----
+The initial vertical component is
 
-What is the main idea of **Conservation of linear momentum**?
+$$
+v_{0y} = 20\sin 60^\circ = 10\sqrt{3}
+$$
 
-:::solution
-One short answer is: If the net external impulse is negligible, total momentum is conserved: $$ \sum \mathbf{p} {\text{before}} = \sum \mathbf{p} {\text{after}} $$ This is often the best approach for collisions and explosions.
-:::
+That gives the time to the top:
 
----
-id: "physics-classical-mechanics-25"
-note: "physics-classical-mechanics"
-title: "Review: Collisions"
-type: "text"
-answer: "Collisions"
-skills:
-  - "Collisions"
----
+$$
+t = \frac{v_{0y}}{g} = \frac{10\sqrt{3}}{10} = \sqrt{3}\ \text{s}
+$$
 
-What is the main idea of **Collisions**?
+The horizontal speed is constant:
 
-:::solution
-One short answer is: Collisions
+$$
+v_{0x} = 20\cos 60^\circ = 10
+$$
+
+So the horizontal distance is
+
+$$
+x = v_{0x}t = 10\sqrt{3}\ \text{m}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-26"
-note: "physics-classical-mechanics"
-title: "Review: Perfectly inelastic collision"
-type: "text"
-answer: "Bodies stick together after impact. Momentum is conserved, kinetic energy is not."
-skills:
-  - "Perfectly inelastic collision"
+id: classical-mechanics-22
+note: physics-classical-mechanics
+title: "Relative Motion on a River"
+skills: [Relative motion, Vectors]
 ---
 
-What is the main idea of **Perfectly inelastic collision**?
+A swimmer moves at $3\ \text{m/s}$ due north relative to the water, while the river flows at $4\ \text{m/s}$ due east. What is the swimmer's velocity relative to the bank?
 
 :::solution
-One short answer is: Bodies stick together after impact. Momentum is conserved, kinetic energy is not.
-:::
+Add the velocity vectors:
 
----
-id: "physics-classical-mechanics-27"
-note: "physics-classical-mechanics"
-title: "Review: Elastic collision"
-type: "text"
-answer: "Momentum and kinetic energy are both conserved."
-skills:
-  - "Elastic collision"
----
+$$
+\mathbf{v}_{\text{bank}} = \mathbf{v}_{\text{swimmer/water}} + \mathbf{v}_{\text{water/bank}}
+$$
 
-What is the main idea of **Elastic collision**?
+So the components are $4\ \text{m/s}$ east and $3\ \text{m/s}$ north.
 
-:::solution
-One short answer is: Momentum and kinetic energy are both conserved.
-:::
+The speed is
 
----
-id: "physics-classical-mechanics-28"
-note: "physics-classical-mechanics"
-title: "Review: Coefficient of restitution"
-type: "text"
-answer: "In one dimension: $$ e = \\frac{\\text{relative speed of separation}}{\\text{relative speed of approach}} $$ with $0 \\le e \\le 1$."
-skills:
-  - "Coefficient of restitution"
----
+$$
+\sqrt{4^2 + 3^2} = 5\ \text{m/s}
+$$
 
-What is the main idea of **Coefficient of restitution**?
+The direction is
 
-:::solution
-One short answer is: In one dimension: $$ e = \frac{\text{relative speed of separation}}{\text{relative speed of approach}} $$ with $0 \le e \le 1$.
+$$
+\tan^{-1}\left(\frac{3}{4}\right) \approx 36.9^\circ
+$$
+
+north of east.
 :::
 
 ---
-id: "physics-classical-mechanics-29"
-note: "physics-classical-mechanics"
-title: "Review: Center of mass"
-type: "text"
-answer: "For discrete masses: $$ \\mathbf{r} {cm} = \\frac{\\sum m i \\mathbf{r} i}{\\sum m i} $$ The center of mass moves as if all external force were applied there: $$ \\sum \\mathbf{F} {ext} = M\\mathbf{a} {cm} $$ ---"
-skills:
-  - "Center of mass"
+id: classical-mechanics-23
+note: physics-classical-mechanics
+title: "Work-Energy with Friction"
+skills: [Work-energy theorem, Friction]
 ---
 
-What is the main idea of **Center of mass**?
+A $2$ kg block starts from rest. A horizontal force of $6\ \text{N}$ pulls it $5\ \text{m}$, while kinetic friction exerts a $2\ \text{N}$ force opposite the motion. What is the block's speed after moving $5\ \text{m}$?
 
 :::solution
-One short answer is: For discrete masses: $$ \mathbf{r} {cm} = \frac{\sum m i \mathbf{r} i}{\sum m i} $$ The center of mass moves as if all external force were applied there: $$ \sum \mathbf{F} {ext} = M\mathbf{a} {cm} $$ ---
-:::
+The net work is
 
----
-id: "physics-classical-mechanics-210"
-note: "physics-classical-mechanics"
-title: "Review: Rotation and rigid bodies"
-type: "text"
-answer: "Rigid-body motion includes translation and rotation."
-skills:
-  - "6. Rotation and rigid bodies"
----
+$$
+W_{\text{net}} = (6 - 2)(5) = 20\ \text{J}
+$$
 
-What is the main idea of **Rotation and rigid bodies**?
+By the work-energy theorem,
 
-:::solution
-One short answer is: Rigid-body motion includes translation and rotation.
-:::
+$$
+W_{\text{net}} = \Delta T = \frac{1}{2}mv^2 - 0
+$$
 
----
-id: "physics-classical-mechanics-211"
-note: "physics-classical-mechanics"
-title: "Review: Angular variables"
-type: "text"
-answer: "Angular displacement: $$ \\theta $$ Angular velocity: $$ \\omega = \\frac{d\\theta}{dt} $$ Angular acceleration: $$ \\alpha = \\frac{d\\omega}{dt} $$"
-skills:
-  - "Angular variables"
----
+So
 
-What is the main idea of **Angular variables**?
+$$
+20 = \frac{1}{2}(2)v^2
+$$
 
-:::solution
-One short answer is: Angular displacement: $$ \theta $$ Angular velocity: $$ \omega = \frac{d\theta}{dt} $$ Angular acceleration: $$ \alpha = \frac{d\omega}{dt} $$
+$$
+v^2 = 20
+$$
+
+$$
+v = 2\sqrt{5}\ \text{m/s}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-212"
-note: "physics-classical-mechanics"
-title: "Review: Rotational kinematics"
-type: "text"
-answer: "For constant angular acceleration: $$ \\omega = \\omega 0 + \\alpha t $$ $$ \\theta = \\theta 0 + \\omega 0 t + \\frac{1}{2}\\alpha t^2 $$ $$ \\omega^2 = \\omega 0^2 + 2\\alpha(\\theta - \\theta 0) $$"
-skills:
-  - "Rotational kinematics"
+id: classical-mechanics-24
+note: physics-classical-mechanics
+title: "Impulse Changes Momentum"
+skills: [Impulse, Linear momentum]
 ---
 
-What is the main idea of **Rotational kinematics**?
+A $0.5$ kg puck moves at $6\ \text{m/s}$ to the right. A force of $10\ \text{N}$ acts to the left for $0.2\ \text{s}$. What is the puck's final speed?
 
 :::solution
-One short answer is: For constant angular acceleration: $$ \omega = \omega 0 + \alpha t $$ $$ \theta = \theta 0 + \omega 0 t + \frac{1}{2}\alpha t^2 $$ $$ \omega^2 = \omega 0^2 + 2\alpha(\theta - \theta 0) $$
-:::
+The impulse is
 
----
-id: "physics-classical-mechanics-213"
-note: "physics-classical-mechanics"
-title: "Review: Linear and angular relations"
-type: "text"
-answer: "For a point at radius $r$: $$ v = r\\omega $$ $$ a t = r\\alpha $$ $$ a n = r\\omega^2 $$ Tangential acceleration changes speed, normal acceleration changes direction."
-skills:
-  - "Linear and angular relations"
----
+$$
+J = F\Delta t = 10(0.2) = 2\ \text{N}\cdot\text{s}
+$$
 
-What is the main idea of **Linear and angular relations**?
+Because the force is to the left, the impulse is negative relative to the original motion.
 
-:::solution
-One short answer is: For a point at radius $r$: $$ v = r\omega $$ $$ a t = r\alpha $$ $$ a n = r\omega^2 $$ Tangential acceleration changes speed, normal acceleration changes direction.
-:::
+Initial momentum:
 
----
-id: "physics-classical-mechanics-214"
-note: "physics-classical-mechanics"
-title: "Review: Moment of inertia"
-type: "text"
-answer: "point mass: $I = mr^2$"
-skills:
-  - "Moment of inertia"
----
+$$
+p_i = mv = 0.5(6) = 3
+$$
 
-What is the main idea of **Moment of inertia**?
+Final momentum:
 
-:::solution
-One short answer is: point mass: $I = mr^2$
-:::
+$$
+p_f = p_i - 2 = 1\ \text{kg}\cdot\text{m/s}
+$$
 
----
-id: "physics-classical-mechanics-215"
-note: "physics-classical-mechanics"
-title: "Review: Parallel-axis theorem"
-type: "text"
-answer: "If $I {cm}$ is moment of inertia about a center-of-mass axis, then for a parallel axis offset by $d$: $$ I = I {cm} + md^2 $$"
-skills:
-  - "Parallel-axis theorem"
----
+So the final speed is
 
-What is the main idea of **Parallel-axis theorem**?
+$$
+v_f = \frac{p_f}{m} = \frac{1}{0.5} = 2\ \text{m/s}
+$$
 
-:::solution
-One short answer is: If $I {cm}$ is moment of inertia about a center-of-mass axis, then for a parallel axis offset by $d$: $$ I = I {cm} + md^2 $$
+to the right.
 :::
 
 ---
-id: "physics-classical-mechanics-216"
-note: "physics-classical-mechanics"
-title: "Review: Rotational kinetic energy"
-type: "text"
-answer: "$$ T {rot} = \\frac{1}{2}I\\omega^2 $$ For rolling motion, total kinetic energy is often: $$ T = \\frac{1}{2}mv {cm}^2 + \\frac{1}{2}I {cm}\\omega^2 $$"
-skills:
-  - "Rotational kinetic energy"
+id: classical-mechanics-25
+note: physics-classical-mechanics
+title: "Center of Mass of Two Masses"
+skills: [Center of mass]
 ---
 
-What is the main idea of **Rotational kinetic energy**?
+Two masses lie on the $x$-axis: $2$ kg at $x = 0$ and $6$ kg at $x = 4\ \text{m}$. What is the center of mass?
 
 :::solution
-One short answer is: $$ T {rot} = \frac{1}{2}I\omega^2 $$ For rolling motion, total kinetic energy is often: $$ T = \frac{1}{2}mv {cm}^2 + \frac{1}{2}I {cm}\omega^2 $$
-:::
+Use the discrete center-of-mass formula:
 
----
-id: "physics-classical-mechanics-217"
-note: "physics-classical-mechanics"
-title: "Review: Rolling without slipping"
-type: "text"
-answer: "The no-slip condition is: $$ v {cm} = R\\omega $$ and similarly: $$ a {cm} = R\\alpha $$ Rolling problems often combine translation, rotation, and static friction. ---"
-skills:
-  - "Rolling without slipping"
----
+$$
+x_{cm} = \frac{\sum m_i x_i}{\sum m_i}
+$$
 
-What is the main idea of **Rolling without slipping**?
+So
 
-:::solution
-One short answer is: The no-slip condition is: $$ v {cm} = R\omega $$ and similarly: $$ a {cm} = R\alpha $$ Rolling problems often combine translation, rotation, and static friction. ---
+$$
+x_{cm} = \frac{2(0) + 6(4)}{2 + 6} = \frac{24}{8} = 3\ \text{m}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-218"
-note: "physics-classical-mechanics"
-title: "Review: Angular momentum and torque"
-type: "text"
-answer: "Angular momentum and torque"
-skills:
-  - "7. Angular momentum and torque"
+id: classical-mechanics-26
+note: physics-classical-mechanics
+title: "Rolling Without Slipping"
+skills: [Rolling without slipping, Rotational kinetic energy]
 ---
 
-What is the main idea of **Angular momentum and torque**?
+A wheel of radius $0.3\ \text{m}$ rolls without slipping at $5\ \text{m/s}$. The wheel has mass $4\ \text{kg}$ and moment of inertia $I = \frac{1}{2}mR^2$. Find its angular speed and its total kinetic energy.
 
 :::solution
-One short answer is: Angular momentum and torque
-:::
+The no-slip condition gives
 
----
-id: "physics-classical-mechanics-219"
-note: "physics-classical-mechanics"
-title: "Review: Torque"
-type: "text"
-answer: "Torque is the rotational effect of force: $$ \\boldsymbol{\\tau} = \\mathbf{r}\\times \\mathbf{F} $$ Magnitude: $$ \\tau = rF\\sin\\phi $$ where $\\phi$ is the angle between $\\mathbf{r}$ and $\\mathbf{F}$."
-skills:
-  - "Torque"
----
+$$
+v_{cm} = R\omega
+$$
 
-What is the main idea of **Torque**?
+so
 
-:::solution
-One short answer is: Torque is the rotational effect of force: $$ \boldsymbol{\tau} = \mathbf{r}\times \mathbf{F} $$ Magnitude: $$ \tau = rF\sin\phi $$ where $\phi$ is the angle between $\mathbf{r}$ and $\mathbf{F}$.
-:::
+$$
+\omega = \frac{5}{0.3} = \frac{50}{3}\ \text{rad/s}
+$$
 
----
-id: "physics-classical-mechanics-220"
-note: "physics-classical-mechanics"
-title: "Review: Rotational equation of motion"
-type: "text"
-answer: "For a rigid body about a fixed axis: $$ \\sum \\tau = I\\alpha $$"
-skills:
-  - "Rotational equation of motion"
----
+The translational kinetic energy is
 
-What is the main idea of **Rotational equation of motion**?
+$$
+T_{trans} = \frac{1}{2}mv^2 = \frac{1}{2}(4)(25) = 50\ \text{J}
+$$
 
-:::solution
-One short answer is: For a rigid body about a fixed axis: $$ \sum \tau = I\alpha $$
-:::
+The moment of inertia is
 
----
-id: "physics-classical-mechanics-31"
-note: "physics-classical-mechanics"
-title: "Review: Angular momentum"
-type: "text"
-answer: "For a particle: $$ \\mathbf{L} = \\mathbf{r}\\times \\mathbf{p} $$ For a rigid body about a fixed axis: $$ L = I\\omega $$"
-skills:
-  - "Angular momentum"
----
+$$
+I = \frac{1}{2}(4)(0.3^2) = 0.18\ \text{kg}\cdot\text{m}^2
+$$
 
-What is the main idea of **Angular momentum**?
+The rotational kinetic energy is
 
-:::solution
-One short answer is: For a particle: $$ \mathbf{L} = \mathbf{r}\times \mathbf{p} $$ For a rigid body about a fixed axis: $$ L = I\omega $$
+$$
+T_{rot} = \frac{1}{2}I\omega^2
+       = \frac{1}{2}(0.18)\left(\frac{50}{3}\right)^2
+       = 25\ \text{J}
+$$
+
+So the total kinetic energy is
+
+$$
+T = 50 + 25 = 75\ \text{J}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-32"
-note: "physics-classical-mechanics"
-title: "Review: Angular impulse-momentum"
-type: "text"
-answer: "$$ \\int {t 1}^{t 2}\\boldsymbol{\\tau}\\,dt = \\Delta \\mathbf{L} $$"
-skills:
-  - "Angular impulse-momentum"
+id: classical-mechanics-27
+note: physics-classical-mechanics
+title: "Static Support Forces"
+skills: [Equilibrium conditions, Statics]
 ---
 
-What is the main idea of **Angular impulse-momentum**?
+A uniform $2$ m beam weighs $40\ \text{N}$ and is supported at both ends. A $60\ \text{N}$ load hangs $1.5$ m from the left end. What are the upward support forces at the left and right ends?
 
 :::solution
-One short answer is: $$ \int {t 1}^{t 2}\boldsymbol{\tau}\,dt = \Delta \mathbf{L} $$
-:::
+Let the left reaction be $R_L$ and the right reaction be $R_R$.
 
----
-id: "physics-classical-mechanics-33"
-note: "physics-classical-mechanics"
-title: "Review: Conservation of angular momentum"
-type: "text"
-answer: "spinning skaters"
-skills:
-  - "Conservation of angular momentum"
----
+Force balance gives
 
-What is the main idea of **Conservation of angular momentum**?
+$$
+R_L + R_R = 40 + 60 = 100
+$$
 
-:::solution
-One short answer is: spinning skaters
-:::
+Take torques about the left end:
 
----
-id: "physics-classical-mechanics-34"
-note: "physics-classical-mechanics"
-title: "Review: Oscillations and simple harmonic motion"
-type: "text"
-answer: "Oscillations and simple harmonic motion"
-skills:
-  - "8. Oscillations and simple harmonic motion"
----
+$$
+2R_R = 40(1) + 60(1.5)
+$$
 
-What is the main idea of **Oscillations and simple harmonic motion**?
+$$
+2R_R = 40 + 90 = 130
+$$
 
-:::solution
-One short answer is: Oscillations and simple harmonic motion
+$$
+R_R = 65\ \text{N}
+$$
+
+Then
+
+$$
+R_L = 100 - 65 = 35\ \text{N}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-35"
-note: "physics-classical-mechanics"
-title: "Review: Simple harmonic motion"
-type: "text"
-answer: "A system exhibits simple harmonic motion when the restoring force is proportional to displacement and directed toward equilibrium: $$ F = -kx $$ Then: $$ m\\ddot{x} + kx = 0 $$ with solution: $$ x(t) = A\\cos(\\omega t + \\…"
-skills:
-  - "Simple harmonic motion"
+id: classical-mechanics-28
+note: physics-classical-mechanics
+title: "Derive a Simple Equation of Motion"
+skills: [Lagrangian, Euler-Lagrange equation]
 ---
+
+For a mass-spring oscillator with
 
-What is the main idea of **Simple harmonic motion**?
+$$
+\mathcal{L} = \frac{1}{2}m\dot{x}^2 - \frac{1}{2}kx^2,
+$$
 
+derive the equation of motion.
+
 :::solution
-One short answer is: A system exhibits simple harmonic motion when the restoring force is proportional to displacement and directed toward equilibrium: $$ F = -kx $$ Then: $$ m\ddot{x} + kx = 0 $$ with solution: $$ x(t) = A\cos(\omega t + \…
-:::
+Apply the Euler-Lagrange equation:
 
----
-id: "physics-classical-mechanics-36"
-note: "physics-classical-mechanics"
-title: "Review: Period and frequency"
-type: "text"
-answer: "$$ T = \\frac{2\\pi}{\\omega} $$ $$ f = \\frac{1}{T} $$"
-skills:
-  - "Period and frequency"
----
+$$
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) - \frac{\partial \mathcal{L}}{\partial x} = 0
+$$
 
-What is the main idea of **Period and frequency**?
+Compute the derivatives:
 
-:::solution
-One short answer is: $$ T = \frac{2\pi}{\omega} $$ $$ f = \frac{1}{T} $$
-:::
+$$
+\frac{\partial \mathcal{L}}{\partial \dot{x}} = m\dot{x}
+$$
 
----
-id: "physics-classical-mechanics-37"
-note: "physics-classical-mechanics"
-title: "Review: Velocity and acceleration in SHM"
-type: "text"
-answer: "If $$ x(t) = A\\cos(\\omega t + \\phi) $$ then $$ v(t) = -A\\omega\\sin(\\omega t + \\phi) $$ $$ a(t) = -\\omega^2 x(t) $$ The acceleration is always directed toward equilibrium."
-skills:
-  - "Velocity and acceleration in SHM"
----
+so
 
-What is the main idea of **Velocity and acceleration in SHM**?
+$$
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) = m\ddot{x}
+$$
 
-:::solution
-One short answer is: If $$ x(t) = A\cos(\omega t + \phi) $$ then $$ v(t) = -A\omega\sin(\omega t + \phi) $$ $$ a(t) = -\omega^2 x(t) $$ The acceleration is always directed toward equilibrium.
-:::
+Also,
 
----
-id: "physics-classical-mechanics-38"
-note: "physics-classical-mechanics"
-title: "Review: Energy in SHM"
-type: "text"
-answer: "Total energy is constant: $$ E = \\frac{1}{2}kA^2 $$ with exchange between kinetic and potential energy: $$ T = \\frac{1}{2}mv^2,\\qquad V = \\frac{1}{2}kx^2 $$"
-skills:
-  - "Energy in SHM"
----
+$$
+\frac{\partial \mathcal{L}}{\partial x} = -kx
+$$
 
-What is the main idea of **Energy in SHM**?
+Substitute:
 
-:::solution
-One short answer is: Total energy is constant: $$ E = \frac{1}{2}kA^2 $$ with exchange between kinetic and potential energy: $$ T = \frac{1}{2}mv^2,\qquad V = \frac{1}{2}kx^2 $$
+$$
+m\ddot{x} - (-kx) = 0
+$$
+
+so the equation of motion is
+
+$$
+m\ddot{x} + kx = 0
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-39"
-note: "physics-classical-mechanics"
-title: "Review: Damping and forcing"
-type: "text"
-answer: "underdamping: oscillates with decaying amplitude"
-skills:
-  - "Damping and forcing"
+id: classical-mechanics-31
+note: physics-classical-mechanics
+title: "Two-Body Pulley System"
+skills: [Newton's second law, Constraints]
 ---
 
-What is the main idea of **Damping and forcing**?
+A $2$ kg block on a frictionless table is connected by a light string over a frictionless pulley to a hanging $1$ kg mass. Find the acceleration of the system and the string tension. Take $g = 10\ \text{m/s}^2$.
 
 :::solution
-One short answer is: underdamping: oscillates with decaying amplitude
-:::
+Let the acceleration magnitude be $a$.
 
----
-id: "physics-classical-mechanics-310"
-note: "physics-classical-mechanics"
-title: "Review: Gravitation and central forces"
-type: "text"
-answer: "Gravitation and central forces"
-skills:
-  - "9. Gravitation and central forces"
----
+For the $2$ kg block on the table:
 
-What is the main idea of **Gravitation and central forces**?
+$$
+T = 2a
+$$
 
-:::solution
-One short answer is: Gravitation and central forces
-:::
+For the $1$ kg hanging mass:
 
----
-id: "physics-classical-mechanics-311"
-note: "physics-classical-mechanics"
-title: "Review: Newton's law of gravitation"
-type: "text"
-answer: "Two masses attract with force: $$ F = G\\frac{m 1m 2}{r^2} $$ directed along the line joining them."
-skills:
-  - "Newton's law of gravitation"
----
+$$
+10 - T = a
+$$
 
-What is the main idea of **Newton's law of gravitation**?
+Substitute $T = 2a$:
 
-:::solution
-One short answer is: Two masses attract with force: $$ F = G\frac{m 1m 2}{r^2} $$ directed along the line joining them.
-:::
+$$
+10 - 2a = a
+$$
 
----
-id: "physics-classical-mechanics-312"
-note: "physics-classical-mechanics"
-title: "Review: Gravitational potential energy"
-type: "text"
-answer: "For two masses: $$ U(r) = -G\\frac{m 1m 2}{r} $$ Near Earth, the approximation $$ U \\approx mgh $$ is valid for small height changes."
-skills:
-  - "Gravitational potential energy"
----
+$$
+10 = 3a
+$$
 
-What is the main idea of **Gravitational potential energy**?
+$$
+a = \frac{10}{3}\ \text{m/s}^2
+$$
 
-:::solution
-One short answer is: For two masses: $$ U(r) = -G\frac{m 1m 2}{r} $$ Near Earth, the approximation $$ U \approx mgh $$ is valid for small height changes.
+Then
+
+$$
+T = 2a = \frac{20}{3}\ \text{N}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-313"
-note: "physics-classical-mechanics"
-title: "Review: Circular orbits"
-type: "text"
-answer: "For a body of mass $m$ in a circular orbit of radius $r$ around mass $M$: $$ \\frac{mv^2}{r} = G\\frac{Mm}{r^2} $$ so $$ v = \\sqrt{\\frac{GM}{r}} $$ The orbital period is $$ T = 2\\pi \\sqrt{\\frac{r^3}{GM}} $$"
-skills:
-  - "Circular orbits"
+id: classical-mechanics-32
+note: physics-classical-mechanics
+title: "Perfectly Inelastic Collision"
+skills: [Conservation of linear momentum, Collisions]
 ---
 
-What is the main idea of **Circular orbits**?
+A $2$ kg cart moving at $3\ \text{m/s}$ collides with a stationary $4$ kg cart. The carts stick together. What is their final speed, and how much kinetic energy is lost?
 
 :::solution
-One short answer is: For a body of mass $m$ in a circular orbit of radius $r$ around mass $M$: $$ \frac{mv^2}{r} = G\frac{Mm}{r^2} $$ so $$ v = \sqrt{\frac{GM}{r}} $$ The orbital period is $$ T = 2\pi \sqrt{\frac{r^3}{GM}} $$
-:::
+Use conservation of momentum:
 
----
-id: "physics-classical-mechanics-314"
-note: "physics-classical-mechanics"
-title: "Review: Central-force intuition"
-type: "text"
-answer: "force points toward or away from a center"
-skills:
-  - "Central-force intuition"
----
+$$
+2(3) + 4(0) = (2 + 4)v_f
+$$
 
-What is the main idea of **Central-force intuition**?
+So
 
-:::solution
-One short answer is: force points toward or away from a center
-:::
+$$
+6 = 6v_f
+$$
 
----
-id: "physics-classical-mechanics-315"
-note: "physics-classical-mechanics"
-title: "Review: Constraints, equilibrium, and statics"
-type: "text"
-answer: "Static equilibrium means no translational or rotational acceleration."
-skills:
-  - "10. Constraints, equilibrium, and statics"
----
+$$
+v_f = 1\ \text{m/s}
+$$
 
-What is the main idea of **Constraints, equilibrium, and statics**?
+Initial kinetic energy:
 
-:::solution
-One short answer is: Static equilibrium means no translational or rotational acceleration.
-:::
+$$
+T_i = \frac{1}{2}(2)(3^2) = 9\ \text{J}
+$$
 
----
-id: "physics-classical-mechanics-316"
-note: "physics-classical-mechanics"
-title: "Review: Equilibrium conditions"
-type: "text"
-answer: "For a particle: $$ \\sum \\mathbf{F} = 0 $$ For a rigid body: $$ \\sum \\mathbf{F} = 0 $$ $$ \\sum \\tau = 0 $$"
-skills:
-  - "Equilibrium conditions"
----
+Final kinetic energy:
 
-What is the main idea of **Equilibrium conditions**?
+$$
+T_f = \frac{1}{2}(6)(1^2) = 3\ \text{J}
+$$
 
-:::solution
-One short answer is: For a particle: $$ \sum \mathbf{F} = 0 $$ For a rigid body: $$ \sum \mathbf{F} = 0 $$ $$ \sum \tau = 0 $$
+So the kinetic energy lost is
+
+$$
+9 - 3 = 6\ \text{J}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-317"
-note: "physics-classical-mechanics"
-title: "Review: Typical statics workflow"
-type: "text"
-answer: "Draw the free-body diagram."
-skills:
-  - "Typical statics workflow"
+id: classical-mechanics-33
+note: physics-classical-mechanics
+title: "Torque, Angular Acceleration, and Rotation"
+skills: [Torque, Rotational kinematics, Moment of inertia]
 ---
 
-According to the note, what sequence of steps is recommended in **Typical statics workflow**?
+A uniform disk has mass $2$ kg and radius $0.5$ m. A tangential force of $4\ \text{N}$ is applied at the rim for $2\ \text{s}$ starting from rest. Find the angular acceleration, the angular speed after $2\ \text{s}$, and the angle turned through.
 
 :::solution
-One short answer is: Draw the free-body diagram.
-:::
+First find the moment of inertia of the disk:
 
----
-id: "physics-classical-mechanics-318"
-note: "physics-classical-mechanics"
-title: "Review: Constraints"
-type: "text"
-answer: "bead constrained on a wire"
-skills:
-  - "Constraints"
----
+$$
+I = \frac{1}{2}mR^2 = \frac{1}{2}(2)(0.5^2) = 0.25\ \text{kg}\cdot\text{m}^2
+$$
 
-What is the main idea of **Constraints**?
+The torque is
 
-:::solution
-One short answer is: bead constrained on a wire
-:::
+$$
+\tau = rF = 0.5(4) = 2\ \text{N}\cdot\text{m}
+$$
 
----
-id: "physics-classical-mechanics-319"
-note: "physics-classical-mechanics"
-title: "Review: Lagrangian and Hamiltonian ideas"
-type: "text"
-answer: "The Lagrangian formulation is a higher-level way to derive equations of motion."
-skills:
-  - "11. Lagrangian and Hamiltonian ideas"
----
+So the angular acceleration is
 
-What is the main idea of **Lagrangian and Hamiltonian ideas**?
+$$
+\alpha = \frac{\tau}{I} = \frac{2}{0.25} = 8\ \text{rad/s}^2
+$$
 
-:::solution
-One short answer is: The Lagrangian formulation is a higher-level way to derive equations of motion.
-:::
+Starting from rest,
 
----
-id: "physics-classical-mechanics-320"
-note: "physics-classical-mechanics"
-title: "Review: Generalized coordinates"
-type: "text"
-answer: "pendulum angle $\\theta$"
-skills:
-  - "Generalized coordinates"
----
+$$
+\omega = \alpha t = 8(2) = 16\ \text{rad/s}
+$$
 
-What is the main idea of **Generalized coordinates**?
+The angular displacement is
 
-:::solution
-One short answer is: pendulum angle $\theta$
+$$
+\theta = \frac{1}{2}\alpha t^2 = \frac{1}{2}(8)(2^2) = 16\ \text{rad}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-41"
-note: "physics-classical-mechanics"
-title: "Review: Lagrangian"
-type: "text"
-answer: "$$ \\mathcal{L} = T - V $$ The Euler-Lagrange equation is: $$ \\frac{d}{dt}\\left(\\frac{\\partial \\mathcal{L}}{\\partial \\dot{q} i}\\right) - \\frac{\\partial \\mathcal{L}}{\\partial q i} = 0 $$ for each generalized coordinate $q…"
-skills:
-  - "Lagrangian"
+id: classical-mechanics-34
+note: physics-classical-mechanics
+title: "Compare Two Circular Orbits"
+skills: [Circular orbits, Central-force intuition]
 ---
 
-What is the main idea of **Lagrangian**?
+A satellite moves in a circular orbit of radius $r_1$ around a planet. Another satellite orbits at radius $r_2 = 4r_1$. What are the ratios $v_2/v_1$ and $T_2/T_1$?
 
 :::solution
-One short answer is: $$ \mathcal{L} = T - V $$ The Euler-Lagrange equation is: $$ \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q} i}\right) - \frac{\partial \mathcal{L}}{\partial q i} = 0 $$ for each generalized coordinate $q…
-:::
+For circular orbits,
 
----
-id: "physics-classical-mechanics-42"
-note: "physics-classical-mechanics"
-title: "Review: Why use Lagrange's equations"
-type: "text"
-answer: "constraints are handled naturally"
-skills:
-  - "Why use Lagrange's equations"
----
+$$
+v = \sqrt{\frac{GM}{r}}
+$$
 
-What is the main idea of **Why use Lagrange's equations**?
+so speed scales like $r^{-1/2}$:
 
-:::solution
-One short answer is: constraints are handled naturally
+$$
+\frac{v_2}{v_1} = \sqrt{\frac{r_1}{r_2}} = \sqrt{\frac{1}{4}} = \frac{1}{2}
+$$
+
+The orbital period scales like $r^{3/2}$:
+
+$$
+\frac{T_2}{T_1} = \left(\frac{r_2}{r_1}\right)^{3/2} = 4^{3/2} = 8
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-43"
-note: "physics-classical-mechanics"
-title: "Review: Canonical momentum"
-type: "text"
-answer: "For coordinate $q i$: $$ p i = \\frac{\\partial \\mathcal{L}}{\\partial \\dot{q} i} $$"
-skills:
-  - "Canonical momentum"
+id: classical-mechanics-35
+note: physics-classical-mechanics
+title: "Choose the Best Mechanics Tool"
+skills: [Problem-solving workflow]
 ---
+
+For each situation, name the main tool from the workflow that is most useful.
 
-What is the main idea of **Canonical momentum**?
+(a) A collision lasts a very short time and external impulse is negligible.  
+(b) A rigid sign hangs motionless from two cables.  
+(c) An object moves under only conservative forces, but the path is complicated.  
+(d) A spinning object has no external torque acting on it.
 
 :::solution
-One short answer is: For coordinate $q i$: $$ p i = \frac{\partial \mathcal{L}}{\partial \dot{q} i} $$
+Use the tool that matches the situation:
+
+(a) Momentum conservation  
+(b) Equilibrium conditions / statics  
+(c) Energy methods  
+(d) Angular momentum conservation
 :::
 
 ---
-id: "physics-classical-mechanics-44"
-note: "physics-classical-mechanics"
-title: "Review: Hamiltonian idea"
-type: "text"
-answer: "The Hamiltonian is often the total energy written in terms of coordinates and momenta: $$ \\mathcal{H} = \\sum i p i \\dot{q} i - \\mathcal{L} $$ In many standard mechanical systems, $$ \\mathcal{H} = T + V $$ though this is…"
-skills:
-  - "Hamiltonian idea"
+id: classical-mechanics-41
+note: physics-classical-mechanics
+title: "Rolling Disk Dropping Through a Height"
+skills: [Rolling without slipping, Rotational kinetic energy, Work and energy]
 ---
 
-What is the main idea of **Hamiltonian idea**?
+A solid disk starts from rest and rolls without slipping down a track, dropping through a vertical height $h$. Derive its speed at the bottom in terms of $g$ and $h$.
 
 :::solution
-One short answer is: The Hamiltonian is often the total energy written in terms of coordinates and momenta: $$ \mathcal{H} = \sum i p i \dot{q} i - \mathcal{L} $$ In many standard mechanical systems, $$ \mathcal{H} = T + V $$ though this is…
-:::
+Use conservation of mechanical energy:
 
----
-id: "physics-classical-mechanics-45"
-note: "physics-classical-mechanics"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Problem-solving workflow"
-skills:
-  - "12. Problem-solving workflow"
----
+$$
+mgh = \frac{1}{2}mv^2 + \frac{1}{2}I\omega^2
+$$
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+For a solid disk,
 
-:::solution
-One short answer is: Problem-solving workflow
-:::
+$$
+I = \frac{1}{2}mR^2
+$$
 
----
-id: "physics-classical-mechanics-46"
-note: "physics-classical-mechanics"
-title: "Review: Start with the model"
-type: "text"
-answer: "Is the body a particle, rigid body, or system of interacting bodies?"
-skills:
-  - "Start with the model"
----
+and rolling without slipping gives
 
-What is the main idea of **Start with the model**?
+$$
+\omega = \frac{v}{R}
+$$
 
-:::solution
-One short answer is: Is the body a particle, rigid body, or system of interacting bodies?
-:::
+Substitute:
 
----
-id: "physics-classical-mechanics-47"
-note: "physics-classical-mechanics"
-title: "Review: Choose the right tool"
-type: "text"
-answer: "Use Newton's laws for direct force-acceleration problems."
-skills:
-  - "Choose the right tool"
----
+$$
+mgh = \frac{1}{2}mv^2 + \frac{1}{2}\left(\frac{1}{2}mR^2\right)\left(\frac{v^2}{R^2}\right)
+$$
 
-What is the main idea of **Choose the right tool**?
+$$
+mgh = \frac{1}{2}mv^2 + \frac{1}{4}mv^2 = \frac{3}{4}mv^2
+$$
 
-:::solution
-One short answer is: Use Newton's laws for direct force-acceleration problems.
+So
+
+$$
+v = \sqrt{\frac{4gh}{3}}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-48"
-note: "physics-classical-mechanics"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Mixing up mass and weight"
-skills:
-  - "Common pitfalls"
+id: classical-mechanics-42
+note: physics-classical-mechanics
+title: "Spin-Up from Conservation of Angular Momentum"
+skills: [Conservation of angular momentum, Rotational kinetic energy]
 ---
 
-Name one common mistake the note warns about in **Common pitfalls**.
+A skater's moment of inertia decreases from $6\ \text{kg}\cdot\text{m}^2$ to $2\ \text{kg}\cdot\text{m}^2$ while angular momentum is conserved. If the initial angular speed is $3\ \text{rad/s}$, find the final angular speed and the change in rotational kinetic energy.
 
 :::solution
-One short answer is: Mixing up mass and weight
-:::
+Conservation of angular momentum gives
 
----
-id: "physics-classical-mechanics-49"
-note: "physics-classical-mechanics"
-title: "Review: Sanity checks"
-type: "text"
-answer: "Do units match on both sides?"
-skills:
-  - "Sanity checks"
----
+$$
+I_i\omega_i = I_f\omega_f
+$$
 
-What is the main idea of **Sanity checks**?
+So
 
-:::solution
-One short answer is: Do units match on both sides?
-:::
+$$
+6(3) = 2\omega_f
+$$
 
----
-id: "physics-classical-mechanics-410"
-note: "physics-classical-mechanics"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "13. Formula summary"
----
+$$
+\omega_f = 9\ \text{rad/s}
+$$
 
-What core formulas or relations are summarized in **Formula summary**?
+Initial rotational kinetic energy:
 
-:::solution
-One short answer is: Formula summary
-:::
+$$
+T_i = \frac{1}{2}I_i\omega_i^2 = \frac{1}{2}(6)(3^2) = 27\ \text{J}
+$$
 
----
-id: "physics-classical-mechanics-411"
-note: "physics-classical-mechanics"
-title: "Review: Kinematics"
-type: "text"
-answer: "$$ v = \\frac{dx}{dt}, \\qquad a = \\frac{dv}{dt} $$ $$ v = v 0 + at $$ $$ x = x 0 + v 0t + \\frac{1}{2}at^2 $$"
-skills:
-  - "Kinematics"
----
+Final rotational kinetic energy:
 
-What is the main idea of **Kinematics**?
+$$
+T_f = \frac{1}{2}(2)(9^2) = 81\ \text{J}
+$$
 
-:::solution
-One short answer is: $$ v = \frac{dx}{dt}, \qquad a = \frac{dv}{dt} $$ $$ v = v 0 + at $$ $$ x = x 0 + v 0t + \frac{1}{2}at^2 $$
+So the kinetic energy increases by
+
+$$
+81 - 27 = 54\ \text{J}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-412"
-note: "physics-classical-mechanics"
-title: "Review: Newtonian dynamics"
-type: "text"
-answer: "$$ \\sum \\mathbf{F} = m\\mathbf{a} $$"
-skills:
-  - "Newtonian dynamics"
+id: classical-mechanics-43
+note: physics-classical-mechanics
+title: "Beam Balance with Multiple Loads"
+skills: [Equilibrium conditions, Statics]
 ---
 
-What is the main idea of **Newtonian dynamics**?
+A $3$ m uniform beam weighs $30\ \text{N}$ and is supported at both ends. Additional loads of $20\ \text{N}$ and $50\ \text{N}$ hang at $0.5$ m and $2.5$ m from the left end, respectively. What are the support forces?
 
 :::solution
-One short answer is: $$ \sum \mathbf{F} = m\mathbf{a} $$
-:::
+Let the left and right reactions be $R_L$ and $R_R$.
 
----
-id: "physics-classical-mechanics-413"
-note: "physics-classical-mechanics"
-title: "Review: Work and energy"
-type: "text"
-answer: "$$ W = \\int \\mathbf{F}\\cdot d\\mathbf{r} $$ $$ T = \\frac{1}{2}mv^2 $$ $$ W {net} = \\Delta T $$ $$ T 1 + V 1 + W {nc} = T 2 + V 2 $$"
-skills:
-  - "Work and energy"
----
+Force balance:
 
-What is the main idea of **Work and energy**?
+$$
+R_L + R_R = 30 + 20 + 50 = 100
+$$
 
-:::solution
-One short answer is: $$ W = \int \mathbf{F}\cdot d\mathbf{r} $$ $$ T = \frac{1}{2}mv^2 $$ $$ W {net} = \Delta T $$ $$ T 1 + V 1 + W {nc} = T 2 + V 2 $$
-:::
+Take torques about the left end:
 
----
-id: "physics-classical-mechanics-414"
-note: "physics-classical-mechanics"
-title: "Review: Momentum"
-type: "text"
-answer: "$$ \\mathbf{p} = m\\mathbf{v} $$ $$ \\mathbf{J} = \\int \\mathbf{F}\\,dt = \\Delta \\mathbf{p} $$"
-skills:
-  - "Momentum"
----
+$$
+3R_R = 30(1.5) + 20(0.5) + 50(2.5)
+$$
 
-What is the main idea of **Momentum**?
+$$
+3R_R = 45 + 10 + 125 = 180
+$$
 
-:::solution
-One short answer is: $$ \mathbf{p} = m\mathbf{v} $$ $$ \mathbf{J} = \int \mathbf{F}\,dt = \Delta \mathbf{p} $$
+$$
+R_R = 60\ \text{N}
+$$
+
+Then
+
+$$
+R_L = 100 - 60 = 40\ \text{N}
+$$
 :::
 
 ---
-id: "physics-classical-mechanics-415"
-note: "physics-classical-mechanics"
-title: "Review: Rotation"
-type: "text"
-answer: "$$ \\tau = rF\\sin\\phi $$ $$ \\sum \\tau = I\\alpha $$ $$ L = I\\omega $$ $$ \\mathbf{L} = \\mathbf{r}\\times \\mathbf{p} $$ $$ T {rot} = \\frac{1}{2}I\\omega^2 $$"
-skills:
-  - "Rotation"
+id: classical-mechanics-44
+note: physics-classical-mechanics
+title: "Lagrangian with Two Springs"
+skills: [Lagrangian, Euler-Lagrange equation]
 ---
 
-What is the main idea of **Rotation**?
+A mass moves on a frictionless line between two identical springs, each with spring constant $k$. If the mass is displaced by $x$ from equilibrium, derive the equation of motion using the Lagrangian method.
 
 :::solution
-One short answer is: $$ \tau = rF\sin\phi $$ $$ \sum \tau = I\alpha $$ $$ L = I\omega $$ $$ \mathbf{L} = \mathbf{r}\times \mathbf{p} $$ $$ T {rot} = \frac{1}{2}I\omega^2 $$
-:::
+Each spring contributes a potential energy of $\frac{1}{2}kx^2$, so the total potential energy is
 
----
-id: "physics-classical-mechanics-416"
-note: "physics-classical-mechanics"
-title: "Review: Spring and SHM"
-type: "text"
-answer: "$$ F = -kx $$ $$ \\omega = \\sqrt{\\frac{k}{m}} $$ $$ T = \\frac{2\\pi}{\\omega} $$"
-skills:
-  - "Spring and SHM"
----
+$$
+V = \frac{1}{2}kx^2 + \frac{1}{2}kx^2 = kx^2
+$$
 
-What is the main idea of **Spring and SHM**?
+The kinetic energy is
 
-:::solution
-One short answer is: $$ F = -kx $$ $$ \omega = \sqrt{\frac{k}{m}} $$ $$ T = \frac{2\pi}{\omega} $$
-:::
+$$
+T = \frac{1}{2}m\dot{x}^2
+$$
 
----
-id: "physics-classical-mechanics-417"
-note: "physics-classical-mechanics"
-title: "Review: Gravitation"
-type: "text"
-answer: "$$ F = G\\frac{m 1m 2}{r^2} $$ $$ U = -G\\frac{m 1m 2}{r} $$"
-skills:
-  - "Gravitation"
----
+So the Lagrangian is
 
-What is the main idea of **Gravitation**?
+$$
+\mathcal{L} = \frac{1}{2}m\dot{x}^2 - kx^2
+$$
 
-:::solution
-One short answer is: $$ F = G\frac{m 1m 2}{r^2} $$ $$ U = -G\frac{m 1m 2}{r} $$
-:::
+Apply the Euler-Lagrange equation:
 
----
-id: "physics-classical-mechanics-418"
-note: "physics-classical-mechanics"
-title: "Review: Rolling"
-type: "text"
-answer: "$$ v {cm} = R\\omega $$"
-skills:
-  - "Rolling"
----
+$$
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) - \frac{\partial \mathcal{L}}{\partial x} = 0
+$$
 
-What is the main idea of **Rolling**?
+Compute the derivatives:
 
-:::solution
-One short answer is: $$ v {cm} = R\omega $$
-:::
+$$
+\frac{\partial \mathcal{L}}{\partial \dot{x}} = m\dot{x}
+$$
 
----
-id: "physics-classical-mechanics-419"
-note: "physics-classical-mechanics"
-title: "Review: Lagrangian form"
-type: "text"
-answer: "$$ \\mathcal{L} = T - V $$ $$ \\frac{d}{dt}\\left(\\frac{\\partial \\mathcal{L}}{\\partial \\dot{q} i}\\right) - \\frac{\\partial \\mathcal{L}}{\\partial q i} = 0 $$"
-skills:
-  - "Lagrangian form"
----
+so
 
-What is the main idea of **Lagrangian form**?
+$$
+\frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{x}}\right) = m\ddot{x}
+$$
 
-:::solution
-One short answer is: $$ \mathcal{L} = T - V $$ $$ \frac{d}{dt}\left(\frac{\partial \mathcal{L}}{\partial \dot{q} i}\right) - \frac{\partial \mathcal{L}}{\partial q i} = 0 $$
-:::
+and
 
----
-id: "physics-classical-mechanics-420"
-note: "physics-classical-mechanics"
-title: "Review: Compact takeaway"
-type: "text"
-answer: "force balance for instantaneous dynamics"
-skills:
-  - "Compact takeaway"
----
+$$
+\frac{\partial \mathcal{L}}{\partial x} = -2kx
+$$
 
-What is the main idea of **Compact takeaway**?
+Substitute:
 
-:::solution
-One short answer is: force balance for instantaneous dynamics
+$$
+m\ddot{x} - (-2kx) = 0
+$$
+
+Thus the equation of motion is
+
+$$
+m\ddot{x} + 2kx = 0
+$$
 :::

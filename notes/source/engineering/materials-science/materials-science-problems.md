@@ -1,1071 +1,568 @@
 ---
-id: "engineering-materials-science-11"
-note: "engineering-materials-science"
-title: "Review: Core idea"
-type: "text"
-answer: "Materials science studies how structure , processing , properties , and performance are linked."
-skills:
-  - "1. Core idea"
+id: materials-science-11
+note: engineering-materials-science
+title: "State the Processing Chain"
+skills: [Processing-structure-properties]
 ---
 
-What core idea is introduced in **Core idea**?
+According to the central idea in the note, what is the order of the four linked factors in materials science?
 
 :::solution
-One short answer is: Materials science studies how structure , processing , properties , and performance are linked.
-:::
-
----
-id: "engineering-materials-science-12"
-note: "engineering-materials-science"
-title: "Review: Scales of structure"
-type: "text"
-answer: "Atomic scale: bonding, lattice type, composition"
-skills:
-  - "Scales of structure"
----
+The chain is
 
-What is the main idea of **Scales of structure**?
+$$
+\text{Processing} \rightarrow \text{Structure} \rightarrow \text{Properties} \rightarrow \text{Performance}
+$$
 
-:::solution
-One short answer is: Atomic scale: bonding, lattice type, composition
+So processing affects structure, structure affects properties, and properties affect performance.
 :::
 
 ---
-id: "engineering-materials-science-13"
-note: "engineering-materials-science"
-title: "Review: Why it matters"
-type: "text"
-answer: "loading conditions"
-skills:
-  - "Why it matters"
+id: materials-science-12
+note: engineering-materials-science
+title: "Identify a Metallic Bond Effect"
+skills: [Bonding, Metals]
 ---
 
-What is the main idea of **Why it matters**?
+Which bonding type is associated with delocalized electrons, electrical conductivity, and ductility?
 
 :::solution
-One short answer is: loading conditions
-:::
+That is **metallic bonding**.
 
----
-id: "engineering-materials-science-14"
-note: "engineering-materials-science"
-title: "Review: Atomic structure and bonding"
-type: "text"
-answer: "Atomic structure and bonding"
-skills:
-  - "2. Atomic structure and bonding"
----
-
-What is the main idea of **Atomic structure and bonding**?
-
-:::solution
-One short answer is: Atomic structure and bonding
+The delocalized electrons explain why metals conduct electricity and why they can deform plastically without immediately fracturing.
 :::
 
 ---
-id: "engineering-materials-science-15"
-note: "engineering-materials-science"
-title: "Review: Bonding types"
-type: "text"
-answer: "Bond type Main feature Typical materials Consequences --- --- --- --- Ionic Electron transfer between atoms Ceramics, salts Hard, brittle, high melting point Covalent Shared electron pairs Diamond, Si, polymers Directio…"
-skills:
-  - "Bonding types"
+id: materials-science-13
+note: engineering-materials-science
+title: "Count Atoms in an FCC Cell"
+skills: [Crystal structures]
 ---
 
-What is the main idea of **Bonding types**?
+How many atoms are in one face-centered cubic (FCC) unit cell?
 
 :::solution
-One short answer is: Bond type Main feature Typical materials Consequences --- --- --- --- Ionic Electron transfer between atoms Ceramics, salts Hard, brittle, high melting point Covalent Shared electron pairs Diamond, Si, polymers Directio…
-:::
-
----
-id: "engineering-materials-science-16"
-note: "engineering-materials-science"
-title: "Review: Interatomic potential"
-type: "text"
-answer: "deeper energy well means stronger bonding"
-skills:
-  - "Interatomic potential"
----
+An FCC unit cell contains
 
-What is the main idea of **Interatomic potential**?
+$$
+4
+$$
 
-:::solution
-One short answer is: deeper energy well means stronger bonding
+atoms.
 :::
 
 ---
-id: "engineering-materials-science-17"
-note: "engineering-materials-science"
-title: "Review: Properties influenced by bonding"
-type: "text"
-answer: "Metals: good conductivity, ductility, opaque"
-skills:
-  - "Properties influenced by bonding"
+id: materials-science-14
+note: engineering-materials-science
+title: "Name a Vacancy Defect"
+skills: [Point defects]
 ---
 
-What is the main idea of **Properties influenced by bonding**?
+What point defect is created when an atom is missing from its normal lattice site?
 
 :::solution
-One short answer is: Metals: good conductivity, ductility, opaque
-:::
-
----
-id: "engineering-materials-science-18"
-note: "engineering-materials-science"
-title: "Review: Crystal structures"
-type: "text"
-answer: "Crystal structures"
-skills:
-  - "3. Crystal structures"
----
+That defect is a **vacancy**.
 
-What is the main idea of **Crystal structures**?
-
-:::solution
-One short answer is: Crystal structures
+It is one of the common point defects listed in the note.
 :::
 
 ---
-id: "engineering-materials-science-19"
-note: "engineering-materials-science"
-title: "Review: Common crystal lattices"
-type: "text"
-answer: "Structure Atoms per unit cell Coordination number Packing factor Examples --- ---: ---: ---: --- Simple cubic (SC) 1 6 0.52 Rare in engineering Body-centered cubic (BCC) 2 8 0.68 $\\alpha$-Fe, Cr, W Face-centered cubic (…"
-skills:
-  - "Common crystal lattices"
+id: materials-science-15
+note: engineering-materials-science
+title: "State What Miller Indices Describe"
+skills: [Miller indices, Crystallography]
 ---
 
-Name one common mistake the note warns about in **Common crystal lattices**.
+What do Miller indices describe in a crystal?
 
 :::solution
-One short answer is: Structure Atoms per unit cell Coordination number Packing factor Examples --- ---: ---: ---: --- Simple cubic (SC) 1 6 0.52 Rare in engineering Body-centered cubic (BCC) 2 8 0.68 $\alpha$-Fe, Cr, W Face-centered cubic (…
-:::
-
----
-id: "engineering-materials-science-110"
-note: "engineering-materials-science"
-title: "Review: Useful relations"
-type: "text"
-answer: "$a$ is the unit-cell edge length"
-skills:
-  - "Useful relations"
----
-
-What is the main idea of **Useful relations**?
+Miller indices describe **crystallographic planes and directions**.
 
-:::solution
-One short answer is: $a$ is the unit-cell edge length
+They are used to identify things like slip systems, cleavage planes, and anisotropy.
 :::
 
 ---
-id: "engineering-materials-science-111"
-note: "engineering-materials-science"
-title: "Review: Miller indices"
-type: "text"
-answer: "slip systems"
-skills:
-  - "Miller indices"
+id: materials-science-16
+note: engineering-materials-science
+title: "Compute Engineering Stress"
+skills: [Stress, Units]
 ---
-
-What is the main idea of **Miller indices**?
-
-:::solution
-One short answer is: slip systems
-:::
 
----
-id: "engineering-materials-science-112"
-note: "engineering-materials-science"
-title: "Review: Polycrystals"
-type: "text"
-answer: "grain: one crystal region"
-skills:
-  - "Polycrystals"
----
+A tensile specimen carries a force of $12$ kN over an original area of $30$ mm$^2$.
 
-What is the main idea of **Polycrystals**?
+What is the engineering stress?
 
 :::solution
-One short answer is: grain: one crystal region
-:::
-
----
-id: "engineering-materials-science-113"
-note: "engineering-materials-science"
-title: "Review: Defects and diffusion"
-type: "text"
-answer: "Defects and diffusion"
-skills:
-  - "4. Defects and diffusion"
----
+Use
 
-What is the main idea of **Defects and diffusion**?
+$$
+\sigma = \frac{F}{A_0}
+$$
 
-:::solution
-One short answer is: Defects and diffusion
-:::
+so
 
----
-id: "engineering-materials-science-114"
-note: "engineering-materials-science"
-title: "Review: Point defects"
-type: "text"
-answer: "Vacancy: missing atom"
-skills:
-  - "Point defects"
----
+$$
+\sigma = \frac{12{,}000\ \text{N}}{30\ \text{mm}^2} = 400\ \text{N/mm}^2
+$$
 
-What is the main idea of **Point defects**?
+Since $1\ \text{N/mm}^2 = 1\ \text{MPa}$,
 
-:::solution
-One short answer is: Vacancy: missing atom
+$$
+\sigma = 400\ \text{MPa}
+$$
 :::
 
 ---
-id: "engineering-materials-science-115"
-note: "engineering-materials-science"
-title: "Review: Line and planar defects"
-type: "text"
-answer: "Dislocations: line defects that enable plastic deformation"
-skills:
-  - "Line and planar defects"
+id: materials-science-17
+note: engineering-materials-science
+title: "Choose the Right Heat Treatment"
+skills: [Heat treatment]
 ---
 
-What is the main idea of **Line and planar defects**?
+Which heat treatment is used to increase hardness by rapid cooling?
 
 :::solution
-One short answer is: Dislocations: line defects that enable plastic deformation
-:::
-
----
-id: "engineering-materials-science-116"
-note: "engineering-materials-science"
-title: "Review: Dislocations"
-type: "text"
-answer: "edge dislocation"
-skills:
-  - "Dislocations"
----
-
-What is the main idea of **Dislocations**?
+That treatment is **quenching**.
 
-:::solution
-One short answer is: edge dislocation
+Rapid cooling can suppress diffusion and produce a harder microstructure.
 :::
 
 ---
-id: "engineering-materials-science-117"
-note: "engineering-materials-science"
-title: "Review: Diffusion"
-type: "text"
-answer: "$J$ is diffusion flux"
-skills:
-  - "Diffusion"
+id: materials-science-18
+note: engineering-materials-science
+title: "Match a Material Class to Its Traits"
+skills: [Polymers, Material classes]
 ---
 
-What is the main idea of **Diffusion**?
+Which material class is typically low density, low modulus, viscoelastic, and strongly dependent on temperature and strain rate?
 
 :::solution
-One short answer is: $J$ is diffusion flux
-:::
-
----
-id: "engineering-materials-science-21"
-note: "engineering-materials-science"
-title: "Review: Why diffusion matters"
-type: "text"
-answer: "carburizing and nitriding"
-skills:
-  - "Why diffusion matters"
----
+That class is **polymers**.
 
-What is the main idea of **Why diffusion matters**?
-
-:::solution
-One short answer is: carburizing and nitriding
+The note lists them as low density, low stiffness, and strongly affected by temperature and strain rate.
 :::
 
 ---
-id: "engineering-materials-science-22"
-note: "engineering-materials-science"
-title: "Review: Phase diagrams and phase transformations"
-type: "text"
-answer: "Phase diagrams and phase transformations"
-skills:
-  - "5. Phase diagrams and phase transformations"
+id: materials-science-19
+note: engineering-materials-science
+title: "Identify the Best Characterization Tool"
+skills: [XRD, Characterization]
 ---
 
-What is the main idea of **Phase diagrams and phase transformations**?
+Which characterization method is best for identifying crystal structure and phase identity by lattice spacing?
 
 :::solution
-One short answer is: Phase diagrams and phase transformations
-:::
-
----
-id: "engineering-materials-science-23"
-note: "engineering-materials-science"
-title: "Review: Phase concept"
-type: "text"
-answer: "solid solution"
-skills:
-  - "Phase concept"
----
-
-What is the main idea of **Phase concept**?
+The best method is **X-ray diffraction (XRD)**.
 
-:::solution
-One short answer is: solid solution
+The note says XRD is used for crystal structure and phase identification.
 :::
 
 ---
-id: "engineering-materials-science-24"
-note: "engineering-materials-science"
-title: "Review: Binary phase diagrams"
-type: "text"
-answer: "Find the overall alloy composition."
-skills:
-  - "Binary phase diagrams"
+id: materials-science-110
+note: engineering-materials-science
+title: "Pick the First Selection Step"
+skills: [Materials selection]
 ---
 
-What is the main idea of **Binary phase diagrams**?
+Before screening candidate materials, what is the first thing you should define in the selection workflow?
 
 :::solution
-One short answer is: Find the overall alloy composition.
-:::
+You should first define the **function of the part**.
 
----
-id: "engineering-materials-science-25"
-note: "engineering-materials-science"
-title: "Review: Lever rule"
-type: "text"
-answer: "$W \\alpha$, $W \\beta$ are mass fractions"
-skills:
-  - "Lever rule"
----
-
-What is the main idea of **Lever rule**?
-
-:::solution
-One short answer is: $W \alpha$, $W \beta$ are mass fractions
+From there, you can identify the loading, environment, temperature, lifetime, and other constraints.
 :::
 
 ---
-id: "engineering-materials-science-26"
-note: "engineering-materials-science"
-title: "Review: Eutectic, eutectoid, and peritectic reactions"
-type: "text"
-answer: "Eutectic: liquid transforms to two solids"
-skills:
-  - "Eutectic, eutectoid, and peritectic reactions"
+id: materials-science-21
+note: engineering-materials-science
+title: "Find the Unit-Cell Edge Length"
+skills: [Crystal structures, FCC]
 ---
-
-What is the main idea of **Eutectic, eutectoid, and peritectic reactions**?
-
-:::solution
-One short answer is: Eutectic: liquid transforms to two solids
-:::
 
----
-id: "engineering-materials-science-27"
-note: "engineering-materials-science"
-title: "Review: Iron-carbon system"
-type: "text"
-answer: "ferrite ($\\alpha$): BCC iron, soft and ductile"
-skills:
-  - "Iron-carbon system"
----
+An FCC metal has atomic radius $r = 0.125$ nm.
 
-What is the main idea of **Iron-carbon system**?
+What is the unit-cell edge length?
 
 :::solution
-One short answer is: ferrite ($\alpha$): BCC iron, soft and ductile
-:::
-
----
-id: "engineering-materials-science-28"
-note: "engineering-materials-science"
-title: "Review: Time-temperature-transformation ideas"
-type: "text"
-answer: "slow cooling favors diffusion-controlled products"
-skills:
-  - "Time-temperature-transformation ideas"
----
+For FCC,
 
-What is the main idea of **Time-temperature-transformation ideas**?
+$$
+a = 2\sqrt{2}\,r
+$$
 
-:::solution
-One short answer is: slow cooling favors diffusion-controlled products
-:::
+so
 
----
-id: "engineering-materials-science-29"
-note: "engineering-materials-science"
-title: "Review: Mechanical behavior"
-type: "text"
-answer: "Mechanical behavior"
-skills:
-  - "6. Mechanical behavior"
----
+$$
+a = 2\sqrt{2}(0.125) \approx 0.3536\ \text{nm}
+$$
 
-What is the main idea of **Mechanical behavior**?
+Thus,
 
-:::solution
-One short answer is: Mechanical behavior
+$$
+a \approx 0.354\ \text{nm}
+$$
 :::
 
 ---
-id: "engineering-materials-science-210"
-note: "engineering-materials-science"
-title: "Review: Stress and strain"
-type: "text"
-answer: "Engineering stress: $$ \\sigma = \\frac{F}{A 0} $$ Engineering strain: $$ \\varepsilon = \\frac{L - L 0}{L 0} $$ True stress and true strain are more accurate at large deformation: $$ \\sigma t = \\frac{F}{A} $$ $$ \\varepsilo…"
-skills:
-  - "Stress and strain"
+id: materials-science-22
+note: engineering-materials-science
+title: "Compare Two Grain Sizes"
+skills: [Hall-Petch, Grain-size strengthening]
 ---
-
-What is the main idea of **Stress and strain**?
 
-:::solution
-One short answer is: Engineering stress: $$ \sigma = \frac{F}{A 0} $$ Engineering strain: $$ \varepsilon = \frac{L - L 0}{L 0} $$ True stress and true strain are more accurate at large deformation: $$ \sigma t = \frac{F}{A} $$ $$ \varepsilo…
-:::
-
----
-id: "engineering-materials-science-211"
-note: "engineering-materials-science"
-title: "Review: Elastic deformation"
-type: "text"
-answer: "shear modulus, $G$"
-skills:
-  - "Elastic deformation"
----
+Material A has a grain size of $16\ \mu\text{m}$ and material B has a grain size of $4\ \mu\text{m}$.
 
-What is the main idea of **Elastic deformation**?
+According to the Hall-Petch relation, which material should have the higher yield strength, and how do the Hall-Petch terms compare?
 
 :::solution
-One short answer is: shear modulus, $G$
-:::
+The Hall-Petch term is proportional to $d^{-1/2}$.
 
----
-id: "engineering-materials-science-212"
-note: "engineering-materials-science"
-title: "Review: Plastic deformation"
-type: "text"
-answer: "elastic region"
-skills:
-  - "Plastic deformation"
----
+For material A:
 
-What is the main idea of **Plastic deformation**?
+$$
+16^{-1/2} = \frac{1}{4}
+$$
 
-:::solution
-One short answer is: elastic region
-:::
+For material B:
 
----
-id: "engineering-materials-science-213"
-note: "engineering-materials-science"
-title: "Review: Ductility and toughness"
-type: "text"
-answer: "Ductility measures how much plastic strain occurs before fracture."
-skills:
-  - "Ductility and toughness"
----
+$$
+4^{-1/2} = \frac{1}{2}
+$$
 
-What is the main idea of **Ductility and toughness**?
+So material B has the larger Hall-Petch term, by a factor of $2$.
 
-:::solution
-One short answer is: Ductility measures how much plastic strain occurs before fracture.
+Therefore, **material B** should have the higher yield strength.
 :::
 
 ---
-id: "engineering-materials-science-214"
-note: "engineering-materials-science"
-title: "Review: Hardness"
-type: "text"
-answer: "Brinell"
-skills:
-  - "Hardness"
+id: materials-science-23
+note: engineering-materials-science
+title: "Use the Lever Rule for Phase Fractions"
+skills: [Lever rule, Phase diagrams]
 ---
-
-What is the main idea of **Hardness**?
 
-:::solution
-One short answer is: Brinell
-:::
+At a temperature in a two-phase $\alpha+\beta$ region, suppose
 
----
-id: "engineering-materials-science-215"
-note: "engineering-materials-science"
-title: "Review: Fracture"
-type: "text"
-answer: "ductile fracture: large plastic deformation, microvoid coalescence"
-skills:
-  - "Fracture"
----
+$$
+C_\alpha = 20\%, \quad C_\beta = 80\%, \quad C_0 = 50\%.
+$$
 
-What is the main idea of **Fracture**?
+Find the mass fractions of $\alpha$ and $\beta$.
 
 :::solution
-One short answer is: ductile fracture: large plastic deformation, microvoid coalescence
-:::
-
----
-id: "engineering-materials-science-216"
-note: "engineering-materials-science"
-title: "Review: Fatigue"
-type: "text"
-answer: "stress amplitude"
-skills:
-  - "Fatigue"
----
+Use the lever rule:
 
-What is the main idea of **Fatigue**?
-
-:::solution
-One short answer is: stress amplitude
-:::
+$$
+W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
+$$
 
----
-id: "engineering-materials-science-217"
-note: "engineering-materials-science"
-title: "Review: Creep"
-type: "text"
-answer: "primary creep: decreasing rate"
-skills:
-  - "Creep"
----
+and
 
-What is the main idea of **Creep**?
+$$
+W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha}
+$$
 
-:::solution
-One short answer is: primary creep: decreasing rate
-:::
+Substitute the values:
 
----
-id: "engineering-materials-science-31"
-note: "engineering-materials-science"
-title: "Review: Heat treatment and strengthening"
-type: "text"
-answer: "Heat treatment and strengthening"
-skills:
-  - "7. Heat treatment and strengthening"
----
+$$
+W_\alpha = \frac{80 - 50}{80 - 20} = \frac{30}{60} = 0.5
+$$
 
-What is the main idea of **Heat treatment and strengthening**?
+$$
+W_\beta = \frac{50 - 20}{80 - 20} = \frac{30}{60} = 0.5
+$$
 
-:::solution
-One short answer is: Heat treatment and strengthening
+So the two phases are present in equal amounts.
 :::
 
 ---
-id: "engineering-materials-science-32"
-note: "engineering-materials-science"
-title: "Review: Strengthening mechanisms"
-type: "text"
-answer: "Grain-size strengthening"
-skills:
-  - "Strengthening mechanisms"
+id: materials-science-24
+note: engineering-materials-science
+title: "Interpret the Effect of Temperature on Diffusivity"
+skills: [Diffusion, Arrhenius relation]
 ---
 
-What is the main idea of **Strengthening mechanisms**?
-
-:::solution
-One short answer is: Grain-size strengthening
-:::
+Using
 
----
-id: "engineering-materials-science-33"
-note: "engineering-materials-science"
-title: "Review: Hall-Petch relation"
-type: "text"
-answer: "$d$ is grain diameter"
-skills:
-  - "Hall-Petch relation"
----
+$$
+D = D_0 e^{-Q/RT},
+$$
 
-What is the main idea of **Hall-Petch relation**?
+what happens to diffusivity when temperature increases and $D_0$ and $Q$ stay fixed?
 
 :::solution
-One short answer is: $d$ is grain diameter
-:::
-
----
-id: "engineering-materials-science-34"
-note: "engineering-materials-science"
-title: "Review: Strain hardening"
-type: "text"
-answer: "higher yield strength"
-skills:
-  - "Strain hardening"
----
+As $T$ increases, the quantity $-Q/RT$ becomes less negative, so the exponential term gets larger.
 
-What is the main idea of **Strain hardening**?
-
-:::solution
-One short answer is: higher yield strength
+Therefore, **diffusivity increases** with temperature, and it usually increases rapidly because of the exponential dependence.
 :::
 
 ---
-id: "engineering-materials-science-35"
-note: "engineering-materials-science"
-title: "Review: Precipitation hardening"
-type: "text"
-answer: "Solution heat treat to dissolve solute."
-skills:
-  - "Precipitation hardening"
+id: materials-science-25
+note: engineering-materials-science
+title: "Read a Tensile Curve Milestone"
+skills: [Tensile test, Plastic deformation]
 ---
 
-What is the main idea of **Precipitation hardening**?
+On a tensile test curve, what does the ultimate tensile strength mark?
 
 :::solution
-One short answer is: Solution heat treat to dissolve solute.
-:::
-
----
-id: "engineering-materials-science-36"
-note: "engineering-materials-science"
-title: "Review: Steel heat treatment"
-type: "text"
-answer: "annealing: soften and relieve stress"
-skills:
-  - "Steel heat treatment"
----
-
-What is the main idea of **Steel heat treatment**?
+The ultimate tensile strength is the **maximum engineering stress** reached on the curve.
 
-:::solution
-One short answer is: annealing: soften and relieve stress
+After that point, necking usually begins.
 :::
 
 ---
-id: "engineering-materials-science-37"
-note: "engineering-materials-science"
-title: "Review: Classes of engineering materials"
-type: "text"
-answer: "Classes of engineering materials"
-skills:
-  - "8. Classes of engineering materials"
+id: materials-science-26
+note: engineering-materials-science
+title: "Order a Precipitation-Hardening Sequence"
+skills: [Precipitation hardening, Heat treatment]
 ---
 
-What is the main idea of **Classes of engineering materials**?
+Put the precipitation-hardening steps in order, and state why quenching is used.
 
 :::solution
-One short answer is: Classes of engineering materials
-:::
-
----
-id: "engineering-materials-science-38"
-note: "engineering-materials-science"
-title: "Review: Metals"
-type: "text"
-answer: "high electrical and thermal conductivity"
-skills:
-  - "Metals"
----
+The usual sequence is:
 
-What is the main idea of **Metals**?
+1. Solution heat treat
+2. Quench
+3. Age
 
-:::solution
-One short answer is: high electrical and thermal conductivity
+Quenching is used to retain a **supersaturated solid solution** so that fine precipitates can form during aging.
 :::
 
 ---
-id: "engineering-materials-science-39"
-note: "engineering-materials-science"
-title: "Review: Ceramics"
-type: "text"
-answer: "high hardness and stiffness"
-skills:
-  - "Ceramics"
+id: materials-science-27
+note: engineering-materials-science
+title: "Convert Strain to True Strain"
+skills: [True strain, Deformation]
 ---
-
-What is the main idea of **Ceramics**?
 
-:::solution
-One short answer is: high hardness and stiffness
-:::
-
----
-id: "engineering-materials-science-310"
-note: "engineering-materials-science"
-title: "Review: Polymers"
-type: "text"
-answer: "low density"
-skills:
-  - "Polymers"
----
+A specimen stretches from $50$ mm to $55$ mm.
 
-What is the main idea of **Polymers**?
+What is the true strain?
 
 :::solution
-One short answer is: low density
-:::
-
----
-id: "engineering-materials-science-311"
-note: "engineering-materials-science"
-title: "Review: Composites"
-type: "text"
-answer: "fiber-reinforced polymers"
-skills:
-  - "Composites"
----
-
-What is the main idea of **Composites**?
+Use
 
-:::solution
-One short answer is: fiber-reinforced polymers
-:::
+$$
+\varepsilon_t = \ln\left(\frac{L}{L_0}\right)
+$$
 
----
-id: "engineering-materials-science-312"
-note: "engineering-materials-science"
-title: "Review: Semiconductors"
-type: "text"
-answer: "band gap"
-skills:
-  - "Semiconductors"
----
+so
 
-What is the main idea of **Semiconductors**?
+$$
+\varepsilon_t = \ln\left(\frac{55}{50}\right) = \ln\left(\frac{11}{10}\right)
+$$
 
-:::solution
-One short answer is: band gap
+That is the exact true strain.
 :::
 
 ---
-id: "engineering-materials-science-313"
-note: "engineering-materials-science"
-title: "Review: Characterization and testing"
-type: "text"
-answer: "Characterization and testing"
-skills:
-  - "9. Characterization and testing"
+id: materials-science-28
+note: engineering-materials-science
+title: "Identify a Crystal Structure from Geometry"
+skills: [Crystal structures, Coordination number]
 ---
-
-What is the main idea of **Characterization and testing**?
-
-:::solution
-One short answer is: Characterization and testing
-:::
 
----
-id: "engineering-materials-science-314"
-note: "engineering-materials-science"
-title: "Review: Microstructure characterization"
-type: "text"
-answer: "optical microscopy"
-skills:
-  - "Microstructure characterization"
----
+A crystal structure has 4 atoms per unit cell, a coordination number of 12, and a packing factor of 0.74.
 
-What is the main idea of **Microstructure characterization**?
+Which common crystal structure is it?
 
 :::solution
-One short answer is: optical microscopy
-:::
-
----
-id: "engineering-materials-science-315"
-note: "engineering-materials-science"
-title: "Review: What each method is good for"
-type: "text"
-answer: "Method Best for Typical output --- --- --- Optical microscopy Grain structure, phases at moderate scale Grain size, phase distribution SEM Surface and fracture features Morphology, composition contrast TEM Nanoscale def…"
-skills:
-  - "What each method is good for"
----
-
-What core idea is introduced in **What each method is good for**?
+Those values match **face-centered cubic (FCC)**.
 
-:::solution
-One short answer is: Method Best for Typical output --- --- --- Optical microscopy Grain structure, phases at moderate scale Grain size, phase distribution SEM Surface and fracture features Morphology, composition contrast TEM Nanoscale def…
+The note lists FCC as having 4 atoms per unit cell, coordination number 12, and packing factor 0.74.
 :::
 
 ---
-id: "engineering-materials-science-316"
-note: "engineering-materials-science"
-title: "Review: Mechanical tests"
-type: "text"
-answer: "tension"
-skills:
-  - "Mechanical tests"
+id: materials-science-31
+note: engineering-materials-science
+title: "Choose a Material for a Lightweight Stiff Panel"
+skills: [Composites, Materials selection]
 ---
-
-What is the main idea of **Mechanical tests**?
 
-:::solution
-One short answer is: tension
-:::
-
----
-id: "engineering-materials-science-317"
-note: "engineering-materials-science"
-title: "Review: Chemical and environmental tests"
-type: "text"
-answer: "corrosion testing"
-skills:
-  - "Chemical and environmental tests"
----
+You need a panel for a drone wing skin that is light, stiff, and reinforced in a preferred direction.
 
-What is the main idea of **Chemical and environmental tests**?
+Which material class from the note is the best fit?
 
 :::solution
-One short answer is: corrosion testing
-:::
-
----
-id: "engineering-materials-science-41"
-note: "engineering-materials-science"
-title: "Review: Materials selection"
-type: "text"
-answer: "strength"
-skills:
-  - "10. Materials selection"
----
-
-What is the main idea of **Materials selection**?
+The best fit is a **composite**, especially a fiber-reinforced polymer.
 
-:::solution
-One short answer is: strength
+Composites are used for high specific stiffness, directional reinforcement, and tailored performance.
 :::
 
 ---
-id: "engineering-materials-science-42"
-note: "engineering-materials-science"
-title: "Review: Selection workflow"
-type: "text"
-answer: "Define the function of the part."
-skills:
-  - "Selection workflow"
+id: materials-science-32
+note: engineering-materials-science
+title: "Predict the Phase Fraction from Composition"
+skills: [Lever rule, Phase diagrams]
 ---
-
-According to the note, what sequence of steps is recommended in **Selection workflow**?
 
-:::solution
-One short answer is: Define the function of the part.
-:::
+An alloy is in an $\alpha+\beta$ region with
 
----
-id: "engineering-materials-science-43"
-note: "engineering-materials-science"
-title: "Review: Common engineering tradeoffs"
-type: "text"
-answer: "Higher strength often reduces ductility."
-skills:
-  - "Common engineering tradeoffs"
----
+$$
+C_\alpha = 10\%, \quad C_\beta = 70\%, \quad C_0 = 34\%.
+$$
 
-Name one common mistake the note warns about in **Common engineering tradeoffs**.
+Which phase is more abundant, and by how much?
 
 :::solution
-One short answer is: Higher strength often reduces ductility.
-:::
+Use the lever rule:
 
----
-id: "engineering-materials-science-44"
-note: "engineering-materials-science"
-title: "Review: Process selection"
-type: "text"
-answer: "casting"
-skills:
-  - "Process selection"
----
+$$
+W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
+= \frac{70 - 34}{70 - 10}
+= \frac{36}{60}
+= 0.6
+$$
 
-What is the main idea of **Process selection**?
+$$
+W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha}
+= \frac{34 - 10}{70 - 10}
+= \frac{24}{60}
+= 0.4
+$$
 
-:::solution
-One short answer is: casting
+So $\alpha$ is more abundant, with a mass fraction of $0.6$ versus $0.4$ for $\beta$.
 :::
 
 ---
-id: "engineering-materials-science-45"
-note: "engineering-materials-science"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "For exam or design problems, use a disciplined sequence."
-skills:
-  - "11. Problem-solving workflow"
+id: materials-science-33
+note: engineering-materials-science
+title: "Estimate Crack Safety"
+skills: [Fracture toughness, Stress intensity]
 ---
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
 
-:::solution
-One short answer is: For exam or design problems, use a disciplined sequence.
-:::
-
----
-id: "engineering-materials-science-46"
-note: "engineering-materials-science"
-title: "Review: Step-by-step approach"
-type: "text"
-answer: "Identify the material class and relevant microstructure."
-skills:
-  - "Step-by-step approach"
----
+A component has stress $\sigma = 120$ MPa, crack size $a = 5$ mm, and geometry factor $Y = 1$.
 
-What is the main idea of **Step-by-step approach**?
+If the fracture toughness is $K_{IC} = 16$ MPa$\sqrt{\text{m}}$, is the component safe by the crack-growth criterion in the note?
 
 :::solution
-One short answer is: Identify the material class and relevant microstructure.
-:::
-
----
-id: "engineering-materials-science-47"
-note: "engineering-materials-science"
-title: "Review: Common equations to recognize quickly"
-type: "text"
-answer: "stress and strain relations"
-skills:
-  - "Common equations to recognize quickly"
----
-
-Name one common mistake the note warns about in **Common equations to recognize quickly**.
+Use
 
-:::solution
-One short answer is: stress and strain relations
-:::
+$$
+K = Y\sigma\sqrt{\pi a}
+$$
 
----
-id: "engineering-materials-science-48"
-note: "engineering-materials-science"
-title: "Review: Dimensional checks"
-type: "text"
-answer: "stress: Pa"
-skills:
-  - "Dimensional checks"
----
+with $a = 5$ mm $= 0.005$ m:
 
-What is the main idea of **Dimensional checks**?
+$$
+K = 1(120)\sqrt{\pi(0.005)}
+$$
 
-:::solution
-One short answer is: stress: Pa
-:::
+$$
+K \approx 120 \times 0.125 = 15.0\ \text{MPa}\sqrt{\text{m}}
+$$
 
----
-id: "engineering-materials-science-49"
-note: "engineering-materials-science"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "12. Formula summary"
----
+Since
 
-What core formulas or relations are summarized in **Formula summary**?
+$$
+15.0 < 16,
+$$
 
-:::solution
-One short answer is: Formula summary
+the component is **safe by this criterion**.
 :::
 
 ---
-id: "engineering-materials-science-410"
-note: "engineering-materials-science"
-title: "Review: Mechanics"
-type: "text"
-answer: "$$ \\sigma = \\frac{F}{A 0} $$ $$ \\varepsilon = \\frac{L - L 0}{L 0} $$ $$ \\sigma = E\\varepsilon $$ $$ \\sigma y = \\sigma 0 + k y d^{-1/2} $$ $$ K = Y\\sigma \\sqrt{\\pi a} $$"
-skills:
-  - "Mechanics"
+id: materials-science-34
+note: engineering-materials-science
+title: "Pick a Heat Treatment for Toughness"
+skills: [Tempering, Heat treatment]
 ---
 
-What is the main idea of **Mechanics**?
+A steel part is too brittle after quenching.
 
+Which heat treatment should follow to reduce brittleness while keeping useful hardness?
+
 :::solution
-One short answer is: $$ \sigma = \frac{F}{A 0} $$ $$ \varepsilon = \frac{L - L 0}{L 0} $$ $$ \sigma = E\varepsilon $$ $$ \sigma y = \sigma 0 + k y d^{-1/2} $$ $$ K = Y\sigma \sqrt{\pi a} $$
+The next step should be **tempering**.
+
+The note says tempering reduces brittleness after a quench while helping keep useful hardness.
 :::
 
 ---
-id: "engineering-materials-science-411"
-note: "engineering-materials-science"
-title: "Review: Diffusion"
-type: "text"
-answer: "$$ J = -D \\frac{dC}{dx} $$ $$ \\frac{\\partial C}{\\partial t} = D \\frac{\\partial^2 C}{\\partial x^2} $$ $$ D = D 0 e^{-Q/RT} $$"
-skills:
-  - "Diffusion"
+id: materials-science-35
+note: engineering-materials-science
+title: "Choose a Strengthening Mechanism for Aluminum"
+skills: [Precipitation hardening, Alloys]
 ---
 
-What is the main idea of **Diffusion**?
+A designer strengthens an aluminum alloy by solution heat treating, quenching, and then aging it so that fine precipitates form.
 
+What strengthening mechanism is being used?
+
 :::solution
-One short answer is: $$ J = -D \frac{dC}{dx} $$ $$ \frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2} $$ $$ D = D 0 e^{-Q/RT} $$
+That is **precipitation hardening**.
+
+The fine precipitates impede dislocation motion and raise strength.
 :::
 
 ---
-id: "engineering-materials-science-412"
-note: "engineering-materials-science"
-title: "Review: Phase fractions"
-type: "text"
-answer: "$$ W \\alpha = \\frac{C \\beta - C 0}{C \\beta - C \\alpha} $$ $$ W \\beta = \\frac{C 0 - C \\alpha}{C \\beta - C \\alpha} $$"
-skills:
-  - "Phase fractions"
+id: materials-science-41
+note: engineering-materials-science
+title: "Predict the Effect of Fine Grains and Cold Work"
+skills: [Hall-Petch, Strain hardening]
 ---
+
+A metal is made finer-grained and then cold-worked.
 
-What is the main idea of **Phase fractions**?
+What happens to yield strength and ductility, and why?
 
 :::solution
-One short answer is: $$ W \alpha = \frac{C \beta - C 0}{C \beta - C \alpha} $$ $$ W \beta = \frac{C 0 - C \alpha}{C \beta - C \alpha} $$
+The **yield strength increases** and the **ductility decreases**.
+
+Fine grains strengthen the metal by impeding dislocation motion, and cold work increases dislocation density, which makes further slip harder.
 :::
 
 ---
-id: "engineering-materials-science-413"
-note: "engineering-materials-science"
-title: "Review: Crystal geometry"
-type: "text"
-answer: "$$ a = \\frac{4r}{\\sqrt{3}} \\quad \\text{for BCC} $$ $$ a = 2\\sqrt{2}\\,r \\quad \\text{for FCC} $$ ---"
-skills:
-  - "Crystal geometry"
+id: materials-science-42
+note: engineering-materials-science
+title: "Select a High-Temperature Insulating Material"
+skills: [Ceramics, Materials selection]
 ---
+
+A part must keep its shape at high temperature, resist wear, and act as an electrical insulator.
 
-What is the main idea of **Crystal geometry**?
+Which material class is the best fit, and what tradeoff should you expect?
 
 :::solution
-One short answer is: $$ a = \frac{4r}{\sqrt{3}} \quad \text{for BCC} $$ $$ a = 2\sqrt{2}\,r \quad \text{for FCC} $$ ---
+The best fit is a **ceramic**.
+
+The main tradeoff is that ceramics are typically **brittle** and have low ductility.
 :::
 
 ---
-id: "engineering-materials-science-414"
-note: "engineering-materials-science"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Confusing phase composition with overall alloy composition."
-skills:
-  - "13. Common pitfalls"
+id: materials-science-43
+note: engineering-materials-science
+title: "Explain Why Quenching Changes Properties"
+skills: [Martensite, Processing-structure-properties]
 ---
 
-Name one common mistake the note warns about in **Common pitfalls**.
+A rapid quench changes a steel microstructure to martensite.
 
-:::solution
-One short answer is: Confusing phase composition with overall alloy composition.
-:::
+Explain how the processing change leads to the property change.
 
----
-id: "engineering-materials-science-415"
-note: "engineering-materials-science"
-title: "Review: Quick sanity checks"
-type: "text"
-answer: "Does the trend match the mechanism?"
-skills:
-  - "Quick sanity checks"
----
+:::solution
+Rapid quenching suppresses diffusion, so the steel transforms into a **metastable martensitic structure** instead of a diffusion-controlled equilibrium structure.
 
-What is the main idea of **Quick sanity checks**?
+That new structure is much harder, but also more brittle.
 
-:::solution
-One short answer is: Does the trend match the mechanism?
+So the processing change leads to a structure change, which then changes properties.
 :::
 
 ---
-id: "engineering-materials-science-416"
-note: "engineering-materials-science"
-title: "Review: Final takeaway"
-type: "text"
-answer: "Materials science is about selecting and designing materials by controlling structure at multiple scales."
-skills:
-  - "Final takeaway"
+id: materials-science-44
+note: engineering-materials-science
+title: "Choose a Hard-But-Not-Brittle Heat Treatment"
+skills: [Heat treatment, Toughness]
 ---
 
-What is the main idea of **Final takeaway**?
+A steel gear needs high hardness, but it must not fail in a brittle way.
 
+Based on the note, what heat-treatment sequence best balances those requirements?
+
 :::solution
-One short answer is: Materials science is about selecting and designing materials by controlling structure at multiple scales.
+The best sequence is to **quench, then temper**.
+
+Quenching raises hardness, and tempering reduces brittleness and improves toughness enough to make the part more reliable in service.
 :::

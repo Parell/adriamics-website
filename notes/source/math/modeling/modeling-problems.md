@@ -1,1023 +1,652 @@
 ---
-id: "math-modeling-11"
-note: "math-modeling"
-title: "Review: What mathematical modeling is"
-type: "text"
-answer: "Explain observed behavior"
-skills:
-  - "1. What mathematical modeling is"
+id: modeling-11
+note: math-modeling
+title: "Identify the Main Goal of a Model"
+skills: [Modeling goals]
 ---
 
-What core idea is introduced in **What mathematical modeling is**?
+A model is built to estimate next month's demand from current sales data.
+
+What main modeling goal is this?
 
 :::solution
-One short answer is: Explain observed behavior
+This is mainly a model for predicting future behavior.
+
+The model uses current data to estimate what is likely to happen next month.
 :::
 
 ---
-id: "math-modeling-12"
-note: "math-modeling"
-title: "Review: What makes a model useful"
-type: "text"
-answer: "Mathematically consistent"
-skills:
-  - "What makes a model useful"
+id: modeling-12
+note: math-modeling
+title: "Classify a Random Demand Model"
+skills: [Deterministic and stochastic]
 ---
 
-What is the main idea of **What makes a model useful**?
+A store demand model includes random day-to-day fluctuations.
+
+Is this model deterministic or stochastic?
 
 :::solution
-One short answer is: Mathematically consistent
+It is stochastic.
+
+A stochastic model includes randomness, and the demand changes unpredictably from day to day.
 :::
 
 ---
-id: "math-modeling-13"
-note: "math-modeling"
-title: "Review: The modeling cycle"
-type: "text"
-answer: "Most modeling problems follow a recurring cycle."
-skills:
-  - "2. The modeling cycle"
+id: modeling-13
+note: math-modeling
+title: "Classify an Inventory Snapshot"
+skills: [Static and dynamic]
 ---
 
-What is the main idea of **The modeling cycle**?
+A one-day inventory report gives the number of items on hand at a single moment.
+
+Is this model static or dynamic?
 
 :::solution
-One short answer is: Most modeling problems follow a recurring cycle.
+It is static.
+
+A static model describes one snapshot in time rather than how the system changes over time.
 :::
 
 ---
-id: "math-modeling-14"
-note: "math-modeling"
-title: "Review: Define the question"
-type: "text"
-answer: "How many customers will a business have next month?"
-skills:
-  - "1. Define the question"
+id: modeling-14
+note: math-modeling
+title: "Classify a Temperature Reading"
+skills: [Continuous and discrete]
 ---
 
-What is the main idea of **Define the question**?
+Temperature changes smoothly throughout the day.
+
+Is this quantity best modeled as continuous or discrete?
 
 :::solution
-One short answer is: How many customers will a business have next month?
+It is continuous.
+
+Temperature varies smoothly, so a continuous model is appropriate.
 :::
 
 ---
-id: "math-modeling-15"
-note: "math-modeling"
-title: "Review: Identify variables and assumptions"
-type: "text"
-answer: "State variables describe the system at a given time."
-skills:
-  - "2. Identify variables and assumptions"
+id: modeling-15
+note: math-modeling
+title: "Identify a Linear Relation"
+skills: [Linear and nonlinear]
 ---
 
-What is the main idea of **Identify variables and assumptions**?
+Is the relation
+
+$$
+y = 3x - 2
+$$
+
+linear or nonlinear?
 
 :::solution
-One short answer is: State variables describe the system at a given time.
+It is linear.
+
+It has the form $y = mx + b$, which is the standard linear form.
 :::
 
 ---
-id: "math-modeling-16"
-note: "math-modeling"
-title: "Review: Build the equations"
-type: "text"
-answer: "Conservation laws"
-skills:
-  - "3. Build the equations"
+id: modeling-16
+note: math-modeling
+title: "Compute Absolute Error"
+skills: [Absolute error]
 ---
 
-What is the main idea of **Build the equations**?
+A model predicts $47$ when the true value is $50$.
+
+What is the absolute error?
 
 :::solution
-One short answer is: Conservation laws
+Use the absolute error formula:
+
+$$
+e_{abs} = |x - x_{true}|
+$$
+
+So,
+
+$$
+|47 - 50| = 3
+$$
+
+The absolute error is $3$.
 :::
 
 ---
-id: "math-modeling-17"
-note: "math-modeling"
-title: "Review: Solve or simulate"
-type: "text"
-answer: "Algebra"
-skills:
-  - "4. Solve or simulate"
+id: modeling-17
+note: math-modeling
+title: "Compute Relative Error"
+skills: [Relative error]
 ---
 
-What is the main idea of **Solve or simulate**?
+A model predicts $94$ when the true value is $100$.
+
+What is the relative error?
 
 :::solution
-One short answer is: Algebra
+Use the relative error formula:
+
+$$
+e_{rel} = \frac{|x - x_{true}|}{|x_{true}|}
+$$
+
+So,
+
+$$
+e_{rel} = \frac{|94 - 100|}{100} = \frac{6}{100} = 0.06
+$$
+
+The relative error is $0.06$, or $6\%$.
 :::
 
 ---
-id: "math-modeling-18"
-note: "math-modeling"
-title: "Review: Check the result"
-type: "text"
-answer: "Dimensionally consistent"
-skills:
-  - "5. Check the result"
+id: modeling-18
+note: math-modeling
+title: "Find a Residual"
+skills: [Residuals]
 ---
 
-What is the main idea of **Check the result**?
+A data point has observed value $18$ and model prediction $15$.
+
+What is the residual?
 
 :::solution
-One short answer is: Dimensionally consistent
+The residual is
+
+$$
+r_i = y_i - \hat y_i
+$$
+
+So,
+
+$$
+18 - 15 = 3
+$$
+
+The residual is $3$.
 :::
 
 ---
-id: "math-modeling-19"
-note: "math-modeling"
-title: "Review: Refine"
-type: "text"
-answer: "If the model fails to capture important behavior, revise the assumptions, add variables, or change the structure. The best models are often iterative, not one-shot. ---"
-skills:
-  - "6. Refine"
+id: modeling-19
+note: math-modeling
+title: "Tell Growth from the Sign"
+skills: [Growth and decay]
 ---
 
-What is the main idea of **Refine**?
+In the model
+
+$$
+\frac{dP}{dt} = kP,
+$$
+
+the population is decreasing.
+
+What sign must $k$ have?
 
 :::solution
-One short answer is: If the model fails to capture important behavior, revise the assumptions, add variables, or change the structure. The best models are often iterative, not one-shot. ---
+If the population is decreasing, then the rate of change is negative.
+
+For $\frac{dP}{dt} = kP$, that means $k < 0$.
+
+So $k$ must be negative.
 :::
 
 ---
-id: "math-modeling-110"
-note: "math-modeling"
-title: "Review: Types of models"
-type: "text"
-answer: "Types of models"
-skills:
-  - "3. Types of models"
+id: modeling-110
+note: math-modeling
+title: "Read a Logistic Carrying Capacity"
+skills: [Logistic growth]
 ---
 
-What is the main idea of **Types of models**?
+Consider the logistic model
+
+$$
+\frac{dP}{dt} = rP\left(1 - \frac{P}{800}\right).
+$$
+
+What is the carrying capacity, and what value does $P$ approach if the model is stable?
 
 :::solution
-One short answer is: Types of models
+The carrying capacity is the value in the denominator:
+
+$$
+K = 800
+$$
+
+In a stable logistic model, $P$ approaches the carrying capacity, so
+
+$$
+P \to 800.
+$$
 :::
 
 ---
-id: "math-modeling-111"
-note: "math-modeling"
-title: "Review: Deterministic and stochastic"
-type: "text"
-answer: "Projectile motion without random wind"
-skills:
-  - "Deterministic and stochastic"
+id: modeling-21
+note: math-modeling
+title: "Write an Exponential Growth Model"
+skills: [Differential equations, Growth and decay]
 ---
 
-What is the main idea of **Deterministic and stochastic**?
+A population starts at $250$ and grows at a rate proportional to its size with growth rate $k = 0.04$.
+
+Write the model for $P(t)$.
 
 :::solution
-One short answer is: Projectile motion without random wind
+For proportional growth, the solution has the form
+
+$$
+P(t) = P_0 e^{kt}
+$$
+
+Here $P_0 = 250$ and $k = 0.04$, so
+
+$$
+P(t) = 250e^{0.04t}.
+$$
 :::
 
 ---
-id: "math-modeling-112"
-note: "math-modeling"
-title: "Review: Static and dynamic"
-type: "text"
-answer: "Static: equilibrium in a truss"
-skills:
-  - "Static and dynamic"
+id: modeling-22
+note: math-modeling
+title: "Set Up a Balance Equation"
+skills: [Conservation laws, Differential equations]
 ---
 
-What is the main idea of **Static and dynamic**?
+A tank contains $60$ liters of water.
+
+Water flows in at $9$ liters per hour and flows out at $4$ liters per hour.
+
+Assuming no other sources, write the rate of change and the amount after $t$ hours.
 
 :::solution
-One short answer is: Static: equilibrium in a truss
+Use the balance law:
+
+$$
+\text{change} = \text{inflow} - \text{outflow}
+$$
+
+So the net rate is
+
+$$
+\frac{dV}{dt} = 9 - 4 = 5.
+$$
+
+With initial value $V(0)=60$, the amount after $t$ hours is
+
+$$
+V(t) = 60 + 5t.
+$$
 :::
 
 ---
-id: "math-modeling-113"
-note: "math-modeling"
-title: "Review: Continuous and discrete"
-type: "text"
-answer: "Temperature"
-skills:
-  - "Continuous and discrete"
+id: modeling-23
+note: math-modeling
+title: "Find the Units of a Parameter"
+skills: [Dimensional analysis]
 ---
 
-What is the main idea of **Continuous and discrete**?
+In the equation
+
+$$
+\frac{dx}{dt} = kx,
+$$
+
+$x$ is measured in kilograms and $t$ is measured in hours.
+
+What are the units of $k$?
 
 :::solution
-One short answer is: Temperature
+The left-hand side has units of kilograms per hour.
+
+Since $kx$ must also have units of kilograms per hour and $x$ has units of kilograms, $k$ must have units of
+
+$$
+\frac{1}{\text{hour}}.
+$$
+
+So the units of $k$ are inverse hours.
 :::
 
 ---
-id: "math-modeling-114"
-note: "math-modeling"
-title: "Review: Linear and nonlinear"
-type: "text"
-answer: "Logistic growth"
-skills:
-  - "Linear and nonlinear"
+id: modeling-24
+note: math-modeling
+title: "Estimate the Timescale"
+skills: [Scaling and nondimensionalization, Growth and decay]
 ---
 
-What is the main idea of **Linear and nonlinear**?
+If
+
+$$
+\frac{dx}{dt} = 0.25x,
+$$
+
+what is the rough timescale of the process?
 
 :::solution
-One short answer is: Logistic growth
+For proportional growth, the characteristic timescale is roughly
+
+$$
+\tau \sim \frac{1}{k}.
+$$
+
+Here $k = 0.25$, so
+
+$$
+\tau \sim \frac{1}{0.25} = 4.
+$$
+
+The rough timescale is $4$ time units.
 :::
 
 ---
-id: "math-modeling-115"
-note: "math-modeling"
-title: "Review: Core modeling tools"
-type: "text"
-answer: "Core modeling tools"
-skills:
-  - "4. Core modeling tools"
+id: modeling-25
+note: math-modeling
+title: "Write a Least-Squares Objective"
+skills: [Least squares, Residuals]
 ---
 
-What core idea is introduced in **Core modeling tools**?
+For the data points $(1,4)$, $(2,7)$, and $(3,8)$, use the linear model
+
+$$
+y = mx + b
+$$
+
+to write the least-squares objective function $S(m,b)$.
 
 :::solution
-One short answer is: Core modeling tools
+The least-squares objective is the sum of squared residuals:
+
+$$
+S(m,b) = \sum_{i=1}^n \left(y_i - f(x_i; m,b)\right)^2.
+$$
+
+For the three data points, this becomes
+
+$$
+S(m,b) = (4 - (m+b))^2 + (7 - (2m+b))^2 + (8 - (3m+b))^2.
+$$
 :::
 
 ---
-id: "math-modeling-116"
-note: "math-modeling"
-title: "Review: Dimensional analysis"
-type: "text"
-answer: "Units must be consistent."
-skills:
-  - "Dimensional analysis"
+id: modeling-26
+note: math-modeling
+title: "Interpret a Curved Residual Plot"
+skills: [Residuals, Validation and error analysis]
 ---
 
-What is the main idea of **Dimensional analysis**?
+A linear fit leaves residuals that bend upward and then downward instead of scattering randomly around zero.
+
+What does this suggest?
 
 :::solution
-One short answer is: Units must be consistent.
+The pattern suggests the model is missing structure.
+
+In particular, the relationship is likely nonlinear, or an important variable may be missing.
+
+A good residual plot for a linear model should look random, not curved.
 :::
 
 ---
-id: "math-modeling-21"
-note: "math-modeling"
-title: "Review: Scaling and nondimensionalization"
-type: "text"
-answer: "Scaling replaces raw variables with dimensionless combinations that expose the governing behavior."
-skills:
-  - "Scaling and nondimensionalization"
+id: modeling-27
+note: math-modeling
+title: "Name the State Variables"
+skills: [Modeling cycle, Systems of equations]
 ---
 
-What is the main idea of **Scaling and nondimensionalization**?
+Two connected lakes each have a fish population that changes over time, and the populations affect one another.
+
+What quantities should be in the state vector?
 
 :::solution
-One short answer is: Scaling replaces raw variables with dimensionless combinations that expose the governing behavior.
+The state vector should contain the two fish populations, one for each lake.
+
+Because both quantities evolve together, a system of equations is appropriate.
 :::
 
 ---
-id: "math-modeling-22"
-note: "math-modeling"
-title: "Review: Conservation laws"
-type: "text"
-answer: "Mass balance"
-skills:
-  - "Conservation laws"
+id: modeling-28
+note: math-modeling
+title: "Choose the Right Model Family"
+skills: [Difference equations, Model families]
 ---
 
-What is the main idea of **Conservation laws**?
+A store updates its inventory once each week using last week's stock and this week's sales.
+
+Which model family is the best fit?
 
 :::solution
-One short answer is: Mass balance
+A difference equation model is the best fit.
+
+The updates happen in discrete weekly steps, so a step-by-step recursive rule matches the situation.
 :::
 
 ---
-id: "math-modeling-23"
-note: "math-modeling"
-title: "Review: Functions and rates of change"
-type: "text"
-answer: "Proportional growth: $\\frac{dx}{dt} = kx$"
-skills:
-  - "Functions and rates of change"
+id: modeling-31
+note: math-modeling
+title: "Choose a Model for Saturating Growth"
+skills: [Logistic growth, Model families]
 ---
 
-What is the main idea of **Functions and rates of change**?
+A fish population grows quickly at first, but it levels off near $500$ because the lake has limited food.
+
+Which model family is most appropriate, and why?
 
 :::solution
-One short answer is: Proportional growth: $\frac{dx}{dt} = kx$
+A logistic growth model is most appropriate.
+
+The population starts with near-exponential growth, but the leveling off shows a carrying capacity, which is exactly what logistic growth models.
 :::
 
 ---
-id: "math-modeling-24"
-note: "math-modeling"
-title: "Review: Systems of equations"
-type: "text"
-answer: "Real models often involve multiple interacting variables: $$ \\frac{d\\mathbf{x}}{dt} = f(\\mathbf{x}, t, \\mathbf{p}) $$ where $\\mathbf{x}$ is the state vector and $\\mathbf{p}$ is the parameter vector. ---"
-skills:
-  - "Systems of equations"
+id: modeling-32
+note: math-modeling
+title: "Set Up a Linear Programming Model"
+skills: [Optimization models]
 ---
 
-What is the main idea of **Systems of equations**?
+A factory makes tables and chairs.
+
+Let $x$ be the number of tables and $y$ be the number of chairs.
+
+Each table uses $3$ hours of machine time and each chair uses $1$ hour.
+
+At most $12$ hours are available.
+
+Each table costs \$40 to make and each chair costs \$10 to make, and the budget is at most \$160.
+
+Write a linear programming model that maximizes the total number of items produced.
 
 :::solution
-One short answer is: Real models often involve multiple interacting variables: $$ \frac{d\mathbf{x}}{dt} = f(\mathbf{x}, t, \mathbf{p}) $$ where $\mathbf{x}$ is the state vector and $\mathbf{p}$ is the parameter vector. ---
+Let the objective be to maximize total production:
+
+$$
+\max (x+y)
+$$
+
+The constraints are:
+
+$$
+3x + y \le 12
+$$
+
+$$
+40x + 10y \le 160
+$$
+
+$$
+x \ge 0,\quad y \ge 0.
+$$
+
+This is a linear programming model because the objective and constraints are linear.
 :::
 
 ---
-id: "math-modeling-25"
-note: "math-modeling"
-title: "Review: Parameter fitting and calibration"
-type: "text"
-answer: "Parameters are numbers chosen so the model matches observed data."
-skills:
-  - "5. Parameter fitting and calibration"
+id: modeling-33
+note: math-modeling
+title: "Use a Conservation Law in a Tank"
+skills: [Conservation laws, Linear models]
 ---
 
-What is the main idea of **Parameter fitting and calibration**?
+A tank starts with $90$ liters.
+
+It gains $7$ liters per minute and loses $2$ liters per minute.
+
+How much water is in the tank after $20$ minutes?
 
 :::solution
-One short answer is: Parameters are numbers chosen so the model matches observed data.
+The net change is
+
+$$
+7 - 2 = 5 \text{ liters per minute}.
+$$
+
+After $20$ minutes, the increase is
+
+$$
+5 \cdot 20 = 100.
+$$
+
+So the amount of water is
+
+$$
+90 + 100 = 190.
+$$
 :::
 
 ---
-id: "math-modeling-26"
-note: "math-modeling"
-title: "Review: Calibration workflow"
-type: "text"
-answer: "Choose the model structure"
-skills:
-  - "Calibration workflow"
+id: modeling-34
+note: math-modeling
+title: "Choose a Stochastic Model"
+skills: [Probabilistic models, Deterministic and stochastic]
 ---
 
-According to the note, what sequence of steps is recommended in **Calibration workflow**?
+A clinic's patient arrivals vary unpredictably from hour to hour.
+
+Why is a stochastic model more appropriate than a deterministic one?
 
 :::solution
-One short answer is: Choose the model structure
+A stochastic model is better because the arrivals include randomness.
+
+A deterministic model would give the same output every time from the same input, but the clinic's arrivals fluctuate unpredictably.
 :::
 
 ---
-id: "math-modeling-27"
-note: "math-modeling"
-title: "Review: Least squares"
-type: "text"
-answer: "If observed data are $(x i, y i)$ and the model predicts $\\hat y i = f(x i; \\theta)$, a common objective is $$ S(\\theta) = \\sum {i=1}^n \\left(y i - f(x i; \\theta)\\right)^2 $$ The best-fit parameter vector $\\theta$ minim…"
-skills:
-  - "Least squares"
+id: modeling-35
+note: math-modeling
+title: "Use a Graph Model for Routing"
+skills: [Graph and network models]
 ---
 
-What is the main idea of **Least squares**?
+A delivery app represents intersections as points and roads as connections between them.
+
+What model family is this, and what kinds of questions can it help answer?
 
 :::solution
-One short answer is: If observed data are $(x i, y i)$ and the model predicts $\hat y i = f(x i; \theta)$, a common objective is $$ S(\theta) = \sum {i=1}^n \left(y i - f(x i; \theta)\right)^2 $$ The best-fit parameter vector $\theta$ minim…
+This is a graph or network model.
+
+The intersections are nodes and the roads are edges.
+
+It can help with routing, shortest-path questions, and flow problems.
 :::
 
 ---
-id: "math-modeling-28"
-note: "math-modeling"
-title: "Review: Residuals"
-type: "text"
-answer: "Nonlinearity"
-skills:
-  - "Residuals"
+id: modeling-41
+note: math-modeling
+title: "Choose the Better Long-Term Model"
+skills: [Logistic growth, Common pitfalls]
 ---
 
-What is the main idea of **Residuals**?
+A population is $400$ now.
+
+Model A is exponential:
+
+$$
+P(t) = 400e^{0.08t}
+$$
+
+Model B is logistic with a carrying capacity of $1200$.
+
+If the population lives in a closed habitat, which model is more reasonable, and why?
 
 :::solution
-One short answer is: Nonlinearity
+Model B is more reasonable.
+
+In a closed habitat, resources are limited, so growth should eventually slow down.
+
+The exponential model grows without bound, while the logistic model levels off at the carrying capacity.
 :::
 
 ---
-id: "math-modeling-29"
-note: "math-modeling"
-title: "Review: Overfitting and underfitting"
-type: "text"
-answer: "Underfitting : model is too simple to capture the pattern"
-skills:
-  - "Overfitting and underfitting"
+id: modeling-42
+note: math-modeling
+title: "Diagnose a Calibration Problem"
+skills: [Overfitting and underfitting, Validation and error analysis]
 ---
 
-What is the main idea of **Overfitting and underfitting**?
+A fitted model matches every calibration point exactly, but it performs poorly on new data and shows a clear pattern of errors.
+
+What problem does this suggest?
 
 :::solution
-One short answer is: Underfitting : model is too simple to capture the pattern
+This suggests overfitting, because the model is too flexible and learned the calibration data too closely.
+
+The clear error pattern on new data also suggests the model structure may be missing an important effect.
 :::
 
 ---
-id: "math-modeling-210"
-note: "math-modeling"
-title: "Review: Validation and error analysis"
-type: "text"
-answer: "Model validation checks whether the model is reliable for its intended use."
-skills:
-  - "6. Validation and error analysis"
+id: modeling-43
+note: math-modeling
+title: "Balance at Equilibrium"
+skills: [Conservation laws, Problem-solving checklist]
 ---
 
-What is the main idea of **Validation and error analysis**?
+A model uses the balance law
+
+$$
+\text{change} = \text{inflow} - \text{outflow} + \text{generation} - \text{consumption}.
+$$
+
+If the quantity is not changing over time, what relationship must hold among the four terms?
 
 :::solution
-One short answer is: Model validation checks whether the model is reliable for its intended use.
+If the quantity is not changing, then the left-hand side is $0$.
+
+So the balance law becomes
+
+$$
+0 = \text{inflow} - \text{outflow} + \text{generation} - \text{consumption}.
+$$
+
+Rearranging gives
+
+$$
+\text{inflow} + \text{generation} = \text{outflow} + \text{consumption}.
+$$
 :::
 
 ---
-id: "math-modeling-211"
-note: "math-modeling"
-title: "Review: Sources of error"
-type: "text"
-answer: "Measurement error"
-skills:
-  - "Sources of error"
+id: modeling-44
+note: math-modeling
+title: "Build a Modeling Plan"
+skills: [Modeling cycle, Probabilistic models, Optimization models]
 ---
 
-What is the main idea of **Sources of error**?
+A business wants to forecast weekly demand, which has random swings, and then minimize production cost while respecting machine limits.
 
-:::solution
-One short answer is: Measurement error
-:::
-
----
-id: "math-modeling-212"
-note: "math-modeling"
-title: "Review: Relative and absolute error"
-type: "text"
-answer: "Absolute error: $$ e {abs} = x - x {true} $$ Relative error: $$ e {rel} = \\frac{ x - x {true} }{ x {true} } $$"
-skills:
-  - "Relative and absolute error"
----
-
-What is the main idea of **Relative and absolute error**?
+What main modeling components should be included?
 
 :::solution
-One short answer is: Absolute error: $$ e {abs} = x - x {true} $$ Relative error: $$ e {rel} = \frac{ x - x {true} }{ x {true} } $$
-:::
-
----
-id: "math-modeling-213"
-note: "math-modeling"
-title: "Review: Sensitivity analysis"
-type: "text"
-answer: "Sensitivity analysis measures how much the output changes when an input or parameter changes."
-skills:
-  - "Sensitivity analysis"
----
-
-What is the main idea of **Sensitivity analysis**?
-
-:::solution
-One short answer is: Sensitivity analysis measures how much the output changes when an input or parameter changes.
-:::
-
----
-id: "math-modeling-214"
-note: "math-modeling"
-title: "Review: Validation tests"
-type: "text"
-answer: "Compare predictions against held-out data"
-skills:
-  - "Validation tests"
----
-
-What is the main idea of **Validation tests**?
-
-:::solution
-One short answer is: Compare predictions against held-out data
-:::
-
----
-id: "math-modeling-215"
-note: "math-modeling"
-title: "Review: Common model families"
-type: "text"
-answer: "Common model families"
-skills:
-  - "7. Common model families"
----
-
-Name one common mistake the note warns about in **Common model families**.
-
-:::solution
-One short answer is: Common model families
-:::
-
----
-id: "math-modeling-216"
-note: "math-modeling"
-title: "Review: Linear models"
-type: "text"
-answer: "Linear models are the starting point for many applications."
-skills:
-  - "Linear models"
----
-
-What is the main idea of **Linear models**?
-
-:::solution
-One short answer is: Linear models are the starting point for many applications.
-:::
-
----
-id: "math-modeling-31"
-note: "math-modeling"
-title: "Review: Differential equation models"
-type: "text"
-answer: "Differential equations describe continuous change. Example: $$ \\frac{dN}{dt} = rN $$ This represents exponential growth or decay depending on the sign of $r$."
-skills:
-  - "Differential equation models"
----
-
-What is the main idea of **Differential equation models**?
-
-:::solution
-One short answer is: Differential equations describe continuous change. Example: $$ \frac{dN}{dt} = rN $$ This represents exponential growth or decay depending on the sign of $r$.
-:::
-
----
-id: "math-modeling-32"
-note: "math-modeling"
-title: "Review: Difference equation models"
-type: "text"
-answer: "Difference equations model stepwise change: $$ x {n+1} = F(x n) $$ These are useful for seasonal data, recursive processes, and simulations."
-skills:
-  - "Difference equation models"
----
-
-What is the main idea of **Difference equation models**?
-
-:::solution
-One short answer is: Difference equations model stepwise change: $$ x {n+1} = F(x n) $$ These are useful for seasonal data, recursive processes, and simulations.
-:::
-
----
-id: "math-modeling-33"
-note: "math-modeling"
-title: "Review: Optimization models"
-type: "text"
-answer: "Scheduling"
-skills:
-  - "Optimization models"
----
-
-What is the main idea of **Optimization models**?
-
-:::solution
-One short answer is: Scheduling
-:::
-
----
-id: "math-modeling-34"
-note: "math-modeling"
-title: "Review: Graph and network models"
-type: "text"
-answer: "Transportation networks"
-skills:
-  - "Graph and network models"
----
-
-What is the main idea of **Graph and network models**?
-
-:::solution
-One short answer is: Transportation networks
-:::
-
----
-id: "math-modeling-35"
-note: "math-modeling"
-title: "Review: Probabilistic models"
-type: "text"
-answer: "Bayesian inference"
-skills:
-  - "Probabilistic models"
----
-
-What is the main idea of **Probabilistic models**?
-
-:::solution
-One short answer is: Bayesian inference
-:::
-
----
-id: "math-modeling-36"
-note: "math-modeling"
-title: "Review: Worked example: population growth"
-type: "text"
-answer: "Suppose a population grows at a rate proportional to its current size."
-skills:
-  - "8. Worked example: population growth"
----
-
-What is the main idea of **Worked example: population growth**?
-
-:::solution
-One short answer is: Suppose a population grows at a rate proportional to its current size.
-:::
-
----
-id: "math-modeling-37"
-note: "math-modeling"
-title: "Review: Model"
-type: "text"
-answer: "Let $P(t)$ be the population. Then $$ \\frac{dP}{dt} = kP $$ where $k$ is a constant growth rate."
-skills:
-  - "Model"
----
-
-What is the main idea of **Model**?
-
-:::solution
-One short answer is: Let $P(t)$ be the population. Then $$ \frac{dP}{dt} = kP $$ where $k$ is a constant growth rate.
-:::
-
----
-id: "math-modeling-38"
-note: "math-modeling"
-title: "Review: Solution"
-type: "text"
-answer: "Separating variables gives $$ \\frac{1}{P}\\,dP = k\\,dt $$ Integrating: $$ \\ln P = kt + C $$ so $$ P(t) = P 0 e^{kt} $$ where $P 0$ is the initial population."
-skills:
-  - "Solution"
----
-
-What is the main idea of **Solution**?
-
-:::solution
-One short answer is: Separating variables gives $$ \frac{1}{P}\,dP = k\,dt $$ Integrating: $$ \ln P = kt + C $$ so $$ P(t) = P 0 e^{kt} $$ where $P 0$ is the initial population.
-:::
-
----
-id: "math-modeling-39"
-note: "math-modeling"
-title: "Review: Interpretation"
-type: "text"
-answer: "If $k > 0$, the population grows exponentially."
-skills:
-  - "Interpretation"
----
-
-What is the main idea of **Interpretation**?
-
-:::solution
-One short answer is: If $k > 0$, the population grows exponentially.
-:::
-
----
-id: "math-modeling-310"
-note: "math-modeling"
-title: "Review: Extension: logistic growth"
-type: "text"
-answer: "Growth is nearly exponential when $P \\ll K$"
-skills:
-  - "Extension: logistic growth"
----
-
-What is the main idea of **Extension: logistic growth**?
-
-:::solution
-One short answer is: Growth is nearly exponential when $P \ll K$
-:::
-
----
-id: "math-modeling-311"
-note: "math-modeling"
-title: "Review: Worked example: optimization model"
-type: "text"
-answer: "Suppose a company wants to minimize cost while meeting a production target."
-skills:
-  - "9. Worked example: optimization model"
----
-
-What is the main idea of **Worked example: optimization model**?
-
-:::solution
-One short answer is: Suppose a company wants to minimize cost while meeting a production target.
-:::
-
----
-id: "math-modeling-312"
-note: "math-modeling"
-title: "Review: Decision variable"
-type: "text"
-answer: "Let $x$ be the number of units produced by machine A and $y$ the number produced by machine B."
-skills:
-  - "Decision variable"
----
-
-What is the main idea of **Decision variable**?
-
-:::solution
-One short answer is: Let $x$ be the number of units produced by machine A and $y$ the number produced by machine B.
-:::
-
----
-id: "math-modeling-313"
-note: "math-modeling"
-title: "Review: Objective"
-type: "text"
-answer: "Minimize cost: $$ C(x,y) = c 1x + c 2y $$"
-skills:
-  - "Objective"
----
-
-What is the main idea of **Objective**?
-
-:::solution
-One short answer is: Minimize cost: $$ C(x,y) = c 1x + c 2y $$
-:::
-
----
-id: "math-modeling-314"
-note: "math-modeling"
-title: "Review: Constraints"
-type: "text"
-answer: "Production requirement: $$ x + y \\geq P $$ Capacity limits: $$ 0 \\leq x \\leq A $$ $$ 0 \\leq y \\leq B $$"
-skills:
-  - "Constraints"
----
-
-What is the main idea of **Constraints**?
-
-:::solution
-One short answer is: Production requirement: $$ x + y \geq P $$ Capacity limits: $$ 0 \leq x \leq A $$ $$ 0 \leq y \leq B $$
-:::
-
----
-id: "math-modeling-315"
-note: "math-modeling"
-title: "Review: Interpretation"
-type: "text"
-answer: "This is a linear programming model if the objective and constraints are linear. The solution typically occurs at a feasible corner point of the constraint region."
-skills:
-  - "Interpretation"
----
-
-What is the main idea of **Interpretation**?
-
-:::solution
-One short answer is: This is a linear programming model if the objective and constraints are linear. The solution typically occurs at a feasible corner point of the constraint region.
-:::
-
----
-id: "math-modeling-316"
-note: "math-modeling"
-title: "Review: Modeling lesson"
-type: "text"
-answer: "The important part is not just solving the equations. It is making sure the variables, objective, and constraints correctly encode the real decision problem. ---"
-skills:
-  - "Modeling lesson"
----
-
-What is the main idea of **Modeling lesson**?
-
-:::solution
-One short answer is: The important part is not just solving the equations. It is making sure the variables, objective, and constraints correctly encode the real decision problem. ---
-:::
-
----
-id: "math-modeling-41"
-note: "math-modeling"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Common pitfalls"
-skills:
-  - "10. Common pitfalls"
----
-
-Name one common mistake the note warns about in **Common pitfalls**.
-
-:::solution
-One short answer is: Common pitfalls
-:::
-
----
-id: "math-modeling-42"
-note: "math-modeling"
-title: "Review: Confusing correlation with causation"
-type: "text"
-answer: "A fitted pattern does not automatically imply a causal relationship."
-skills:
-  - "Confusing correlation with causation"
----
-
-What is the main idea of **Confusing correlation with causation**?
-
-:::solution
-One short answer is: A fitted pattern does not automatically imply a causal relationship.
-:::
-
----
-id: "math-modeling-43"
-note: "math-modeling"
-title: "Review: Adding unnecessary complexity"
-type: "text"
-answer: "More parameters do not automatically improve a model."
-skills:
-  - "Adding unnecessary complexity"
----
-
-What is the main idea of **Adding unnecessary complexity**?
-
-:::solution
-One short answer is: More parameters do not automatically improve a model.
-:::
-
----
-id: "math-modeling-44"
-note: "math-modeling"
-title: "Review: Ignoring units"
-type: "text"
-answer: "Dimensional mistakes often signal deeper conceptual errors."
-skills:
-  - "Ignoring units"
----
-
-What is the main idea of **Ignoring units**?
-
-:::solution
-One short answer is: Dimensional mistakes often signal deeper conceptual errors.
-:::
-
----
-id: "math-modeling-45"
-note: "math-modeling"
-title: "Review: Using the model outside its validity range"
-type: "text"
-answer: "Linear approximations near an operating point"
-skills:
-  - "Using the model outside its validity range"
----
-
-What is the main idea of **Using the model outside its validity range**?
-
-:::solution
-One short answer is: Linear approximations near an operating point
-:::
-
----
-id: "math-modeling-46"
-note: "math-modeling"
-title: "Review: Failing to test extremes"
-type: "text"
-answer: "Inputs go to zero"
-skills:
-  - "Failing to test extremes"
----
-
-What is the main idea of **Failing to test extremes**?
-
-:::solution
-One short answer is: Inputs go to zero
-:::
-
----
-id: "math-modeling-47"
-note: "math-modeling"
-title: "Review: Overlooking identifiability"
-type: "text"
-answer: "If multiple parameter sets produce nearly the same output, the model may not be well determined by the available data. ---"
-skills:
-  - "Overlooking identifiability"
----
-
-What is the main idea of **Overlooking identifiability**?
-
-:::solution
-One short answer is: If multiple parameter sets produce nearly the same output, the model may not be well determined by the available data. ---
-:::
-
----
-id: "math-modeling-48"
-note: "math-modeling"
-title: "Review: Problem-solving checklist"
-type: "text"
-answer: "State the question precisely."
-skills:
-  - "11. Problem-solving checklist"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving checklist**?
-
-:::solution
-One short answer is: State the question precisely.
-:::
-
----
-id: "math-modeling-49"
-note: "math-modeling"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "12. Formula summary"
----
-
-What core formulas or relations are summarized in **Formula summary**?
-
-:::solution
-One short answer is: Formula summary
-:::
-
----
-id: "math-modeling-410"
-note: "math-modeling"
-title: "Review: Growth and decay"
-type: "text"
-answer: "$$ \\frac{dx}{dt} = kx $$ $$ x(t) = x 0 e^{kt} $$"
-skills:
-  - "Growth and decay"
----
-
-What is the main idea of **Growth and decay**?
-
-:::solution
-One short answer is: $$ \frac{dx}{dt} = kx $$ $$ x(t) = x 0 e^{kt} $$
-:::
-
----
-id: "math-modeling-411"
-note: "math-modeling"
-title: "Review: Logistic growth"
-type: "text"
-answer: "$$ \\frac{dx}{dt} = rx\\left(1 - \\frac{x}{K}\\right) $$"
-skills:
-  - "Logistic growth"
----
-
-What is the main idea of **Logistic growth**?
-
-:::solution
-One short answer is: $$ \frac{dx}{dt} = rx\left(1 - \frac{x}{K}\right) $$
-:::
-
----
-id: "math-modeling-412"
-note: "math-modeling"
-title: "Review: Least squares objective"
-type: "text"
-answer: "$$ S(\\theta) = \\sum {i=1}^n \\left(y i - f(x i; \\theta)\\right)^2 $$"
-skills:
-  - "Least squares objective"
----
-
-What is the main idea of **Least squares objective**?
-
-:::solution
-One short answer is: $$ S(\theta) = \sum {i=1}^n \left(y i - f(x i; \theta)\right)^2 $$
-:::
-
----
-id: "math-modeling-413"
-note: "math-modeling"
-title: "Review: Relative error"
-type: "text"
-answer: "$$ e {rel} = \\frac{ x - x {true} }{ x {true} } $$"
-skills:
-  - "Relative error"
----
-
-What is the main idea of **Relative error**?
-
-:::solution
-One short answer is: $$ e {rel} = \frac{ x - x {true} }{ x {true} } $$
-:::
-
----
-id: "math-modeling-414"
-note: "math-modeling"
-title: "Review: General optimization problem"
-type: "text"
-answer: "$$ \\min x f(x) $$ subject to $$ g i(x) \\le 0,\\quad h j(x) = 0 $$"
-skills:
-  - "General optimization problem"
----
-
-What is the main idea of **General optimization problem**?
-
-:::solution
-One short answer is: $$ \min x f(x) $$ subject to $$ g i(x) \le 0,\quad h j(x) = 0 $$
-:::
-
----
-id: "math-modeling-415"
-note: "math-modeling"
-title: "Review: Balance law"
-type: "text"
-answer: "$$ \\text{change} = \\text{inflow} - \\text{outflow} + \\text{generation} - \\text{consumption} $$ ---"
-skills:
-  - "Balance law"
----
-
-What is the main idea of **Balance law**?
-
-:::solution
-One short answer is: $$ \text{change} = \text{inflow} - \text{outflow} + \text{generation} - \text{consumption} $$ ---
-:::
-
----
-id: "math-modeling-416"
-note: "math-modeling"
-title: "Review: Key idea"
-type: "text"
-answer: "Modeling is the art of choosing the right simplification for the question being asked. Good models are not merely correct in principle; they are useful, testable, and honest about their limits."
-skills:
-  - "Key idea"
----
-
-What is the main idea of **Key idea**?
-
-:::solution
-One short answer is: Modeling is the art of choosing the right simplification for the question being asked. Good models are not merely correct in principle; they are useful, testable, and honest about their limits.
+The model should include:
+
+- A stochastic component for demand uncertainty
+- A discrete time structure, since the forecast is weekly
+- Decision variables for production
+- An objective function for cost
+- Constraints for machine limits
+- Calibration using data
+- Validation on new weeks of data
+
+This combines forecasting with optimization.
 :::

@@ -1,895 +1,1356 @@
 ---
-id: "math-eigenvalues-11"
-note: "math-eigenvalues"
-title: "Review: Core idea"
-type: "text"
-answer: "$A$ acts on most vectors by changing both magnitude and direction."
-skills:
-  - "1. Core idea"
+id: eigenvalues-11
+note: math-eigenvalues
+title: "Check an Eigenvector"
+skills: [Eigenvectors, Core Idea]
 ---
 
-What core idea is introduced in **Core idea**?
+Let
+
+$$
+A =
+\begin{bmatrix}
+2 & 0 \\
+0 & 5
+\end{bmatrix}
+$$
+
+and
+
+$$
+v =
+\begin{bmatrix}
+3 \\
+0
+\end{bmatrix}.
+$$
+
+Is $v$ an eigenvector of $A$? If so, what is the eigenvalue?
 
 :::solution
-One short answer is: $A$ acts on most vectors by changing both magnitude and direction.
+Compute
+
+$$
+Av =
+\begin{bmatrix}
+2 & 0 \\
+0 & 5
+\end{bmatrix}
+\begin{bmatrix}
+3 \\
+0
+\end{bmatrix}
+=
+\begin{bmatrix}
+6 \\
+0
+\end{bmatrix}.
+$$
+
+Since
+
+$$
+\begin{bmatrix}
+6 \\
+0
+\end{bmatrix}
+=
+2
+\begin{bmatrix}
+3 \\
+0
+\end{bmatrix},
+$$
+
+$v$ is an eigenvector and the eigenvalue is $2$.
 :::
 
 ---
-id: "math-eigenvalues-12"
-note: "math-eigenvalues"
-title: "Review: Geometric meaning"
-type: "text"
-answer: "A stretch in the $x$-direction has eigenvectors on the coordinate axes."
-skills:
-  - "Geometric meaning"
+id: eigenvalues-12
+note: math-eigenvalues
+title: "Read Eigenvalues from a Triangular Matrix"
+skills: [Triangular Matrices, Eigenvalues]
 ---
 
-What is the main idea of **Geometric meaning**?
+Find the eigenvalues of
+
+$$
+A =
+\begin{bmatrix}
+4 & 1 & 0 \\
+0 & -2 & 7 \\
+0 & 0 & 5
+\end{bmatrix}.
+$$
 
 :::solution
-One short answer is: A stretch in the $x$-direction has eigenvectors on the coordinate axes.
+For a triangular matrix, the eigenvalues are the diagonal entries.
+
+So the eigenvalues are
+
+$$
+4,\quad -2,\quad 5.
+$$
 :::
 
 ---
-id: "math-eigenvalues-13"
-note: "math-eigenvalues"
-title: "Review: Characteristic equation"
-type: "text"
-answer: "Starting from $$ Av = \\lambda v $$ move everything to one side: $$ (A - \\lambda I)v = 0 $$ For a nonzero solution $v$ to exist, the matrix $A - \\lambda I$ must be singular."
-skills:
-  - "2. Characteristic equation"
+id: eigenvalues-13
+note: math-eigenvalues
+title: "Solve a Characteristic Equation"
+skills: [Characteristic Equation, Factoring]
 ---
 
-What is the main idea of **Characteristic equation**?
+Find the eigenvalues of
+
+$$
+A =
+\begin{bmatrix}
+3 & 1 \\
+2 & 2
+\end{bmatrix}.
+$$
 
 :::solution
-One short answer is: Starting from $$ Av = \lambda v $$ move everything to one side: $$ (A - \lambda I)v = 0 $$ For a nonzero solution $v$ to exist, the matrix $A - \lambda I$ must be singular.
+Form the characteristic equation:
+
+$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+3-\lambda & 1 \\
+2 & 2-\lambda
+\end{vmatrix}
+$$
+
+$$
+=(3-\lambda)(2-\lambda) - 2
+$$
+
+$$
+= \lambda^2 - 5\lambda + 4.
+$$
+
+Set this equal to $0$:
+
+$$
+\lambda^2 - 5\lambda + 4 = 0
+$$
+
+Factor:
+
+$$
+(\lambda - 1)(\lambda - 4) = 0.
+$$
+
+So the eigenvalues are
+
+$$
+\lambda = 1,\quad 4.
+$$
 :::
 
 ---
-id: "math-eigenvalues-14"
-note: "math-eigenvalues"
-title: "Review: Why the determinant condition works"
-type: "text"
-answer: "The homogeneous system $$ (A - \\lambda I)v = 0 $$ has a nontrivial solution exactly when the coefficient matrix is not invertible. That is equivalent to determinant zero."
-skills:
-  - "Why the determinant condition works"
+id: eigenvalues-14
+note: math-eigenvalues
+title: "Find an Eigenspace"
+skills: [Eigenspaces, Null Space]
 ---
 
-What is the main idea of **Why the determinant condition works**?
+For
+
+$$
+A =
+\begin{bmatrix}
+3 & 1 \\
+2 & 2
+\end{bmatrix},
+$$
+
+find a basis for the eigenspace corresponding to $\lambda = 4$.
 
 :::solution
-One short answer is: The homogeneous system $$ (A - \lambda I)v = 0 $$ has a nontrivial solution exactly when the coefficient matrix is not invertible. That is equivalent to determinant zero.
+Compute
+
+$$
+A - 4I =
+\begin{bmatrix}
+-1 & 1 \\
+2 & -2
+\end{bmatrix}.
+$$
+
+Solve
+
+$$
+\begin{bmatrix}
+-1 & 1 \\
+2 & -2
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}.
+$$
+
+This gives
+
+$$
+-x + y = 0,
+$$
+
+so $y = x$.
+
+A basis for the eigenspace is
+
+$$
+\left\{
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+\right\}.
+$$
 :::
 
 ---
-id: "math-eigenvalues-15"
-note: "math-eigenvalues"
-title: "Review: Example"
-type: "text"
-answer: "Let $$ A = \\begin{bmatrix} 4 & 1 \\\\ 2 & 3 \\end{bmatrix} $$ Then $$ A - \\lambda I = \\begin{bmatrix} 4-\\lambda & 1 \\\\ 2 & 3-\\lambda \\end{bmatrix} $$ and $$ \\det(A - \\lambda I) = (4-\\lambda)(3-\\lambda) - 2 = \\lambda^2 - 7\\…"
-skills:
-  - "Example"
+id: eigenvalues-15
+note: math-eigenvalues
+title: "Use Trace to Find the Missing Eigenvalue"
+skills: [Trace, Eigenvalues]
 ---
 
-What is the main idea of **Example**?
+A $2 \times 2$ matrix has eigenvalues $6$ and $k$. Its trace is $11$.
+
+What is $k$?
 
 :::solution
-One short answer is: Let $$ A = \begin{bmatrix} 4 & 1 \\ 2 & 3 \end{bmatrix} $$ Then $$ A - \lambda I = \begin{bmatrix} 4-\lambda & 1 \\ 2 & 3-\lambda \end{bmatrix} $$ and $$ \det(A - \lambda I) = (4-\lambda)(3-\lambda) - 2 = \lambda^2 - 7\…
+The trace equals the sum of the eigenvalues:
+
+$$
+6 + k = 11.
+$$
+
+So
+
+$$
+k = 5.
+$$
 :::
 
 ---
-id: "math-eigenvalues-16"
-note: "math-eigenvalues"
-title: "Review: Eigenvectors and eigenspaces"
-type: "text"
-answer: "Once an eigenvalue $\\lambda$ is known, find its eigenvectors by solving $$ (A - \\lambda I)v = 0 $$ The set of all eigenvectors for $\\lambda$, together with the zero vector, forms the eigenspace $$ E \\lambda = \\operatorn…"
-skills:
-  - "3. Eigenvectors and eigenspaces"
+id: eigenvalues-16
+note: math-eigenvalues
+title: "Decide Whether a Matrix Is Invertible"
+skills: [Invertibility, Eigenvalues]
 ---
 
-What is the main idea of **Eigenvectors and eigenspaces**?
+A matrix has eigenvalues $3$, $0$, and $-2$.
+
+Is the matrix invertible?
 
 :::solution
-One short answer is: Once an eigenvalue $\lambda$ is known, find its eigenvectors by solving $$ (A - \lambda I)v = 0 $$ The set of all eigenvectors for $\lambda$, together with the zero vector, forms the eigenspace $$ E \lambda = \operatorn…
+A matrix is invertible if and only if $0$ is not an eigenvalue.
+
+Since $0$ is one of the eigenvalues here, the matrix is not invertible.
 :::
 
 ---
-id: "math-eigenvalues-17"
-note: "math-eigenvalues"
-title: "Review: Example continued"
-type: "text"
-answer: "For $$ A = \\begin{bmatrix} 4 & 1 \\\\ 2 & 3 \\end{bmatrix} $$ and $\\lambda = 5$, $$ A - 5I = \\begin{bmatrix} -1 & 1 \\\\ 2 & -2 \\end{bmatrix} $$ Solve $$ \\begin{bmatrix} -1 & 1 \\\\ 2 & -2 \\end{bmatrix} \\begin{bmatrix} x \\\\ y…"
-skills:
-  - "Example continued"
+id: eigenvalues-17
+note: math-eigenvalues
+title: "Identify Algebraic Multiplicity"
+skills: [Multiplicity, Characteristic Polynomial]
 ---
 
-What is the main idea of **Example continued**?
+The characteristic polynomial of a matrix is
+
+$$
+(\lambda - 2)^3(\lambda + 1).
+$$
+
+What is the algebraic multiplicity of $\lambda = 2$?
 
 :::solution
-One short answer is: For $$ A = \begin{bmatrix} 4 & 1 \\ 2 & 3 \end{bmatrix} $$ and $\lambda = 5$, $$ A - 5I = \begin{bmatrix} -1 & 1 \\ 2 & -2 \end{bmatrix} $$ Solve $$ \begin{bmatrix} -1 & 1 \\ 2 & -2 \end{bmatrix} \begin{bmatrix} x \\ y…
+The algebraic multiplicity is the multiplicity of the root in the characteristic polynomial.
+
+Since $(\lambda - 2)$ appears three times, the algebraic multiplicity of $2$ is $3$.
 :::
 
 ---
-id: "math-eigenvalues-18"
-note: "math-eigenvalues"
-title: "Review: Important restriction"
-type: "text"
-answer: "The zero vector is never called an eigenvector. If it were allowed, every scalar would become an eigenvalue candidate, which would destroy the definition. ---"
-skills:
-  - "Important restriction"
+id: eigenvalues-18
+note: math-eigenvalues
+title: "Use a Projection Matrix"
+skills: [Projection Matrices, Special Matrices]
 ---
 
-What is the main idea of **Important restriction**?
+What are the only possible eigenvalues of a projection matrix $P$ satisfying
+
+$$
+P^2 = P?
+$$
 
 :::solution
-One short answer is: The zero vector is never called an eigenvector. If it were allowed, every scalar would become an eigenvalue candidate, which would destroy the definition. ---
+If $Pv = \lambda v$ for an eigenvector $v \ne 0$, then
+
+$$
+P^2v = \lambda^2 v.
+$$
+
+But $P^2 = P$, so also
+
+$$
+P^2v = Pv = \lambda v.
+$$
+
+Thus
+
+$$
+\lambda^2 = \lambda,
+$$
+
+so
+
+$$
+\lambda(\lambda - 1) = 0.
+$$
+
+Therefore the only possible eigenvalues are
+
+$$
+0 \quad \text{and} \quad 1.
+$$
 :::
 
 ---
-id: "math-eigenvalues-19"
-note: "math-eigenvalues"
-title: "Review: Multiplicity"
-type: "text"
-answer: "Eigenvalues can repeat."
-skills:
-  - "4. Multiplicity"
+id: eigenvalues-19
+note: math-eigenvalues
+title: "Find the Eigenvalues of a Rotation Matrix"
+skills: [Complex Eigenvalues, Real Matrices]
 ---
 
-What is the main idea of **Multiplicity**?
+Find the eigenvalues of
+
+$$
+A =
+\begin{bmatrix}
+0 & -1 \\
+1 & 0
+\end{bmatrix}.
+$$
 
 :::solution
-One short answer is: Eigenvalues can repeat.
+Compute the characteristic equation:
+
+$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+-\lambda & -1 \\
+1 & -\lambda
+\end{vmatrix}
+$$
+
+$$
+= \lambda^2 + 1.
+$$
+
+So
+
+$$
+\lambda^2 + 1 = 0.
+$$
+
+Therefore the eigenvalues are
+
+$$
+\lambda = i,\quad -i.
+$$
 :::
 
 ---
-id: "math-eigenvalues-110"
-note: "math-eigenvalues"
-title: "Review: Algebraic multiplicity"
-type: "text"
-answer: "The algebraic multiplicity of $\\lambda$ is its multiplicity as a root of the characteristic polynomial."
-skills:
-  - "Algebraic multiplicity"
+id: eigenvalues-110
+note: math-eigenvalues
+title: "Compute Eigenvalues of a 2x2 Matrix"
+skills: [Characteristic Equation, 2x2 Formula]
 ---
 
-What is the main idea of **Algebraic multiplicity**?
+Find the eigenvalues of
+
+$$
+A =
+\begin{bmatrix}
+4 & 2 \\
+1 & 3
+\end{bmatrix}.
+$$
 
 :::solution
-One short answer is: The algebraic multiplicity of $\lambda$ is its multiplicity as a root of the characteristic polynomial.
+For a $2 \times 2$ matrix, use the characteristic polynomial:
+
+$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+4-\lambda & 2 \\
+1 & 3-\lambda
+\end{vmatrix}
+$$
+
+$$
+=(4-\lambda)(3-\lambda) - 2
+$$
+
+$$
+= \lambda^2 - 7\lambda + 10.
+$$
+
+Factor:
+
+$$
+(\lambda - 5)(\lambda - 2) = 0.
+$$
+
+So the eigenvalues are
+
+$$
+5,\quad 2.
+$$
 :::
 
 ---
-id: "math-eigenvalues-111"
-note: "math-eigenvalues"
-title: "Review: Geometric multiplicity"
-type: "text"
-answer: "The geometric multiplicity of $\\lambda$ is $$ \\dim(E \\lambda) = \\dim(\\operatorname{Null}(A - \\lambda I)) $$"
-skills:
-  - "Geometric multiplicity"
+id: eigenvalues-21
+note: math-eigenvalues
+title: "Find Eigenvectors for Both Eigenvalues"
+skills: [Eigenvectors, Eigenspaces, Characteristic Equation]
 ---
 
-What is the main idea of **Geometric multiplicity**?
+For
+
+$$
+A =
+\begin{bmatrix}
+4 & 1 \\
+2 & 3
+\end{bmatrix},
+$$
+
+find a basis for each eigenspace.
 
 :::solution
-One short answer is: The geometric multiplicity of $\lambda$ is $$ \dim(E \lambda) = \dim(\operatorname{Null}(A - \lambda I)) $$
+From the characteristic equation, the eigenvalues are $5$ and $2$.
+
+For $\lambda = 5$,
+
+$$
+A - 5I =
+\begin{bmatrix}
+-1 & 1 \\
+2 & -2
+\end{bmatrix}.
+$$
+
+This gives $y = x$, so a basis is
+
+$$
+\left\{
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}
+\right\}.
+$$
+
+For $\lambda = 2$,
+
+$$
+A - 2I =
+\begin{bmatrix}
+2 & 1 \\
+2 & 1
+\end{bmatrix}.
+$$
+
+This gives $2x + y = 0$, so a basis is
+
+$$
+\left\{
+\begin{bmatrix}
+1 \\
+-2
+\end{bmatrix}
+\right\}.
+$$
 :::
 
 ---
-id: "math-eigenvalues-112"
-note: "math-eigenvalues"
-title: "Review: Fundamental inequality"
-type: "text"
-answer: "For each eigenvalue, $$ 1 \\le \\text{geometric multiplicity} \\le \\text{algebraic multiplicity} $$"
-skills:
-  - "Fundamental inequality"
+id: eigenvalues-22
+note: math-eigenvalues
+title: "Compare Multiplicities"
+skills: [Multiplicity, Eigenspaces]
 ---
 
-What core idea is introduced in **Fundamental inequality**?
+For
+
+$$
+A =
+\begin{bmatrix}
+3 & 1 \\
+0 & 3
+\end{bmatrix},
+$$
+
+find the algebraic multiplicity and geometric multiplicity of the eigenvalue $3$.
 
 :::solution
-One short answer is: For each eigenvalue, $$ 1 \le \text{geometric multiplicity} \le \text{algebraic multiplicity} $$
+The characteristic polynomial is
+
+$$
+\det(A - \lambda I) = (3-\lambda)^2.
+$$
+
+So the algebraic multiplicity of $3$ is $2$.
+
+Now compute the eigenspace:
+
+$$
+A - 3I =
+\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}.
+$$
+
+Solving
+
+$$
+\begin{bmatrix}
+0 & 1 \\
+0 & 0
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}
+$$
+
+gives $y = 0$.
+
+So the eigenspace is
+
+$$
+\operatorname{span}
+\left\{
+\begin{bmatrix}
+1 \\
+0
+\end{bmatrix}
+\right\},
+$$
+
+which has dimension $1$.
+
+Therefore the geometric multiplicity is $1$.
 :::
 
 ---
-id: "math-eigenvalues-113"
-note: "math-eigenvalues"
-title: "Review: Repeated eigenvalue example"
-type: "text"
-answer: "Consider $$ A = \\begin{bmatrix} 3 & 1 \\\\ 0 & 3 \\end{bmatrix} $$ Then $$ \\det(A - \\lambda I) = (3-\\lambda)^2 $$ So $\\lambda = 3$ has algebraic multiplicity $2$."
-skills:
-  - "Repeated eigenvalue example"
+id: eigenvalues-23
+note: math-eigenvalues
+title: "Decide Whether a Matrix Is Diagonalizable"
+skills: [Diagonalization, Multiplicity]
 ---
 
-What is the main idea of **Repeated eigenvalue example**?
+Is
+
+$$
+A =
+\begin{bmatrix}
+2 & 1 & 0 \\
+0 & 2 & 0 \\
+0 & 0 & 5
+\end{bmatrix}
+$$
+
+diagonalizable?
 
 :::solution
-One short answer is: Consider $$ A = \begin{bmatrix} 3 & 1 \\ 0 & 3 \end{bmatrix} $$ Then $$ \det(A - \lambda I) = (3-\lambda)^2 $$ So $\lambda = 3$ has algebraic multiplicity $2$.
+The matrix is upper triangular, so its eigenvalues are the diagonal entries:
+
+$$
+2,\quad 2,\quad 5.
+$$
+
+The eigenvalue $2$ has algebraic multiplicity $2$.
+
+Now compute
+
+$$
+A - 2I =
+\begin{bmatrix}
+0 & 1 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & 3
+\end{bmatrix}.
+$$
+
+From $(A-2I)v=0$, we get $y=0$ and $z=0$, with $x$ free. So the eigenspace for $\lambda=2$ has dimension $1$.
+
+That is not enough independent eigenvectors. The matrix is not diagonalizable.
 :::
 
 ---
-id: "math-eigenvalues-114"
-note: "math-eigenvalues"
-title: "Review: Determinant, trace, and invertibility"
-type: "text"
-answer: "Eigenvalues encode several global properties of a matrix."
-skills:
-  - "5. Determinant, trace, and invertibility"
+id: eigenvalues-24
+note: math-eigenvalues
+title: "Build P and D from Eigenpairs"
+skills: [Diagonalization, Eigenvectors]
 ---
 
-What is the main idea of **Determinant, trace, and invertibility**?
+Suppose a matrix has the eigenpairs
+
+$$
+\lambda_1 = 5,\quad v_1 =
+\begin{bmatrix}
+1 \\
+0 \\
+1
+\end{bmatrix},
+$$
+
+$$
+\lambda_2 = 1,\quad v_2 =
+\begin{bmatrix}
+0 \\
+1 \\
+-1
+\end{bmatrix},
+$$
+
+and
+
+$$
+\lambda_3 = -2,\quad v_3 =
+\begin{bmatrix}
+1 \\
+1 \\
+0
+\end{bmatrix}.
+$$
+
+Write the matrices $P$ and $D$ for the diagonalization $A = P D P^{-1}$.
 
 :::solution
-One short answer is: Eigenvalues encode several global properties of a matrix.
+Put the eigenvectors into the columns of $P$ in the same order as the eigenvalues in $D$:
+
+$$
+P =
+\begin{bmatrix}
+1 & 0 & 1 \\
+0 & 1 & 1 \\
+1 & -1 & 0
+\end{bmatrix}.
+$$
+
+The diagonal matrix is
+
+$$
+D =
+\begin{bmatrix}
+5 & 0 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -2
+\end{bmatrix}.
+$$
 :::
 
 ---
-id: "math-eigenvalues-21"
-note: "math-eigenvalues"
-title: "Review: Determinant"
-type: "text"
-answer: "For an $n \\times n$ matrix, $$ \\det(A) = \\lambda 1 \\lambda 2 \\cdots \\lambda n $$ counting algebraic multiplicity and allowing complex eigenvalues when needed."
-skills:
-  - "Determinant"
+id: eigenvalues-25
+note: math-eigenvalues
+title: "Use Trace and Determinant to Check Your Work"
+skills: [Trace, Determinant, Eigenvalues]
 ---
 
-What is the main idea of **Determinant**?
+You found that the eigenvalues of
+
+$$
+A =
+\begin{bmatrix}
+4 & 1 \\
+1 & 2
+\end{bmatrix}
+$$
+
+are $5$ and $1$.
+
+Use the trace and determinant to check whether this is correct.
 
 :::solution
-One short answer is: For an $n \times n$ matrix, $$ \det(A) = \lambda 1 \lambda 2 \cdots \lambda n $$ counting algebraic multiplicity and allowing complex eigenvalues when needed.
+The trace of $A$ is
+
+$$
+4 + 2 = 6.
+$$
+
+The sum of the proposed eigenvalues is
+
+$$
+5 + 1 = 6.
+$$
+
+The determinant of $A$ is
+
+$$
+4 \cdot 2 - 1 \cdot 1 = 7.
+$$
+
+The product of the proposed eigenvalues is
+
+$$
+5 \cdot 1 = 5.
+$$
+
+Since the product does not match the determinant, the proposed eigenvalues are not correct.
 :::
 
 ---
-id: "math-eigenvalues-22"
-note: "math-eigenvalues"
-title: "Review: Trace"
-type: "text"
-answer: "The trace is the sum of diagonal entries: $$ \\operatorname{tr}(A) = a {11} + a {22} + \\cdots + a {nn} $$ It also equals the sum of the eigenvalues: $$ \\operatorname{tr}(A) = \\lambda 1 + \\lambda 2 + \\cdots + \\lambda n $$"
-skills:
-  - "Trace"
+id: eigenvalues-26
+note: math-eigenvalues
+title: "Use a Symmetric Matrix"
+skills: [Symmetric Matrices, Orthogonal Eigenvectors]
 ---
 
-What is the main idea of **Trace**?
+For
+
+$$
+A =
+\begin{bmatrix}
+2 & 1 \\
+1 & 2
+\end{bmatrix},
+$$
+
+find the eigenvalues and one eigenvector for each. Then check whether the two eigenvectors are orthogonal.
 
 :::solution
-One short answer is: The trace is the sum of diagonal entries: $$ \operatorname{tr}(A) = a {11} + a {22} + \cdots + a {nn} $$ It also equals the sum of the eigenvalues: $$ \operatorname{tr}(A) = \lambda 1 + \lambda 2 + \cdots + \lambda n $$
+Compute the characteristic polynomial:
+
+$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+2-\lambda & 1 \\
+1 & 2-\lambda
+\end{vmatrix}
+$$
+
+$$
+=(2-\lambda)^2 - 1
+= \lambda^2 - 4\lambda + 3.
+$$
+
+Factor:
+
+$$
+(\lambda - 1)(\lambda - 3) = 0.
+$$
+
+So the eigenvalues are $1$ and $3$.
+
+For $\lambda = 3$,
+
+$$
+A - 3I =
+\begin{bmatrix}
+-1 & 1 \\
+1 & -1
+\end{bmatrix},
+$$
+
+so $y = x$ and one eigenvector is
+
+$$
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}.
+$$
+
+For $\lambda = 1$,
+
+$$
+A - I =
+\begin{bmatrix}
+1 & 1 \\
+1 & 1
+\end{bmatrix},
+$$
+
+so $x + y = 0$ and one eigenvector is
+
+$$
+\begin{bmatrix}
+1 \\
+-1
+\end{bmatrix}.
+$$
+
+Their dot product is
+
+$$
+(1)(1) + (1)(-1) = 0,
+$$
+
+so the eigenvectors are orthogonal.
 :::
 
 ---
-id: "math-eigenvalues-23"
-note: "math-eigenvalues"
-title: "Review: Invertibility test"
-type: "text"
-answer: "$0$ is an eigenvalue exactly when $Av = 0$ for some nonzero $v$."
-skills:
-  - "Invertibility test"
+id: eigenvalues-27
+note: math-eigenvalues
+title: "Use a Nilpotent Matrix"
+skills: [Nilpotent Matrices, Eigenvalues]
 ---
 
-What is the main idea of **Invertibility test**?
+Suppose a matrix satisfies
+
+$$
+A^3 = 0.
+$$
+
+What can you conclude about its eigenvalues and determinant?
 
 :::solution
-One short answer is: $0$ is an eigenvalue exactly when $Av = 0$ for some nonzero $v$.
+If $Av = \lambda v$ for an eigenvector $v \ne 0$, then
+
+$$
+A^3v = \lambda^3 v.
+$$
+
+But $A^3 = 0$, so $A^3v = 0$. Since $v \ne 0$, this forces
+
+$$
+\lambda^3 = 0,
+$$
+
+so $\lambda = 0$.
+
+Therefore every eigenvalue is $0$.
+
+The determinant is the product of the eigenvalues, so
+
+$$
+\det(A) = 0.
+$$
 :::
 
 ---
-id: "math-eigenvalues-24"
-note: "math-eigenvalues"
-title: "Review: Triangular matrices"
-type: "text"
-answer: "If $A$ is upper or lower triangular, its eigenvalues are the diagonal entries. This is one of the fastest ways to read off eigenvalues by inspection. ---"
-skills:
-  - "Triangular matrices"
+id: eigenvalues-28
+note: math-eigenvalues
+title: "Find Complex Eigenvalues from a Real Matrix"
+skills: [Complex Eigenvalues, Trace and Determinant, Characteristic Equation]
 ---
 
-What is the main idea of **Triangular matrices**?
+Find the eigenvalues of
+
+$$
+A =
+\begin{bmatrix}
+2 & -5 \\
+1 & 2
+\end{bmatrix}.
+$$
 
 :::solution
-One short answer is: If $A$ is upper or lower triangular, its eigenvalues are the diagonal entries. This is one of the fastest ways to read off eigenvalues by inspection. ---
+Compute the characteristic polynomial:
+
+$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+2-\lambda & -5 \\
+1 & 2-\lambda
+\end{vmatrix}
+$$
+
+$$
+=(2-\lambda)^2 + 5
+= \lambda^2 - 4\lambda + 9.
+$$
+
+Set this equal to $0$:
+
+$$
+\lambda^2 - 4\lambda + 9 = 0.
+$$
+
+Use the quadratic formula:
+
+$$
+\lambda = \frac{4 \pm \sqrt{16 - 36}}{2}
+= \frac{4 \pm \sqrt{-20}}{2}
+= 2 \pm i\sqrt{5}.
+$$
+
+So the eigenvalues are
+
+$$
+2 + i\sqrt{5}
+$$
+
+and
+
+$$
+2 - i\sqrt{5}.
+$$
 :::
 
 ---
-id: "math-eigenvalues-25"
-note: "math-eigenvalues"
-title: "Review: Diagonalization"
-type: "text"
-answer: "A matrix $A$ is diagonalizable if there exists an invertible matrix $P$ and a diagonal matrix $D$ such that $$ A = PDP^{-1} $$ The columns of $P$ are eigenvectors of $A$, and the corresponding diagonal entries of $D$ ar…"
-skills:
-  - "6. Diagonalization"
+id: eigenvalues-31
+note: math-eigenvalues
+title: "Predict Long-Term Behavior from Eigenvalues"
+skills: [Applications, Dynamical Systems]
 ---
 
-What is the main idea of **Diagonalization**?
+A discrete system is defined by
+
+$$
+x_{k+1} = Ax_k.
+$$
+
+Suppose the eigenvalues of $A$ are
+
+$$
+\lambda_1 = \frac{1}{4}
+\quad \text{and} \quad
+\lambda_2 = \frac{3}{2}.
+$$
+
+What happens to the two eigenmodes as $k$ gets large?
 
 :::solution
-One short answer is: A matrix $A$ is diagonalizable if there exists an invertible matrix $P$ and a diagonal matrix $D$ such that $$ A = PDP^{-1} $$ The columns of $P$ are eigenvectors of $A$, and the corresponding diagonal entries of $D$ ar…
+Each eigenmode is scaled by its eigenvalue at every step.
+
+The mode with eigenvalue $\frac{1}{4}$ decays toward $0$ because
+
+$$
+\left(\frac{1}{4}\right)^k \to 0.
+$$
+
+The mode with eigenvalue $\frac{3}{2}$ grows without bound because
+
+$$
+\left(\frac{3}{2}\right)^k \to \infty.
+$$
+
+So the component in the $\frac{1}{4}$-direction dies out, while the component in the $\frac{3}{2}$-direction dominates.
 :::
 
 ---
-id: "math-eigenvalues-26"
-note: "math-eigenvalues"
-title: "Review: Why diagonalization matters"
-type: "text"
-answer: "Diagonal matrices are easy to work with: $$ D^k = \\begin{bmatrix} \\lambda 1^k & 0 & \\cdots & 0 \\\\ 0 & \\lambda 2^k & \\cdots & 0 \\\\ \\vdots & \\vdots & \\ddots & \\vdots \\\\ 0 & 0 & \\cdots & \\lambda n^k \\end{bmatrix} $$ So if…"
-skills:
-  - "Why diagonalization matters"
+id: eigenvalues-32
+note: math-eigenvalues
+title: "Analyze a Differential Equation"
+skills: [Applications, Differential Equations]
 ---
 
-What is the main idea of **Why diagonalization matters**?
+Consider the system
+
+$$
+x'(t) = Ax(t)
+$$
+
+where $A$ has eigenvalues $-2$ and $0$.
+
+What do these eigenvalues say about the two modes of the solution?
 
 :::solution
-One short answer is: Diagonal matrices are easy to work with: $$ D^k = \begin{bmatrix} \lambda 1^k & 0 & \cdots & 0 \\ 0 & \lambda 2^k & \cdots & 0 \\ \vdots & \vdots & \ddots & \vdots \\ 0 & 0 & \cdots & \lambda n^k \end{bmatrix} $$ So if…
+For a linear system $x'(t) = Ax(t)$, an eigenvalue $\lambda$ produces a mode that behaves like $e^{\lambda t}$.
+
+The mode for $\lambda = -2$ is
+
+$$
+e^{-2t},
+$$
+
+so it decays to $0$ as $t$ increases.
+
+The mode for $\lambda = 0$ is
+
+$$
+e^{0t} = 1,
+$$
+
+so it stays constant in size.
+
+Thus one mode decays and the other remains neutral.
 :::
 
 ---
-id: "math-eigenvalues-27"
-note: "math-eigenvalues"
-title: "Review: Diagonalizability criterion"
-type: "text"
-answer: "$A$ has $n$ distinct eigenvalues."
-skills:
-  - "Diagonalizability criterion"
+id: eigenvalues-33
+note: math-eigenvalues
+title: "Find a Steady-State Eigenvector"
+skills: [Applications, Markov Chains]
 ---
 
-What is the main idea of **Diagonalizability criterion**?
+Let
+
+$$
+P =
+\begin{bmatrix}
+0.8 & 0.1 \\
+0.2 & 0.9
+\end{bmatrix}.
+$$
+
+Find a nonzero vector $v$ such that
+
+$$
+Pv = v.
+$$
 
 :::solution
-One short answer is: $A$ has $n$ distinct eigenvalues.
+The equation $Pv = v$ means $v$ is an eigenvector for eigenvalue $1$.
+
+So solve
+
+$$
+(P - I)v = 0.
+$$
+
+That gives
+
+$$
+\begin{bmatrix}
+-0.2 & 0.1 \\
+0.2 & -0.1
+\end{bmatrix}
+\begin{bmatrix}
+x \\
+y
+\end{bmatrix}
+=
+\begin{bmatrix}
+0 \\
+0
+\end{bmatrix}.
+$$
+
+From the first row,
+
+$$
+-0.2x + 0.1y = 0,
+$$
+
+so
+
+$$
+y = 2x.
+$$
+
+One nonzero fixed vector is
+
+$$
+\begin{bmatrix}
+1 \\
+2
+\end{bmatrix}.
+$$
 :::
 
 ---
-id: "math-eigenvalues-28"
-note: "math-eigenvalues"
-title: "Review: Example"
-type: "text"
-answer: "Let $$ A = \\begin{bmatrix} 4 & 1 \\\\ 2 & 3 \\end{bmatrix} $$ with eigenpairs $$ \\lambda 1 = 5,\\quad v 1 = \\begin{bmatrix} 1 \\\\ 1 \\end{bmatrix} $$ and $$ \\lambda 2 = 2,\\quad v 2 = \\begin{bmatrix} 1 \\\\ -2 \\end{bmatrix} $$ T…"
-skills:
-  - "Example"
+id: eigenvalues-34
+note: math-eigenvalues
+title: "Use Diagonalization to Track Repeated Action"
+skills: [Diagonalization, Applications]
 ---
 
-What is the main idea of **Example**?
+Suppose $v_1$ and $v_2$ are eigenvectors of $A$ with eigenvalues $3$ and $\frac{1}{3}$, respectively. Let
+
+$$
+x = 2v_1 - v_2.
+$$
+
+Find a formula for $A^k x$.
 
 :::solution
-One short answer is: Let $$ A = \begin{bmatrix} 4 & 1 \\ 2 & 3 \end{bmatrix} $$ with eigenpairs $$ \lambda 1 = 5,\quad v 1 = \begin{bmatrix} 1 \\ 1 \end{bmatrix} $$ and $$ \lambda 2 = 2,\quad v 2 = \begin{bmatrix} 1 \\ -2 \end{bmatrix} $$ T…
+Use the eigenvector rules:
+
+$$
+A^k v_1 = 3^k v_1
+$$
+
+and
+
+$$
+A^k v_2 = \left(\frac{1}{3}\right)^k v_2.
+$$
+
+Therefore
+
+$$
+A^k x = A^k(2v_1 - v_2)
+$$
+
+$$
+= 2A^k v_1 - A^k v_2
+$$
+
+$$
+= 2 \cdot 3^k v_1 - \left(\frac{1}{3}\right)^k v_2.
+$$
 :::
 
 ---
-id: "math-eigenvalues-29"
-note: "math-eigenvalues"
-title: "Review: Special matrix classes"
-type: "text"
-answer: "Special matrix classes"
-skills:
-  - "7. Special matrix classes"
+id: eigenvalues-35
+note: math-eigenvalues
+title: "Identify Principal Directions"
+skills: [Symmetric Matrices, Applications]
 ---
 
-What is the main idea of **Special matrix classes**?
+For the symmetric matrix
+
+$$
+A =
+\begin{bmatrix}
+4 & 1 \\
+1 & 4
+\end{bmatrix},
+$$
+
+which direction is stretched more, and by how much?
 
 :::solution
-One short answer is: Special matrix classes
+Find the eigenvalues:
+
+$$
+\det(A - \lambda I)
+=
+\begin{vmatrix}
+4-\lambda & 1 \\
+1 & 4-\lambda
+\end{vmatrix}
+$$
+
+$$
+=(4-\lambda)^2 - 1
+= \lambda^2 - 8\lambda + 15.
+$$
+
+Factor:
+
+$$
+(\lambda - 3)(\lambda - 5) = 0.
+$$
+
+So the stretch factors are $5$ and $3$.
+
+The larger stretch is in the direction of the eigenvector for $\lambda = 5$, which satisfies $y = x$. So the direction is
+
+$$
+\begin{bmatrix}
+1 \\
+1
+\end{bmatrix}.
+$$
+
+The smaller stretch is in the direction of the eigenvector for $\lambda = 3$, which satisfies $y = -x$. So the direction is
+
+$$
+\begin{bmatrix}
+1 \\
+-1
+\end{bmatrix}.
+$$
 :::
 
 ---
-id: "math-eigenvalues-210"
-note: "math-eigenvalues"
-title: "Review: Symmetric matrices"
-type: "text"
-answer: "All eigenvalues are real."
-skills:
-  - "Symmetric matrices"
+id: eigenvalues-41
+note: math-eigenvalues
+title: "When Is a Triangular Matrix Diagonalizable?"
+skills: [Diagonalization, Multiplicity, Triangular Matrices]
 ---
 
-What is the main idea of **Symmetric matrices**?
+For
+
+$$
+A =
+\begin{bmatrix}
+k & 1 \\
+0 & 2
+\end{bmatrix},
+$$
+
+for what values of $k$ is $A$ diagonalizable?
 
 :::solution
-One short answer is: All eigenvalues are real.
+Because $A$ is triangular, the eigenvalues are
+
+$$
+k \quad \text{and} \quad 2.
+$$
+
+If $k \ne 2$, then the matrix has two distinct eigenvalues, so it is diagonalizable.
+
+If $k = 2$, then
+
+$$
+A =
+\begin{bmatrix}
+2 & 1 \\
+0 & 2
+\end{bmatrix}.
+$$
+
+This is the repeated-eigenvalue case from the notes. Its eigenspace has dimension $1$, so it is not diagonalizable.
+
+Therefore $A$ is diagonalizable exactly when
+
+$$
+k \ne 2.
+$$
 :::
 
 ---
-id: "math-eigenvalues-211"
-note: "math-eigenvalues"
-title: "Review: Projection matrices"
-type: "text"
-answer: "If $P$ satisfies $$ P^2 = P $$ then its eigenvalues can only be $$ 0 \\quad \\text{or} \\quad 1 $$ Reason: $$ Pv = \\lambda v \\quad \\Rightarrow \\quad P^2v = \\lambda^2 v $$ but also $$ P^2v = Pv = \\lambda v $$ so $$ \\lambda^…"
-skills:
-  - "Projection matrices"
+id: eigenvalues-42
+note: math-eigenvalues
+title: "A Repeated Eigenvalue in Three Dimensions"
+skills: [Multiplicity, Diagonalization, Eigenspaces]
 ---
 
-What is the main idea of **Projection matrices**?
+Consider
+
+$$
+B =
+\begin{bmatrix}
+1 & 2 & 0 \\
+0 & 1 & 0 \\
+0 & 0 & -1
+\end{bmatrix}.
+$$
+
+Find the eigenvalues, their algebraic multiplicities, and decide whether $B$ is diagonalizable.
 
 :::solution
-One short answer is: If $P$ satisfies $$ P^2 = P $$ then its eigenvalues can only be $$ 0 \quad \text{or} \quad 1 $$ Reason: $$ Pv = \lambda v \quad \Rightarrow \quad P^2v = \lambda^2 v $$ but also $$ P^2v = Pv = \lambda v $$ so $$ \lambda^…
+Since $B$ is triangular, the eigenvalues are the diagonal entries:
+
+$$
+1,\quad 1,\quad -1.
+$$
+
+So the algebraic multiplicity of $1$ is $2$, and the algebraic multiplicity of $-1$ is $1$.
+
+Now check the eigenspace for $\lambda = 1$:
+
+$$
+B - I =
+\begin{bmatrix}
+0 & 2 & 0 \\
+0 & 0 & 0 \\
+0 & 0 & -2
+\end{bmatrix}.
+$$
+
+Solving $(B-I)v = 0$ gives $y = 0$ and $z = 0$, with $x$ free. So the eigenspace for $1$ has dimension $1$.
+
+That is fewer than its algebraic multiplicity, so $B$ does not have three independent eigenvectors.
+
+Therefore $B$ is not diagonalizable.
 :::
 
 ---
-id: "math-eigenvalues-212"
-note: "math-eigenvalues"
-title: "Review: Nilpotent matrices"
-type: "text"
-answer: "If $$ A^k = 0 $$ for some positive integer $k$, then every eigenvalue of $A$ is $0$."
-skills:
-  - "Nilpotent matrices"
+id: eigenvalues-43
+note: math-eigenvalues
+title: "Use Orthogonality and the Characteristic Equation"
+skills: [Orthogonal Matrices, Complex Eigenvalues, Trace and Determinant]
 ---
 
-What is the main idea of **Nilpotent matrices**?
+A real $2 \times 2$ orthogonal matrix has determinant $1$ and trace $0$.
+
+What are its eigenvalues?
 
 :::solution
-One short answer is: If $$ A^k = 0 $$ for some positive integer $k$, then every eigenvalue of $A$ is $0$.
+Let the eigenvalues be $\lambda_1$ and $\lambda_2$.
+
+For a $2 \times 2$ matrix, the sum of the eigenvalues equals the trace and the product equals the determinant.
+
+So
+
+$$
+\lambda_1 + \lambda_2 = 0
+$$
+
+and
+
+$$
+\lambda_1\lambda_2 = 1.
+$$
+
+This gives the characteristic equation
+
+$$
+\lambda^2 + 1 = 0.
+$$
+
+Thus the eigenvalues are
+
+$$
+i \quad \text{and} \quad -i.
+$$
 :::
 
 ---
-id: "math-eigenvalues-213"
-note: "math-eigenvalues"
-title: "Review: Orthogonal matrices"
-type: "text"
-answer: "If $Q^TQ = I$, then over $\\mathbb{C}$ every eigenvalue satisfies $$ \\lambda = 1 $$ For real orthogonal matrices, eigenvalues may be real or complex. Real eigenvalues can only be $$ 1 \\quad \\text{or} \\quad -1 $$ ---"
-skills:
-  - "Orthogonal matrices"
+id: eigenvalues-44
+note: math-eigenvalues
+title: "Complex Eigenvalues from Trace and Determinant"
+skills: [Complex Eigenvalues, Characteristic Equation, Trace and Determinant]
 ---
 
-What is the main idea of **Orthogonal matrices**?
+A real $2 \times 2$ matrix has trace $4$ and determinant $13$.
+
+Find its eigenvalues.
 
 :::solution
-One short answer is: If $Q^TQ = I$, then over $\mathbb{C}$ every eigenvalue satisfies $$ \lambda = 1 $$ For real orthogonal matrices, eigenvalues may be real or complex. Real eigenvalues can only be $$ 1 \quad \text{or} \quad -1 $$ ---
-:::
+For a $2 \times 2$ matrix, the characteristic polynomial is
 
----
-id: "math-eigenvalues-214"
-note: "math-eigenvalues"
-title: "Review: Complex eigenvalues and real matrices"
-type: "text"
-answer: "Not every real matrix has real eigenvalues."
-skills:
-  - "8. Complex eigenvalues and real matrices"
----
+$$
+\lambda^2 - (\operatorname{tr} A)\lambda + \det(A).
+$$
 
-What is the main idea of **Complex eigenvalues and real matrices**?
+So here it is
 
-:::solution
-One short answer is: Not every real matrix has real eigenvalues.
-:::
+$$
+\lambda^2 - 4\lambda + 13.
+$$
 
----
-id: "math-eigenvalues-31"
-note: "math-eigenvalues"
-title: "Review: Conjugate pairs"
-type: "text"
-answer: "If a real matrix has a complex eigenvalue $$ \\lambda = a + bi $$ then its complex conjugate $$ \\bar{\\lambda} = a - bi $$ is also an eigenvalue."
-skills:
-  - "Conjugate pairs"
----
+Set this equal to $0$:
 
-What is the main idea of **Conjugate pairs**?
+$$
+\lambda^2 - 4\lambda + 13 = 0.
+$$
 
-:::solution
-One short answer is: If a real matrix has a complex eigenvalue $$ \lambda = a + bi $$ then its complex conjugate $$ \bar{\lambda} = a - bi $$ is also an eigenvalue.
-:::
+Use the quadratic formula:
 
----
-id: "math-eigenvalues-32"
-note: "math-eigenvalues"
-title: "Review: How to compute eigenvalues by hand"
-type: "text"
-answer: "How to compute eigenvalues by hand"
-skills:
-  - "9. How to compute eigenvalues by hand"
----
+$$
+\lambda = \frac{4 \pm \sqrt{16 - 52}}{2}
+= \frac{4 \pm \sqrt{-36}}{2}
+= 2 \pm 3i.
+$$
 
-What is the main idea of **How to compute eigenvalues by hand**?
+So the eigenvalues are
 
-:::solution
-One short answer is: How to compute eigenvalues by hand
-:::
+$$
+2 + 3i
+$$
 
----
-id: "math-eigenvalues-33"
-note: "math-eigenvalues"
-title: "Review: For a general matrix"
-type: "text"
-answer: "Form $A - \\lambda I$."
-skills:
-  - "For a general matrix"
----
+and
 
-What is the main idea of **For a general matrix**?
-
-:::solution
-One short answer is: Form $A - \lambda I$.
-:::
-
----
-id: "math-eigenvalues-34"
-note: "math-eigenvalues"
-title: "Review: For a $2 \\times 2$ matrix"
-type: "text"
-answer: "If $$ A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} $$ then $$ \\det(A - \\lambda I) = \\lambda^2 - (a+d)\\lambda + (ad-bc) $$ So the eigenvalues satisfy $$ \\lambda^2 - \\operatorname{tr}(A)\\lambda + \\det(A) = 0 $$ This i…"
-skills:
-  - "For a $2 \\times 2$ matrix"
----
-
-What is the main idea of **For a $2 \times 2$ matrix**?
-
-:::solution
-One short answer is: If $$ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} $$ then $$ \det(A - \lambda I) = \lambda^2 - (a+d)\lambda + (ad-bc) $$ So the eigenvalues satisfy $$ \lambda^2 - \operatorname{tr}(A)\lambda + \det(A) = 0 $$ This i…
-:::
-
----
-id: "math-eigenvalues-35"
-note: "math-eigenvalues"
-title: "Review: Sanity checks"
-type: "text"
-answer: "The sum of eigenvalues equals $\\operatorname{tr}(A)$."
-skills:
-  - "Sanity checks"
----
-
-What is the main idea of **Sanity checks**?
-
-:::solution
-One short answer is: The sum of eigenvalues equals $\operatorname{tr}(A)$.
-:::
-
----
-id: "math-eigenvalues-36"
-note: "math-eigenvalues"
-title: "Review: Common computational shortcut"
-type: "text"
-answer: "For triangular matrices, do not expand a full determinant. Read the eigenvalues directly from the diagonal. ---"
-skills:
-  - "Common computational shortcut"
----
-
-Name one common mistake the note warns about in **Common computational shortcut**.
-
-:::solution
-One short answer is: For triangular matrices, do not expand a full determinant. Read the eigenvalues directly from the diagonal. ---
-:::
-
----
-id: "math-eigenvalues-37"
-note: "math-eigenvalues"
-title: "Review: Applications"
-type: "text"
-answer: "Applications"
-skills:
-  - "10. Applications"
----
-
-What is the main idea of **Applications**?
-
-:::solution
-One short answer is: Applications
-:::
-
----
-id: "math-eigenvalues-38"
-note: "math-eigenvalues"
-title: "Review: Dynamical systems"
-type: "text"
-answer: "If $ \\lambda < 1$, the associated mode decays."
-skills:
-  - "Dynamical systems"
----
-
-What is the main idea of **Dynamical systems**?
-
-:::solution
-One short answer is: If $ \lambda < 1$, the associated mode decays.
-:::
-
----
-id: "math-eigenvalues-39"
-note: "math-eigenvalues"
-title: "Review: Differential equations"
-type: "text"
-answer: "For systems such as $$ x'(t) = Ax(t) $$ eigenvalues describe growth, decay, and oscillation. Diagonalization can reduce the system to decoupled scalar equations."
-skills:
-  - "Differential equations"
----
-
-What is the main idea of **Differential equations**?
-
-:::solution
-One short answer is: For systems such as $$ x'(t) = Ax(t) $$ eigenvalues describe growth, decay, and oscillation. Diagonalization can reduce the system to decoupled scalar equations.
-:::
-
----
-id: "math-eigenvalues-310"
-note: "math-eigenvalues"
-title: "Review: Principal directions"
-type: "text"
-answer: "Principal component analysis"
-skills:
-  - "Principal directions"
----
-
-What is the main idea of **Principal directions**?
-
-:::solution
-One short answer is: Principal component analysis
-:::
-
----
-id: "math-eigenvalues-311"
-note: "math-eigenvalues"
-title: "Review: Markov chains"
-type: "text"
-answer: "For a stochastic matrix, $\\lambda = 1$ is especially important. The corresponding eigenvectors help describe steady states and long-run distributions. ---"
-skills:
-  - "Markov chains"
----
-
-What is the main idea of **Markov chains**?
-
-:::solution
-One short answer is: For a stochastic matrix, $\lambda = 1$ is especially important. The corresponding eigenvectors help describe steady states and long-run distributions. ---
-:::
-
----
-id: "math-eigenvalues-312"
-note: "math-eigenvalues"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Use this checklist for most eigenvalue problems."
-skills:
-  - "11. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Use this checklist for most eigenvalue problems.
-:::
-
----
-id: "math-eigenvalues-313"
-note: "math-eigenvalues"
-title: "Review: Step 1: Confirm the matrix is square"
-type: "text"
-answer: "If $A$ is not square, standard eigenvalues are not defined."
-skills:
-  - "Step 1: Confirm the matrix is square"
----
-
-What is the main idea of **Step 1: Confirm the matrix is square**?
-
-:::solution
-One short answer is: If $A$ is not square, standard eigenvalues are not defined.
-:::
-
----
-id: "math-eigenvalues-314"
-note: "math-eigenvalues"
-title: "Review: Step 2: Form the characteristic polynomial"
-type: "text"
-answer: "Compute $$ \\det(A - \\lambda I) $$ and solve for $\\lambda$."
-skills:
-  - "Step 2: Form the characteristic polynomial"
----
-
-What is the main idea of **Step 2: Form the characteristic polynomial**?
-
-:::solution
-One short answer is: Compute $$ \det(A - \lambda I) $$ and solve for $\lambda$.
-:::
-
----
-id: "math-eigenvalues-41"
-note: "math-eigenvalues"
-title: "Review: Step 3: Use structure before brute force"
-type: "text"
-answer: "Triangular"
-skills:
-  - "Step 3: Use structure before brute force"
----
-
-What is the main idea of **Step 3: Use structure before brute force**?
-
-:::solution
-One short answer is: Triangular
-:::
-
----
-id: "math-eigenvalues-42"
-note: "math-eigenvalues"
-title: "Review: Step 4: Find eigenspaces"
-type: "text"
-answer: "For each eigenvalue, solve $$ (A - \\lambda I)v = 0 $$ using row reduction."
-skills:
-  - "Step 4: Find eigenspaces"
----
-
-What is the main idea of **Step 4: Find eigenspaces**?
-
-:::solution
-One short answer is: For each eigenvalue, solve $$ (A - \lambda I)v = 0 $$ using row reduction.
-:::
-
----
-id: "math-eigenvalues-43"
-note: "math-eigenvalues"
-title: "Review: Step 5: Compare multiplicities"
-type: "text"
-answer: "If an eigenvalue repeats, check whether its eigenspace has enough dimension."
-skills:
-  - "Step 5: Compare multiplicities"
----
-
-What is the main idea of **Step 5: Compare multiplicities**?
-
-:::solution
-One short answer is: If an eigenvalue repeats, check whether its eigenspace has enough dimension.
-:::
-
----
-id: "math-eigenvalues-44"
-note: "math-eigenvalues"
-title: "Review: Step 6: Decide whether diagonalization is possible"
-type: "text"
-answer: "Count the number of linearly independent eigenvectors."
-skills:
-  - "Step 6: Decide whether diagonalization is possible"
----
-
-What is the main idea of **Step 6: Decide whether diagonalization is possible**?
-
-:::solution
-One short answer is: Count the number of linearly independent eigenvectors.
-:::
-
----
-id: "math-eigenvalues-45"
-note: "math-eigenvalues"
-title: "Review: Step 7: Verify with trace and determinant"
-type: "text"
-answer: "Use $$ \\sum \\lambda i = \\operatorname{tr}(A), \\qquad \\prod \\lambda i = \\det(A) $$ to catch arithmetic mistakes. ---"
-skills:
-  - "Step 7: Verify with trace and determinant"
----
-
-What is the main idea of **Step 7: Verify with trace and determinant**?
-
-:::solution
-One short answer is: Use $$ \sum \lambda i = \operatorname{tr}(A), \qquad \prod \lambda i = \det(A) $$ to catch arithmetic mistakes. ---
-:::
-
----
-id: "math-eigenvalues-46"
-note: "math-eigenvalues"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "12. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-eigenvalues-47"
-note: "math-eigenvalues"
-title: "Review: Definitions"
-type: "text"
-answer: "$$ Av = \\lambda v,\\qquad v \\ne 0 $$ $$ (A - \\lambda I)v = 0 $$ $$ \\det(A - \\lambda I) = 0 $$ $$ E \\lambda = \\operatorname{Null}(A - \\lambda I) $$"
-skills:
-  - "Definitions"
----
-
-What core idea is introduced in **Definitions**?
-
-:::solution
-One short answer is: $$ Av = \lambda v,\qquad v \ne 0 $$ $$ (A - \lambda I)v = 0 $$ $$ \det(A - \lambda I) = 0 $$ $$ E \lambda = \operatorname{Null}(A - \lambda I) $$
-:::
-
----
-id: "math-eigenvalues-48"
-note: "math-eigenvalues"
-title: "Review: Multiplicity"
-type: "text"
-answer: "$$ 1 \\le \\dim(E \\lambda) \\le \\text{algebraic multiplicity of } \\lambda $$"
-skills:
-  - "Multiplicity"
----
-
-What is the main idea of **Multiplicity**?
-
-:::solution
-One short answer is: $$ 1 \le \dim(E \lambda) \le \text{algebraic multiplicity of } \lambda $$
-:::
-
----
-id: "math-eigenvalues-49"
-note: "math-eigenvalues"
-title: "Review: Determinant and trace"
-type: "text"
-answer: "$$ \\det(A) = \\lambda 1 \\lambda 2 \\cdots \\lambda n $$ $$ \\operatorname{tr}(A) = \\lambda 1 + \\lambda 2 + \\cdots + \\lambda n $$"
-skills:
-  - "Determinant and trace"
----
-
-What is the main idea of **Determinant and trace**?
-
-:::solution
-One short answer is: $$ \det(A) = \lambda 1 \lambda 2 \cdots \lambda n $$ $$ \operatorname{tr}(A) = \lambda 1 + \lambda 2 + \cdots + \lambda n $$
-:::
-
----
-id: "math-eigenvalues-410"
-note: "math-eigenvalues"
-title: "Review: Invertibility"
-type: "text"
-answer: "$$ A \\text{ invertible } \\iff 0 \\text{ is not an eigenvalue} $$"
-skills:
-  - "Invertibility"
----
-
-What is the main idea of **Invertibility**?
-
-:::solution
-One short answer is: $$ A \text{ invertible } \iff 0 \text{ is not an eigenvalue} $$
-:::
-
----
-id: "math-eigenvalues-411"
-note: "math-eigenvalues"
-title: "Review: Diagonalization"
-type: "text"
-answer: "$$ A = PDP^{-1} $$ $$ A \\text{ diagonalizable } \\iff A \\text{ has } n \\text{ linearly independent eigenvectors} $$ $$ A^k = PD^kP^{-1} $$"
-skills:
-  - "Diagonalization"
----
-
-What is the main idea of **Diagonalization**?
-
-:::solution
-One short answer is: $$ A = PDP^{-1} $$ $$ A \text{ diagonalizable } \iff A \text{ has } n \text{ linearly independent eigenvectors} $$ $$ A^k = PD^kP^{-1} $$
-:::
-
----
-id: "math-eigenvalues-412"
-note: "math-eigenvalues"
-title: "Review: Real symmetric matrices"
-type: "text"
-answer: "$$ A = QDQ^T $$ with $Q$ orthogonal and $D$ diagonal."
-skills:
-  - "Real symmetric matrices"
----
-
-What is the main idea of **Real symmetric matrices**?
-
-:::solution
-One short answer is: $$ A = QDQ^T $$ with $Q$ orthogonal and $D$ diagonal.
-:::
-
----
-id: "math-eigenvalues-413"
-note: "math-eigenvalues"
-title: "Review: Special cases"
-type: "text"
-answer: "For triangular $A$, eigenvalues are the diagonal entries. For $$ A = \\begin{bmatrix} a & b \\\\ c & d \\end{bmatrix} $$ the characteristic polynomial is $$ \\lambda^2 - (a+d)\\lambda + (ad-bc) $$ ---"
-skills:
-  - "Special cases"
----
-
-What is the main idea of **Special cases**?
-
-:::solution
-One short answer is: For triangular $A$, eigenvalues are the diagonal entries. For $$ A = \begin{bmatrix} a & b \\ c & d \end{bmatrix} $$ the characteristic polynomial is $$ \lambda^2 - (a+d)\lambda + (ad-bc) $$ ---
-:::
-
----
-id: "math-eigenvalues-414"
-note: "math-eigenvalues"
-title: "Review: Common mistakes to avoid"
-type: "text"
-answer: "Forgetting that eigenvalues are defined for square matrices."
-skills:
-  - "Common mistakes to avoid"
----
-
-Name one common mistake the note warns about in **Common mistakes to avoid**.
-
-:::solution
-One short answer is: Forgetting that eigenvalues are defined for square matrices.
+$$
+2 - 3i.
+$$
+Since neither eigenvalue is real, this matrix has no real eigenvectors associated with these eigenvalues.
 :::

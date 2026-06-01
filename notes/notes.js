@@ -1,5 +1,8 @@
 const searchTriggers = Array.from(document.querySelectorAll('[data-search-trigger]'));
+const timerTriggers = Array.from(document.querySelectorAll('[data-timer-trigger]'));
 const searchPanel = document.getElementById('search-panel');
+const timerPanel = document.getElementById('timer-panel');
+const timerCard = timerPanel?.querySelector('.timer-panel__card');
 const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
@@ -16,8 +19,8 @@ let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexFailed = false;
 let activeSearchTrigger = searchTriggers[0] ?? null;
+let activeTimerTrigger = timerTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
-let scrollStateFrame = 0;
 
 function getSessionStorage() {
   try {
@@ -332,8 +335,10 @@ function setSearchTriggerState(isExpanded) {
   });
 }
 
-function updateFloatingActionsState() {
-  document.body.classList.toggle('notes-page--scrolled', window.scrollY > 0);
+function setTimerTriggerState(isExpanded) {
+  timerTriggers.forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+  });
 }
 
 function isVisibleElement(element) {
@@ -345,6 +350,10 @@ function isVisibleElement(element) {
 
 function getVisibleSearchTrigger() {
   return searchTriggers.find(isVisibleElement) ?? null;
+}
+
+function getVisibleTimerTrigger() {
+  return timerTriggers.find(isVisibleElement) ?? null;
 }
 
 function getPageNavItems() {
@@ -472,6 +481,23 @@ function handleSearchPanelKeydown(event) {
   }
 }
 
+function handleTimerPanelKeydown(event) {
+  if (!timerPanel || timerPanel.hidden || !(event.target instanceof HTMLElement)) {
+    return;
+  }
+
+  if (event.key === 'Escape') {
+    event.preventDefault();
+    closeTimer();
+    return;
+  }
+
+  if (event.key === 'Tab') {
+    event.preventDefault();
+    timerCard?.focus();
+  }
+}
+
 function handlePageNavKeydown(event) {
   if (searchPanel && !searchPanel.hidden) {
     return;
@@ -506,6 +532,11 @@ function handleGlobalKeyboardShortcuts(event) {
   if ((event.ctrlKey || event.metaKey) && !event.altKey && event.key.toLowerCase() === 's') {
     event.preventDefault();
     openSearch();
+    return;
+  }
+
+  if (timerPanel && !timerPanel.hidden) {
+    handleTimerPanelKeydown(event);
     return;
   }
 
@@ -659,6 +690,10 @@ function openSearch(trigger = activeSearchTrigger) {
     return;
   }
 
+  if (timerPanel && !timerPanel.hidden) {
+    closeTimer({ restoreFocus: false });
+  }
+
   activeSearchTrigger = (trigger && isVisibleElement(trigger))
     ? trigger
     : getVisibleSearchTrigger()
@@ -671,16 +706,58 @@ function openSearch(trigger = activeSearchTrigger) {
   searchInput.select();
 }
 
-function closeSearch() {
+function closeSearch({ restoreFocus = true } = {}) {
   if (!searchPanel) {
     return;
   }
 
   searchPanel.hidden = true;
   setSearchTriggerState(false);
+
+  if (!restoreFocus) {
+    return;
+  }
+
   const returnTrigger = isVisibleElement(activeSearchTrigger)
     ? activeSearchTrigger
     : getVisibleSearchTrigger();
+
+  returnTrigger?.focus();
+}
+
+function openTimer(trigger = activeTimerTrigger) {
+  if (!timerPanel) {
+    return;
+  }
+
+  if (searchPanel && !searchPanel.hidden) {
+    closeSearch({ restoreFocus: false });
+  }
+
+  activeTimerTrigger = (trigger && isVisibleElement(trigger))
+    ? trigger
+    : getVisibleTimerTrigger()
+      ?? activeTimerTrigger;
+  timerPanel.hidden = false;
+  setTimerTriggerState(true);
+  timerCard?.focus();
+}
+
+function closeTimer({ restoreFocus = true } = {}) {
+  if (!timerPanel) {
+    return;
+  }
+
+  timerPanel.hidden = true;
+  setTimerTriggerState(false);
+
+  if (!restoreFocus) {
+    return;
+  }
+
+  const returnTrigger = isVisibleElement(activeTimerTrigger)
+    ? activeTimerTrigger
+    : getVisibleTimerTrigger();
 
   returnTrigger?.focus();
 }
@@ -798,6 +875,16 @@ searchTriggers.forEach((trigger) => {
   });
 });
 
+timerTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    if (timerPanel?.hidden) {
+      openTimer(trigger);
+    } else {
+      closeTimer();
+    }
+  });
+});
+
 document.addEventListener('click', (event) => {
   const themeButton = event.target.closest('[data-theme-toggle]');
 
@@ -851,23 +938,17 @@ searchPanel?.addEventListener('click', (event) => {
   }
 });
 
+timerPanel?.addEventListener('click', (event) => {
+  if (event.target === timerPanel) {
+    closeTimer();
+  }
+});
+
 window.addEventListener('keydown', (event) => {
   handleGlobalKeyboardShortcuts(event);
 });
 
-window.addEventListener('scroll', () => {
-  if (scrollStateFrame) {
-    return;
-  }
-
-  scrollStateFrame = window.requestAnimationFrame(() => {
-    scrollStateFrame = 0;
-    updateFloatingActionsState();
-  });
-}, { passive: true });
-
 syncThemePreference();
-updateFloatingActionsState();
 renderPlaceholder('Search note titles and note content.');
 revealQueryMatch();
 

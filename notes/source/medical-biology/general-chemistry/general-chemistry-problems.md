@@ -1,1311 +1,717 @@
 ---
-id: "medical-biology-general-chemistry-11"
-note: "medical-biology-general-chemistry"
-title: "Review: Scope and core ideas"
-type: "text"
-answer: "Atomic structure influences bonding."
-skills:
-  - "1. Scope and core ideas"
+id: general-chemistry-11
+note: medical-biology-general-chemistry
+title: "Classify Common Forms of Matter"
+skills: [Matter, Mixtures]
 ---
 
-What core idea is introduced in **Scope and core ideas**?
+Classify each sample as an element, compound, homogeneous mixture, or heterogeneous mixture:
 
-:::solution
-One short answer is: Atomic structure influences bonding.
-:::
-
----
-id: "medical-biology-general-chemistry-12"
-note: "medical-biology-general-chemistry"
-title: "Review: Matter, atoms, and the periodic table"
-type: "text"
-answer: "Matter, atoms, and the periodic table"
-skills:
-  - "2. Matter, atoms, and the periodic table"
----
-
-What is the main idea of **Matter, atoms, and the periodic table**?
+$$
+\text{air}, \quad \text{salt water}, \quad \text{granite}
+$$
 
 :::solution
-One short answer is: Matter, atoms, and the periodic table
-:::
-
----
-id: "medical-biology-general-chemistry-13"
-note: "medical-biology-general-chemistry"
-title: "Review: Matter and composition"
-type: "text"
-answer: "Element: one type of atom"
-skills:
-  - "Matter and composition"
----
+Air is a homogeneous mixture because its composition is fairly uniform throughout.
 
-What is the main idea of **Matter and composition**?
+Salt water is also a homogeneous mixture because the salt is dissolved evenly in the water.
 
-:::solution
-One short answer is: Element: one type of atom
+Granite is a heterogeneous mixture because its different minerals remain visible as separate parts.
 :::
 
 ---
-id: "medical-biology-general-chemistry-14"
-note: "medical-biology-general-chemistry"
-title: "Review: Atomic structure"
-type: "text"
-answer: "Protons, with charge $+1$"
-skills:
-  - "Atomic structure"
+id: general-chemistry-12
+note: medical-biology-general-chemistry
+title: "Count Particles in an Atom"
+skills: [Atomic Structure, Isotopes, Ions]
 ---
-
-What is the main idea of **Atomic structure**?
 
-:::solution
-One short answer is: Protons, with charge $+1$
-:::
-
----
-id: "medical-biology-general-chemistry-15"
-note: "medical-biology-general-chemistry"
-title: "Review: Isotopes"
-type: "text"
-answer: "Isotopes have the same $Z$ but different neutron counts. Their chemical behavior is nearly the same because chemistry depends mainly on electrons, not neutrons."
-skills:
-  - "Isotopes"
----
+A neutral atom has atomic number $12$ and mass number $24$.
 
-What is the main idea of **Isotopes**?
+How many protons, neutrons, and electrons does it have?
 
 :::solution
-One short answer is: Isotopes have the same $Z$ but different neutron counts. Their chemical behavior is nearly the same because chemistry depends mainly on electrons, not neutrons.
-:::
+The atomic number gives the number of protons, so the atom has $12$ protons.
 
----
-id: "medical-biology-general-chemistry-16"
-note: "medical-biology-general-chemistry"
-title: "Review: Periodic table structure"
-type: "text"
-answer: "Alkali metals: Group 1, very reactive metals"
-skills:
-  - "Periodic table structure"
----
+The mass number is
 
-What is the main idea of **Periodic table structure**?
+$$
+A = Z + N
+$$
 
-:::solution
-One short answer is: Alkali metals: Group 1, very reactive metals
-:::
+so
 
----
-id: "medical-biology-general-chemistry-17"
-note: "medical-biology-general-chemistry"
-title: "Review: Electron structure and periodic trends"
-type: "text"
-answer: "Electron structure and periodic trends"
-skills:
-  - "3. Electron structure and periodic trends"
----
+$$
+24 = 12 + N
+$$
 
-What is the main idea of **Electron structure and periodic trends**?
+which gives $N = 12$ neutrons.
 
-:::solution
-One short answer is: Electron structure and periodic trends
+Because the atom is neutral, it also has $12$ electrons.
 :::
 
 ---
-id: "medical-biology-general-chemistry-18"
-note: "medical-biology-general-chemistry"
-title: "Review: Electron configuration"
-type: "text"
-answer: "$s$ holds 2 electrons"
-skills:
-  - "Electron configuration"
+id: general-chemistry-13
+note: medical-biology-general-chemistry
+title: "Use Group Trends in the Periodic Table"
+skills: [Periodic Table, Groups]
 ---
 
-What is the main idea of **Electron configuration**?
+A main-group element is in Group 2.
 
-:::solution
-One short answer is: $s$ holds 2 electrons
-:::
-
----
-id: "medical-biology-general-chemistry-19"
-note: "medical-biology-general-chemistry"
-title: "Review: Valence electrons"
-type: "text"
-answer: "Valence electrons are the outer-shell electrons most responsible for bonding and reactivity. For main-group elements, the number of valence electrons usually matches the group number pattern."
-skills:
-  - "Valence electrons"
----
-
-What is the main idea of **Valence electrons**?
+How many valence electrons does it usually have, and why are Group 18 elements especially stable?
 
 :::solution
-One short answer is: Valence electrons are the outer-shell electrons most responsible for bonding and reactivity. For main-group elements, the number of valence electrons usually matches the group number pattern.
-:::
-
----
-id: "medical-biology-general-chemistry-110"
-note: "medical-biology-general-chemistry"
-title: "Review: Common periodic trends"
-type: "text"
-answer: "Atomic radius decreases"
-skills:
-  - "Common periodic trends"
----
-
-Name one common mistake the note warns about in **Common periodic trends**.
+Group 2 elements usually have $2$ valence electrons.
 
-:::solution
-One short answer is: Atomic radius decreases
+Group 18 elements are especially stable because their outer electron shells are full.
 :::
 
 ---
-id: "medical-biology-general-chemistry-111"
-note: "medical-biology-general-chemistry"
-title: "Review: Why trends matter"
-type: "text"
-answer: "Alkali metals lose electrons easily."
-skills:
-  - "Why trends matter"
+id: general-chemistry-14
+note: medical-biology-general-chemistry
+title: "Read Subshell Capacities"
+skills: [Electron Configuration, Orbitals]
 ---
 
-What is the main idea of **Why trends matter**?
+How many electrons can a $p$ subshell hold, and how many can a $d$ subshell hold?
 
 :::solution
-One short answer is: Alkali metals lose electrons easily.
-:::
-
----
-id: "medical-biology-general-chemistry-112"
-note: "medical-biology-general-chemistry"
-title: "Review: Bonding and molecular shape"
-type: "text"
-answer: "Bonding and molecular shape"
-skills:
-  - "4. Bonding and molecular shape"
----
-
-What is the main idea of **Bonding and molecular shape**?
+A $p$ subshell holds $6$ electrons.
 
-:::solution
-One short answer is: Bonding and molecular shape
+A $d$ subshell holds $10$ electrons.
 :::
 
 ---
-id: "medical-biology-general-chemistry-113"
-note: "medical-biology-general-chemistry"
-title: "Review: Ionic, covalent, and metallic bonding"
-type: "text"
-answer: "Ionic bonding: electron transfer and electrostatic attraction, typically between metals and nonmetals"
-skills:
-  - "Ionic, covalent, and metallic bonding"
+id: general-chemistry-15
+note: medical-biology-general-chemistry
+title: "Use Periodic Trends"
+skills: [Periodic Trends]
 ---
 
-What is the main idea of **Ionic, covalent, and metallic bonding**?
+Moving from left to right across a period, what happens to atomic radius and electronegativity?
 
 :::solution
-One short answer is: Ionic bonding: electron transfer and electrostatic attraction, typically between metals and nonmetals
-:::
-
----
-id: "medical-biology-general-chemistry-114"
-note: "medical-biology-general-chemistry"
-title: "Review: Lewis structures"
-type: "text"
-answer: "Count total valence electrons."
-skills:
-  - "Lewis structures"
----
-
-What is the main idea of **Lewis structures**?
+Across a period, atomic radius decreases.
 
-:::solution
-One short answer is: Count total valence electrons.
+Across a period, electronegativity generally increases.
 :::
 
 ---
-id: "medical-biology-general-chemistry-115"
-note: "medical-biology-general-chemistry"
-title: "Review: Formal charge"
-type: "text"
-answer: "Formal charge helps evaluate reasonable Lewis structures: $$ \\text{FC} = \\text{valence e}^- - \\left(\\text{nonbonding e}^- + \\frac{\\text{bonding e}^-}{2}\\right) $$ Structures with smaller formal charges and minimal charg…"
-skills:
-  - "Formal charge"
+id: general-chemistry-16
+note: medical-biology-general-chemistry
+title: "Find Formal Charge in a Lewis Structure"
+skills: [Lewis Structures, Formal Charge]
 ---
 
-What is the main idea of **Formal charge**?
+In the best Lewis structure for carbon dioxide, what is the formal charge on each atom?
 
 :::solution
-One short answer is: Formal charge helps evaluate reasonable Lewis structures: $$ \text{FC} = \text{valence e}^- - \left(\text{nonbonding e}^- + \frac{\text{bonding e}^-}{2}\right) $$ Structures with smaller formal charges and minimal charg…
-:::
-
----
-id: "medical-biology-general-chemistry-116"
-note: "medical-biology-general-chemistry"
-title: "Review: VSEPR geometry"
-type: "text"
-answer: "Electron groups around a central atom repel each other and arrange to minimize repulsion."
-skills:
-  - "VSEPR geometry"
----
+The best Lewis structure is
 
-What is the main idea of **VSEPR geometry**?
-
-:::solution
-One short answer is: Electron groups around a central atom repel each other and arrange to minimize repulsion.
-:::
+$$
+\mathrm{O=C=O}
+$$
 
----
-id: "medical-biology-general-chemistry-117"
-note: "medical-biology-general-chemistry"
-title: "Review: Polarity"
-type: "text"
-answer: "Symmetric molecules may be nonpolar even if their bonds are polar."
-skills:
-  - "Polarity"
----
+Carbon has four valence electrons and four bonding pairs around it, so its formal charge is $0$.
 
-What is the main idea of **Polarity**?
+Each oxygen has two lone pairs and one double bond, which also gives a formal charge of $0$.
 
-:::solution
-One short answer is: Symmetric molecules may be nonpolar even if their bonds are polar.
+So every atom in the preferred structure has formal charge $0$.
 :::
 
 ---
-id: "medical-biology-general-chemistry-118"
-note: "medical-biology-general-chemistry"
-title: "Review: Naming, formulas, and reactions"
-type: "text"
-answer: "Naming, formulas, and reactions"
-skills:
-  - "5. Naming, formulas, and reactions"
+id: general-chemistry-17
+note: medical-biology-general-chemistry
+title: "Predict Shape and Polarity"
+skills: [VSEPR, Polarity]
 ---
 
-What core formulas or relations are summarized in **Naming, formulas, and reactions**?
+What are the molecular shape and polarity of water, $H_2O$?
 
 :::solution
-One short answer is: Naming, formulas, and reactions
-:::
-
----
-id: "medical-biology-general-chemistry-119"
-note: "medical-biology-general-chemistry"
-title: "Review: Chemical nomenclature"
-type: "text"
-answer: "Binary ionic compounds"
-skills:
-  - "Chemical nomenclature"
----
+Oxygen has four electron groups around it: two bonding pairs and two lone pairs.
 
-What is the main idea of **Chemical nomenclature**?
+That gives a tetrahedral electron geometry and a bent molecular shape.
 
-:::solution
-One short answer is: Binary ionic compounds
+Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.
 :::
 
 ---
-id: "medical-biology-general-chemistry-120"
-note: "medical-biology-general-chemistry"
-title: "Review: Balancing equations"
-type: "text"
-answer: "Chemical equations must satisfy conservation of atoms and charge. Example: $$ \\text{CH} 4 + 2\\text{O} 2 \\rightarrow \\text{CO} 2 + 2\\text{H} 2\\text{O} $$ Coefficients change amounts, not formulas."
-skills:
-  - "Balancing equations"
+id: general-chemistry-18
+note: medical-biology-general-chemistry
+title: "Name Common Compounds"
+skills: [Nomenclature, Acids]
 ---
-
-What is the main idea of **Balancing equations**?
-
-:::solution
-One short answer is: Chemical equations must satisfy conservation of atoms and charge. Example: $$ \text{CH} 4 + 2\text{O} 2 \rightarrow \text{CO} 2 + 2\text{H} 2\text{O} $$ Coefficients change amounts, not formulas.
-:::
 
----
-id: "medical-biology-general-chemistry-121"
-note: "medical-biology-general-chemistry"
-title: "Review: Common reaction types"
-type: "text"
-answer: "Synthesis: two or more reactants form one product"
-skills:
-  - "Common reaction types"
----
+Give the names of the following substances:
 
-Name one common mistake the note warns about in **Common reaction types**.
+$$
+\mathrm{NaCl}, \quad \mathrm{CO_2}, \quad \mathrm{HCl(aq)}, \quad \mathrm{CaCO_3}
+$$
 
 :::solution
-One short answer is: Synthesis: two or more reactants form one product
-:::
+$\mathrm{NaCl}$ is sodium chloride.
 
----
-id: "medical-biology-general-chemistry-21"
-note: "medical-biology-general-chemistry"
-title: "Review: Stoichiometry and limiting reagents"
-type: "text"
-answer: "Stoichiometry converts between substances using balanced equation coefficients."
-skills:
-  - "6. Stoichiometry and limiting reagents"
----
+$\mathrm{CO_2}$ is carbon dioxide.
 
-What is the main idea of **Stoichiometry and limiting reagents**?
+$\mathrm{HCl(aq)}$ is hydrochloric acid.
 
-:::solution
-One short answer is: Stoichiometry converts between substances using balanced equation coefficients.
+$\mathrm{CaCO_3}$ is calcium carbonate.
 :::
 
 ---
-id: "medical-biology-general-chemistry-22"
-note: "medical-biology-general-chemistry"
-title: "Review: Mole concept"
-type: "text"
-answer: "One mole contains Avogadro's number of entities: $$ N A = 6.022 \\times 10^{23} $$ Moles connect particle count, mass, and volume."
-skills:
-  - "Mole concept"
+id: general-chemistry-19
+note: medical-biology-general-chemistry
+title: "Balance a Combustion Reaction"
+skills: [Balancing Equations, Reaction Types]
 ---
-
-What is the main idea of **Mole concept**?
-
-:::solution
-One short answer is: One mole contains Avogadro's number of entities: $$ N A = 6.022 \times 10^{23} $$ Moles connect particle count, mass, and volume.
-:::
 
----
-id: "medical-biology-general-chemistry-23"
-note: "medical-biology-general-chemistry"
-title: "Review: Conversion ladder"
-type: "text"
-answer: "Typical workflow: $$ \\text{mass} \\rightarrow \\text{moles} \\rightarrow \\text{moles of product} \\rightarrow \\text{mass} $$"
-skills:
-  - "Conversion ladder"
----
+Balance the equation and identify the reaction type:
 
-What is the main idea of **Conversion ladder**?
+$$
+\mathrm{CH_4 + O_2 \rightarrow CO_2 + H_2O}
+$$
 
 :::solution
-One short answer is: Typical workflow: $$ \text{mass} \rightarrow \text{moles} \rightarrow \text{moles of product} \rightarrow \text{mass} $$
-:::
-
----
-id: "medical-biology-general-chemistry-24"
-note: "medical-biology-general-chemistry"
-title: "Review: Limiting reagent"
-type: "text"
-answer: "Convert each reactant to moles."
-skills:
-  - "Limiting reagent"
----
+Start by balancing carbon and hydrogen:
 
-What is the main idea of **Limiting reagent**?
+$$
+\mathrm{CH_4 + O_2 \rightarrow CO_2 + 2H_2O}
+$$
 
-:::solution
-One short answer is: Convert each reactant to moles.
-:::
+Now count oxygen atoms on the product side: there are $4$ oxygen atoms total, so the reactant side needs $2$ oxygen molecules.
 
----
-id: "medical-biology-general-chemistry-25"
-note: "medical-biology-general-chemistry"
-title: "Review: Percent yield"
-type: "text"
-answer: "Theoretical yield is the amount predicted by stoichiometry. Actual yield is what is obtained experimentally. $$ \\% \\text{yield} = \\frac{\\text{actual yield}}{\\text{theoretical yield}} \\times 100 $$"
-skills:
-  - "Percent yield"
----
+The balanced equation is
 
-What is the main idea of **Percent yield**?
+$$
+\mathrm{CH_4 + 2O_2 \rightarrow CO_2 + 2H_2O}
+$$
 
-:::solution
-One short answer is: Theoretical yield is the amount predicted by stoichiometry. Actual yield is what is obtained experimentally. $$ \% \text{yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100 $$
+This is a combustion reaction because a hydrocarbon reacts with oxygen to form carbon dioxide and water.
 :::
 
 ---
-id: "medical-biology-general-chemistry-26"
-note: "medical-biology-general-chemistry"
-title: "Review: Common stoichiometry mistakes"
-type: "text"
-answer: "Forgetting to balance the equation first"
-skills:
-  - "Common stoichiometry mistakes"
+id: general-chemistry-110
+note: medical-biology-general-chemistry
+title: "Use the Mole Concept"
+skills: [Mole Concept, Avogadro's Number]
 ---
 
-Name one common mistake the note warns about in **Common stoichiometry mistakes**.
+How many molecules are in $0.25$ mol of water?
 
 :::solution
-One short answer is: Forgetting to balance the equation first
-:::
-
----
-id: "medical-biology-general-chemistry-27"
-note: "medical-biology-general-chemistry"
-title: "Review: States of matter and gases"
-type: "text"
-answer: "States of matter and gases"
-skills:
-  - "7. States of matter and gases"
----
+Use Avogadro's number:
 
-What is the main idea of **States of matter and gases**?
+$$
+0.25 \text{ mol} \times 6.022 \times 10^{23} \frac{\text{molecules}}{\text{mol}}
+$$
 
-:::solution
-One short answer is: States of matter and gases
-:::
-
----
-id: "medical-biology-general-chemistry-28"
-note: "medical-biology-general-chemistry"
-title: "Review: Phases and phase changes"
-type: "text"
-answer: "Melting and freezing"
-skills:
-  - "Phases and phase changes"
----
+$$
+= 1.5055 \times 10^{23} \text{ molecules}
+$$
 
-What is the main idea of **Phases and phase changes**?
+Rounded to three significant figures, the answer is
 
-:::solution
-One short answer is: Melting and freezing
+$$
+1.51 \times 10^{23} \text{ molecules}
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-29"
-note: "medical-biology-general-chemistry"
-title: "Review: Gas laws"
-type: "text"
-answer: "$P$ is pressure"
-skills:
-  - "Gas laws"
+id: general-chemistry-21
+note: medical-biology-general-chemistry
+title: "Convert Mass to Particles"
+skills: [Mole Concept, Unit Conversion]
 ---
-
-What is the main idea of **Gas laws**?
-
-:::solution
-One short answer is: $P$ is pressure
-:::
 
----
-id: "medical-biology-general-chemistry-210"
-note: "medical-biology-general-chemistry"
-title: "Review: Partial pressures"
-type: "text"
-answer: "For gas mixtures: $$ P {total} = \\sum i P i $$ and $$ P i = X i P {total} $$ where $X i$ is mole fraction."
-skills:
-  - "Partial pressures"
----
+A sample contains $18.0$ g of water.
 
-What is the main idea of **Partial pressures**?
+How many moles and how many molecules is that?
 
 :::solution
-One short answer is: For gas mixtures: $$ P {total} = \sum i P i $$ and $$ P i = X i P {total} $$ where $X i$ is mole fraction.
-:::
+The molar mass of water is $18.0$ g/mol, so
 
----
-id: "medical-biology-general-chemistry-211"
-note: "medical-biology-general-chemistry"
-title: "Review: Why gases matter in medicine"
-type: "text"
-answer: "Oxygen delivery and ventilation"
-skills:
-  - "Why gases matter in medicine"
----
+$$
+n = \frac{18.0\text{ g}}{18.0\text{ g/mol}} = 1.00\text{ mol}
+$$
 
-What is the main idea of **Why gases matter in medicine**?
+Now convert moles to molecules:
 
-:::solution
-One short answer is: Oxygen delivery and ventilation
+$$
+1.00\text{ mol} \times 6.022 \times 10^{23} \frac{\text{molecules}}{\text{mol}}
+= 6.02 \times 10^{23}\text{ molecules}
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-212"
-note: "medical-biology-general-chemistry"
-title: "Review: Solutions and concentration"
-type: "text"
-answer: "Solutions and concentration"
-skills:
-  - "8. Solutions and concentration"
+id: general-chemistry-22
+note: medical-biology-general-chemistry
+title: "Find the Limiting Reagent"
+skills: [Stoichiometry, Limiting Reagent]
 ---
 
-What is the main idea of **Solutions and concentration**?
+For the reaction
 
-:::solution
-One short answer is: Solutions and concentration
-:::
+$$
+\mathrm{2H_2 + O_2 \rightarrow 2H_2O}
+$$
 
----
-id: "medical-biology-general-chemistry-213"
-note: "medical-biology-general-chemistry"
-title: "Review: Dissolution"
-type: "text"
-answer: "Polar and ionic solutes tend to dissolve in polar solvents."
-skills:
-  - "Dissolution"
----
+suppose you start with $5.0$ mol of $H_2$ and $2.0$ mol of $O_2$.
 
-What is the main idea of **Dissolution**?
+Which reactant is limiting, and how many moles of water can form?
 
 :::solution
-One short answer is: Polar and ionic solutes tend to dissolve in polar solvents.
-:::
+The reaction needs $2$ mol of $H_2$ for every $1$ mol of $O_2$.
 
----
-id: "medical-biology-general-chemistry-214"
-note: "medical-biology-general-chemistry"
-title: "Review: Concentration units"
-type: "text"
-answer: "Molarity:"
-skills:
-  - "Concentration units"
----
+If $2.0$ mol of $O_2$ are available, the reaction requires
 
-What is the main idea of **Concentration units**?
-
-:::solution
-One short answer is: Molarity:
-:::
+$$
+2.0 \times 2 = 4.0\text{ mol }H_2
+$$
 
----
-id: "medical-biology-general-chemistry-215"
-note: "medical-biology-general-chemistry"
-title: "Review: Dilution"
-type: "text"
-answer: "For solutions where solute amount is conserved: $$ M 1V 1 = M 2V 2 $$"
-skills:
-  - "Dilution"
----
+Since $5.0$ mol of $H_2$ are available, hydrogen is in excess and oxygen is limiting.
 
-What is the main idea of **Dilution**?
+From the balanced equation, $1$ mol of $O_2$ produces $2$ mol of $H_2O$, so
 
-:::solution
-One short answer is: For solutions where solute amount is conserved: $$ M 1V 1 = M 2V 2 $$
+$$
+2.0\text{ mol }O_2 \rightarrow 4.0\text{ mol }H_2O
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-216"
-note: "medical-biology-general-chemistry"
-title: "Review: Colligative properties"
-type: "text"
-answer: "Vapor pressure lowering"
-skills:
-  - "Colligative properties"
+id: general-chemistry-23
+note: medical-biology-general-chemistry
+title: "Solve an Ideal Gas Problem"
+skills: [Gas Laws, Kelvin]
 ---
-
-What is the main idea of **Colligative properties**?
 
-:::solution
-One short answer is: Vapor pressure lowering
-:::
-
----
-id: "medical-biology-general-chemistry-217"
-note: "medical-biology-general-chemistry"
-title: "Review: Thermochemistry"
-type: "text"
-answer: "Thermochemistry studies energy transfer as heat in chemical and physical changes."
-skills:
-  - "9. Thermochemistry"
----
+What volume does $0.50$ mol of gas occupy at $1.00$ atm and $300$ K?
 
-What is the main idea of **Thermochemistry**?
+Use $R = 0.0821\ \mathrm{L\cdot atm/(mol\cdot K)}$.
 
 :::solution
-One short answer is: Thermochemistry studies energy transfer as heat in chemical and physical changes.
-:::
-
----
-id: "medical-biology-general-chemistry-218"
-note: "medical-biology-general-chemistry"
-title: "Review: System and surroundings"
-type: "text"
-answer: "Exothermic: system releases heat, $q < 0$"
-skills:
-  - "System and surroundings"
----
+Use the ideal gas law:
 
-What is the main idea of **System and surroundings**?
+$$
+PV = nRT
+$$
 
-:::solution
-One short answer is: Exothermic: system releases heat, $q < 0$
-:::
+Solve for volume:
 
----
-id: "medical-biology-general-chemistry-219"
-note: "medical-biology-general-chemistry"
-title: "Review: First law idea"
-type: "text"
-answer: "Energy is conserved. In chemistry, heat and work are common forms of energy transfer."
-skills:
-  - "First law idea"
----
+$$
+V = \frac{nRT}{P}
+$$
 
-What is the main idea of **First law idea**?
+Substitute the values:
 
-:::solution
-One short answer is: Energy is conserved. In chemistry, heat and work are common forms of energy transfer.
-:::
+$$
+V = \frac{(0.50)(0.0821)(300)}{1.00}
+$$
 
----
-id: "medical-biology-general-chemistry-220"
-note: "medical-biology-general-chemistry"
-title: "Review: Heat capacity"
-type: "text"
-answer: "$m$ is mass"
-skills:
-  - "Heat capacity"
----
+$$
+V = 12.315\text{ L}
+$$
 
-What is the main idea of **Heat capacity**?
+Rounded appropriately,
 
-:::solution
-One short answer is: $m$ is mass
+$$
+V \approx 12.3\text{ L}
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-31"
-note: "medical-biology-general-chemistry"
-title: "Review: Enthalpy"
-type: "text"
-answer: "At constant pressure, heat flow equals enthalpy change: $$ \\Delta H = q p $$"
-skills:
-  - "Enthalpy"
+id: general-chemistry-24
+note: medical-biology-general-chemistry
+title: "Use Molarity and Dilution"
+skills: [Solutions, Dilution]
 ---
 
-What is the main idea of **Enthalpy**?
+How many milliliters of a $2.00$ M stock solution are needed to prepare $100.0$ mL of a $0.500$ M solution?
 
 :::solution
-One short answer is: At constant pressure, heat flow equals enthalpy change: $$ \Delta H = q p $$
-:::
-
----
-id: "medical-biology-general-chemistry-32"
-note: "medical-biology-general-chemistry"
-title: "Review: Hess's law"
-type: "text"
-answer: "If a reaction can be written as the sum of multiple steps, the total enthalpy change is the sum of the step enthalpies. This is useful when a direct reaction enthalpy is not given."
-skills:
-  - "Hess's law"
----
+Use the dilution relationship:
 
-What is the main idea of **Hess's law**?
+$$
+M_1V_1 = M_2V_2
+$$
 
-:::solution
-One short answer is: If a reaction can be written as the sum of multiple steps, the total enthalpy change is the sum of the step enthalpies. This is useful when a direct reaction enthalpy is not given.
-:::
-
----
-id: "medical-biology-general-chemistry-33"
-note: "medical-biology-general-chemistry"
-title: "Review: Bond enthalpy approximation"
-type: "text"
-answer: "Rough estimate: $$ \\Delta H \\approx \\sum(\\text{bonds broken}) - \\sum(\\text{bonds formed}) $$ ---"
-skills:
-  - "Bond enthalpy approximation"
----
+Solve for the stock volume:
 
-What is the main idea of **Bond enthalpy approximation**?
+$$
+V_1 = \frac{M_2V_2}{M_1}
+$$
 
-:::solution
-One short answer is: Rough estimate: $$ \Delta H \approx \sum(\text{bonds broken}) - \sum(\text{bonds formed}) $$ ---
+$$
+V_1 = \frac{(0.500)(100.0)}{2.00} = 25.0\text{ mL}
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-34"
-note: "medical-biology-general-chemistry"
-title: "Review: Chemical equilibrium"
-type: "text"
-answer: "Many reactions are reversible and reach dynamic equilibrium."
-skills:
-  - "10. Chemical equilibrium"
+id: general-chemistry-25
+note: medical-biology-general-chemistry
+title: "Compute Heat Flow"
+skills: [Thermochemistry, Specific Heat]
 ---
-
-What is the main idea of **Chemical equilibrium**?
-
-:::solution
-One short answer is: Many reactions are reversible and reach dynamic equilibrium.
-:::
 
----
-id: "medical-biology-general-chemistry-35"
-note: "medical-biology-general-chemistry"
-title: "Review: Equilibrium constant"
-type: "text"
-answer: "For a reaction: $$ aA + bB \\rightleftharpoons cC + dD $$ the equilibrium expression is: $$ K = \\frac{[C]^c[D]^d}{[A]^a[B]^b} $$ Pure solids and liquids are omitted from $K$."
-skills:
-  - "Equilibrium constant"
----
+How much heat is required to warm $50.0$ g of water by $10.0^\circ$C?
 
-What is the main idea of **Equilibrium constant**?
+Use $c = 4.18\ \mathrm{J/(g\cdot^\circ C)}$.
 
 :::solution
-One short answer is: For a reaction: $$ aA + bB \rightleftharpoons cC + dD $$ the equilibrium expression is: $$ K = \frac{[C]^c[D]^d}{[A]^a[B]^b} $$ Pure solids and liquids are omitted from $K$.
-:::
+Use
 
----
-id: "medical-biology-general-chemistry-36"
-note: "medical-biology-general-chemistry"
-title: "Review: Reaction quotient"
-type: "text"
-answer: "If $Q < K$, the reaction shifts toward products."
-skills:
-  - "Reaction quotient"
----
+$$
+q = mc\Delta T
+$$
 
-What is the main idea of **Reaction quotient**?
-
-:::solution
-One short answer is: If $Q < K$, the reaction shifts toward products.
-:::
+Substitute the values:
 
----
-id: "medical-biology-general-chemistry-37"
-note: "medical-biology-general-chemistry"
-title: "Review: Le Chatelier's principle"
-type: "text"
-answer: "Concentration"
-skills:
-  - "Le Chatelier's principle"
----
+$$
+q = (50.0)(4.18)(10.0)
+$$
 
-What is the main idea of **Le Chatelier's principle**?
+$$
+q = 2090\text{ J}
+$$
 
-:::solution
-One short answer is: Concentration
+Because the temperature increases, the heat is positive.
 :::
 
 ---
-id: "medical-biology-general-chemistry-38"
-note: "medical-biology-general-chemistry"
-title: "Review: Common application"
-type: "text"
-answer: "Stoichiometry"
-skills:
-  - "Common application"
+id: general-chemistry-26
+note: medical-biology-general-chemistry
+title: "Predict a Shift in Equilibrium"
+skills: [Equilibrium, Le Chatelier's Principle]
 ---
 
-Name one common mistake the note warns about in **Common application**.
+For the reaction
 
-:::solution
-One short answer is: Stoichiometry
-:::
+$$
+\mathrm{N_2 + 3H_2 \rightleftharpoons 2NH_3}
+$$
 
----
-id: "medical-biology-general-chemistry-39"
-note: "medical-biology-general-chemistry"
-title: "Review: Acids, bases, and buffers"
-type: "text"
-answer: "Acid-base chemistry is one of the most important parts of general chemistry for biology and medicine."
-skills:
-  - "11. Acids, bases, and buffers"
----
+suppose the current reaction quotient is $Q = 0.10$ and the equilibrium constant is $K = 0.50$.
 
-What is the main idea of **Acids, bases, and buffers**?
+Which way will the reaction shift?
 
 :::solution
-One short answer is: Acid-base chemistry is one of the most important parts of general chemistry for biology and medicine.
-:::
+Compare $Q$ and $K$.
 
----
-id: "medical-biology-general-chemistry-310"
-note: "medical-biology-general-chemistry"
-title: "Review: Definitions"
-type: "text"
-answer: "Arrhenius acid: produces $H^+$ in water"
-skills:
-  - "Definitions"
----
-
-What core idea is introduced in **Definitions**?
-
-:::solution
-One short answer is: Arrhenius acid: produces $H^+$ in water
-:::
+Since
 
----
-id: "medical-biology-general-chemistry-311"
-note: "medical-biology-general-chemistry"
-title: "Review: Strong and weak acids/bases"
-type: "text"
-answer: "Strong acids and strong bases dissociate essentially completely."
-skills:
-  - "Strong and weak acids/bases"
----
+$$
+Q < K
+$$
 
-What is the main idea of **Strong and weak acids/bases**?
+the system has too few products relative to equilibrium.
 
-:::solution
-One short answer is: Strong acids and strong bases dissociate essentially completely.
+The reaction shifts to the right, toward ammonia, to increase $Q$ until equilibrium is reached.
 :::
 
 ---
-id: "medical-biology-general-chemistry-312"
-note: "medical-biology-general-chemistry"
-title: "Review: pH and pOH"
-type: "text"
-answer: "$$ \\text{pH} = -\\log[H^+] $$ $$ \\text{pOH} = -\\log[OH^-] $$ At 25 C: $$ \\text{pH} + \\text{pOH} = 14 $$ and $$ [H^+][OH^-] = 10^{-14} $$"
-skills:
-  - "pH and pOH"
+id: general-chemistry-27
+note: medical-biology-general-chemistry
+title: "Calculate pH from a Buffer"
+skills: [Buffers, pH, Henderson-Hasselbalch]
 ---
-
-What is the main idea of **pH and pOH**?
-
-:::solution
-One short answer is: $$ \text{pH} = -\log[H^+] $$ $$ \text{pOH} = -\log[OH^-] $$ At 25 C: $$ \text{pH} + \text{pOH} = 14 $$ and $$ [H^+][OH^-] = 10^{-14} $$
-:::
 
----
-id: "medical-biology-general-chemistry-313"
-note: "medical-biology-general-chemistry"
-title: "Review: Acid dissociation constant"
-type: "text"
-answer: "For a weak acid $HA$: $$ HA \\rightleftharpoons H^+ + A^- $$ $$ K a = \\frac{[H^+][A^-]}{[HA]} $$ Weak base analog: $$ K b = \\frac{[BH^+][OH^-]}{[B]} $$"
-skills:
-  - "Acid dissociation constant"
----
+A buffer has $[A^-] = 10[HA]$ and $\mathrm{p}K_a = 7.00$.
 
-What is the main idea of **Acid dissociation constant**?
+What is the pH?
 
 :::solution
-One short answer is: For a weak acid $HA$: $$ HA \rightleftharpoons H^+ + A^- $$ $$ K a = \frac{[H^+][A^-]}{[HA]} $$ Weak base analog: $$ K b = \frac{[BH^+][OH^-]}{[B]} $$
-:::
+Use the Henderson-Hasselbalch equation:
 
----
-id: "medical-biology-general-chemistry-314"
-note: "medical-biology-general-chemistry"
-title: "Review: Buffers"
-type: "text"
-answer: "A buffer resists pH change and usually contains a weak acid and its conjugate base, or a weak base and its conjugate acid."
-skills:
-  - "Buffers"
----
+$$
+\text{pH} = \text{p}K_a + \log\left(\frac{[A^-]}{[HA]}\right)
+$$
 
-What is the main idea of **Buffers**?
+Substitute the ratio:
 
-:::solution
-One short answer is: A buffer resists pH change and usually contains a weak acid and its conjugate base, or a weak base and its conjugate acid.
+$$
+\text{pH} = 7.00 + \log(10)
+$$
+
+$$
+\text{pH} = 7.00 + 1.00 = 8.00
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-315"
-note: "medical-biology-general-chemistry"
-title: "Review: Why buffers matter biologically"
-type: "text"
-answer: "Blood pH"
-skills:
-  - "Why buffers matter biologically"
+id: general-chemistry-28
+note: medical-biology-general-chemistry
+title: "Use a Rate Law"
+skills: [Kinetics, Rate Laws]
 ---
-
-What is the main idea of **Why buffers matter biologically**?
 
-:::solution
-One short answer is: Blood pH
-:::
+For a reaction with rate law
 
----
-id: "medical-biology-general-chemistry-316"
-note: "medical-biology-general-chemistry"
-title: "Review: pKa intuition"
-type: "text"
-answer: "If pH < pKa, the protonated form dominates."
-skills:
-  - "pKa intuition"
----
+$$
+\text{rate} = k[A]^2[B]
+$$
 
-What is the main idea of **pKa intuition**?
+by what factor does the rate change if $[A]$ is tripled and $[B]$ is cut in half?
 
 :::solution
-One short answer is: If pH < pKa, the protonated form dominates.
-:::
-
----
-id: "medical-biology-general-chemistry-317"
-note: "medical-biology-general-chemistry"
-title: "Review: Kinetics and reaction rate"
-type: "text"
-answer: "Thermodynamics tells whether a reaction is favorable; kinetics tells how fast it happens."
-skills:
-  - "12. Kinetics and reaction rate"
----
+The rate changes by the factor
 
-What is the main idea of **Kinetics and reaction rate**?
+$$
+3^2 \times \frac{1}{2} = 9 \times \frac{1}{2} = 4.5
+$$
 
-:::solution
-One short answer is: Thermodynamics tells whether a reaction is favorable; kinetics tells how fast it happens.
+So the rate increases by a factor of $4.5$.
 :::
 
 ---
-id: "medical-biology-general-chemistry-318"
-note: "medical-biology-general-chemistry"
-title: "Review: Rate"
-type: "text"
-answer: "Concentration"
-skills:
-  - "Rate"
+id: general-chemistry-31
+note: medical-biology-general-chemistry
+title: "Choose the Tonicity"
+skills: [Solutions, Osmosis]
 ---
 
-What is the main idea of **Rate**?
+A red blood cell is placed in a solution that has a lower solute concentration than the cell.
 
-:::solution
-One short answer is: Concentration
-:::
+What happens to the cell?
 
----
-id: "medical-biology-general-chemistry-319"
-note: "medical-biology-general-chemistry"
-title: "Review: Collision theory"
-type: "text"
-answer: "Enough energy to overcome activation energy"
-skills:
-  - "Collision theory"
----
+:::solution
+The outside solution is hypotonic relative to the cell.
 
-What is the main idea of **Collision theory**?
+Water moves into the cell by osmosis.
 
-:::solution
-One short answer is: Enough energy to overcome activation energy
+The cell swells and may burst if the concentration difference is large enough.
 :::
 
 ---
-id: "medical-biology-general-chemistry-320"
-note: "medical-biology-general-chemistry"
-title: "Review: Rate laws"
-type: "text"
-answer: "A typical rate law is: $$ \\text{rate} = k[A]^m[B]^n $$ where $m$ and $n$ are experimentally determined, not taken from the balanced equation unless the step is elementary."
-skills:
-  - "Rate laws"
+id: general-chemistry-32
+note: medical-biology-general-chemistry
+title: "Read a Gas Mixture"
+skills: [Gas Laws, Partial Pressure]
 ---
 
-What is the main idea of **Rate laws**?
+Air has a total pressure of $760$ mmHg, and oxygen makes up $21\%$ of the mixture by mole fraction.
 
+What is the partial pressure of oxygen?
+
 :::solution
-One short answer is: A typical rate law is: $$ \text{rate} = k[A]^m[B]^n $$ where $m$ and $n$ are experimentally determined, not taken from the balanced equation unless the step is elementary.
-:::
+Use Dalton's law:
 
----
-id: "medical-biology-general-chemistry-321"
-note: "medical-biology-general-chemistry"
-title: "Review: Activation energy and catalysts"
-type: "text"
-answer: "Overall $\\Delta G$ or $\\Delta H$"
-skills:
-  - "Activation energy and catalysts"
----
+$$
+P_i = X_i P_{total}
+$$
 
-What is the main idea of **Activation energy and catalysts**?
+So
 
-:::solution
-One short answer is: Overall $\Delta G$ or $\Delta H$
-:::
+$$
+P_{O_2} = 0.21 \times 760
+$$
 
----
-id: "medical-biology-general-chemistry-41"
-note: "medical-biology-general-chemistry"
-title: "Review: Redox and electrochemistry"
-type: "text"
-answer: "Redox and electrochemistry"
-skills:
-  - "13. Redox and electrochemistry"
----
+$$
+P_{O_2} = 159.6\text{ mmHg}
+$$
 
-What is the main idea of **Redox and electrochemistry**?
+Rounded appropriately,
 
-:::solution
-One short answer is: Redox and electrochemistry
+$$
+P_{O_2} \approx 160\text{ mmHg}
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-42"
-note: "medical-biology-general-chemistry"
-title: "Review: Oxidation and reduction"
-type: "text"
-answer: "Oxidation: loss of electrons"
-skills:
-  - "Oxidation and reduction"
+id: general-chemistry-33
+note: medical-biology-general-chemistry
+title: "Find Percent Yield"
+skills: [Stoichiometry, Percent Yield]
 ---
+
+An experiment has a theoretical yield of $20.0$ g and an actual yield of $15.0$ g.
 
-What is the main idea of **Oxidation and reduction**?
+What is the percent yield?
 
 :::solution
-One short answer is: Oxidation: loss of electrons
-:::
+Use
 
----
-id: "medical-biology-general-chemistry-43"
-note: "medical-biology-general-chemistry"
-title: "Review: Oxidation numbers"
-type: "text"
-answer: "Free elements have oxidation number 0"
-skills:
-  - "Oxidation numbers"
----
+$$
+\% \text{yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100
+$$
 
-What is the main idea of **Oxidation numbers**?
+Substitute the values:
 
-:::solution
-One short answer is: Free elements have oxidation number 0
+$$
+\% \text{yield} = \frac{15.0}{20.0} \times 100 = 75.0\%
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-44"
-note: "medical-biology-general-chemistry"
-title: "Review: Balancing redox reactions"
-type: "text"
-answer: "Oxidation number method"
-skills:
-  - "Balancing redox reactions"
+id: general-chemistry-34
+note: medical-biology-general-chemistry
+title: "Decide Protonation from pH and pKa"
+skills: [Acids, Bases, pKa]
 ---
+
+A weak acid drug has $\mathrm{p}K_a = 8.0$ and is placed in blood at pH $7.4$.
 
-What is the main idea of **Balancing redox reactions**?
+Which form is more abundant, the protonated form or the deprotonated form?
 
 :::solution
-One short answer is: Oxidation number method
-:::
+Because
 
----
-id: "medical-biology-general-chemistry-45"
-note: "medical-biology-general-chemistry"
-title: "Review: Electrochemical cells"
-type: "text"
-answer: "Anode: oxidation occurs"
-skills:
-  - "Electrochemical cells"
----
+$$
+\text{pH} < \text{p}K_a
+$$
 
-What is the main idea of **Electrochemical cells**?
+the protonated form predominates.
 
-:::solution
-One short answer is: Anode: oxidation occurs
+That is the key pH-to-pKa rule for weak acids.
 :::
 
 ---
-id: "medical-biology-general-chemistry-46"
-note: "medical-biology-general-chemistry"
-title: "Review: Biological relevance"
-type: "text"
-answer: "Cellular respiration"
-skills:
-  - "Biological relevance"
+id: general-chemistry-35
+note: medical-biology-general-chemistry
+title: "Identify the Anode and Cathode"
+skills: [Redox, Electrochemistry]
 ---
 
-What is the main idea of **Biological relevance**?
+In a galvanic cell, one metal electrode loses mass because its atoms become ions.
 
-:::solution
-One short answer is: Cellular respiration
-:::
+Is that electrode the anode or the cathode, and where do the electrons go?
 
----
-id: "medical-biology-general-chemistry-47"
-note: "medical-biology-general-chemistry"
-title: "Review: General chemistry for biology and medicine"
-type: "text"
-answer: "General chemistry becomes more useful when connected to real systems."
-skills:
-  - "14. General chemistry for biology and medicine"
----
+:::solution
+Loss of mass means oxidation is happening there.
 
-What is the main idea of **General chemistry for biology and medicine**?
+Oxidation occurs at the anode, so that electrode is the anode.
 
-:::solution
-One short answer is: General chemistry becomes more useful when connected to real systems.
+The electrons flow away from the anode and toward the cathode.
 :::
 
 ---
-id: "medical-biology-general-chemistry-48"
-note: "medical-biology-general-chemistry"
-title: "Review: Water as the dominant solvent"
-type: "text"
-answer: "Ions dissolve readily."
-skills:
-  - "Water as the dominant solvent"
+id: general-chemistry-41
+note: medical-biology-general-chemistry
+title: "Match Shape, Polarity, and Solubility"
+skills: [Bonding, Polarity, Solubility]
 ---
 
-What is the main idea of **Water as the dominant solvent**?
+Rank the following from most likely to least likely to dissolve in water:
 
-:::solution
-One short answer is: Ions dissolve readily.
-:::
+$$
+\mathrm{NaCl}, \quad \mathrm{NH_3}, \quad \mathrm{CH_4}
+$$
 
----
-id: "medical-biology-general-chemistry-49"
-note: "medical-biology-general-chemistry"
-title: "Review: pH and biomolecules"
-type: "text"
-answer: "Protein solubility changes with pH."
-skills:
-  - "pH and biomolecules"
----
+:::solution
+Water is polar, so ionic and polar substances dissolve better than nonpolar substances.
 
-What is the main idea of **pH and biomolecules**?
+$\mathrm{NaCl}$ is ionic, so it is the most water-soluble.
 
-:::solution
-One short answer is: Protein solubility changes with pH.
-:::
+$\mathrm{NH_3}$ is polar and can hydrogen bond, so it is next.
 
----
-id: "medical-biology-general-chemistry-410"
-note: "medical-biology-general-chemistry"
-title: "Review: Buffers in physiology"
-type: "text"
-answer: "Buffers keep body fluids within narrow pH ranges. The bicarbonate system is the classic example: $$ H 2CO 3 \\rightleftharpoons H^+ + HCO 3^- $$ This system is linked to respiration and renal control."
-skills:
-  - "Buffers in physiology"
----
+$\mathrm{CH_4}$ is nonpolar, so it is the least soluble.
 
-What is the main idea of **Buffers in physiology**?
+So the ranking is
 
-:::solution
-One short answer is: Buffers keep body fluids within narrow pH ranges. The bicarbonate system is the classic example: $$ H 2CO 3 \rightleftharpoons H^+ + HCO 3^- $$ This system is linked to respiration and renal control.
+$$
+\mathrm{NaCl} > \mathrm{NH_3} > \mathrm{CH_4}
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-411"
-note: "medical-biology-general-chemistry"
-title: "Review: Osmosis and tonicity"
-type: "text"
-answer: "Hypotonic, isotonic, and hypertonic solutions"
-skills:
-  - "Osmosis and tonicity"
+id: general-chemistry-42
+note: medical-biology-general-chemistry
+title: "Use Q and K After a Disturbance"
+skills: [Equilibrium, Le Chatelier's Principle]
 ---
+
+For a reaction at equilibrium, a small amount of product is removed.
 
-What is the main idea of **Osmosis and tonicity**?
+Immediately after the removal, is $Q$ greater than, less than, or equal to $K$, and which way does the reaction shift?
 
 :::solution
-One short answer is: Hypotonic, isotonic, and hypertonic solutions
+Removing product lowers the product concentration, so $Q$ becomes less than $K$.
+
+To restore equilibrium, the reaction shifts to the right and makes more product.
 :::
 
 ---
-id: "medical-biology-general-chemistry-412"
-note: "medical-biology-general-chemistry"
-title: "Review: Electrolytes"
-type: "text"
-answer: "Nerve conduction"
-skills:
-  - "Electrolytes"
+id: general-chemistry-43
+note: medical-biology-general-chemistry
+title: "Update a Buffer After Adding Acid"
+skills: [Buffers, pH, Le Chatelier's Principle]
 ---
-
-What is the main idea of **Electrolytes**?
 
-:::solution
-One short answer is: Nerve conduction
-:::
+A buffer contains $0.10$ mol of $HA$ and $0.10$ mol of $A^-$ in $1.0$ L of solution, and $\mathrm{p}K_a = 7.00$.
 
----
-id: "medical-biology-general-chemistry-413"
-note: "medical-biology-general-chemistry"
-title: "Review: Common laboratory ideas"
-type: "text"
-answer: "Concentration and dilution"
-skills:
-  - "Common laboratory ideas"
----
+Then $0.01$ mol of strong acid is added.
 
-Name one common mistake the note warns about in **Common laboratory ideas**.
+What is the new pH?
 
 :::solution
-One short answer is: Concentration and dilution
-:::
-
----
-id: "medical-biology-general-chemistry-414"
-note: "medical-biology-general-chemistry"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "General chemistry problems are easier when you follow a fixed sequence."
-skills:
-  - "15. Problem-solving workflow"
----
+The added acid reacts with the base form:
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+$$
+A^- + H^+ \rightarrow HA
+$$
 
-:::solution
-One short answer is: General chemistry problems are easier when you follow a fixed sequence.
-:::
+So the buffer amounts become:
 
----
-id: "medical-biology-general-chemistry-415"
-note: "medical-biology-general-chemistry"
-title: "Review: Recommended workflow"
-type: "text"
-answer: "Identify the topic: stoichiometry, equilibrium, pH, gas law, or redox."
-skills:
-  - "Recommended workflow"
----
+$$
+A^-: 0.10 - 0.01 = 0.09\text{ mol}
+$$
 
-According to the note, what sequence of steps is recommended in **Recommended workflow**?
+$$
+HA: 0.10 + 0.01 = 0.11\text{ mol}
+$$
 
-:::solution
-One short answer is: Identify the topic: stoichiometry, equilibrium, pH, gas law, or redox.
-:::
+Use Henderson-Hasselbalch:
 
----
-id: "medical-biology-general-chemistry-416"
-note: "medical-biology-general-chemistry"
-title: "Review: Decision cues"
-type: "text"
-answer: "If the problem asks \"how much forms?\", think stoichiometry."
-skills:
-  - "Decision cues"
----
+$$
+\text{pH} = 7.00 + \log\left(\frac{0.09}{0.11}\right)
+$$
 
-What is the main idea of **Decision cues**?
+$$
+\text{pH} \approx 7.00 + \log(0.818)
+$$
 
-:::solution
-One short answer is: If the problem asks "how much forms?", think stoichiometry.
+$$
+\text{pH} \approx 7.00 - 0.087 = 6.91
+$$
 :::
 
 ---
-id: "medical-biology-general-chemistry-417"
-note: "medical-biology-general-chemistry"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Mixing up mass and moles"
-skills:
-  - "Common pitfalls"
+id: general-chemistry-44
+note: medical-biology-general-chemistry
+title: "Combine Stoichiometry and the Ideal Gas Law"
+skills: [Stoichiometry, Gas Laws, Unit Conversion]
 ---
 
-Name one common mistake the note warns about in **Common pitfalls**.
+For the reaction
 
-:::solution
-One short answer is: Mixing up mass and moles
-:::
+$$
+\mathrm{2H_2 + O_2 \rightarrow 2H_2O}
+$$
 
----
-id: "medical-biology-general-chemistry-418"
-note: "medical-biology-general-chemistry"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "16. Formula summary"
----
+how many liters of $O_2$ are needed at $1.00$ atm and $298$ K to make $2.00$ mol of water?
 
-What core formulas or relations are summarized in **Formula summary**?
+Use $R = 0.0821\ \mathrm{L\cdot atm/(mol\cdot K)}$.
 
 :::solution
-One short answer is: Formula summary
-:::
+From the balanced equation, $1$ mol of $O_2$ produces $2$ mol of water.
 
----
-id: "medical-biology-general-chemistry-419"
-note: "medical-biology-general-chemistry"
-title: "Review: Core formulas"
-type: "text"
-answer: "$$ A = Z + N $$ $$ n = \\frac{m}{M} $$ $$ PV = nRT $$ $$ M = \\frac{n}{V} $$ $$ M 1V 1 = M 2V 2 $$ $$ q = mc\\Delta T $$ $$ \\Delta H = q p $$ $$ \\text{pH} = -\\log[H^+] $$ $$ \\text{pOH} = -\\log[OH^-] $$ $$ \\text{pH} + \\text…"
-skills:
-  - "Core formulas"
----
+So to make $2.00$ mol of $H_2O$, you need
 
-What core formulas or relations are summarized in **Core formulas**?
+$$
+1.00\text{ mol }O_2
+$$
 
-:::solution
-One short answer is: $$ A = Z + N $$ $$ n = \frac{m}{M} $$ $$ PV = nRT $$ $$ M = \frac{n}{V} $$ $$ M 1V 1 = M 2V 2 $$ $$ q = mc\Delta T $$ $$ \Delta H = q p $$ $$ \text{pH} = -\log[H^+] $$ $$ \text{pOH} = -\log[OH^-] $$ $$ \text{pH} + \text…
-:::
+Now use the ideal gas law:
 
----
-id: "medical-biology-general-chemistry-420"
-note: "medical-biology-general-chemistry"
-title: "Review: High-yield facts"
-type: "text"
-answer: "Bonding and shape control polarity."
-skills:
-  - "High-yield facts"
----
+$$
+V = \frac{nRT}{P}
+$$
 
-What is the main idea of **High-yield facts**?
+$$
+V = \frac{(1.00)(0.0821)(298)}{1.00}
+$$
 
-:::solution
-One short answer is: Bonding and shape control polarity.
+$$
+V = 24.5\text{ L}
+$$
 :::

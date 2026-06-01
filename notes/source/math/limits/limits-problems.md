@@ -1,783 +1,892 @@
 ---
-id: "math-limits-11"
-note: "math-limits"
-title: "Review: What a limit means"
-type: "text"
-answer: "Derivatives"
-skills:
-  - "1. What a limit means"
+id: limits-11
+note: math-limits
+title: "Evaluate a Polynomial Limit"
+skills: [What a Limit Means, Direct Substitution]
 ---
 
-What is the main idea of **What a limit means**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 4} (2x^2 - 3x + 1)
+$$
 
 :::solution
-One short answer is: Derivatives
+Because polynomials are continuous, substitute $x=4$ directly:
+
+$$
+2(4^2) - 3(4) + 1 = 32 - 12 + 1 = 21
+$$
+
+So the limit is $21$.
 :::
 
 ---
-id: "math-limits-12"
-note: "math-limits"
-title: "Review: Intuition"
-type: "text"
-answer: "$f(a)$ may equal $L$"
-skills:
-  - "Intuition"
+id: limits-12
+note: math-limits
+title: "Factor a Removable Discontinuity"
+skills: [Algebraic Techniques, Removable Discontinuity]
 ---
 
-What is the main idea of **Intuition**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 1} \frac{x^2 - 1}{x - 1}
+$$
 
 :::solution
-One short answer is: $f(a)$ may equal $L$
+Factor the numerator:
+
+$$
+x^2 - 1 = (x - 1)(x + 1)
+$$
+
+For $x \ne 1$,
+
+$$
+\frac{x^2 - 1}{x - 1} = x + 1
+$$
+
+Now substitute $x=1$:
+
+$$
+1 + 1 = 2
+$$
+
+So the limit is $2$.
 :::
 
 ---
-id: "math-limits-13"
-note: "math-limits"
-title: "Review: Formal definition"
-type: "text"
-answer: "The rigorous definition of a limit uses $\\varepsilon$ and $\\delta$."
-skills:
-  - "2. Formal definition"
+id: limits-13
+note: math-limits
+title: "Read a Left-Hand Limit from a Piecewise Function"
+skills: [One-Sided Limits, Piecewise Functions]
 ---
 
-What core idea is introduced in **Formal definition**?
+Let
+
+$$
+f(x)=
+\begin{cases}
+1, & x<2 \\
+5, & x\ge 2
+\end{cases}
+$$
+
+What is $\lim_{x \to 2^-} f(x)$?
 
 :::solution
-One short answer is: The rigorous definition of a limit uses $\varepsilon$ and $\delta$.
+Approaching $2$ from the left means $x<2$, so the rule $f(x)=1$ applies.
+
+Therefore,
+
+$$
+\lim_{x \to 2^-} f(x)=1
+$$
 :::
 
 ---
-id: "math-limits-14"
-note: "math-limits"
-title: "Review: How to read it"
-type: "text"
-answer: "$\\varepsilon$ is the allowed output error"
-skills:
-  - "How to read it"
+id: limits-14
+note: math-limits
+title: "Use the Sine Standard Limit"
+skills: [Special Limits, Trigonometric Limits]
 ---
 
-What is the main idea of **How to read it**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} \frac{\sin x}{x}
+$$
 
 :::solution
-One short answer is: $\varepsilon$ is the allowed output error
+This is a standard limit:
+
+$$
+\lim_{x \to 0} \frac{\sin x}{x}=1
+$$
 :::
 
 ---
-id: "math-limits-15"
-note: "math-limits"
-title: "Review: Why the point is excluded"
-type: "text"
-answer: "The value at the point does not control the limit. For limits, only nearby values matter."
-skills:
-  - "Why the point is excluded"
+id: limits-15
+note: math-limits
+title: "Identify an Oscillating Limit"
+skills: [Oscillation, Limits That Do Not Exist]
 ---
 
-What is the main idea of **Why the point is excluded**?
+Does the limit exist?
+
+$$
+\lim_{x \to 0} \sin\!\left(\frac{1}{x}\right)
+$$
 
 :::solution
-One short answer is: The value at the point does not control the limit. For limits, only nearby values matter.
+No. As $x$ gets close to $0$, the inside value $\frac{1}{x}$ grows without bound, so the sine function keeps oscillating between $-1$ and $1$.
+
+Since it does not approach a single value, the limit does not exist.
 :::
 
 ---
-id: "math-limits-16"
-note: "math-limits"
-title: "Review: Common proof pattern"
-type: "text"
-answer: "Start with $ f(x)-L $"
-skills:
-  - "Common proof pattern"
+id: limits-16
+note: math-limits
+title: "Evaluate a Rational Limit at Infinity"
+skills: [Limits at Infinity, Rational Functions]
 ---
 
-Name one common mistake the note warns about in **Common proof pattern**.
+Evaluate the limit:
+
+$$
+\lim_{x \to \infty} \frac{5x^2 + 1}{2x^2 - 7}
+$$
 
 :::solution
-One short answer is: Start with $ f(x)-L $
+The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
+
+$$
+\frac{5}{2}
+$$
+
+So the limit is $\frac{5}{2}$.
 :::
 
 ---
-id: "math-limits-17"
-note: "math-limits"
-title: "Review: Limit laws"
-type: "text"
-answer: "If the individual limits exist, you can combine them algebraically."
-skills:
-  - "3. Limit laws"
+id: limits-17
+note: math-limits
+title: "Recognize an Infinite Limit"
+skills: [Infinite Limits, Vertical Asymptotes]
 ---
 
-What is the main idea of **Limit laws**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 2} \frac{1}{(x-2)^2}
+$$
 
 :::solution
-One short answer is: If the individual limits exist, you can combine them algebraically.
+As $x$ approaches $2$, the denominator $(x-2)^2$ approaches $0$ through positive values.
+
+So the fraction grows without bound:
+
+$$
+\lim_{x \to 2} \frac{1}{(x-2)^2}=+\infty
+$$
+
+This means $x=2$ is a vertical asymptote.
 :::
 
 ---
-id: "math-limits-18"
-note: "math-limits"
-title: "Review: Other useful laws"
-type: "text"
-answer: "If $n$ is a positive integer: $$ \\lim {x \\to a} [f(x)]^n = L^n $$ If $n$ is a root and the expression stays defined: $$ \\lim {x \\to a} \\sqrt[n]{f(x)} = \\sqrt[n]{L} $$ If $p$ is a polynomial, then: $$ \\lim {x \\to a} p(x)…"
-skills:
-  - "Other useful laws"
+id: limits-18
+note: math-limits
+title: "Use Continuity of a Polynomial"
+skills: [Continuity, Direct Substitution]
 ---
 
-What is the main idea of **Other useful laws**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 2} (x^3 - 4x + 1)
+$$
 
 :::solution
-One short answer is: If $n$ is a positive integer: $$ \lim {x \to a} [f(x)]^n = L^n $$ If $n$ is a root and the expression stays defined: $$ \lim {x \to a} \sqrt[n]{f(x)} = \sqrt[n]{L} $$ If $p$ is a polynomial, then: $$ \lim {x \to a} p(x)…
+Polynomials are continuous, so substitute $x=2$:
+
+$$
+2^3 - 4(2) + 1 = 8 - 8 + 1 = 1
+$$
+
+So the limit is $1$.
 :::
 
 ---
-id: "math-limits-19"
-note: "math-limits"
-title: "Review: Direct substitution"
-type: "text"
-answer: "For continuous expressions, the fastest method is usually substitution."
-skills:
-  - "Direct substitution"
+id: limits-19
+note: math-limits
+title: "Evaluate an Exponential Standard Limit"
+skills: [Special Limits, Exponential Limits]
 ---
 
-What is the main idea of **Direct substitution**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} \frac{e^x - 1}{x}
+$$
 
 :::solution
-One short answer is: For continuous expressions, the fastest method is usually substitution.
+This is a standard limit:
+
+$$
+\lim_{x \to 0} \frac{e^x - 1}{x}=1
+$$
 :::
 
 ---
-id: "math-limits-110"
-note: "math-limits"
-title: "Review: One-sided and infinite limits"
-type: "text"
-answer: "One-sided and infinite limits"
-skills:
-  - "4. One-sided and infinite limits"
+id: limits-110
+note: math-limits
+title: "Rationalize a Root Limit"
+skills: [Algebraic Techniques, Rationalizing]
 ---
 
-What is the main idea of **One-sided and infinite limits**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 9} \frac{\sqrt{x} - 3}{x - 9}
+$$
 
 :::solution
-One short answer is: One-sided and infinite limits
+Multiply by the conjugate:
+
+$$
+\frac{\sqrt{x} - 3}{x - 9}\cdot \frac{\sqrt{x} + 3}{\sqrt{x} + 3}
+= \frac{1}{\sqrt{x}+3}
+$$
+
+Now substitute $x=9$:
+
+$$
+\frac{1}{\sqrt{9}+3}=\frac{1}{6}
+$$
+
+So the limit is $\frac{1}{6}$.
 :::
 
 ---
-id: "math-limits-111"
-note: "math-limits"
-title: "Review: One-sided limits"
-type: "text"
-answer: "A left-hand limit approaches from values less than $a$: $$ \\lim {x \\to a^-} f(x) $$ A right-hand limit approaches from values greater than $a$: $$ \\lim {x \\to a^+} f(x) $$ The two-sided limit exists only if both one-sid…"
-skills:
-  - "One-sided limits"
+id: limits-21
+note: math-limits
+title: "Make a Removable Discontinuity Continuous"
+skills: [Continuity, Factoring, Removable Discontinuity]
 ---
 
-What is the main idea of **One-sided limits**?
+Let
+
+$$
+f(x)=
+\begin{cases}
+\frac{x^2-16}{x-4}, & x\ne 4 \\
+k, & x=4
+\end{cases}
+$$
+
+What value of $k$ makes $f$ continuous at $x=4$?
 
 :::solution
-One short answer is: A left-hand limit approaches from values less than $a$: $$ \lim {x \to a^-} f(x) $$ A right-hand limit approaches from values greater than $a$: $$ \lim {x \to a^+} f(x) $$ The two-sided limit exists only if both one-sid…
+Factor the numerator:
+
+$$
+x^2-16=(x-4)(x+4)
+$$
+
+So for $x\ne 4$,
+
+$$
+\frac{x^2-16}{x-4}=x+4
+$$
+
+The limit as $x\to 4$ is
+
+$$
+4+4=8
+$$
+
+To make the function continuous, set
+
+$$
+k=8
+$$
 :::
 
 ---
-id: "math-limits-112"
-note: "math-limits"
-title: "Review: Infinite limits"
-type: "text"
-answer: "If $f(x)$ grows without bound near $a$, we write: $$ \\lim {x \\to a} f(x) = \\infty $$ or $$ \\lim {x \\to a} f(x) = -\\infty $$ This does not mean the limit is a real number."
-skills:
-  - "Infinite limits"
+id: limits-22
+note: math-limits
+title: "Determine Whether a Piecewise Limit Exists"
+skills: [One-Sided Limits, Piecewise Functions, Algebraic Techniques]
 ---
 
-What is the main idea of **Infinite limits**?
+Let
+
+$$
+g(x)=
+\begin{cases}
+\frac{x^2-1}{x-1}, & x<1 \\
+2x+1, & x\ge 1
+\end{cases}
+$$
+
+Does $\lim_{x \to 1} g(x)$ exist?
 
 :::solution
-One short answer is: If $f(x)$ grows without bound near $a$, we write: $$ \lim {x \to a} f(x) = \infty $$ or $$ \lim {x \to a} f(x) = -\infty $$ This does not mean the limit is a real number.
+Find the one-sided limits.
+
+From the left:
+
+$$
+\frac{x^2-1}{x-1}=\frac{(x-1)(x+1)}{x-1}=x+1
+$$
+
+so
+
+$$
+\lim_{x \to 1^-} g(x)=2
+$$
+
+From the right:
+
+$$
+\lim_{x \to 1^+} (2x+1)=3
+$$
+
+Since the one-sided limits are different, the two-sided limit does not exist.
 :::
 
 ---
-id: "math-limits-113"
-note: "math-limits"
-title: "Review: When a limit does not exist"
-type: "text"
-answer: "Left-hand and right-hand limits differ"
-skills:
-  - "When a limit does not exist"
+id: limits-23
+note: math-limits
+title: "Combine a Factored Limit with a Simple Substitution"
+skills: [Limit Laws, Factoring, Direct Substitution]
 ---
 
-What is the main idea of **When a limit does not exist**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 2} \left(\frac{x^2-4}{x-2}+x\right)
+$$
 
 :::solution
-One short answer is: Left-hand and right-hand limits differ
+Factor the fraction first:
+
+$$
+\frac{x^2-4}{x-2}=\frac{(x-2)(x+2)}{x-2}=x+2
+$$
+
+So the expression becomes
+
+$$
+(x+2)+x=2x+2
+$$
+
+Now substitute $x=2$:
+
+$$
+2(2)+2=6
+$$
+
+So the limit is $6$.
 :::
 
 ---
-id: "math-limits-21"
-note: "math-limits"
-title: "Review: Algebraic techniques"
-type: "text"
-answer: "When direct substitution fails, simplify first."
-skills:
-  - "5. Algebraic techniques"
+id: limits-24
+note: math-limits
+title: "Use a Standard Trig Limit with a Constant"
+skills: [Special Limits, Trigonometric Limits, Limit Laws]
 ---
 
-What is the main idea of **Algebraic techniques**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} \frac{\sin(3x)}{x}
+$$
 
 :::solution
-One short answer is: When direct substitution fails, simplify first.
+Rewrite the expression so the standard limit appears:
+
+$$
+\frac{\sin(3x)}{x}=3\cdot \frac{\sin(3x)}{3x}
+$$
+
+Then apply the standard limit:
+
+$$
+\lim_{x \to 0} 3\cdot \frac{\sin(3x)}{3x}=3\cdot 1=3
+$$
+
+So the limit is $3$.
 :::
 
 ---
-id: "math-limits-22"
-note: "math-limits"
-title: "Review: Factor and cancel"
-type: "text"
-answer: "Use this for removable discontinuities and $\\frac{0}{0}$ forms. Example: $$ \\lim {x \\to 1} \\frac{x^2-1}{x-1} $$ Factor the numerator: $$ \\frac{(x-1)(x+1)}{x-1} = x+1 $$ So the limit is: $$ 2 $$"
-skills:
-  - "1. Factor and cancel"
+id: limits-25
+note: math-limits
+title: "Apply the Squeeze Theorem"
+skills: [Squeeze Theorem, Oscillation, Limits at a Point]
 ---
 
-What is the main idea of **Factor and cancel**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} x^2\sin\left(\frac{1}{x}\right)
+$$
 
 :::solution
-One short answer is: Use this for removable discontinuities and $\frac{0}{0}$ forms. Example: $$ \lim {x \to 1} \frac{x^2-1}{x-1} $$ Factor the numerator: $$ \frac{(x-1)(x+1)}{x-1} = x+1 $$ So the limit is: $$ 2 $$
+Since
+
+$$
+-1 \le \sin\left(\frac{1}{x}\right) \le 1,
+$$
+
+multiplying by $x^2 \ge 0$ gives
+
+$$
+-x^2 \le x^2\sin\left(\frac{1}{x}\right) \le x^2
+$$
+
+Both bounds go to $0$ as $x\to 0$, so by the squeeze theorem,
+
+$$
+\lim_{x \to 0} x^2\sin\left(\frac{1}{x}\right)=0
+$$
 :::
 
 ---
-id: "math-limits-23"
-note: "math-limits"
-title: "Review: Rationalize"
-type: "text"
-answer: "Useful when square roots create $\\frac{0}{0}$."
-skills:
-  - "2. Rationalize"
+id: limits-26
+note: math-limits
+title: "Find the Horizontal Asymptote"
+skills: [Limits at Infinity, Horizontal Asymptotes, Rational Functions]
 ---
 
-What is the main idea of **Rationalize**?
+Find the horizontal asymptote of
+
+$$
+f(x)=\frac{4x^3-x}{2x^3+7}
+$$
 
 :::solution
-One short answer is: Useful when square roots create $\frac{0}{0}$.
+To find the horizontal asymptote, compute the limit as $x\to\infty$.
+
+The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
+
+$$
+\lim_{x \to \infty} \frac{4x^3-x}{2x^3+7}=\frac{4}{2}=2
+$$
+
+So the horizontal asymptote is
+
+$$
+y=2
+$$
 :::
 
 ---
-id: "math-limits-24"
-note: "math-limits"
-title: "Review: Combine fractions"
-type: "text"
-answer: "If a difference of rational expressions produces $\\frac{0}{0}$, use a common denominator."
-skills:
-  - "3. Combine fractions"
+id: limits-27
+note: math-limits
+title: "Use the Logarithmic Standard Limit"
+skills: [Special Limits, Logarithmic Limits, Limit Laws]
 ---
 
-What is the main idea of **Combine fractions**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} \frac{\ln(1+2x)}{x}
+$$
 
 :::solution
-One short answer is: If a difference of rational expressions produces $\frac{0}{0}$, use a common denominator.
+Rewrite the expression to match the standard limit:
+
+$$
+\frac{\ln(1+2x)}{x}
+=2\cdot \frac{\ln(1+2x)}{2x}
+$$
+
+Since
+
+$$
+\lim_{u \to 0} \frac{\ln(1+u)}{u}=1,
+$$
+
+the limit is
+
+$$
+2\cdot 1=2
+$$
 :::
 
 ---
-id: "math-limits-25"
-note: "math-limits"
-title: "Review: Use identities"
-type: "text"
-answer: "Trig identities often reduce expressions to a standard form. Examples: $$ \\sin^2 x + \\cos^2 x = 1 $$ $$ 1 - \\cos x = 2\\sin^2\\left(\\frac{x}{2}\\right) $$"
-skills:
-  - "4. Use identities"
+id: limits-28
+note: math-limits
+title: "Choose the Value that Makes a Piecewise Function Continuous"
+skills: [Continuity, Piecewise Functions]
 ---
 
-What is the main idea of **Use identities**?
+Let
+
+$$
+h(x)=
+\begin{cases}
+x^2+1, & x<1 \\
+k, & x=1 \\
+2x^2-1, & x>1
+\end{cases}
+$$
+
+What value of $k$ makes $h$ continuous at $x=1$?
 
 :::solution
-One short answer is: Trig identities often reduce expressions to a standard form. Examples: $$ \sin^2 x + \cos^2 x = 1 $$ $$ 1 - \cos x = 2\sin^2\left(\frac{x}{2}\right) $$
+Find the one-sided limits.
+
+From the left:
+
+$$
+\lim_{x \to 1^-}(x^2+1)=1^2+1=2
+$$
+
+From the right:
+
+$$
+\lim_{x \to 1^+}(2x^2-1)=2(1^2)-1=1
+$$
+
+The one-sided limits are different, so no value of $k$ can make the function continuous at $x=1$.
 :::
 
 ---
-id: "math-limits-26"
-note: "math-limits"
-title: "Review: Compare dominant terms"
-type: "text"
-answer: "For limits at infinity, divide by the highest power or identify the leading growth rate."
-skills:
-  - "5. Compare dominant terms"
+id: limits-31
+note: math-limits
+title: "Model a Vertical Asymptote"
+skills: [Infinite Limits, Vertical Asymptotes, Modeling]
 ---
 
-What is the main idea of **Compare dominant terms**?
+A sensor reading is modeled by
+
+$$
+P(x)=\frac{1}{(x-5)^2}.
+$$
+
+What happens as $x \to 5$?
 
 :::solution
-One short answer is: For limits at infinity, divide by the highest power or identify the leading growth rate.
+As $x$ approaches $5$, the denominator $(x-5)^2$ approaches $0$ through positive values.
+
+So the reading grows without bound:
+
+$$
+\lim_{x \to 5} \frac{1}{(x-5)^2}=+\infty
+$$
+
+This means $x=5$ is a vertical asymptote.
 :::
 
 ---
-id: "math-limits-27"
-note: "math-limits"
-title: "Review: Squeeze theorem"
-type: "text"
-answer: "If $$ g(x) \\le f(x) \\le h(x) $$ and $$ \\lim {x \\to a} g(x) = \\lim {x \\to a} h(x) = L $$ then $$ \\lim {x \\to a} f(x) = L $$ This is especially useful for oscillating functions."
-skills:
-  - "6. Squeeze theorem"
+id: limits-32
+note: math-limits
+title: "Interpret a Long-Run Ratio"
+skills: [Limits at Infinity, Horizontal Asymptotes, Rational Functions]
 ---
 
-What is the main idea of **Squeeze theorem**?
+For
+
+$$
+R(t)=\frac{7t^2-3t+1}{2t^2+5},
+$$
+
+find the value approached as $t \to \infty$.
 
 :::solution
-One short answer is: If $$ g(x) \le f(x) \le h(x) $$ and $$ \lim {x \to a} g(x) = \lim {x \to a} h(x) = L $$ then $$ \lim {x \to a} f(x) = L $$ This is especially useful for oscillating functions.
+The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
+
+$$
+\lim_{t \to \infty} R(t)=\frac{7}{2}
+$$
+
+So the model approaches $\frac{7}{2}$ in the long run.
 :::
 
 ---
-id: "math-limits-28"
-note: "math-limits"
-title: "Review: Special limits to know cold"
-type: "text"
-answer: "These are standard results used constantly in calculus."
-skills:
-  - "6. Special limits to know cold"
+id: limits-33
+note: math-limits
+title: "Use L'Hopital's Rule Once"
+skills: ["L'Hopital's Rule", Exponential Limits]
 ---
 
-What is the main idea of **Special limits to know cold**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} \frac{e^{2x}-1}{x}
+$$
 
 :::solution
-One short answer is: These are standard results used constantly in calculus.
+The expression has the indeterminate form $\frac{0}{0}$, so L'Hopital's rule applies.
+
+Differentiate the numerator and denominator:
+
+$$
+\lim_{x \to 0} \frac{2e^{2x}}{1}
+$$
+
+Now substitute $x=0$:
+
+$$
+2e^0=2
+$$
+
+So the limit is $2$.
 :::
 
 ---
-id: "math-limits-29"
-note: "math-limits"
-title: "Review: Trigonometric limits"
-type: "text"
-answer: "$$ \\lim {x \\to 0} \\frac{\\sin x}{x} = 1 $$ $$ \\lim {x \\to 0} \\frac{1-\\cos x}{x^2} = \\frac{1}{2} $$ More generally, for a constant $a$: $$ \\lim {x \\to 0} \\frac{\\sin(ax)}{x} = a $$"
-skills:
-  - "Trigonometric limits"
+id: limits-34
+note: math-limits
+title: "Classify a Jump at a Pricing Threshold"
+skills: [One-Sided Limits, Piecewise Functions, Continuity]
 ---
 
-What is the main idea of **Trigonometric limits**?
+A delivery fee is modeled by
+
+$$
+F(w)=
+\begin{cases}
+10+2w, & w<5 \\
+w+9, & w\ge 5
+\end{cases}
+$$
+
+Is $F$ continuous at $w=5$?
 
 :::solution
-One short answer is: $$ \lim {x \to 0} \frac{\sin x}{x} = 1 $$ $$ \lim {x \to 0} \frac{1-\cos x}{x^2} = \frac{1}{2} $$ More generally, for a constant $a$: $$ \lim {x \to 0} \frac{\sin(ax)}{x} = a $$
+Compute the one-sided limits.
+
+From the left:
+
+$$
+\lim_{w \to 5^-} F(w)=10+2(5)=20
+$$
+
+From the right:
+
+$$
+\lim_{w \to 5^+} F(w)=5+9=14
+$$
+
+The one-sided limits are different, so $F$ is not continuous at $w=5$.
+This is a jump discontinuity.
 :::
 
 ---
-id: "math-limits-210"
-note: "math-limits"
-title: "Review: Exponential and logarithmic limits"
-type: "text"
-answer: "$$ \\lim {x \\to 0} \\frac{e^x-1}{x} = 1 $$ $$ \\lim {x \\to 0} \\frac{\\ln(1+x)}{x} = 1 $$"
-skills:
-  - "Exponential and logarithmic limits"
+id: limits-35
+note: math-limits
+title: "Spot a Hole and Its Fill-In Value"
+skills: [Removable Discontinuity, Algebraic Techniques, Continuity]
 ---
 
-What is the main idea of **Exponential and logarithmic limits**?
+The function
+
+$$
+g(x)=\frac{x^2-9}{x-3}
+$$
+
+is undefined at $x=3$.
+
+What type of discontinuity is this, and what value would remove it?
 
 :::solution
-One short answer is: $$ \lim {x \to 0} \frac{e^x-1}{x} = 1 $$ $$ \lim {x \to 0} \frac{\ln(1+x)}{x} = 1 $$
+Factor the numerator:
+
+$$
+x^2-9=(x-3)(x+3)
+$$
+
+So for $x\ne 3$,
+
+$$
+g(x)=x+3
+$$
+
+The limit as $x\to 3$ is
+
+$$
+3+3=6
+$$
+
+Since the limit exists but the original function is undefined at $x=3$, the discontinuity is removable.
+
+To remove it, define $g(3)=6$.
 :::
 
 ---
-id: "math-limits-211"
-note: "math-limits"
-title: "Review: Compound interest limit"
-type: "text"
-answer: "$$ \\lim {x \\to 0} (1+x)^{1/x} = e $$ Equivalently: $$ \\lim {n \\to \\infty}\\left(1+\\frac{1}{n}\\right)^n = e $$"
-skills:
-  - "Compound interest limit"
+id: limits-41
+note: math-limits
+title: "Use the Epsilon-Delta Definition"
+skills: [Formal Definition, Epsilon-Delta]
 ---
 
-What is the main idea of **Compound interest limit**?
+Use the epsilon-delta definition to show that
+
+$$
+\lim_{x \to 2} (3x-1)=5.
+$$
+
+Give one valid choice of $\delta$ in terms of $\varepsilon$.
 
 :::solution
-One short answer is: $$ \lim {x \to 0} (1+x)^{1/x} = e $$ Equivalently: $$ \lim {n \to \infty}\left(1+\frac{1}{n}\right)^n = e $$
+Start with the expression:
+
+$$
+|(3x-1)-5|=|3x-6|=3|x-2|
+$$
+
+To make this less than $\varepsilon$, it is enough to require
+
+$$
+3|x-2|<\varepsilon
+$$
+
+So choose
+
+$$
+\delta=\frac{\varepsilon}{3}
+$$
+
+Then whenever $0<|x-2|<\delta$,
+
+$$
+|(3x-1)-5|=3|x-2|<3\delta=\varepsilon
+$$
+
+which proves the limit.
 :::
 
 ---
-id: "math-limits-212"
-note: "math-limits"
-title: "Review: Why these matter"
-type: "text"
-answer: "These limits are the building blocks for derivative formulas involving trig, exponential, and logarithmic functions. ---"
-skills:
-  - "Why these matter"
+id: limits-42
+note: math-limits
+title: "Solve for a Continuous Piecewise Rule"
+skills: [Continuity, Piecewise Functions, Algebraic Techniques]
 ---
 
-What is the main idea of **Why these matter**?
+Let
+
+$$
+f(x)=
+\begin{cases}
+\frac{x^2-4}{x-2}, & x<2 \\
+ax+b, & x\ge 2
+\end{cases}
+$$
+
+If $f$ is continuous at $x=2$ and $f(3)=10$, find $a$ and $b$.
 
 :::solution
-One short answer is: These limits are the building blocks for derivative formulas involving trig, exponential, and logarithmic functions. ---
+First find the limit from the left:
+
+$$
+\frac{x^2-4}{x-2}=\frac{(x-2)(x+2)}{x-2}=x+2
+$$
+
+So the value needed for continuity at $x=2$ is
+
+$$
+2+2=4
+$$
+
+That gives the equation
+
+$$
+2a+b=4
+$$
+
+The condition $f(3)=10$ gives
+
+$$
+3a+b=10
+$$
+
+Subtract the first equation from the second:
+
+$$
+a=6
+$$
+
+Then
+
+$$
+2(6)+b=4
+$$
+
+so
+
+$$
+b=-8
+$$
 :::
 
 ---
-id: "math-limits-31"
-note: "math-limits"
-title: "Review: Continuity and discontinuities"
-type: "text"
-answer: "$f(a)$ is defined"
-skills:
-  - "7. Continuity and discontinuities"
+id: limits-43
+note: math-limits
+title: "Combine Squeeze and a Standard Limit"
+skills: [Squeeze Theorem, Oscillation, Limit Laws]
 ---
 
-What is the main idea of **Continuity and discontinuities**?
+Evaluate the limit:
+
+$$
+\lim_{x \to 0} \frac{x\sin(1/x)}{1+\cos x}
+$$
 
 :::solution
-One short answer is: $f(a)$ is defined
+Use the squeeze theorem first on $x\sin(1/x)$:
+
+$$
+-|x| \le x\sin(1/x) \le |x|
+$$
+
+So
+
+$$
+\lim_{x \to 0} x\sin(1/x)=0
+$$
+
+Also,
+
+$$
+\lim_{x \to 0} (1+\cos x)=2
+$$
+
+Since the denominator approaches a nonzero number, the quotient approaches
+
+$$
+\frac{0}{2}=0
+$$
+
+So the limit is $0$.
 :::
 
 ---
-id: "math-limits-32"
-note: "math-limits"
-title: "Review: Types of discontinuity"
-type: "text"
-answer: "Type Description Typical fix -------------------- ------------------------------------------------------------ ----------- Removable A hole; the limit exists but the function value is missing or wrong Redefine the value…"
-skills:
-  - "Types of discontinuity"
+id: limits-44
+note: math-limits
+title: "Continuity and End Behavior Together"
+skills: [Continuity, Removable Discontinuity, Limits at Infinity]
 ---
 
-What is the main idea of **Types of discontinuity**?
+Let
+
+$$
+f(x)=
+\begin{cases}
+\frac{x^2-1}{x-1}, & x\ne 1 \\
+m, & x=1
+\end{cases}
+$$
+
+Find the value of $m$ that makes $f$ continuous at $x=1$, and decide whether $f$ has a horizontal asymptote.
 
 :::solution
-One short answer is: Type Description Typical fix -------------------- ------------------------------------------------------------ ----------- Removable A hole; the limit exists but the function value is missing or wrong Redefine the value…
-:::
+Factor the numerator:
 
----
-id: "math-limits-33"
-note: "math-limits"
-title: "Review: Continuity facts"
-type: "text"
-answer: "$f+g$ is continuous"
-skills:
-  - "Continuity facts"
----
+$$
+x^2-1=(x-1)(x+1)
+$$
 
-What is the main idea of **Continuity facts**?
+So for $x\ne 1$,
 
-:::solution
-One short answer is: $f+g$ is continuous
-:::
+$$
+f(x)=x+1
+$$
 
----
-id: "math-limits-34"
-note: "math-limits"
-title: "Review: Why continuity helps"
-type: "text"
-answer: "If a function is continuous at $a$, then the limit is immediate: $$ \\lim {x \\to a} f(x)=f(a) $$ That is the fastest possible limit evaluation. ---"
-skills:
-  - "Why continuity helps"
----
+The limit as $x\to 1$ is
 
-What is the main idea of **Why continuity helps**?
+$$
+1+1=2
+$$
 
-:::solution
-One short answer is: If a function is continuous at $a$, then the limit is immediate: $$ \lim {x \to a} f(x)=f(a) $$ That is the fastest possible limit evaluation. ---
-:::
+So continuity at $x=1$ requires
 
----
-id: "math-limits-35"
-note: "math-limits"
-title: "Review: Limits at infinity and asymptotes"
-type: "text"
-answer: "Limits at infinity describe end behavior."
-skills:
-  - "8. Limits at infinity and asymptotes"
----
+$$
+m=2
+$$
 
-What is the main idea of **Limits at infinity and asymptotes**?
+For end behavior, the function behaves like $x+1$ as $x\to\infty$, so it grows without bound.
 
-:::solution
-One short answer is: Limits at infinity describe end behavior.
-:::
-
----
-id: "math-limits-36"
-note: "math-limits"
-title: "Review: Horizontal asymptotes"
-type: "text"
-answer: "If $$ \\lim {x \\to \\infty} f(x) = L $$ then $y=L$ is a horizontal asymptote."
-skills:
-  - "Horizontal asymptotes"
----
-
-What is the main idea of **Horizontal asymptotes**?
-
-:::solution
-One short answer is: If $$ \lim {x \to \infty} f(x) = L $$ then $y=L$ is a horizontal asymptote.
-:::
-
----
-id: "math-limits-37"
-note: "math-limits"
-title: "Review: Rational functions at infinity"
-type: "text"
-answer: "Degree of numerator < degree of denominator: limit is $0$"
-skills:
-  - "Rational functions at infinity"
----
-
-What is the main idea of **Rational functions at infinity**?
-
-:::solution
-One short answer is: Degree of numerator < degree of denominator: limit is $0$
-:::
-
----
-id: "math-limits-38"
-note: "math-limits"
-title: "Review: Vertical asymptotes"
-type: "text"
-answer: "If $f(x)$ grows without bound near $x=a$, then $x=a$ may be a vertical asymptote. Example: $$ \\lim {x \\to 2} \\frac{1}{(x-2)^2} = +\\infty $$ So $x=2$ is a vertical asymptote."
-skills:
-  - "Vertical asymptotes"
----
-
-What is the main idea of **Vertical asymptotes**?
-
-:::solution
-One short answer is: If $f(x)$ grows without bound near $x=a$, then $x=a$ may be a vertical asymptote. Example: $$ \lim {x \to 2} \frac{1}{(x-2)^2} = +\infty $$ So $x=2$ is a vertical asymptote.
-:::
-
----
-id: "math-limits-39"
-note: "math-limits"
-title: "Review: Oblique asymptotes"
-type: "text"
-answer: "If a rational function has numerator degree exactly one higher than the denominator, polynomial division may reveal a slant asymptote. ---"
-skills:
-  - "Oblique asymptotes"
----
-
-What is the main idea of **Oblique asymptotes**?
-
-:::solution
-One short answer is: If a rational function has numerator degree exactly one higher than the denominator, polynomial division may reveal a slant asymptote. ---
-:::
-
----
-id: "math-limits-310"
-note: "math-limits"
-title: "Review: Indeterminate forms and L'Hôpital's rule"
-type: "text"
-answer: "$\\frac{0}{0}$"
-skills:
-  - "9. Indeterminate forms and L'Hôpital's rule"
----
-
-What is the main idea of **Indeterminate forms and L'Hôpital's rule**?
-
-:::solution
-One short answer is: $\frac{0}{0}$
-:::
-
----
-id: "math-limits-311"
-note: "math-limits"
-title: "Review: L'Hôpital's rule"
-type: "text"
-answer: "If $$ \\lim {x \\to a} f(x)=0,\\qquad \\lim {x \\to a} g(x)=0 $$ or both functions approach $\\pm\\infty$, and the derivatives exist near $a$, then: $$ \\lim {x \\to a} \\frac{f(x)}{g(x)} = \\lim {x \\to a} \\frac{f'(x)}{g'(x)} $$ w…"
-skills:
-  - "L'Hôpital's rule"
----
-
-What is the main idea of **L'Hôpital's rule**?
-
-:::solution
-One short answer is: If $$ \lim {x \to a} f(x)=0,\qquad \lim {x \to a} g(x)=0 $$ or both functions approach $\pm\infty$, and the derivatives exist near $a$, then: $$ \lim {x \to a} \frac{f(x)}{g(x)} = \lim {x \to a} \frac{f'(x)}{g'(x)} $$ w…
-:::
-
----
-id: "math-limits-312"
-note: "math-limits"
-title: "Review: When to use it"
-type: "text"
-answer: "Confirming an indeterminate form"
-skills:
-  - "When to use it"
----
-
-What is the main idea of **When to use it**?
-
-:::solution
-One short answer is: Confirming an indeterminate form
-:::
-
----
-id: "math-limits-41"
-note: "math-limits"
-title: "Review: When not to overuse it"
-type: "text"
-answer: "L'Hôpital's rule is powerful, but algebra is often faster. For example, factorization or a standard trig limit is usually cleaner than repeated differentiation."
-skills:
-  - "When not to overuse it"
----
-
-What is the main idea of **When not to overuse it**?
-
-:::solution
-One short answer is: L'Hôpital's rule is powerful, but algebra is often faster. For example, factorization or a standard trig limit is usually cleaner than repeated differentiation.
-:::
-
----
-id: "math-limits-42"
-note: "math-limits"
-title: "Review: Example"
-type: "text"
-answer: "$$ \\lim {x \\to 0} \\frac{e^x-1}{x} $$ This is $\\frac{0}{0}$, so L'Hôpital gives: $$ \\lim {x \\to 0} \\frac{e^x}{1} = 1 $$ ---"
-skills:
-  - "Example"
----
-
-What is the main idea of **Example**?
-
-:::solution
-One short answer is: $$ \lim {x \to 0} \frac{e^x-1}{x} $$ This is $\frac{0}{0}$, so L'Hôpital gives: $$ \lim {x \to 0} \frac{e^x}{1} = 1 $$ ---
-:::
-
----
-id: "math-limits-43"
-note: "math-limits"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Try direct substitution."
-skills:
-  - "10. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Try direct substitution.
-:::
-
----
-id: "math-limits-44"
-note: "math-limits"
-title: "Review: Common mistakes"
-type: "text"
-answer: "Treating the limit as the same thing as the function value"
-skills:
-  - "Common mistakes"
----
-
-Name one common mistake the note warns about in **Common mistakes**.
-
-:::solution
-One short answer is: Treating the limit as the same thing as the function value
-:::
-
----
-id: "math-limits-45"
-note: "math-limits"
-title: "Review: Fast diagnostic questions"
-type: "text"
-answer: "Is the function continuous at the point?"
-skills:
-  - "Fast diagnostic questions"
----
-
-What is the main idea of **Fast diagnostic questions**?
-
-:::solution
-One short answer is: Is the function continuous at the point?
-:::
-
----
-id: "math-limits-46"
-note: "math-limits"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "11. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-limits-47"
-note: "math-limits"
-title: "Review: Core notation"
-type: "text"
-answer: "$$ \\lim {x \\to a} f(x) = L $$ $$ \\lim {x \\to a^-} f(x),\\qquad \\lim {x \\to a^+} f(x) $$"
-skills:
-  - "Core notation"
----
-
-What core idea is introduced in **Core notation**?
-
-:::solution
-One short answer is: $$ \lim {x \to a} f(x) = L $$ $$ \lim {x \to a^-} f(x),\qquad \lim {x \to a^+} f(x) $$
-:::
-
----
-id: "math-limits-48"
-note: "math-limits"
-title: "Review: Limit laws"
-type: "text"
-answer: "$$ \\lim {x \\to a}[f(x)\\pm g(x)] = L \\pm M $$ $$ \\lim {x \\to a}[f(x)g(x)] = LM $$ $$ \\lim {x \\to a}\\frac{f(x)}{g(x)} = \\frac{L}{M}, \\quad M\\ne 0 $$"
-skills:
-  - "Limit laws"
----
-
-What is the main idea of **Limit laws**?
-
-:::solution
-One short answer is: $$ \lim {x \to a}[f(x)\pm g(x)] = L \pm M $$ $$ \lim {x \to a}[f(x)g(x)] = LM $$ $$ \lim {x \to a}\frac{f(x)}{g(x)} = \frac{L}{M}, \quad M\ne 0 $$
-:::
-
----
-id: "math-limits-49"
-note: "math-limits"
-title: "Review: Standard limits"
-type: "text"
-answer: "$$ \\lim {x \\to 0}\\frac{\\sin x}{x}=1 $$ $$ \\lim {x \\to 0}\\frac{1-\\cos x}{x^2}=\\frac12 $$ $$ \\lim {x \\to 0}\\frac{e^x-1}{x}=1 $$ $$ \\lim {x \\to 0}\\frac{\\ln(1+x)}{x}=1 $$ $$ \\lim {n \\to \\infty}\\left(1+\\frac1n\\right)^n=e $$"
-skills:
-  - "Standard limits"
----
-
-What is the main idea of **Standard limits**?
-
-:::solution
-One short answer is: $$ \lim {x \to 0}\frac{\sin x}{x}=1 $$ $$ \lim {x \to 0}\frac{1-\cos x}{x^2}=\frac12 $$ $$ \lim {x \to 0}\frac{e^x-1}{x}=1 $$ $$ \lim {x \to 0}\frac{\ln(1+x)}{x}=1 $$ $$ \lim {n \to \infty}\left(1+\frac1n\right)^n=e $$
-:::
-
----
-id: "math-limits-410"
-note: "math-limits"
-title: "Review: Continuity test"
-type: "text"
-answer: "$$ f \\text{ is continuous at } a \\iff \\lim {x \\to a} f(x)=f(a) $$"
-skills:
-  - "Continuity test"
----
-
-What is the main idea of **Continuity test**?
-
-:::solution
-One short answer is: $$ f \text{ is continuous at } a \iff \lim {x \to a} f(x)=f(a) $$
-:::
-
----
-id: "math-limits-411"
-note: "math-limits"
-title: "Review: Squeeze theorem"
-type: "text"
-answer: "$$ g(x)\\le f(x)\\le h(x),\\quad \\lim {x \\to a} g(x)=\\lim {x \\to a} h(x)=L $$ implies $$ \\lim {x \\to a} f(x)=L $$"
-skills:
-  - "Squeeze theorem"
----
-
-What is the main idea of **Squeeze theorem**?
-
-:::solution
-One short answer is: $$ g(x)\le f(x)\le h(x),\quad \lim {x \to a} g(x)=\lim {x \to a} h(x)=L $$ implies $$ \lim {x \to a} f(x)=L $$
-:::
-
----
-id: "math-limits-412"
-note: "math-limits"
-title: "Review: L'Hôpital's rule"
-type: "text"
-answer: "For $\\frac{0}{0}$ or $\\frac{\\infty}{\\infty}$ forms: $$ \\lim {x \\to a}\\frac{f(x)}{g(x)}=\\lim {x \\to a}\\frac{f'(x)}{g'(x)} $$ when the rule applies."
-skills:
-  - "L'Hôpital's rule"
----
-
-What is the main idea of **L'Hôpital's rule**?
-
-:::solution
-One short answer is: For $\frac{0}{0}$ or $\frac{\infty}{\infty}$ forms: $$ \lim {x \to a}\frac{f(x)}{g(x)}=\lim {x \to a}\frac{f'(x)}{g'(x)} $$ when the rule applies.
+Therefore, $f$ does not have a horizontal asymptote.
 :::

@@ -1,1247 +1,813 @@
 ---
-id: "math-discrete-math-11"
-note: "math-discrete-math"
-title: "Review: Discrete Mathematics"
-type: "text"
-answer: "Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science."
-skills:
-  - "Discrete Mathematics"
+id: discrete-math-11
+note: math-discrete-math
+title: "Negate a Universal Implication"
+skills: [Quantifiers, Implication]
 ---
 
-What is the main idea of **Discrete Mathematics**?
+Write the negation of the statement:
 
+$$
+\forall n \in \mathbb{Z},\ n \text{ prime } \to n \text{ odd}
+$$
+
 :::solution
-One short answer is: Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.
-:::
+The negation of $\forall n\, P(n)$ is $\exists n\, \neg P(n)$.
 
----
-id: "math-discrete-math-12"
-note: "math-discrete-math"
-title: "Review: Logic and propositions"
-type: "text"
-answer: "\"7 is prime\" is a proposition."
-skills:
-  - "1. Logic and propositions"
----
+Here $P(n)$ is the implication "if $n$ is prime, then $n$ is odd." The negation of an implication is:
 
-What is the main idea of **Logic and propositions**?
+$$
+p \to q \equiv \neg p \lor q
+$$
 
-:::solution
-One short answer is: "7 is prime" is a proposition.
-:::
+so its negation is:
 
----
-id: "math-discrete-math-13"
-note: "math-discrete-math"
-title: "Review: Logical operators"
-type: "text"
-answer: "Operator Meaning Symbol -------- ------------- ----------------------- Negation not $p$ $\\neg p$ And $p$ and $q$ $p \\land q$ Or $p$ or $q$ $p \\lor q$ Imply if $p$, then $q$ $p \\to q$ Biconditional $p$ iff $q$ $p \\leftri…"
-skills:
-  - "Logical operators"
----
+$$
+p \land \neg q
+$$
 
-What is the main idea of **Logical operators**?
+Therefore the negation is:
 
-:::solution
-One short answer is: Operator Meaning Symbol -------- ------------- ----------------------- Negation not $p$ $\neg p$ And $p$ and $q$ $p \land q$ Or $p$ or $q$ $p \lor q$ Imply if $p$, then $q$ $p \to q$ Biconditional $p$ iff $q$ $p \leftri…
+$$
+\exists n \in \mathbb{Z},\ n \text{ is prime and } n \text{ is not odd}
+$$
+
+Equivalently, there exists an integer $n$ that is prime and even.
 :::
 
 ---
-id: "math-discrete-math-14"
-note: "math-discrete-math"
-title: "Review: Common equivalences"
-type: "text"
-answer: "These are used constantly in simplification and proof: $$ \\neg (p \\land q) \\equiv \\neg p \\lor \\neg q $$ $$ \\neg (p \\lor q) \\equiv \\neg p \\land \\neg q $$ $$ p \\to q \\equiv \\neg p \\lor q $$ $$ p \\leftrightarrow q \\equiv (…"
-skills:
-  - "Common equivalences"
+id: discrete-math-12
+note: math-discrete-math
+title: "Write the Contrapositive"
+skills: [Implication, Contrapositive]
 ---
 
-Name one common mistake the note warns about in **Common equivalences**.
+Write the contrapositive of the statement:
 
+$$
+\text{If } n \text{ is divisible by } 4,\text{ then } n \text{ is even.}
+$$
+
 :::solution
-One short answer is: These are used constantly in simplification and proof: $$ \neg (p \land q) \equiv \neg p \lor \neg q $$ $$ \neg (p \lor q) \equiv \neg p \land \neg q $$ $$ p \to q \equiv \neg p \lor q $$ $$ p \leftrightarrow q \equiv (…
-:::
+For a statement $p \to q$, the contrapositive is $\neg q \to \neg p$.
 
----
-id: "math-discrete-math-15"
-note: "math-discrete-math"
-title: "Review: Quantifiers"
-type: "text"
-answer: "Universal: $\\forall x\\, P(x)$ means \"for all $x$, $P(x)$ holds\""
-skills:
-  - "Quantifiers"
----
+Here:
 
-What is the main idea of **Quantifiers**?
+- $p$: $n$ is divisible by $4$
+- $q$: $n$ is even
 
-:::solution
-One short answer is: Universal: $\forall x\, P(x)$ means "for all $x$, $P(x)$ holds"
-:::
+So the contrapositive is:
 
----
-id: "math-discrete-math-16"
-note: "math-discrete-math"
-title: "Review: Converse, inverse, contrapositive"
-type: "text"
-answer: "Converse: $q \\to p$"
-skills:
-  - "Converse, inverse, contrapositive"
----
+$$
+\text{If } n \text{ is not even, then } n \text{ is not divisible by } 4.
+$$
 
-What is the main idea of **Converse, inverse, contrapositive**?
+Since integers are either even or odd, this can also be written as:
 
-:::solution
-One short answer is: Converse: $q \to p$
+$$
+\text{If } n \text{ is odd, then } n \text{ is not divisible by } 4.
+$$
 :::
 
 ---
-id: "math-discrete-math-17"
-note: "math-discrete-math"
-title: "Review: Example"
-type: "text"
-answer: "Statement: $$ \\forall n \\in \\mathbb{Z},\\ n \\text{ even } \\to n^2 \\text{ even} $$ This is true."
-skills:
-  - "Example"
+id: discrete-math-13
+note: math-discrete-math
+title: "Use De Morgan's Law"
+skills: [Negation, De Morgan's Laws]
 ---
 
-What is the main idea of **Example**?
+Simplify the negation:
 
+$$
+\neg (p \lor q)
+$$
+
 :::solution
-One short answer is: Statement: $$ \forall n \in \mathbb{Z},\ n \text{ even } \to n^2 \text{ even} $$ This is true.
-:::
+By De Morgan's law,
 
----
-id: "math-discrete-math-18"
-note: "math-discrete-math"
-title: "Review: Sets, functions, and relations"
-type: "text"
-answer: "Sets, functions, and relations"
-skills:
-  - "2. Sets, functions, and relations"
----
+$$
+\neg (p \lor q) \equiv \neg p \land \neg q
+$$
 
-What is the main idea of **Sets, functions, and relations**?
+So the simplified form is:
 
-:::solution
-One short answer is: Sets, functions, and relations
+$$
+\neg p \land \neg q
+$$
 :::
 
 ---
-id: "math-discrete-math-19"
-note: "math-discrete-math"
-title: "Review: Sets"
-type: "text"
-answer: "A set is an unordered collection of distinct objects."
-skills:
-  - "Sets"
+id: discrete-math-14
+note: math-discrete-math
+title: "Compute a Set Union and Intersection"
+skills: [Sets, Union and Intersection]
 ---
-
-What is the main idea of **Sets**?
 
-:::solution
-One short answer is: A set is an unordered collection of distinct objects.
-:::
+Let
 
----
-id: "math-discrete-math-110"
-note: "math-discrete-math"
-title: "Review: Power sets"
-type: "text"
-answer: "The power set $\\mathcal{P}(A)$ is the set of all subsets of $A$. If $ A = n$, then: $$ \\mathcal{P}(A) = 2^n $$"
-skills:
-  - "Power sets"
----
+$$
+A = \{1,2,3,5\}
+\quad \text{and} \quad
+B = \{3,4,5,6\}.
+$$
 
-What is the main idea of **Power sets**?
+Find $A \cap B$ and $A \cup B$.
 
 :::solution
-One short answer is: The power set $\mathcal{P}(A)$ is the set of all subsets of $A$. If $ A = n$, then: $$ \mathcal{P}(A) = 2^n $$
-:::
+The elements common to both sets are $3$ and $5$, so:
 
----
-id: "math-discrete-math-111"
-note: "math-discrete-math"
-title: "Review: Cartesian products"
-type: "text"
-answer: "The Cartesian product is: $$ A \\times B = \\{(a,b) : a \\in A,\\ b \\in B\\} $$ If $ A = m$ and $ B = n$, then: $$ A \\times B = mn $$"
-skills:
-  - "Cartesian products"
----
+$$
+A \cap B = \{3,5\}
+$$
 
-What is the main idea of **Cartesian products**?
+The union contains every element that appears in either set:
 
-:::solution
-One short answer is: The Cartesian product is: $$ A \times B = \{(a,b) : a \in A,\ b \in B\} $$ If $ A = m$ and $ B = n$, then: $$ A \times B = mn $$
+$$
+A \cup B = \{1,2,3,4,5,6\}
+$$
 :::
 
 ---
-id: "math-discrete-math-112"
-note: "math-discrete-math"
-title: "Review: Functions"
-type: "text"
-answer: "Injective: different inputs give different outputs"
-skills:
-  - "Functions"
+id: discrete-math-15
+note: math-discrete-math
+title: "Count the Subsets of a Set"
+skills: [Power Sets, Counting]
 ---
 
-What is the main idea of **Functions**?
+If a set $A$ has $4$ elements, how many subsets does $A$ have?
 
 :::solution
-One short answer is: Injective: different inputs give different outputs
-:::
-
----
-id: "math-discrete-math-113"
-note: "math-discrete-math"
-title: "Review: Relations"
-type: "text"
-answer: "Reflexive: $(a,a) \\in R$ for all $a$"
-skills:
-  - "Relations"
----
+A set with $n$ elements has $2^n$ subsets.
 
-What is the main idea of **Relations**?
+Here $n=4$, so the number of subsets is
 
-:::solution
-One short answer is: Reflexive: $(a,a) \in R$ for all $a$
+$$
+2^4 = 16
+$$
 :::
 
 ---
-id: "math-discrete-math-114"
-note: "math-discrete-math"
-title: "Review: Equivalence relations and partitions"
-type: "text"
-answer: "An equivalence relation is reflexive, symmetric, and transitive. It breaks a set into equivalence classes . Example: congruence modulo $n$ $$ a \\equiv b \\pmod n \\iff n \\mid (a-b) $$"
-skills:
-  - "Equivalence relations and partitions"
+id: discrete-math-16
+note: math-discrete-math
+title: "Classify a Function"
+skills: [Functions, Injective and Surjective]
 ---
 
-What is the main idea of **Equivalence relations and partitions**?
-
-:::solution
-One short answer is: An equivalence relation is reflexive, symmetric, and transitive. It breaks a set into equivalence classes . Example: congruence modulo $n$ $$ a \equiv b \pmod n \iff n \mid (a-b) $$
-:::
+Let $f : \{1,2,3\} \to \{a,b\}$ be defined by
 
----
-id: "math-discrete-math-115"
-note: "math-discrete-math"
-title: "Review: Partial orders"
-type: "text"
-answer: "$\\subseteq$ on sets"
-skills:
-  - "Partial orders"
----
+$$
+f(1)=a,\quad f(2)=b,\quad f(3)=a.
+$$
 
-What is the main idea of **Partial orders**?
+Is $f$ injective, surjective, both, or neither?
 
 :::solution
-One short answer is: $\subseteq$ on sets
-:::
+The function is **not injective** because different inputs can give the same output:
 
----
-id: "math-discrete-math-116"
-note: "math-discrete-math"
-title: "Review: Proof techniques"
-type: "text"
-answer: "Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions."
-skills:
-  - "3. Proof techniques"
----
+$$
+f(1)=a \quad \text{and} \quad f(3)=a
+$$
 
-What is the main idea of **Proof techniques**?
+The function is **surjective** because both elements of the codomain are hit:
 
-:::solution
-One short answer is: Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions.
+$$
+a \text{ is hit by } 1 \text{ and } 3,\quad b \text{ is hit by } 2
+$$
+
+So $f$ is surjective but not injective.
 :::
 
 ---
-id: "math-discrete-math-117"
-note: "math-discrete-math"
-title: "Review: Direct proof"
-type: "text"
-answer: "Assume the hypothesis."
-skills:
-  - "Direct proof"
+id: discrete-math-17
+note: math-discrete-math
+title: "Find the Size of a Cartesian Product"
+skills: [Cartesian Products, Counting]
 ---
 
-What is the main idea of **Direct proof**?
+If $|A| = 3$ and $|B| = 7$, how many ordered pairs are in $A \times B$?
 
 :::solution
-One short answer is: Assume the hypothesis.
-:::
+For finite sets,
 
----
-id: "math-discrete-math-118"
-note: "math-discrete-math"
-title: "Review: Proof by contrapositive"
-type: "text"
-answer: "To prove $p \\to q$, prove the equivalent statement: $$ \\neg q \\to \\neg p $$ This is often easier when the conclusion is negative or divisibility-based."
-skills:
-  - "Proof by contrapositive"
----
+$$
+|A \times B| = |A||B|
+$$
 
-What is the main idea of **Proof by contrapositive**?
+So
 
-:::solution
-One short answer is: To prove $p \to q$, prove the equivalent statement: $$ \neg q \to \neg p $$ This is often easier when the conclusion is negative or divisibility-based.
+$$
+|A \times B| = 3 \cdot 7 = 21
+$$
 :::
 
 ---
-id: "math-discrete-math-119"
-note: "math-discrete-math"
-title: "Review: Proof by contradiction"
-type: "text"
-answer: "Assume the claim fails."
-skills:
-  - "Proof by contradiction"
+id: discrete-math-18
+note: math-discrete-math
+title: "Check a Partial Order"
+skills: [Relations, Partial Orders]
 ---
-
-What is the main idea of **Proof by contradiction**?
 
-:::solution
-One short answer is: Assume the claim fails.
-:::
+Let
 
----
-id: "math-discrete-math-120"
-note: "math-discrete-math"
-title: "Review: Proof by cases"
-type: "text"
-answer: "Split the domain into exhaustive cases and prove the claim in each one. Example: for integers, common cases are even/odd or positive/zero/negative."
-skills:
-  - "Proof by cases"
----
+$$
+R = \{(1,1),(2,2),(3,3),(1,2),(1,3),(2,3)\}
+$$
 
-What is the main idea of **Proof by cases**?
+be a relation on $\{1,2,3\}$. Is $R$ a partial order?
 
 :::solution
-One short answer is: Split the domain into exhaustive cases and prove the claim in each one. Example: for integers, common cases are even/odd or positive/zero/negative.
-:::
-
----
-id: "math-discrete-math-21"
-note: "math-discrete-math"
-title: "Review: Existence and uniqueness"
-type: "text"
-answer: "Prove existence: show some $x$ satisfies $P(x)$."
-skills:
-  - "Existence and uniqueness"
----
+Check the three conditions:
 
-What is the main idea of **Existence and uniqueness**?
+- Reflexive: $(1,1)$, $(2,2)$, and $(3,3)$ are all in $R$.
+- Antisymmetric: there is no pair $(a,b)$ and $(b,a)$ with $a \neq b$.
+- Transitive: $(1,2)$ and $(2,3)$ imply $(1,3)$, and the other required transitive cases are also present.
 
-:::solution
-One short answer is: Prove existence: show some $x$ satisfies $P(x)$.
+So $R$ is a partial order.
 :::
 
 ---
-id: "math-discrete-math-22"
-note: "math-discrete-math"
-title: "Review: Common proof pitfall"
-type: "text"
-answer: "Do not verify a general statement with a few examples. Examples can suggest a pattern, but they do not prove it. ---"
-skills:
-  - "Common proof pitfall"
+id: discrete-math-19
+note: math-discrete-math
+title: "Solve a Congruence Modulo 5"
+skills: [Modular Arithmetic, Inverses]
 ---
 
-Name one common mistake the note warns about in **Common proof pitfall**.
+Solve for $x$:
 
+$$
+2x \equiv 1 \pmod 5
+$$
+
 :::solution
-One short answer is: Do not verify a general statement with a few examples. Examples can suggest a pattern, but they do not prove it. ---
-:::
+We need the multiplicative inverse of $2$ modulo $5$.
 
----
-id: "math-discrete-math-23"
-note: "math-discrete-math"
-title: "Review: Induction and recursion"
-type: "text"
-answer: "Induction and recursion"
-skills:
-  - "4. Induction and recursion"
----
+Since
 
-What is the main idea of **Induction and recursion**?
+$$
+2 \cdot 3 = 6 \equiv 1 \pmod 5,
+$$
 
-:::solution
-One short answer is: Induction and recursion
+the inverse of $2$ mod $5$ is $3$. Multiply both sides by $3$:
+
+$$
+x \equiv 3 \pmod 5
+$$
 :::
 
 ---
-id: "math-discrete-math-24"
-note: "math-discrete-math"
-title: "Review: Mathematical induction"
-type: "text"
-answer: "Base case: prove $P(n 0)$."
-skills:
-  - "Mathematical induction"
+id: discrete-math-110
+note: math-discrete-math
+title: "Count the Edges in a Tree"
+skills: [Trees, Graphs]
 ---
 
-What is the main idea of **Mathematical induction**?
+A tree has $14$ vertices. How many edges does it have?
 
 :::solution
-One short answer is: Base case: prove $P(n 0)$.
-:::
+For a tree with $n$ vertices, the number of edges is
 
----
-id: "math-discrete-math-25"
-note: "math-discrete-math"
-title: "Review: Example"
-type: "text"
-answer: "Prove: $$ 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2} $$ Base case $n=1$: $$ 1 = \\frac{1 \\cdot 2}{2} $$ Inductive step: assume true for $n=k$."
-skills:
-  - "Example"
----
+$$
+n - 1
+$$
 
-What is the main idea of **Example**?
+So with $n=14$,
 
-:::solution
-One short answer is: Prove: $$ 1 + 2 + \cdots + n = \frac{n(n+1)}{2} $$ Base case $n=1$: $$ 1 = \frac{1 \cdot 2}{2} $$ Inductive step: assume true for $n=k$.
+$$
+|E| = 14 - 1 = 13
+$$
 :::
 
 ---
-id: "math-discrete-math-26"
-note: "math-discrete-math"
-title: "Review: Strong induction"
-type: "text"
-answer: "In strong induction , assume all earlier cases: $$ P(n 0), P(n 0+1), \\dots, P(k) $$ and use them to prove $P(k+1)$. This is useful when each case depends on several previous ones."
-skills:
-  - "Strong induction"
+id: discrete-math-21
+note: math-discrete-math
+title: "Negate a Quantified Statement"
+skills: [Quantifiers, Implication]
 ---
+
+Write the negation of:
 
-What is the main idea of **Strong induction**?
+$$
+\forall n \in \mathbb{Z},\ n \text{ even } \to n^2 \text{ even}
+$$
 
 :::solution
-One short answer is: In strong induction , assume all earlier cases: $$ P(n 0), P(n 0+1), \dots, P(k) $$ and use them to prove $P(k+1)$. This is useful when each case depends on several previous ones.
-:::
+The negation of $\forall n\, P(n)$ is $\exists n\, \neg P(n)$.
 
----
-id: "math-discrete-math-27"
-note: "math-discrete-math"
-title: "Review: Recursive definitions"
-type: "text"
-answer: "Identify base cases."
-skills:
-  - "Recursive definitions"
----
+The negation of $p \to q$ is $p \land \neg q$.
 
-What core idea is introduced in **Recursive definitions**?
+So the negation is:
 
-:::solution
-One short answer is: Identify base cases.
+$$
+\exists n \in \mathbb{Z},\ n \text{ is even and } n^2 \text{ is not even}
+$$
 :::
 
 ---
-id: "math-discrete-math-28"
-note: "math-discrete-math"
-title: "Review: Counting and combinatorics"
-type: "text"
-answer: "Counting arguments appear everywhere in probability, algorithms, graph theory, and proof."
-skills:
-  - "5. Counting and combinatorics"
+id: discrete-math-22
+note: math-discrete-math
+title: "Use Congruence Modulo 4"
+skills: [Equivalence Relations, Modular Arithmetic]
 ---
-
-What is the main idea of **Counting and combinatorics**?
 
-:::solution
-One short answer is: Counting arguments appear everywhere in probability, algorithms, graph theory, and proof.
-:::
+Consider the relation on integers defined by
 
----
-id: "math-discrete-math-29"
-note: "math-discrete-math"
-title: "Review: Sum and product rules"
-type: "text"
-answer: "Sum rule: if tasks are mutually exclusive and can be done in $a$ or $b$ ways, total ways = $a+b$"
-skills:
-  - "Sum and product rules"
----
+$$
+a \sim b \iff a \equiv b \pmod 4.
+$$
 
-What is the main idea of **Sum and product rules**?
+Explain why this is an equivalence relation, and describe the equivalence class of $7$.
 
 :::solution
-One short answer is: Sum rule: if tasks are mutually exclusive and can be done in $a$ or $b$ ways, total ways = $a+b$
-:::
+Congruence modulo $4$ is:
 
----
-id: "math-discrete-math-210"
-note: "math-discrete-math"
-title: "Review: Factorials and permutations"
-type: "text"
-answer: "$$ n! = n(n-1)(n-2)\\cdots 2 \\cdot 1 $$ The number of ordered arrangements of $r$ objects chosen from $n$ is: $$ P(n,r) = \\frac{n!}{(n-r)!} $$"
-skills:
-  - "Factorials and permutations"
----
+- Reflexive, because $a \equiv a \pmod 4$
+- Symmetric, because if $a \equiv b \pmod 4$, then $b \equiv a \pmod 4$
+- Transitive, because if $a \equiv b \pmod 4$ and $b \equiv c \pmod 4$, then $a \equiv c \pmod 4$
 
-What is the main idea of **Factorials and permutations**?
+So it is an equivalence relation.
 
-:::solution
-One short answer is: $$ n! = n(n-1)(n-2)\cdots 2 \cdot 1 $$ The number of ordered arrangements of $r$ objects chosen from $n$ is: $$ P(n,r) = \frac{n!}{(n-r)!} $$
+The class of $7$ is all integers congruent to $7$ mod $4$, which is the same as all integers congruent to $3$ mod $4$:
+
+$$
+[7] = \{\dots,-5,-1,3,7,11,15,\dots\}
+$$
 :::
 
 ---
-id: "math-discrete-math-211"
-note: "math-discrete-math"
-title: "Review: Combinations"
-type: "text"
-answer: "The number of unordered selections of $r$ objects from $n$ is: $$ \\binom{n}{r} = \\frac{n!}{r!(n-r)!} $$ Useful identity: $$ \\binom{n}{r} = \\binom{n}{n-r} $$ Pascal identity: $$ \\binom{n}{r} = \\binom{n-1}{r} + \\binom{n-1…"
-skills:
-  - "Combinations"
+id: discrete-math-23
+note: math-discrete-math
+title: "Prove a Divisibility Claim by Contrapositive"
+skills: [Contrapositive, Divisibility]
 ---
 
-What is the main idea of **Combinations**?
+Prove that if $n^2$ is even, then $n$ is even.
 
 :::solution
-One short answer is: The number of unordered selections of $r$ objects from $n$ is: $$ \binom{n}{r} = \frac{n!}{r!(n-r)!} $$ Useful identity: $$ \binom{n}{r} = \binom{n}{n-r} $$ Pascal identity: $$ \binom{n}{r} = \binom{n-1}{r} + \binom{n-1…
-:::
+Use the contrapositive: prove that if $n$ is odd, then $n^2$ is odd.
 
----
-id: "math-discrete-math-212"
-note: "math-discrete-math"
-title: "Review: Binomial theorem"
-type: "text"
-answer: "$$ (x+y)^n = \\sum {r=0}^{n} \\binom{n}{r} x^{n-r} y^r $$"
-skills:
-  - "Binomial theorem"
----
+If $n$ is odd, then $n = 2k+1$ for some integer $k$. Then
 
-What is the main idea of **Binomial theorem**?
+$$
+n^2 = (2k+1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) + 1
+$$
 
-:::solution
-One short answer is: $$ (x+y)^n = \sum {r=0}^{n} \binom{n}{r} x^{n-r} y^r $$
+which is odd.
+
+So the contrapositive is true, and therefore the original statement is true.
 :::
 
 ---
-id: "math-discrete-math-213"
-note: "math-discrete-math"
-title: "Review: Counting with repetition"
-type: "text"
-answer: "If repetition is allowed and there are $n$ choices for each of $k$ positions, the count is: $$ n^k $$ The number of multisets of size $r$ chosen from $n$ types is: $$ \\binom{n+r-1}{r} $$"
-skills:
-  - "Counting with repetition"
+id: discrete-math-24
+note: math-discrete-math
+title: "Prove a Summation Formula by Induction"
+skills: [Induction, Summation]
 ---
-
-What is the main idea of **Counting with repetition**?
 
-:::solution
-One short answer is: If repetition is allowed and there are $n$ choices for each of $k$ positions, the count is: $$ n^k $$ The number of multisets of size $r$ chosen from $n$ types is: $$ \binom{n+r-1}{r} $$
-:::
+Use mathematical induction to prove that
 
----
-id: "math-discrete-math-214"
-note: "math-discrete-math"
-title: "Review: Inclusion-exclusion"
-type: "text"
-answer: "A \\cap B - A \\cap C - B \\cap C"
-skills:
-  - "Inclusion-exclusion"
----
+$$
+1 + 2 + \cdots + n = \frac{n(n+1)}{2}
+$$
 
-What is the main idea of **Inclusion-exclusion**?
+for all $n \ge 1$.
 
 :::solution
-One short answer is: A \cap B - A \cap C - B \cap C
-:::
+Base case $n=1$:
 
----
-id: "math-discrete-math-215"
-note: "math-discrete-math"
-title: "Review: Pigeonhole principle"
-type: "text"
-answer: "If more than $n$ objects are placed into $n$ boxes, at least one box contains at least two objects."
-skills:
-  - "Pigeonhole principle"
----
+$$
+1 = \frac{1 \cdot 2}{2}
+$$
 
-What is the main idea of **Pigeonhole principle**?
+so the formula holds.
 
-:::solution
-One short answer is: If more than $n$ objects are placed into $n$ boxes, at least one box contains at least two objects.
-:::
+Inductive step: assume the formula holds for $n=k$:
 
----
-id: "math-discrete-math-216"
-note: "math-discrete-math"
-title: "Review: Discrete probability"
-type: "text"
-answer: "Probability in discrete math is usually built on counting."
-skills:
-  - "6. Discrete probability"
----
+$$
+1 + 2 + \cdots + k = \frac{k(k+1)}{2}
+$$
 
-What is the main idea of **Discrete probability**?
+Then
 
-:::solution
-One short answer is: Probability in discrete math is usually built on counting.
-:::
+$$
+1 + 2 + \cdots + k + (k+1)
+= \frac{k(k+1)}{2} + (k+1)
+$$
 
----
-id: "math-discrete-math-217"
-note: "math-discrete-math"
-title: "Review: Sample spaces and events"
-type: "text"
-answer: "Sample space: $S$"
-skills:
-  - "Sample spaces and events"
----
+Factor out $(k+1)$:
 
-What is the main idea of **Sample spaces and events**?
+$$
+= (k+1)\left(\frac{k}{2} + 1\right)
+= (k+1)\left(\frac{k+2}{2}\right)
+= \frac{(k+1)(k+2)}{2}
+$$
 
-:::solution
-One short answer is: Sample space: $S$
+This is exactly the formula with $n=k+1$. Therefore the statement holds for all $n \ge 1$.
 :::
 
 ---
-id: "math-discrete-math-218"
-note: "math-discrete-math"
-title: "Review: Basic rules"
-type: "text"
-answer: "$$ 0 \\le P(E) \\le 1,\\quad P(S)=1,\\quad P(E^c)=1-P(E) $$ $$ P(A \\cup B) = P(A) + P(B) - P(A \\cap B) $$ If $A$ and $B$ are disjoint: $$ P(A \\cup B) = P(A) + P(B) $$"
-skills:
-  - "Basic rules"
+id: discrete-math-25
+note: math-discrete-math
+title: "Count Committees with a Required Member"
+skills: [Combinations, Counting]
 ---
 
-What is the main idea of **Basic rules**?
+From a group of $8$ students, how many $3$-person committees can be formed if one specific student must be included?
 
 :::solution
-One short answer is: $$ 0 \le P(E) \le 1,\quad P(S)=1,\quad P(E^c)=1-P(E) $$ $$ P(A \cup B) = P(A) + P(B) - P(A \cap B) $$ If $A$ and $B$ are disjoint: $$ P(A \cup B) = P(A) + P(B) $$
-:::
+If one student must be included, choose the other $2$ committee members from the remaining $7$ students.
 
----
-id: "math-discrete-math-219"
-note: "math-discrete-math"
-title: "Review: Conditional probability"
-type: "text"
-answer: "$$ P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} $$ provided $P(B) > 0$."
-skills:
-  - "Conditional probability"
----
+The number of ways is
 
-What is the main idea of **Conditional probability**?
-
-:::solution
-One short answer is: $$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $$ provided $P(B) > 0$.
+$$
+\binom{7}{2} = 21
+$$
 :::
 
 ---
-id: "math-discrete-math-31"
-note: "math-discrete-math"
-title: "Review: Independence"
-type: "text"
-answer: "Events $A$ and $B$ are independent if: $$ P(A \\cap B) = P(A)P(B) $$ Independence is not the same as disjointness."
-skills:
-  - "Independence"
+id: discrete-math-26
+note: math-discrete-math
+title: "Compute a Conditional Probability"
+skills: [Conditional Probability, Counting]
 ---
 
-What is the main idea of **Independence**?
+In a club of $12$ students, $7$ are in math club and $4$ are in both math club and robotics club.
 
+If a student is known to be in math club, what is the probability that the student is also in robotics club?
+
 :::solution
-One short answer is: Events $A$ and $B$ are independent if: $$ P(A \cap B) = P(A)P(B) $$ Independence is not the same as disjointness.
-:::
+Use conditional probability:
 
----
-id: "math-discrete-math-32"
-note: "math-discrete-math"
-title: "Review: Expected value"
-type: "text"
-answer: "For a discrete random variable $X$: $$ \\mathbb{E}[X] = \\sum x x\\, P(X=x) $$ Linearity of expectation: $$ \\mathbb{E}[X+Y] = \\mathbb{E}[X] + \\mathbb{E}[Y] $$ This holds whether or not $X$ and $Y$ are independent."
-skills:
-  - "Expected value"
----
+$$
+P(R \mid M) = \frac{P(R \cap M)}{P(M)}
+$$
 
-What is the main idea of **Expected value**?
+In counting form, this is
 
-:::solution
-One short answer is: For a discrete random variable $X$: $$ \mathbb{E}[X] = \sum x x\, P(X=x) $$ Linearity of expectation: $$ \mathbb{E}[X+Y] = \mathbb{E}[X] + \mathbb{E}[Y] $$ This holds whether or not $X$ and $Y$ are independent.
+$$
+\frac{4}{7}
+$$
+
+So the probability is $\frac{4}{7}$.
 :::
 
 ---
-id: "math-discrete-math-33"
-note: "math-discrete-math"
-title: "Review: Variance"
-type: "text"
-answer: "$$ \\mathrm{Var}(X) = \\mathbb{E}[(X-\\mu)^2] $$ where $\\mu = \\mathbb{E}[X]$. Equivalent formula: $$ \\mathrm{Var}(X) = \\mathbb{E}[X^2] - (\\mathbb{E}[X])^2 $$ ---"
-skills:
-  - "Variance"
+id: discrete-math-27
+note: math-discrete-math
+title: "Apply the Euclidean Algorithm"
+skills: [Greatest Common Divisor, Euclidean Algorithm]
 ---
 
-What is the main idea of **Variance**?
+Find $\gcd(252,198)$.
 
 :::solution
-One short answer is: $$ \mathrm{Var}(X) = \mathbb{E}[(X-\mu)^2] $$ where $\mu = \mathbb{E}[X]$. Equivalent formula: $$ \mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 $$ ---
-:::
+Use the Euclidean algorithm:
 
----
-id: "math-discrete-math-34"
-note: "math-discrete-math"
-title: "Review: Number theory and modular arithmetic"
-type: "text"
-answer: "Number theory and modular arithmetic"
-skills:
-  - "7. Number theory and modular arithmetic"
----
+$$
+252 = 198 + 54
+$$
 
-What is the main idea of **Number theory and modular arithmetic**?
-
-:::solution
-One short answer is: Number theory and modular arithmetic
-:::
+$$
+198 = 3\cdot 54 + 36
+$$
 
----
-id: "math-discrete-math-35"
-note: "math-discrete-math"
-title: "Review: Divisibility"
-type: "text"
-answer: "If $a \\mid b$ and $a \\mid c$, then $a \\mid (b+c)$"
-skills:
-  - "Divisibility"
----
+$$
+54 = 1\cdot 36 + 18
+$$
 
-What is the main idea of **Divisibility**?
+$$
+36 = 2\cdot 18 + 0
+$$
 
-:::solution
-One short answer is: If $a \mid b$ and $a \mid c$, then $a \mid (b+c)$
-:::
+The last nonzero remainder is
 
----
-id: "math-discrete-math-36"
-note: "math-discrete-math"
-title: "Review: Prime numbers"
-type: "text"
-answer: "A prime number is an integer greater than $1$ with exactly two positive divisors: $1$ and itself. Fundamental theorem of arithmetic: Every integer $n > 1$ can be written uniquely, up to order, as a product of primes."
-skills:
-  - "Prime numbers"
----
+$$
+18
+$$
 
-What is the main idea of **Prime numbers**?
+So
 
-:::solution
-One short answer is: A prime number is an integer greater than $1$ with exactly two positive divisors: $1$ and itself. Fundamental theorem of arithmetic: Every integer $n > 1$ can be written uniquely, up to order, as a product of primes.
+$$
+\gcd(252,198) = 18
+$$
 :::
 
 ---
-id: "math-discrete-math-37"
-note: "math-discrete-math"
-title: "Review: Greatest common divisor"
-type: "text"
-answer: "The greatest common divisor of $a$ and $b$ is written: $$ \\gcd(a,b) $$ Euclidean algorithm: $$ \\gcd(a,b) = \\gcd(b, a \\bmod b) $$ repeated until the remainder is $0$."
-skills:
-  - "Greatest common divisor"
+id: discrete-math-28
+note: math-discrete-math
+title: "Compare Two Growth Rates"
+skills: [Asymptotic Notation, Growth Rates]
 ---
 
-Name one common mistake the note warns about in **Greatest common divisor**.
+Which grows faster as $n$ becomes large: $n \log n$ or $n^2$?
 
 :::solution
-One short answer is: The greatest common divisor of $a$ and $b$ is written: $$ \gcd(a,b) $$ Euclidean algorithm: $$ \gcd(a,b) = \gcd(b, a \bmod b) $$ repeated until the remainder is $0$.
-:::
-
----
-id: "math-discrete-math-38"
-note: "math-discrete-math"
-title: "Review: Modular arithmetic"
-type: "text"
-answer: "Congruence modulo $n$ means: $$ a \\equiv b \\pmod n \\iff n \\mid (a-b) $$ You can add, subtract, and multiply congruences: $$ a \\equiv b \\pmod n,\\ c \\equiv d \\pmod n \\Rightarrow a+c \\equiv b+d \\pmod n $$ $$ ac \\equiv bd \\…"
-skills:
-  - "Modular arithmetic"
----
+Compare the ratio:
 
-What is the main idea of **Modular arithmetic**?
+$$
+\frac{n^2}{n \log n} = \frac{n}{\log n}
+$$
 
-:::solution
-One short answer is: Congruence modulo $n$ means: $$ a \equiv b \pmod n \iff n \mid (a-b) $$ You can add, subtract, and multiply congruences: $$ a \equiv b \pmod n,\ c \equiv d \pmod n \Rightarrow a+c \equiv b+d \pmod n $$ $$ ac \equiv bd \…
-:::
+This ratio grows without bound as $n$ increases, so $n^2$ grows faster.
 
----
-id: "math-discrete-math-39"
-note: "math-discrete-math"
-title: "Review: Modular inverses"
-type: "text"
-answer: "An integer $a$ has a multiplicative inverse modulo $n$ iff: $$ \\gcd(a,n)=1 $$ Then there exists $a^{-1}$ such that: $$ aa^{-1} \\equiv 1 \\pmod n $$"
-skills:
-  - "Modular inverses"
----
+Equivalently,
 
-What is the main idea of **Modular inverses**?
+$$
+n \log n = O(n^2)
+$$
 
-:::solution
-One short answer is: An integer $a$ has a multiplicative inverse modulo $n$ iff: $$ \gcd(a,n)=1 $$ Then there exists $a^{-1}$ such that: $$ aa^{-1} \equiv 1 \pmod n $$
+but $n^2$ is not $O(n \log n)$.
 :::
 
 ---
-id: "math-discrete-math-310"
-note: "math-discrete-math"
-title: "Review: Example"
-type: "text"
-answer: "To solve $$ 3x \\equiv 1 \\pmod 7 $$ note that $3^{-1} \\equiv 5 \\pmod 7$ because $3 \\cdot 5 = 15 \\equiv 1 \\pmod 7$. Therefore $$ x \\equiv 5 \\pmod 7 $$ ---"
-skills:
-  - "Example"
+id: discrete-math-31
+note: math-discrete-math
+title: "Count Committees with a Restriction"
+skills: [Combinations, Inclusion-Exclusion]
 ---
+
+A school needs a $4$-person committee from $10$ students. Two students are the team captains, and the committee must include at least one captain.
 
-What is the main idea of **Example**?
+How many committees are possible?
 
 :::solution
-One short answer is: To solve $$ 3x \equiv 1 \pmod 7 $$ note that $3^{-1} \equiv 5 \pmod 7$ because $3 \cdot 5 = 15 \equiv 1 \pmod 7$. Therefore $$ x \equiv 5 \pmod 7 $$ ---
-:::
+Count all committees, then subtract those with no captains.
 
----
-id: "math-discrete-math-311"
-note: "math-discrete-math"
-title: "Review: Graphs and trees"
-type: "text"
-answer: "A graph consists of vertices and edges. Notation: $$ G = (V,E) $$"
-skills:
-  - "8. Graphs and trees"
----
+Total committees:
 
-What is the main idea of **Graphs and trees**?
+$$
+\binom{10}{4} = 210
+$$
 
-:::solution
-One short answer is: A graph consists of vertices and edges. Notation: $$ G = (V,E) $$
-:::
+Committees with no captains are chosen from the other $8$ students:
 
----
-id: "math-discrete-math-312"
-note: "math-discrete-math"
-title: "Review: Basic terminology"
-type: "text"
-answer: "Degree of a vertex: number of incident edges"
-skills:
-  - "Basic terminology"
----
+$$
+\binom{8}{4} = 70
+$$
 
-What is the main idea of **Basic terminology**?
+So the number with at least one captain is
 
-:::solution
-One short answer is: Degree of a vertex: number of incident edges
+$$
+210 - 70 = 140
+$$
 :::
 
 ---
-id: "math-discrete-math-313"
-note: "math-discrete-math"
-title: "Review: Handshaking lemma"
-type: "text"
-answer: "For any finite undirected graph: $$ \\sum {v \\in V} \\deg(v) = 2 E $$ This implies the number of odd-degree vertices is even."
-skills:
-  - "Handshaking lemma"
+id: discrete-math-32
+note: math-discrete-math
+title: "Apply the Pigeonhole Principle"
+skills: [Pigeonhole Principle, Counting]
 ---
 
-What is the main idea of **Handshaking lemma**?
+What is the smallest number of students needed to guarantee that at least $3$ students were born in the same month?
 
 :::solution
-One short answer is: For any finite undirected graph: $$ \sum {v \in V} \deg(v) = 2 E $$ This implies the number of odd-degree vertices is even.
-:::
-
----
-id: "math-discrete-math-314"
-note: "math-discrete-math"
-title: "Review: Special graph classes"
-type: "text"
-answer: "Complete graph: $K n$"
-skills:
-  - "Special graph classes"
----
+There are $12$ months, so there are $12$ boxes.
 
-What is the main idea of **Special graph classes**?
+To avoid having $3$ students in any one month, you can place at most $2$ students in each month:
 
-:::solution
-One short answer is: Complete graph: $K n$
-:::
+$$
+12 \cdot 2 = 24
+$$
 
----
-id: "math-discrete-math-315"
-note: "math-discrete-math"
-title: "Review: Trees"
-type: "text"
-answer: "It is connected and has $n-1$ edges"
-skills:
-  - "Trees"
----
+One more student forces some month to contain at least $3$ students.
 
-What is the main idea of **Trees**?
+So the smallest number is
 
-:::solution
-One short answer is: It is connected and has $n-1$ edges
+$$
+25
+$$
 :::
 
 ---
-id: "math-discrete-math-316"
-note: "math-discrete-math"
-title: "Review: Rooted trees"
-type: "text"
-answer: "One vertex is the root"
-skills:
-  - "Rooted trees"
+id: discrete-math-33
+note: math-discrete-math
+title: "Find the Expected Value of a Simple Game"
+skills: [Expected Value, Probability]
 ---
 
-What is the main idea of **Rooted trees**?
+A fair die is rolled. You win \$5 if the result is even and lose \$2 if the result is odd. What is the expected value of the game?
 
 :::solution
-One short answer is: One vertex is the root
-:::
+The probability of rolling an even number is $\frac{1}{2}$, and the probability of rolling an odd number is $\frac{1}{2}$.
 
----
-id: "math-discrete-math-317"
-note: "math-discrete-math"
-title: "Review: Traversals"
-type: "text"
-answer: "Preorder"
-skills:
-  - "Traversals"
----
+So the expected value is
 
-What is the main idea of **Traversals**?
+$$
+\mathbb{E}[X] = \frac{1}{2}(5) + \frac{1}{2}(-2)
+$$
 
-:::solution
-One short answer is: Preorder
+$$
+\mathbb{E}[X] = \frac{3}{2}
+$$
+
+So the expected value is \$1.50.
 :::
 
 ---
-id: "math-discrete-math-318"
-note: "math-discrete-math"
-title: "Review: Algorithms, growth, and recurrences"
-type: "text"
-answer: "Discrete math often studies whether a procedure is correct and how quickly it grows."
-skills:
-  - "9. Algorithms, growth, and recurrences"
+id: discrete-math-34
+note: math-discrete-math
+title: "Use Modular Arithmetic on a Calendar"
+skills: [Modular Arithmetic, Congruence]
 ---
 
-What is the main idea of **Algorithms, growth, and recurrences**?
+Today is Wednesday. What day of the week will it be $100$ days from now?
 
 :::solution
-One short answer is: Discrete math often studies whether a procedure is correct and how quickly it grows.
-:::
+Days of the week repeat every $7$ days, so compute
 
----
-id: "math-discrete-math-319"
-note: "math-discrete-math"
-title: "Review: Asymptotic notation"
-type: "text"
-answer: "For functions $f$ and $g$: $$ f(n) = O(g(n)) $$ means $f$ grows no faster than a constant multiple of $g$ for sufficiently large $n$."
-skills:
-  - "Asymptotic notation"
----
+$$
+100 \bmod 7 = 2
+$$
 
-What core idea is introduced in **Asymptotic notation**?
+So $100$ days from Wednesday is $2$ days later:
 
-:::solution
-One short answer is: For functions $f$ and $g$: $$ f(n) = O(g(n)) $$ means $f$ grows no faster than a constant multiple of $g$ for sufficiently large $n$.
+Thursday.
 :::
 
 ---
-id: "math-discrete-math-320"
-note: "math-discrete-math"
-title: "Review: Growth hierarchy"
-type: "text"
-answer: "From slower to faster, a common order is: $$ 1,\\ \\log n,\\ n,\\ n \\log n,\\ n^2,\\ n^3,\\ 2^n,\\ n! $$"
-skills:
-  - "Growth hierarchy"
+id: discrete-math-35
+note: math-discrete-math
+title: "Solve a Geometric Recurrence"
+skills: [Recurrences, Exponential Growth]
 ---
 
-What is the main idea of **Growth hierarchy**?
+A bacteria culture starts with $2$ bacteria and triples each hour.
 
-:::solution
-One short answer is: From slower to faster, a common order is: $$ 1,\ \log n,\ n,\ n \log n,\ n^2,\ n^3,\ 2^n,\ n! $$
-:::
+If $a_n$ is the number of bacteria after $n$ hours, find a formula for $a_n$ and compute $a_4$.
 
----
-id: "math-discrete-math-41"
-note: "math-discrete-math"
-title: "Review: Recurrence relations"
-type: "text"
-answer: "A recurrence defines a sequence from earlier terms. Examples: $$ a n = a {n-1} + 3 $$ $$ a n = 2a {n-1} $$ $$ a n = a {n-1} + a {n-2} $$"
-skills:
-  - "Recurrence relations"
----
+:::solution
+The recurrence is
 
-What is the main idea of **Recurrence relations**?
+$$
+a_0 = 2,\quad a_n = 3a_{n-1}
+$$
 
-:::solution
-One short answer is: A recurrence defines a sequence from earlier terms. Examples: $$ a n = a {n-1} + 3 $$ $$ a n = 2a {n-1} $$ $$ a n = a {n-1} + a {n-2} $$
-:::
+This is a geometric recurrence, so the explicit formula is
 
----
-id: "math-discrete-math-42"
-note: "math-discrete-math"
-title: "Review: Solving simple recurrences"
-type: "text"
-answer: "Arithmetic-type recurrence: $$ a n = a {n-1} + d,\\quad a 0 = c $$ has solution: $$ a n = c + nd $$ Geometric-type recurrence: $$ a n = r a {n-1},\\quad a 0 = c $$ has solution: $$ a n = cr^n $$"
-skills:
-  - "Solving simple recurrences"
----
+$$
+a_n = 2 \cdot 3^n
+$$
 
-What is the main idea of **Solving simple recurrences**?
+Now evaluate at $n=4$:
 
-:::solution
-One short answer is: Arithmetic-type recurrence: $$ a n = a {n-1} + d,\quad a 0 = c $$ has solution: $$ a n = c + nd $$ Geometric-type recurrence: $$ a n = r a {n-1},\quad a 0 = c $$ has solution: $$ a n = cr^n $$
+$$
+a_4 = 2 \cdot 3^4 = 2 \cdot 81 = 162
+$$
 :::
 
 ---
-id: "math-discrete-math-43"
-note: "math-discrete-math"
-title: "Review: Algorithm correctness"
-type: "text"
-answer: "It terminates."
-skills:
-  - "Algorithm correctness"
+id: discrete-math-41
+note: math-discrete-math
+title: "Prove Prime Factorization by Strong Induction"
+skills: [Strong Induction, Prime Factorization]
 ---
 
-What is the main idea of **Algorithm correctness**?
+Prove that every integer $n \ge 2$ can be written as a product of primes.
 
 :::solution
-One short answer is: It terminates.
-:::
+We use strong induction.
 
----
-id: "math-discrete-math-44"
-note: "math-discrete-math"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Use this checklist for most discrete mathematics problems."
-skills:
-  - "10. Problem-solving workflow"
----
+Base case: $n=2$. The number $2$ is prime, so it is already a product of primes.
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Use this checklist for most discrete mathematics problems.
-:::
+Inductive step: assume every integer from $2$ through $k$ can be written as a product of primes. We prove the claim for $k+1$.
 
----
-id: "math-discrete-math-45"
-note: "math-discrete-math"
-title: "Review: Step 1: Identify the object type"
-type: "text"
-answer: "Proposition"
-skills:
-  - "Step 1: Identify the object type"
----
+- If $k+1$ is prime, then it is already a product of primes.
+- If $k+1$ is composite, then
 
-What is the main idea of **Step 1: Identify the object type**?
+$$
+k+1 = ab
+$$
 
-:::solution
-One short answer is: Proposition
-:::
+for some integers $a,b$ with
 
----
-id: "math-discrete-math-46"
-note: "math-discrete-math"
-title: "Review: Step 2: Translate the statement into formal language"
-type: "text"
-answer: "Quantifiers"
-skills:
-  - "Step 2: Translate the statement into formal language"
----
+$$
+2 \le a \le k,\quad 2 \le b \le k
+$$
 
-What is the main idea of **Step 2: Translate the statement into formal language**?
+By the strong inductive hypothesis, both $a$ and $b$ can be written as products of primes. Multiplying those factorizations gives a product of primes for $k+1$.
 
-:::solution
-One short answer is: Quantifiers
+Therefore every integer $n \ge 2$ can be written as a product of primes.
 :::
 
 ---
-id: "math-discrete-math-47"
-note: "math-discrete-math"
-title: "Review: Step 3: Choose the right tool"
-type: "text"
-answer: "Implication: direct proof or contrapositive"
-skills:
-  - "Step 3: Choose the right tool"
+id: discrete-math-42
+note: math-discrete-math
+title: "Count Multiples with Inclusion-Exclusion"
+skills: [Inclusion-Exclusion, Counting]
 ---
 
-What is the main idea of **Step 3: Choose the right tool**?
+How many integers from $1$ to $100$ are divisible by $2$, $3$, or $5$?
 
 :::solution
-One short answer is: Implication: direct proof or contrapositive
-:::
-
----
-id: "math-discrete-math-48"
-note: "math-discrete-math"
-title: "Review: Step 4: Write from definitions"
-type: "text"
-answer: "Even means $n=2k$"
-skills:
-  - "Step 4: Write from definitions"
----
+Use inclusion-exclusion.
 
-What core idea is introduced in **Step 4: Write from definitions**?
+Counts of multiples:
 
-:::solution
-One short answer is: Even means $n=2k$
-:::
+$$
+\left\lfloor \frac{100}{2} \right\rfloor = 50,\quad
+\left\lfloor \frac{100}{3} \right\rfloor = 33,\quad
+\left\lfloor \frac{100}{5} \right\rfloor = 20
+$$
 
----
-id: "math-discrete-math-49"
-note: "math-discrete-math"
-title: "Review: Step 5: Check edge cases"
-type: "text"
-answer: "Small values, empty sets, parity changes, and boundary cases often break careless arguments."
-skills:
-  - "Step 5: Check edge cases"
----
+Subtract overlaps:
 
-What is the main idea of **Step 5: Check edge cases**?
+$$
+\left\lfloor \frac{100}{6} \right\rfloor = 16,\quad
+\left\lfloor \frac{100}{10} \right\rfloor = 10,\quad
+\left\lfloor \frac{100}{15} \right\rfloor = 6
+$$
 
-:::solution
-One short answer is: Small values, empty sets, parity changes, and boundary cases often break careless arguments.
-:::
+Add back the triple overlap:
 
----
-id: "math-discrete-math-410"
-note: "math-discrete-math"
-title: "Review: Step 6: Validate the conclusion type"
-type: "text"
-answer: "Equality proved algebraically"
-skills:
-  - "Step 6: Validate the conclusion type"
----
+$$
+\left\lfloor \frac{100}{30} \right\rfloor = 3
+$$
 
-What is the main idea of **Step 6: Validate the conclusion type**?
+So the total is
 
-:::solution
-One short answer is: Equality proved algebraically
+$$
+50 + 33 + 20 - 16 - 10 - 6 + 3 = 74
+$$
 :::
 
 ---
-id: "math-discrete-math-411"
-note: "math-discrete-math"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "11. Formula sheet"
+id: discrete-math-43
+note: math-discrete-math
+title: "Use Degrees to Test a Tree"
+skills: [Handshaking Lemma, Trees, Graphs]
 ---
-
-What core formulas or relations are summarized in **Formula sheet**?
 
-:::solution
-One short answer is: Formula sheet
-:::
+A connected graph has $6$ vertices with degree sequence
 
----
-id: "math-discrete-math-412"
-note: "math-discrete-math"
-title: "Review: Logic"
-type: "text"
-answer: "$$ p \\to q \\equiv \\neg p \\lor q $$ $$ \\neg (p \\land q) \\equiv \\neg p \\lor \\neg q $$ $$ \\neg (p \\lor q) \\equiv \\neg p \\land \\neg q $$"
-skills:
-  - "Logic"
----
+$$
+3,3,2,2,1,1.
+$$
 
-What is the main idea of **Logic**?
+Use the handshaking lemma to find the number of edges, then decide whether the graph can be a tree.
 
 :::solution
-One short answer is: $$ p \to q \equiv \neg p \lor q $$ $$ \neg (p \land q) \equiv \neg p \lor \neg q $$ $$ \neg (p \lor q) \equiv \neg p \land \neg q $$
-:::
-
----
-id: "math-discrete-math-413"
-note: "math-discrete-math"
-title: "Review: Sets"
-type: "text"
-answer: "$$ A \\cup B = A + B - A \\cap B $$ $$ \\mathcal{P}(A) = 2^{ A } $$ $$ A \\times B = A B $$"
-skills:
-  - "Sets"
----
+First add the degrees:
 
-What is the main idea of **Sets**?
+$$
+3+3+2+2+1+1 = 12
+$$
 
-:::solution
-One short answer is: $$ A \cup B = A + B - A \cap B $$ $$ \mathcal{P}(A) = 2^{ A } $$ $$ A \times B = A B $$
-:::
+By the handshaking lemma,
 
----
-id: "math-discrete-math-414"
-note: "math-discrete-math"
-title: "Review: Counting"
-type: "text"
-answer: "$$ n! $$ $$ P(n,r) = \\frac{n!}{(n-r)!} $$ $$ \\binom{n}{r} = \\frac{n!}{r!(n-r)!} $$ $$ (x+y)^n = \\sum {r=0}^{n} \\binom{n}{r} x^{n-r} y^r $$ $$ \\binom{n+r-1}{r} $$"
-skills:
-  - "Counting"
----
+$$
+2|E| = 12
+$$
 
-What is the main idea of **Counting**?
+so
 
-:::solution
-One short answer is: $$ n! $$ $$ P(n,r) = \frac{n!}{(n-r)!} $$ $$ \binom{n}{r} = \frac{n!}{r!(n-r)!} $$ $$ (x+y)^n = \sum {r=0}^{n} \binom{n}{r} x^{n-r} y^r $$ $$ \binom{n+r-1}{r} $$
-:::
+$$
+|E| = 6
+$$
 
----
-id: "math-discrete-math-415"
-note: "math-discrete-math"
-title: "Review: Probability"
-type: "text"
-answer: "$$ P(E) = \\frac{ E }{ S } $$ $$ P(A \\cup B) = P(A) + P(B) - P(A \\cap B) $$ $$ P(A \\mid B) = \\frac{P(A \\cap B)}{P(B)} $$ $$ \\mathbb{E}[X] = \\sum x x\\, P(X=x) $$ $$ \\mathrm{Var}(X) = \\mathbb{E}[X^2] - (\\mathbb{E}[X])^2 $$"
-skills:
-  - "Probability"
----
+A tree with $6$ vertices must have
 
-What is the main idea of **Probability**?
+$$
+6 - 1 = 5
+$$
 
-:::solution
-One short answer is: $$ P(E) = \frac{ E }{ S } $$ $$ P(A \cup B) = P(A) + P(B) - P(A \cap B) $$ $$ P(A \mid B) = \frac{P(A \cap B)}{P(B)} $$ $$ \mathbb{E}[X] = \sum x x\, P(X=x) $$ $$ \mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2 $$
+edges. Since this graph has $6$ edges, it cannot be a tree.
 :::
 
 ---
-id: "math-discrete-math-416"
-note: "math-discrete-math"
-title: "Review: Number theory"
-type: "text"
-answer: "$$ a \\equiv b \\pmod n \\iff n \\mid (a-b) $$ $$ \\gcd(a,b) = \\gcd(b, a \\bmod b) $$"
-skills:
-  - "Number theory"
+id: discrete-math-44
+note: math-discrete-math
+title: "Verify a Loop Invariant"
+skills: [Loop Invariants, Algorithm Correctness]
 ---
 
-What is the main idea of **Number theory**?
+Consider the algorithm:
 
-:::solution
-One short answer is: $$ a \equiv b \pmod n \iff n \mid (a-b) $$ $$ \gcd(a,b) = \gcd(b, a \bmod b) $$
-:::
+```text
+total = 0
+for k from 1 to n:
+    total = total + k
+```
 
----
-id: "math-discrete-math-417"
-note: "math-discrete-math"
-title: "Review: Graphs"
-type: "text"
-answer: "$$ \\sum {v \\in V} \\deg(v) = 2 E $$ For a tree with $n$ vertices: $$ E = n-1 $$"
-skills:
-  - "Graphs"
----
+State a loop invariant and use it to explain why the algorithm returns
 
-What is the main idea of **Graphs**?
+$$
+1 + 2 + \cdots + n.
+$$
 
 :::solution
-One short answer is: $$ \sum {v \in V} \deg(v) = 2 E $$ For a tree with $n$ vertices: $$ E = n-1 $$
-:::
+A good loop invariant is:
 
----
-id: "math-discrete-math-418"
-note: "math-discrete-math"
-title: "Review: Growth"
-type: "text"
-answer: "$$ 1,\\ \\log n,\\ n,\\ n \\log n,\\ n^2,\\ n^3,\\ 2^n,\\ n! $$ ---"
-skills:
-  - "Growth"
----
+> After the loop has processed the numbers $1,2,\dots,k$, the variable `total` equals $1+2+\cdots+k$.
 
-What is the main idea of **Growth**?
-
-:::solution
-One short answer is: $$ 1,\ \log n,\ n,\ n \log n,\ n^2,\ n^3,\ 2^n,\ n! $$ ---
-:::
+Why it works:
 
----
-id: "math-discrete-math-419"
-note: "math-discrete-math"
-title: "Review: Common mistakes to avoid"
-type: "text"
-answer: "Confusing the converse of a statement with its contrapositive."
-skills:
-  - "Common mistakes to avoid"
----
+- Before the loop starts, `total = 0`, which matches the sum of no terms.
+- Each iteration adds the next integer, so if the invariant is true before an iteration, it remains true after that iteration.
+- When the loop finishes, $k=n$, so `total` equals
 
-Name one common mistake the note warns about in **Common mistakes to avoid**.
+$$
+1 + 2 + \cdots + n
+$$
 
-:::solution
-One short answer is: Confusing the converse of a statement with its contrapositive.
+Therefore the algorithm is correct.
 :::

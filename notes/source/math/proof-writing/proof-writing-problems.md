@@ -1,1135 +1,833 @@
 ---
-id: "math-proof-writing-11"
-note: "math-proof-writing"
-title: "Review: What a proof does"
-type: "text"
-answer: "A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results."
-skills:
-  - "1. What a proof does"
+id: proof-writing-11
+note: math-proof-writing
+title: "Rewrite a Universal Conditional Statement"
+skills: [Quantifiers, Implication]
 ---
 
-What is the main idea of **What a proof does**?
+Rewrite the statement below using symbols:
 
+> For every integer $n$, if $n$ is even, then $n^2$ is even.
+
 :::solution
-One short answer is: A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.
-:::
+This is a universal conditional statement. One symbolic form is
 
----
-id: "math-proof-writing-12"
-note: "math-proof-writing"
-title: "Review: Proof ingredients"
-type: "text"
-answer: "Definitions"
-skills:
-  - "Proof ingredients"
----
+$$
+\forall n \in \mathbb{Z},\; (n \text{ is even} \Rightarrow n^2 \text{ is even}).
+$$
 
-What is the main idea of **Proof ingredients**?
+Using divisibility notation, it can also be written as
 
-:::solution
-One short answer is: Definitions
+$$
+\forall n \in \mathbb{Z},\; (2 \mid n \Rightarrow 2 \mid n^2).
+$$
 :::
 
 ---
-id: "math-proof-writing-13"
-note: "math-proof-writing"
-title: "Review: Typical statement forms"
-type: "text"
-answer: "Universal statements: “for all”"
-skills:
-  - "Typical statement forms"
+id: proof-writing-12
+note: math-proof-writing
+title: "Negate a Quantified Statement"
+skills: [Quantifiers, Negation]
 ---
 
-What is the main idea of **Typical statement forms**?
+Write the negation of
 
-:::solution
-One short answer is: Universal statements: “for all”
-:::
+$$
+\forall x \in \mathbb{R}\, \exists y \in \mathbb{R}\,(x < y).
+$$
 
----
-id: "math-proof-writing-14"
-note: "math-proof-writing"
-title: "Review: What counts as a proof"
-type: "text"
-answer: "Symbolic derivations from definitions"
-skills:
-  - "What counts as a proof"
----
+:::solution
+Negate the quantifiers in reverse order:
 
-What is the main idea of **What counts as a proof**?
+$$
+\neg\bigl(\forall x \in \mathbb{R}\, \exists y \in \mathbb{R}\,(x < y)\bigr)
+\equiv
+\exists x \in \mathbb{R}\, \forall y \in \mathbb{R}\,(x \ge y).
+$$
 
-:::solution
-One short answer is: Symbolic derivations from definitions
+In words, there is a real number that is greater than or equal to every real number.
 :::
 
 ---
-id: "math-proof-writing-15"
-note: "math-proof-writing"
-title: "Review: Reading mathematical statements"
-type: "text"
-answer: "Before proving anything, rewrite the statement carefully."
-skills:
-  - "2. Reading mathematical statements"
+id: proof-writing-13
+note: math-proof-writing
+title: "Split an 'If and Only If'"
+skills: [Logical Form, Equivalence]
 ---
 
-What is the main idea of **Reading mathematical statements**?
+What two implications must be proved to establish $P \Leftrightarrow Q$?
 
 :::solution
-One short answer is: Before proving anything, rewrite the statement carefully.
+You must prove both directions:
+
+$$
+P \Rightarrow Q
+\quad \text{and} \quad
+Q \Rightarrow P.
+$$
+
+Proving both directions is exactly what makes the statement an equivalence.
 :::
 
 ---
-id: "math-proof-writing-16"
-note: "math-proof-writing"
-title: "Review: Translate the language"
-type: "text"
-answer: "Common phrases: Phrase Logical meaning --- --- “For all \\(x\\)” \\(\\forall x\\) “There exists \\(x\\)” \\(\\exists x\\) “If \\(P\\), then \\(Q\\)” \\(P \\Rightarrow Q\\) “\\(P\\) only if \\(Q\\)” \\(P \\Rightarrow Q\\) “\\(P\\) if \\(Q\\)” \\(Q \\…"
-skills:
-  - "Translate the language"
+id: proof-writing-14
+note: math-proof-writing
+title: "Add Two Even Integers"
+skills: [Direct Proof, Even/Odd]
 ---
 
-What is the main idea of **Translate the language**?
+Prove that if $m$ and $n$ are even integers, then $m+n$ is even.
 
 :::solution
-One short answer is: Common phrases: Phrase Logical meaning --- --- “For all \(x\)” \(\forall x\) “There exists \(x\)” \(\exists x\) “If \(P\), then \(Q\)” \(P \Rightarrow Q\) “\(P\) only if \(Q\)” \(P \Rightarrow Q\) “\(P\) if \(Q\)” \(Q \…
-:::
+Since $m$ and $n$ are even, write
 
----
-id: "math-proof-writing-17"
-note: "math-proof-writing"
-title: "Review: Watch the quantifier order"
-type: "text"
-answer: "Quantifier order matters: $$ \\forall x\\, \\exists y\\, P(x,y) \\quad \\text{is not the same as} \\quad \\exists y\\, \\forall x\\, P(x,y)."
-skills:
-  - "Watch the quantifier order"
----
+$$
+m = 2a \quad \text{and} \quad n = 2b
+$$
 
-What is the main idea of **Watch the quantifier order**?
+for some integers $a$ and $b$. Then
 
-:::solution
-One short answer is: Quantifier order matters: $$ \forall x\, \exists y\, P(x,y) \quad \text{is not the same as} \quad \exists y\, \forall x\, P(x,y).
+$$
+m+n = 2a + 2b = 2(a+b).
+$$
+
+Because $a+b$ is an integer, $m+n$ is even.
 :::
 
 ---
-id: "math-proof-writing-18"
-note: "math-proof-writing"
-title: "Review: Negations"
-type: "text"
-answer: "Negating statements correctly is essential."
-skills:
-  - "Negations"
+id: proof-writing-15
+note: math-proof-writing
+title: "Multiply Two Odd Integers"
+skills: [Direct Proof, Even/Odd]
 ---
 
-What is the main idea of **Negations**?
+Prove that if $m$ and $n$ are odd integers, then $mn$ is odd.
 
 :::solution
-One short answer is: Negating statements correctly is essential.
-:::
+Since $m$ and $n$ are odd, write
 
----
-id: "math-proof-writing-19"
-note: "math-proof-writing"
-title: "Review: Unpack definitions"
-type: "text"
-answer: "Even: \\(n\\) is even if \\(n = 2k\\) for some integer \\(k\\)"
-skills:
-  - "Unpack definitions"
----
+$$
+m = 2a+1 \quad \text{and} \quad n = 2b+1
+$$
 
-What core idea is introduced in **Unpack definitions**?
+for some integers $a$ and $b$. Then
 
-:::solution
-One short answer is: Even: \(n\) is even if \(n = 2k\) for some integer \(k\)
-:::
+$$
+mn = (2a+1)(2b+1) = 4ab + 2a + 2b + 1.
+$$
 
----
-id: "math-proof-writing-110"
-note: "math-proof-writing"
-title: "Review: Core proof structures"
-type: "text"
-answer: "Most undergraduate proofs fall into a small number of templates."
-skills:
-  - "3. Core proof structures"
----
+Factor out a 2 from the even part:
 
-What core idea is introduced in **Core proof structures**?
+$$
+mn = 2(2ab+a+b)+1.
+$$
 
-:::solution
-One short answer is: Most undergraduate proofs fall into a small number of templates.
+This has the form $2k+1$, so $mn$ is odd.
 :::
 
 ---
-id: "math-proof-writing-111"
-note: "math-proof-writing"
-title: "Review: Implication"
-type: "text"
-answer: "To prove \\(P \\Rightarrow Q\\), assume \\(P\\) and show \\(Q\\). This is the default proof shape."
-skills:
-  - "Implication"
+id: proof-writing-16
+note: math-proof-writing
+title: "Add Divisible Numbers"
+skills: [Direct Proof, Divisibility]
 ---
 
-What is the main idea of **Implication**?
+Prove that if $a \mid b$ and $a \mid c$, then $a \mid (b+c)$.
 
 :::solution
-One short answer is: To prove \(P \Rightarrow Q\), assume \(P\) and show \(Q\). This is the default proof shape.
-:::
+Since $a \mid b$, there is an integer $k$ such that $b = ak$.
 
----
-id: "math-proof-writing-112"
-note: "math-proof-writing"
-title: "Review: Equivalence"
-type: "text"
-answer: "To prove \\(P \\Leftrightarrow Q\\), prove both directions: $$ P \\Rightarrow Q \\quad \\text{and} \\quad Q \\Rightarrow P."
-skills:
-  - "Equivalence"
----
+Since $a \mid c$, there is an integer $\ell$ such that $c = a\ell$.
 
-What is the main idea of **Equivalence**?
+Then
 
-:::solution
-One short answer is: To prove \(P \Leftrightarrow Q\), prove both directions: $$ P \Rightarrow Q \quad \text{and} \quad Q \Rightarrow P.
+$$
+b+c = ak + a\ell = a(k+\ell).
+$$
+
+Because $k+\ell$ is an integer, $a \mid (b+c)$.
 :::
 
 ---
-id: "math-proof-writing-113"
-note: "math-proof-writing"
-title: "Review: Existence"
-type: "text"
-answer: "A candidate object \\(x\\)"
-skills:
-  - "Existence"
+id: proof-writing-17
+note: math-proof-writing
+title: "A Basic Set Inclusion"
+skills: [Set Inclusion]
 ---
 
-What is the main idea of **Existence**?
+Prove that $A \cap B \subseteq A$.
 
 :::solution
-One short answer is: A candidate object \(x\)
+Let $x \in A \cap B$. By definition of intersection, $x \in A$ and $x \in B$.
+
+In particular, $x \in A$. Since every element of $A \cap B$ is an element of $A$, we have
+
+$$
+A \cap B \subseteq A.
+$$
 :::
 
 ---
-id: "math-proof-writing-114"
-note: "math-proof-writing"
-title: "Review: Uniqueness"
-type: "text"
-answer: "Prove existence."
-skills:
-  - "Uniqueness"
+id: proof-writing-18
+note: math-proof-writing
+title: "Check Injectivity"
+skills: [Injective, Functions]
 ---
 
-What is the main idea of **Uniqueness**?
+Let $f(x) = 5x - 2$ on $\mathbb{R}$. Prove that $f$ is injective.
 
 :::solution
-One short answer is: Prove existence.
-:::
+Assume $f(x_1) = f(x_2)$. Then
 
----
-id: "math-proof-writing-115"
-note: "math-proof-writing"
-title: "Review: Universal statements"
-type: "text"
-answer: "To prove \\(\\forall x\\, P(x)\\), start with an arbitrary \\(x\\) and prove \\(P(x)\\). Do not assume special properties of \\(x\\) unless the statement gives them. ---"
-skills:
-  - "Universal statements"
----
+$$
+5x_1 - 2 = 5x_2 - 2.
+$$
 
-What is the main idea of **Universal statements**?
+Add $2$ to both sides:
 
-:::solution
-One short answer is: To prove \(\forall x\, P(x)\), start with an arbitrary \(x\) and prove \(P(x)\). Do not assume special properties of \(x\) unless the statement gives them. ---
-:::
+$$
+5x_1 = 5x_2.
+$$
 
----
-id: "math-proof-writing-116"
-note: "math-proof-writing"
-title: "Review: Direct proof"
-type: "text"
-answer: "A direct proof starts from the hypotheses and derives the conclusion by valid deductions."
-skills:
-  - "4. Direct proof"
----
+Divide by $5$:
 
-What is the main idea of **Direct proof**?
+$$
+x_1 = x_2.
+$$
 
-:::solution
-One short answer is: A direct proof starts from the hypotheses and derives the conclusion by valid deductions.
+Therefore $f$ is injective.
 :::
 
 ---
-id: "math-proof-writing-117"
-note: "math-proof-writing"
-title: "Review: Template"
-type: "text"
-answer: "Assume \\(P\\)."
-skills:
-  - "Template"
+id: proof-writing-19
+note: math-proof-writing
+title: "Check Surjectivity"
+skills: [Surjective, Functions]
 ---
 
-What is the main idea of **Template**?
+Let $g(x) = x^3$ on $\mathbb{R}$. Prove that $g$ is surjective.
 
 :::solution
-One short answer is: Assume \(P\).
-:::
+Let $y \in \mathbb{R}$ be arbitrary. Choose
 
----
-id: "math-proof-writing-118"
-note: "math-proof-writing"
-title: "Review: Example: even plus even is even"
-type: "text"
-answer: "Claim: If \\(m\\) and \\(n\\) are even integers, then \\(m+n\\) is even. Proof: Let \\(m = 2a\\) and \\(n = 2b\\) for integers \\(a,b\\). Then $$ m+n = 2a + 2b = 2(a+b). $$ Since \\(a+b\\) is an integer, \\(m+n\\) is even."
-skills:
-  - "Example: even plus even is even"
----
+$$
+x = \sqrt[3]{y}.
+$$
 
-What is the main idea of **Example: even plus even is even**?
+Then
 
-:::solution
-One short answer is: Claim: If \(m\) and \(n\) are even integers, then \(m+n\) is even. Proof: Let \(m = 2a\) and \(n = 2b\) for integers \(a,b\). Then $$ m+n = 2a + 2b = 2(a+b). $$ Since \(a+b\) is an integer, \(m+n\) is even.
+$$
+g(x) = x^3 = (\sqrt[3]{y})^3 = y.
+$$
+
+So every real number has a preimage under $g$, and $g$ is surjective.
 :::
 
 ---
-id: "math-proof-writing-21"
-note: "math-proof-writing"
-title: "Review: Example: product of odd integers"
-type: "text"
-answer: "If \\(m = 2a+1\\) and \\(n = 2b+1\\), then $$ mn = (2a+1)(2b+1) = 2(2ab+a+b)+1, $$ so \\(mn\\) is odd."
-skills:
-  - "Example: product of odd integers"
+id: proof-writing-20
+note: math-proof-writing
+title: "Give a Witness"
+skills: [Existence, Rational Numbers]
 ---
 
-What is the main idea of **Example: product of odd integers**?
+Show that there exists a rational number between $1$ and $2$.
 
 :::solution
-One short answer is: If \(m = 2a+1\) and \(n = 2b+1\), then $$ mn = (2a+1)(2b+1) = 2(2ab+a+b)+1, $$ so \(mn\) is odd.
-:::
+Choose
 
----
-id: "math-proof-writing-22"
-note: "math-proof-writing"
-title: "Review: When to use direct proof"
-type: "text"
-answer: "The conclusion follows naturally from the hypothesis"
-skills:
-  - "When to use direct proof"
----
+$$
+\frac{3}{2}.
+$$
 
-What is the main idea of **When to use direct proof**?
+It is rational, and
 
-:::solution
-One short answer is: The conclusion follows naturally from the hypothesis
+$$
+1 < \frac{3}{2} < 2.
+$$
+
+So a rational number between $1$ and $2$ exists.
 :::
 
 ---
-id: "math-proof-writing-23"
-note: "math-proof-writing"
-title: "Review: Contrapositive and contradiction"
-type: "text"
-answer: "These are the two main indirect proof methods."
-skills:
-  - "5. Contrapositive and contradiction"
+id: proof-writing-21
+note: math-proof-writing
+title: "Distribute a Set Intersection"
+skills: [Set Equality, Set Inclusion]
 ---
+
+Prove that
 
-What is the main idea of **Contrapositive and contradiction**?
+$$
+A \cap (B \cup C) = (A \cap B) \cup (A \cap C).
+$$
 
 :::solution
-One short answer is: These are the two main indirect proof methods.
-:::
+We prove both inclusions.
 
----
-id: "math-proof-writing-24"
-note: "math-proof-writing"
-title: "Review: Contrapositive"
-type: "text"
-answer: "To prove \\(P \\Rightarrow Q\\), you may instead prove: $$ \\neg Q \\Rightarrow \\neg P. $$ This is logically equivalent to the original statement."
-skills:
-  - "Contrapositive"
----
+First let $x \in A \cap (B \cup C)$. Then $x \in A$ and $x \in B \cup C$. So $x \in B$ or $x \in C$.
 
-What is the main idea of **Contrapositive**?
+If $x \in B$, then $x \in A \cap B$. If $x \in C$, then $x \in A \cap C$. In either case,
 
-:::solution
-One short answer is: To prove \(P \Rightarrow Q\), you may instead prove: $$ \neg Q \Rightarrow \neg P. $$ This is logically equivalent to the original statement.
-:::
+$$
+x \in (A \cap B) \cup (A \cap C).
+$$
 
----
-id: "math-proof-writing-25"
-note: "math-proof-writing"
-title: "Review: Example"
-type: "text"
-answer: "Claim: If \\(n^2\\) is even, then \\(n\\) is even."
-skills:
-  - "Example"
----
+Now let $x \in (A \cap B) \cup (A \cap C)$. Then either $x \in A \cap B$ or $x \in A \cap C$.
 
-What is the main idea of **Example**?
+In the first case, $x \in A$ and $x \in B$, so $x \in A \cap (B \cup C)$.
 
-:::solution
-One short answer is: Claim: If \(n^2\) is even, then \(n\) is even.
+In the second case, $x \in A$ and $x \in C$, so $x \in A \cap (B \cup C)$.
+
+Thus the two sets are equal.
 :::
 
 ---
-id: "math-proof-writing-26"
-note: "math-proof-writing"
-title: "Review: Contradiction"
-type: "text"
-answer: "A logical contradiction such as \\(A \\land \\neg A\\)"
-skills:
-  - "Contradiction"
+id: proof-writing-22
+note: math-proof-writing
+title: "An Even-Difference Relation"
+skills: [Relations, Direct Proof]
 ---
 
-What is the main idea of **Contradiction**?
+On the integers, define a relation $R$ by $aRb$ if $a-b$ is even. Prove that $R$ is reflexive, symmetric, and transitive.
 
 :::solution
-One short answer is: A logical contradiction such as \(A \land \neg A\)
-:::
+Reflexive: for any integer $a$,
 
----
-id: "math-proof-writing-27"
-note: "math-proof-writing"
-title: "Review: Example"
-type: "text"
-answer: "Claim: \\(\\sqrt{2}\\) is irrational."
-skills:
-  - "Example"
----
+$$
+a-a = 0
+$$
 
-What is the main idea of **Example**?
+is even, so $aRa$.
 
-:::solution
-One short answer is: Claim: \(\sqrt{2}\) is irrational.
-:::
+Symmetric: if $aRb$, then $a-b$ is even. Since
 
----
-id: "math-proof-writing-28"
-note: "math-proof-writing"
-title: "Review: Choosing between them"
-type: "text"
-answer: "Use contrapositive when the negated conclusion is easier to work with."
-skills:
-  - "Choosing between them"
----
+$$
+b-a = -(a-b),
+$$
 
-What is the main idea of **Choosing between them**?
+and the negative of an even integer is even, $bRa$.
 
-:::solution
-One short answer is: Use contrapositive when the negated conclusion is easier to work with.
-:::
+Transitive: if $aRb$ and $bRc$, then
 
----
-id: "math-proof-writing-29"
-note: "math-proof-writing"
-title: "Review: Cases, existence, and uniqueness"
-type: "text"
-answer: "Some proofs need branching logic."
-skills:
-  - "6. Cases, existence, and uniqueness"
----
+$$
+a-b = 2k \quad \text{and} \quad b-c = 2\ell
+$$
 
-What is the main idea of **Cases, existence, and uniqueness**?
+for some integers $k,\ell$. Adding gives
 
-:::solution
-One short answer is: Some proofs need branching logic.
+$$
+a-c = (a-b) + (b-c) = 2k + 2\ell = 2(k+\ell),
+$$
+
+so $a-c$ is even. Hence $aRc$.
 :::
 
 ---
-id: "math-proof-writing-210"
-note: "math-proof-writing"
-title: "Review: Proof by cases"
-type: "text"
-answer: "\\(n\\) is even or odd"
-skills:
-  - "Proof by cases"
+id: proof-writing-23
+note: math-proof-writing
+title: "Use the Contrapositive"
+skills: [Contrapositive, Even/Odd]
 ---
 
-What is the main idea of **Proof by cases**?
+Prove that if $n^2$ is even, then $n$ is even.
 
 :::solution
-One short answer is: \(n\) is even or odd
-:::
+We prove the contrapositive: if $n$ is odd, then $n^2$ is odd.
 
----
-id: "math-proof-writing-211"
-note: "math-proof-writing"
-title: "Review: Example"
-type: "text"
-answer: "Claim: For any integer \\(n\\), \\(n^2 \\equiv 0 \\text{ or } 1 \\pmod{4}\\)."
-skills:
-  - "Example"
----
+If $n$ is odd, then $n = 2k+1$ for some integer $k$. Squaring gives
 
-What is the main idea of **Example**?
+$$
+n^2 = (2k+1)^2 = 4k(k+1) + 1.
+$$
 
-:::solution
-One short answer is: Claim: For any integer \(n\), \(n^2 \equiv 0 \text{ or } 1 \pmod{4}\).
+This has the form $2m+1$, so $n^2$ is odd.
+
+Therefore the contrapositive is true, and so the original statement is true.
 :::
 
 ---
-id: "math-proof-writing-212"
-note: "math-proof-writing"
-title: "Review: Existence proofs"
-type: "text"
-answer: "There are two main types."
-skills:
-  - "Existence proofs"
+id: proof-writing-24
+note: math-proof-writing
+title: "A Contradiction Argument"
+skills: [Contradiction, Irrationality]
 ---
 
-What is the main idea of **Existence proofs**?
+Prove that $\sqrt{2}$ is irrational.
 
 :::solution
-One short answer is: There are two main types.
-:::
+Assume, for contradiction, that
 
----
-id: "math-proof-writing-213"
-note: "math-proof-writing"
-title: "Review: Constructive existence"
-type: "text"
-answer: "Give an explicit example. Example: To show there exists a rational number between 1 and 2, choose \\(\\frac{3}{2}\\)."
-skills:
-  - "Constructive existence"
----
+$$
+\sqrt{2} = \frac{a}{b}
+$$
 
-What is the main idea of **Constructive existence**?
+for integers $a,b$ in lowest terms, with $b \ne 0$. Then
 
-:::solution
-One short answer is: Give an explicit example. Example: To show there exists a rational number between 1 and 2, choose \(\frac{3}{2}\).
-:::
+$$
+2 = \frac{a^2}{b^2}
+\quad \Rightarrow \quad
+a^2 = 2b^2.
+$$
 
----
-id: "math-proof-writing-214"
-note: "math-proof-writing"
-title: "Review: Nonconstructive existence"
-type: "text"
-answer: "Pigeonhole principle"
-skills:
-  - "Nonconstructive existence"
----
+So $a^2$ is even, which means $a$ is even. Write $a = 2k$. Then
 
-What is the main idea of **Nonconstructive existence**?
+$$
+(2k)^2 = 2b^2
+\quad \Rightarrow \quad
+4k^2 = 2b^2
+\quad \Rightarrow \quad
+b^2 = 2k^2.
+$$
 
-:::solution
-One short answer is: Pigeonhole principle
+So $b^2$ is even, hence $b$ is even. That means both $a$ and $b$ are even, contradicting that $\frac{a}{b}$ was in lowest terms.
+
+Therefore $\sqrt{2}$ is irrational.
 :::
 
 ---
-id: "math-proof-writing-215"
-note: "math-proof-writing"
-title: "Review: Uniqueness proofs"
-type: "text"
-answer: "Assume two objects satisfy the defining property."
-skills:
-  - "Uniqueness proofs"
+id: proof-writing-25
+note: math-proof-writing
+title: "Split Into Cases"
+skills: [Cases, Modulo]
 ---
 
-What is the main idea of **Uniqueness proofs**?
+Prove that for any integer $n$, $n^2 \equiv 0$ or $1 \pmod{4}$.
 
 :::solution
-One short answer is: Assume two objects satisfy the defining property.
-:::
+Consider two cases.
 
----
-id: "math-proof-writing-216"
-note: "math-proof-writing"
-title: "Review: Induction"
-type: "text"
-answer: "Induction proves statements indexed by the natural numbers."
-skills:
-  - "7. Induction"
----
+If $n$ is even, then $n = 2k$ for some integer $k$. So
 
-What is the main idea of **Induction**?
+$$
+n^2 = (2k)^2 = 4k^2 \equiv 0 \pmod{4}.
+$$
 
-:::solution
-One short answer is: Induction proves statements indexed by the natural numbers.
+If $n$ is odd, then $n = 2k+1$ for some integer $k$. Then
+
+$$
+n^2 = (2k+1)^2 = 4k(k+1) + 1 \equiv 1 \pmod{4}.
+$$
+
+In either case, $n^2 \equiv 0$ or $1 \pmod{4}$.
 :::
 
 ---
-id: "math-proof-writing-217"
-note: "math-proof-writing"
-title: "Review: Standard induction"
-type: "text"
-answer: "Base case: prove \\(P(n 0)\\)."
-skills:
-  - "Standard induction"
+id: proof-writing-26
+note: math-proof-writing
+title: "Induction on a Sum"
+skills: [Induction, Sums]
 ---
 
-What is the main idea of **Standard induction**?
+Prove by induction that for all integers $n \ge 1$,
 
+$$
+1 + 2 + \cdots + n = \frac{n(n+1)}{2}.
+$$
+
 :::solution
-One short answer is: Base case: prove \(P(n 0)\).
-:::
+Base case: when $n=1$,
 
----
-id: "math-proof-writing-218"
-note: "math-proof-writing"
-title: "Review: Example"
-type: "text"
-answer: "Claim: $$ 1 + 2 + \\cdots + n = \\frac{n(n+1)}{2} $$ for all \\(n \\ge 1\\)."
-skills:
-  - "Example"
----
+$$
+1 = \frac{1\cdot 2}{2}.
+$$
 
-What is the main idea of **Example**?
+So the formula is true for $n=1$.
 
-:::solution
-One short answer is: Claim: $$ 1 + 2 + \cdots + n = \frac{n(n+1)}{2} $$ for all \(n \ge 1\).
-:::
+Inductive hypothesis: assume for some $k \ge 1$ that
 
----
-id: "math-proof-writing-31"
-note: "math-proof-writing"
-title: "Review: Strong induction"
-type: "text"
-answer: "In strong induction, assume \\(P(n 0), P(n 0+1), \\dots, P(k)\\) all hold, then prove \\(P(k+1)\\). Use strong induction when the next case depends on multiple earlier cases."
-skills:
-  - "Strong induction"
----
+$$
+1 + 2 + \cdots + k = \frac{k(k+1)}{2}.
+$$
 
-What is the main idea of **Strong induction**?
+Inductive step: then
 
-:::solution
-One short answer is: In strong induction, assume \(P(n 0), P(n 0+1), \dots, P(k)\) all hold, then prove \(P(k+1)\). Use strong induction when the next case depends on multiple earlier cases.
-:::
+$$
+1 + 2 + \cdots + k + (k+1)
+= \frac{k(k+1)}{2} + (k+1).
+$$
 
----
-id: "math-proof-writing-32"
-note: "math-proof-writing"
-title: "Review: Common induction pitfalls"
-type: "text"
-answer: "Forgetting the base case"
-skills:
-  - "Common induction pitfalls"
----
+Factor out $k+1$:
 
-Name one common mistake the note warns about in **Common induction pitfalls**.
+$$
+= (k+1)\left(\frac{k}{2} + 1\right)
+= \frac{(k+1)(k+2)}{2}.
+$$
 
-:::solution
-One short answer is: Forgetting the base case
+This is exactly the desired formula with $n = k+1$. Therefore the statement holds for all $n \ge 1$.
 :::
 
 ---
-id: "math-proof-writing-33"
-note: "math-proof-writing"
-title: "Review: Proofs about sets, functions, and relations"
-type: "text"
-answer: "These proofs rely heavily on unpacking definitions."
-skills:
-  - "8. Proofs about sets, functions, and relations"
+id: proof-writing-27
+note: math-proof-writing
+title: "Existence and Uniqueness"
+skills: [Existence, Uniqueness]
 ---
 
-What is the main idea of **Proofs about sets, functions, and relations**?
+Show that there exists exactly one real number $x$ such that
 
+$$
+3x - 7 = 11.
+$$
+
 :::solution
-One short answer is: These proofs rely heavily on unpacking definitions.
-:::
+Solve the equation:
 
----
-id: "math-proof-writing-34"
-note: "math-proof-writing"
-title: "Review: Set equality"
-type: "text"
-answer: "To prove \\(A = B\\), prove both inclusions: $$ A \\subseteq B \\quad \\text{and} \\quad B \\subseteq A. $$ To prove \\(A \\subseteq B\\), start with an arbitrary \\(x \\in A\\) and show \\(x \\in B\\)."
-skills:
-  - "Set equality"
----
+$$
+3x - 7 = 11
+\quad \Rightarrow \quad
+3x = 18
+\quad \Rightarrow \quad
+x = 6.
+$$
 
-What is the main idea of **Set equality**?
+So $x=6$ is a solution, which proves existence.
 
-:::solution
-One short answer is: To prove \(A = B\), prove both inclusions: $$ A \subseteq B \quad \text{and} \quad B \subseteq A. $$ To prove \(A \subseteq B\), start with an arbitrary \(x \in A\) and show \(x \in B\).
+If $x_1$ and $x_2$ both satisfy $3x - 7 = 11$, then each must equal $6$, so $x_1 = x_2$. Thus the solution is unique.
 :::
 
 ---
-id: "math-proof-writing-35"
-note: "math-proof-writing"
-title: "Review: Example"
-type: "text"
-answer: "Show \\(x\\) in the left side implies \\(x\\) is in the right side."
-skills:
-  - "Example"
+id: proof-writing-28
+note: math-proof-writing
+title: "A Cubic Function Is Bijective"
+skills: [Functions, Injective, Surjective]
 ---
 
-What is the main idea of **Example**?
+Let $f(x) = x^3$ on $\mathbb{R}$. Prove that $f$ is bijective.
 
 :::solution
-One short answer is: Show \(x\) in the left side implies \(x\) is in the right side.
-:::
+To show injectivity, assume
 
----
-id: "math-proof-writing-36"
-note: "math-proof-writing"
-title: "Review: Function properties"
-type: "text"
-answer: "Function properties"
-skills:
-  - "Function properties"
----
+$$
+f(x_1) = f(x_2).
+$$
 
-What is the main idea of **Function properties**?
+Then
 
-:::solution
-One short answer is: Function properties
-:::
+$$
+x_1^3 = x_2^3.
+$$
 
----
-id: "math-proof-writing-37"
-note: "math-proof-writing"
-title: "Review: Injective"
-type: "text"
-answer: "To prove \\(f\\) is injective, assume \\(f(x 1)=f(x 2)\\) and show \\(x 1=x 2\\)."
-skills:
-  - "Injective"
----
+For real numbers, this implies $x_1 = x_2$, so $f$ is injective.
 
-What is the main idea of **Injective**?
+To show surjectivity, let $y \in \mathbb{R}$ be arbitrary. Choose
 
-:::solution
-One short answer is: To prove \(f\) is injective, assume \(f(x 1)=f(x 2)\) and show \(x 1=x 2\).
-:::
+$$
+x = \sqrt[3]{y}.
+$$
 
----
-id: "math-proof-writing-38"
-note: "math-proof-writing"
-title: "Review: Surjective"
-type: "text"
-answer: "To prove \\(f\\) is surjective, let \\(y\\) be arbitrary in the codomain and find \\(x\\) such that \\(f(x)=y\\)."
-skills:
-  - "Surjective"
----
+Then
 
-What is the main idea of **Surjective**?
+$$
+f(x) = x^3 = y.
+$$
 
-:::solution
-One short answer is: To prove \(f\) is surjective, let \(y\) be arbitrary in the codomain and find \(x\) such that \(f(x)=y\).
+So every real number has a preimage, and $f$ is surjective.
+Therefore $f$ is bijective.
 :::
 
 ---
-id: "math-proof-writing-39"
-note: "math-proof-writing"
-title: "Review: Bijective"
-type: "text"
-answer: "A function is bijective if it is both injective and surjective. Bijective functions often have inverses."
-skills:
-  - "Bijective"
+id: proof-writing-31
+note: math-proof-writing
+title: "Prove a Linear Map Is Bijective"
+skills: [Functions, Injective, Surjective]
 ---
 
-What is the main idea of **Bijective**?
+Let $f(x) = 4x - 1$ on $\mathbb{R}$. Prove that $f$ is bijective.
 
 :::solution
-One short answer is: A function is bijective if it is both injective and surjective. Bijective functions often have inverses.
-:::
+First show injectivity. If $f(x_1) = f(x_2)$, then
 
----
-id: "math-proof-writing-310"
-note: "math-proof-writing"
-title: "Review: Relations"
-type: "text"
-answer: "Reflexive: \\(aRa\\)"
-skills:
-  - "Relations"
----
+$$
+4x_1 - 1 = 4x_2 - 1.
+$$
 
-What is the main idea of **Relations**?
+Adding $1$ and dividing by $4$ gives
 
-:::solution
-One short answer is: Reflexive: \(aRa\)
-:::
+$$
+x_1 = x_2.
+$$
 
----
-id: "math-proof-writing-311"
-note: "math-proof-writing"
-title: "Review: Common theorem shapes"
-type: "text"
-answer: "Many theorems repeat the same patterns under different vocabulary."
-skills:
-  - "9. Common theorem shapes"
----
+So $f$ is injective.
 
-Name one common mistake the note warns about in **Common theorem shapes**.
+Now show surjectivity. Let $y \in \mathbb{R}$ be arbitrary. Solve
 
-:::solution
-One short answer is: Many theorems repeat the same patterns under different vocabulary.
-:::
+$$
+y = 4x - 1
+$$
 
----
-id: "math-proof-writing-312"
-note: "math-proof-writing"
-title: "Review: Divisibility proofs"
-type: "text"
-answer: "If \\(a \\mid b\\), write \\(b = ak\\) for some integer \\(k\\)."
-skills:
-  - "Divisibility proofs"
----
+for $x$:
 
-What is the main idea of **Divisibility proofs**?
+$$
+x = \frac{y+1}{4}.
+$$
 
-:::solution
-One short answer is: If \(a \mid b\), write \(b = ak\) for some integer \(k\).
+This choice gives $f(x)=y$, so $f$ is surjective.
+
+Therefore $f$ is bijective.
 :::
 
 ---
-id: "math-proof-writing-313"
-note: "math-proof-writing"
-title: "Review: Parity proofs"
-type: "text"
-answer: "Even: \\(2k\\)"
-skills:
-  - "Parity proofs"
+id: proof-writing-32
+note: math-proof-writing
+title: "Recover a Set Inclusion"
+skills: [Set Inclusion, Set Equality]
 ---
 
-What is the main idea of **Parity proofs**?
+Suppose $A \cap B = A$. Prove that $A \subseteq B$.
 
 :::solution
-One short answer is: Even: \(2k\)
-:::
+Let $x \in A$. Since $A \cap B = A$, the element $x$ is also in $A \cap B$.
 
----
-id: "math-proof-writing-314"
-note: "math-proof-writing"
-title: "Review: Inequality proofs"
-type: "text"
-answer: "Add the same quantity to both sides"
-skills:
-  - "Inequality proofs"
----
+By definition of intersection, $x \in B$.
 
-What is the main idea of **Inequality proofs**?
+Because every element of $A$ is an element of $B$, we conclude
 
-:::solution
-One short answer is: Add the same quantity to both sides
+$$
+A \subseteq B.
+$$
 :::
 
 ---
-id: "math-proof-writing-315"
-note: "math-proof-writing"
-title: "Review: Maximum/minimum proofs"
-type: "text"
-answer: "Differentiate if calculus is allowed"
-skills:
-  - "Maximum/minimum proofs"
+id: proof-writing-33
+note: math-proof-writing
+title: "Exactly One of Two Consecutive Integers Is Even"
+skills: [Cases, Even/Odd]
 ---
 
-What is the main idea of **Maximum/minimum proofs**?
+Prove that for every integer $n$, exactly one of $n$ and $n+1$ is even.
 
 :::solution
-One short answer is: Differentiate if calculus is allowed
-:::
+Every integer is either even or odd.
 
----
-id: "math-proof-writing-316"
-note: "math-proof-writing"
-title: "Review: Existence of solutions"
-type: "text"
-answer: "Explicit construction"
-skills:
-  - "Existence of solutions"
----
+If $n$ is even, then $n = 2k$ for some integer $k$, so
 
-What is the main idea of **Existence of solutions**?
+$$
+n+1 = 2k+1
+$$
 
-:::solution
-One short answer is: Explicit construction
-:::
+is odd.
 
----
-id: "math-proof-writing-317"
-note: "math-proof-writing"
-title: "Review: Writing style and presentation"
-type: "text"
-answer: "Good proof writing is clear, not decorative."
-skills:
-  - "10. Writing style and presentation"
----
+If $n$ is odd, then $n = 2k+1$ for some integer $k$, so
 
-What is the main idea of **Writing style and presentation**?
+$$
+n+1 = 2k+2 = 2(k+1)
+$$
 
-:::solution
-One short answer is: Good proof writing is clear, not decorative.
+is even.
+
+So in either case, exactly one of $n$ and $n+1$ is even.
 :::
 
 ---
-id: "math-proof-writing-318"
-note: "math-proof-writing"
-title: "Review: Keep the logical structure visible"
-type: "text"
-answer: "“Assume...”"
-skills:
-  - "Keep the logical structure visible"
+id: proof-writing-34
+note: math-proof-writing
+title: "Sum of the First Odd Numbers"
+skills: [Induction, Sums]
 ---
 
-What is the main idea of **Keep the logical structure visible**?
+Prove by induction that for all integers $n \ge 1$,
 
+$$
+1 + 3 + \cdots + (2n-1) = n^2.
+$$
+
 :::solution
-One short answer is: “Assume...”
-:::
+Base case: for $n=1$,
 
----
-id: "math-proof-writing-41"
-note: "math-proof-writing"
-title: "Review: State the plan when useful"
-type: "text"
-answer: "“We prove this by contradiction.”"
-skills:
-  - "State the plan when useful"
----
+$$
+1 = 1^2.
+$$
 
-What is the main idea of **State the plan when useful**?
+So the statement is true for $n=1$.
 
-:::solution
-One short answer is: “We prove this by contradiction.”
-:::
+Inductive hypothesis: assume for some $k \ge 1$ that
 
----
-id: "math-proof-writing-42"
-note: "math-proof-writing"
-title: "Review: Avoid hidden assumptions"
-type: "text"
-answer: "“Let \\(x\\) be the solution.”"
-skills:
-  - "Avoid hidden assumptions"
----
+$$
+1 + 3 + \cdots + (2k-1) = k^2.
+$$
 
-What is the main idea of **Avoid hidden assumptions**?
+Inductive step: then
 
-:::solution
-One short answer is: “Let \(x\) be the solution.”
-:::
+$$
+1 + 3 + \cdots + (2k-1) + (2k+1) = k^2 + (2k+1).
+$$
 
----
-id: "math-proof-writing-43"
-note: "math-proof-writing"
-title: "Review: Make variable names stable"
-type: "text"
-answer: "Do not rename objects without reason. If you introduce \\(n\\), keep using \\(n\\)."
-skills:
-  - "Make variable names stable"
----
+Simplify:
 
-What is the main idea of **Make variable names stable**?
+$$
+k^2 + 2k + 1 = (k+1)^2.
+$$
 
-:::solution
-One short answer is: Do not rename objects without reason. If you introduce \(n\), keep using \(n\).
+So the formula holds for $k+1$. Therefore it holds for all $n \ge 1$.
 :::
 
 ---
-id: "math-proof-writing-44"
-note: "math-proof-writing"
-title: "Review: Separate algebra from logic"
-type: "text"
-answer: "A long algebraic manipulation should still be anchored by a sentence explaining why it matters."
-skills:
-  - "Separate algebra from logic"
+id: proof-writing-35
+note: math-proof-writing
+title: "No Integer Squares to Two"
+skills: [Contradiction, Integers]
 ---
 
-What is the main idea of **Separate algebra from logic**?
+Prove that there is no integer $n$ such that
 
+$$
+n^2 = 2.
+$$
+
 :::solution
-One short answer is: A long algebraic manipulation should still be anchored by a sentence explaining why it matters.
-:::
+Assume, for contradiction, that there is an integer $n$ with $n^2=2$.
 
----
-id: "math-proof-writing-45"
-note: "math-proof-writing"
-title: "Review: End with the claim"
-type: "text"
-answer: "“Therefore, \\(P\\) holds.”"
-skills:
-  - "End with the claim"
----
+Then $n^2$ is even, so $n$ must be even. Write $n=2k$ for some integer $k$. Substituting gives
 
-What is the main idea of **End with the claim**?
+$$
+(2k)^2 = 2
+\quad \Rightarrow \quad
+4k^2 = 2
+\quad \Rightarrow \quad
+2k^2 = 1.
+$$
 
-:::solution
-One short answer is: “Therefore, \(P\) holds.”
+But the left-hand side is even, while the right-hand side is odd, which is impossible.
+
+Therefore no integer $n$ satisfies $n^2=2$.
 :::
 
 ---
-id: "math-proof-writing-46"
-note: "math-proof-writing"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "When you are unsure how to start, use this sequence."
-skills:
-  - "11. Problem-solving workflow"
+id: proof-writing-41
+note: math-proof-writing
+title: "Quantifier Order Matters"
+skills: [Quantifiers, Logic]
 ---
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+Give a concrete predicate and domain where
 
-:::solution
-One short answer is: When you are unsure how to start, use this sequence.
-:::
+$$
+\forall x\, \exists y\, P(x,y)
+$$
 
----
-id: "math-proof-writing-47"
-note: "math-proof-writing"
-title: "Review: Step 1: Rewrite the statement"
-type: "text"
-answer: "Hypotheses"
-skills:
-  - "Step 1: Rewrite the statement"
----
+is true but
 
-What is the main idea of **Step 1: Rewrite the statement**?
+$$
+\exists y\, \forall x\, P(x,y)
+$$
 
+is false.
+
 :::solution
-One short answer is: Hypotheses
-:::
+Take the domain to be the real numbers and let
 
----
-id: "math-proof-writing-48"
-note: "math-proof-writing"
-title: "Review: Step 2: Test the shape"
-type: "text"
-answer: "Direct proof"
-skills:
-  - "Step 2: Test the shape"
----
+$$
+P(x,y): x < y.
+$$
 
-What is the main idea of **Step 2: Test the shape**?
+Then $\forall x\, \exists y\, P(x,y)$ is true, because for each real number $x$ we can choose $y = x+1$.
 
-:::solution
-One short answer is: Direct proof
+But $\exists y\, \forall x\, P(x,y)$ is false, because no single real number $y$ is greater than every real number $x$.
+
+This shows that the order of the quantifiers matters.
 :::
 
 ---
-id: "math-proof-writing-49"
-note: "math-proof-writing"
-title: "Review: Step 3: Expand definitions"
-type: "text"
-answer: "“\\(n\\) is prime”"
-skills:
-  - "Step 3: Expand definitions"
+id: proof-writing-42
+note: math-proof-writing
+title: "A Set Characterization"
+skills: [Set Equality, Set Inclusion]
 ---
+
+Prove that
 
-What core idea is introduced in **Step 3: Expand definitions**?
+$$
+A \subseteq B \quad \text{if and only if} \quad A \cap B = A.
+$$
 
 :::solution
-One short answer is: “\(n\) is prime”
-:::
+First assume $A \subseteq B$. To show $A \cap B = A$, prove both inclusions.
 
----
-id: "math-proof-writing-410"
-note: "math-proof-writing"
-title: "Review: Step 4: Try a small example"
-type: "text"
-answer: "Concrete examples can expose the structure of the general proof. They should motivate the argument, not replace it."
-skills:
-  - "Step 4: Try a small example"
----
+If $x \in A \cap B$, then $x \in A$, so $A \cap B \subseteq A$.
 
-What is the main idea of **Step 4: Try a small example**?
+If $x \in A$, then $x \in B$ as well, since $A \subseteq B$. So $x \in A \cap B$, and hence $A \subseteq A \cap B$.
 
-:::solution
-One short answer is: Concrete examples can expose the structure of the general proof. They should motivate the argument, not replace it.
+Therefore $A \cap B = A$.
+
+Now assume $A \cap B = A$. Let $x \in A$. Then $x \in A \cap B$, so $x \in B$.
+
+Thus every element of $A$ is an element of $B$, which means $A \subseteq B$.
 :::
 
 ---
-id: "math-proof-writing-411"
-note: "math-proof-writing"
-title: "Review: Step 5: Write the argument in order"
-type: "text"
-answer: "Start from the assumptions."
-skills:
-  - "Step 5: Write the argument in order"
+id: proof-writing-43
+note: math-proof-writing
+title: "A Bijection Gives Exactly One Solution"
+skills: [Functions, Existence, Uniqueness]
 ---
 
-What is the main idea of **Step 5: Write the argument in order**?
+Let $f:\mathbb{R}\to\mathbb{R}$ be bijective. Prove that for each $y\in\mathbb{R}$, the equation $f(x)=y$ has exactly one solution.
 
 :::solution
-One short answer is: Start from the assumptions.
-:::
+Let $y \in \mathbb{R}$ be arbitrary.
 
----
-id: "math-proof-writing-412"
-note: "math-proof-writing"
-title: "Review: Step 6: Check the proof backwards"
-type: "text"
-answer: "Did I prove what I claimed?"
-skills:
-  - "Step 6: Check the proof backwards"
----
+Since $f$ is surjective, there exists some $x$ such that
 
-What is the main idea of **Step 6: Check the proof backwards**?
+$$
+f(x) = y.
+$$
 
-:::solution
-One short answer is: Did I prove what I claimed?
-:::
+So a solution exists.
 
----
-id: "math-proof-writing-413"
-note: "math-proof-writing"
-title: "Review: Checklist and common mistakes"
-type: "text"
-answer: "Checklist and common mistakes"
-skills:
-  - "12. Checklist and common mistakes"
----
+To show uniqueness, suppose $f(x_1)=y$ and $f(x_2)=y$. Then
 
-According to the note, what sequence of steps is recommended in **Checklist and common mistakes**?
+$$
+f(x_1) = f(x_2).
+$$
 
-:::solution
-One short answer is: Checklist and common mistakes
+Since $f$ is injective, it follows that
+
+$$
+x_1 = x_2.
+$$
+
+Therefore the equation $f(x)=y$ has exactly one solution.
 :::
 
 ---
-id: "math-proof-writing-414"
-note: "math-proof-writing"
-title: "Review: Proof checklist"
-type: "text"
-answer: "State the claim clearly."
-skills:
-  - "Proof checklist"
+id: proof-writing-44
+note: math-proof-writing
+title: "Irrationality of Root Two"
+skills: [Contradiction, Irrationality]
 ---
 
-According to the note, what sequence of steps is recommended in **Proof checklist**?
+Prove that $\sqrt{2}$ is irrational.
 
 :::solution
-One short answer is: State the claim clearly.
-:::
+Assume, for contradiction, that $\sqrt{2}$ is rational. Then we can write
 
----
-id: "math-proof-writing-415"
-note: "math-proof-writing"
-title: "Review: Common mistakes"
-type: "text"
-answer: "Proving examples instead of the general statement"
-skills:
-  - "Common mistakes"
----
+$$
+\sqrt{2} = \frac{a}{b}
+$$
 
-Name one common mistake the note warns about in **Common mistakes**.
+for integers $a,b$ in lowest terms, with $b \ne 0$.
 
-:::solution
-One short answer is: Proving examples instead of the general statement
-:::
+Squaring both sides gives
 
----
-id: "math-proof-writing-416"
-note: "math-proof-writing"
-title: "Review: Quick reference"
-type: "text"
-answer: "\\(P \\Rightarrow Q\\), try direct proof first"
-skills:
-  - "Quick reference"
----
+$$
+2 = \frac{a^2}{b^2},
+$$
 
-What is the main idea of **Quick reference**?
+so
 
-:::solution
-One short answer is: \(P \Rightarrow Q\), try direct proof first
-:::
+$$
+a^2 = 2b^2.
+$$
 
----
-id: "math-proof-writing-417"
-note: "math-proof-writing"
-title: "Review: Formula summary"
-type: "text"
-answer: "$$ \\neg(\\forall x\\, P(x)) \\equiv \\exists x\\, \\neg P(x) $$ $$ \\neg(\\exists x\\, P(x)) \\equiv \\forall x\\, \\neg P(x) $$ $$ \\neg(P \\Rightarrow Q) \\equiv P \\land \\neg Q $$ $$ P \\Leftrightarrow Q \\iff (P \\Rightarrow Q) \\land (…"
-skills:
-  - "Formula summary"
----
+Thus $a^2$ is even, so $a$ is even. Write $a=2k$ for some integer $k$. Then
 
-What core formulas or relations are summarized in **Formula summary**?
+$$
+4k^2 = 2b^2
+\quad \Rightarrow \quad
+b^2 = 2k^2.
+$$
 
-:::solution
-One short answer is: $$ \neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x) $$ $$ \neg(\exists x\, P(x)) \equiv \forall x\, \neg P(x) $$ $$ \neg(P \Rightarrow Q) \equiv P \land \neg Q $$ $$ P \Leftrightarrow Q \iff (P \Rightarrow Q) \land (…
+So $b^2$ is even, which means $b$ is even. That contradicts the assumption that $\frac{a}{b}$ was in lowest terms.
+
+Therefore $\sqrt{2}$ is irrational.
 :::

@@ -1,799 +1,1227 @@
 ---
-id: "math-second-order-odes-11"
-note: "math-second-order-odes"
-title: "Review: What counts as a second-order ODE"
-type: "text"
-answer: "Newtonian mechanics"
-skills:
-  - "1. What counts as a second-order ODE"
+id: second-order-odes-11
+note: math-second-order-odes
+title: "Classify a Second-Order ODE"
+skills: [Classification, Standard Form]
 ---
 
-What is the main idea of **What counts as a second-order ODE**?
+Classify the differential equation below. State whether it is second-order, linear, homogeneous, and constant-coefficient.
+
+$$
+y'' + 3y' - 4y = 0
+$$
 
 :::solution
-One short answer is: Newtonian mechanics
+The highest derivative is \(y''\), so it is a second-order ODE.
+
+The equation is linear because \(y\), \(y'\), and \(y''\) each appear to the first power and are not multiplied together.
+
+It is homogeneous because the right-hand side is \(0\).
+
+It has constant coefficients because \(1\), \(3\), and \(-4\) are constants.
 :::
 
 ---
-id: "math-second-order-odes-12"
-note: "math-second-order-odes"
-title: "Review: Classification and standard forms"
-type: "text"
-answer: "Classification and standard forms"
-skills:
-  - "2. Classification and standard forms"
+id: second-order-odes-12
+note: math-second-order-odes
+title: "Write in Normalized Form"
+skills: [Standard Form, Linear Equations]
 ---
 
-What is the main idea of **Classification and standard forms**?
+Rewrite the equation in normalized form \(y'' + p(x)y' + q(x)y = r(x)\).
+
+$$
+4y'' - 2y' + 7y = 5e^x
+$$
 
 :::solution
-One short answer is: Classification and standard forms
+Divide every term by \(4\):
+
+$$
+y'' - \frac{1}{2}y' + \frac{7}{4}y = \frac{5}{4}e^x
+$$
+
+So the normalized form is
+
+$$
+y'' - \frac{1}{2}y' + \frac{7}{4}y = \frac{5}{4}e^x.
+$$
 :::
 
 ---
-id: "math-second-order-odes-13"
-note: "math-second-order-odes"
-title: "Review: Linear vs nonlinear"
-type: "text"
-answer: "A second-order ODE is linear if it can be written as $$ a 2(x) y'' + a 1(x) y' + a 0(x) y = g(x) $$ where \\(y\\), \\(y'\\), and \\(y''\\) appear only to the first power and are not multiplied together."
-skills:
-  - "Linear vs nonlinear"
+id: second-order-odes-13
+note: math-second-order-odes
+title: "Check Existence and Uniqueness"
+skills: [Existence and Uniqueness, Initial Conditions]
 ---
 
-What is the main idea of **Linear vs nonlinear**?
+Does the existence and uniqueness theorem guarantee a unique local solution near \(x=0\) for the initial value problem below?
+
+$$
+y'' = y - y' + \frac{1}{1+x^2}, \qquad y(0)=1, \qquad y'(0)=0
+$$
 
 :::solution
-One short answer is: A second-order ODE is linear if it can be written as $$ a 2(x) y'' + a 1(x) y' + a 0(x) y = g(x) $$ where \(y\), \(y'\), and \(y''\) appear only to the first power and are not multiplied together.
+Write the equation as
+
+$$
+y'' = f(x,y,y') = y - y' + \frac{1}{1+x^2}.
+$$
+
+The function \(f\) is continuous everywhere, and its partial derivatives with respect to \(y\) and \(y'\) are also continuous everywhere.
+
+Therefore the theorem guarantees a unique local solution near \(x=0\).
 :::
 
 ---
-id: "math-second-order-odes-14"
-note: "math-second-order-odes"
-title: "Review: Homogeneous vs nonhomogeneous"
-type: "text"
-answer: "The linear equation is homogeneous when $$ g(x) = 0 $$ and nonhomogeneous when \\(g(x) \\neq 0\\)."
-skills:
-  - "Homogeneous vs nonhomogeneous"
+id: second-order-odes-14
+note: math-second-order-odes
+title: "Solve a Distinct-Root Homogeneous Equation"
+skills: [Characteristic Equation, Distinct Roots]
 ---
 
-What is the main idea of **Homogeneous vs nonhomogeneous**?
+Solve the homogeneous equation.
+
+$$
+y'' - 5y' + 6y = 0
+$$
 
 :::solution
-One short answer is: The linear equation is homogeneous when $$ g(x) = 0 $$ and nonhomogeneous when \(g(x) \neq 0\).
+Try \(y=e^{rx}\). The characteristic equation is
+
+$$
+r^2 - 5r + 6 = 0
+$$
+
+Factor:
+
+$$
+(r-2)(r-3)=0
+$$
+
+So the roots are \(r=2\) and \(r=3\). The general solution is
+
+$$
+y = C_1 e^{2x} + C_2 e^{3x}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-15"
-note: "math-second-order-odes"
-title: "Review: Common standard forms"
-type: "text"
-answer: "Common standard forms"
-skills:
-  - "Common standard forms"
+id: second-order-odes-15
+note: math-second-order-odes
+title: "Solve a Repeated-Root Equation"
+skills: [Characteristic Equation, Repeated Roots]
 ---
 
-Name one common mistake the note warns about in **Common standard forms**.
+Solve the homogeneous equation.
+
+$$
+y'' - 4y' + 4y = 0
+$$
 
 :::solution
-One short answer is: Common standard forms
+Try \(y=e^{rx}\). The characteristic equation is
+
+$$
+r^2 - 4r + 4 = 0 = (r-2)^2
+$$
+
+This is a repeated root \(r=2\), so
+
+$$
+y = (C_1 + C_2 x)e^{2x}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-16"
-note: "math-second-order-odes"
-title: "Review: General linear form"
-type: "text"
-answer: "$$ a 2(x) y'' + a 1(x) y' + a 0(x) y = g(x) $$"
-skills:
-  - "General linear form"
+id: second-order-odes-16
+note: math-second-order-odes
+title: "Solve a Complex-Root Equation"
+skills: [Characteristic Equation, Complex Roots]
 ---
 
-What is the main idea of **General linear form**?
+Solve the homogeneous equation.
+
+$$
+y'' + 9y = 0
+$$
 
 :::solution
-One short answer is: $$ a 2(x) y'' + a 1(x) y' + a 0(x) y = g(x) $$
+Try \(y=e^{rx}\). The characteristic equation is
+
+$$
+r^2 + 9 = 0
+$$
+
+so
+
+$$
+r = \pm 3i.
+$$
+
+The general real solution is
+
+$$
+y = C_1 \cos(3x) + C_2 \sin(3x).
+$$
 :::
 
 ---
-id: "math-second-order-odes-17"
-note: "math-second-order-odes"
-title: "Review: Normalized form"
-type: "text"
-answer: "If \\(a 2(x) \\neq 0\\), divide through by \\(a 2(x)\\): $$ y'' + p(x) y' + q(x) y = r(x) $$ This form is often best for theory and method selection."
-skills:
-  - "Normalized form"
+id: second-order-odes-17
+note: math-second-order-odes
+title: "Choose a Resonant Trial"
+skills: [Undetermined Coefficients, Resonance]
 ---
 
-What is the main idea of **Normalized form**?
+For the equation below, what trial form should you use for a particular solution in undetermined coefficients?
+
+$$
+y'' - 2y' + y = e^x
+$$
 
 :::solution
-One short answer is: If \(a 2(x) \neq 0\), divide through by \(a 2(x)\): $$ y'' + p(x) y' + q(x) y = r(x) $$ This form is often best for theory and method selection.
+The homogeneous characteristic equation is
+
+$$
+(r-1)^2 = 0,
+$$
+
+so \(e^x\) and \(xe^x\) already appear in the homogeneous solution.
+
+To avoid duplication, multiply by \(x\) again. A correct trial is
+
+$$
+y_p = Ax^2 e^x.
+$$
 :::
 
 ---
-id: "math-second-order-odes-18"
-note: "math-second-order-odes"
-title: "Review: Constant-coefficient form"
-type: "text"
-answer: "$$ ay'' + by' + cy = g(x) $$ with constants \\(a \\neq 0\\), \\(b\\), and \\(c\\). ---"
-skills:
-  - "Constant-coefficient form"
+id: second-order-odes-18
+note: math-second-order-odes
+title: "Solve an Euler-Cauchy Equation"
+skills: [Euler-Cauchy Equations, Power Trial]
 ---
 
-What is the main idea of **Constant-coefficient form**?
+Solve the equation for \(x>0\).
+
+$$
+x^2 y'' + xy' - 4y = 0
+$$
 
 :::solution
-One short answer is: $$ ay'' + by' + cy = g(x) $$ with constants \(a \neq 0\), \(b\), and \(c\). ---
+Use the Euler-Cauchy trial \(y=x^m\). Then
+
+$$
+y' = mx^{m-1}, \qquad y'' = m(m-1)x^{m-2}.
+$$
+
+Substitute:
+
+$$
+x^2 m(m-1)x^{m-2} + x(mx^{m-1}) - 4x^m = 0
+$$
+
+which simplifies to
+
+$$
+m(m-1) + m - 4 = 0.
+$$
+
+So
+
+$$
+m^2 - 4 = 0,
+$$
+
+and \(m=\pm 2\). Therefore
+
+$$
+y = C_1 x^2 + C_2 x^{-2}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-19"
-note: "math-second-order-odes"
-title: "Review: Existence, uniqueness, and IVPs"
-type: "text"
-answer: "For the initial value problem $$ y'' = f(x, y, y'),\\qquad y(x 0) = y 0,\\qquad y'(x 0) = v 0 $$ the existence and uniqueness theorem says that if \\(f\\) and its relevant partial derivatives are continuous near \\((x 0, y 0…"
-skills:
-  - "3. Existence, uniqueness, and IVPs"
+id: second-order-odes-19
+note: math-second-order-odes
+title: "Compute a Wronskian"
+skills: [Wronskian, Linear Independence]
 ---
 
-What is the main idea of **Existence, uniqueness, and IVPs**?
+Compute the Wronskian of the two functions below.
+
+$$
+y_1=x, \qquad y_2=x^2
+$$
 
 :::solution
-One short answer is: For the initial value problem $$ y'' = f(x, y, y'),\qquad y(x 0) = y 0,\qquad y'(x 0) = v 0 $$ the existence and uniqueness theorem says that if \(f\) and its relevant partial derivatives are continuous near \((x 0, y 0…
+Use
+
+$$
+W(y_1,y_2)=
+\begin{vmatrix}
+y_1 & y_2 \\
+y_1' & y_2'
+\end{vmatrix}
+= y_1y_2' - y_1'y_2.
+$$
+
+Here,
+
+$$
+y_1'=1, \qquad y_2'=2x.
+$$
+
+So
+
+$$
+W = x(2x) - 1\cdot x^2 = x^2.
+$$
+
+On any interval that does not include \(0\), the functions are linearly independent.
 :::
 
 ---
-id: "math-second-order-odes-110"
-note: "math-second-order-odes"
-title: "Review: Why two initial conditions?"
-type: "text"
-answer: "Integrating a second-order equation effectively introduces two constants of integration. That is why you usually need: $$ y(x 0) = y 0,\\qquad y'(x 0) = v 0 $$ to pin down one specific solution. ---"
-skills:
-  - "Why two initial conditions?"
+id: second-order-odes-110
+note: math-second-order-odes
+title: "Find the Natural Frequency and Damping Ratio"
+skills: [Mechanical Models, Damping Ratio]
 ---
 
-What is the main idea of **Why two initial conditions?**?
+A mass-spring system has
+
+$$
+m=1, \qquad c=4, \qquad k=4.
+$$
+
+Find the natural frequency \(\omega_n\), the damping ratio \(\zeta\), and the damping regime.
 
 :::solution
-One short answer is: Integrating a second-order equation effectively introduces two constants of integration. That is why you usually need: $$ y(x 0) = y 0,\qquad y'(x 0) = v 0 $$ to pin down one specific solution. ---
+Compute the natural frequency:
+
+$$
+\omega_n = \sqrt{\frac{k}{m}} = \sqrt{\frac{4}{1}} = 2.
+$$
+
+Compute the damping ratio:
+
+$$
+\zeta = \frac{c}{2\sqrt{mk}} = \frac{4}{2\sqrt{1\cdot 4}} = \frac{4}{4} = 1.
+$$
+
+Since \(\zeta=1\), the system is critically damped.
 :::
 
 ---
-id: "math-second-order-odes-111"
-note: "math-second-order-odes"
-title: "Review: Homogeneous linear equations with constant coefficients"
-type: "text"
-answer: "The foundational case is $$ ay'' + by' + cy = 0 $$ Try a solution of the form \\(y = e^{rx}\\)."
-skills:
-  - "4. Homogeneous linear equations with constant coefficients"
+id: second-order-odes-21
+note: math-second-order-odes
+title: "Solve an Initial Value Problem"
+skills: [Characteristic Equation, Initial Value Problems]
 ---
 
-What is the main idea of **Homogeneous linear equations with constant coefficients**?
+Solve the initial value problem.
+
+$$
+y'' - 3y' + 2y = 0, \qquad y(0)=1, \qquad y'(0)=4
+$$
 
 :::solution
-One short answer is: The foundational case is $$ ay'' + by' + cy = 0 $$ Try a solution of the form \(y = e^{rx}\).
+The characteristic equation is
+
+$$
+r^2 - 3r + 2 = 0 = (r-1)(r-2).
+$$
+
+So
+
+$$
+y = C_1 e^x + C_2 e^{2x}.
+$$
+
+Use \(y(0)=1\):
+
+$$
+C_1 + C_2 = 1.
+$$
+
+Differentiate:
+
+$$
+y' = C_1 e^x + 2C_2 e^{2x}.
+$$
+
+Use \(y'(0)=4\):
+
+$$
+C_1 + 2C_2 = 4.
+$$
+
+Subtract the first equation from the second:
+
+$$
+C_2 = 3.
+$$
+
+Then \(C_1 = -2\). So
+
+$$
+y = -2e^x + 3e^{2x}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-112"
-note: "math-second-order-odes"
-title: "Review: Case 1: two distinct real roots"
-type: "text"
-answer: "If \\(r 1 \\neq r 2\\), then $$ y(x) = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$"
-skills:
-  - "Case 1: two distinct real roots"
+id: second-order-odes-22
+note: math-second-order-odes
+title: "Solve a Resonant Forced Equation"
+skills: [Undetermined Coefficients, Resonance]
 ---
 
-What is the main idea of **Case 1: two distinct real roots**?
+Solve the initial value problem.
+
+$$
+y'' - 2y' + y = e^x, \qquad y(0)=0, \qquad y'(0)=1
+$$
 
 :::solution
-One short answer is: If \(r 1 \neq r 2\), then $$ y(x) = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$
+The homogeneous equation has characteristic equation
+
+$$
+(r-1)^2=0,
+$$
+
+so
+
+$$
+y_h = (C_1 + C_2x)e^x.
+$$
+
+Because the forcing is \(e^x\), use a resonant trial
+
+$$
+y_p = Ax^2e^x.
+$$
+
+Substituting gives \(A=\tfrac12\), so
+
+$$
+y = (C_1 + C_2x)e^x + \frac12 x^2 e^x.
+$$
+
+Now apply the initial conditions. From \(y(0)=0\),
+
+$$
+C_1 = 0.
+$$
+
+Write
+
+$$
+y = e^x\left(C_1 + C_2x + \frac12 x^2\right).
+$$
+
+Then
+
+$$
+y' = e^x\left(C_1 + C_2x + \frac12 x^2 + C_2 + x\right).
+$$
+
+Using \(y'(0)=1\) and \(C_1=0\),
+
+$$
+C_2 = 1.
+$$
+
+So the solution is
+
+$$
+y = e^x\left(x + \frac12 x^2\right).
+$$
 :::
 
 ---
-id: "math-second-order-odes-113"
-note: "math-second-order-odes"
-title: "Review: Case 2: repeated real root"
-type: "text"
-answer: "If \\(r 1 = r 2 = r\\), then $$ y(x) = (C 1 + C 2 x)e^{rx} $$ The extra factor of \\(x\\) gives a second independent solution."
-skills:
-  - "Case 2: repeated real root"
+id: second-order-odes-23
+note: math-second-order-odes
+title: "Solve an Euler-Cauchy Initial Value Problem"
+skills: [Euler-Cauchy Equations, Initial Value Problems]
 ---
 
-What is the main idea of **Case 2: repeated real root**?
+Solve the initial value problem for \(x>0\).
+
+$$
+x^2y'' + xy' - 4y = 0, \qquad y(1)=3, \qquad y'(1)=-1
+$$
 
 :::solution
-One short answer is: If \(r 1 = r 2 = r\), then $$ y(x) = (C 1 + C 2 x)e^{rx} $$ The extra factor of \(x\) gives a second independent solution.
+Use the Euler-Cauchy trial \(y=x^m\). The auxiliary equation is
+
+$$
+m^2 - 4 = 0,
+$$
+
+so \(m=\pm 2\). Thus
+
+$$
+y = C_1x^2 + C_2x^{-2}.
+$$
+
+Apply \(y(1)=3\):
+
+$$
+C_1 + C_2 = 3.
+$$
+
+Differentiate:
+
+$$
+y' = 2C_1x - 2C_2x^{-3}.
+$$
+
+Apply \(y'(1)=-1\):
+
+$$
+2C_1 - 2C_2 = -1.
+$$
+
+Solve the system to get
+
+$$
+C_1 = \frac{5}{4}, \qquad C_2 = \frac{7}{4}.
+$$
+
+Therefore
+
+$$
+y = \frac{5}{4}x^2 + \frac{7}{4}x^{-2}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-21"
-note: "math-second-order-odes"
-title: "Review: Case 3: complex conjugate roots"
-type: "text"
-answer: "If $$ r = \\alpha \\pm i\\beta $$ then $$ y(x) = e^{\\alpha x}\\bigl(C 1 \\cos(\\beta x) + C 2 \\sin(\\beta x)\\bigr) $$ This is the most common form for oscillatory motion."
-skills:
-  - "Case 3: complex conjugate roots"
+id: second-order-odes-24
+note: math-second-order-odes
+title: "Use a Known Solution to Finish the General Solution"
+skills: [Reduction of Order, Euler-Cauchy Equations]
 ---
 
-What is the main idea of **Case 3: complex conjugate roots**?
+Given that \(y_1=x\) is one nonzero solution of the equation below, find a second linearly independent solution and the general solution.
+
+$$
+x^2y'' - 2xy' + 2y = 0
+$$
 
 :::solution
-One short answer is: If $$ r = \alpha \pm i\beta $$ then $$ y(x) = e^{\alpha x}\bigl(C 1 \cos(\beta x) + C 2 \sin(\beta x)\bigr) $$ This is the most common form for oscillatory motion.
+This is an Euler-Cauchy equation. Using the known solution \(y_1=x\), reduction of order gives a second independent solution \(y_2=x^2\).
+
+So the general solution is
+
+$$
+y = C_1x + C_2x^2.
+$$
 :::
 
 ---
-id: "math-second-order-odes-22"
-note: "math-second-order-odes"
-title: "Review: Example"
-type: "text"
-answer: "Solve $$ y'' - 3y' + 2y = 0 $$ Characteristic equation: $$ r^2 - 3r + 2 = 0 = (r-1)(r-2) $$ So $$ y(x) = C 1 e^x + C 2 e^{2x} $$ ---"
-skills:
-  - "Example"
+id: second-order-odes-25
+note: math-second-order-odes
+title: "Analyze a Boundary Value Problem"
+skills: [Boundary Value Problems, Complex Roots]
 ---
 
-What is the main idea of **Example**?
+Determine whether the boundary value problem has one solution, no solutions, or infinitely many solutions.
+
+$$
+y'' + \pi^2 y = 0, \qquad y(0)=0, \qquad y(1)=0
+$$
 
 :::solution
-One short answer is: Solve $$ y'' - 3y' + 2y = 0 $$ Characteristic equation: $$ r^2 - 3r + 2 = 0 = (r-1)(r-2) $$ So $$ y(x) = C 1 e^x + C 2 e^{2x} $$ ---
+The characteristic equation is
+
+$$
+r^2 + \pi^2 = 0,
+$$
+
+so the general solution is
+
+$$
+y = C_1\cos(\pi x) + C_2\sin(\pi x).
+$$
+
+Use \(y(0)=0\):
+
+$$
+C_1=0.
+$$
+
+Then
+
+$$
+y = C_2\sin(\pi x).
+$$
+
+Now use \(y(1)=0\):
+
+$$
+C_2\sin(\pi)=0,
+$$
+
+which is true for every \(C_2\).
+
+So the boundary value problem has infinitely many solutions:
+
+$$
+y = C\sin(\pi x).
+$$
 :::
 
 ---
-id: "math-second-order-odes-23"
-note: "math-second-order-odes"
-title: "Review: Forcing and particular solutions"
-type: "text"
-answer: "\\(y h\\) solves the homogeneous equation"
-skills:
-  - "5. Forcing and particular solutions"
+id: second-order-odes-26
+note: math-second-order-odes
+title: "Solve a Critically Damped Motion Problem"
+skills: [Mechanical Models, Critical Damping]
 ---
 
-What is the main idea of **Forcing and particular solutions**?
+A mass-spring system is modeled by
+
+$$
+y'' + 8y' + 16y = 0, \qquad y(0)=2, \qquad y'(0)=0
+$$
+
+Solve for \(y(t)\) and classify the damping.
 
 :::solution
-One short answer is: \(y h\) solves the homogeneous equation
+The characteristic equation is
+
+$$
+r^2 + 8r + 16 = 0 = (r+4)^2.
+$$
+
+This is a repeated root, so
+
+$$
+y = (C_1 + C_2t)e^{-4t}.
+$$
+
+Use \(y(0)=2\):
+
+$$
+C_1 = 2.
+$$
+
+Differentiate:
+
+$$
+y' = e^{-4t}\bigl(C_2 - 4C_1 - 4C_2t\bigr).
+$$
+
+Use \(y'(0)=0\):
+
+$$
+C_2 - 4(2)=0,
+$$
+
+so
+
+$$
+C_2 = 8.
+$$
+
+Thus
+
+$$
+y = (2 + 8t)e^{-4t}.
+$$
+
+Because the root is repeated, the motion is critically damped.
 :::
 
 ---
-id: "math-second-order-odes-24"
-note: "math-second-order-odes"
-title: "Review: Undetermined coefficients"
-type: "text"
-answer: "Use this when \\(g(x)\\) is built from exponentials, polynomials, sines, cosines, or products of these."
-skills:
-  - "Undetermined coefficients"
+id: second-order-odes-27
+note: math-second-order-odes
+title: "Find the Steady-State Response"
+skills: [Forced Vibration, Undetermined Coefficients]
 ---
 
-What is the main idea of **Undetermined coefficients**?
+Find a particular solution for the forced vibration equation.
+
+$$
+y'' + 9y = 6\sin(2t)
+$$
 
 :::solution
-One short answer is: Use this when \(g(x)\) is built from exponentials, polynomials, sines, cosines, or products of these.
+Since the forcing is \(\sin(2t)\) and there is no resonance, try
+
+$$
+y_p = A\cos(2t) + B\sin(2t).
+$$
+
+Then
+
+$$
+y_p'' = -4A\cos(2t) - 4B\sin(2t).
+$$
+
+Substitute into the equation:
+
+$$
+y_p'' + 9y_p = 5A\cos(2t) + 5B\sin(2t).
+$$
+
+Match coefficients with \(6\sin(2t)\):
+
+$$
+5A = 0, \qquad 5B = 6.
+$$
+
+So \(A=0\) and \(B=\frac{6}{5}\). A steady-state response is
+
+$$
+y_p = \frac{6}{5}\sin(2t).
+$$
 :::
 
 ---
-id: "math-second-order-odes-25"
-note: "math-second-order-odes"
-title: "Review: Resonance rule"
-type: "text"
-answer: "If your trial solution duplicates part of \\(y h\\), multiply the trial by \\(x\\) enough times to make it linearly independent."
-skills:
-  - "Resonance rule"
+id: second-order-odes-28
+note: math-second-order-odes
+title: "Find the Interval of Guaranteed Uniqueness"
+skills: [Existence and Uniqueness, Standard Form]
 ---
 
-What is the main idea of **Resonance rule**?
+For the initial value problem below, on what largest open interval containing \(x=2\) is a unique local solution guaranteed?
+
+$$
+y'' + \frac{1}{x-1}y' + (\ln x)y = e^x, \qquad y(2)=0, \qquad y'(2)=1
+$$
 
 :::solution
-One short answer is: If your trial solution duplicates part of \(y h\), multiply the trial by \(x\) enough times to make it linearly independent.
+In normalized form, the coefficients are
+
+$$
+p(x)=\frac{1}{x-1}, \qquad q(x)=\ln x, \qquad r(x)=e^x.
+$$
+
+The function \(p(x)\) is undefined at \(x=1\), and \(q(x)=\ln x\) requires \(x>0\).
+
+So the coefficients are continuous on
+
+$$
+(1,\infty).
+$$
+
+That is the largest open interval containing \(x=2\) on which a unique local solution is guaranteed.
 :::
 
 ---
-id: "math-second-order-odes-26"
-note: "math-second-order-odes"
-title: "Review: Variation of parameters"
-type: "text"
-answer: "Use this when undetermined coefficients is not convenient."
-skills:
-  - "Variation of parameters"
+id: second-order-odes-31
+note: math-second-order-odes
+title: "Model a Simple Mass-Spring Motion"
+skills: [Mechanical Models, Harmonic Motion]
 ---
 
-What is the main idea of **Variation of parameters**?
+A \(2\)-kg mass is attached to a spring with spring constant \(18\) N/m. The mass is displaced \(1/2\) meter from equilibrium and released from rest.
+
+Find the equation of motion and the first time it returns to equilibrium.
 
 :::solution
-One short answer is: Use this when undetermined coefficients is not convenient.
+For an undamped spring, the equation is
+
+$$
+m y'' + ky = 0.
+$$
+
+Here,
+
+$$
+2y'' + 18y = 0,
+$$
+
+so
+
+$$
+y'' + 9y = 0.
+$$
+
+The general solution is
+
+$$
+y = C_1\cos(3t) + C_2\sin(3t).
+$$
+
+Use \(y(0)=1/2\):
+
+$$
+C_1 = \frac12.
+$$
+
+Released from rest means \(y'(0)=0\). Since
+
+$$
+y' = -3C_1\sin(3t) + 3C_2\cos(3t),
+$$
+
+we get \(C_2=0\).
+
+So
+
+$$
+y(t)=\frac12\cos(3t).
+$$
+
+The first return to equilibrium happens when \(y(t)=0\), so
+
+$$
+\cos(3t)=0 \quad \Rightarrow \quad 3t=\frac{\pi}{2}.
+$$
+
+Thus the first return time is
+
+$$
+t=\frac{\pi}{6}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-27"
-note: "math-second-order-odes"
-title: "Review: Variable-coefficient special cases"
-type: "text"
-answer: "Variable-coefficient special cases"
-skills:
-  - "6. Variable-coefficient special cases"
+id: second-order-odes-32
+note: math-second-order-odes
+title: "Solve a Critically Damped IVP"
+skills: [Mechanical Models, Critical Damping]
 ---
 
-What is the main idea of **Variable-coefficient special cases**?
+Solve the initial value problem.
+
+$$
+y'' + 8y' + 16y = 0, \qquad y(0)=2, \qquad y'(0)=0
+$$
 
 :::solution
-One short answer is: Variable-coefficient special cases
+The characteristic equation is
+
+$$
+r^2 + 8r + 16 = 0 = (r+4)^2.
+$$
+
+So
+
+$$
+y = (C_1 + C_2t)e^{-4t}.
+$$
+
+Apply the initial conditions:
+
+$$
+y(0)=2 \Rightarrow C_1=2.
+$$
+
+Differentiate:
+
+$$
+y' = e^{-4t}\bigl(C_2 - 4C_1 - 4C_2t\bigr).
+$$
+
+Then
+
+$$
+y'(0)=0 \Rightarrow C_2 - 8 = 0,
+$$
+
+so \(C_2=8\).
+
+Therefore
+
+$$
+y = (2+8t)e^{-4t}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-28"
-note: "math-second-order-odes"
-title: "Review: Euler-Cauchy equations"
-type: "text"
-answer: "The Euler-Cauchy, or equidimensional, form is $$ x^2 y'' + a x y' + b y = 0 $$ Try \\(y = x^m\\)."
-skills:
-  - "Euler-Cauchy equations"
+id: second-order-odes-33
+note: math-second-order-odes
+title: "Find a Particular Solution for Forced Oscillation"
+skills: [Forced Vibration, Undetermined Coefficients]
 ---
 
-What is the main idea of **Euler-Cauchy equations**?
+Find a particular solution for the forced vibration equation below.
+
+$$
+y'' + 9y = 6\sin(2t)
+$$
 
 :::solution
-One short answer is: The Euler-Cauchy, or equidimensional, form is $$ x^2 y'' + a x y' + b y = 0 $$ Try \(y = x^m\).
+Try
+
+$$
+y_p = A\cos(2t) + B\sin(2t).
+$$
+
+Then
+
+$$
+y_p'' + 9y_p = 5A\cos(2t) + 5B\sin(2t).
+$$
+
+Match coefficients with \(6\sin(2t)\):
+
+$$
+A=0, \qquad B=\frac65.
+$$
+
+So a particular solution is
+
+$$
+y_p = \frac65\sin(2t).
+$$
 :::
 
 ---
-id: "math-second-order-odes-29"
-note: "math-second-order-odes"
-title: "Review: Reduction by substitution"
-type: "text"
-answer: "Sometimes a change of variables converts a variable-coefficient equation into a constant-coefficient one. For Euler-Cauchy equations, the substitution $$ x = e^t $$ is a common route. ---"
-skills:
-  - "Reduction by substitution"
+id: second-order-odes-34
+note: math-second-order-odes
+title: "A Boundary Value Problem with a Unique Solution"
+skills: [Boundary Value Problems, Linear Independence]
 ---
 
-What is the main idea of **Reduction by substitution**?
+Solve the boundary value problem.
+
+$$
+y'' + \pi^2 y = 0, \qquad y(0)=0, \qquad y\left(\frac12\right)=0
+$$
 
 :::solution
-One short answer is: Sometimes a change of variables converts a variable-coefficient equation into a constant-coefficient one. For Euler-Cauchy equations, the substitution $$ x = e^t $$ is a common route. ---
+The general solution is
+
+$$
+y = C_1\cos(\pi x) + C_2\sin(\pi x).
+$$
+
+Use \(y(0)=0\):
+
+$$
+C_1=0.
+$$
+
+So
+
+$$
+y = C_2\sin(\pi x).
+$$
+
+Now apply \(y\left(\frac12\right)=0\):
+
+$$
+C_2\sin\left(\frac{\pi}{2}\right)=C_2=0.
+$$
+
+Thus the only solution is
+
+$$
+y=0.
+$$
 :::
 
 ---
-id: "math-second-order-odes-210"
-note: "math-second-order-odes"
-title: "Review: Reduction of order and variation of parameters"
-type: "text"
-answer: "Reduction of order and variation of parameters"
-skills:
-  - "7. Reduction of order and variation of parameters"
+id: second-order-odes-35
+note: math-second-order-odes
+title: "Predict Long-Term Behavior from Roots"
+skills: [Characteristic Roots, Long-Term Behavior]
 ---
 
-What is the main idea of **Reduction of order and variation of parameters**?
+For the equation below, describe the long-term behavior of the general solution as \(x\to\infty\).
+
+$$
+y'' - y' - 2y = 0
+$$
 
 :::solution
-One short answer is: Reduction of order and variation of parameters
+The characteristic equation is
+
+$$
+r^2 - r - 2 = 0 = (r-2)(r+1).
+$$
+
+So
+
+$$
+y = C_1e^{2x} + C_2e^{-x}.
+$$
+
+The \(e^{2x}\) term grows as \(x\to\infty\), while the \(e^{-x}\) term decays.
+
+So a generic solution grows without bound, and the equilibrium is unstable unless \(C_1=0\).
 :::
 
 ---
-id: "math-second-order-odes-211"
-note: "math-second-order-odes"
-title: "Review: Reduction of order"
-type: "text"
-answer: "one solution is obvious"
-skills:
-  - "Reduction of order"
+id: second-order-odes-41
+note: math-second-order-odes
+title: "Solve a Resonant Forced Problem"
+skills: [Undetermined Coefficients, Resonance]
 ---
 
-What is the main idea of **Reduction of order**?
+Solve the initial value problem.
+
+$$
+y'' + 4y = 8\cos(2x), \qquad y(0)=0, \qquad y'(0)=0
+$$
 
 :::solution
-One short answer is: one solution is obvious
+The homogeneous equation has characteristic roots \(\pm 2i\), so
+
+$$
+y_h = C_1\cos(2x) + C_2\sin(2x).
+$$
+
+Because the forcing is \(\cos(2x)\), which resonates with the homogeneous solution, try
+
+$$
+y_p = x\bigl(A\sin(2x) + B\cos(2x)\bigr).
+$$
+
+For this choice,
+
+$$
+y_p'' + 4y_p = 4A\cos(2x) - 4B\sin(2x).
+$$
+
+Match coefficients with \(8\cos(2x)\):
+
+$$
+A=2, \qquad B=0.
+$$
+
+So
+
+$$
+y = C_1\cos(2x) + C_2\sin(2x) + 2x\sin(2x).
+$$
+
+Apply the initial conditions:
+
+$$
+y(0)=0 \Rightarrow C_1=0,
+$$
+
+and
+
+$$
+y'(0)=0 \Rightarrow C_2=0.
+$$
+
+Therefore
+
+$$
+y = 2x\sin(2x).
+$$
 :::
 
 ---
-id: "math-second-order-odes-212"
-note: "math-second-order-odes"
-title: "Review: Wronskian"
-type: "text"
-answer: "The Wronskian of two functions \\(y 1\\) and \\(y 2\\) is $$ W(y 1,y 2) = \\begin{vmatrix} y 1 & y 2 \\\\ y 1' & y 2' \\end{vmatrix} = y 1 y 2' - y 1' y 2 $$ If \\(W \\neq 0\\) on an interval, the functions are linearly independen…"
-skills:
-  - "Wronskian"
+id: second-order-odes-42
+note: math-second-order-odes
+title: "Solve a Damped Forced Oscillator"
+skills: [Damped Vibration, Forced Vibration]
 ---
 
-What is the main idea of **Wronskian**?
+Solve the initial value problem.
+
+$$
+y'' + 2y' + 5y = 10e^{-x}, \qquad y(0)=1, \qquad y'(0)=0
+$$
 
 :::solution
-One short answer is: The Wronskian of two functions \(y 1\) and \(y 2\) is $$ W(y 1,y 2) = \begin{vmatrix} y 1 & y 2 \\ y 1' & y 2' \end{vmatrix} = y 1 y 2' - y 1' y 2 $$ If \(W \neq 0\) on an interval, the functions are linearly independen…
+The characteristic equation is
+
+$$
+r^2 + 2r + 5 = 0,
+$$
+
+so
+
+$$
+r = -1 \pm 2i.
+$$
+
+Thus
+
+$$
+y_h = e^{-x}\bigl(C_1\cos(2x) + C_2\sin(2x)\bigr).
+$$
+
+For the forcing term \(10e^{-x}\), try
+
+$$
+y_p = Ae^{-x}.
+$$
+
+Substitute:
+
+$$
+y_p'' + 2y_p' + 5y_p = (1 - 2 + 5)Ae^{-x} = 4Ae^{-x}.
+$$
+
+Set this equal to \(10e^{-x}\):
+
+$$
+A = \frac52.
+$$
+
+So
+
+$$
+y = e^{-x}\bigl(C_1\cos(2x) + C_2\sin(2x)\bigr) + \frac52 e^{-x}.
+$$
+
+Use \(y(0)=1\):
+
+$$
+C_1 + \frac52 = 1 \Rightarrow C_1 = -\frac32.
+$$
+
+Differentiate in the form \(y=e^{-x}u(x)\), where
+
+$$
+u(x)=C_1\cos(2x) + C_2\sin(2x) + \frac52.
+$$
+
+Then
+
+$$
+y' = e^{-x}(u' - u).
+$$
+
+At \(x=0\),
+
+$$
+u(0)=C_1+\frac52 = 1, \qquad u'(0)=2C_2.
+$$
+
+Using \(y'(0)=0\),
+
+$$
+2C_2 - 1 = 0,
+$$
+
+so
+
+$$
+C_2 = \frac12.
+$$
+
+Therefore
+
+$$
+y = e^{-x}\left(-\frac32\cos(2x) + \frac12\sin(2x) + \frac52\right).
+$$
 :::
 
 ---
-id: "math-second-order-odes-31"
-note: "math-second-order-odes"
-title: "Review: Initial and boundary value problems"
-type: "text"
-answer: "Initial and boundary value problems"
-skills:
-  - "8. Initial and boundary value problems"
+id: second-order-odes-43
+note: math-second-order-odes
+title: "Solve an Euler-Cauchy Boundary Value Problem"
+skills: [Euler-Cauchy Equations, Boundary Value Problems]
 ---
 
-What is the main idea of **Initial and boundary value problems**?
+Solve the boundary value problem for \(x>0\).
+
+$$
+x^2y'' + xy' - y = 0, \qquad y(1)=2, \qquad y(2)=3
+$$
 
 :::solution
-One short answer is: Initial and boundary value problems
+Use the Euler-Cauchy trial \(y=x^m\). The auxiliary equation is
+
+$$
+m(m-1) + m - 1 = 0,
+$$
+
+which simplifies to
+
+$$
+m^2 - 1 = 0.
+$$
+
+So \(m=\pm 1\), and
+
+$$
+y = C_1x + C_2x^{-1}.
+$$
+
+Apply \(y(1)=2\):
+
+$$
+C_1 + C_2 = 2.
+$$
+
+Apply \(y(2)=3\):
+
+$$
+2C_1 + \frac{C_2}{2} = 3.
+$$
+
+Solve the system:
+
+$$
+C_1 = \frac43, \qquad C_2 = \frac23.
+$$
+
+So the solution is
+
+$$
+y = \frac43x + \frac23x^{-1}.
+$$
 :::
 
 ---
-id: "math-second-order-odes-32"
-note: "math-second-order-odes"
-title: "Review: Initial value problems"
-type: "text"
-answer: "Solve the differential equation."
-skills:
-  - "Initial value problems"
+id: second-order-odes-44
+note: math-second-order-odes
+title: "Use Variation of Parameters"
+skills: [Variation of Parameters, Wronskian]
 ---
 
-What is the main idea of **Initial value problems**?
+Solve the differential equation on any interval where the forcing term is defined.
+
+$$
+y'' + y = \sec x
+$$
 
 :::solution
-One short answer is: Solve the differential equation.
-:::
+The homogeneous equation \(y''+y=0\) has fundamental solutions
 
----
-id: "math-second-order-odes-33"
-note: "math-second-order-odes"
-title: "Review: Boundary value problems"
-type: "text"
-answer: "beam bending"
-skills:
-  - "Boundary value problems"
----
+$$
+y_1=\cos x, \qquad y_2=\sin x.
+$$
 
-What is the main idea of **Boundary value problems**?
+Their Wronskian is
 
-:::solution
-One short answer is: beam bending
-:::
+$$
+W = y_1y_2' - y_1'y_2 = \cos x(\cos x) - (-\sin x)(\sin x) = 1.
+$$
 
----
-id: "math-second-order-odes-34"
-note: "math-second-order-odes"
-title: "Review: Mechanical applications"
-type: "text"
-answer: "Many second-order ODEs come from Newton’s second law: $$ m y'' = \\sum F $$"
-skills:
-  - "9. Mechanical applications"
----
+For variation of parameters,
 
-What is the main idea of **Mechanical applications**?
+$$
+u_1' = -\frac{y_2\,\sec x}{W} = -\sin x\,\sec x = -\tan x,
+$$
 
-:::solution
-One short answer is: Many second-order ODEs come from Newton’s second law: $$ m y'' = \sum F $$
-:::
+so
 
----
-id: "math-second-order-odes-35"
-note: "math-second-order-odes"
-title: "Review: Mass-spring system"
-type: "text"
-answer: "With no damping and no external forcing: $$ m y'' + k y = 0 $$ The solution is harmonic: $$ y(x) = C 1 \\cos(\\omega x) + C 2 \\sin(\\omega x), \\qquad \\omega = \\sqrt{\\frac{k}{m}} $$"
-skills:
-  - "Mass-spring system"
----
+$$
+u_1 = \ln|\cos x|.
+$$
 
-What is the main idea of **Mass-spring system**?
+Also,
 
-:::solution
-One short answer is: With no damping and no external forcing: $$ m y'' + k y = 0 $$ The solution is harmonic: $$ y(x) = C 1 \cos(\omega x) + C 2 \sin(\omega x), \qquad \omega = \sqrt{\frac{k}{m}} $$
-:::
+$$
+u_2' = \frac{y_1\,\sec x}{W} = \cos x\,\sec x = 1,
+$$
 
----
-id: "math-second-order-odes-36"
-note: "math-second-order-odes"
-title: "Review: Damped vibration"
-type: "text"
-answer: "With viscous damping: $$ m y'' + c y' + k y = 0 $$ Divide by \\(m\\): $$ y'' + 2\\zeta \\omega n y' + \\omega n^2 y = 0 $$ where $$ \\omega n = \\sqrt{\\frac{k}{m}},\\qquad \\zeta = \\frac{c}{2\\sqrt{mk}} $$"
-skills:
-  - "Damped vibration"
----
+so
 
-What is the main idea of **Damped vibration**?
+$$
+u_2 = x.
+$$
 
-:::solution
-One short answer is: With viscous damping: $$ m y'' + c y' + k y = 0 $$ Divide by \(m\): $$ y'' + 2\zeta \omega n y' + \omega n^2 y = 0 $$ where $$ \omega n = \sqrt{\frac{k}{m}},\qquad \zeta = \frac{c}{2\sqrt{mk}} $$
-:::
+Thus a particular solution is
 
----
-id: "math-second-order-odes-37"
-note: "math-second-order-odes"
-title: "Review: Damping regimes"
-type: "text"
-answer: "Regime Condition Behavior --- --- --- Underdamped \\(\\zeta 1\\) Non-oscillatory, slower return"
-skills:
-  - "Damping regimes"
----
+$$
+y_p = u_1y_1 + u_2y_2 = \cos x\ln|\cos x| + x\sin x.
+$$
 
-What is the main idea of **Damping regimes**?
+Therefore the general solution is
 
-:::solution
-One short answer is: Regime Condition Behavior --- --- --- Underdamped \(\zeta 1\) Non-oscillatory, slower return
-:::
-
----
-id: "math-second-order-odes-38"
-note: "math-second-order-odes"
-title: "Review: Forced vibration"
-type: "text"
-answer: "With external forcing \\(F(t)\\): $$ m y'' + c y' + k y = F(t) $$ The solution is usually split into: $$ y(t) = y {\\text{transient}}(t) + y {\\text{steady}}(t) $$ If \\(F(t)\\) is periodic, resonance and near-resonance can p…"
-skills:
-  - "Forced vibration"
----
-
-What is the main idea of **Forced vibration**?
-
-:::solution
-One short answer is: With external forcing \(F(t)\): $$ m y'' + c y' + k y = F(t) $$ The solution is usually split into: $$ y(t) = y {\text{transient}}(t) + y {\text{steady}}(t) $$ If \(F(t)\) is periodic, resonance and near-resonance can p…
-:::
-
----
-id: "math-second-order-odes-39"
-note: "math-second-order-odes"
-title: "Review: Qualitative behavior"
-type: "text"
-answer: "Even when an exact formula is available, it helps to understand the shape of the solution."
-skills:
-  - "10. Qualitative behavior"
----
-
-What is the main idea of **Qualitative behavior**?
-
-:::solution
-One short answer is: Even when an exact formula is available, it helps to understand the shape of the solution.
-:::
-
----
-id: "math-second-order-odes-310"
-note: "math-second-order-odes"
-title: "Review: Stability of equilibrium"
-type: "text"
-answer: "For the autonomous equation $$ y'' + f(y, y') = 0 $$ equilibria correspond to constant solutions. Linearization near equilibrium often predicts local behavior."
-skills:
-  - "Stability of equilibrium"
----
-
-What is the main idea of **Stability of equilibrium**?
-
-:::solution
-One short answer is: For the autonomous equation $$ y'' + f(y, y') = 0 $$ equilibria correspond to constant solutions. Linearization near equilibrium often predicts local behavior.
-:::
-
----
-id: "math-second-order-odes-311"
-note: "math-second-order-odes"
-title: "Review: Phase-plane viewpoint"
-type: "text"
-answer: "understanding oscillations"
-skills:
-  - "Phase-plane viewpoint"
----
-
-What is the main idea of **Phase-plane viewpoint**?
-
-:::solution
-One short answer is: understanding oscillations
-:::
-
----
-id: "math-second-order-odes-312"
-note: "math-second-order-odes"
-title: "Review: Long-term behavior"
-type: "text"
-answer: "Negative real part: decay"
-skills:
-  - "Long-term behavior"
----
-
-What is the main idea of **Long-term behavior**?
-
-:::solution
-One short answer is: Negative real part: decay
-:::
-
----
-id: "math-second-order-odes-313"
-note: "math-second-order-odes"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Put the equation in standard form."
-skills:
-  - "11. Problem-solving workflow"
----
-
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
-
-:::solution
-One short answer is: Put the equation in standard form.
-:::
-
----
-id: "math-second-order-odes-41"
-note: "math-second-order-odes"
-title: "Review: Fast method selection"
-type: "text"
-answer: "Equation type Best first method --- --- Linear constant coefficients, homogeneous Characteristic equation Linear constant coefficients, polynomial/exponential/trig forcing Undetermined coefficients Linear variable coeff…"
-skills:
-  - "Fast method selection"
----
-
-What is the main idea of **Fast method selection**?
-
-:::solution
-One short answer is: Equation type Best first method --- --- Linear constant coefficients, homogeneous Characteristic equation Linear constant coefficients, polynomial/exponential/trig forcing Undetermined coefficients Linear variable coeff…
-:::
-
----
-id: "math-second-order-odes-42"
-note: "math-second-order-odes"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Forgetting two integration constants for a second-order homogeneous solution"
-skills:
-  - "Common pitfalls"
----
-
-Name one common mistake the note warns about in **Common pitfalls**.
-
-:::solution
-One short answer is: Forgetting two integration constants for a second-order homogeneous solution
-:::
-
----
-id: "math-second-order-odes-43"
-note: "math-second-order-odes"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "12. Formula summary"
----
-
-What core formulas or relations are summarized in **Formula summary**?
-
-:::solution
-One short answer is: Formula summary
-:::
-
----
-id: "math-second-order-odes-44"
-note: "math-second-order-odes"
-title: "Review: Standard linear form"
-type: "text"
-answer: "$$ a 2(x)y'' + a 1(x)y' + a 0(x)y = g(x) $$"
-skills:
-  - "Standard linear form"
----
-
-What is the main idea of **Standard linear form**?
-
-:::solution
-One short answer is: $$ a 2(x)y'' + a 1(x)y' + a 0(x)y = g(x) $$
-:::
-
----
-id: "math-second-order-odes-45"
-note: "math-second-order-odes"
-title: "Review: Normalized form"
-type: "text"
-answer: "$$ y'' + p(x)y' + q(x)y = r(x) $$"
-skills:
-  - "Normalized form"
----
-
-What is the main idea of **Normalized form**?
-
-:::solution
-One short answer is: $$ y'' + p(x)y' + q(x)y = r(x) $$
-:::
-
----
-id: "math-second-order-odes-46"
-note: "math-second-order-odes"
-title: "Review: Constant-coefficient homogeneous equation"
-type: "text"
-answer: "$$ ay'' + by' + cy = 0 $$ Characteristic equation: $$ ar^2 + br + c = 0 $$"
-skills:
-  - "Constant-coefficient homogeneous equation"
----
-
-What is the main idea of **Constant-coefficient homogeneous equation**?
-
-:::solution
-One short answer is: $$ ay'' + by' + cy = 0 $$ Characteristic equation: $$ ar^2 + br + c = 0 $$
-:::
-
----
-id: "math-second-order-odes-47"
-note: "math-second-order-odes"
-title: "Review: Solution templates"
-type: "text"
-answer: "Distinct real roots: $$ y = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$ Repeated root: $$ y = (C 1 + C 2 x)e^{rx} $$ Complex roots: $$ y = e^{\\alpha x}\\bigl(C 1\\cos(\\beta x) + C 2\\sin(\\beta x)\\bigr) $$"
-skills:
-  - "Solution templates"
----
-
-What is the main idea of **Solution templates**?
-
-:::solution
-One short answer is: Distinct real roots: $$ y = C 1 e^{r 1 x} + C 2 e^{r 2 x} $$ Repeated root: $$ y = (C 1 + C 2 x)e^{rx} $$ Complex roots: $$ y = e^{\alpha x}\bigl(C 1\cos(\beta x) + C 2\sin(\beta x)\bigr) $$
-:::
-
----
-id: "math-second-order-odes-48"
-note: "math-second-order-odes"
-title: "Review: Euler-Cauchy trial"
-type: "text"
-answer: "$$ y = x^m $$ leading to $$ m(m-1) + am + b = 0 $$"
-skills:
-  - "Euler-Cauchy trial"
----
-
-What is the main idea of **Euler-Cauchy trial**?
-
-:::solution
-One short answer is: $$ y = x^m $$ leading to $$ m(m-1) + am + b = 0 $$
-:::
-
----
-id: "math-second-order-odes-49"
-note: "math-second-order-odes"
-title: "Review: General linear solution"
-type: "text"
-answer: "$$ y = y h + y p $$"
-skills:
-  - "General linear solution"
----
-
-What is the main idea of **General linear solution**?
-
-:::solution
-One short answer is: $$ y = y h + y p $$
-:::
-
----
-id: "math-second-order-odes-410"
-note: "math-second-order-odes"
-title: "Review: Wronskian"
-type: "text"
-answer: "$$ W = y 1 y 2' - y 1' y 2 $$"
-skills:
-  - "Wronskian"
----
-
-What is the main idea of **Wronskian**?
-
-:::solution
-One short answer is: $$ W = y 1 y 2' - y 1' y 2 $$
-:::
-
----
-id: "math-second-order-odes-411"
-note: "math-second-order-odes"
-title: "Review: Mass-spring frequency"
-type: "text"
-answer: "$$ \\omega n = \\sqrt{\\frac{k}{m}} $$"
-skills:
-  - "Mass-spring frequency"
----
-
-What is the main idea of **Mass-spring frequency**?
-
-:::solution
-One short answer is: $$ \omega n = \sqrt{\frac{k}{m}} $$
-:::
-
----
-id: "math-second-order-odes-412"
-note: "math-second-order-odes"
-title: "Review: Damping ratio"
-type: "text"
-answer: "$$ \\zeta = \\frac{c}{2\\sqrt{mk}} $$"
-skills:
-  - "Damping ratio"
----
-
-What is the main idea of **Damping ratio**?
-
-:::solution
-One short answer is: $$ \zeta = \frac{c}{2\sqrt{mk}} $$
+$$
+y = C_1\cos x + C_2\sin x + \cos x\ln|\cos x| + x\sin x.
+$$
 :::

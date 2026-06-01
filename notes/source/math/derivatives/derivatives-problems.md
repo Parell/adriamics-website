@@ -1,735 +1,1002 @@
 ---
-id: "math-derivatives-11"
-note: "math-derivatives"
-title: "Review: What a derivative means"
-type: "text"
-answer: "Rate interpretation: how fast one quantity changes compared with another"
-skills:
-  - "1. What a derivative means"
+id: derivatives-11
+note: math-derivatives
+title: "State the Meaning of a Derivative"
+skills: [Derivative Meaning]
 ---
 
-What is the main idea of **What a derivative means**?
+What does $f'(a)$ tell you geometrically about the graph of $y=f(x)$?
 
 :::solution
-One short answer is: Rate interpretation: how fast one quantity changes compared with another
+Geometrically, $f'(a)$ is the slope of the tangent line to the graph at $x=a$.
+
+It also describes the function's instantaneous rate of change at that point.
 :::
 
 ---
-id: "math-derivatives-12"
-note: "math-derivatives"
-title: "Review: Formal definition"
-type: "text"
-answer: "The derivative of $f$ at $x$ is defined by the limit $$ f'(x) = \\lim {h \\to 0} \\frac{f(x+h)-f(x)}{h} $$ if the limit exists."
-skills:
-  - "2. Formal definition"
+id: derivatives-12
+note: math-derivatives
+title: "Differentiate by the Definition"
+skills: [Formal Definition]
 ---
 
-What core idea is introduced in **Formal definition**?
+Let
+
+$$
+f(x)=x^2.
+$$
+
+Use the limit definition of the derivative to find $f'(x)$.
 
 :::solution
-One short answer is: The derivative of $f$ at $x$ is defined by the limit $$ f'(x) = \lim {h \to 0} \frac{f(x+h)-f(x)}{h} $$ if the limit exists.
+Start with the definition:
+
+$$
+f'(x)=\lim_{h\to 0}\frac{f(x+h)-f(x)}{h}
+$$
+
+Substitute $f(x)=x^2$:
+
+$$
+f'(x)=\lim_{h\to 0}\frac{(x+h)^2-x^2}{h}
+$$
+
+Expand the numerator:
+
+$$
+f'(x)=\lim_{h\to 0}\frac{x^2+2xh+h^2-x^2}{h}
+$$
+
+Simplify:
+
+$$
+f'(x)=\lim_{h\to 0}\frac{2xh+h^2}{h}
+=\lim_{h\to 0}(2x+h)
+$$
+
+Now take the limit:
+
+$$
+f'(x)=2x
+$$
 :::
 
 ---
-id: "math-derivatives-13"
-note: "math-derivatives"
-title: "Review: Differentiability and continuity"
-type: "text"
-answer: "Differentiable $\\Rightarrow$ continuous"
-skills:
-  - "Differentiability and continuity"
+id: derivatives-13
+note: math-derivatives
+title: "Write the Derivative in Leibniz Notation"
+skills: [Notation]
 ---
 
-What is the main idea of **Differentiability and continuity**?
+If $y=f(x)$, what is the common Leibniz notation for the derivative with respect to $x$?
 
 :::solution
-One short answer is: Differentiable $\Rightarrow$ continuous
+The derivative is written as
+
+$$
+\frac{dy}{dx}
+$$
+
+This is equivalent to $f'(x)$ when $y=f(x)$.
 :::
 
 ---
-id: "math-derivatives-14"
-note: "math-derivatives"
-title: "Review: Notation"
-type: "text"
-answer: "If $y=f(x)$, common derivative notations include: $$ f'(x), \\quad y', \\quad \\frac{dy}{dx}, \\quad \\frac{d}{dx}[f(x)] $$ For functions of time: $$ \\frac{ds}{dt}, \\quad \\frac{dv}{dt} $$ Higher derivatives: $$ f''(x), \\quad…"
-skills:
-  - "3. Notation"
+id: derivatives-14
+note: math-derivatives
+title: "Differentiate a Power"
+skills: [Power Rule]
 ---
 
-What core idea is introduced in **Notation**?
+Find the derivative of
+
+$$
+x^7
+$$
 
 :::solution
-One short answer is: If $y=f(x)$, common derivative notations include: $$ f'(x), \quad y', \quad \frac{dy}{dx}, \quad \frac{d}{dx}[f(x)] $$ For functions of time: $$ \frac{ds}{dt}, \quad \frac{dv}{dt} $$ Higher derivatives: $$ f''(x), \quad…
+Use the power rule:
+
+$$
+\frac{d}{dx}[x^n]=nx^{n-1}
+$$
+
+So
+
+$$
+\frac{d}{dx}[x^7]=7x^6
+$$
 :::
 
 ---
-id: "math-derivatives-15"
-note: "math-derivatives"
-title: "Review: Core differentiation rules"
-type: "text"
-answer: "These rules let you differentiate most elementary functions efficiently."
-skills:
-  - "4. Core differentiation rules"
+id: derivatives-15
+note: math-derivatives
+title: "Differentiate a Polynomial"
+skills: [Power Rule, Sum and Difference]
 ---
 
-What core idea is introduced in **Core differentiation rules**?
+Find the derivative of
+
+$$
+3x^4-5x+8
+$$
 
 :::solution
-One short answer is: These rules let you differentiate most elementary functions efficiently.
+Differentiate term by term:
+
+$$
+\frac{d}{dx}[3x^4]=12x^3
+$$
+
+$$
+\frac{d}{dx}[-5x]=-5
+$$
+
+$$
+\frac{d}{dx}[8]=0
+$$
+
+So the derivative is
+
+$$
+12x^3-5
+$$
 :::
 
 ---
-id: "math-derivatives-16"
-note: "math-derivatives"
-title: "Review: Constant rule"
-type: "text"
-answer: "$$ \\frac{d}{dx}[c] = 0 $$"
-skills:
-  - "Constant rule"
+id: derivatives-16
+note: math-derivatives
+title: "Differentiate an Exponential Function"
+skills: [Exponential Functions]
 ---
 
-What is the main idea of **Constant rule**?
+Find the derivative of
+
+$$
+2^x
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[c] = 0 $$
+Use the exponential rule:
+
+$$
+\frac{d}{dx}[a^x]=a^x\ln a
+$$
+
+With $a=2$,
+
+$$
+\frac{d}{dx}[2^x]=2^x\ln 2
+$$
 :::
 
 ---
-id: "math-derivatives-17"
-note: "math-derivatives"
-title: "Review: Power rule"
-type: "text"
-answer: "$$ \\frac{d}{dx}[x^n] = nx^{n-1} $$ This holds for any real exponent $n$ when the function is defined."
-skills:
-  - "Power rule"
+id: derivatives-17
+note: math-derivatives
+title: "Differentiate a Trigonometric Sum"
+skills: [Trigonometric Functions, Sum and Difference]
 ---
 
-What is the main idea of **Power rule**?
+Find the derivative of
+
+$$
+\sin x-\cos x
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[x^n] = nx^{n-1} $$ This holds for any real exponent $n$ when the function is defined.
+Differentiate each term:
+
+$$
+\frac{d}{dx}[\sin x]=\cos x
+$$
+
+and
+
+$$
+\frac{d}{dx}[-\cos x]=\sin x
+$$
+
+So the derivative is
+
+$$
+\cos x+\sin x
+$$
 :::
 
 ---
-id: "math-derivatives-18"
-note: "math-derivatives"
-title: "Review: Constant multiple rule"
-type: "text"
-answer: "$$ \\frac{d}{dx}[c f(x)] = c f'(x) $$"
-skills:
-  - "Constant multiple rule"
+id: derivatives-18
+note: math-derivatives
+title: "Differentiate a Natural Logarithm"
+skills: [Logarithmic Functions]
 ---
 
-What is the main idea of **Constant multiple rule**?
+Find the derivative of
+
+$$
+\ln x
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[c f(x)] = c f'(x) $$
+Use the logarithmic derivative rule:
+
+$$
+\frac{d}{dx}[\ln x]=\frac{1}{x}
+\quad \text{for } x>0
+$$
 :::
 
 ---
-id: "math-derivatives-19"
-note: "math-derivatives"
-title: "Review: Sum and difference rules"
-type: "text"
-answer: "$$ \\frac{d}{dx}[f(x)+g(x)] = f'(x)+g'(x) $$ $$ \\frac{d}{dx}[f(x)-g(x)] = f'(x)-g'(x) $$"
-skills:
-  - "Sum and difference rules"
+id: derivatives-19
+note: math-derivatives
+title: "Use the Product Rule"
+skills: [Product Rule, Exponential Functions]
 ---
 
-What is the main idea of **Sum and difference rules**?
+Find the derivative of
+
+$$
+x^2e^x
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[f(x)+g(x)] = f'(x)+g'(x) $$ $$ \frac{d}{dx}[f(x)-g(x)] = f'(x)-g'(x) $$
+Use the product rule:
+
+$$
+\frac{d}{dx}[fg]=f'g+fg'
+$$
+
+Let $f=x^2$ and $g=e^x$. Then $f'=2x$ and $g'=e^x$.
+
+So
+
+$$
+\frac{d}{dx}[x^2e^x]=2xe^x+x^2e^x
+$$
 :::
 
 ---
-id: "math-derivatives-110"
-note: "math-derivatives"
-title: "Review: Product rule"
-type: "text"
-answer: "$$ \\frac{d}{dx}[f(x)g(x)] = f'(x)g(x)+f(x)g'(x) $$ Example: $$ \\frac{d}{dx}[x^2 e^x] = 2x e^x + x^2 e^x $$"
-skills:
-  - "Product rule"
+id: derivatives-110
+note: math-derivatives
+title: "Use the Quotient Rule"
+skills: [Quotient Rule]
 ---
 
-What is the main idea of **Product rule**?
+Find the derivative of
+
+$$
+\frac{x^2+1}{x}
+$$
+
+and simplify your answer.
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[f(x)g(x)] = f'(x)g(x)+f(x)g'(x) $$ Example: $$ \frac{d}{dx}[x^2 e^x] = 2x e^x + x^2 e^x $$
+Use the quotient rule:
+
+$$
+\frac{d}{dx}\left[\frac{f}{g}\right]
+=
+\frac{f'g-fg'}{g^2}
+$$
+
+Let $f=x^2+1$ and $g=x$. Then $f'=2x$ and $g'=1$.
+
+So
+
+$$
+\frac{d}{dx}\left[\frac{x^2+1}{x}\right]
+=
+\frac{(2x)(x)-(x^2+1)(1)}{x^2}
+$$
+
+Simplify:
+
+$$
+\frac{x^2-1}{x^2}
+$$
 :::
 
 ---
-id: "math-derivatives-111"
-note: "math-derivatives"
-title: "Review: Quotient rule"
-type: "text"
-answer: "$$ \\frac{d}{dx}\\left[\\frac{f(x)}{g(x)}\\right] = \\frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2} $$ where $g(x)\\ne 0$. Example: $$ \\frac{d}{dx}\\left[\\frac{x^2+1}{x}\\right] = \\frac{(2x)(x)-(x^2+1)(1)}{x^2} = \\frac{x^2-1}{x^2} $$ ---"
-skills:
-  - "Quotient rule"
+id: derivatives-21
+note: math-derivatives
+title: "Apply the Chain Rule to a Power"
+skills: [Chain Rule, Power Rule]
 ---
 
-What is the main idea of **Quotient rule**?
+Find the derivative of
+
+$$
+(3x^2+1)^5
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}\left[\frac{f(x)}{g(x)}\right] = \frac{f'(x)g(x)-f(x)g'(x)}{[g(x)]^2} $$ where $g(x)\ne 0$. Example: $$ \frac{d}{dx}\left[\frac{x^2+1}{x}\right] = \frac{(2x)(x)-(x^2+1)(1)}{x^2} = \frac{x^2-1}{x^2} $$ ---
+Use the chain rule. Differentiate the outside first and then multiply by the derivative of the inside:
+
+$$
+\frac{d}{dx}[(3x^2+1)^5]
+=5(3x^2+1)^4(6x)
+$$
+
+So the derivative is
+
+$$
+30x(3x^2+1)^4
+$$
 :::
 
 ---
-id: "math-derivatives-112"
-note: "math-derivatives"
-title: "Review: Derivatives of common functions"
-type: "text"
-answer: "Derivatives of common functions"
-skills:
-  - "5. Derivatives of common functions"
+id: derivatives-22
+note: math-derivatives
+title: "Apply the Chain Rule to a Trigonometric Function"
+skills: [Chain Rule, Trigonometric Functions]
 ---
 
-Name one common mistake the note warns about in **Derivatives of common functions**.
+Find the derivative of
+
+$$
+\sin(x^3)
+$$
 
 :::solution
-One short answer is: Derivatives of common functions
+Treat the inside as the inner function. The derivative of $\sin u$ is $\cos u$, and the derivative of $x^3$ is $3x^2$.
+
+So
+
+$$
+\frac{d}{dx}[\sin(x^3)]
+=\cos(x^3)\cdot 3x^2
+$$
+
+Thus,
+
+$$
+3x^2\cos(x^3)
+$$
 :::
 
 ---
-id: "math-derivatives-21"
-note: "math-derivatives"
-title: "Review: Exponential functions"
-type: "text"
-answer: "$$ \\frac{d}{dx}[e^x] = e^x $$ $$ \\frac{d}{dx}[a^x] = a^x \\ln a \\quad \\text{for } a>0,\\ a\\ne 1 $$"
-skills:
-  - "Exponential functions"
+id: derivatives-23
+note: math-derivatives
+title: "Differentiate a Logarithm of a Composite Function"
+skills: [Chain Rule, Logarithmic Functions]
 ---
 
-What is the main idea of **Exponential functions**?
+Find the derivative of
+
+$$
+\ln(2x^2-7x+4)
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[e^x] = e^x $$ $$ \frac{d}{dx}[a^x] = a^x \ln a \quad \text{for } a>0,\ a\ne 1 $$
+Use the chain rule with $u=2x^2-7x+4$.
+
+The derivative of $\ln u$ is $\frac{1}{u}u'$.
+
+Here,
+
+$$
+u'=4x-7
+$$
+
+So
+
+$$
+\frac{d}{dx}[\ln(2x^2-7x+4)]
+=\frac{4x-7}{2x^2-7x+4}
+$$
 :::
 
 ---
-id: "math-derivatives-22"
-note: "math-derivatives"
-title: "Review: Logarithmic functions"
-type: "text"
-answer: "$$ \\frac{d}{dx}[\\ln x] = \\frac{1}{x} \\quad \\text{for } x>0 $$ $$ \\frac{d}{dx}[\\log a x] = \\frac{1}{x \\ln a} $$"
-skills:
-  - "Logarithmic functions"
+id: derivatives-24
+note: math-derivatives
+title: "Differentiate an Inverse Trig Function"
+skills: [Chain Rule, Inverse Trigonometric Functions]
 ---
 
-What is the main idea of **Logarithmic functions**?
+Find the derivative of
+
+$$
+\arctan(3x)
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[\ln x] = \frac{1}{x} \quad \text{for } x>0 $$ $$ \frac{d}{dx}[\log a x] = \frac{1}{x \ln a} $$
+Use the inverse trig rule and the chain rule:
+
+$$
+\frac{d}{dx}[\arctan u]=\frac{u'}{1+u^2}
+$$
+
+Here $u=3x$, so $u'=3$.
+
+Therefore,
+
+$$
+\frac{d}{dx}[\arctan(3x)]
+=\frac{3}{1+(3x)^2}
+=\frac{3}{1+9x^2}
+$$
 :::
 
 ---
-id: "math-derivatives-23"
-note: "math-derivatives"
-title: "Review: Trigonometric functions"
-type: "text"
-answer: "$$ \\frac{d}{dx}[\\sin x] = \\cos x $$ $$ \\frac{d}{dx}[\\cos x] = -\\sin x $$ $$ \\frac{d}{dx}[\\tan x] = \\sec^2 x $$ $$ \\frac{d}{dx}[\\cot x] = -\\csc^2 x $$ $$ \\frac{d}{dx}[\\sec x] = \\sec x \\tan x $$ $$ \\frac{d}{dx}[\\csc x] =…"
-skills:
-  - "Trigonometric functions"
+id: derivatives-25
+note: math-derivatives
+title: "Implicit Differentiation with Mixed Terms"
+skills: [Implicit Differentiation, Product Rule]
 ---
 
-What is the main idea of **Trigonometric functions**?
+Differentiate implicitly and solve for $\frac{dy}{dx}$:
+
+$$
+x^2+xy+y^2=7
+$$
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[\sin x] = \cos x $$ $$ \frac{d}{dx}[\cos x] = -\sin x $$ $$ \frac{d}{dx}[\tan x] = \sec^2 x $$ $$ \frac{d}{dx}[\cot x] = -\csc^2 x $$ $$ \frac{d}{dx}[\sec x] = \sec x \tan x $$ $$ \frac{d}{dx}[\csc x] =…
+Differentiate each term with respect to $x$:
+
+$$
+2x+\frac{d}{dx}[xy]+\frac{d}{dx}[y^2]=0
+$$
+
+Use the product rule on $xy$ and the chain rule on $y^2$:
+
+$$
+2x+y+x\frac{dy}{dx}+2y\frac{dy}{dx}=0
+$$
+
+Group the $\frac{dy}{dx}$ terms:
+
+$$
+\left(x+2y\right)\frac{dy}{dx}=-(2x+y)
+$$
+
+So
+
+$$
+\frac{dy}{dx}=-\frac{2x+y}{x+2y}
+$$
 :::
 
 ---
-id: "math-derivatives-24"
-note: "math-derivatives"
-title: "Review: Inverse trigonometric functions"
-type: "text"
-answer: "$$ \\frac{d}{dx}[\\arcsin x] = \\frac{1}{\\sqrt{1-x^2}} $$ $$ \\frac{d}{dx}[\\arccos x] = -\\frac{1}{\\sqrt{1-x^2}} $$ $$ \\frac{d}{dx}[\\arctan x] = \\frac{1}{1+x^2} $$ Useful extensions: $$ \\frac{d}{dx}[\\arcsec x] = \\frac{1}{ x…"
-skills:
-  - "Inverse trigonometric functions"
+id: derivatives-26
+note: math-derivatives
+title: "Find Velocity and Acceleration"
+skills: [Higher-Order Derivatives, Motion]
 ---
 
-What is the main idea of **Inverse trigonometric functions**?
+Let
+
+$$
+s(t)=t^3-6t^2+9t
+$$
+
+Find the velocity $v(t)$, the acceleration $a(t)$, and the value of $a(2)$.
 
 :::solution
-One short answer is: $$ \frac{d}{dx}[\arcsin x] = \frac{1}{\sqrt{1-x^2}} $$ $$ \frac{d}{dx}[\arccos x] = -\frac{1}{\sqrt{1-x^2}} $$ $$ \frac{d}{dx}[\arctan x] = \frac{1}{1+x^2} $$ Useful extensions: $$ \frac{d}{dx}[\arcsec x] = \frac{1}{ x…
+Velocity is the first derivative of position:
+
+$$
+v(t)=s'(t)=3t^2-12t+9
+$$
+
+Acceleration is the derivative of velocity:
+
+$$
+a(t)=v'(t)=6t-12
+$$
+
+Now evaluate at $t=2$:
+
+$$
+a(2)=6(2)-12=0
+$$
 :::
 
 ---
-id: "math-derivatives-25"
-note: "math-derivatives"
-title: "Review: Chain rule and composite functions"
-type: "text"
-answer: "The chain rule is essential for differentiating nested functions. If $$ y = f(g(x)) $$ then $$ \\frac{dy}{dx} = f'(g(x)) \\cdot g'(x) $$ In operator form: $$ \\frac{d}{dx}[f(g(x))] = f'(g(x))g'(x) $$"
-skills:
-  - "6. Chain rule and composite functions"
+id: derivatives-27
+note: math-derivatives
+title: "Estimate a Square Root with Linearization"
+skills: [Linear Approximation]
 ---
 
-What is the main idea of **Chain rule and composite functions**?
+Use the linear approximation of $f(x)=\sqrt{x}$ at $x=16$ to estimate $\sqrt{16.2}$.
 
 :::solution
-One short answer is: The chain rule is essential for differentiating nested functions. If $$ y = f(g(x)) $$ then $$ \frac{dy}{dx} = f'(g(x)) \cdot g'(x) $$ In operator form: $$ \frac{d}{dx}[f(g(x))] = f'(g(x))g'(x) $$
+For $f(x)=\sqrt{x}$,
+
+$$
+f(16)=4
+$$
+
+and
+
+$$
+f'(x)=\frac{1}{2\sqrt{x}}
+$$
+
+so
+
+$$
+f'(16)=\frac{1}{8}
+$$
+
+The linearization at $x=16$ is
+
+$$
+L(x)=4+\frac{1}{8}(x-16)
+$$
+
+Evaluate at $x=16.2$:
+
+$$
+L(16.2)=4+\frac{1}{8}(0.2)=4.025
+$$
+
+So
+
+$$
+\sqrt{16.2}\approx 4.025
+$$
 :::
 
 ---
-id: "math-derivatives-26"
-note: "math-derivatives"
-title: "Review: Examples"
-type: "text"
-answer: "If $$ y = (3x^2+1)^5 $$ then let $u=3x^2+1$."
-skills:
-  - "Examples"
+id: derivatives-28
+note: math-derivatives
+title: "Find Where a Function Increases"
+skills: [Increasing and Decreasing, Critical Points]
 ---
 
-What is the main idea of **Examples**?
+Suppose
+
+$$
+f'(x)=3(x-2)(x+1).
+$$
+
+On which intervals is $f$ increasing and on which intervals is it decreasing?
 
 :::solution
-One short answer is: If $$ y = (3x^2+1)^5 $$ then let $u=3x^2+1$.
+First find the critical numbers from $f'(x)=0$:
+
+$$
+3(x-2)(x+1)=0
+$$
+
+So the critical numbers are $x=-1$ and $x=2$.
+
+Check the sign of $f'(x)$ on each interval:
+
+- If $x<-1$, then both factors are negative, so $f'(x)>0$.
+- If $-1<x<2$, then one factor is negative and one is positive, so $f'(x)<0$.
+- If $x>2$, then both factors are positive, so $f'(x)>0$.
+
+Therefore, $f$ is increasing on
+
+$$
+(-\infty,-1)\cup(2,\infty)
+$$
+
+and decreasing on
+
+$$
+(-1,2).
+$$
 :::
 
 ---
-id: "math-derivatives-27"
-note: "math-derivatives"
-title: "Review: General pattern"
-type: "text"
-answer: "Differentiate the outer function first, leaving the inner function unchanged, then multiply by the derivative of the inner function."
-skills:
-  - "General pattern"
+id: derivatives-31
+note: math-derivatives
+title: "Related Rates for the Area of a Circle"
+skills: [Related Rates]
 ---
 
-What is the main idea of **General pattern**?
+A circle's radius is increasing at a rate of $0.5$ cm/s. How fast is the area changing when the radius is $10$ cm?
 
 :::solution
-One short answer is: Differentiate the outer function first, leaving the inner function unchanged, then multiply by the derivative of the inner function.
+Use the area formula
+
+$$
+A=\pi r^2
+$$
+
+Differentiate with respect to time:
+
+$$
+\frac{dA}{dt}=2\pi r\frac{dr}{dt}
+$$
+
+Substitute $r=10$ and $\frac{dr}{dt}=0.5$:
+
+$$
+\frac{dA}{dt}=2\pi(10)(0.5)=10\pi
+$$
+
+So the area is changing at
+
+$$
+10\pi \text{ cm}^2/\text{s}
+$$
 :::
 
 ---
-id: "math-derivatives-28"
-note: "math-derivatives"
-title: "Review: Implicit differentiation"
-type: "text"
-answer: "Sometimes a relation involving $x$ and $y$ is not solved explicitly for $y$."
-skills:
-  - "7. Implicit differentiation"
+id: derivatives-32
+note: math-derivatives
+title: "Tangent Line from an Implicit Curve"
+skills: [Implicit Differentiation, Tangent Lines]
 ---
 
-What is the main idea of **Implicit differentiation**?
+Find the equation of the tangent line to
+
+$$
+x^2+y^2=34
+$$
+
+at the point $(3,5)$.
 
 :::solution
-One short answer is: Sometimes a relation involving $x$ and $y$ is not solved explicitly for $y$.
+Differentiate implicitly:
+
+$$
+2x+2y\frac{dy}{dx}=0
+$$
+
+Solve for the derivative:
+
+$$
+\frac{dy}{dx}=-\frac{x}{y}
+$$
+
+At $(3,5)$, the slope is
+
+$$
+\frac{dy}{dx}=-\frac{3}{5}
+$$
+
+Use point-slope form:
+
+$$
+y-5=-\frac{3}{5}(x-3)
+$$
 :::
 
 ---
-id: "math-derivatives-29"
-note: "math-derivatives"
-title: "Review: Why $\\frac{dy}{dx}$ appears"
-type: "text"
-answer: "When differentiating any expression involving $y$, use the chain rule because $y=y(x)$. For example: $$ \\frac{d}{dx}[y^3] = 3y^2\\frac{dy}{dx} $$ $$ \\frac{d}{dx}[\\sin y] = \\cos y \\frac{dy}{dx} $$"
-skills:
-  - "Why $\\frac{dy}{dx}$ appears"
+id: derivatives-33
+note: math-derivatives
+title: "Maximize the Area of a Rectangle"
+skills: [Optimization]
 ---
 
-What is the main idea of **Why $\frac{dy}{dx}$ appears**?
+A rectangle has perimeter $40$ m. What dimensions give the maximum area?
 
 :::solution
-One short answer is: When differentiating any expression involving $y$, use the chain rule because $y=y(x)$. For example: $$ \frac{d}{dx}[y^3] = 3y^2\frac{dy}{dx} $$ $$ \frac{d}{dx}[\sin y] = \cos y \frac{dy}{dx} $$
+Let the side lengths be $x$ and $y$.
+
+The perimeter condition is
+
+$$
+2x+2y=40
+$$
+
+so
+
+$$
+y=20-x
+$$
+
+The area is
+
+$$
+A(x)=x(20-x)=20x-x^2
+$$
+
+Differentiate:
+
+$$
+A'(x)=20-2x
+$$
+
+Set the derivative equal to zero:
+
+$$
+20-2x=0
+\quad\Rightarrow\quad
+x=10
+$$
+
+Then
+
+$$
+y=20-10=10
+$$
+
+So the rectangle with maximum area is a $10$ m by $10$ m square.
 :::
 
 ---
-id: "math-derivatives-210"
-note: "math-derivatives"
-title: "Review: Tangent line example"
-type: "text"
-answer: "Given $$ x^2 + y^2 = 25 $$ find the tangent slope at $(3,4)$: $$ \\frac{dy}{dx} = -\\frac{x}{y} $$ At $(3,4)$, $$ \\frac{dy}{dx} = -\\frac{3}{4} $$ So the tangent line is $$ y-4 = -\\frac{3}{4}(x-3) $$ ---"
-skills:
-  - "Tangent line example"
+id: derivatives-34
+note: math-derivatives
+title: "Estimate Measurement Error with Differentials"
+skills: [Differentials, Error Estimation]
 ---
 
-What is the main idea of **Tangent line example**?
+A circular disk has radius $10$ cm, and the radius measurement may be off by about $0.05$ cm. Use differentials to estimate the possible error in the area.
 
 :::solution
-One short answer is: Given $$ x^2 + y^2 = 25 $$ find the tangent slope at $(3,4)$: $$ \frac{dy}{dx} = -\frac{x}{y} $$ At $(3,4)$, $$ \frac{dy}{dx} = -\frac{3}{4} $$ So the tangent line is $$ y-4 = -\frac{3}{4}(x-3) $$ ---
+For a circle,
+
+$$
+A=\pi r^2
+$$
+
+so
+
+$$
+dA=2\pi r\,dr
+$$
+
+Substitute $r=10$ and $dr=0.05$:
+
+$$
+dA=2\pi(10)(0.05)=\pi
+$$
+
+So the area may be off by about
+
+$$
+\pi \text{ cm}^2
+$$
+which is approximately $3.14\text{ cm}^2$.
 :::
 
 ---
-id: "math-derivatives-211"
-note: "math-derivatives"
-title: "Review: Higher-order derivatives"
-type: "text"
-answer: "The second derivative is the derivative of the first derivative: $$ f''(x) = \\frac{d}{dx}[f'(x)] $$ Similarly: $$ f^{(3)}(x), \\quad f^{(4)}(x), \\quad \\dots $$"
-skills:
-  - "8. Higher-order derivatives"
+id: derivatives-35
+note: math-derivatives
+title: "Take One Newton Step"
+skills: [Newton's Method]
 ---
 
-What is the main idea of **Higher-order derivatives**?
+Use one step of Newton's method to approximate the root of
+
+$$
+x^3-2=0
+$$
+
+starting from $x_0=1$.
 
 :::solution
-One short answer is: The second derivative is the derivative of the first derivative: $$ f''(x) = \frac{d}{dx}[f'(x)] $$ Similarly: $$ f^{(3)}(x), \quad f^{(4)}(x), \quad \dots $$
+Let
+
+$$
+f(x)=x^3-2
+$$
+
+Then
+
+$$
+f'(x)=3x^2
+$$
+
+Newton's method gives
+
+$$
+x_{n+1}=x_n-\frac{f(x_n)}{f'(x_n)}
+$$
+
+With $x_0=1$:
+
+$$
+x_1=1-\frac{1^3-2}{3(1)^2}
+$$
+
+$$
+x_1=1-\frac{-1}{3}=1+\frac{1}{3}=\frac{4}{3}
+$$
+
+So the next approximation is
+
+$$
+\frac{4}{3}
+$$
 :::
 
 ---
-id: "math-derivatives-31"
-note: "math-derivatives"
-title: "Review: Interpretation"
-type: "text"
-answer: "$f'(x)$ describes slope or rate of change"
-skills:
-  - "Interpretation"
+id: derivatives-41
+note: math-derivatives
+title: "Show an Absolute Value Function Is Not Differentiable"
+skills: [Continuity and Differentiability, Formal Definition]
 ---
 
-What is the main idea of **Interpretation**?
+Show that
+
+$$
+f(x)=|x|
+$$
+
+is continuous at $x=0$ but not differentiable there.
 
 :::solution
-One short answer is: $f'(x)$ describes slope or rate of change
+First check continuity:
+
+$$
+\lim_{x\to 0}|x|=0=f(0)
+$$
+
+so $f$ is continuous at $0$.
+
+Now check differentiability using one-sided slopes. For $x>0$, $f(x)=x$, so the right-hand derivative at $0$ is
+
+$$
+\lim_{x\to 0^+}\frac{|x|-|0|}{x-0}
+=\lim_{x\to 0^+}\frac{x}{x}=1
+$$
+
+For $x<0$, $f(x)=-x$, so the left-hand derivative at $0$ is
+
+$$
+\lim_{x\to 0^-}\frac{|x|-|0|}{x-0}
+=\lim_{x\to 0^-}\frac{-x}{x}=-1
+$$
+
+The one-sided derivatives are not equal, so $f'(0)$ does not exist.
 :::
 
 ---
-id: "math-derivatives-32"
-note: "math-derivatives"
-title: "Review: Concavity"
-type: "text"
-answer: "$f''(x) > 0$, the graph is concave up"
-skills:
-  - "Concavity"
+id: derivatives-42
+note: math-derivatives
+title: "Classify a Cubic Using Derivatives"
+skills: [Critical Points, Concavity, Higher-Order Derivatives]
 ---
 
-What is the main idea of **Concavity**?
+For
+
+$$
+f(x)=x^3-3x,
+$$
+
+find the critical points, classify them, and identify an inflection point.
 
 :::solution
-One short answer is: $f''(x) > 0$, the graph is concave up
+Differentiate once:
+
+$$
+f'(x)=3x^2-3=3(x-1)(x+1)
+$$
+
+So the critical points occur at
+
+$$
+x=-1 \quad \text{and} \quad x=1
+$$
+
+Differentiate again:
+
+$$
+f''(x)=6x
+$$
+
+At $x=-1$,
+
+$$
+f''(-1)=-6<0
+$$
+
+so $x=-1$ is a local maximum.
+
+At $x=1$,
+
+$$
+f''(1)=6>0
+$$
+
+so $x=1$ is a local minimum.
+
+For an inflection point, check where concavity changes. Since
+
+$$
+f''(x)=6x
+$$
+
+changes sign at $x=0$, there is an inflection point at $x=0$.
 :::
 
 ---
-id: "math-derivatives-33"
-note: "math-derivatives"
-title: "Review: Linear approximation and differentials"
-type: "text"
-answer: "Near a point $x=a$, a differentiable function is well approximated by its tangent line."
-skills:
-  - "9. Linear approximation and differentials"
+id: derivatives-43
+note: math-derivatives
+title: "Maximize Area with a Fence and a Wall"
+skills: [Optimization]
 ---
 
-What is the main idea of **Linear approximation and differentials**?
+A rectangular pen is built against a straight wall, so only three sides need fencing. If $24$ m of fencing are available, what dimensions maximize the area?
 
 :::solution
-One short answer is: Near a point $x=a$, a differentiable function is well approximated by its tangent line.
+Let $x$ be the two equal sides perpendicular to the wall, and let $y$ be the side parallel to the wall.
+
+The fencing constraint is
+
+$$
+2x+y=24
+$$
+
+so
+
+$$
+y=24-2x
+$$
+
+The area is
+
+$$
+A(x)=xy=x(24-2x)=24x-2x^2
+$$
+
+Differentiate:
+
+$$
+A'(x)=24-4x
+$$
+
+Set the derivative equal to zero:
+
+$$
+24-4x=0
+\quad\Rightarrow\quad
+x=6
+$$
+
+Then
+
+$$
+y=24-2(6)=12
+$$
+
+So the maximum area occurs for dimensions $6$ m by $6$ m by $12$ m, with the $12$ m side against the wall.
 :::
 
 ---
-id: "math-derivatives-34"
-note: "math-derivatives"
-title: "Review: Linearization"
-type: "text"
-answer: "The linear approximation of $f(x)$ at $x=a$ is $$ L(x) = f(a) + f'(a)(x-a) $$ This is useful for estimation."
-skills:
-  - "Linearization"
+id: derivatives-44
+note: math-derivatives
+title: "Find a Tangent Line on a Mixed Implicit Curve"
+skills: [Implicit Differentiation, Product Rule, Tangent Lines]
 ---
 
-What is the main idea of **Linearization**?
+For the curve
+
+$$
+x^2+xy+y^2=7,
+$$
+
+find $\frac{dy}{dx}$ and the equation of the tangent line at $(2,1)$.
 
 :::solution
-One short answer is: The linear approximation of $f(x)$ at $x=a$ is $$ L(x) = f(a) + f'(a)(x-a) $$ This is useful for estimation.
-:::
+Differentiate implicitly:
 
----
-id: "math-derivatives-35"
-note: "math-derivatives"
-title: "Review: Differentials"
-type: "text"
-answer: "If $y=f(x)$, then the differential is $$ dy = f'(x)\\,dx $$ For a small change $dx$, the corresponding change in $y$ is approximately $$ \\Delta y \\approx dy $$ Differentials are useful in error estimation and applied mod…"
-skills:
-  - "Differentials"
----
+$$
+2x+\frac{d}{dx}[xy]+2y\frac{dy}{dx}=0
+$$
 
-What is the main idea of **Differentials**?
+Use the product rule on $xy$:
 
-:::solution
-One short answer is: If $y=f(x)$, then the differential is $$ dy = f'(x)\,dx $$ For a small change $dx$, the corresponding change in $y$ is approximately $$ \Delta y \approx dy $$ Differentials are useful in error estimation and applied mod…
-:::
+$$
+2x+y+x\frac{dy}{dx}+2y\frac{dy}{dx}=0
+$$
 
----
-id: "math-derivatives-36"
-note: "math-derivatives"
-title: "Review: Applications of derivatives"
-type: "text"
-answer: "Applications of derivatives"
-skills:
-  - "10. Applications of derivatives"
----
+Group the derivative terms:
 
-What is the main idea of **Applications of derivatives**?
+$$
+(x+2y)\frac{dy}{dx}=-(2x+y)
+$$
 
-:::solution
-One short answer is: Applications of derivatives
-:::
+So
 
----
-id: "math-derivatives-37"
-note: "math-derivatives"
-title: "Review: Increasing and decreasing behavior"
-type: "text"
-answer: "If $f'(x)>0$ on an interval, $f$ is increasing there."
-skills:
-  - "Increasing and decreasing behavior"
----
+$$
+\frac{dy}{dx}=-\frac{2x+y}{x+2y}
+$$
 
-What is the main idea of **Increasing and decreasing behavior**?
+At $(2,1)$,
 
-:::solution
-One short answer is: If $f'(x)>0$ on an interval, $f$ is increasing there.
-:::
+$$
+\frac{dy}{dx}=-\frac{2(2)+1}{2+2(1)}=-\frac{5}{4}
+$$
 
----
-id: "math-derivatives-38"
-note: "math-derivatives"
-title: "Review: Critical points"
-type: "text"
-answer: "$f'(x)=0$, or"
-skills:
-  - "Critical points"
----
+Use point-slope form:
 
-What is the main idea of **Critical points**?
-
-:::solution
-One short answer is: $f'(x)=0$, or
-:::
-
----
-id: "math-derivatives-39"
-note: "math-derivatives"
-title: "Review: First derivative test"
-type: "text"
-answer: "From positive to negative, $f$ has a local maximum"
-skills:
-  - "First derivative test"
----
-
-What is the main idea of **First derivative test**?
-
-:::solution
-One short answer is: From positive to negative, $f$ has a local maximum
-:::
-
----
-id: "math-derivatives-310"
-note: "math-derivatives"
-title: "Review: Second derivative test"
-type: "text"
-answer: "$f''(c)>0$, then $f(c)$ is a local minimum"
-skills:
-  - "Second derivative test"
----
-
-What is the main idea of **Second derivative test**?
-
-:::solution
-One short answer is: $f''(c)>0$, then $f(c)$ is a local minimum
-:::
-
----
-id: "math-derivatives-311"
-note: "math-derivatives"
-title: "Review: Related rates"
-type: "text"
-answer: "If variables are connected by an equation and all depend on time, differentiate with respect to $t$."
-skills:
-  - "Related rates"
----
-
-What is the main idea of **Related rates**?
-
-:::solution
-One short answer is: If variables are connected by an equation and all depend on time, differentiate with respect to $t$.
-:::
-
----
-id: "math-derivatives-312"
-note: "math-derivatives"
-title: "Review: Newton's method"
-type: "text"
-answer: "Derivatives also support numerical root-finding: $$ x {n+1} = x n - \\frac{f(x n)}{f'(x n)} $$ This method works well when the initial guess is reasonable and $f'(x n)\\ne 0$. ---"
-skills:
-  - "Newton's method"
----
-
-What is the main idea of **Newton's method**?
-
-:::solution
-One short answer is: Derivatives also support numerical root-finding: $$ x {n+1} = x n - \frac{f(x n)}{f'(x n)} $$ This method works well when the initial guess is reasonable and $f'(x n)\ne 0$. ---
-:::
-
----
-id: "math-derivatives-41"
-note: "math-derivatives"
-title: "Review: Optimization workflow"
-type: "text"
-answer: "Define the quantity to optimize."
-skills:
-  - "11. Optimization workflow"
----
-
-According to the note, what sequence of steps is recommended in **Optimization workflow**?
-
-:::solution
-One short answer is: Define the quantity to optimize.
-:::
-
----
-id: "math-derivatives-42"
-note: "math-derivatives"
-title: "Review: Example"
-type: "text"
-answer: "Find the maximum value of $$ f(x) = -x^2 + 4x + 1 $$ Differentiate: $$ f'(x) = -2x + 4 $$ Set equal to zero: $$ -2x+4=0 \\Rightarrow x=2 $$ Second derivative: $$ f''(x) = -2"
-skills:
-  - "Example"
----
-
-What is the main idea of **Example**?
-
-:::solution
-One short answer is: Find the maximum value of $$ f(x) = -x^2 + 4x + 1 $$ Differentiate: $$ f'(x) = -2x + 4 $$ Set equal to zero: $$ -2x+4=0 \Rightarrow x=2 $$ Second derivative: $$ f''(x) = -2
-:::
-
----
-id: "math-derivatives-43"
-note: "math-derivatives"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "12. Formula sheet"
----
-
-What core formulas or relations are summarized in **Formula sheet**?
-
-:::solution
-One short answer is: Formula sheet
-:::
-
----
-id: "math-derivatives-44"
-note: "math-derivatives"
-title: "Review: Definition"
-type: "text"
-answer: "$$ f'(x) = \\lim {h \\to 0} \\frac{f(x+h)-f(x)}{h} $$"
-skills:
-  - "Definition"
----
-
-What core idea is introduced in **Definition**?
-
-:::solution
-One short answer is: $$ f'(x) = \lim {h \to 0} \frac{f(x+h)-f(x)}{h} $$
-:::
-
----
-id: "math-derivatives-45"
-note: "math-derivatives"
-title: "Review: Basic rules"
-type: "text"
-answer: "$$ \\frac{d}{dx}[c] = 0 $$ $$ \\frac{d}{dx}[x^n] = nx^{n-1} $$ $$ \\frac{d}{dx}[c f(x)] = c f'(x) $$ $$ \\frac{d}{dx}[f(x)\\pm g(x)] = f'(x)\\pm g'(x) $$ $$ \\frac{d}{dx}[f(x)g(x)] = f'(x)g(x)+f(x)g'(x) $$ $$ \\frac{d}{dx}\\left…"
-skills:
-  - "Basic rules"
----
-
-What is the main idea of **Basic rules**?
-
-:::solution
-One short answer is: $$ \frac{d}{dx}[c] = 0 $$ $$ \frac{d}{dx}[x^n] = nx^{n-1} $$ $$ \frac{d}{dx}[c f(x)] = c f'(x) $$ $$ \frac{d}{dx}[f(x)\pm g(x)] = f'(x)\pm g'(x) $$ $$ \frac{d}{dx}[f(x)g(x)] = f'(x)g(x)+f(x)g'(x) $$ $$ \frac{d}{dx}\left…
-:::
-
----
-id: "math-derivatives-46"
-note: "math-derivatives"
-title: "Review: Chain rule"
-type: "text"
-answer: "$$ \\frac{d}{dx}[f(g(x))] = f'(g(x))g'(x) $$"
-skills:
-  - "Chain rule"
----
-
-What is the main idea of **Chain rule**?
-
-:::solution
-One short answer is: $$ \frac{d}{dx}[f(g(x))] = f'(g(x))g'(x) $$
-:::
-
----
-id: "math-derivatives-47"
-note: "math-derivatives"
-title: "Review: Common functions"
-type: "text"
-answer: "$$ \\frac{d}{dx}[e^x] = e^x $$ $$ \\frac{d}{dx}[a^x] = a^x \\ln a $$ $$ \\frac{d}{dx}[\\ln x] = \\frac{1}{x} $$ $$ \\frac{d}{dx}[\\sin x] = \\cos x $$ $$ \\frac{d}{dx}[\\cos x] = -\\sin x $$ $$ \\frac{d}{dx}[\\tan x] = \\sec^2 x $$ $$…"
-skills:
-  - "Common functions"
----
-
-Name one common mistake the note warns about in **Common functions**.
-
-:::solution
-One short answer is: $$ \frac{d}{dx}[e^x] = e^x $$ $$ \frac{d}{dx}[a^x] = a^x \ln a $$ $$ \frac{d}{dx}[\ln x] = \frac{1}{x} $$ $$ \frac{d}{dx}[\sin x] = \cos x $$ $$ \frac{d}{dx}[\cos x] = -\sin x $$ $$ \frac{d}{dx}[\tan x] = \sec^2 x $$ $$…
-:::
-
----
-id: "math-derivatives-48"
-note: "math-derivatives"
-title: "Review: Linearization"
-type: "text"
-answer: "$$ L(x) = f(a) + f'(a)(x-a) $$"
-skills:
-  - "Linearization"
----
-
-What is the main idea of **Linearization**?
-
-:::solution
-One short answer is: $$ L(x) = f(a) + f'(a)(x-a) $$
-:::
-
----
-id: "math-derivatives-49"
-note: "math-derivatives"
-title: "Review: Differential"
-type: "text"
-answer: "$$ dy = f'(x)\\,dx $$"
-skills:
-  - "Differential"
----
-
-What is the main idea of **Differential**?
-
-:::solution
-One short answer is: $$ dy = f'(x)\,dx $$
-:::
-
----
-id: "math-derivatives-410"
-note: "math-derivatives"
-title: "Review: Newton's method"
-type: "text"
-answer: "$$ x {n+1} = x n - \\frac{f(x n)}{f'(x n)} $$ ---"
-skills:
-  - "Newton's method"
----
-
-What is the main idea of **Newton's method**?
-
-:::solution
-One short answer is: $$ x {n+1} = x n - \frac{f(x n)}{f'(x n)} $$ ---
-:::
-
----
-id: "math-derivatives-411"
-note: "math-derivatives"
-title: "Review: Common mistakes to avoid"
-type: "text"
-answer: "Treating the derivative as an average rate of change instead of a limit-based instantaneous rate."
-skills:
-  - "Common mistakes to avoid"
----
-
-Name one common mistake the note warns about in **Common mistakes to avoid**.
-
-:::solution
-One short answer is: Treating the derivative as an average rate of change instead of a limit-based instantaneous rate.
+$$
+y-1=-\frac{5}{4}(x-2)
+$$
 :::

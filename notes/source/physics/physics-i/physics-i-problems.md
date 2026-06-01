@@ -1,1199 +1,816 @@
 ---
-id: "physics-physics-i-11"
-note: "physics-physics-i"
-title: "Review: What Physics I covers"
-type: "text"
-answer: "Kinematics: describing motion without explaining its cause"
-skills:
-  - "What Physics I covers"
+id: physics-i-11
+note: physics-physics-i
+title: "Identify the SI Unit of Torque"
+skills: [Units]
 ---
 
-What core idea is introduced in **What Physics I covers**?
+What is the SI unit of torque?
 
 :::solution
-One short answer is: Kinematics: describing motion without explaining its cause
-:::
-
----
-id: "physics-physics-i-12"
-note: "physics-physics-i"
-title: "Review: Units, vectors, and notation"
-type: "text"
-answer: "Units, vectors, and notation"
-skills:
-  - "Units, vectors, and notation"
----
+Torque is force times distance, so its SI unit is
 
-What core idea is introduced in **Units, vectors, and notation**?
+$$
+\text{N} \cdot \text{m}
+$$
 
-:::solution
-One short answer is: Units, vectors, and notation
+This is equivalent to newton-meter.
 :::
 
 ---
-id: "physics-physics-i-13"
-note: "physics-physics-i"
-title: "Review: SI base quantities"
-type: "text"
-answer: "Quantity Symbol SI unit --- --- --- Length $x, y, r$ m Mass $m$ kg Time $t$ s Velocity $\\vec v$ m/s Acceleration $\\vec a$ m/s$^2$ Force $\\vec F$ N = kg m/s$^2$ Work / energy $W, E$ J = N m Power $P$ W = J/s Momentum $\\v…"
-skills:
-  - "SI base quantities"
+id: physics-i-12
+note: physics-physics-i
+title: "Classify Acceleration as a Scalar or Vector"
+skills: [Scalars and vectors]
 ---
 
-What is the main idea of **SI base quantities**?
+Is acceleration a scalar or a vector?
 
 :::solution
-One short answer is: Quantity Symbol SI unit --- --- --- Length $x, y, r$ m Mass $m$ kg Time $t$ s Velocity $\vec v$ m/s Acceleration $\vec a$ m/s$^2$ Force $\vec F$ N = kg m/s$^2$ Work / energy $W, E$ J = N m Power $P$ W = J/s Momentum $\v…
+Acceleration is a vector because it has both magnitude and direction.
+
+So the correct classification is **vector**.
 :::
 
 ---
-id: "physics-physics-i-14"
-note: "physics-physics-i"
-title: "Review: Scalars and vectors"
-type: "text"
-answer: "A scalar has magnitude only: mass, time, temperature, energy."
-skills:
-  - "Scalars and vectors"
+id: physics-i-13
+note: physics-physics-i
+title: "Compute Average Velocity"
+skills: [Kinematics]
 ---
 
-What is the main idea of **Scalars and vectors**?
+A cyclist moves from $x = 15$ m to $x = 87$ m in $12$ s. What is the average velocity?
 
 :::solution
-One short answer is: A scalar has magnitude only: mass, time, temperature, energy.
-:::
-
----
-id: "physics-physics-i-15"
-note: "physics-physics-i"
-title: "Review: Coordinate choice"
-type: "text"
-answer: "Positive $x$ to the right"
-skills:
-  - "Coordinate choice"
----
+Use average velocity:
 
-What is the main idea of **Coordinate choice**?
+$$
+\bar v = \frac{\Delta x}{\Delta t}
+$$
 
-:::solution
-One short answer is: Positive $x$ to the right
-:::
+The displacement is
 
----
-id: "physics-physics-i-16"
-note: "physics-physics-i"
-title: "Review: One-dimensional kinematics"
-type: "text"
-answer: "Kinematics describes motion in terms of position, velocity, and acceleration."
-skills:
-  - "One-dimensional kinematics"
----
+$$
+\Delta x = 87 - 15 = 72 \text{ m}
+$$
 
-What is the main idea of **One-dimensional kinematics**?
+So
 
-:::solution
-One short answer is: Kinematics describes motion in terms of position, velocity, and acceleration.
+$$
+\bar v = \frac{72}{12} = 6 \text{ m/s}
+$$
 :::
 
 ---
-id: "physics-physics-i-17"
-note: "physics-physics-i"
-title: "Review: Definitions"
-type: "text"
-answer: "Displacement: $$ \\Delta x = x f - x i $$ Average velocity: $$ \\bar v = \\frac{\\Delta x}{\\Delta t} $$ Instantaneous velocity: $$ v = \\frac{dx}{dt} $$ Average acceleration: $$ \\bar a = \\frac{\\Delta v}{\\Delta t} $$ Instanta…"
-skills:
-  - "Definitions"
+id: physics-i-14
+note: physics-physics-i
+title: "Find Final Velocity with Constant Acceleration"
+skills: [Kinematics]
 ---
 
-What core idea is introduced in **Definitions**?
+An object starts with velocity $2$ m/s and accelerates at $3$ m/s$^2$ for $4$ s. What is its final velocity?
 
 :::solution
-One short answer is: Displacement: $$ \Delta x = x f - x i $$ Average velocity: $$ \bar v = \frac{\Delta x}{\Delta t} $$ Instantaneous velocity: $$ v = \frac{dx}{dt} $$ Average acceleration: $$ \bar a = \frac{\Delta v}{\Delta t} $$ Instanta…
-:::
+Use the constant-acceleration equation:
 
----
-id: "physics-physics-i-18"
-note: "physics-physics-i"
-title: "Review: Constant-acceleration equations"
-type: "text"
-answer: "If acceleration is constant, the following equations apply: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \\frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x-x 0) $$ $$ x - x 0 = \\frac{(v 0 + v)}{2}t $$ These are valid only when acceler…"
-skills:
-  - "Constant-acceleration equations"
----
+$$
+v = v_0 + at
+$$
 
-What is the main idea of **Constant-acceleration equations**?
+Substitute the values:
 
-:::solution
-One short answer is: If acceleration is constant, the following equations apply: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x-x 0) $$ $$ x - x 0 = \frac{(v 0 + v)}{2}t $$ These are valid only when acceler…
+$$
+v = 2 + 3(4) = 14 \text{ m/s}
+$$
 :::
 
 ---
-id: "physics-physics-i-19"
-note: "physics-physics-i"
-title: "Review: Interpretation tips"
-type: "text"
-answer: "Velocity is the slope of the position-time graph."
-skills:
-  - "Interpretation tips"
+id: physics-i-15
+note: physics-physics-i
+title: "Find Position Under Constant Acceleration"
+skills: [Kinematics]
 ---
 
-What is the main idea of **Interpretation tips**?
+An object starts at $x_0 = -3$ m with velocity $5$ m/s and acceleration $-2$ m/s$^2$. Where is it after $3$ s?
 
 :::solution
-One short answer is: Velocity is the slope of the position-time graph.
-:::
+Use
 
----
-id: "physics-physics-i-110"
-note: "physics-physics-i"
-title: "Review: Free-fall as a special case"
-type: "text"
-answer: "Near Earth, the acceleration from gravity is approximately constant: $$ a = -g \\approx -9.8\\ \\text{m/s}^2 $$ if upward is positive. ---"
-skills:
-  - "Free-fall as a special case"
----
+$$
+x = x_0 + v_0 t + \frac{1}{2}at^2
+$$
 
-What is the main idea of **Free-fall as a special case**?
+Substitute the values:
 
-:::solution
-One short answer is: Near Earth, the acceleration from gravity is approximately constant: $$ a = -g \approx -9.8\ \text{m/s}^2 $$ if upward is positive. ---
+$$
+x = -3 + 5(3) + \frac{1}{2}(-2)(3^2)
+$$
+
+$$
+x = -3 + 15 - 9 = 3 \text{ m}
+$$
 :::
 
 ---
-id: "physics-physics-i-111"
-note: "physics-physics-i"
-title: "Review: Two-dimensional motion and projectiles"
-type: "text"
-answer: "In two dimensions, motion is analyzed independently along perpendicular axes."
-skills:
-  - "Two-dimensional motion and projectiles"
+id: physics-i-16
+note: physics-physics-i
+title: "Resolve a Vector into Components"
+skills: [Vectors, Two-dimensional motion]
 ---
 
-What is the main idea of **Two-dimensional motion and projectiles**?
+A force of $20$ N acts at an angle of $60^\circ$ above the positive $x$-axis. Find its $x$- and $y$-components.
 
 :::solution
-One short answer is: In two dimensions, motion is analyzed independently along perpendicular axes.
-:::
-
----
-id: "physics-physics-i-112"
-note: "physics-physics-i"
-title: "Review: Component method"
-type: "text"
-answer: "For a vector $\\vec v$ at angle $\\theta$ above the positive $x$-axis: $$ v x = v \\cos \\theta, \\qquad v y = v \\sin \\theta $$ Reconstruct the magnitude and direction from components: $$ v = \\sqrt{v x^2 + v y^2} $$ $$ \\thet…"
-skills:
-  - "Component method"
----
+Use component formulas:
 
-What is the main idea of **Component method**?
+$$
+F_x = F\cos\theta, \qquad F_y = F\sin\theta
+$$
 
-:::solution
-One short answer is: For a vector $\vec v$ at angle $\theta$ above the positive $x$-axis: $$ v x = v \cos \theta, \qquad v y = v \sin \theta $$ Reconstruct the magnitude and direction from components: $$ v = \sqrt{v x^2 + v y^2} $$ $$ \thet…
-:::
+So
 
----
-id: "physics-physics-i-113"
-note: "physics-physics-i"
-title: "Review: Projectile motion"
-type: "text"
-answer: "For ideal projectile motion, neglect air resistance. The only acceleration is gravity. Horizontal motion: $$ a x = 0,\\qquad v x = \\text{constant} $$ Vertical motion: $$ a y = -g $$"
-skills:
-  - "Projectile motion"
----
+$$
+F_x = 20\cos 60^\circ = 10 \text{ N}
+$$
 
-What is the main idea of **Projectile motion**?
+and
 
-:::solution
-One short answer is: For ideal projectile motion, neglect air resistance. The only acceleration is gravity. Horizontal motion: $$ a x = 0,\qquad v x = \text{constant} $$ Vertical motion: $$ a y = -g $$
+$$
+F_y = 20\sin 60^\circ \approx 17.3 \text{ N}
+$$
 :::
 
 ---
-id: "physics-physics-i-114"
-note: "physics-physics-i"
-title: "Review: Useful projectile results"
-type: "text"
-answer: "If a projectile is launched from and lands at the same height: Time of flight: $$ T = \\frac{2v 0 \\sin\\theta}{g} $$ Maximum height: $$ H = \\frac{v 0^2 \\sin^2\\theta}{2g} $$ Range: $$ R = \\frac{v 0^2 \\sin 2\\theta}{g} $$"
-skills:
-  - "Useful projectile results"
+id: physics-i-17
+note: physics-physics-i
+title: "State the Acceleration of Free Fall"
+skills: [Free fall]
 ---
 
-What is the main idea of **Useful projectile results**?
+If upward is positive, what is the acceleration of a dropped object near Earth?
 
 :::solution
-One short answer is: If a projectile is launched from and lands at the same height: Time of flight: $$ T = \frac{2v 0 \sin\theta}{g} $$ Maximum height: $$ H = \frac{v 0^2 \sin^2\theta}{2g} $$ Range: $$ R = \frac{v 0^2 \sin 2\theta}{g} $$
-:::
-
----
-id: "physics-physics-i-115"
-note: "physics-physics-i"
-title: "Review: Common mistake"
-type: "text"
-answer: "Do not use the magnitude of velocity in every equation. The $x$ and $y$ components evolve differently, and they must be solved separately. ---"
-skills:
-  - "Common mistake"
----
+Near Earth's surface, free-fall acceleration is approximately constant:
 
-Name one common mistake the note warns about in **Common mistake**.
+$$
+a = -g \approx -9.8 \text{ m/s}^2
+$$
 
-:::solution
-One short answer is: Do not use the magnitude of velocity in every equation. The $x$ and $y$ components evolve differently, and they must be solved separately. ---
+The negative sign appears because the acceleration points downward.
 :::
 
 ---
-id: "physics-physics-i-116"
-note: "physics-physics-i"
-title: "Review: Newton's laws and free-body diagrams"
-type: "text"
-answer: "Newton's laws connect forces and motion."
-skills:
-  - "Newton's laws and free-body diagrams"
+id: physics-i-18
+note: physics-physics-i
+title: "Use Newton's Second Law"
+skills: [Newton's laws]
 ---
 
-What is the main idea of **Newton's laws and free-body diagrams**?
+A $6$ kg cart has a net horizontal force of $18$ N acting on it. What is its acceleration?
 
 :::solution
-One short answer is: Newton's laws connect forces and motion.
-:::
+Apply Newton's second law:
 
----
-id: "physics-physics-i-117"
-note: "physics-physics-i"
-title: "Review: Newton's laws"
-type: "text"
-answer: "Inertia: if the net force is zero, velocity is constant."
-skills:
-  - "Newton's laws"
----
+$$
+\sum F = ma
+$$
 
-What is the main idea of **Newton's laws**?
+So
 
-:::solution
-One short answer is: Inertia: if the net force is zero, velocity is constant.
+$$
+a = \frac{F}{m} = \frac{18}{6} = 3 \text{ m/s}^2
+$$
 :::
 
 ---
-id: "physics-physics-i-118"
-note: "physics-physics-i"
-title: "Review: Free-body diagram workflow"
-type: "text"
-answer: "Isolate the object."
-skills:
-  - "Free-body diagram workflow"
+id: physics-i-19
+note: physics-physics-i
+title: "Find the Weight of an Object"
+skills: [Weight, Common forces]
 ---
 
-According to the note, what sequence of steps is recommended in **Free-body diagram workflow**?
+What is the weight of a $12$ kg object near Earth's surface?
 
 :::solution
-One short answer is: Isolate the object.
-:::
+Weight is
 
----
-id: "physics-physics-i-119"
-note: "physics-physics-i"
-title: "Review: Common errors"
-type: "text"
-answer: "Including forces the object exerts on other bodies"
-skills:
-  - "Common errors"
----
+$$
+W = mg
+$$
 
-Name one common mistake the note warns about in **Common errors**.
+So
 
-:::solution
-One short answer is: Including forces the object exerts on other bodies
+$$
+W = 12(9.8) = 117.6 \text{ N}
+$$
+
+The force points downward.
 :::
 
 ---
-id: "physics-physics-i-21"
-note: "physics-physics-i"
-title: "Review: Common forces"
-type: "text"
-answer: "Common forces"
-skills:
-  - "Common forces"
+id: physics-i-110
+note: physics-physics-i
+title: "Compute Average Power"
+skills: [Power, Work and energy]
 ---
 
-Name one common mistake the note warns about in **Common forces**.
+A machine does $450$ J of work in $15$ s. What is its average power?
 
 :::solution
-One short answer is: Common forces
-:::
+Use average power:
 
----
-id: "physics-physics-i-22"
-note: "physics-physics-i"
-title: "Review: Weight"
-type: "text"
-answer: "The gravitational force near Earth is: $$ \\vec W = m\\vec g $$ Magnitude: $$ W = mg $$"
-skills:
-  - "Weight"
----
+$$
+\bar P = \frac{W}{\Delta t}
+$$
 
-What is the main idea of **Weight**?
+So
 
-:::solution
-One short answer is: The gravitational force near Earth is: $$ \vec W = m\vec g $$ Magnitude: $$ W = mg $$
+$$
+\bar P = \frac{450}{15} = 30 \text{ W}
+$$
 :::
 
 ---
-id: "physics-physics-i-23"
-note: "physics-physics-i"
-title: "Review: Normal force"
-type: "text"
-answer: "On a horizontal surface with no vertical acceleration, $N = mg$"
-skills:
-  - "Normal force"
+id: physics-i-21
+note: physics-physics-i
+title: "Find the Time of Flight for a Projectile"
+skills: [Projectile motion, Kinematics]
 ---
 
-What is the main idea of **Normal force**?
+A ball is launched at $20$ m/s at an angle of $30^\circ$ above the horizontal and lands at the same height. How long is it in the air?
 
 :::solution
-One short answer is: On a horizontal surface with no vertical acceleration, $N = mg$
-:::
-
----
-id: "physics-physics-i-24"
-note: "physics-physics-i"
-title: "Review: Tension"
-type: "text"
-answer: "Rope is massless"
-skills:
-  - "Tension"
----
+The vertical component of the launch velocity is
 
-What is the main idea of **Tension**?
+$$
+v_{0y} = 20\sin 30^\circ = 10 \text{ m/s}
+$$
 
-:::solution
-One short answer is: Rope is massless
-:::
+For a projectile that lands at the same height,
 
----
-id: "physics-physics-i-25"
-note: "physics-physics-i"
-title: "Review: Friction"
-type: "text"
-answer: "Static friction: $$ f s \\le \\mu s N $$ Kinetic friction: $$ f k = \\mu k N $$ Friction opposes relative motion or impending motion between surfaces."
-skills:
-  - "Friction"
----
+$$
+T = \frac{2v_{0y}}{g}
+$$
 
-What is the main idea of **Friction**?
+So
 
-:::solution
-One short answer is: Static friction: $$ f s \le \mu s N $$ Kinetic friction: $$ f k = \mu k N $$ Friction opposes relative motion or impending motion between surfaces.
+$$
+T = \frac{2(10)}{9.8} \approx 2.04 \text{ s}
+$$
 :::
 
 ---
-id: "physics-physics-i-26"
-note: "physics-physics-i"
-title: "Review: Springs"
-type: "text"
-answer: "Hooke's law: $$ F s = -kx $$ Here $k$ is the spring constant and $x$ is displacement from equilibrium. The minus sign indicates a restoring force. ---"
-skills:
-  - "Springs"
+id: physics-i-22
+note: physics-physics-i
+title: "Find Acceleration with Kinetic Friction"
+skills: [Friction, Newton's laws]
 ---
 
-What is the main idea of **Springs**?
+A $5$ kg block slides on a horizontal floor. It is pulled horizontally by an $18$ N force, and the coefficient of kinetic friction is $0.20$. What is the block's acceleration?
 
 :::solution
-One short answer is: Hooke's law: $$ F s = -kx $$ Here $k$ is the spring constant and $x$ is displacement from equilibrium. The minus sign indicates a restoring force. ---
-:::
+Because the pull is horizontal, the normal force is
 
----
-id: "physics-physics-i-27"
-note: "physics-physics-i"
-title: "Review: Work, energy, and power"
-type: "text"
-answer: "Energy methods are often simpler than direct force analysis when the question concerns speed, height, or turning points."
-skills:
-  - "Work, energy, and power"
----
+$$
+N = mg = 5(9.8) = 49 \text{ N}
+$$
 
-What is the main idea of **Work, energy, and power**?
+Kinetic friction is
 
-:::solution
-One short answer is: Energy methods are often simpler than direct force analysis when the question concerns speed, height, or turning points.
-:::
+$$
+f_k = \mu_k N = 0.20(49) = 9.8 \text{ N}
+$$
 
----
-id: "physics-physics-i-28"
-note: "physics-physics-i"
-title: "Review: Work"
-type: "text"
-answer: "Work done by a constant force: $$ W = \\vec F \\cdot \\vec d = Fd\\cos\\theta $$ For a variable force: $$ W = \\int \\vec F \\cdot d\\vec r $$"
-skills:
-  - "Work"
----
+The net horizontal force is
 
-What is the main idea of **Work**?
+$$
+F_{net} = 18 - 9.8 = 8.2 \text{ N}
+$$
 
-:::solution
-One short answer is: Work done by a constant force: $$ W = \vec F \cdot \vec d = Fd\cos\theta $$ For a variable force: $$ W = \int \vec F \cdot d\vec r $$
+So the acceleration is
+
+$$
+a = \frac{F_{net}}{m} = \frac{8.2}{5} = 1.64 \text{ m/s}^2
+$$
 :::
 
 ---
-id: "physics-physics-i-29"
-note: "physics-physics-i"
-title: "Review: Kinetic energy"
-type: "text"
-answer: "$$ K = \\frac{1}{2}mv^2 $$"
-skills:
-  - "Kinetic energy"
+id: physics-i-23
+note: physics-physics-i
+title: "Use Energy to Find a Spring Speed"
+skills: [Work and energy, Springs]
 ---
 
-What is the main idea of **Kinetic energy**?
+A $0.50$ kg block is attached to a spring with $k = 200$ N/m. The spring is compressed $0.10$ m and the surface is frictionless. What is the block's speed when the spring returns to equilibrium?
 
 :::solution
-One short answer is: $$ K = \frac{1}{2}mv^2 $$
-:::
+Use conservation of mechanical energy:
 
----
-id: "physics-physics-i-210"
-note: "physics-physics-i"
-title: "Review: Work-energy theorem"
-type: "text"
-answer: "Net work changes kinetic energy: $$ W {net} = \\Delta K $$"
-skills:
-  - "Work-energy theorem"
----
+$$
+\frac{1}{2}kx^2 = \frac{1}{2}mv^2
+$$
 
-What is the main idea of **Work-energy theorem**?
+Substitute the values:
 
-:::solution
-One short answer is: Net work changes kinetic energy: $$ W {net} = \Delta K $$
-:::
+$$
+\frac{1}{2}(200)(0.10)^2 = \frac{1}{2}(0.50)v^2
+$$
 
----
-id: "physics-physics-i-211"
-note: "physics-physics-i"
-title: "Review: Potential energy"
-type: "text"
-answer: "Gravitational near Earth: $$ U g = mgh $$ Spring potential: $$ U s = \\frac{1}{2}kx^2 $$"
-skills:
-  - "Potential energy"
----
+The left side is $1.0$ J, so
 
-What is the main idea of **Potential energy**?
+$$
+1.0 = 0.25v^2
+$$
 
-:::solution
-One short answer is: Gravitational near Earth: $$ U g = mgh $$ Spring potential: $$ U s = \frac{1}{2}kx^2 $$
+$$
+v^2 = 4
+$$
+
+$$
+v = 2.0 \text{ m/s}
+$$
 :::
 
 ---
-id: "physics-physics-i-212"
-note: "physics-physics-i"
-title: "Review: Conservation of mechanical energy"
-type: "text"
-answer: "If only conservative forces act: $$ K i + U i = K f + U f $$ If nonconservative forces do work: $$ K i + U i + W {nc} = K f + U f $$"
-skills:
-  - "Conservation of mechanical energy"
+id: physics-i-24
+note: physics-physics-i
+title: "Find the Final Speed in a Perfectly Inelastic Collision"
+skills: [Momentum, Collisions]
 ---
 
-What is the main idea of **Conservation of mechanical energy**?
+A $2$ kg cart moving $3$ m/s east sticks to a $4$ kg cart at rest. What is the final velocity of the combined carts?
 
 :::solution
-One short answer is: If only conservative forces act: $$ K i + U i = K f + U f $$ If nonconservative forces do work: $$ K i + U i + W {nc} = K f + U f $$
-:::
+Use conservation of momentum:
 
----
-id: "physics-physics-i-213"
-note: "physics-physics-i"
-title: "Review: Power"
-type: "text"
-answer: "Average power: $$ \\bar P = \\frac{W}{\\Delta t} $$ Instantaneous power: $$ P = \\frac{dW}{dt} = \\vec F \\cdot \\vec v $$"
-skills:
-  - "Power"
----
+$$
+m_1v_{1i} + m_2v_{2i} = (m_1+m_2)v_f
+$$
 
-What is the main idea of **Power**?
+Substitute:
 
-:::solution
-One short answer is: Average power: $$ \bar P = \frac{W}{\Delta t} $$ Instantaneous power: $$ P = \frac{dW}{dt} = \vec F \cdot \vec v $$
-:::
+$$
+(2)(3) + (4)(0) = 6v_f
+$$
 
----
-id: "physics-physics-i-214"
-note: "physics-physics-i"
-title: "Review: When to use energy"
-type: "text"
-answer: "You want speed after moving through a height change"
-skills:
-  - "When to use energy"
----
+$$
+6 = 6v_f
+$$
 
-What is the main idea of **When to use energy**?
+$$
+v_f = 1 \text{ m/s}
+$$
 
-:::solution
-One short answer is: You want speed after moving through a height change
+The direction is east.
 :::
 
 ---
-id: "physics-physics-i-215"
-note: "physics-physics-i"
-title: "Review: Momentum, impulse, and collisions"
-type: "text"
-answer: "Momentum is the quantity most useful when forces act over short times or when bodies collide."
-skills:
-  - "Momentum, impulse, and collisions"
+id: physics-i-25
+note: physics-physics-i
+title: "Find Angular Acceleration from Torque"
+skills: [Torque, Rotational dynamics]
 ---
 
-What is the main idea of **Momentum, impulse, and collisions**?
+A force of $12$ N is applied perpendicular to a wrench that is $0.40$ m long. If the moment of inertia about the rotation axis is $0.80$ kg m$^2$, what is the angular acceleration?
 
 :::solution
-One short answer is: Momentum is the quantity most useful when forces act over short times or when bodies collide.
-:::
-
----
-id: "physics-physics-i-216"
-note: "physics-physics-i"
-title: "Review: Momentum"
-type: "text"
-answer: "$$ \\vec p = m\\vec v $$"
-skills:
-  - "Momentum"
----
+First find the torque:
 
-What is the main idea of **Momentum**?
+$$
+\tau = rF = 0.40(12) = 4.8 \text{ N m}
+$$
 
-:::solution
-One short answer is: $$ \vec p = m\vec v $$
-:::
+Then use rotational dynamics:
 
----
-id: "physics-physics-i-217"
-note: "physics-physics-i"
-title: "Review: Impulse"
-type: "text"
-answer: "Impulse is force integrated over time: $$ \\vec J = \\int \\vec F\\,dt $$ For constant force: $$ \\vec J = \\vec F\\Delta t $$ Impulse-momentum theorem: $$ \\vec J = \\Delta \\vec p $$"
-skills:
-  - "Impulse"
----
+$$
+\sum \tau = I\alpha
+$$
 
-What is the main idea of **Impulse**?
+So
 
-:::solution
-One short answer is: Impulse is force integrated over time: $$ \vec J = \int \vec F\,dt $$ For constant force: $$ \vec J = \vec F\Delta t $$ Impulse-momentum theorem: $$ \vec J = \Delta \vec p $$
+$$
+\alpha = \frac{\tau}{I} = \frac{4.8}{0.80} = 6 \text{ rad/s}^2
+$$
 :::
 
 ---
-id: "physics-physics-i-218"
-note: "physics-physics-i"
-title: "Review: Conservation of momentum"
-type: "text"
-answer: "If the net external impulse on a system is zero: $$ \\vec p i = \\vec p f $$ This is especially useful in explosions and collisions."
-skills:
-  - "Conservation of momentum"
+id: physics-i-26
+note: physics-physics-i
+title: "Find the Centripetal Force"
+skills: [Circular motion, Centripetal force]
 ---
 
-What is the main idea of **Conservation of momentum**?
+A $0.50$ kg stone tied to a string of radius $2.0$ m moves in a circle at $6.0$ m/s. What inward force is required?
 
 :::solution
-One short answer is: If the net external impulse on a system is zero: $$ \vec p i = \vec p f $$ This is especially useful in explosions and collisions.
-:::
-
----
-id: "physics-physics-i-219"
-note: "physics-physics-i"
-title: "Review: Collision types"
-type: "text"
-answer: "Elastic: momentum and kinetic energy are both conserved"
-skills:
-  - "Collision types"
----
+Use the centripetal-force formula:
 
-What is the main idea of **Collision types**?
+$$
+F_c = \frac{mv^2}{r}
+$$
 
-:::solution
-One short answer is: Elastic: momentum and kinetic energy are both conserved
-:::
+Substitute:
 
----
-id: "physics-physics-i-31"
-note: "physics-physics-i"
-title: "Review: One-dimensional perfectly inelastic collision"
-type: "text"
-answer: "If two masses stick together: $$ m 1 v {1i} + m 2 v {2i} = (m 1 + m 2)v f $$"
-skills:
-  - "One-dimensional perfectly inelastic collision"
----
+$$
+F_c = \frac{(0.50)(6.0^2)}{2.0}
+$$
 
-What is the main idea of **One-dimensional perfectly inelastic collision**?
+$$
+F_c = \frac{(0.50)(36)}{2.0} = 9 \text{ N}
+$$
 
-:::solution
-One short answer is: If two masses stick together: $$ m 1 v {1i} + m 2 v {2i} = (m 1 + m 2)v f $$
+The force must point inward, toward the center of the circle.
 :::
 
 ---
-id: "physics-physics-i-32"
-note: "physics-physics-i"
-title: "Review: Common mistake"
-type: "text"
-answer: "Momentum is a vector. Conservation must be applied separately in each direction. ---"
-skills:
-  - "Common mistake"
+id: physics-i-27
+note: physics-physics-i
+title: "Find the Period of a Mass-Spring System"
+skills: [Simple harmonic motion, Springs]
 ---
 
-Name one common mistake the note warns about in **Common mistake**.
+A $0.80$ kg mass is attached to a spring with $k = 50$ N/m. What is the period of the oscillation?
 
 :::solution
-One short answer is: Momentum is a vector. Conservation must be applied separately in each direction. ---
-:::
+For a mass-spring system,
 
----
-id: "physics-physics-i-33"
-note: "physics-physics-i"
-title: "Review: Rotation and torque"
-type: "text"
-answer: "Rotational motion is the angular analogue of linear motion."
-skills:
-  - "Rotation and torque"
----
+$$
+T = 2\pi\sqrt{\frac{m}{k}}
+$$
 
-What is the main idea of **Rotation and torque**?
+Substitute the values:
 
-:::solution
-One short answer is: Rotational motion is the angular analogue of linear motion.
+$$
+T = 2\pi\sqrt{\frac{0.80}{50}}
+$$
+
+$$
+T \approx 2\pi(0.126) \approx 0.79 \text{ s}
+$$
 :::
 
 ---
-id: "physics-physics-i-34"
-note: "physics-physics-i"
-title: "Review: Angular variables"
-type: "text"
-answer: "Angular displacement: $$ \\theta $$ Angular velocity: $$ \\omega = \\frac{d\\theta}{dt} $$ Angular acceleration: $$ \\alpha = \\frac{d\\omega}{dt} $$ For constant angular acceleration: $$ \\omega = \\omega 0 + \\alpha t $$ $$ \\th…"
-skills:
-  - "Angular variables"
+id: physics-i-28
+note: physics-physics-i
+title: "Find the Center of Mass on a Line"
+skills: [Center of mass, Statics]
 ---
 
-What is the main idea of **Angular variables**?
+Two masses lie on the $x$-axis: a $2$ kg mass at $x = 0$ m and a $6$ kg mass at $x = 4$ m. Where is the center of mass?
 
 :::solution
-One short answer is: Angular displacement: $$ \theta $$ Angular velocity: $$ \omega = \frac{d\theta}{dt} $$ Angular acceleration: $$ \alpha = \frac{d\omega}{dt} $$ For constant angular acceleration: $$ \omega = \omega 0 + \alpha t $$ $$ \th…
-:::
+Use the one-dimensional center-of-mass formula:
 
----
-id: "physics-physics-i-35"
-note: "physics-physics-i"
-title: "Review: Link between linear and angular motion"
-type: "text"
-answer: "For a point at radius $r$: $$ s = r\\theta $$ $$ v = r\\omega $$ $$ a t = r\\alpha $$ $$ a c = \\frac{v^2}{r} = r\\omega^2 $$"
-skills:
-  - "Link between linear and angular motion"
----
+$$
+x_{cm} = \frac{\sum m_i x_i}{\sum m_i}
+$$
 
-What is the main idea of **Link between linear and angular motion**?
+So
 
-:::solution
-One short answer is: For a point at radius $r$: $$ s = r\theta $$ $$ v = r\omega $$ $$ a t = r\alpha $$ $$ a c = \frac{v^2}{r} = r\omega^2 $$
+$$
+x_{cm} = \frac{(2)(0) + (6)(4)}{2+6}
+$$
+
+$$
+x_{cm} = \frac{24}{8} = 3 \text{ m}
+$$
 :::
 
 ---
-id: "physics-physics-i-36"
-note: "physics-physics-i"
-title: "Review: Torque"
-type: "text"
-answer: "Torque measures the tendency of a force to cause rotation: $$ \\vec \\tau = \\vec r \\times \\vec F $$ Magnitude: $$ \\tau = rF\\sin\\phi $$ where $\\phi$ is the angle between $\\vec r$ and $\\vec F$."
-skills:
-  - "Torque"
+id: physics-i-31
+note: physics-physics-i
+title: "Find How Far a Horizontal Projectile Travels"
+skills: [Projectile motion, Kinematics]
 ---
 
-What is the main idea of **Torque**?
+A ball is launched horizontally at $14$ m/s from a cliff that is $20$ m high. How far from the base of the cliff does it land?
 
 :::solution
-One short answer is: Torque measures the tendency of a force to cause rotation: $$ \vec \tau = \vec r \times \vec F $$ Magnitude: $$ \tau = rF\sin\phi $$ where $\phi$ is the angle between $\vec r$ and $\vec F$.
-:::
+First find the time to fall $20$ m vertically:
 
----
-id: "physics-physics-i-37"
-note: "physics-physics-i"
-title: "Review: Rotational dynamics"
-type: "text"
-answer: "For a rigid body about a fixed axis: $$ \\sum \\tau = I\\alpha $$ Here $I$ is the moment of inertia."
-skills:
-  - "Rotational dynamics"
----
+$$
+20 = \frac{1}{2}gt^2
+$$
 
-What is the main idea of **Rotational dynamics**?
-
-:::solution
-One short answer is: For a rigid body about a fixed axis: $$ \sum \tau = I\alpha $$ Here $I$ is the moment of inertia.
-:::
+So
 
----
-id: "physics-physics-i-38"
-note: "physics-physics-i"
-title: "Review: Rotational kinetic energy"
-type: "text"
-answer: "$$ K {rot} = \\frac{1}{2}I\\omega^2 $$"
-skills:
-  - "Rotational kinetic energy"
----
+$$
+t = \sqrt{\frac{40}{9.8}} \approx 2.02 \text{ s}
+$$
 
-What is the main idea of **Rotational kinetic energy**?
+Horizontal speed stays constant, so
 
-:::solution
-One short answer is: $$ K {rot} = \frac{1}{2}I\omega^2 $$
+$$
+x = v_xt = 14(2.02) \approx 28.3 \text{ m}
+$$
 :::
 
 ---
-id: "physics-physics-i-39"
-note: "physics-physics-i"
-title: "Review: Rolling without slipping"
-type: "text"
-answer: "Condition: $$ v = r\\omega $$ Rolling problems often combine translation, rotation, and energy. ---"
-skills:
-  - "Rolling without slipping"
+id: physics-i-32
+note: physics-physics-i
+title: "Find Acceleration for a Pulled Block on a Rough Surface"
+skills: [Free-body diagrams, Friction, Newton's laws]
 ---
 
-What is the main idea of **Rolling without slipping**?
+A $10$ kg crate is pulled by a $40$ N force at an angle of $25^\circ$ above the horizontal. The coefficient of kinetic friction is $0.30$. What is the crate's acceleration?
 
 :::solution
-One short answer is: Condition: $$ v = r\omega $$ Rolling problems often combine translation, rotation, and energy. ---
-:::
+Resolve the pulling force into components:
 
----
-id: "physics-physics-i-310"
-note: "physics-physics-i"
-title: "Review: Gravity and circular motion"
-type: "text"
-answer: "Gravity and circular motion"
-skills:
-  - "Gravity and circular motion"
----
+$$
+F_x = 40\cos 25^\circ \approx 36.3 \text{ N}
+$$
 
-What is the main idea of **Gravity and circular motion**?
+$$
+F_y = 40\sin 25^\circ \approx 16.9 \text{ N}
+$$
 
-:::solution
-One short answer is: Gravity and circular motion
-:::
+The upward component reduces the normal force:
 
----
-id: "physics-physics-i-311"
-note: "physics-physics-i"
-title: "Review: Universal gravitation"
-type: "text"
-answer: "Newton's law of gravitation: $$ F = G\\frac{m 1 m 2}{r^2} $$ Near Earth's surface: $$ g = G\\frac{M E}{R E^2} $$"
-skills:
-  - "Universal gravitation"
----
+$$
+N = mg - F_y = 10(9.8) - 16.9 = 81.1 \text{ N}
+$$
 
-What is the main idea of **Universal gravitation**?
+So the kinetic friction is
 
-:::solution
-One short answer is: Newton's law of gravitation: $$ F = G\frac{m 1 m 2}{r^2} $$ Near Earth's surface: $$ g = G\frac{M E}{R E^2} $$
-:::
+$$
+f_k = \mu_k N = 0.30(81.1) \approx 24.3 \text{ N}
+$$
 
----
-id: "physics-physics-i-312"
-note: "physics-physics-i"
-title: "Review: Uniform circular motion"
-type: "text"
-answer: "An object moving in a circle at constant speed still accelerates because its velocity direction changes."
-skills:
-  - "Uniform circular motion"
----
+The net horizontal force is
 
-What is the main idea of **Uniform circular motion**?
+$$
+F_{net} = 36.3 - 24.3 = 12.0 \text{ N}
+$$
 
-:::solution
-One short answer is: An object moving in a circle at constant speed still accelerates because its velocity direction changes.
+Therefore,
+
+$$
+a = \frac{12.0}{10} = 1.20 \text{ m/s}^2
+$$
 :::
 
 ---
-id: "physics-physics-i-313"
-note: "physics-physics-i"
-title: "Review: Common circular-motion sources of centripetal force"
-type: "text"
-answer: "Tension in a string"
-skills:
-  - "Common circular-motion sources of centripetal force"
+id: physics-i-33
+note: physics-physics-i
+title: "Find the Final Velocity After a Collision"
+skills: [Momentum, Collisions]
 ---
 
-Name one common mistake the note warns about in **Common circular-motion sources of centripetal force**.
+A $1.5$ kg cart moves east at $4$ m/s and hits a $0.5$ kg cart moving west at $1$ m/s. The carts stick together. What is their final velocity?
 
 :::solution
-One short answer is: Tension in a string
-:::
+Choose east as positive. Then the initial momentum is
 
----
-id: "physics-physics-i-314"
-note: "physics-physics-i"
-title: "Review: Orbit idea"
-type: "text"
-answer: "For a circular orbit, gravity supplies the centripetal force: $$ \\frac{GMm}{r^2} = m\\frac{v^2}{r} $$ ---"
-skills:
-  - "Orbit idea"
----
+$$
+p_i = (1.5)(4) + (0.5)(-1) = 6 - 0.5 = 5.5 \text{ kg m/s}
+$$
 
-What is the main idea of **Orbit idea**?
+The total mass after the collision is
 
-:::solution
-One short answer is: For a circular orbit, gravity supplies the centripetal force: $$ \frac{GMm}{r^2} = m\frac{v^2}{r} $$ ---
-:::
+$$
+1.5 + 0.5 = 2.0 \text{ kg}
+$$
 
----
-id: "physics-physics-i-315"
-note: "physics-physics-i"
-title: "Review: Simple harmonic motion"
-type: "text"
-answer: "Simple harmonic motion describes oscillations around stable equilibrium."
-skills:
-  - "Simple harmonic motion"
----
+So
 
-What is the main idea of **Simple harmonic motion**?
+$$
+v_f = \frac{p_i}{m_{total}} = \frac{5.5}{2.0} = 2.75 \text{ m/s}
+$$
 
-:::solution
-One short answer is: Simple harmonic motion describes oscillations around stable equilibrium.
+The direction is east.
 :::
 
 ---
-id: "physics-physics-i-316"
-note: "physics-physics-i"
-title: "Review: Defining feature"
-type: "text"
-answer: "The restoring force is proportional to displacement and opposite in direction: $$ F = -kx $$ For a mass-spring system: $$ m\\ddot x + kx = 0 $$ Angular frequency: $$ \\omega = \\sqrt{\\frac{k}{m}} $$ Period: $$ T = 2\\pi\\sqr…"
-skills:
-  - "Defining feature"
+id: physics-i-34
+note: physics-physics-i
+title: "Find the Support Force on a Beam"
+skills: [Statics, Torque]
 ---
 
-What is the main idea of **Defining feature**?
+A uniform $4.0$ m beam weighs $200$ N. It is supported at both ends, and a $100$ N sign hangs $1.0$ m from the left end. What is the force on the left support?
 
 :::solution
-One short answer is: The restoring force is proportional to displacement and opposite in direction: $$ F = -kx $$ For a mass-spring system: $$ m\ddot x + kx = 0 $$ Angular frequency: $$ \omega = \sqrt{\frac{k}{m}} $$ Period: $$ T = 2\pi\sqr…
-:::
+Let the left support force be $F_L$ and the right support force be $F_R$.
 
----
-id: "physics-physics-i-317"
-note: "physics-physics-i"
-title: "Review: Useful energy form"
-type: "text"
-answer: "Total mechanical energy in ideal SHM: $$ E = \\frac{1}{2}kA^2 $$ where $A$ is amplitude."
-skills:
-  - "Useful energy form"
----
+First use torque equilibrium about the left end:
 
-What is the main idea of **Useful energy form**?
+$$
+F_R(4.0) - 200(2.0) - 100(1.0) = 0
+$$
 
-:::solution
-One short answer is: Total mechanical energy in ideal SHM: $$ E = \frac{1}{2}kA^2 $$ where $A$ is amplitude.
-:::
+So
 
----
-id: "physics-physics-i-318"
-note: "physics-physics-i"
-title: "Review: Pendulum approximation"
-type: "text"
-answer: "For small angles, a simple pendulum has period: $$ T = 2\\pi\\sqrt{\\frac{L}{g}} $$ This approximation is accurate only for small angular displacements. ---"
-skills:
-  - "Pendulum approximation"
----
+$$
+4F_R = 500
+$$
 
-What is the main idea of **Pendulum approximation**?
+$$
+F_R = 125 \text{ N}
+$$
 
-:::solution
-One short answer is: For small angles, a simple pendulum has period: $$ T = 2\pi\sqrt{\frac{L}{g}} $$ This approximation is accurate only for small angular displacements. ---
-:::
+Now use vertical force balance:
 
----
-id: "physics-physics-i-319"
-note: "physics-physics-i"
-title: "Review: Statics and equilibrium"
-type: "text"
-answer: "Statics studies objects at rest or moving with constant velocity. For equilibrium: $$ \\sum \\vec F = 0 $$ and for rotational equilibrium: $$ \\sum \\tau = 0 $$"
-skills:
-  - "Statics and equilibrium"
----
+$$
+F_L + F_R = 200 + 100 = 300
+$$
 
-What is the main idea of **Statics and equilibrium**?
+Thus
 
-:::solution
-One short answer is: Statics studies objects at rest or moving with constant velocity. For equilibrium: $$ \sum \vec F = 0 $$ and for rotational equilibrium: $$ \sum \tau = 0 $$
+$$
+F_L = 300 - 125 = 175 \text{ N}
+$$
 :::
 
 ---
-id: "physics-physics-i-41"
-note: "physics-physics-i"
-title: "Review: Strategy"
-type: "text"
-answer: "Draw the free-body diagram."
-skills:
-  - "Strategy"
+id: physics-i-35
+note: physics-physics-i
+title: "Use Rolling Without Slipping"
+skills: [Rolling motion, Rotation]
 ---
 
-What is the main idea of **Strategy**?
+A wheel of radius $0.30$ m rolls without slipping at $4.5$ m/s for $6.0$ s. How many radians does it rotate?
 
 :::solution
-One short answer is: Draw the free-body diagram.
-:::
-
----
-id: "physics-physics-i-42"
-note: "physics-physics-i"
-title: "Review: Typical statics problems"
-type: "text"
-answer: "Beams supported at two points"
-skills:
-  - "Typical statics problems"
----
+For rolling without slipping,
 
-What is the main idea of **Typical statics problems**?
+$$
+v = r\omega
+$$
 
-:::solution
-One short answer is: Beams supported at two points
-:::
+So
 
----
-id: "physics-physics-i-43"
-note: "physics-physics-i"
-title: "Review: Center of mass"
-type: "text"
-answer: "For point masses on a line: $$ x {cm} = \\frac{\\sum m i x i}{\\sum m i} $$ In two dimensions: $$ x {cm} = \\frac{\\sum m i x i}{\\sum m i}, \\qquad y {cm} = \\frac{\\sum m i y i}{\\sum m i} $$ The center of mass is the effective…"
-skills:
-  - "Center of mass"
----
+$$
+\omega = \frac{v}{r} = \frac{4.5}{0.30} = 15 \text{ rad/s}
+$$
 
-What is the main idea of **Center of mass**?
+Angular displacement is
 
-:::solution
-One short answer is: For point masses on a line: $$ x {cm} = \frac{\sum m i x i}{\sum m i} $$ In two dimensions: $$ x {cm} = \frac{\sum m i x i}{\sum m i}, \qquad y {cm} = \frac{\sum m i y i}{\sum m i} $$ The center of mass is the effective…
+$$
+\theta = \omega t = 15(6.0) = 90 \text{ rad}
+$$
 :::
 
 ---
-id: "physics-physics-i-44"
-note: "physics-physics-i"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Good mechanics solutions are usually built in the same order."
-skills:
-  - "Problem-solving workflow"
+id: physics-i-41
+note: physics-physics-i
+title: "Relate Spring Energy to Gravitational Height"
+skills: [Energy, Gravity, Springs]
 ---
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+A $2.0$ kg block starts at rest on a frictionless track. A spring with $k = 300$ N/m launches it so that it rises $1.5$ m before stopping. How much was the spring compressed?
 
 :::solution
-One short answer is: Good mechanics solutions are usually built in the same order.
-:::
+Use conservation of mechanical energy. The spring's initial energy becomes gravitational potential energy at the top:
 
----
-id: "physics-physics-i-45"
-note: "physics-physics-i"
-title: "Review: Identify the topic"
-type: "text"
-answer: "Kinematics"
-skills:
-  - "1. Identify the topic"
----
+$$
+\frac{1}{2}kx^2 = mgh
+$$
 
-What is the main idea of **Identify the topic**?
+Substitute the values:
 
-:::solution
-One short answer is: Kinematics
-:::
+$$
+\frac{1}{2}(300)x^2 = (2.0)(9.8)(1.5)
+$$
 
----
-id: "physics-physics-i-46"
-note: "physics-physics-i"
-title: "Review: Draw the model"
-type: "text"
-answer: "Known and unknown quantities"
-skills:
-  - "2. Draw the model"
----
+$$
+150x^2 = 29.4
+$$
 
-What is the main idea of **Draw the model**?
+$$
+x^2 = 0.196
+$$
 
-:::solution
-One short answer is: Known and unknown quantities
+$$
+x \approx 0.44 \text{ m}
+$$
 :::
 
 ---
-id: "physics-physics-i-47"
-note: "physics-physics-i"
-title: "Review: Choose the governing principle"
-type: "text"
-answer: "Constant acceleration equations"
-skills:
-  - "3. Choose the governing principle"
+id: physics-i-42
+note: physics-physics-i
+title: "Find the Friction Force on a Leaning Ladder"
+skills: [Statics, Torque, Friction]
 ---
 
-What is the main idea of **Choose the governing principle**?
+A uniform $5.0$ m ladder weighs $200$ N and leans against a frictionless wall at an angle of $60^\circ$ above the floor. What friction force must the floor provide to keep the ladder at rest?
 
 :::solution
-One short answer is: Constant acceleration equations
-:::
-
----
-id: "physics-physics-i-48"
-note: "physics-physics-i"
-title: "Review: Solve symbolically first"
-type: "text"
-answer: "Keep variables until the end. This reduces algebra mistakes and makes unit checking easier."
-skills:
-  - "4. Solve symbolically first"
----
+Because the wall is frictionless, the wall exerts only a horizontal force on the top of the ladder. Let that force be $F_W$.
 
-What is the main idea of **Solve symbolically first**?
+Take torques about the bottom of the ladder so the floor forces do not appear.
 
-:::solution
-One short answer is: Keep variables until the end. This reduces algebra mistakes and makes unit checking easier.
-:::
+The wall force acts at the top with lever arm
 
----
-id: "physics-physics-i-49"
-note: "physics-physics-i"
-title: "Review: Check the result"
-type: "text"
-answer: "Units are correct"
-skills:
-  - "5. Check the result"
----
+$$
+5.0\sin 60^\circ
+$$
 
-What is the main idea of **Check the result**?
+The weight acts at the center of the ladder, with horizontal lever arm
 
-:::solution
-One short answer is: Units are correct
-:::
+$$
+2.5\cos 60^\circ
+$$
 
----
-id: "physics-physics-i-410"
-note: "physics-physics-i"
-title: "Review: Interpret"
-type: "text"
-answer: "Translate the answer back into the language of the problem. A correct number is not enough if the meaning is unclear. ---"
-skills:
-  - "6. Interpret"
----
+Torque balance gives
 
-What is the main idea of **Interpret**?
+$$
+F_W(5.0\sin 60^\circ) = 200(2.5\cos 60^\circ)
+$$
 
-:::solution
-One short answer is: Translate the answer back into the language of the problem. A correct number is not enough if the meaning is unclear. ---
-:::
+So
 
----
-id: "physics-physics-i-411"
-note: "physics-physics-i"
-title: "Review: Formula summary"
-type: "text"
-answer: "Formula summary"
-skills:
-  - "Formula summary"
----
+$$
+F_W = \frac{200(2.5)(0.5)}{5.0(0.866)} \approx 57.7 \text{ N}
+$$
 
-What core formulas or relations are summarized in **Formula summary**?
+Horizontal force balance means the floor friction must match this force in magnitude:
 
-:::solution
-One short answer is: Formula summary
+$$
+f_s \approx 57.7 \text{ N}
+$$
 :::
 
 ---
-id: "physics-physics-i-412"
-note: "physics-physics-i"
-title: "Review: Kinematics"
-type: "text"
-answer: "$$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \\frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x-x 0) $$"
-skills:
-  - "Kinematics"
+id: physics-i-43
+note: physics-physics-i
+title: "Show That Orbital Speed Does Not Depend on Satellite Mass"
+skills: [Gravity, Circular motion]
 ---
 
-What is the main idea of **Kinematics**?
+A satellite moves in a circular orbit of radius $r$ around a planet of mass $M$. Use the formulas in the note to show that the satellite's mass cancels, and give the orbital speed.
 
 :::solution
-One short answer is: $$ v = v 0 + at $$ $$ x = x 0 + v 0 t + \frac{1}{2}at^2 $$ $$ v^2 = v 0^2 + 2a(x-x 0) $$
-:::
+For a circular orbit, gravity supplies the centripetal force:
 
----
-id: "physics-physics-i-413"
-note: "physics-physics-i"
-title: "Review: Forces"
-type: "text"
-answer: "$$ \\sum \\vec F = m\\vec a $$ $$ f k = \\mu k N $$ $$ f s \\le \\mu s N $$ $$ F s = -kx $$"
-skills:
-  - "Forces"
----
+$$
+\frac{GMm}{r^2} = m\frac{v^2}{r}
+$$
 
-What is the main idea of **Forces**?
+The satellite mass $m$ appears on both sides, so it cancels:
 
-:::solution
-One short answer is: $$ \sum \vec F = m\vec a $$ $$ f k = \mu k N $$ $$ f s \le \mu s N $$ $$ F s = -kx $$
-:::
+$$
+\frac{GM}{r^2} = \frac{v^2}{r}
+$$
 
----
-id: "physics-physics-i-414"
-note: "physics-physics-i"
-title: "Review: Energy"
-type: "text"
-answer: "$$ K = \\frac{1}{2}mv^2 $$ $$ W = \\vec F \\cdot \\vec d $$ $$ W {net} = \\Delta K $$ $$ U g = mgh $$ $$ U s = \\frac{1}{2}kx^2 $$ $$ K i + U i + W {nc} = K f + U f $$"
-skills:
-  - "Energy"
----
+Multiply by $r$:
 
-What is the main idea of **Energy**?
+$$
+\frac{GM}{r} = v^2
+$$
 
-:::solution
-One short answer is: $$ K = \frac{1}{2}mv^2 $$ $$ W = \vec F \cdot \vec d $$ $$ W {net} = \Delta K $$ $$ U g = mgh $$ $$ U s = \frac{1}{2}kx^2 $$ $$ K i + U i + W {nc} = K f + U f $$
+Therefore,
+
+$$
+v = \sqrt{\frac{GM}{r}}
+$$
+
+The orbital speed does not depend on the satellite mass.
 :::
 
 ---
-id: "physics-physics-i-415"
-note: "physics-physics-i"
-title: "Review: Momentum"
-type: "text"
-answer: "$$ \\vec p = m\\vec v $$ $$ \\vec J = \\Delta \\vec p $$ $$ \\vec p i = \\vec p f $$"
-skills:
-  - "Momentum"
+id: physics-i-44
+note: physics-physics-i
+title: "Find the Speed at Equilibrium in Simple Harmonic Motion"
+skills: [Simple harmonic motion, Energy]
 ---
 
-What is the main idea of **Momentum**?
+A $0.50$ kg mass on a spring with $k = 200$ N/m is released from rest at an amplitude of $0.10$ m. What is its speed when it passes through equilibrium?
 
 :::solution
-One short answer is: $$ \vec p = m\vec v $$ $$ \vec J = \Delta \vec p $$ $$ \vec p i = \vec p f $$
-:::
+The total energy in ideal SHM is
 
----
-id: "physics-physics-i-416"
-note: "physics-physics-i"
-title: "Review: Rotation"
-type: "text"
-answer: "$$ \\omega = \\omega 0 + \\alpha t $$ $$ \\theta = \\theta 0 + \\omega 0 t + \\frac{1}{2}\\alpha t^2 $$ $$ \\sum \\tau = I\\alpha $$ $$ K {rot} = \\frac{1}{2}I\\omega^2 $$ $$ v = r\\omega $$ $$ a c = \\frac{v^2}{r} $$"
-skills:
-  - "Rotation"
----
+$$
+E = \frac{1}{2}kA^2
+$$
 
-What is the main idea of **Rotation**?
+So
 
-:::solution
-One short answer is: $$ \omega = \omega 0 + \alpha t $$ $$ \theta = \theta 0 + \omega 0 t + \frac{1}{2}\alpha t^2 $$ $$ \sum \tau = I\alpha $$ $$ K {rot} = \frac{1}{2}I\omega^2 $$ $$ v = r\omega $$ $$ a c = \frac{v^2}{r} $$
-:::
+$$
+E = \frac{1}{2}(200)(0.10)^2 = 1.0 \text{ J}
+$$
 
----
-id: "physics-physics-i-417"
-note: "physics-physics-i"
-title: "Review: Gravity and oscillations"
-type: "text"
-answer: "$$ F = G\\frac{m 1 m 2}{r^2} $$ $$ T {spring} = 2\\pi\\sqrt{\\frac{m}{k}} $$ $$ T {pendulum} = 2\\pi\\sqrt{\\frac{L}{g}} $$ ---"
-skills:
-  - "Gravity and oscillations"
----
+At equilibrium, all of that energy is kinetic:
 
-What is the main idea of **Gravity and oscillations**?
+$$
+\frac{1}{2}mv^2 = 1.0
+$$
 
-:::solution
-One short answer is: $$ F = G\frac{m 1 m 2}{r^2} $$ $$ T {spring} = 2\pi\sqrt{\frac{m}{k}} $$ $$ T {pendulum} = 2\pi\sqrt{\frac{L}{g}} $$ ---
-:::
+Substitute $m = 0.50$ kg:
 
----
-id: "physics-physics-i-418"
-note: "physics-physics-i"
-title: "Review: Common pitfalls"
-type: "text"
-answer: "Mixing up displacement and distance"
-skills:
-  - "Common pitfalls"
----
+$$
+\frac{1}{2}(0.50)v^2 = 1.0
+$$
 
-Name one common mistake the note warns about in **Common pitfalls**.
+$$
+0.25v^2 = 1.0
+$$
 
-:::solution
-One short answer is: Mixing up displacement and distance
+$$
+v^2 = 4
+$$
+
+$$
+v = 2.0 \text{ m/s}
+$$
 :::

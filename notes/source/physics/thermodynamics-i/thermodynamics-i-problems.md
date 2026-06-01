@@ -1,1567 +1,868 @@
 ---
-id: "physics-thermodynamics-i-11"
-note: "physics-thermodynamics-i"
-title: "Review: Thermodynamic systems and properties"
-type: "text"
-answer: "Thermodynamics studies energy, matter, and property changes at the macroscopic scale."
-skills:
-  - "1. Thermodynamic systems and properties"
+id: thermodynamics-i-11
+note: physics-thermodynamics-i
+title: "Identify a Closed System"
+skills: [System type, Boundaries]
 ---
 
-What is the main idea of **Thermodynamic systems and properties**?
+A gas is sealed inside a piston-cylinder device. The piston can move, and heat can cross the boundary, but no mass can enter or leave.
 
-:::solution
-One short answer is: Thermodynamics studies energy, matter, and property changes at the macroscopic scale.
-:::
-
----
-id: "physics-thermodynamics-i-12"
-note: "physics-thermodynamics-i"
-title: "Review: Types of systems"
-type: "text"
-answer: "System type Mass crossing boundary?"
-skills:
-  - "Types of systems"
----
+What type of system is this?
 
-What is the main idea of **Types of systems**?
-
 :::solution
-One short answer is: System type Mass crossing boundary?
-:::
-
----
-id: "physics-thermodynamics-i-13"
-note: "physics-thermodynamics-i"
-title: "Review: Properties"
-type: "text"
-answer: "Pressure, $P$"
-skills:
-  - "Properties"
----
+This is a **closed system** or **control mass**.
 
-What is the main idea of **Properties**?
-
-:::solution
-One short answer is: Pressure, $P$
+Mass does not cross the boundary, but energy can cross as heat or work.
 :::
 
 ---
-id: "physics-thermodynamics-i-14"
-note: "physics-thermodynamics-i"
-title: "Review: Extensive and intensive properties"
-type: "text"
-answer: "An extensive property depends on system size."
-skills:
-  - "Extensive and intensive properties"
+id: thermodynamics-i-12
+note: physics-thermodynamics-i
+title: "Classify Properties by Size Dependence"
+skills: [Extensive properties, Intensive properties]
 ---
-
-What is the main idea of **Extensive and intensive properties**?
-
-:::solution
-One short answer is: An extensive property depends on system size.
-:::
 
----
-id: "physics-thermodynamics-i-15"
-note: "physics-thermodynamics-i"
-title: "Review: State, equilibrium, and processes"
-type: "text"
-answer: "State, equilibrium, and processes"
-skills:
-  - "2. State, equilibrium, and processes"
----
+Which of the following are extensive properties?
 
-What is the main idea of **State, equilibrium, and processes**?
+$$
+m,\quad P,\quad H,\quad T
+$$
 
 :::solution
-One short answer is: State, equilibrium, and processes
-:::
+An extensive property depends on system size.
 
----
-id: "physics-thermodynamics-i-16"
-note: "physics-thermodynamics-i"
-title: "Review: State"
-type: "text"
-answer: "The state of a simple compressible system is fixed when enough independent intensive properties are known."
-skills:
-  - "State"
----
+So the extensive properties are
 
-What is the main idea of **State**?
+$$
+m \text{ and } H
+$$
 
-:::solution
-One short answer is: The state of a simple compressible system is fixed when enough independent intensive properties are known.
+Pressure $P$ and temperature $T$ are intensive properties.
 :::
 
 ---
-id: "physics-thermodynamics-i-17"
-note: "physics-thermodynamics-i"
-title: "Review: Equilibrium"
-type: "text"
-answer: "Thermal equilibrium: no temperature gradients"
-skills:
-  - "Equilibrium"
+id: thermodynamics-i-13
+note: physics-thermodynamics-i
+title: "Convert Gauge Pressure to Absolute Pressure"
+skills: [Pressure, Units]
 ---
-
-What is the main idea of **Equilibrium**?
-
-:::solution
-One short answer is: Thermal equilibrium: no temperature gradients
-:::
 
----
-id: "physics-thermodynamics-i-18"
-note: "physics-thermodynamics-i"
-title: "Review: Process"
-type: "text"
-answer: "A process is a change from one equilibrium state to another."
-skills:
-  - "Process"
----
+A tire gauge reads $220\ \text{kPa}$ and the atmospheric pressure is $101\ \text{kPa}$.
 
-What is the main idea of **Process**?
+What is the absolute pressure of the tire?
 
 :::solution
-One short answer is: A process is a change from one equilibrium state to another.
-:::
+Use
 
----
-id: "physics-thermodynamics-i-19"
-note: "physics-thermodynamics-i"
-title: "Review: Cycle"
-type: "text"
-answer: "A cycle is a series of processes that returns the system to its initial state."
-skills:
-  - "Cycle"
----
+$$
+P_{abs} = P_{gage} + P_{atm}
+$$
 
-What is the main idea of **Cycle**?
+So
 
-:::solution
-One short answer is: A cycle is a series of processes that returns the system to its initial state.
+$$
+P_{abs} = 220 + 101 = 321\ \text{kPa}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-110"
-note: "physics-thermodynamics-i"
-title: "Review: Units, dimensions, and sign conventions"
-type: "text"
-answer: "Units, dimensions, and sign conventions"
-skills:
-  - "3. Units, dimensions, and sign conventions"
+id: thermodynamics-i-14
+note: physics-thermodynamics-i
+title: "Convert Celsius to Kelvin"
+skills: [Temperature, Units]
 ---
 
-What is the main idea of **Units, dimensions, and sign conventions**?
+Convert $27^\circ\text{C}$ to Kelvin.
 
 :::solution
-One short answer is: Units, dimensions, and sign conventions
-:::
+Use the absolute temperature relation:
 
----
-id: "physics-thermodynamics-i-111"
-note: "physics-thermodynamics-i"
-title: "Review: Common SI units"
-type: "text"
-answer: "Quantity Symbol SI unit ---------------- --------- -------- Mass $m$ kg Temperature $T$ K Pressure $P$ Pa Energy $E$ J Power $\\dot{W}$ W Specific volume $v$ mÂ³/kg Specific energy $u, h$ J/kg Entropy $S$ J/K Specific en…"
-skills:
-  - "Common SI units"
----
+$$
+T(K) = T(^\circ C) + 273.15
+$$
 
-Name one common mistake the note warns about in **Common SI units**.
+So
 
-:::solution
-One short answer is: Quantity Symbol SI unit ---------------- --------- -------- Mass $m$ kg Temperature $T$ K Pressure $P$ Pa Energy $E$ J Power $\dot{W}$ W Specific volume $v$ mÂ³/kg Specific energy $u, h$ J/kg Entropy $S$ J/K Specific en…
+$$
+T = 27 + 273.15 = 300.15\ \text{K}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-112"
-note: "physics-thermodynamics-i"
-title: "Review: Pressure"
-type: "text"
-answer: "Absolute pressure is measured relative to vacuum. Gauge pressure is measured relative to the atmosphere. $$ P {abs} = P {gage} + P {atm} $$ Vacuum pressure is below atmospheric pressure: $$ P {abs} = P {atm} - P {vac} $$"
-skills:
-  - "Pressure"
+id: thermodynamics-i-15
+note: physics-thermodynamics-i
+title: "Choose the Phase Region"
+skills: [Pure substances, Phase regions]
 ---
 
-What is the main idea of **Pressure**?
-
-:::solution
-One short answer is: Absolute pressure is measured relative to vacuum. Gauge pressure is measured relative to the atmosphere. $$ P {abs} = P {gage} + P {atm} $$ Vacuum pressure is below atmospheric pressure: $$ P {abs} = P {atm} - P {vac} $$
-:::
-
----
-id: "physics-thermodynamics-i-113"
-note: "physics-thermodynamics-i"
-title: "Review: Temperature"
-type: "text"
-answer: "Thermodynamic temperature must use an absolute scale. $$ T(K) = T(^\\circ C) + 273.15 $$"
-skills:
-  - "Temperature"
----
+A pure substance is at a pressure of $500\ \text{kPa}$ and a temperature below $T_{sat}$ at that pressure.
 
-What is the main idea of **Temperature**?
+What phase region is it in?
 
 :::solution
-One short answer is: Thermodynamic temperature must use an absolute scale. $$ T(K) = T(^\circ C) + 273.15 $$
+If the temperature is below the saturation temperature at the given pressure, the substance is in the **compressed liquid** or **subcooled liquid** region.
 :::
 
 ---
-id: "physics-thermodynamics-i-114"
-note: "physics-thermodynamics-i"
-title: "Review: Sign convention used in these notes"
-type: "text"
-answer: "Heat transfer into the system is positive."
-skills:
-  - "Sign convention used in these notes"
+id: thermodynamics-i-16
+note: physics-thermodynamics-i
+title: "Compute Quality from Masses"
+skills: [Quality, Saturated mixtures]
 ---
 
-What is the main idea of **Sign convention used in these notes**?
+A saturated liquid-vapor mixture contains $3\ \text{kg}$ of saturated liquid and $9\ \text{kg}$ of saturated vapor.
 
-:::solution
-One short answer is: Heat transfer into the system is positive.
-:::
-
----
-id: "physics-thermodynamics-i-115"
-note: "physics-thermodynamics-i"
-title: "Review: Pure substances and property data"
-type: "text"
-answer: "Water"
-skills:
-  - "4. Pure substances and property data"
----
+What is the quality $x$?
 
-What is the main idea of **Pure substances and property data**?
-
 :::solution
-One short answer is: Water
-:::
+Use
 
----
-id: "physics-thermodynamics-i-116"
-note: "physics-thermodynamics-i"
-title: "Review: Phase regions"
-type: "text"
-answer: "Region Description ------------------------------------ ---------------------------- Compressed liquid / subcooled liquid Liquid not about to vaporize Saturated liquid Liquid about to vaporize Saturated mixture Liquid a…"
-skills:
-  - "Phase regions"
----
+$$
+x = \frac{m_g}{m_f + m_g}
+$$
 
-What is the main idea of **Phase regions**?
+So
 
-:::solution
-One short answer is: Region Description ------------------------------------ ---------------------------- Compressed liquid / subcooled liquid Liquid not about to vaporize Saturated liquid Liquid about to vaporize Saturated mixture Liquid a…
+$$
+x = \frac{9}{3+9} = \frac{9}{12} = 0.75
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-117"
-note: "physics-thermodynamics-i"
-title: "Review: Saturation temperature and pressure"
-type: "text"
-answer: "At a given saturation pressure, a pure substance changes phase at a fixed saturation temperature. $$ T = T {sat}(P) $$ At a given saturation temperature, the corresponding phase-change pressure is: $$ P = P {sat}(T) $$"
-skills:
-  - "Saturation temperature and pressure"
+id: thermodynamics-i-17
+note: physics-thermodynamics-i
+title: "Use the Ideal Gas Law"
+skills: [Ideal gas, Equation of state]
 ---
 
-What is the main idea of **Saturation temperature and pressure**?
+An ideal gas has
 
-:::solution
-One short answer is: At a given saturation pressure, a pure substance changes phase at a fixed saturation temperature. $$ T = T {sat}(P) $$ At a given saturation temperature, the corresponding phase-change pressure is: $$ P = P {sat}(T) $$
-:::
-
----
-id: "physics-thermodynamics-i-118"
-note: "physics-thermodynamics-i"
-title: "Review: Quality"
-type: "text"
-answer: "$m f$ = mass of saturated liquid"
-skills:
-  - "Quality"
----
+$$
+P = 300\ \text{kPa},\qquad T = 300\ \text{K},\qquad R = 0.287\ \text{kJ/(kg\cdot K)}.
+$$
 
-What is the main idea of **Quality**?
+What is the specific volume $v$?
 
 :::solution
-One short answer is: $m f$ = mass of saturated liquid
-:::
+Use the specific ideal gas law:
 
----
-id: "physics-thermodynamics-i-119"
-note: "physics-thermodynamics-i"
-title: "Review: Saturated mixture property relation"
-type: "text"
-answer: "For a saturated mixture: $$ y = y f + x y {fg} $$ where $y$ may represent $v$, $u$, $h$, or $s$."
-skills:
-  - "Saturated mixture property relation"
----
+$$
+Pv = RT
+$$
 
-What is the main idea of **Saturated mixture property relation**?
+So
 
-:::solution
-One short answer is: For a saturated mixture: $$ y = y f + x y {fg} $$ where $y$ may represent $v$, $u$, $h$, or $s$.
+$$
+v = \frac{RT}{P} = \frac{0.287(300)}{300} = 0.287\ \text{m}^3/\text{kg}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-120"
-note: "physics-thermodynamics-i"
-title: "Review: Enthalpy"
-type: "text"
-answer: "Enthalpy is defined as: $$ H = U + PV $$ Specific enthalpy is: $$ h = u + Pv $$ Enthalpy is especially useful for control-volume problems because flow work is naturally included in $h$."
-skills:
-  - "Enthalpy"
+id: thermodynamics-i-18
+note: physics-thermodynamics-i
+title: "Find Constant-Pressure Boundary Work"
+skills: [Boundary work, Sign conventions]
 ---
-
-What is the main idea of **Enthalpy**?
-
-:::solution
-One short answer is: Enthalpy is defined as: $$ H = U + PV $$ Specific enthalpy is: $$ h = u + Pv $$ Enthalpy is especially useful for control-volume problems because flow work is naturally included in $h$.
-:::
 
----
-id: "physics-thermodynamics-i-121"
-note: "physics-thermodynamics-i"
-title: "Review: How to choose property data"
-type: "text"
-answer: "Identify the substance."
-skills:
-  - "How to choose property data"
----
+A gas expands at constant pressure from $0.50\ \text{m}^3$ to $0.80\ \text{m}^3$ while the pressure remains $150\ \text{kPa}$.
 
-What is the main idea of **How to choose property data**?
+What is the boundary work?
 
 :::solution
-One short answer is: Identify the substance.
-:::
+For constant pressure,
 
----
-id: "physics-thermodynamics-i-122"
-note: "physics-thermodynamics-i"
-title: "Review: Compressed liquid approximation"
-type: "text"
-answer: "For many liquids, if compressed liquid data are unavailable: $$ v \\approx v f(T) $$ $$ u \\approx u f(T) $$ $$ h \\approx h f(T) + v f(T)\\left[P - P {sat}(T)\\right] $$ Often, for modest pressure changes: $$ h \\approx h f(…"
-skills:
-  - "Compressed liquid approximation"
----
-
-What is the main idea of **Compressed liquid approximation**?
-
-:::solution
-One short answer is: For many liquids, if compressed liquid data are unavailable: $$ v \approx v f(T) $$ $$ u \approx u f(T) $$ $$ h \approx h f(T) + v f(T)\left[P - P {sat}(T)\right] $$ Often, for modest pressure changes: $$ h \approx h f(…
-:::
+$$
+W_b = P(V_2 - V_1)
+$$
 
----
-id: "physics-thermodynamics-i-123"
-note: "physics-thermodynamics-i"
-title: "Review: Ideal gases and equations of state"
-type: "text"
-answer: "An equation of state relates pressure, temperature, and volume."
-skills:
-  - "5. Ideal gases and equations of state"
----
+So
 
-What is the main idea of **Ideal gases and equations of state**?
+$$
+W_b = 150(0.80 - 0.50) = 150(0.30) = 45\ \text{kJ}
+$$
 
-:::solution
-One short answer is: An equation of state relates pressure, temperature, and volume.
+The work is positive because the system does work on the surroundings.
 :::
 
 ---
-id: "physics-thermodynamics-i-124"
-note: "physics-thermodynamics-i"
-title: "Review: Ideal gas equation"
-type: "text"
-answer: "$R$ = gas constant for the specific gas"
-skills:
-  - "Ideal gas equation"
+id: thermodynamics-i-19
+note: physics-thermodynamics-i
+title: "Apply the Closed-System First Law"
+skills: [First Law, Closed systems]
 ---
-
-What is the main idea of **Ideal gas equation**?
 
-:::solution
-One short answer is: $R$ = gas constant for the specific gas
-:::
-
----
-id: "physics-thermodynamics-i-125"
-note: "physics-thermodynamics-i"
-title: "Review: Density form"
-type: "text"
-answer: "Since $$ v = \\frac{1}{\\rho} $$ the ideal gas law can be written as: $$ P = \\rho RT $$"
-skills:
-  - "Density form"
----
+A closed system receives $120\ \text{kJ}$ of heat and does $35\ \text{kJ}$ of work. Neglect changes in kinetic and potential energy.
 
-What is the main idea of **Density form**?
+What is the change in internal energy?
 
 :::solution
-One short answer is: Since $$ v = \frac{1}{\rho} $$ the ideal gas law can be written as: $$ P = \rho RT $$
-:::
+Use the closed-system First Law:
 
----
-id: "physics-thermodynamics-i-21"
-note: "physics-thermodynamics-i"
-title: "Review: Compressibility factor"
-type: "text"
-answer: "Real-gas behavior can be estimated using: $$ Pv = ZRT $$ where $Z$ is the compressibility factor. For ideal gases: $$ Z = 1 $$ If $Z$ is close to 1, the ideal gas model is reasonable."
-skills:
-  - "Compressibility factor"
----
+$$
+\Delta U = Q - W
+$$
 
-What is the main idea of **Compressibility factor**?
+So
 
-:::solution
-One short answer is: Real-gas behavior can be estimated using: $$ Pv = ZRT $$ where $Z$ is the compressibility factor. For ideal gases: $$ Z = 1 $$ If $Z$ is close to 1, the ideal gas model is reasonable.
+$$
+\Delta U = 120 - 35 = 85\ \text{kJ}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-22"
-note: "physics-thermodynamics-i"
-title: "Review: Constant specific heats"
-type: "text"
-answer: "For ideal gases with constant specific heats: $$ \\Delta u = c v(T 2 - T 1) $$ $$ \\Delta h = c p(T 2 - T 1) $$ and $$ c p - c v = R $$ Specific heat ratio: $$ k = \\frac{c p}{c v} $$"
-skills:
-  - "Constant specific heats"
+id: thermodynamics-i-110
+note: physics-thermodynamics-i
+title: "Compute Mass Flow Rate"
+skills: [Mass flow rate, Control volumes]
 ---
-
-What is the main idea of **Constant specific heats**?
-
-:::solution
-One short answer is: For ideal gases with constant specific heats: $$ \Delta u = c v(T 2 - T 1) $$ $$ \Delta h = c p(T 2 - T 1) $$ and $$ c p - c v = R $$ Specific heat ratio: $$ k = \frac{c p}{c v} $$
-:::
 
----
-id: "physics-thermodynamics-i-23"
-note: "physics-thermodynamics-i"
-title: "Review: Ideal gas entropy changes"
-type: "text"
-answer: "For constant specific heats: $$ s 2 - s 1 = c p \\ln\\left(\\frac{T 2}{T 1}\\right) - R \\ln\\left(\\frac{P 2}{P 1}\\right) $$ Equivalent form: $$ s 2 - s 1 = c v \\ln\\left(\\frac{T 2}{T 1}\\right) + R \\ln\\left(\\frac{v 2}{v 1}\\rig…"
-skills:
-  - "Ideal gas entropy changes"
----
+Air with density $1.2\ \text{kg/m}^3$ flows through a duct with area $0.050\ \text{m}^2$ at a speed of $20\ \text{m/s}$.
 
-What is the main idea of **Ideal gas entropy changes**?
+What is the mass flow rate?
 
 :::solution
-One short answer is: For constant specific heats: $$ s 2 - s 1 = c p \ln\left(\frac{T 2}{T 1}\right) - R \ln\left(\frac{P 2}{P 1}\right) $$ Equivalent form: $$ s 2 - s 1 = c v \ln\left(\frac{T 2}{T 1}\right) + R \ln\left(\frac{v 2}{v 1}\rig…
-:::
+Use
 
----
-id: "physics-thermodynamics-i-24"
-note: "physics-thermodynamics-i"
-title: "Review: Isentropic ideal gas relations"
-type: "text"
-answer: "For an ideal gas with constant specific heats undergoing an isentropic process: $$ PV^k = constant $$ $$ Tv^{k-1} = constant $$ $$ \\frac{T 2}{T 1} = \\left(\\frac{v 1}{v 2}\\right)^{k-1} $$ $$ \\frac{T 2}{T 1} = \\left(\\frac…"
-skills:
-  - "Isentropic ideal gas relations"
----
+$$
+\dot{m} = \rho A V
+$$
 
-What is the main idea of **Isentropic ideal gas relations**?
+So
 
-:::solution
-One short answer is: For an ideal gas with constant specific heats undergoing an isentropic process: $$ PV^k = constant $$ $$ Tv^{k-1} = constant $$ $$ \frac{T 2}{T 1} = \left(\frac{v 1}{v 2}\right)^{k-1} $$ $$ \frac{T 2}{T 1} = \left(\frac…
+$$
+\dot{m} = 1.2(0.050)(20) = 1.2\ \text{kg/s}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-25"
-note: "physics-thermodynamics-i"
-title: "Review: Heat, work, and energy"
-type: "text"
-answer: "Heat, work, and energy"
-skills:
-  - "6. Heat, work, and energy"
+id: thermodynamics-i-21
+note: physics-thermodynamics-i
+title: "Find a Saturated Mixture Property"
+skills: [Saturated mixtures, Quality]
 ---
 
-What is the main idea of **Heat, work, and energy**?
-
-:::solution
-One short answer is: Heat, work, and energy
-:::
+A saturated mixture has
 
----
-id: "physics-thermodynamics-i-26"
-note: "physics-thermodynamics-i"
-title: "Review: Energy"
-type: "text"
-answer: "Total energy is: $$ E = U + KE + PE $$ where $$ KE = \\frac{1}{2}mV^2 $$ $$ PE = mgz $$ Specific total energy: $$ e = u + \\frac{V^2}{2} + gz $$"
-skills:
-  - "Energy"
----
+$$
+u_f = 500\ \text{kJ/kg},\qquad u_{fg} = 1500\ \text{kJ/kg},\qquad x = 0.20.
+$$
 
-What is the main idea of **Energy**?
+What is the specific internal energy $u$?
 
 :::solution
-One short answer is: Total energy is: $$ E = U + KE + PE $$ where $$ KE = \frac{1}{2}mV^2 $$ $$ PE = mgz $$ Specific total energy: $$ e = u + \frac{V^2}{2} + gz $$
-:::
+Use the saturated mixture relation:
 
----
-id: "physics-thermodynamics-i-27"
-note: "physics-thermodynamics-i"
-title: "Review: Heat"
-type: "text"
-answer: "Heat is energy transfer due to temperature difference. Heat transfer rate: $$ \\dot{Q} = \\frac{\\delta Q}{dt} $$ Adiabatic process: $$ Q = 0 $$"
-skills:
-  - "Heat"
----
+$$
+u = u_f + x u_{fg}
+$$
 
-What is the main idea of **Heat**?
+So
 
-:::solution
-One short answer is: Heat is energy transfer due to temperature difference. Heat transfer rate: $$ \dot{Q} = \frac{\delta Q}{dt} $$ Adiabatic process: $$ Q = 0 $$
+$$
+u = 500 + 0.20(1500) = 500 + 300 = 800\ \text{kJ/kg}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-28"
-note: "physics-thermodynamics-i"
-title: "Review: Work"
-type: "text"
-answer: "Work is energy transfer due to a generalized force acting through a generalized displacement. Power: $$ \\dot{W} = \\frac{\\delta W}{dt} $$"
-skills:
-  - "Work"
+id: thermodynamics-i-22
+note: physics-thermodynamics-i
+title: "Approximate a Compressed-Liquid Enthalpy"
+skills: [Compressed liquid approximation, Property data]
 ---
-
-What is the main idea of **Work**?
-
-:::solution
-One short answer is: Work is energy transfer due to a generalized force acting through a generalized displacement. Power: $$ \dot{W} = \frac{\delta W}{dt} $$
-:::
 
----
-id: "physics-thermodynamics-i-29"
-note: "physics-thermodynamics-i"
-title: "Review: Boundary work"
-type: "text"
-answer: "For a quasi-equilibrium closed-system process: $$ W b = \\int {1}^{2} P\\,dV $$ If pressure is constant: $$ W b = P(V 2 - V 1) $$ Specific boundary work: $$ w b = \\int {1}^{2} P\\,dv $$"
-skills:
-  - "Boundary work"
----
+At a given temperature, a liquid has
 
-What is the main idea of **Boundary work**?
+$$
+h_f(T) = 340.0\ \text{kJ/kg},\qquad v_f(T) = 0.0010\ \text{m}^3/\text{kg}
+$$
 
-:::solution
-One short answer is: For a quasi-equilibrium closed-system process: $$ W b = \int {1}^{2} P\,dV $$ If pressure is constant: $$ W b = P(V 2 - V 1) $$ Specific boundary work: $$ w b = \int {1}^{2} P\,dv $$
-:::
+and
 
----
-id: "physics-thermodynamics-i-210"
-note: "physics-thermodynamics-i"
-title: "Review: Polytropic work"
-type: "text"
-answer: "For a polytropic process: $$ PV^n = C $$ If $n \\ne 1$: $$ W b = \\frac{P 2V 2 - P 1V 1}{1-n} $$ For an ideal gas: $$ W b = \\frac{mR(T 2 - T 1)}{1-n} $$ If $n = 1$: $$ W b = P 1V 1 \\ln\\left(\\frac{V 2}{V 1}\\right) $$ For a…"
-skills:
-  - "Polytropic work"
----
+$$
+P - P_{sat}(T) = 500\ \text{kPa}.
+$$
 
-What is the main idea of **Polytropic work**?
+Approximate the compressed-liquid enthalpy $h$.
 
 :::solution
-One short answer is: For a polytropic process: $$ PV^n = C $$ If $n \ne 1$: $$ W b = \frac{P 2V 2 - P 1V 1}{1-n} $$ For an ideal gas: $$ W b = \frac{mR(T 2 - T 1)}{1-n} $$ If $n = 1$: $$ W b = P 1V 1 \ln\left(\frac{V 2}{V 1}\right) $$ For a…
-:::
-
----
-id: "physics-thermodynamics-i-211"
-note: "physics-thermodynamics-i"
-title: "Review: Spring work"
-type: "text"
-answer: "For a linear spring: $$ F = kx $$ Spring work: $$ W = \\int {x 1}^{x 2} kx\\,dx $$ $$ W = \\frac{1}{2}k(x 2^2 - x 1^2) $$"
-skills:
-  - "Spring work"
----
+Use the compressed-liquid approximation:
 
-What is the main idea of **Spring work**?
+$$
+h \approx h_f(T) + v_f(T)\left[P - P_{sat}(T)\right]
+$$
 
-:::solution
-One short answer is: For a linear spring: $$ F = kx $$ Spring work: $$ W = \int {x 1}^{x 2} kx\,dx $$ $$ W = \frac{1}{2}k(x 2^2 - x 1^2) $$
-:::
+So
 
----
-id: "physics-thermodynamics-i-212"
-note: "physics-thermodynamics-i"
-title: "Review: Electrical work"
-type: "text"
-answer: "Electrical work: $$ W e = \\int V I\\,dt $$ For constant voltage and current: $$ W e = VIt $$ Electrical power: $$ \\dot{W} e = VI $$ ---"
-skills:
-  - "Electrical work"
----
+$$
+h \approx 340.0 + 0.0010(500)
+$$
 
-What is the main idea of **Electrical work**?
+Since $1\ \text{kPa}\cdot\text{m}^3/\text{kg} = 1\ \text{kJ/kg}$,
 
-:::solution
-One short answer is: Electrical work: $$ W e = \int V I\,dt $$ For constant voltage and current: $$ W e = VIt $$ Electrical power: $$ \dot{W} e = VI $$ ---
+$$
+h \approx 340.5\ \text{kJ/kg}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-213"
-note: "physics-thermodynamics-i"
-title: "Review: First Law for closed systems"
-type: "text"
-answer: "The First Law is conservation of energy."
-skills:
-  - "7. First Law for closed systems"
+id: thermodynamics-i-23
+note: physics-thermodynamics-i
+title: "Use an Isentropic Ideal-Gas Relation"
+skills: [Isentropic ideal gas relations, Ideal gas]
 ---
-
-What is the main idea of **First Law for closed systems**?
 
-:::solution
-One short answer is: The First Law is conservation of energy.
-:::
-
----
-id: "physics-thermodynamics-i-214"
-note: "physics-thermodynamics-i"
-title: "Review: Cyclic closed system"
-type: "text"
-answer: "For a cycle: $$ \\Delta E {cycle} = 0 $$ Therefore: $$ Q {net} = W {net} $$"
-skills:
-  - "Cyclic closed system"
----
+Air with $k = 1.4$ is compressed isentropically from $P_1 = 100\ \text{kPa}$ and $T_1 = 300\ \text{K}$ to $P_2 = 400\ \text{kPa}$.
 
-What is the main idea of **Cyclic closed system**?
+What is the final temperature $T_2$?
 
 :::solution
-One short answer is: For a cycle: $$ \Delta E {cycle} = 0 $$ Therefore: $$ Q {net} = W {net} $$
-:::
-
----
-id: "physics-thermodynamics-i-215"
-note: "physics-thermodynamics-i"
-title: "Review: Constant-volume closed system"
-type: "text"
-answer: "For constant volume boundary work: $$ W b = \\int P\\,dV = 0 $$ If no other work modes occur: $$ Q = \\Delta U $$"
-skills:
-  - "Constant-volume closed system"
----
-
-What is the main idea of **Constant-volume closed system**?
+For an isentropic ideal gas,
 
-:::solution
-One short answer is: For constant volume boundary work: $$ W b = \int P\,dV = 0 $$ If no other work modes occur: $$ Q = \Delta U $$
-:::
+$$
+\frac{T_2}{T_1} = \left(\frac{P_2}{P_1}\right)^{(k-1)/k}
+$$
 
----
-id: "physics-thermodynamics-i-216"
-note: "physics-thermodynamics-i"
-title: "Review: Constant-pressure closed system"
-type: "text"
-answer: "For constant pressure: $$ W b = P(V 2 - V 1) $$ If only boundary work occurs and kinetic/potential energy changes are negligible: $$ Q = \\Delta U + P\\Delta V $$ Since $$ H = U + PV $$ for constant pressure: $$ Q = \\Delt…"
-skills:
-  - "Constant-pressure closed system"
----
+Substitute the values:
 
-What is the main idea of **Constant-pressure closed system**?
+$$
+T_2 = 300\left(\frac{400}{100}\right)^{0.4/1.4}
+$$
 
-:::solution
-One short answer is: For constant pressure: $$ W b = P(V 2 - V 1) $$ If only boundary work occurs and kinetic/potential energy changes are negligible: $$ Q = \Delta U + P\Delta V $$ Since $$ H = U + PV $$ for constant pressure: $$ Q = \Delt…
+$$
+T_2 \approx 300(4^{0.2857}) \approx 446\ \text{K}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-217"
-note: "physics-thermodynamics-i"
-title: "Review: Rigid tank"
-type: "text"
-answer: "For a rigid tank: $$ V = constant $$ $$ W b = 0 $$ If the tank is also adiabatic and has no other work modes: $$ \\Delta U = 0 $$ ---"
-skills:
-  - "Rigid tank"
+id: thermodynamics-i-24
+note: physics-thermodynamics-i
+title: "Evaluate Polytropic Boundary Work"
+skills: [Polytropic work, Boundary work, Ideal gas]
 ---
 
-What is the main idea of **Rigid tank**?
+An ideal gas undergoes an isothermal expansion. At the initial state,
 
-:::solution
-One short answer is: For a rigid tank: $$ V = constant $$ $$ W b = 0 $$ If the tank is also adiabatic and has no other work modes: $$ \Delta U = 0 $$ ---
-:::
+$$
+P_1 = 200\ \text{kPa},\qquad V_1 = 0.30\ \text{m}^3,
+$$
 
----
-id: "physics-thermodynamics-i-218"
-note: "physics-thermodynamics-i"
-title: "Review: First Law for control volumes"
-type: "text"
-answer: "A control volume allows mass to cross the boundary."
-skills:
-  - "8. First Law for control volumes"
----
+and the final volume is $V_2 = 0.60\ \text{m}^3$.
 
-What is the main idea of **First Law for control volumes**?
+What is the boundary work?
 
 :::solution
-One short answer is: A control volume allows mass to cross the boundary.
-:::
-
----
-id: "physics-thermodynamics-i-219"
-note: "physics-thermodynamics-i"
-title: "Review: Conservation of mass"
-type: "text"
-answer: "General mass balance: $$ \\frac{dm {CV}}{dt} = \\sum \\dot{m} {in} - \\sum \\dot{m} {out} $$ At steady state: $$ \\frac{dm {CV}}{dt} = 0 $$ So: $$ \\sum \\dot{m} {in} = \\sum \\dot{m} {out} $$ For one inlet and one outlet: $$ \\do…"
-skills:
-  - "Conservation of mass"
----
+For an ideal-gas isothermal process, $n=1$ and
 
-What is the main idea of **Conservation of mass**?
-
-:::solution
-One short answer is: General mass balance: $$ \frac{dm {CV}}{dt} = \sum \dot{m} {in} - \sum \dot{m} {out} $$ At steady state: $$ \frac{dm {CV}}{dt} = 0 $$ So: $$ \sum \dot{m} {in} = \sum \dot{m} {out} $$ For one inlet and one outlet: $$ \do…
-:::
+$$
+W_b = P_1V_1 \ln\left(\frac{V_2}{V_1}\right)
+$$
 
----
-id: "physics-thermodynamics-i-220"
-note: "physics-thermodynamics-i"
-title: "Review: Mass flow rate"
-type: "text"
-answer: "Mass flow rate: $$ \\dot{m} = \\rho A V $$ Using specific volume: $$ \\dot{m} = \\frac{AV}{v} $$ where $V$ is flow speed, not volume."
-skills:
-  - "Mass flow rate"
----
+Compute:
 
-What is the main idea of **Mass flow rate**?
+$$
+W_b = 200(0.30)\ln(2)
+$$
 
-:::solution
-One short answer is: Mass flow rate: $$ \dot{m} = \rho A V $$ Using specific volume: $$ \dot{m} = \frac{AV}{v} $$ where $V$ is flow speed, not volume.
+$$
+W_b = 60(0.693) \approx 41.6\ \text{kJ}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-221"
-note: "physics-thermodynamics-i"
-title: "Review: Energy balance for control volumes"
-type: "text"
-answer: "General rate form: $$ \\frac{dE {CV}}{dt} = \\dot{Q} - \\dot{W} + \\sum \\dot{m} {in}\\left(h + \\frac{V^2}{2} + gz\\right) - \\sum \\dot{m} {out}\\left(h + \\frac{V^2}{2} + gz\\right) $$ At steady state: $$ 0 = \\dot{Q} - \\dot{W} +…"
-skills:
-  - "Energy balance for control volumes"
+id: thermodynamics-i-25
+note: physics-thermodynamics-i
+title: "Solve a Spring-Loaded Energy Balance"
+skills: [Spring work, First Law, Closed systems]
 ---
 
-What is the main idea of **Energy balance for control volumes**?
-
-:::solution
-One short answer is: General rate form: $$ \frac{dE {CV}}{dt} = \dot{Q} - \dot{W} + \sum \dot{m} {in}\left(h + \frac{V^2}{2} + gz\right) - \sum \dot{m} {out}\left(h + \frac{V^2}{2} + gz\right) $$ At steady state: $$ 0 = \dot{Q} - \dot{W} +…
-:::
+A piston-cylinder device compresses a linear spring from $x_1 = 0$ to $x_2 = 0.20\ \text{m}$. The spring constant is $k = 8.0\ \text{kN/m}$.
 
----
-id: "physics-thermodynamics-i-222"
-note: "physics-thermodynamics-i"
-title: "Review: Common steady-flow devices"
-type: "text"
-answer: "For most steady-flow devices, start with: $$ \\dot{Q} - \\dot{W} = \\dot{m}\\left[(h 2-h 1) + \\frac{V 2^2 - V 1^2}{2} + g(z 2-z 1)\\right] $$ Then remove negligible terms."
-skills:
-  - "9. Common steady-flow devices"
----
+During the process, the closed system receives $Q = 1.0\ \text{kJ}$ of heat and no other work occurs.
 
-Name one common mistake the note warns about in **Common steady-flow devices**.
+Find the spring work and the change in internal energy.
 
 :::solution
-One short answer is: For most steady-flow devices, start with: $$ \dot{Q} - \dot{W} = \dot{m}\left[(h 2-h 1) + \frac{V 2^2 - V 1^2}{2} + g(z 2-z 1)\right] $$ Then remove negligible terms.
-:::
+For a linear spring,
 
----
-id: "physics-thermodynamics-i-223"
-note: "physics-thermodynamics-i"
-title: "Review: Turbine"
-type: "text"
-answer: "Steady state"
-skills:
-  - "Turbine"
----
+$$
+W = \frac{1}{2}k(x_2^2 - x_1^2)
+$$
 
-What is the main idea of **Turbine**?
+So
 
-:::solution
-One short answer is: Steady state
-:::
+$$
+W = \frac{1}{2}(8000)(0.20^2) = 160\ \text{J} = 0.16\ \text{kJ}
+$$
 
----
-id: "physics-thermodynamics-i-224"
-note: "physics-thermodynamics-i"
-title: "Review: Compressor"
-type: "text"
-answer: "Steady state"
-skills:
-  - "Compressor"
----
+Now apply the First Law:
 
-What is the main idea of **Compressor**?
+$$
+\Delta U = Q - W
+$$
 
-:::solution
-One short answer is: Steady state
+$$
+\Delta U = 1.0 - 0.16 = 0.84\ \text{kJ}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-31"
-note: "physics-thermodynamics-i"
-title: "Review: Pump"
-type: "text"
-answer: "A pump increases liquid pressure. For an incompressible liquid: $$ w {in} \\approx v(P 2 - P 1) $$ Pump power input: $$ \\dot{W} {in} \\approx \\dot{m}v(P 2 - P 1) $$"
-skills:
-  - "Pump"
+id: thermodynamics-i-26
+note: physics-thermodynamics-i
+title: "Analyze a Turbine"
+skills: [Turbine, Steady-flow energy]
 ---
-
-What is the main idea of **Pump**?
 
-:::solution
-One short answer is: A pump increases liquid pressure. For an incompressible liquid: $$ w {in} \approx v(P 2 - P 1) $$ Pump power input: $$ \dot{W} {in} \approx \dot{m}v(P 2 - P 1) $$
-:::
-
----
-id: "physics-thermodynamics-i-32"
-note: "physics-thermodynamics-i"
-title: "Review: Nozzle"
-type: "text"
-answer: "Steady state"
-skills:
-  - "Nozzle"
----
+A steady adiabatic turbine has negligible kinetic and potential energy changes. The mass flow rate is $3\ \text{kg/s}$, the inlet enthalpy is $h_1 = 3200\ \text{kJ/kg}$, and the outlet enthalpy is $h_2 = 2500\ \text{kJ/kg}$.
 
-What is the main idea of **Nozzle**?
+What is the power output of the turbine?
 
 :::solution
-One short answer is: Steady state
-:::
+For an adiabatic turbine with negligible kinetic and potential energy changes,
 
----
-id: "physics-thermodynamics-i-33"
-note: "physics-thermodynamics-i"
-title: "Review: Diffuser"
-type: "text"
-answer: "A diffuser decreases flow speed and increases pressure. Typical assumptions are similar to a nozzle: $$ h 1 + \\frac{V 1^2}{2} = h 2 + \\frac{V 2^2}{2} $$"
-skills:
-  - "Diffuser"
----
+$$
+\dot{W}_{out} = \dot{m}(h_1 - h_2)
+$$
 
-What is the main idea of **Diffuser**?
+So
 
-:::solution
-One short answer is: A diffuser decreases flow speed and increases pressure. Typical assumptions are similar to a nozzle: $$ h 1 + \frac{V 1^2}{2} = h 2 + \frac{V 2^2}{2} $$
+$$
+\dot{W}_{out} = 3(3200 - 2500) = 3(700) = 2100\ \text{kW}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-34"
-note: "physics-thermodynamics-i"
-title: "Review: Throttling valve"
-type: "text"
-answer: "Steady state"
-skills:
-  - "Throttling valve"
+id: thermodynamics-i-27
+note: physics-thermodynamics-i
+title: "Analyze a Throttling Valve"
+skills: [Throttling valve, Enthalpy]
 ---
-
-What is the main idea of **Throttling valve**?
 
-:::solution
-One short answer is: Steady state
-:::
-
----
-id: "physics-thermodynamics-i-35"
-note: "physics-thermodynamics-i"
-title: "Review: Heat exchanger"
-type: "text"
-answer: "A heat exchanger transfers heat between streams."
-skills:
-  - "Heat exchanger"
----
+A throttling valve drops the pressure of a fluid from $900\ \text{kPa}$ to $200\ \text{kPa}$.
 
-What is the main idea of **Heat exchanger**?
+If the inlet enthalpy is $h_1 = 245\ \text{kJ/kg}$, what is the outlet enthalpy?
 
 :::solution
-One short answer is: A heat exchanger transfers heat between streams.
-:::
+For throttling,
 
----
-id: "physics-thermodynamics-i-36"
-note: "physics-thermodynamics-i"
-title: "Review: Mixing chamber"
-type: "text"
-answer: "For an adiabatic mixing chamber with no work and negligible kinetic/potential energy changes: $$ \\sum \\dot{m} {in}h {in} = \\sum \\dot{m} {out}h {out} $$ Mass balance: $$ \\sum \\dot{m} {in} = \\sum \\dot{m} {out} $$ ---"
-skills:
-  - "Mixing chamber"
----
+$$
+h_1 = h_2
+$$
 
-What is the main idea of **Mixing chamber**?
+So
 
-:::solution
-One short answer is: For an adiabatic mixing chamber with no work and negligible kinetic/potential energy changes: $$ \sum \dot{m} {in}h {in} = \sum \dot{m} {out}h {out} $$ Mass balance: $$ \sum \dot{m} {in} = \sum \dot{m} {out} $$ ---
+$$
+h_2 = 245\ \text{kJ/kg}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-37"
-note: "physics-thermodynamics-i"
-title: "Review: Second Law of Thermodynamics"
-type: "text"
-answer: "The First Law gives energy conservation. The Second Law gives direction and limits."
-skills:
-  - "10. Second Law of Thermodynamics"
+id: thermodynamics-i-28
+note: physics-thermodynamics-i
+title: "Compute Ideal-Gas Entropy Change"
+skills: [Entropy, Ideal gas entropy changes]
 ---
 
-What is the main idea of **Second Law of Thermodynamics**?
+Air has
 
-:::solution
-One short answer is: The First Law gives energy conservation. The Second Law gives direction and limits.
-:::
+$$
+c_p = 1.005\ \text{kJ/(kg\cdot K)},\qquad R = 0.287\ \text{kJ/(kg\cdot K)}.
+$$
 
----
-id: "physics-thermodynamics-i-38"
-note: "physics-thermodynamics-i"
-title: "Review: Thermal reservoir"
-type: "text"
-answer: "Atmosphere"
-skills:
-  - "Thermal reservoir"
----
+It changes from $T_1 = 300\ \text{K}$ and $P_1 = 100\ \text{kPa}$ to $T_2 = 450\ \text{K}$ and $P_2 = 200\ \text{kPa}$.
 
-What is the main idea of **Thermal reservoir**?
+Find $s_2 - s_1$.
 
 :::solution
-One short answer is: Atmosphere
-:::
-
----
-id: "physics-thermodynamics-i-39"
-note: "physics-thermodynamics-i"
-title: "Review: Heat engine"
-type: "text"
-answer: "A heat engine receives heat from a high-temperature reservoir, produces net work, and rejects heat to a low-temperature reservoir."
-skills:
-  - "Heat engine"
----
+Use the constant-specific-heat ideal-gas entropy relation:
 
-What is the main idea of **Heat engine**?
+$$
+s_2 - s_1 = c_p \ln\left(\frac{T_2}{T_1}\right) - R \ln\left(\frac{P_2}{P_1}\right)
+$$
 
-:::solution
-One short answer is: A heat engine receives heat from a high-temperature reservoir, produces net work, and rejects heat to a low-temperature reservoir.
-:::
+Substitute:
 
----
-id: "physics-thermodynamics-i-310"
-note: "physics-thermodynamics-i"
-title: "Review: Refrigerator"
-type: "text"
-answer: "A refrigerator uses work input to move heat from a low-temperature region to a high-temperature region."
-skills:
-  - "Refrigerator"
----
+$$
+s_2 - s_1 = 1.005\ln\left(\frac{450}{300}\right) - 0.287\ln(2)
+$$
 
-What is the main idea of **Refrigerator**?
+$$
+s_2 - s_1 \approx 1.005(0.4055) - 0.287(0.6931)
+$$
 
-:::solution
-One short answer is: A refrigerator uses work input to move heat from a low-temperature region to a high-temperature region.
+$$
+s_2 - s_1 \approx 0.4075 - 0.1988 = 0.2087\ \text{kJ/(kg\cdot K)}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-311"
-note: "physics-thermodynamics-i"
-title: "Review: Heat pump"
-type: "text"
-answer: "A heat pump uses work input to deliver heat to a high-temperature region."
-skills:
-  - "Heat pump"
+id: thermodynamics-i-31
+note: physics-thermodynamics-i
+title: "Mix Two Streams"
+skills: [Mixing chamber, Control volumes, First Law]
 ---
-
-What is the main idea of **Heat pump**?
-
-:::solution
-One short answer is: A heat pump uses work input to deliver heat to a high-temperature region.
-:::
 
----
-id: "physics-thermodynamics-i-312"
-note: "physics-thermodynamics-i"
-title: "Review: Kelvin-Planck statement"
-type: "text"
-answer: "No heat engine can convert all the heat it receives from a single reservoir into net work while operating in a cycle. This means no real heat engine has: $$ \\eta {th} = 1 $$"
-skills:
-  - "Kelvin-Planck statement"
----
+An adiabatic mixing chamber has two inlet streams of the same substance:
 
-What is the main idea of **Kelvin-Planck statement**?
+$$
+\dot{m}_1 = 1\ \text{kg/s},\quad h_1 = 300\ \text{kJ/kg}
+$$
 
-:::solution
-One short answer is: No heat engine can convert all the heat it receives from a single reservoir into net work while operating in a cycle. This means no real heat engine has: $$ \eta {th} = 1 $$
-:::
+and
 
----
-id: "physics-thermodynamics-i-313"
-note: "physics-thermodynamics-i"
-title: "Review: Clausius statement"
-type: "text"
-answer: "No refrigerator or heat pump can move heat from a colder body to a hotter body without work input."
-skills:
-  - "Clausius statement"
----
+$$
+\dot{m}_2 = 2\ \text{kg/s},\quad h_2 = 500\ \text{kJ/kg}.
+$$
 
-What is the main idea of **Clausius statement**?
+Find the outlet mass flow rate and outlet enthalpy.
 
 :::solution
-One short answer is: No refrigerator or heat pump can move heat from a colder body to a hotter body without work input.
-:::
-
----
-id: "physics-thermodynamics-i-314"
-note: "physics-thermodynamics-i"
-title: "Review: Reversible and irreversible processes"
-type: "text"
-answer: "Friction"
-skills:
-  - "Reversible and irreversible processes"
----
-
-What is the main idea of **Reversible and irreversible processes**?
+Apply mass conservation:
 
-:::solution
-One short answer is: Friction
-:::
+$$
+\dot{m}_{out} = \dot{m}_1 + \dot{m}_2 = 1 + 2 = 3\ \text{kg/s}
+$$
 
----
-id: "physics-thermodynamics-i-315"
-note: "physics-thermodynamics-i"
-title: "Review: Entropy"
-type: "text"
-answer: "Entropy is a thermodynamic property that measures energy dispersal and irreversibility. For an internally reversible process: $$ dS = \\frac{\\delta Q {rev}}{T} $$ Specific form: $$ ds = \\frac{\\delta q {rev}}{T} $$"
-skills:
-  - "11. Entropy"
----
+For an adiabatic mixing chamber with no work and negligible kinetic and potential energy changes:
 
-What is the main idea of **Entropy**?
+$$
+\sum \dot{m}_{in}h_{in} = \dot{m}_{out}h_{out}
+$$
 
-:::solution
-One short answer is: Entropy is a thermodynamic property that measures energy dispersal and irreversibility. For an internally reversible process: $$ dS = \frac{\delta Q {rev}}{T} $$ Specific form: $$ ds = \frac{\delta q {rev}}{T} $$
-:::
+So
 
----
-id: "physics-thermodynamics-i-316"
-note: "physics-thermodynamics-i"
-title: "Review: Entropy change"
-type: "text"
-answer: "Entropy change between two states is independent of path: $$ \\Delta S = S 2 - S 1 $$ For a closed system: $$ \\Delta S = \\int 1^2 \\frac{\\delta Q {rev}}{T} $$"
-skills:
-  - "Entropy change"
----
+$$
+1(300) + 2(500) = 3h_{out}
+$$
 
-What is the main idea of **Entropy change**?
+$$
+1300 = 3h_{out}
+$$
 
-:::solution
-One short answer is: Entropy change between two states is independent of path: $$ \Delta S = S 2 - S 1 $$ For a closed system: $$ \Delta S = \int 1^2 \frac{\delta Q {rev}}{T} $$
+$$
+h_{out} = 433.3\ \text{kJ/kg}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-317"
-note: "physics-thermodynamics-i"
-title: "Review: Entropy principle"
-type: "text"
-answer: "For an isolated system: $$ \\Delta S {isolated} \\ge 0 $$ For the universe: $$ \\Delta S {universe} \\ge 0 $$ Equality applies to reversible processes: $$ \\Delta S {universe} = 0 $$ Irreversible processes generate entropy:…"
-skills:
-  - "Entropy principle"
+id: thermodynamics-i-32
+note: physics-thermodynamics-i
+title: "Analyze a Heat Exchanger"
+skills: [Heat exchanger, Control volumes, Energy balance]
 ---
-
-What is the main idea of **Entropy principle**?
 
-:::solution
-One short answer is: For an isolated system: $$ \Delta S {isolated} \ge 0 $$ For the universe: $$ \Delta S {universe} \ge 0 $$ Equality applies to reversible processes: $$ \Delta S {universe} = 0 $$ Irreversible processes generate entropy:…
-:::
-
----
-id: "physics-thermodynamics-i-318"
-note: "physics-thermodynamics-i"
-title: "Review: Entropy balance for a closed system"
-type: "text"
-answer: "$Q k$ is heat transfer at boundary temperature $T k$"
-skills:
-  - "Entropy balance for a closed system"
----
+An adiabatic heat exchanger has a hot stream and a cold stream. The hot stream has
 
-What is the main idea of **Entropy balance for a closed system**?
+$$
+\dot{m}_h = 2\ \text{kg/s},\quad h_{h,in} = 350\ \text{kJ/kg},\quad h_{h,out} = 250\ \text{kJ/kg}.
+$$
 
-:::solution
-One short answer is: $Q k$ is heat transfer at boundary temperature $T k$
-:::
+The cold stream has
 
----
-id: "physics-thermodynamics-i-319"
-note: "physics-thermodynamics-i"
-title: "Review: Entropy balance for a control volume"
-type: "text"
-answer: "Rate form: $$ \\frac{dS {CV}}{dt} = \\sum \\frac{\\dot{Q} k}{T k} + \\sum \\dot{m} {in}s {in} - \\sum \\dot{m} {out}s {out} + \\dot{S} {gen} $$ At steady state: $$ 0 = \\sum \\frac{\\dot{Q} k}{T k} + \\sum \\dot{m} {in}s {in} - \\sum…"
-skills:
-  - "Entropy balance for a control volume"
----
+$$
+\dot{m}_c = 3\ \text{kg/s},\quad h_{c,in} = 100\ \text{kJ/kg}.
+$$
 
-What is the main idea of **Entropy balance for a control volume**?
+Find the cold-stream outlet enthalpy.
 
 :::solution
-One short answer is: Rate form: $$ \frac{dS {CV}}{dt} = \sum \frac{\dot{Q} k}{T k} + \sum \dot{m} {in}s {in} - \sum \dot{m} {out}s {out} + \dot{S} {gen} $$ At steady state: $$ 0 = \sum \frac{\dot{Q} k}{T k} + \sum \dot{m} {in}s {in} - \sum…
-:::
+With negligible heat loss to the surroundings, the enthalpy lost by the hot stream equals the enthalpy gained by the cold stream:
 
----
-id: "physics-thermodynamics-i-320"
-note: "physics-thermodynamics-i"
-title: "Review: Isentropic process"
-type: "text"
-answer: "Adiabatic"
-skills:
-  - "Isentropic process"
----
+$$
+\dot{m}_h(h_{h,in}-h_{h,out}) = \dot{m}_c(h_{c,out}-h_{c,in})
+$$
 
-What is the main idea of **Isentropic process**?
+Substitute:
 
-:::solution
-One short answer is: Adiabatic
-:::
+$$
+2(350-250) = 3(h_{c,out}-100)
+$$
 
----
-id: "physics-thermodynamics-i-321"
-note: "physics-thermodynamics-i"
-title: "Review: T-ds relations"
-type: "text"
-answer: "First T-ds relation: $$ Tds = du + Pdv $$ Second T-ds relation: $$ Tds = dh - vdP $$ These apply to simple compressible substances. ---"
-skills:
-  - "T-ds relations"
----
+$$
+200 = 3(h_{c,out}-100)
+$$
 
-What is the main idea of **T-ds relations**?
+$$
+h_{c,out}-100 = 66.7
+$$
 
-:::solution
-One short answer is: First T-ds relation: $$ Tds = du + Pdv $$ Second T-ds relation: $$ Tds = dh - vdP $$ These apply to simple compressible substances. ---
+$$
+h_{c,out} = 166.7\ \text{kJ/kg}
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-322"
-note: "physics-thermodynamics-i"
-title: "Review: Power and refrigeration cycles"
-type: "text"
-answer: "A cycle returns the working fluid to its initial state, so property changes over the cycle are zero."
-skills:
-  - "12. Power and refrigeration cycles"
+id: thermodynamics-i-33
+note: physics-thermodynamics-i
+title: "Evaluate a Heat Engine"
+skills: [Heat engine, Efficiency, Second Law]
 ---
-
-What is the main idea of **Power and refrigeration cycles**?
-
-:::solution
-One short answer is: A cycle returns the working fluid to its initial state, so property changes over the cycle are zero.
-:::
 
----
-id: "physics-thermodynamics-i-323"
-note: "physics-thermodynamics-i"
-title: "Review: Carnot cycle"
-type: "text"
-answer: "The Carnot cycle is a completely reversible cycle operating between two reservoirs."
-skills:
-  - "Carnot cycle"
----
+A heat engine absorbs $900\ \text{kJ}$ from a hot reservoir and rejects $540\ \text{kJ}$ to a cold reservoir during one cycle.
 
-What is the main idea of **Carnot cycle**?
+Find the net work output and the thermal efficiency.
 
 :::solution
-One short answer is: The Carnot cycle is a completely reversible cycle operating between two reservoirs.
-:::
-
----
-id: "physics-thermodynamics-i-324"
-note: "physics-thermodynamics-i"
-title: "Review: Otto cycle"
-type: "text"
-answer: "Isentropic compression"
-skills:
-  - "Otto cycle"
----
+For a cycle,
 
-What is the main idea of **Otto cycle**?
+$$
+W_{net,out} = Q_H - Q_L
+$$
 
-:::solution
-One short answer is: Isentropic compression
-:::
+So
 
----
-id: "physics-thermodynamics-i-325"
-note: "physics-thermodynamics-i"
-title: "Review: Diesel cycle"
-type: "text"
-answer: "Isentropic compression"
-skills:
-  - "Diesel cycle"
----
+$$
+W_{net,out} = 900 - 540 = 360\ \text{kJ}
+$$
 
-What is the main idea of **Diesel cycle**?
+Thermal efficiency is
 
-:::solution
-One short answer is: Isentropic compression
-:::
+$$
+\eta_{th} = \frac{W_{net,out}}{Q_H}
+$$
 
----
-id: "physics-thermodynamics-i-41"
-note: "physics-thermodynamics-i"
-title: "Review: Brayton cycle"
-type: "text"
-answer: "Isentropic compression"
-skills:
-  - "Brayton cycle"
----
+Thus
 
-What is the main idea of **Brayton cycle**?
+$$
+\eta_{th} = \frac{360}{900} = 0.40
+$$
 
-:::solution
-One short answer is: Isentropic compression
+So the efficiency is $40\%$.
 :::
 
 ---
-id: "physics-thermodynamics-i-42"
-note: "physics-thermodynamics-i"
-title: "Review: Rankine cycle"
-type: "text"
-answer: "Pump"
-skills:
-  - "Rankine cycle"
+id: thermodynamics-i-34
+note: physics-thermodynamics-i
+title: "Evaluate a Refrigerator"
+skills: [Refrigerator, COP, Second Law]
 ---
+
+A refrigerator removes $420\ \text{kJ}$ of heat from the cold space and requires $140\ \text{kJ}$ of work input.
 
-What is the main idea of **Rankine cycle**?
+Find $Q_H$, $COP_R$, and $COP_{HP}$.
 
 :::solution
-One short answer is: Pump
-:::
+Use the refrigerator energy balance:
 
----
-id: "physics-thermodynamics-i-43"
-note: "physics-thermodynamics-i"
-title: "Review: Vapor-compression refrigeration cycle"
-type: "text"
-answer: "Compressor"
-skills:
-  - "Vapor-compression refrigeration cycle"
----
+$$
+W_{net,in} = Q_H - Q_L
+$$
 
-What is the main idea of **Vapor-compression refrigeration cycle**?
+So
 
-:::solution
-One short answer is: Compressor
-:::
+$$
+Q_H = Q_L + W_{net,in} = 420 + 140 = 560\ \text{kJ}
+$$
 
----
-id: "physics-thermodynamics-i-44"
-note: "physics-thermodynamics-i"
-title: "Review: Problem-solving workflow"
-type: "text"
-answer: "Use this checklist for most Thermodynamics I problems."
-skills:
-  - "13. Problem-solving workflow"
----
+The refrigerator COP is
 
-According to the note, what sequence of steps is recommended in **Problem-solving workflow**?
+$$
+COP_R = \frac{Q_L}{W_{net,in}} = \frac{420}{140} = 3
+$$
 
-:::solution
-One short answer is: Use this checklist for most Thermodynamics I problems.
+The heat pump COP is
+
+$$
+COP_{HP} = \frac{Q_H}{W_{net,in}} = \frac{560}{140} = 4
+$$
 :::
 
 ---
-id: "physics-thermodynamics-i-45"
-note: "physics-thermodynamics-i"
-title: "Review: Step 1: Define the system"
-type: "text"
-answer: "Closed"
-skills:
-  - "Step 1: Define the system"
+id: thermodynamics-i-35
+note: physics-thermodynamics-i
+title: "Check Entropy Generation"
+skills: [Entropy principle, Second Law]
 ---
 
-What is the main idea of **Step 1: Define the system**?
+Six hundred kilojoules of heat flows directly from a $600\ \text{K}$ reservoir to a $300\ \text{K}$ reservoir.
 
+What is the entropy change of the universe, and does this process satisfy the Second Law?
+
 :::solution
-One short answer is: Closed
-:::
+The hot reservoir loses entropy:
 
----
-id: "physics-thermodynamics-i-46"
-note: "physics-thermodynamics-i"
-title: "Review: Step 2: List knowns and unknowns"
-type: "text"
-answer: "Write given values with units. Convert temperatures to absolute scale when needed."
-skills:
-  - "Step 2: List knowns and unknowns"
----
+$$
+\Delta S_H = -\frac{600}{600} = -1\ \text{kJ/K}
+$$
 
-What is the main idea of **Step 2: List knowns and unknowns**?
+The cold reservoir gains entropy:
 
-:::solution
-One short answer is: Write given values with units. Convert temperatures to absolute scale when needed.
-:::
+$$
+\Delta S_C = \frac{600}{300} = 2\ \text{kJ/K}
+$$
 
----
-id: "physics-thermodynamics-i-47"
-note: "physics-thermodynamics-i"
-title: "Review: Step 3: Identify the process model"
-type: "text"
-answer: "Steady state"
-skills:
-  - "Step 3: Identify the process model"
----
+So the universe changes by
 
-What is the main idea of **Step 3: Identify the process model**?
+$$
+\Delta S_{universe} = -1 + 2 = 1\ \text{kJ/K}
+$$
 
-:::solution
-One short answer is: Steady state
+Because $\Delta S_{universe} > 0$, the process satisfies the Second Law.
 :::
 
 ---
-id: "physics-thermodynamics-i-48"
-note: "physics-thermodynamics-i"
-title: "Review: Step 4: Determine the substance model"
-type: "text"
-answer: "Property tables"
-skills:
-  - "Step 4: Determine the substance model"
+id: thermodynamics-i-41
+note: physics-thermodynamics-i
+title: "Evaluate an Otto Cycle"
+skills: [Otto cycle, Efficiency]
 ---
 
-What is the main idea of **Step 4: Determine the substance model**?
+An air-standard Otto cycle has a compression ratio of $r = 8$ and $k = 1.4$.
 
-:::solution
-One short answer is: Property tables
-:::
+What is the thermal efficiency?
 
----
-id: "physics-thermodynamics-i-49"
-note: "physics-thermodynamics-i"
-title: "Review: Step 5: Choose the correct balance"
-type: "text"
-answer: "Closed-system energy balance: $$ \\Delta E = Q - W $$ Control-volume mass balance: $$ \\frac{dm {CV}}{dt} = \\sum \\dot{m} {in} - \\sum \\dot{m} {out} $$ Control-volume energy balance: $$ \\frac{dE {CV}}{dt} = \\dot{Q} - \\dot{W…"
-skills:
-  - "Step 5: Choose the correct balance"
----
+:::solution
+For the ideal Otto cycle,
 
-What is the main idea of **Step 5: Choose the correct balance**?
+$$
+\eta_{Otto} = 1 - \frac{1}{r^{k-1}}
+$$
 
-:::solution
-One short answer is: Closed-system energy balance: $$ \Delta E = Q - W $$ Control-volume mass balance: $$ \frac{dm {CV}}{dt} = \sum \dot{m} {in} - \sum \dot{m} {out} $$ Control-volume energy balance: $$ \frac{dE {CV}}{dt} = \dot{Q} - \dot{W…
-:::
+Substitute the values:
 
----
-id: "physics-thermodynamics-i-410"
-note: "physics-thermodynamics-i"
-title: "Review: Step 6: Apply assumptions"
-type: "text"
-answer: "Negligible kinetic energy change"
-skills:
-  - "Step 6: Apply assumptions"
----
+$$
+\eta_{Otto} = 1 - \frac{1}{8^{0.4}}
+$$
 
-What is the main idea of **Step 6: Apply assumptions**?
+Since
 
-:::solution
-One short answer is: Negligible kinetic energy change
-:::
+$$
+8^{0.4} \approx 2.30
+$$
 
----
-id: "physics-thermodynamics-i-411"
-note: "physics-thermodynamics-i"
-title: "Review: Step 7: Solve symbolically first"
-type: "text"
-answer: "Keep equations symbolic as long as possible. Substitute numbers after the equation is arranged."
-skills:
-  - "Step 7: Solve symbolically first"
----
+we get
 
-What is the main idea of **Step 7: Solve symbolically first**?
+$$
+\eta_{Otto} \approx 1 - \frac{1}{2.30} \approx 0.565
+$$
 
-:::solution
-One short answer is: Keep equations symbolic as long as possible. Substitute numbers after the equation is arranged.
+So the efficiency is about $56.5\%$.
 :::
 
 ---
-id: "physics-thermodynamics-i-412"
-note: "physics-thermodynamics-i"
-title: "Review: Step 8: Check physical meaning"
-type: "text"
-answer: "Does the sign make sense?"
-skills:
-  - "Step 8: Check physical meaning"
+id: thermodynamics-i-42
+note: physics-thermodynamics-i
+title: "Evaluate a Brayton Cycle"
+skills: [Brayton cycle, Efficiency]
 ---
 
-What is the main idea of **Step 8: Check physical meaning**?
+An air-standard Brayton cycle has a pressure ratio of $r_p = 6$ and $k = 1.4$.
 
-:::solution
-One short answer is: Does the sign make sense?
-:::
+What is the thermal efficiency?
 
----
-id: "physics-thermodynamics-i-413"
-note: "physics-thermodynamics-i"
-title: "Review: Formula sheet"
-type: "text"
-answer: "Formula sheet"
-skills:
-  - "14. Formula sheet"
----
+:::solution
+For the ideal Brayton cycle,
 
-What core formulas or relations are summarized in **Formula sheet**?
+$$
+\eta_{Brayton} = 1 - \frac{1}{r_p^{(k-1)/k}}
+$$
 
-:::solution
-One short answer is: Formula sheet
-:::
+Substitute the values:
 
----
-id: "physics-thermodynamics-i-414"
-note: "physics-thermodynamics-i"
-title: "Review: Basic property relations"
-type: "text"
-answer: "$$ v = \\frac{V}{m} $$ $$ \\rho = \\frac{m}{V} = \\frac{1}{v} $$ $$ h = u + Pv $$ $$ E = U + KE + PE $$ $$ e = u + \\frac{V^2}{2} + gz $$"
-skills:
-  - "Basic property relations"
----
+$$
+\eta_{Brayton} = 1 - \frac{1}{6^{0.2857}}
+$$
 
-What is the main idea of **Basic property relations**?
+Since
 
-:::solution
-One short answer is: $$ v = \frac{V}{m} $$ $$ \rho = \frac{m}{V} = \frac{1}{v} $$ $$ h = u + Pv $$ $$ E = U + KE + PE $$ $$ e = u + \frac{V^2}{2} + gz $$
-:::
+$$
+6^{0.2857} \approx 1.67
+$$
 
----
-id: "physics-thermodynamics-i-415"
-note: "physics-thermodynamics-i"
-title: "Review: Ideal gas"
-type: "text"
-answer: "$$ PV = mRT $$ $$ Pv = RT $$ $$ P = \\rho RT $$ $$ c p - c v = R $$ $$ k = \\frac{c p}{c v} $$"
-skills:
-  - "Ideal gas"
----
+we get
 
-What is the main idea of **Ideal gas**?
+$$
+\eta_{Brayton} \approx 1 - \frac{1}{1.67} \approx 0.40
+$$
 
-:::solution
-One short answer is: $$ PV = mRT $$ $$ Pv = RT $$ $$ P = \rho RT $$ $$ c p - c v = R $$ $$ k = \frac{c p}{c v} $$
+So the efficiency is about $40\%$.
 :::
 
 ---
-id: "physics-thermodynamics-i-416"
-note: "physics-thermodynamics-i"
-title: "Review: Saturated mixture"
-type: "text"
-answer: "$$ x = \\frac{m g}{m f + m g} $$ $$ y = y f + xy {fg} $$ $$ y {fg} = y g - y f $$"
-skills:
-  - "Saturated mixture"
+id: thermodynamics-i-43
+note: physics-thermodynamics-i
+title: "Compute Rankine Cycle Efficiency"
+skills: [Rankine cycle, First Law, Cycles]
 ---
 
-What is the main idea of **Saturated mixture**?
+An ideal Rankine cycle has the following enthalpies:
 
-:::solution
-One short answer is: $$ x = \frac{m g}{m f + m g} $$ $$ y = y f + xy {fg} $$ $$ y {fg} = y g - y f $$
-:::
+$$
+h_1 = 200,\quad h_2 = 210,\quad h_3 = 3200,\quad h_4 = 2200
+$$
 
----
-id: "physics-thermodynamics-i-417"
-note: "physics-thermodynamics-i"
-title: "Review: Closed-system First Law"
-type: "text"
-answer: "$$ \\Delta E = Q - W $$ $$ \\Delta U + \\Delta KE + \\Delta PE = Q - W $$ If kinetic and potential energy changes are negligible: $$ \\Delta U = Q - W $$"
-skills:
-  - "Closed-system First Law"
----
+all in $\text{kJ/kg}$.
 
-What is the main idea of **Closed-system First Law**?
+Find the pump work input, turbine work output, net work output, and thermal efficiency.
 
 :::solution
-One short answer is: $$ \Delta E = Q - W $$ $$ \Delta U + \Delta KE + \Delta PE = Q - W $$ If kinetic and potential energy changes are negligible: $$ \Delta U = Q - W $$
-:::
+Use the Rankine cycle relations:
 
----
-id: "physics-thermodynamics-i-418"
-note: "physics-thermodynamics-i"
-title: "Review: Boundary work"
-type: "text"
-answer: "$$ W b = \\int 1^2 P\\,dV $$ Constant pressure: $$ W b = P(V 2 - V 1) $$ Polytropic process, $n \\ne 1$: $$ W b = \\frac{P 2V 2 - P 1V 1}{1-n} $$ Polytropic process, $n = 1$: $$ W b = P 1V 1\\ln\\left(\\frac{V 2}{V 1}\\right) $$"
-skills:
-  - "Boundary work"
----
+$$
+w_{pump,in} = h_2 - h_1 = 210 - 200 = 10\ \text{kJ/kg}
+$$
 
-What is the main idea of **Boundary work**?
+$$
+w_{turb,out} = h_3 - h_4 = 3200 - 2200 = 1000\ \text{kJ/kg}
+$$
 
-:::solution
-One short answer is: $$ W b = \int 1^2 P\,dV $$ Constant pressure: $$ W b = P(V 2 - V 1) $$ Polytropic process, $n \ne 1$: $$ W b = \frac{P 2V 2 - P 1V 1}{1-n} $$ Polytropic process, $n = 1$: $$ W b = P 1V 1\ln\left(\frac{V 2}{V 1}\right) $$
-:::
+Net work output:
 
----
-id: "physics-thermodynamics-i-419"
-note: "physics-thermodynamics-i"
-title: "Review: Control-volume balances"
-type: "text"
-answer: "Mass balance: $$ \\frac{dm {CV}}{dt} = \\sum \\dot{m} {in} - \\sum \\dot{m} {out} $$ Steady-flow energy balance: $$ \\dot{Q} - \\dot{W} = \\dot{m}\\left[(h 2-h 1) + \\frac{V 2^2 - V 1^2}{2} + g(z 2-z 1)\\right] $$ Mass flow rate:…"
-skills:
-  - "Control-volume balances"
----
+$$
+w_{net,out} = w_{turb,out} - w_{pump,in} = 1000 - 10 = 990\ \text{kJ/kg}
+$$
 
-What is the main idea of **Control-volume balances**?
+Heat input:
 
-:::solution
-One short answer is: Mass balance: $$ \frac{dm {CV}}{dt} = \sum \dot{m} {in} - \sum \dot{m} {out} $$ Steady-flow energy balance: $$ \dot{Q} - \dot{W} = \dot{m}\left[(h 2-h 1) + \frac{V 2^2 - V 1^2}{2} + g(z 2-z 1)\right] $$ Mass flow rate:…
-:::
+$$
+q_{in} = h_3 - h_2 = 3200 - 210 = 2990\ \text{kJ/kg}
+$$
 
----
-id: "physics-thermodynamics-i-420"
-note: "physics-thermodynamics-i"
-title: "Review: Common devices"
-type: "text"
-answer: "Turbine: $$ \\dot{W} {out} = \\dot{m}(h 1-h 2) $$ Compressor: $$ \\dot{W} {in} = \\dot{m}(h 2-h 1) $$ Pump: $$ w {in} \\approx v(P 2-P 1) $$ Nozzle or diffuser: $$ h 1 + \\frac{V 1^2}{2} = h 2 + \\frac{V 2^2}{2} $$ Throttling…"
-skills:
-  - "Common devices"
----
+Thermal efficiency:
 
-Name one common mistake the note warns about in **Common devices**.
+$$
+\eta_{Rankine} = \frac{w_{net,out}}{q_{in}} = \frac{990}{2990} \approx 0.331
+$$
 
-:::solution
-One short answer is: Turbine: $$ \dot{W} {out} = \dot{m}(h 1-h 2) $$ Compressor: $$ \dot{W} {in} = \dot{m}(h 2-h 1) $$ Pump: $$ w {in} \approx v(P 2-P 1) $$ Nozzle or diffuser: $$ h 1 + \frac{V 1^2}{2} = h 2 + \frac{V 2^2}{2} $$ Throttling…
+So the efficiency is about $33.1\%$.
 :::
 
 ---
-id: "physics-thermodynamics-i-421"
-note: "physics-thermodynamics-i"
-title: "Review: Second Law and entropy"
-type: "text"
-answer: "Heat engine efficiency: $$ \\eta {th} = \\frac{W {net,out}}{Q H} $$ $$ \\eta {th} = 1 - \\frac{Q L}{Q H} $$ Refrigerator COP: $$ COP R = \\frac{Q L}{W {net,in}} $$ Heat pump COP: $$ COP {HP} = \\frac{Q H}{W {net,in}} $$ Carno…"
-skills:
-  - "Second Law and entropy"
+id: thermodynamics-i-44
+note: physics-thermodynamics-i
+title: "Apply the Workflow to a Sealed Tank"
+skills: [Problem-solving workflow, Closed systems, Sign conventions]
 ---
 
-What is the main idea of **Second Law and entropy**?
+A rigid, sealed tank contains gas. It loses $5\ \text{kJ}$ of heat to the surroundings and receives $12\ \text{kJ}$ of electrical work input. Neglect kinetic and potential energy changes.
 
+Using the closed-system First Law and the sign convention in the note, find $\Delta U$.
+
 :::solution
-One short answer is: Heat engine efficiency: $$ \eta {th} = \frac{W {net,out}}{Q H} $$ $$ \eta {th} = 1 - \frac{Q L}{Q H} $$ Refrigerator COP: $$ COP R = \frac{Q L}{W {net,in}} $$ Heat pump COP: $$ COP {HP} = \frac{Q H}{W {net,in}} $$ Carno…
-:::
+The tank is a **closed system** because no mass crosses the boundary.
 
----
-id: "physics-thermodynamics-i-422"
-note: "physics-thermodynamics-i"
-title: "Review: Ideal gas entropy changes"
-type: "text"
-answer: "$$ s 2 - s 1 = c p \\ln\\left(\\frac{T 2}{T 1}\\right) - R \\ln\\left(\\frac{P 2}{P 1}\\right) $$ $$ s 2 - s 1 = c v \\ln\\left(\\frac{T 2}{T 1}\\right) + R \\ln\\left(\\frac{v 2}{v 1}\\right) $$"
-skills:
-  - "Ideal gas entropy changes"
----
+Using the note's sign convention:
 
-What is the main idea of **Ideal gas entropy changes**?
+$$
+Q = -5\ \text{kJ}
+$$
 
-:::solution
-One short answer is: $$ s 2 - s 1 = c p \ln\left(\frac{T 2}{T 1}\right) - R \ln\left(\frac{P 2}{P 1}\right) $$ $$ s 2 - s 1 = c v \ln\left(\frac{T 2}{T 1}\right) + R \ln\left(\frac{v 2}{v 1}\right) $$
-:::
+because heat leaves the system, and
 
----
-id: "physics-thermodynamics-i-423"
-note: "physics-thermodynamics-i"
-title: "Review: Isentropic ideal gas relations"
-type: "text"
-answer: "$$ PV^k = constant $$ $$ Tv^{k-1} = constant $$ $$ \\frac{T 2}{T 1} = \\left(\\frac{P 2}{P 1}\\right)^{(k-1)/k} $$ $$ \\frac{P 2}{P 1} = \\left(\\frac{v 1}{v 2}\\right)^k $$ ---"
-skills:
-  - "Isentropic ideal gas relations"
----
+$$
+W = -12\ \text{kJ}
+$$
 
-What is the main idea of **Isentropic ideal gas relations**?
+because work is done on the system, not by the system.
 
-:::solution
-One short answer is: $$ PV^k = constant $$ $$ Tv^{k-1} = constant $$ $$ \frac{T 2}{T 1} = \left(\frac{P 2}{P 1}\right)^{(k-1)/k} $$ $$ \frac{P 2}{P 1} = \left(\frac{v 1}{v 2}\right)^k $$ ---
-:::
+Now apply the First Law:
 
----
-id: "physics-thermodynamics-i-424"
-note: "physics-thermodynamics-i"
-title: "Review: Common mistakes to avoid"
-type: "text"
-answer: "Using Celsius instead of Kelvin in ideal gas or Carnot equations."
-skills:
-  - "Common mistakes to avoid"
----
+$$
+\Delta U = Q - W
+$$
 
-Name one common mistake the note warns about in **Common mistakes to avoid**.
+So
 
-:::solution
-One short answer is: Using Celsius instead of Kelvin in ideal gas or Carnot equations.
+$$
+\Delta U = -5 - (-12) = 7\ \text{kJ}
+$$
 :::

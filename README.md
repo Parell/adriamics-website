@@ -6,33 +6,23 @@ Build the site from the repository root with:
 node notes/build-notes.mjs
 ```
 
-- legal/safety systems
-- Github contributions?
-- Interactive calculators
-- Dataset tab for needed practice sections
-- Thermodynamics tables, Phyics constants
-
-Better explanations with diagrams and simulationsstat
-STEM topics need visual support:
-
-Force diagrams
-Graph animations
-Circuit diagrams
-Organic reaction mechanisms
-Thermodynamic cycle plots
-Vector field visualizations
-Interactive sliders for formulas
-
-
-
 Build the static note pages, catalog, search index, practice pages, and sitemap with `node notes/build-notes.mjs` after changing Markdown notes or their manifest.
 
 Notes live in per-topic folders under `notes/subjects/...`, and each note source file must match its folder name, for example `notes/subjects/math/algebra/algebra.md`.
 
-
-
-
-
+- legal/safety systems
+- Github contributions?
+- Interactive calculators
+- Thermodynamics tables, Phyics constants
+- weak-area detection for each subject
+- Every page should have visible sources, author/reviewer history, version history
+- Force diagrams
+- Graph animations
+- Circuit diagrams
+- Organic reaction mechanisms
+- Thermodynamic cycle plots
+- Vector field visualizations
+- Interactive sliders for formulas
 
 You are generating one problems file for my notes website.
 

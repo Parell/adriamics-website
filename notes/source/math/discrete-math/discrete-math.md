@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 # Discrete Mathematics
 
 Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.
@@ -948,3 +940,14 @@ $$
 - Forgetting that a relation and a function are different objects.
 - Claiming a graph is a tree without checking both connectedness and acyclicity.
 - Using asymptotic notation as if it were an exact equality.
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

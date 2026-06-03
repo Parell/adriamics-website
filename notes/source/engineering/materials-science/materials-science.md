@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 # Materials Science
 ## 1. Core idea
 
@@ -770,3 +762,22 @@ $$
 ### Final takeaway
 
 Materials science is about selecting and designing materials by controlling structure at multiple scales. The best answers usually connect atomic bonding, defects, phase behavior, processing history, and the final service conditions of the part.
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Nilsson and Riedel, *Electric Circuits*
+- Sedra and Smith, *Microelectronic Circuits*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- Leake and Borger, *Engineering Design Graphics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

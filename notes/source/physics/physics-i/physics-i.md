@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # What Physics I covers
 
 Physics I is usually the first university-level mechanics course. The core goal is to describe how objects move and why they move using a small set of conservation laws and force laws.
@@ -903,3 +896,14 @@ $$
 - Applying energy when the problem asks for a force or acceleration directly
 - Forgetting that momentum is vector-valued
 - Using a circular motion formula without checking whether the motion is actually circular
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

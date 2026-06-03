@@ -1,9 +1,9 @@
----
+<!--
 id: heat-transfer-11
 note: engineering-heat-transfer
 title: "Identify the Dominant Heat-Transfer Mode"
 skills: [Three Modes, Heat Transfer Basics]
----
+-->
 
 Name the dominant mode in each situation:
 
@@ -19,12 +19,12 @@ The dominant modes are:
 - From the sun to the roof: radiation
 :::
 
----
+<!--
 id: heat-transfer-12
 note: engineering-heat-transfer
 title: "Compute Heat Flow Through a Plane Wall"
 skills: [Conduction, Fourier's Law]
----
+-->
 
 A plane wall has $k = 0.8\ \text{W/(m K)}$, area $A = 3\ \text{m}^2$, thickness $L = 0.05\ \text{m}$, and surface temperatures $T_1 = 60^\circ\text{C}$ and $T_2 = 20^\circ\text{C}$.
 
@@ -48,12 +48,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-13
 note: engineering-heat-transfer
 title: "Find a Conduction Resistance"
 skills: [Conduction, Thermal Resistance]
----
+-->
 
 A flat layer has thickness $L = 0.10\ \text{m}$, conductivity $k = 2\ \text{W/(m K)}$, and area $A = 4\ \text{m}^2$.
 
@@ -79,12 +79,12 @@ R_{cond} = \frac{1}{80}\ \text{K/W}
 $$
 :::
 
----
+<!--
 id: heat-transfer-14
 note: engineering-heat-transfer
 title: "Use Newton's Law of Cooling"
 skills: [Convection, Newton's Law of Cooling]
----
+-->
 
 A surface has area $A_s = 1.5\ \text{m}^2$, convection coefficient $h = 12\ \text{W/(m}^2\text{ K)}$, surface temperature $T_s = 85^\circ\text{C}$, and surrounding fluid temperature $T_\infty = 25^\circ\text{C}$.
 
@@ -108,12 +108,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-15
 note: engineering-heat-transfer
 title: "Find a Convection Resistance"
 skills: [Convection, Thermal Resistance]
----
+-->
 
 A surface has $h = 15\ \text{W/(m}^2\text{ K)}$ and area $A_s = 0.4\ \text{m}^2$.
 
@@ -139,12 +139,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-16
 note: engineering-heat-transfer
 title: "Evaluate Linearized Radiation Loss"
 skills: [Radiation, Linearized Radiation]
----
+-->
 
 A hot surface has area $A = 2.5\ \text{m}^2$ and linearized radiation coefficient $h_r = 6\ \text{W/(m}^2\text{ K)}$.
 
@@ -168,12 +168,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-17
 note: engineering-heat-transfer
 title: "Compute Heat Generated in a Solid"
 skills: [Heat Generation, Volume]
----
+-->
 
 A solid has volumetric heat generation rate $\dot{q}''' = 2.5\times 10^5\ \text{W/m}^3$ and volume $V = 0.004\ \text{m}^3$.
 
@@ -193,12 +193,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-18
 note: engineering-heat-transfer
 title: "Add Resistances in Series"
 skills: [Thermal Resistance, Series Networks]
----
+-->
 
 Three thermal resistances are connected in series:
 
@@ -222,12 +222,12 @@ R_{eq} = 0.10 + 0.25 + 0.15 = 0.50\ \text{K/W}
 $$
 :::
 
----
+<!--
 id: heat-transfer-19
 note: engineering-heat-transfer
 title: "Use Reciprocity for a View Factor"
 skills: [Radiation, View Factors]
----
+-->
 
 Two surfaces have areas $A_1 = 2\ \text{m}^2$ and $A_2 = 3\ \text{m}^2$.
 
@@ -251,12 +251,12 @@ F_{2\to 1} = \frac{2(0.30)}{3} = 0.20
 $$
 :::
 
----
+<!--
 id: heat-transfer-110
 note: engineering-heat-transfer
 title: "Compute a Biot Number"
 skills: [Biot Number, Lumped Capacitance]
----
+-->
 
 A solid has $h = 20\ \text{W/(m}^2\text{ K)}$, characteristic length $L_c = 0.01\ \text{m}$, and conductivity $k = 200\ \text{W/(m K)}$.
 
@@ -278,12 +278,12 @@ $$
 Since $Bi \ll 0.1$, the lumped-capacitance approximation is reasonable.
 :::
 
----
+<!--
 id: heat-transfer-21
 note: engineering-heat-transfer
 title: "Steady Heat Loss Through a Composite Wall"
 skills: [Composite Walls, Convection, Thermal Resistance]
----
+-->
 
 A wall separates indoor air at $100^\circ\text{C}$ from outdoor air at $20^\circ\text{C}$.
 
@@ -321,12 +321,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-22
 note: engineering-heat-transfer
 title: "Heat Flow Through Cylindrical Insulation"
 skills: [Cylindrical Conduction, Thermal Resistance]
----
+-->
 
 A pipe has inner radius $r_1 = 0.02\ \text{m}$ and outer radius $r_2 = 0.04\ \text{m}$.
 
@@ -352,12 +352,12 @@ R_{cond,cyl} = \frac{\ln 2}{0.5027} \approx 1.38\ \text{K/W}
 $$
 :::
 
----
+<!--
 id: heat-transfer-23
 note: engineering-heat-transfer
 title: "Track Interface Temperatures in a Resistance Network"
 skills: [Contact Resistance, Thermal Resistance]
----
+-->
 
 A hot surface at $80^\circ\text{C}$ is connected to a cold surface at $20^\circ\text{C}$ through three resistances in series:
 
@@ -399,12 +399,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-24
 note: engineering-heat-transfer
 title: "Lumped Cooling After a Fixed Time"
 skills: [Transient Heat Transfer, Lumped Capacitance]
----
+-->
 
 A body has mass $m = 2\ \text{kg}$ and specific heat $c_p = 500\ \text{J/(kg K)}$.
 
@@ -444,12 +444,12 @@ T(100) = 20 + 80e^{-0.5} \approx 68.5^\circ\text{C}
 $$
 :::
 
----
+<!--
 id: heat-transfer-25
 note: engineering-heat-transfer
 title: "Cold-Stream Outlet Temperature in a Heat Exchanger"
 skills: [Heat Exchangers, Energy Balance]
----
+-->
 
 A heat exchanger transfers heat from a hot stream to a cold stream.
 
@@ -489,12 +489,12 @@ T_{c,out} = 40^\circ\text{C}
 $$
 :::
 
----
+<!--
 id: heat-transfer-26
 note: engineering-heat-transfer
 title: "Required Area from LMTD"
 skills: [Heat Exchangers, LMTD]
----
+-->
 
 A counterflow heat exchanger has:
 
@@ -554,12 +554,12 @@ A = \frac{105000}{350(41.2)} \approx 7.3\ \text{m}^2
 $$
 :::
 
----
+<!--
 id: heat-transfer-27
 note: engineering-heat-transfer
 title: "Recover a Heat Transfer Coefficient from Nusselt Number"
 skills: [Nusselt Number, Convection]
----
+-->
 
 A correlation gives $Nu = 25$ for a flow over a surface with $k = 0.6\ \text{W/(m K)}$ and characteristic length $L_c = 0.02\ \text{m}$.
 
@@ -585,12 +585,12 @@ h = \frac{25(0.6)}{0.02} = 750\ \text{W/(m}^2\text{ K)}
 $$
 :::
 
----
+<!--
 id: heat-transfer-28
 note: engineering-heat-transfer
 title: "Compute Reynolds and Prandtl Numbers"
 skills: [Reynolds Number, Prandtl Number]
----
+-->
 
 A fluid has $\rho = 1.2\ \text{kg/m}^3$, $V = 10\ \text{m/s}$, $L = 0.05\ \text{m}$, $\mu = 1.8\times 10^{-5}\ \text{Pa s}$, $c_p = 1005\ \text{J/(kg K)}$, and $k = 0.026\ \text{W/(m K)}$.
 
@@ -624,12 +624,12 @@ $$
 A large Reynolds number suggests inertia effects are strong and turbulence is more likely.
 :::
 
----
+<!--
 id: heat-transfer-31
 note: engineering-heat-transfer
 title: "Heat Loss Through a Layered Wall in a Room"
 skills: [Composite Walls, Convection, Thermal Resistance]
----
+-->
 
 Indoor air is at $22^\circ\text{C}$ and outdoor air is at $-8^\circ\text{C}$.
 
@@ -661,12 +661,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-32
 note: engineering-heat-transfer
 title: "Decide Whether Added Pipe Insulation Helps"
 skills: [Critical Radius, Cylindrical Conduction]
----
+-->
 
 A pipe has outer radius $r_0 = 0.015\ \text{m}$, insulation conductivity $k = 0.06\ \text{W/(m K)}$, and surrounding convection coefficient $h = 3\ \text{W/(m}^2\text{ K)}$.
 
@@ -688,12 +688,12 @@ $$
 Because the current radius $0.015\ \text{m}$ is smaller than the critical radius, adding a thin layer of insulation initially increases heat loss.
 :::
 
----
+<!--
 id: heat-transfer-33
 note: engineering-heat-transfer
 title: "Combine Convection and Radiation"
 skills: [Radiation, Convection, Thermal Resistance]
----
+-->
 
 A surface has area $A = 1.2\ \text{m}^2$, surface temperature $T_s = 120^\circ\text{C}$, ambient temperature $T_\infty = 20^\circ\text{C}$, convection coefficient $h = 10\ \text{W/(m}^2\text{ K)}$, and linearized radiation coefficient $h_r = 5\ \text{W/(m}^2\text{ K)}$.
 
@@ -717,12 +717,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-34
 note: engineering-heat-transfer
 title: "Time to Reach a Target Temperature"
 skills: [Transient Heat Transfer, Lumped Capacitance]
----
+-->
 
 A body has a time constant of $\tau = 60\ \text{s}$, initial temperature $T_i = 20^\circ\text{C}$, and surrounding temperature $T_\infty = 200^\circ\text{C}$.
 
@@ -760,12 +760,12 @@ t = 60\ln 2 \approx 41.6\ \text{s}
 $$
 :::
 
----
+<!--
 id: heat-transfer-35
 note: engineering-heat-transfer
 title: "Heat Flow Through a Bolted Joint with Contact Resistance"
 skills: [Contact Resistance, Thermal Resistance, Composite Systems]
----
+-->
 
 Two plates in a bolted joint are connected by conduction resistances $R_1 = 0.20\ \text{K/W}$ and $R_2 = 0.20\ \text{K/W}$, with a contact resistance of $R_{contact} = 0.10\ \text{K/W}$ between them.
 
@@ -793,12 +793,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-41
 note: engineering-heat-transfer
 title: "Reduce a Network with Parallel Paths"
 skills: [Parallel Networks, Thermal Resistance]
----
+-->
 
 A thermal circuit has a hot-side resistance of $0.15\ \text{K/W}$, then two parallel paths with resistances $0.60\ \text{K/W}$ and $0.30\ \text{K/W}$, and finally a cold-side resistance of $0.05\ \text{K/W}$.
 
@@ -834,12 +834,12 @@ $$
 $$
 :::
 
----
+<!--
 id: heat-transfer-42
 note: engineering-heat-transfer
 title: "Check Lumped Validity and Predict Cooling"
 skills: [Biot Number, Lumped Capacitance, Transient Heat Transfer]
----
+-->
 
 A small metal part has $h = 18\ \text{W/(m}^2\text{ K)}$, $L_c = 0.005\ \text{m}$, $k = 120\ \text{W/(m K)}$, mass $m = 0.8\ \text{kg}$, specific heat $c_p = 500\ \text{J/(kg K)}$, and area $A_s = 0.4\ \text{m}^2$.
 
@@ -875,12 +875,12 @@ T(100) = 25 + 75\exp\left(-\frac{100}{55.6}\right) \approx 37.4^\circ\text{C}
 $$
 :::
 
----
+<!--
 id: heat-transfer-43
 note: engineering-heat-transfer
 title: "Design a Counterflow Exchanger Area"
 skills: [Heat Exchangers, LMTD, Energy Balance]
----
+-->
 
 A counterflow heat exchanger has the following data:
 
@@ -920,12 +920,12 @@ A = \frac{\dot{Q}}{U\Delta T_{lm}} = \frac{105000}{350(41.2)} \approx 7.3\ \text
 $$
 :::
 
----
+<!--
 id: heat-transfer-44
 note: engineering-heat-transfer
 title: "Write the Governing Model for Radiation Cooling"
 skills: [Radiation, Lumped Capacitance, Problem-Solving Workflow]
----
+-->
 
 A small object in a vacuum cools only by radiation to a large surrounding enclosure. The object is small enough that the lumped-capacitance model is valid.
 

@@ -1,9 +1,9 @@
----
+<!--
 id: matrices-11
 note: math-matrices
 title: "Identify a Matrix Entry"
 skills: [Matrix Entries]
----
+-->
 
 For
 
@@ -28,12 +28,12 @@ a_{23} = 7.
 $$
 :::
 
----
+<!--
 id: matrices-12
 note: math-matrices
 title: "Determine a Matrix's Dimensions"
 skills: [Dimensions]
----
+-->
 
 What is the size of the matrix below?
 
@@ -52,12 +52,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-13
 note: math-matrices
 title: "Classify a Matrix"
 skills: [Matrix Types]
----
+-->
 
 Name every matrix type from the note that applies to
 
@@ -85,12 +85,12 @@ This matrix is:
 Each off-diagonal entry is $0$, and each diagonal entry is $1$.
 :::
 
----
+<!--
 id: matrices-14
 note: math-matrices
 title: "Add Two Matrices"
 skills: [Matrix Addition]
----
+-->
 
 Compute the sum:
 
@@ -122,12 +122,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-15
 note: math-matrices
 title: "Scale a Matrix"
 skills: [Scalar Multiplication]
----
+-->
 
 Compute $-3A$ for
 
@@ -151,12 +151,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-16
 note: math-matrices
 title: "Check Matrix Multiplication Compatibility"
 skills: [Matrix Multiplication, Dimensions]
----
+-->
 
 Suppose $A$ is a $2 \times 3$ matrix and $B$ is a $3 \times 1$ matrix.
 Is $AB$ defined, and what size is the product?
@@ -171,12 +171,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-17
 note: math-matrices
 title: "Transpose a Matrix"
 skills: [Transpose]
----
+-->
 
 Find the transpose of
 
@@ -204,12 +204,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-18
 note: math-matrices
 title: "Compute a 2 by 2 Determinant"
 skills: [Determinants]
----
+-->
 
 Find the determinant of
 
@@ -244,12 +244,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-19
 note: math-matrices
 title: "Find the Inverse of a 2 by 2 Matrix"
 skills: [Inverse Matrices, Determinants]
----
+-->
 
 Find the inverse of
 
@@ -284,12 +284,12 @@ A^{-1} = \frac{1}{1}
 $$
 :::
 
----
+<!--
 id: matrices-110
 note: math-matrices
 title: "Compute the Trace of a Matrix"
 skills: [Trace]
----
+-->
 
 Find the trace of
 
@@ -309,12 +309,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-21
 note: math-matrices
 title: "Multiply Two Matrices"
 skills: [Matrix Multiplication]
----
+-->
 
 Compute
 
@@ -345,12 +345,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-22
 note: math-matrices
 title: "Use Matrix-Vector Multiplication"
 skills: [Matrix Multiplication, Columns]
----
+-->
 
 Let
 
@@ -390,12 +390,12 @@ $$
 You can also view this as a linear combination of the columns of $A$ weighted by the entries of $x$.
 :::
 
----
+<!--
 id: matrices-23
 note: math-matrices
 title: "Solve a System by Row Reduction"
 skills: [Row Reduction, Systems of Equations]
----
+-->
 
 Solve the system:
 
@@ -450,12 +450,12 @@ x = 2.
 $$
 :::
 
----
+<!--
 id: matrices-24
 note: math-matrices
 title: "Find Rank and Nullity from a Row-Reduced Matrix"
 skills: [Rank, Nullity]
----
+-->
 
 A $3 \times 4$ matrix row-reduces to
 
@@ -495,12 +495,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-25
 note: math-matrices
 title: "Find the Eigenvalues of a Matrix"
 skills: [Eigenvalues, Characteristic Equation]
----
+-->
 
 Find the eigenvalues of
 
@@ -548,12 +548,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-26
 note: math-matrices
 title: "Use Diagonalization to Compute a Power"
 skills: [Diagonalization, Matrix Powers]
----
+-->
 
 Suppose
 
@@ -611,12 +611,12 @@ P^{-1}.
 $$
 :::
 
----
+<!--
 id: matrices-27
 note: math-matrices
 title: "Complete a Symmetric Matrix"
 skills: [Transpose, Symmetric Matrices]
----
+-->
 
 Find the values of $a$ and $b$ that make the matrix symmetric:
 
@@ -650,12 +650,12 @@ a = 4,\quad b = 7.
 $$
 :::
 
----
+<!--
 id: matrices-28
 note: math-matrices
 title: "Use Determinant Properties"
 skills: [Determinants, Transpose]
----
+-->
 
 Suppose
 
@@ -689,12 +689,12 @@ $$
 Because the determinant is nonzero, $B^T A$ is not singular.
 :::
 
----
+<!--
 id: matrices-31
 note: math-matrices
 title: "Model a Purchase with a System"
 skills: [Systems of Equations, Matrix Equations]
----
+-->
 
 A store sells notebooks and pens.
 
@@ -740,12 +740,12 @@ n = 2.
 $$
 :::
 
----
+<!--
 id: matrices-32
 note: math-matrices
 title: "Interpret a Row-Reduced System"
 skills: [Row Reduction, Systems of Equations]
----
+-->
 
 A system row-reduces to
 
@@ -765,12 +765,12 @@ There are pivots in the first two variable columns, but the third variable colum
 Because there is no inconsistent row and at least one free variable, the system has infinitely many solutions.
 :::
 
----
+<!--
 id: matrices-33
 note: math-matrices
 title: "Apply Rank-Nullity"
 skills: [Rank-Nullity, Nullity]
----
+-->
 
 A $4 \times 6$ matrix has rank $4$.
 
@@ -798,12 +798,12 @@ $$
 That means there are $2$ free variables.
 :::
 
----
+<!--
 id: matrices-34
 note: math-matrices
 title: "Recognize an Eigenvector"
 skills: [Eigenvalues, Eigenvectors]
----
+-->
 
 A nonzero vector $v$ satisfies
 
@@ -827,12 +827,12 @@ $$
 $$
 :::
 
----
+<!--
 id: matrices-35
 note: math-matrices
 title: "Use an LU Factorization"
 skills: [LU Decomposition, Determinants, Triangular Matrices]
----
+-->
 
 A matrix $A$ has the factorization $A = LU$, where
 
@@ -882,12 +882,12 @@ $$
 Since the determinant is nonzero, $A$ is invertible.
 :::
 
----
+<!--
 id: matrices-41
 note: math-matrices
 title: "Use a Determinant Identity"
 skills: [Determinants, Transpose]
----
+-->
 
 Suppose $A$ is a square matrix and
 
@@ -919,12 +919,12 @@ $$
 Because the determinant is nonzero, $A^T A$ is invertible.
 :::
 
----
+<!--
 id: matrices-42
 note: math-matrices
 title: "A Matrix That Is Symmetric and Skew-Symmetric"
 skills: [Symmetric Matrices, Skew-Symmetric Matrices]
----
+-->
 
 If a matrix satisfies both
 
@@ -962,12 +962,12 @@ $$
 So the matrix must be the zero matrix.
 :::
 
----
+<!--
 id: matrices-43
 note: math-matrices
 title: "An Invertible Projection Matrix"
 skills: [Projection Matrices, Inverse Matrices]
----
+-->
 
 Suppose a matrix $P$ satisfies
 
@@ -993,12 +993,12 @@ $$
 So an invertible projection matrix must be the identity matrix.
 :::
 
----
+<!--
 id: matrices-44
 note: math-matrices
 title: "Reason About a QR Factorization"
 skills: [QR Decomposition, Orthogonal Matrices, Triangular Matrices]
----
+-->
 
 A matrix $A$ is written as
 

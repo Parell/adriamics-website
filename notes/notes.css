@@ -627,6 +627,34 @@ body.notes-page--sepia .search-panel__field input {
   background: #ffffff;
 }
 
+html.notes-page--sepia .practice-level--level-1,
+body.notes-page--sepia .practice-level--level-1 {
+  --practice-level-accent: #2f8a59;
+  --practice-level-border: rgba(47, 138, 89, 0.28);
+  --practice-level-tint: rgba(47, 138, 89, 0.06);
+}
+
+html.notes-page--sepia .practice-level--level-2,
+body.notes-page--sepia .practice-level--level-2 {
+  --practice-level-accent: #385bb3;
+  --practice-level-border: rgba(56, 91, 179, 0.28);
+  --practice-level-tint: rgba(56, 91, 179, 0.06);
+}
+
+html.notes-page--sepia .practice-level--level-3,
+body.notes-page--sepia .practice-level--level-3 {
+  --practice-level-accent: #9b6a00;
+  --practice-level-border: rgba(155, 106, 0, 0.28);
+  --practice-level-tint: rgba(155, 106, 0, 0.06);
+}
+
+html.notes-page--sepia .practice-level--level-4,
+body.notes-page--sepia .practice-level--level-4 {
+  --practice-level-accent: #a33d4b;
+  --practice-level-border: rgba(163, 61, 75, 0.28);
+  --practice-level-tint: rgba(163, 61, 75, 0.06);
+}
+
 html.notes-page--sepia .search-result,
 body.notes-page--sepia .search-result,
 html.notes-page--sepia .guide-tree__button,
@@ -635,8 +663,6 @@ html.notes-page--sepia .practice-level,
 body.notes-page--sepia .practice-level,
 html.notes-page--sepia .practice-problem,
 body.notes-page--sepia .practice-problem,
-html.notes-page--sepia .notes-provenance,
-body.notes-page--sepia .notes-provenance,
 html.notes-page--sepia .practice-problem__study-input,
 body.notes-page--sepia .practice-problem__study-input {
   background: rgba(17, 17, 17, 0.03);
@@ -897,7 +923,7 @@ body.notes-page--sepia .notes-search-match {
 
 .viewer-head__actions {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
   gap: 0.55rem;
@@ -927,112 +953,6 @@ body.notes-page--sepia .notes-search-match {
   outline-offset: 2px;
 }
 
-.notes-provenance {
-  margin-top: 1rem;
-  padding: 1rem 1.05rem;
-  border: 1px solid var(--border);
-  background:
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.045), transparent 38%),
-    rgba(255, 255, 255, 0.02);
-}
-
-.notes-provenance__head {
-  display: grid;
-  gap: 0.25rem;
-  padding-bottom: 0.9rem;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.notes-provenance__head h2 {
-  font-size: 1.32rem;
-  line-height: 1.18;
-}
-
-.notes-provenance__lead {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.55;
-  max-width: 75ch;
-}
-
-.notes-provenance__grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1rem 1.1rem;
-}
-
-.notes-provenance__section {
-  display: grid;
-  gap: 0.55rem;
-  align-content: start;
-  padding: 0.85rem;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.025);
-}
-
-.notes-provenance__section--wide {
-  grid-column: 1 / -1;
-}
-
-.notes-provenance__section h3 {
-  margin: 0;
-  font-size: 1rem;
-  line-height: 1.25;
-  letter-spacing: 0.04em;
-}
-
-.notes-provenance__list {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
-  gap: 0.45rem;
-}
-
-.notes-provenance__list--ordered {
-  list-style: decimal;
-  padding-left: 1.2rem;
-}
-
-.notes-provenance__item {
-  display: grid;
-  gap: 0.12rem;
-  color: var(--text);
-  line-height: 1.45;
-}
-
-.notes-provenance__note {
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.45;
-  overflow-wrap: anywhere;
-}
-
-.notes-provenance__link {
-  color: var(--accent-strong);
-  font-weight: 600;
-  text-decoration: underline;
-  text-decoration-thickness: 1.5px;
-  text-underline-offset: 0.18em;
-}
-
-.notes-provenance__link:hover,
-.notes-provenance__link:focus-visible {
-  color: var(--text);
-}
-
-.notes-provenance__link:focus-visible {
-  outline: 2px solid var(--accent-strong);
-  outline-offset: 2px;
-}
-
-.notes-provenance__empty {
-  margin: 0;
-  color: var(--muted);
-  line-height: 1.5;
-}
-
 .suggest-edit-link {
   --notes-button-bg: #b9dcf7;
   --notes-button-border: #8bbfe8;
@@ -1049,28 +969,100 @@ body.notes-page--sepia .notes-search-match {
 }
 
 .practice-level {
+  position: relative;
   display: grid;
   gap: 1rem;
-  padding: 1rem;
-  border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.025);
+  overflow: hidden;
+  padding: 1.1rem;
+  border: 1px solid var(--practice-level-border, var(--border));
+  background: linear-gradient(180deg, var(--practice-level-tint, rgba(255, 255, 255, 0.035)) 0%, rgba(255, 255, 255, 0.02) 100%);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.02);
+}
+
+.practice-level::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 0.4rem;
+  background: var(--practice-level-accent, var(--accent-strong));
+  opacity: 0.95;
+}
+
+.practice-level--level-1 {
+  --practice-level-accent: #84f0b8;
+  --practice-level-border: rgba(132, 240, 184, 0.34);
+  --practice-level-tint: rgba(132, 240, 184, 0.08);
+}
+
+.practice-level--level-2 {
+  --practice-level-accent: #8fb2ff;
+  --practice-level-border: rgba(143, 178, 255, 0.34);
+  --practice-level-tint: rgba(143, 178, 255, 0.08);
+}
+
+.practice-level--level-3 {
+  --practice-level-accent: #ffd27a;
+  --practice-level-border: rgba(255, 210, 122, 0.34);
+  --practice-level-tint: rgba(255, 210, 122, 0.08);
+}
+
+.practice-level--level-4 {
+  --practice-level-accent: #ff9ca8;
+  --practice-level-border: rgba(255, 156, 168, 0.34);
+  --practice-level-tint: rgba(255, 156, 168, 0.08);
 }
 
 .practice-level__head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--practice-level-border, var(--border));
+}
+
+.practice-level__eyebrow {
   display: grid;
   gap: 0.25rem;
-  padding-bottom: 0.9rem;
-  border-bottom: 1px solid var(--border);
 }
 
 .practice-level__head h2 {
-  font-size: 1.35rem;
+  font-size: clamp(1.4rem, 2vw, 1.85rem);
+  line-height: 1.05;
 }
 
-.practice-level__meta {
-  margin: 0;
+.practice-level__head .section-label {
+  margin-bottom: 0.1rem;
+  color: var(--practice-level-accent, var(--accent-strong));
+  font-weight: 700;
+}
+
+.practice-level__badge {
+  display: grid;
+  gap: 0.12rem;
+  justify-items: center;
+  align-self: start;
+  min-width: 5.6rem;
+  padding: 0.7rem 0.8rem 0.65rem;
+  border: 1px solid var(--practice-level-border, var(--border));
+  background: rgba(255, 255, 255, 0.03);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+.practice-level__badge-label {
   color: var(--muted);
-  line-height: 1.5;
+  font-size: 0.62rem;
+  line-height: 1;
+}
+
+.practice-level__badge-value {
+  color: var(--accent-strong);
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1;
 }
 
 .practice-problem {
@@ -1409,8 +1401,7 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   gap: 0.8rem;
 }
 
-.interactive-demo__control,
-.interactive-demo__panel {
+.interactive-demo__control {
   display: grid;
   gap: 0.4rem;
   padding: 0.8rem 0.85rem;
@@ -1418,8 +1409,7 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   background: var(--panel-strong);
 }
 
-.interactive-demo__control-label,
-.interactive-demo__panel-label {
+.interactive-demo__control-label {
   display: flex;
   flex-wrap: wrap;
   gap: 0.35rem;
@@ -1430,8 +1420,7 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   font-weight: 600;
 }
 
-.interactive-demo__control-label output,
-.interactive-demo__panel-label output {
+.interactive-demo__control-label output {
   color: var(--accent-strong);
   font-variant-numeric: tabular-nums;
 }
@@ -1519,14 +1508,7 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   font-variant-numeric: tabular-nums;
 }
 
-.interactive-demo__legend {
-  margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-}
-
-.interactive-demo__svg,
-.interactive-demo__chart {
+.interactive-demo__svg {
   width: 100%;
   display: block;
   border: 1px solid var(--border);
@@ -1735,14 +1717,6 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
 
   .notes-toc__columns::before {
     display: none;
-  }
-
-  .notes-provenance__grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .notes-provenance__section--wide {
-    grid-column: auto;
   }
 
   .notes-toc__columns>.notes-toc__list+.notes-toc__list {

@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # 1. What quantum physics studies
 
 Quantum physics describes matter and radiation at atomic and subatomic scales, where energy exchange is quantized and measurement outcomes are fundamentally probabilistic.
@@ -464,7 +457,7 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ## Units to check
 
-- $\hbar$ has units of J·s.
+- $\hbar$ has units of JÂ·s.
 - Momentum operator introduces $1/\text{length}$.
 - Energy eigenvalues must have units of energy.
 - Probability is dimensionless.
@@ -542,3 +535,14 @@ When solving quantum problems, keep the following sequence in mind:
 **state -> operator -> boundary conditions -> eigenvalues -> probabilities -> interpretation**
 
 That order prevents most beginner mistakes and matches how the theory is actually used in practice.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

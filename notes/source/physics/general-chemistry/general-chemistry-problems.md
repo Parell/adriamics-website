@@ -1,9 +1,9 @@
----
+<!--
 id: general-chemistry-11
 note: medical-biology-general-chemistry
 title: "Classify Common Forms of Matter"
 skills: [Matter, Mixtures]
----
+-->
 
 Classify each sample as an element, compound, homogeneous mixture, or heterogeneous mixture:
 
@@ -19,12 +19,12 @@ Salt water is also a homogeneous mixture because the salt is dissolved evenly in
 Granite is a heterogeneous mixture because its different minerals remain visible as separate parts.
 :::
 
----
+<!--
 id: general-chemistry-12
 note: medical-biology-general-chemistry
 title: "Count Particles in an Atom"
 skills: [Atomic Structure, Isotopes, Ions]
----
+-->
 
 A neutral atom has atomic number $12$ and mass number $24$.
 
@@ -50,12 +50,12 @@ which gives $N = 12$ neutrons.
 Because the atom is neutral, it also has $12$ electrons.
 :::
 
----
+<!--
 id: general-chemistry-13
 note: medical-biology-general-chemistry
 title: "Use Group Trends in the Periodic Table"
 skills: [Periodic Table, Groups]
----
+-->
 
 A main-group element is in Group 2.
 
@@ -67,12 +67,12 @@ Group 2 elements usually have $2$ valence electrons.
 Group 18 elements are especially stable because their outer electron shells are full.
 :::
 
----
+<!--
 id: general-chemistry-14
 note: medical-biology-general-chemistry
 title: "Read Subshell Capacities"
 skills: [Electron Configuration, Orbitals]
----
+-->
 
 How many electrons can a $p$ subshell hold, and how many can a $d$ subshell hold?
 
@@ -82,12 +82,12 @@ A $p$ subshell holds $6$ electrons.
 A $d$ subshell holds $10$ electrons.
 :::
 
----
+<!--
 id: general-chemistry-15
 note: medical-biology-general-chemistry
 title: "Use Periodic Trends"
 skills: [Periodic Trends]
----
+-->
 
 Moving from left to right across a period, what happens to atomic radius and electronegativity?
 
@@ -97,12 +97,12 @@ Across a period, atomic radius decreases.
 Across a period, electronegativity generally increases.
 :::
 
----
+<!--
 id: general-chemistry-16
 note: medical-biology-general-chemistry
 title: "Find Formal Charge in a Lewis Structure"
 skills: [Lewis Structures, Formal Charge]
----
+-->
 
 In the best Lewis structure for carbon dioxide, what is the formal charge on each atom?
 
@@ -120,12 +120,12 @@ Each oxygen has two lone pairs and one double bond, which also gives a formal ch
 So every atom in the preferred structure has formal charge $0$.
 :::
 
----
+<!--
 id: general-chemistry-17
 note: medical-biology-general-chemistry
 title: "Predict Shape and Polarity"
 skills: [VSEPR, Polarity]
----
+-->
 
 What are the molecular shape and polarity of water, $H_2O$?
 
@@ -137,12 +137,12 @@ That gives a tetrahedral electron geometry and a bent molecular shape.
 Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.
 :::
 
----
+<!--
 id: general-chemistry-18
 note: medical-biology-general-chemistry
 title: "Name Common Compounds"
 skills: [Nomenclature, Acids]
----
+-->
 
 Give the names of the following substances:
 
@@ -160,12 +160,12 @@ $\mathrm{HCl(aq)}$ is hydrochloric acid.
 $\mathrm{CaCO_3}$ is calcium carbonate.
 :::
 
----
+<!--
 id: general-chemistry-19
 note: medical-biology-general-chemistry
 title: "Balance a Combustion Reaction"
 skills: [Balancing Equations, Reaction Types]
----
+-->
 
 Balance the equation and identify the reaction type:
 
@@ -191,12 +191,12 @@ $$
 This is a combustion reaction because a hydrocarbon reacts with oxygen to form carbon dioxide and water.
 :::
 
----
+<!--
 id: general-chemistry-110
 note: medical-biology-general-chemistry
 title: "Use the Mole Concept"
 skills: [Mole Concept, Avogadro's Number]
----
+-->
 
 How many molecules are in $0.25$ mol of water?
 
@@ -218,12 +218,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-21
 note: medical-biology-general-chemistry
 title: "Convert Mass to Particles"
 skills: [Mole Concept, Unit Conversion]
----
+-->
 
 A sample contains $18.0$ g of water.
 
@@ -244,12 +244,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-22
 note: medical-biology-general-chemistry
 title: "Find the Limiting Reagent"
 skills: [Stoichiometry, Limiting Reagent]
----
+-->
 
 For the reaction
 
@@ -279,12 +279,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-23
 note: medical-biology-general-chemistry
 title: "Solve an Ideal Gas Problem"
 skills: [Gas Laws, Kelvin]
----
+-->
 
 What volume does $0.50$ mol of gas occupy at $1.00$ atm and $300$ K?
 
@@ -320,12 +320,12 @@ V \approx 12.3\text{ L}
 $$
 :::
 
----
+<!--
 id: general-chemistry-24
 note: medical-biology-general-chemistry
 title: "Use Molarity and Dilution"
 skills: [Solutions, Dilution]
----
+-->
 
 How many milliliters of a $2.00$ M stock solution are needed to prepare $100.0$ mL of a $0.500$ M solution?
 
@@ -347,12 +347,12 @@ V_1 = \frac{(0.500)(100.0)}{2.00} = 25.0\text{ mL}
 $$
 :::
 
----
+<!--
 id: general-chemistry-25
 note: medical-biology-general-chemistry
 title: "Compute Heat Flow"
 skills: [Thermochemistry, Specific Heat]
----
+-->
 
 How much heat is required to warm $50.0$ g of water by $10.0^\circ$C?
 
@@ -378,12 +378,12 @@ $$
 Because the temperature increases, the heat is positive.
 :::
 
----
+<!--
 id: general-chemistry-26
 note: medical-biology-general-chemistry
 title: "Predict a Shift in Equilibrium"
 skills: [Equilibrium, Le Chatelier's Principle]
----
+-->
 
 For the reaction
 
@@ -409,12 +409,12 @@ the system has too few products relative to equilibrium.
 The reaction shifts to the right, toward ammonia, to increase $Q$ until equilibrium is reached.
 :::
 
----
+<!--
 id: general-chemistry-27
 note: medical-biology-general-chemistry
 title: "Calculate pH from a Buffer"
 skills: [Buffers, pH, Henderson-Hasselbalch]
----
+-->
 
 A buffer has $[A^-] = 10[HA]$ and $\mathrm{p}K_a = 7.00$.
 
@@ -438,12 +438,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-28
 note: medical-biology-general-chemistry
 title: "Use a Rate Law"
 skills: [Kinetics, Rate Laws]
----
+-->
 
 For a reaction with rate law
 
@@ -463,12 +463,12 @@ $$
 So the rate increases by a factor of $4.5$.
 :::
 
----
+<!--
 id: general-chemistry-31
 note: medical-biology-general-chemistry
 title: "Choose the Tonicity"
 skills: [Solutions, Osmosis]
----
+-->
 
 A red blood cell is placed in a solution that has a lower solute concentration than the cell.
 
@@ -482,12 +482,12 @@ Water moves into the cell by osmosis.
 The cell swells and may burst if the concentration difference is large enough.
 :::
 
----
+<!--
 id: general-chemistry-32
 note: medical-biology-general-chemistry
 title: "Read a Gas Mixture"
 skills: [Gas Laws, Partial Pressure]
----
+-->
 
 Air has a total pressure of $760$ mmHg, and oxygen makes up $21\%$ of the mixture by mole fraction.
 
@@ -517,12 +517,12 @@ P_{O_2} \approx 160\text{ mmHg}
 $$
 :::
 
----
+<!--
 id: general-chemistry-33
 note: medical-biology-general-chemistry
 title: "Find Percent Yield"
 skills: [Stoichiometry, Percent Yield]
----
+-->
 
 An experiment has a theoretical yield of $20.0$ g and an actual yield of $15.0$ g.
 
@@ -542,12 +542,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-34
 note: medical-biology-general-chemistry
 title: "Decide Protonation from pH and pKa"
 skills: [Acids, Bases, pKa]
----
+-->
 
 A weak acid drug has $\mathrm{p}K_a = 8.0$ and is placed in blood at pH $7.4$.
 
@@ -565,12 +565,12 @@ the protonated form predominates.
 That is the key pH-to-pKa rule for weak acids.
 :::
 
----
+<!--
 id: general-chemistry-35
 note: medical-biology-general-chemistry
 title: "Identify the Anode and Cathode"
 skills: [Redox, Electrochemistry]
----
+-->
 
 In a galvanic cell, one metal electrode loses mass because its atoms become ions.
 
@@ -584,12 +584,12 @@ Oxidation occurs at the anode, so that electrode is the anode.
 The electrons flow away from the anode and toward the cathode.
 :::
 
----
+<!--
 id: general-chemistry-41
 note: medical-biology-general-chemistry
 title: "Match Shape, Polarity, and Solubility"
 skills: [Bonding, Polarity, Solubility]
----
+-->
 
 Rank the following from most likely to least likely to dissolve in water:
 
@@ -613,12 +613,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-42
 note: medical-biology-general-chemistry
 title: "Use Q and K After a Disturbance"
 skills: [Equilibrium, Le Chatelier's Principle]
----
+-->
 
 For a reaction at equilibrium, a small amount of product is removed.
 
@@ -630,12 +630,12 @@ Removing product lowers the product concentration, so $Q$ becomes less than $K$.
 To restore equilibrium, the reaction shifts to the right and makes more product.
 :::
 
----
+<!--
 id: general-chemistry-43
 note: medical-biology-general-chemistry
 title: "Update a Buffer After Adding Acid"
 skills: [Buffers, pH, Le Chatelier's Principle]
----
+-->
 
 A buffer contains $0.10$ mol of $HA$ and $0.10$ mol of $A^-$ in $1.0$ L of solution, and $\mathrm{p}K_a = 7.00$.
 
@@ -675,12 +675,12 @@ $$
 $$
 :::
 
----
+<!--
 id: general-chemistry-44
 note: medical-biology-general-chemistry
 title: "Combine Stoichiometry and the Ideal Gas Law"
 skills: [Stoichiometry, Gas Laws, Unit Conversion]
----
+-->
 
 For the reaction
 

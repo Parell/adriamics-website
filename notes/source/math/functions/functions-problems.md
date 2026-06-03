@@ -1,9 +1,9 @@
----
+<!--
 id: math-functions-11
 note: math-functions
 title: "Decide Whether a Relation Is a Function"
 skills: [Function Definition, Ordered Pairs]
----
+-->
 
 Is the relation below a function?
 
@@ -17,12 +17,12 @@ No. A function must assign each input exactly one output.
 Here the input $3$ is paired with two different outputs, $7$ and $9$, so the relation is not a function.
 :::
 
----
+<!--
 id: math-functions-12
 note: math-functions
 title: "Find a Domain Restriction"
 skills: [Domain, Rational Functions]
----
+-->
 
 For
 
@@ -48,12 +48,12 @@ $$
 So the domain excludes $x = 3$.
 :::
 
----
+<!--
 id: math-functions-13
 note: math-functions
 title: "Evaluate a Polynomial Function"
 skills: [Evaluating functions]
----
+-->
 
 If
 
@@ -77,12 +77,12 @@ f(4) = 2(16) - 12 + 1 = 32 - 12 + 1 = 21
 $$
 :::
 
----
+<!--
 id: math-functions-14
 note: math-functions
 title: "Read a Function Value from a Table"
 skills: [Evaluating functions, Tables]
----
+-->
 
 Use the table to find $f(3)$.
 
@@ -104,12 +104,12 @@ f(3) = -4.
 $$
 :::
 
----
+<!--
 id: math-functions-15
 note: math-functions
 title: "Check an Even-Root Domain"
 skills: [Domain, Radical Functions]
----
+-->
 
 For
 
@@ -135,12 +135,12 @@ $$
 So the domain is all real numbers less than or equal to $8$.
 :::
 
----
+<!--
 id: math-functions-16
 note: math-functions
 title: "Evaluate an Exponential at Zero"
 skills: [Exponential Functions]
----
+-->
 
 If
 
@@ -164,12 +164,12 @@ h(0) = 1.
 $$
 :::
 
----
+<!--
 id: math-functions-17
 note: math-functions
 title: "Check Whether a Function Has an Inverse"
 skills: [One-to-one, Inverse functions]
----
+-->
 
 Suppose a function satisfies
 
@@ -185,12 +185,12 @@ No. A function must be one-to-one to have an inverse on its full domain.
 Here two different inputs, $1$ and $2$, produce the same output, $4$, so the function is not one-to-one.
 :::
 
----
+<!--
 id: math-functions-18
 note: math-functions
 title: "Evaluate a Piecewise Function"
 skills: [Piecewise functions, Evaluating functions]
----
+-->
 
 Let
 
@@ -212,12 +212,12 @@ p(-3) = -3 + 2 = -1
 $$
 :::
 
----
+<!--
 id: math-functions-19
 note: math-functions
 title: "Find the Range of a Square Function"
 skills: [Range, Square Functions]
----
+-->
 
 For the function
 
@@ -241,12 +241,12 @@ $$
 $$
 :::
 
----
+<!--
 id: math-functions-110
 note: math-functions
 title: "Find the Domain of a Logarithmic Function"
 skills: [Logarithms, Domain]
----
+-->
 
 For
 
@@ -270,12 +270,12 @@ x > 5.
 $$
 :::
 
----
+<!--
 id: math-functions-21
 note: math-functions
 title: "Compose Two Functions"
 skills: [Composition, Evaluating functions]
----
+-->
 
 Let
 
@@ -311,12 +311,12 @@ $$
 $$
 :::
 
----
+<!--
 id: math-functions-22
 note: math-functions
 title: "Find the Inverse of a Linear Function"
 skills: [Inverse functions, Linear Functions]
----
+-->
 
 If
 
@@ -356,12 +356,12 @@ f^{-1}(x) = \frac{x + 9}{4}.
 $$
 :::
 
----
+<!--
 id: math-functions-23
 note: math-functions
 title: "Find the Range of a Shifted Square"
 skills: [Range, Transformations]
----
+-->
 
 If
 
@@ -383,12 +383,12 @@ $$
 $$
 :::
 
----
+<!--
 id: math-functions-24
 note: math-functions
 title: "Simplify a Rational Function and Evaluate It"
 skills: [Rational Functions, Distributing and factoring]
----
+-->
 
 For $x \ne 4$, simplify
 
@@ -418,12 +418,12 @@ $$
 $$
 :::
 
----
+<!--
 id: math-functions-25
 note: math-functions
 title: "Find an Average Rate of Change"
 skills: [Average rate of change, Evaluating functions]
----
+-->
 
 For
 
@@ -453,12 +453,12 @@ $$
 $$
 :::
 
----
+<!--
 id: math-functions-26
 note: math-functions
 title: "Make a Piecewise Function Continuous"
 skills: [Piecewise functions, Continuity]
----
+-->
 
 Choose $a$ so that the function is continuous at $x = 2$:
 
@@ -494,12 +494,12 @@ a = 3
 $$
 :::
 
----
+<!--
 id: math-functions-27
 note: math-functions
 title: "Determine the End Behavior of a Polynomial"
 skills: [End behavior, Polynomials]
----
+-->
 
 Describe the end behavior of
 
@@ -523,12 +523,12 @@ f(x) \to \infty.
 $$
 :::
 
----
+<!--
 id: math-functions-28
 note: math-functions
 title: "Describe Multiple Transformations"
 skills: [Transformations, Symmetry]
----
+-->
 
 Let
 
@@ -565,12 +565,12 @@ So the transformations are:
 - up $1$
 :::
 
----
+<!--
 id: math-functions-31
 note: math-functions
 title: "Model a Membership Fee"
 skills: [Linear Models, Functions]
----
+-->
 
 A music studio charges a $25 registration fee plus $18 per lesson.
 
@@ -596,12 +596,12 @@ l = 4
 $$
 :::
 
----
+<!--
 id: math-functions-32
 note: math-functions
 title: "Interpret an Average Rate of Change"
 skills: [Average rate of change, Units]
----
+-->
 
 The height of a plant is modeled by
 
@@ -639,12 +639,12 @@ $$
 The average rate of change is $10$ centimeters per week.
 :::
 
----
+<!--
 id: math-functions-33
 note: math-functions
 title: "Write an Exponential Growth Model"
 skills: [Exponential Functions, Modeling]
----
+-->
 
 A bacteria culture starts with $600$ cells and doubles every hour.
 
@@ -664,12 +664,12 @@ N(5) = 600 \cdot 2^5 = 600 \cdot 32 = 19200
 $$
 :::
 
----
+<!--
 id: math-functions-34
 note: math-functions
 title: "Use a Piecewise Pricing Rule"
 skills: [Piecewise functions, Modeling]
----
+-->
 
 A parking garage charges $6 for the first hour and $2.50 for each additional hour.
 
@@ -687,12 +687,12 @@ $$
 So the cost is $\$16$.
 :::
 
----
+<!--
 id: math-functions-35
 note: math-functions
 title: "Use a Conversion Function"
 skills: [Inverse functions, Modeling]
----
+-->
 
 The function
 
@@ -726,12 +726,12 @@ $$
 So the temperature is $68^\circ\text{F}$.
 :::
 
----
+<!--
 id: math-functions-41
 note: math-functions
 title: "Find the Inverse of a Restricted Quadratic"
 skills: [Inverse functions, Quadratics]
----
+-->
 
 Let
 
@@ -771,12 +771,12 @@ $$
 The domain of the inverse is $x \ge 0$.
 :::
 
----
+<!--
 id: math-functions-42
 note: math-functions
 title: "Find the Domain of a Composite Function"
 skills: [Composition, Domain]
----
+-->
 
 Let
 
@@ -817,12 +817,12 @@ x > 1.
 $$
 :::
 
----
+<!--
 id: math-functions-43
 note: math-functions
 title: "Find the Inverse of a Rational Function with a Hole"
 skills: [Rational Functions, Inverse functions]
----
+-->
 
 Consider the function
 
@@ -876,12 +876,12 @@ $$
 Since the original range excludes $6$, the domain of the inverse is $x \ne 6$.
 :::
 
----
+<!--
 id: math-functions-44
 note: math-functions
 title: "Classify Compositions Using Symmetry"
 skills: [Composition, Symmetry]
----
+-->
 
 Suppose $f$ is even and $g$ is odd.
 

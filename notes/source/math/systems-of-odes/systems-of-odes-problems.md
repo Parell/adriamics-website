@@ -1,9 +1,9 @@
----
+<!--
 id: systems-of-odes-11
 note: math-systems-of-odes
 title: "Write a System in Matrix Form"
 skills: [Matrix Form, Systems of ODEs]
----
+-->
 
 Rewrite the system in matrix form:
 
@@ -37,12 +37,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-12
 note: math-systems-of-odes
 title: "Classify a Linear System"
 skills: [Linear Systems, Homogeneous vs. Nonhomogeneous]
----
+-->
 
 Classify the system as linear, autonomous, homogeneous, or nonhomogeneous:
 
@@ -72,12 +72,12 @@ It is **nonautonomous** because the forcing term depends on $t$.
 It is **nonhomogeneous** because $\mathbf{g}(t) \neq \mathbf{0}$.
 :::
 
----
+<!--
 id: systems-of-odes-13
 note: math-systems-of-odes
 title: "Count the Constants in a 4x4 System"
 skills: [Solution Space, Linear Systems]
----
+-->
 
 A first-order linear homogeneous system has size $4 \times 4$.
 
@@ -95,12 +95,12 @@ $$
 arbitrary constants.
 :::
 
----
+<!--
 id: systems-of-odes-14
 note: math-systems-of-odes
 title: "Find All Equilibria of a Nonlinear System"
 skills: [Equilibria, Nonlinear Systems]
----
+-->
 
 Find all equilibria of the system
 
@@ -133,12 +133,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-15
 note: math-systems-of-odes
 title: "Use an Eigenpair to Write a Solution"
 skills: [Eigenvalues, Eigenvectors]
----
+-->
 
 Suppose $A\mathbf{v} = -2\mathbf{v}$.
 
@@ -158,12 +158,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-16
 note: math-systems-of-odes
 title: "Interpret a Negative Eigenvalue"
 skills: [Eigenvalues, Stability]
----
+-->
 
 A mode of a system has eigenvalue $\lambda = -5$.
 
@@ -179,12 +179,12 @@ $$
 As $t$ increases, $e^{-5t} \to 0$, so that mode decays exponentially.
 :::
 
----
+<!--
 id: systems-of-odes-17
 note: math-systems-of-odes
 title: "Interpret Complex Eigenvalues"
 skills: [Complex Eigenvalues, Oscillation]
----
+-->
 
 A system has eigenvalues
 
@@ -202,12 +202,12 @@ Here the real part is $1$, so the oscillations are multiplied by $e^t$.
 That means the motion oscillates while growing in size, so trajectories spiral outward.
 :::
 
----
+<!--
 id: systems-of-odes-18
 note: math-systems-of-odes
 title: "Compute Trace and Determinant"
 skills: [Trace-Determinant Test, 2x2 Systems]
----
+-->
 
 For the matrix
 
@@ -235,12 +235,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-19
 note: math-systems-of-odes
 title: "Classify Stability from Eigenvalues"
 skills: [Stability, Eigenvalues]
----
+-->
 
 A linear $2 \times 2$ system has eigenvalues $-1$ and $-4$.
 
@@ -252,12 +252,12 @@ Both eigenvalues are real and negative, so all nearby solutions decay toward the
 That makes the origin an **asymptotically stable node**.
 :::
 
----
+<!--
 id: systems-of-odes-110
 note: math-systems-of-odes
 title: "State the Linearization Formula"
 skills: [Linearization, Jacobian]
----
+-->
 
 Near an equilibrium point $\mathbf{x}^*$, what first-order approximation do you use for a nonlinear system?
 
@@ -271,12 +271,12 @@ $$
 where $J(\mathbf{x}^*)$ is the Jacobian matrix evaluated at the equilibrium.
 :::
 
----
+<!--
 id: systems-of-odes-21
 note: math-systems-of-odes
 title: "Find a Characteristic Polynomial"
 skills: [Characteristic Polynomial, Eigenvalues]
----
+-->
 
 For
 
@@ -316,12 +316,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-22
 note: math-systems-of-odes
 title: "Solve a Diagonal System"
 skills: [Matrix Exponential, Initial Value Problems]
----
+-->
 
 Solve the initial value problem
 
@@ -378,12 +378,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-23
 note: math-systems-of-odes
 title: "Build a General Solution from Eigenpairs"
 skills: [Eigenvalues, Eigenvectors, General Solution]
----
+-->
 
 Suppose a matrix $A$ has eigenpairs
 
@@ -416,12 +416,12 @@ c_1 e^{2t}
 $$
 :::
 
----
+<!--
 id: systems-of-odes-24
 note: math-systems-of-odes
 title: "Classify from Trace and Determinant"
 skills: [Trace-Determinant Test, Stability]
----
+-->
 
 A $2 \times 2$ matrix has trace $-2$ and determinant $5$.
 
@@ -453,12 +453,12 @@ $$
 Because the real part is negative, the equilibrium is a **stable spiral**.
 :::
 
----
+<!--
 id: systems-of-odes-25
 note: math-systems-of-odes
 title: "Convert a Mass-Spring Equation"
 skills: [Modeling Patterns, First-Order Systems]
----
+-->
 
 A spring-mass system satisfies
 
@@ -491,12 +491,12 @@ v' &= -9u - 2v.
 $$
 :::
 
----
+<!--
 id: systems-of-odes-26
 note: math-systems-of-odes
 title: "Find the Jacobian Matrix"
 skills: [Linearization, Jacobian]
----
+-->
 
 Find the Jacobian matrix of
 
@@ -532,12 +532,12 @@ y & x
 $$
 :::
 
----
+<!--
 id: systems-of-odes-27
 note: math-systems-of-odes
 title: "Write the Variation-of-Parameters Formula"
 skills: [Nonhomogeneous Systems, Variation of Parameters]
----
+-->
 
 For the forced system
 
@@ -559,12 +559,12 @@ $$
 The full solution is then the sum of the homogeneous and particular parts.
 :::
 
----
+<!--
 id: systems-of-odes-28
 note: math-systems-of-odes
 title: "Handle a Repeated Eigenvalue"
 skills: [Generalized Eigenvectors, Jordan Form]
----
+-->
 
 If a $2 \times 2$ system has a repeated eigenvalue $\lambda$ and only one eigenvector $\mathbf{v}$, what is a common form of a second independent solution?
 
@@ -578,12 +578,12 @@ $$
 where $\mathbf{w}$ is a generalized eigenvector.
 :::
 
----
+<!--
 id: systems-of-odes-31
 note: math-systems-of-odes
 title: "Find Equilibria in a Predator-Prey Model"
 skills: [Predator-Prey Models, Equilibria]
----
+-->
 
 A predator-prey model is
 
@@ -622,12 +622,12 @@ $$
 These are the equilibria.
 :::
 
----
+<!--
 id: systems-of-odes-32
 note: math-systems-of-odes
 title: "Convert a Damped Oscillator"
 skills: [Modeling Patterns, First-Order Systems]
----
+-->
 
 A mass-spring-damper system satisfies
 
@@ -668,12 +668,12 @@ v' &= -4u - 3v.
 $$
 :::
 
----
+<!--
 id: systems-of-odes-33
 note: math-systems-of-odes
 title: "Find the Steady State of a Forced System"
 skills: [Nonhomogeneous Systems, Equilibria]
----
+-->
 
 A model is given by
 
@@ -740,12 +740,12 @@ $$
 $$
 :::
 
----
+<!--
 id: systems-of-odes-34
 note: math-systems-of-odes
 title: "Classify a Circuit Model"
 skills: [Phase Portraits, Stability, 2x2 Systems]
----
+-->
 
 A circuit model is
 
@@ -790,12 +790,12 @@ so the eigenvalues are complex.
 Because the trace is negative, the real part is negative, so the origin is a **stable spiral**.
 :::
 
----
+<!--
 id: systems-of-odes-35
 note: math-systems-of-odes
 title: "Linearize a Nonlinear System at the Origin"
 skills: [Linearization, Jacobian, Stability]
----
+-->
 
 Consider the nonlinear system
 
@@ -834,12 +834,12 @@ The eigenvalues are $1$ and $2$, both positive.
 So the origin is an **unstable node** for the linearized system, and the nonlinear system is locally unstable there.
 :::
 
----
+<!--
 id: systems-of-odes-41
 note: math-systems-of-odes
 title: "Solve a Defective Linear System"
 skills: [Generalized Eigenvectors, Jordan Form]
----
+-->
 
 Solve the system
 
@@ -896,12 +896,12 @@ t \\
 $$
 :::
 
----
+<!--
 id: systems-of-odes-42
 note: math-systems-of-odes
 title: "Shift a Forced System and Classify It"
 skills: [Nonhomogeneous Systems, Stability, Eigenvalues]
----
+-->
 
 Consider the forced system
 
@@ -964,12 +964,12 @@ $$
 The real part is positive, so the equilibrium is an **unstable spiral**.
 :::
 
----
+<!--
 id: systems-of-odes-43
 note: math-systems-of-odes
 title: "Analyze a Nonlinear System with Linearization"
 skills: [Nonlinear Systems, Equilibria, Linearization]
----
+-->
 
 Consider
 
@@ -1044,12 +1044,12 @@ whose eigenvalues are purely imaginary, so linearization is also inconclusive th
 Only $(0,0)$ can be classified directly from the linearization.
 :::
 
----
+<!--
 id: systems-of-odes-44
 note: math-systems-of-odes
 title: "Classify a Damped Oscillator from Its System"
 skills: [Modeling Patterns, Characteristic Polynomial, Stability]
----
+-->
 
 A damped oscillator satisfies
 

@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 # Adding and Editing Documents
 
 This page explains the current process for updating the UES notes library, whether you want to fix an existing page or add a new one.
@@ -26,7 +18,7 @@ Use a new document when the topic does not already exist in the subject tree.
 
 1. Choose the correct subject folder under `notes/source/`.
 2. Create a new Markdown file with a short kebab-case name such as `example-topic.md`.
-3. Copy the standard frontmatter block from an existing note, keep GitHub-sensitive values quoted such as `- "@Parell"`, use `sources: []` for an empty list, and set the title with an `# H1` heading.
+3. Start the document with the `# H1` title that matches the manifest entry, and use the body of an existing note as the formatting reference. No YAML frontmatter is used anymore.
 4. Add the new file to `notes/source/manifest.js` so it appears in the guide panel.
 5. Open the notes site and confirm the page loads, renders, and appears under the correct subject.
 6. Submit the change for auditor review before it is merged.
@@ -60,3 +52,9 @@ To add a page under `General`, you would:
 - Using a different page title in the file than in the manifest.
 - Adding a topic to the wrong subject folder.
 - Making a new page for material that should have been added to an existing document.
+
+## Sources
+
+- [CommonMark Specification](https://spec.commonmark.org/)
+- [GitHub Docs](https://docs.github.com/)
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

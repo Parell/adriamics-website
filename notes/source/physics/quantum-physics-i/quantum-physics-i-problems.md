@@ -1,9 +1,9 @@
----
+<!--
 id: quantum-physics-i-11
 note: physics-quantum-physics-i
 title: "Find Probability in a Subinterval"
 skills: [Probability Density, Integration]
----
+-->
 
 A particle has wave function
 
@@ -29,12 +29,12 @@ $$
 So the probability is $\frac{1}{2}$.
 :::
 
----
+<!--
 id: quantum-physics-i-12
 note: physics-quantum-physics-i
 title: "Normalize a Uniform Wave Function"
 skills: [Normalization, Wave Functions]
----
+-->
 
 Let
 
@@ -72,12 +72,12 @@ $$
 up to an overall phase.
 :::
 
----
+<!--
 id: quantum-physics-i-13
 note: physics-quantum-physics-i
 title: "Energy of the Second Level in an Infinite Well"
 skills: [Infinite Square Well, Quantized Energies]
----
+-->
 
 For a particle in an infinite square well of width $L$, what is the energy $E_2$ of the $n=2$ state?
 
@@ -101,12 +101,12 @@ E_2 = \frac{2\pi^2\hbar^2}{mL^2}
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-14
 note: physics-quantum-physics-i
 title: "Identify the Momentum Operator"
 skills: [Momentum Operator, Observables]
----
+-->
 
 What is the one-dimensional momentum operator $\hat{p}$?
 
@@ -120,12 +120,12 @@ $$
 This is the operator used for momentum measurements in the position representation.
 :::
 
----
+<!--
 id: quantum-physics-i-15
 note: physics-quantum-physics-i
 title: "Use the de Broglie Relation"
 skills: [de Broglie Wavelength, Momentum]
----
+-->
 
 A particle has de Broglie wavelength $\lambda$.
 
@@ -145,12 +145,12 @@ p = \frac{h}{\lambda}
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-16
 note: physics-quantum-physics-i
 title: "Photoelectric Maximum Kinetic Energy"
 skills: [Photoelectric Effect, Energy Quanta]
----
+-->
 
 A metal has work function $\phi = 4\ \text{eV}$.
 
@@ -174,12 +174,12 @@ $$
 So the maximum kinetic energy is $2\ \text{eV}$.
 :::
 
----
+<!--
 id: quantum-physics-i-17
 note: physics-quantum-physics-i
 title: "Spin-1/2 Outcomes"
 skills: [Spin-1/2, Measurement]
----
+-->
 
 For an electron, what are the possible measured values of spin projection along an axis?
 
@@ -193,12 +193,12 @@ $$
 along the chosen axis.
 :::
 
----
+<!--
 id: quantum-physics-i-18
 note: physics-quantum-physics-i
 title: "Write the Uncertainty Bound"
 skills: [Uncertainty Principle, Measurement]
----
+-->
 
 If the position uncertainty is $\Delta x$, what is the smallest possible momentum uncertainty $\Delta p$?
 
@@ -216,12 +216,12 @@ $$
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-19
 note: physics-quantum-physics-i
 title: "Write the One-Dimensional Hamiltonian"
 skills: [Hamiltonian, Schrodinger Equation]
----
+-->
 
 For a particle of mass $m$ in a potential $V(x)$, write the one-dimensional Hamiltonian operator $\hat{H}$.
 
@@ -235,12 +235,12 @@ $$
 This is the energy operator used in the one-dimensional Schrodinger equation.
 :::
 
----
+<!--
 id: quantum-physics-i-110
 note: physics-quantum-physics-i
 title: "Check a Two-Level State"
 skills: [Bra-Ket Notation, Normalization]
----
+-->
 
 Is the state
 
@@ -263,12 +263,12 @@ $$
 So the state is normalized.
 :::
 
----
+<!--
 id: quantum-physics-i-21
 note: physics-quantum-physics-i
 title: "Normalize and Use the Density"
 skills: [Normalization, Probability Density]
----
+-->
 
 Let
 
@@ -314,12 +314,12 @@ P = 3\int_0^{1/2} x^2\,dx
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-22
 note: physics-quantum-physics-i
 title: "Expectation Value on a Finite Interval"
 skills: [Expectation Values, Probability Density]
----
+-->
 
 A particle is uniformly distributed on the interval $[0,L]$.
 
@@ -344,12 +344,12 @@ $$
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-23
 note: physics-quantum-physics-i
 title: "Scale the Box Width"
 skills: [Infinite Square Well, Scaling Laws]
----
+-->
 
 For an infinite square well, the energy levels satisfy
 
@@ -369,12 +369,12 @@ $$
 So each energy level becomes one-fourth as large.
 :::
 
----
+<!--
 id: quantum-physics-i-24
 note: physics-quantum-physics-i
 title: "Why Position and Momentum Cannot Both Be Sharp"
 skills: [Commutators, Uncertainty Principle]
----
+-->
 
 Can position and momentum both be known exactly in the same state? Use the note's operator relation to justify your answer.
 
@@ -392,12 +392,12 @@ $$
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-25
 note: physics-quantum-physics-i
 title: "Compare Barrier Widths"
 skills: [Tunneling, Exponential Decay]
----
+-->
 
 For a barrier of height $V_0$ and particle energy $E<V_0$, the note says
 
@@ -431,12 +431,12 @@ $$
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-26
 note: physics-quantum-physics-i
 title: "Separate Time and Space"
 skills: [Separation of Variables, Schrodinger Equation, Eigenvalue Equation]
----
+-->
 
 When the potential does not depend on time, the note says we can try a separated solution of the form
 
@@ -456,12 +456,12 @@ $$
 So the spatial part is an eigenfunction of the Hamiltonian, and $E$ is the corresponding allowed energy.
 :::
 
----
+<!--
 id: quantum-physics-i-27
 note: physics-quantum-physics-i
 title: "Hydrogen Energy Scaling"
 skills: [Hydrogen Atom, Energy Levels]
----
+-->
 
 Hydrogen bound-state energies scale like
 
@@ -481,12 +481,12 @@ $$
 Because the hydrogen energies are negative, $E_4$ is still negative but closer to zero than $E_1$.
 :::
 
----
+<!--
 id: quantum-physics-i-28
 note: physics-quantum-physics-i
 title: "Ground State and Level Spacing of the Harmonic Oscillator"
 skills: [Harmonic Oscillator, Quantized Energies]
----
+-->
 
 For the harmonic oscillator,
 
@@ -518,12 +518,12 @@ $$
 So the ground state has nonzero energy, and the levels are evenly spaced.
 :::
 
----
+<!--
 id: quantum-physics-i-31
 note: physics-quantum-physics-i
 title: "Photoelectric Threshold"
 skills: [Photoelectric Effect, Energy Quanta]
----
+-->
 
 A metal has work function $\phi = 2.1\ \text{eV}$.
 
@@ -553,12 +553,12 @@ K_{\max} = 3.6 - 2.1 = 1.5\ \text{eV}
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-32
 note: physics-quantum-physics-i
 title: "Why Electron Diffraction Is Quantum"
 skills: [Electron Diffraction, de Broglie Wavelength]
----
+-->
 
 An experiment produces an interference pattern from a beam of electrons.
 
@@ -574,12 +574,12 @@ $$
 The effect becomes noticeable when the wavelength is comparable to the size of the slit spacing, crystal spacing, or other relevant length scale. That is why pure classical trajectories are not enough.
 :::
 
----
+<!--
 id: quantum-physics-i-33
 note: physics-quantum-physics-i
 title: "Choose the Right Semiclassical Approximation"
 skills: [WKB, Approximation Methods]
----
+-->
 
 A particle moves through a region where its de Broglie wavelength changes slowly compared with the length scale of the potential.
 
@@ -591,12 +591,12 @@ The appropriate idea is the WKB approximation.
 Its intuition is semiclassical: connect classical motion with quantum phase accumulation when the wavelength changes slowly, rather than solving the full problem exactly.
 :::
 
----
+<!--
 id: quantum-physics-i-34
 note: physics-quantum-physics-i
 title: "Stern-Gerlach Measurements on Different Axes"
 skills: [Spin, Noncommuting Observables]
----
+-->
 
 An electron is measured to be spin-up along the $z$-axis.
 
@@ -610,12 +610,12 @@ The result along $x$ is not predetermined by the first measurement along $z$.
 Measurements along different axes generally do not commute, so the first measurement does not fix the second one with certainty. The second outcome is probabilistic.
 :::
 
----
+<!--
 id: quantum-physics-i-35
 note: physics-quantum-physics-i
 title: "Recognize Perturbation Theory"
 skills: [Perturbation Theory, Approximation Methods]
----
+-->
 
 A Hamiltonian is written as
 
@@ -633,12 +633,12 @@ Use perturbation theory.
 The idea is to start from the known eigenstates and energies of $\hat{H}_0$ and compute small corrections from the additional term $\lambda \hat{V}$.
 :::
 
----
+<!--
 id: quantum-physics-i-41
 note: physics-quantum-physics-i
 title: "Same Probabilities, Different Phase"
 skills: [Superposition, Phase, Probability]
----
+-->
 
 Consider the two states
 
@@ -660,12 +660,12 @@ The probabilities of measuring $|0\rangle$ or $|1\rangle$ are the same because t
 However, the relative phase is different. That phase matters when states interfere, so the two states can behave differently under other measurements or later evolution even though the basis probabilities match.
 :::
 
----
+<!--
 id: quantum-physics-i-42
 note: physics-quantum-physics-i
 title: "Normalize an Even Wave Function and Find Its Mean Position"
 skills: [Normalization, Expectation Values]
----
+-->
 
 Let
 
@@ -723,12 +723,12 @@ $$
 $$
 :::
 
----
+<!--
 id: quantum-physics-i-43
 note: physics-quantum-physics-i
 title: "Use a Trial Wave Function"
 skills: [Variational Method, Approximation Methods]
----
+-->
 
 You choose a trial wave function with an adjustable parameter $\alpha$ and compute
 
@@ -744,12 +744,12 @@ You vary $\alpha$ to minimize the expected energy.
 That is the variational method. The minimized value is an estimate of the ground-state energy, and the note says it gives an upper bound to that energy.
 :::
 
----
+<!--
 id: quantum-physics-i-44
 note: physics-quantum-physics-i
 title: "Why the Harmonic Oscillator Cannot Have Zero Energy"
 skills: [Uncertainty Principle, Harmonic Oscillator, Zero-Point Energy]
----
+-->
 
 A student says the harmonic oscillator should have zero ground-state energy because the particle could sit at $x=0$ with $p=0$.
 

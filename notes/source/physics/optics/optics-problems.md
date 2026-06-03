@@ -1,9 +1,9 @@
----
+<!--
 id: optics-11
 note: physics-optics
 title: "Choose the Right Optics Model"
 skills: [Wave Optics, Model Choice]
----
+-->
 
 A student is studying the bright and dark bands produced by light passing through two slits.
 
@@ -15,12 +15,12 @@ The pattern comes from interference and diffraction, so the correct model is **w
 Geometric optics treats light as rays, but it does not explain the fringe pattern.
 :::
 
----
+<!--
 id: optics-12
 note: physics-optics
 title: "Find a Wavelength in Vacuum"
 skills: [Wave Speed, Frequency-Wavelength Relation]
----
+-->
 
 Light in vacuum has frequency
 
@@ -52,12 +52,12 @@ $$
 $$
 :::
 
----
+<!--
 id: optics-13
 note: physics-optics
 title: "Find Light Speed in Glass"
 skills: [Refractive Index, Wave Speed]
----
+-->
 
 A piece of glass has refractive index
 
@@ -81,12 +81,12 @@ v = \frac{3.0 \times 10^8}{1.5} = 2.0 \times 10^8\ \text{m/s}.
 $$
 :::
 
----
+<!--
 id: optics-14
 note: physics-optics
 title: "Refraction Direction at an Interface"
 skills: [Snell's Law, Refraction]
----
+-->
 
 A ray of light goes from air into water.
 
@@ -98,12 +98,12 @@ Water has a larger refractive index than air, so the light slows down as it ente
 That means the ray bends **toward the normal**.
 :::
 
----
+<!--
 id: optics-15
 note: physics-optics
 title: "Plane Mirror Image Location"
 skills: [Plane Mirrors, Image Type]
----
+-->
 
 An object is placed 1.8 m in front of a plane mirror.
 
@@ -120,12 +120,12 @@ $$
 behind the mirror.
 :::
 
----
+<!--
 id: optics-16
 note: physics-optics
 title: "Find a Mirror Focal Length"
 skills: [Spherical Mirrors, Focal Length]
----
+-->
 
 A concave mirror has radius of curvature
 
@@ -149,12 +149,12 @@ f = \frac{40}{2} = 20\ \text{cm}.
 $$
 :::
 
----
+<!--
 id: optics-17
 note: physics-optics
 title: "Solve a Thin Lens Image Distance"
 skills: [Thin Lens Equation]
----
+-->
 
 A converging lens has focal length
 
@@ -198,12 +198,12 @@ d_i = 18\ \text{cm}.
 $$
 :::
 
----
+<!--
 id: optics-18
 note: physics-optics
 title: "Find the Magnification"
 skills: [Magnification, Thin Lenses]
----
+-->
 
 In the previous lens setup, what is the magnification?
 
@@ -223,12 +223,12 @@ $$
 The negative sign means the image is inverted, and the magnitude shows it is half the object size.
 :::
 
----
+<!--
 id: optics-19
 note: physics-optics
 title: "Compute a Critical Angle"
 skills: [Critical Angle, Total Internal Reflection]
----
+-->
 
 Light goes from a material with index
 
@@ -264,12 +264,12 @@ $$
 $$
 :::
 
----
+<!--
 id: optics-110
 note: physics-optics
 title: "Intensity Through a Polarizer"
 skills: [Malus Law, Polarizers]
----
+-->
 
 Linearly polarized light with intensity
 
@@ -295,12 +295,12 @@ I = I_0 \cos^2 60^\circ = I_0 \left(\frac{1}{2}\right)^2 = \frac{I_0}{4}.
 $$
 :::
 
----
+<!--
 id: optics-21
 note: physics-optics
 title: "A Converging Lens with Object Inside the Focal Length"
 skills: [Thin Lenses, Magnification, Image Type]
----
+-->
 
 A converging lens has focal length
 
@@ -348,13 +348,13 @@ $$
 So the image is upright and enlarged.
 :::
 
----
+<!--
 id: optics-22
 note: physics-optics
 tolerance: 0.2
 title: "Refraction and Speed Change in Water"
 skills: [Snell's Law, Refractive Index, Wave Speed]
----
+-->
 
 Light travels from air into water. The angle of incidence in air is
 
@@ -398,12 +398,12 @@ v = \frac{c}{n} = \frac{3.0 \times 10^8}{1.33} \approx 2.26 \times 10^8\ \text{m
 $$
 :::
 
----
+<!--
 id: optics-23
 note: physics-optics
 title: "Two Lenses in Series"
 skills: [Thin Lenses, Multiple Optical Elements, Magnification]
----
+-->
 
 A converging lens with focal length
 
@@ -491,12 +491,12 @@ $$
 The final image is virtual, inverted relative to the original object, and slightly smaller.
 :::
 
----
+<!--
 id: optics-24
 note: physics-optics
 title: "Correct a Nearsighted Eye"
 skills: [Human Eye, Vision Defects, Corrective Lenses]
----
+-->
 
 A student can see nearby objects clearly, but distant street signs are blurry because the image would form in front of the retina.
 
@@ -508,12 +508,12 @@ This is **myopia** or nearsightedness.
 It is corrected with a **diverging lens**, which spreads incoming rays slightly so the eye focuses the image farther back, onto the retina.
 :::
 
----
+<!--
 id: optics-25
 note: physics-optics
 title: "Bright or Dark in a Thin Film?"
 skills: [Thin-Film Interference, Phase Shift]
----
+-->
 
 A thin film produces a path difference equal to
 
@@ -541,12 +541,12 @@ which corresponds to constructive interference.
 So the reflected light is **bright**.
 :::
 
----
+<!--
 id: optics-26
 note: physics-optics
 title: "Angle of a Diffraction Grating Maximum"
 skills: [Diffraction Grating, Interference]
----
+-->
 
 A diffraction grating has slit spacing
 
@@ -590,12 +590,12 @@ $$
 $$
 :::
 
----
+<!--
 id: optics-27
 note: physics-optics
 title: "Two Polarizers in Sequence"
 skills: [Polarizers, Malus Law]
----
+-->
 
 Unpolarized light with intensity
 
@@ -633,12 +633,12 @@ $$
 $$
 :::
 
----
+<!--
 id: optics-28
 note: physics-optics
 title: "Choose the Better Resolving Aperture"
 skills: [Diffraction, Resolution]
----
+-->
 
 Two telescopes observe the same light. Telescope A has aperture diameter 5.0 cm, and telescope B has aperture diameter 10.0 cm.
 
@@ -658,12 +658,12 @@ Since telescope B has twice the diameter of telescope A, its minimum resolvable 
 So **telescope B** has the better resolution, by a factor of **2**.
 :::
 
----
+<!--
 id: optics-31
 note: physics-optics
 title: "Choose the Correct Vision Aid"
 skills: [Human Eye, Vision Defects, Corrective Lenses]
----
+-->
 
 A person can read a book clearly, but distant road signs are blurry.
 
@@ -675,12 +675,12 @@ This is **myopia**.
 A **diverging lens** is used because it reduces the convergence of incoming parallel rays so the eye can focus the image onto the retina instead of in front of it.
 :::
 
----
+<!--
 id: optics-32
 note: physics-optics
 title: "Check Total Internal Reflection in a Fiber"
 skills: [Critical Angle, Total Internal Reflection, Fiber Optics]
----
+-->
 
 A fiber-optic core has refractive index
 
@@ -716,12 +716,12 @@ The incident angle is 65 degrees, which is larger than the critical angle.
 Therefore the ray undergoes **total internal reflection** and stays confined in the fiber.
 :::
 
----
+<!--
 id: optics-33
 note: physics-optics
 title: "Which Instrument Fits the Job?"
 skills: [Telescopes, Angular Magnification]
----
+-->
 
 You want a distant planet to appear larger in angular size.
 
@@ -733,12 +733,12 @@ Use a **telescope**.
 Microscopes are for very small nearby objects, while telescopes are designed to view far objects with larger angular size.
 :::
 
----
+<!--
 id: optics-34
 note: physics-optics
 title: "Compare Two Apertures"
 skills: [Diffraction, Resolution]
----
+-->
 
 Two cameras use the same wavelength of light.
 
@@ -764,12 +764,12 @@ $$
 $$
 :::
 
----
+<!--
 id: optics-35
 note: physics-optics
 title: "Which Color Bends More in a Prism?"
 skills: [Dispersion, Refraction]
----
+-->
 
 White light passes through a prism.
 
@@ -783,12 +783,12 @@ Blue light has a shorter wavelength than red light, so it bends more.
 Therefore, **blue** bends more than red.
 :::
 
----
+<!--
 id: optics-41
 note: physics-optics
 title: "Two-Lens System With a Final Virtual Image"
 skills: [Multiple Optical Elements, Thin Lenses, Magnification]
----
+-->
 
 A converging lens has focal length
 
@@ -876,12 +876,12 @@ $$
 The final image is **virtual, inverted, and enlarged**.
 :::
 
----
+<!--
 id: optics-42
 note: physics-optics
 title: "Constructive Thin-Film Reflection"
 skills: [Thin-Film Interference, Phase Shift]
----
+-->
 
 A thin film has refractive index
 
@@ -927,12 +927,12 @@ t = 100\ \text{nm}.
 $$
 :::
 
----
+<!--
 id: optics-43
 note: physics-optics
 title: "Compare Two Resolving Powers"
 skills: [Diffraction, Resolution]
----
+-->
 
 Two telescopes observe light of wavelength
 
@@ -974,12 +974,12 @@ $$
 $$
 :::
 
----
+<!--
 id: optics-44
 note: physics-optics
 title: "Three Polarizers With a Fixed Output"
 skills: [Polarizers, Malus Law, Inverse Reasoning]
----
+-->
 
 Unpolarized light of intensity $I_0$ passes through three polarizers.
 

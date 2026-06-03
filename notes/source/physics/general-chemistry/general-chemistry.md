@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # 1. Scope and core ideas
 
 General chemistry explains how matter is built, how it reacts, and how energy changes during those reactions. It is the language behind biology, physiology, pharmacology, and laboratory science.
@@ -858,3 +851,14 @@ $$
 - Buffers resist pH change but do not make pH immutable.
 - Catalysts speed reactions but do not change equilibrium position.
 - Chemical intuition improves when equations are balanced and units are tracked carefully.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

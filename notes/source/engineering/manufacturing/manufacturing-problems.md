@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-manufacturing-11"
 note: "engineering-manufacturing"
-title: "Review: Focus"
+title: "Review: Manufacturing"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for manufacturing."
+answer: "Manufacturing turns material into useful products by choosing processes that fit the design, the volume, and the cost target."
 skills:
-  - "Focus"
----
+  - "Manufacturing"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Manufacturing**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for manufacturing.
+One short answer is: Manufacturing turns material into useful products by choosing processes that fit the design, the volume, and the cost target.
 :::

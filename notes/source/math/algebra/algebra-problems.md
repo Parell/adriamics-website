@@ -1,9 +1,9 @@
----
+<!--
 id: algebra-11
 note: math-algebra
 title: "Combine Like Terms in a Polynomial"
 skills: [Like Terms]
----
+-->
 
 Simplify the expression and report the coefficient of $x$:
 
@@ -27,12 +27,12 @@ $$
 The coefficient of $x$ is $11$.
 :::
 
----
+<!--
 id: algebra-12
 note: math-algebra
 title: "Solve a Two-Step Linear Equation"
 skills: [Linear Equations, Inverse Operations]
----
+-->
 
 Solve for $x$:
 
@@ -54,12 +54,12 @@ x = 7
 $$
 :::
 
----
+<!--
 id: algebra-13
 note: math-algebra
 title: "Evaluate an Expression with Powers and Parentheses"
 skills: [Order of Operations, Exponent Laws]
----
+-->
 
 Compute the value of
 
@@ -93,12 +93,12 @@ $$
 $$
 :::
 
----
+<!--
 id: algebra-14
 note: math-algebra
 title: "Distribute a Constant Across a Binomial"
 skills: [Distributing and factoring]
----
+-->
 
 After distributing, what is the coefficient of $x$ in the expression below?
 
@@ -116,12 +116,12 @@ $$
 The coefficient of $x$ is $12$.
 :::
 
----
+<!--
 id: algebra-15
 note: math-algebra
 title: "Evaluate a Linear Function"
 skills: [Evaluating functions]
----
+-->
 
 If
 
@@ -143,12 +143,12 @@ f(2) = 14 - 4 = 10
 $$
 :::
 
----
+<!--
 id: algebra-16
 note: math-algebra
 title: "Solve a Fraction Equation"
 skills: [Fractions, Linear Equations, Inverse Operations]
----
+-->
 
 Solve for $x$:
 
@@ -170,12 +170,12 @@ x = 42
 $$
 :::
 
----
+<!--
 id: algebra-17
 note: math-algebra
 title: "Combine Fractional Coefficients"
 skills: [Like Terms, Fractions]
----
+-->
 
 Simplify the expression and give the coefficient of $x$:
 
@@ -193,12 +193,12 @@ $$
 So the coefficient of $x$ is $1$.
 :::
 
----
+<!--
 id: algebra-18
 note: math-algebra
 title: "Solve a Bracketed Equation"
 skills: [Distributing and factoring, Linear Equations]
----
+-->
 
 Solve for $x$:
 
@@ -220,12 +220,12 @@ x = 5
 $$
 :::
 
----
+<!--
 id: algebra-19
 note: math-algebra
 title: "Use Inverse Operations on a Simple Ratio"
 skills: [Fractions, Inverse Operations]
----
+-->
 
 Solve for $x$:
 
@@ -241,12 +241,12 @@ x = 63
 $$
 :::
 
----
+<!--
 id: algebra-110
 note: math-algebra
 title: "Evaluate a Quadratic-Looking Expression"
 skills: [Evaluating functions, Exponent Laws]
----
+-->
 
 If
 
@@ -270,12 +270,12 @@ g(3) = 2(9) - 3 = 18 - 3 = 15
 $$
 :::
 
----
+<!--
 id: algebra-21
 note: math-algebra
 title: "Distribution and Like-Term Combination"
 skills: [Distributing and factoring, Linear Equations, Inverse Operations]
----
+-->
 
 Solve for $x$:
 
@@ -315,12 +315,12 @@ x = 5
 $$
 :::
 
----
+<!--
 id: algebra-22
 note: math-algebra
 title: "Fraction Equation with Two Terms"
 skills: [Fractions, Linear Equations, Inverse Operations]
----
+-->
 
 Solve for $x$:
 
@@ -358,12 +358,12 @@ x = 9
 $$
 :::
 
----
+<!--
 id: algebra-23
 note: math-algebra
 title: "Solve by Substitution in a System"
 skills: [Systems of equations, Substitution]
----
+-->
 
 In the system
 
@@ -402,12 +402,12 @@ x = 6
 $$
 :::
 
----
+<!--
 id: algebra-24
 note: math-algebra
 title: "Factor a Quadratic and Select the Smaller Root"
 skills: [Common factoring methods, Zero-product property]
----
+-->
 
 The equation
 
@@ -435,12 +435,12 @@ So the solutions are $x = 3$ and $x = 4$.
 The smaller solution is $3$.
 :::
 
----
+<!--
 id: algebra-25
 note: math-algebra
 title: "Compute a Slope from Two Points"
 skills: [Functions, Linear Equations]
----
+-->
 
 Two points lie on a line:
 
@@ -462,12 +462,12 @@ m = \frac{12}{6} = 2
 $$
 :::
 
----
+<!--
 id: algebra-26
 note: math-algebra
 title: "Nested Function Evaluation"
 skills: [Evaluating functions]
----
+-->
 
 Let
 
@@ -497,12 +497,12 @@ f(2) = 2(2) + 1 = 5
 $$
 :::
 
----
+<!--
 id: algebra-27
 note: math-algebra
 title: "Simplify and Evaluate a Rational Expression"
 skills: [Fractions, Distributing and factoring]
----
+-->
 
 For $x \ne 3$, evaluate
 
@@ -532,12 +532,12 @@ $$
 $$
 :::
 
----
+<!--
 id: algebra-28
 note: math-algebra
 title: "Distribution on Both Sides"
 skills: [Distributing and factoring, Linear Equations, Inverse Operations]
----
+-->
 
 Solve for $x$:
 
@@ -577,12 +577,12 @@ x = 5
 $$
 :::
 
----
+<!--
 id: algebra-31
 note: math-algebra
 title: "Model a Membership Fee"
 skills: [Linear Equations]
----
+-->
 
 A climbing gym charges an upfront fee of \$18 plus \$9 per visit.
 
@@ -608,12 +608,12 @@ v = 6
 $$
 :::
 
----
+<!--
 id: algebra-32
 note: math-algebra
 title: "Rectangle Dimensions from a Perimeter Condition"
 skills: [Linear Equations]
----
+-->
 
 A rectangle has perimeter $54$ cm.
 
@@ -649,12 +649,12 @@ w = 11
 $$
 :::
 
----
+<!--
 id: algebra-33
 note: math-algebra
 title: "Compare Ticket and Snack Prices"
 skills: [Systems of equations, Linear Equations]
----
+-->
 
 At a concert, 2 tickets and 3 drinks cost \$34.
 
@@ -697,12 +697,12 @@ t = 5
 $$
 :::
 
----
+<!--
 id: algebra-34
 note: math-algebra
 title: "Constant Rate Change"
 skills: [Linear Equations]
----
+-->
 
 A water tank starts with $120$ liters.
 
@@ -730,12 +730,12 @@ h = 5
 $$
 :::
 
----
+<!--
 id: algebra-35
 note: math-algebra
 title: "Proportional Reasoning in a Recipe"
 skills: [Fractions]
----
+-->
 
 A recipe uses $3$ cups of flour for $8$ servings.
 
@@ -751,12 +751,12 @@ $$
 So the recipe needs $6$ cups of flour.
 :::
 
----
+<!--
 id: algebra-41
 note: math-algebra
 title: "Identify the Perfect-Square Trinomial"
 skills: [Common factoring methods]
----
+-->
 
 What value of $k$ makes
 
@@ -780,13 +780,13 @@ k = 12
 $$
 :::
 
----
+<!--
 id: algebra-42
 note: math-algebra
 title: "Perpendicular Slope from Standard Form"
 tolerance: 0.01
 skills: [Linear Equations]
----
+-->
 
 The line
 
@@ -816,12 +816,12 @@ $$
 In decimal form, that is $0.5$.
 :::
 
----
+<!--
 id: algebra-43
 note: math-algebra
 title: "Recover a Quadratic Constant from Its Roots"
 skills: [Common factoring methods, Zero-product property]
----
+-->
 
 The quadratic
 
@@ -853,12 +853,12 @@ c = -12
 $$
 :::
 
----
+<!--
 id: algebra-44
 note: math-algebra
 title: "Cancel a Factor and Solve Carefully"
 skills: [Fractions, Distributing and factoring, Inverse Operations]
----
+-->
 
 Solve for $x$, making sure to respect any restrictions:
 

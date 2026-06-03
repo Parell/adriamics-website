@@ -1,9 +1,9 @@
----
+<!--
 id: derivatives-11
 note: math-derivatives
 title: "State the Meaning of a Derivative"
 skills: [Derivative Meaning]
----
+-->
 
 What does $f'(a)$ tell you geometrically about the graph of $y=f(x)$?
 
@@ -13,12 +13,12 @@ Geometrically, $f'(a)$ is the slope of the tangent line to the graph at $x=a$.
 It also describes the function's instantaneous rate of change at that point.
 :::
 
----
+<!--
 id: derivatives-12
 note: math-derivatives
 title: "Differentiate by the Definition"
 skills: [Formal Definition]
----
+-->
 
 Let
 
@@ -61,12 +61,12 @@ f'(x)=2x
 $$
 :::
 
----
+<!--
 id: derivatives-13
 note: math-derivatives
 title: "Write the Derivative in Leibniz Notation"
 skills: [Notation]
----
+-->
 
 If $y=f(x)$, what is the common Leibniz notation for the derivative with respect to $x$?
 
@@ -80,12 +80,12 @@ $$
 This is equivalent to $f'(x)$ when $y=f(x)$.
 :::
 
----
+<!--
 id: derivatives-14
 note: math-derivatives
 title: "Differentiate a Power"
 skills: [Power Rule]
----
+-->
 
 Find the derivative of
 
@@ -107,12 +107,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-15
 note: math-derivatives
 title: "Differentiate a Polynomial"
 skills: [Power Rule, Sum and Difference]
----
+-->
 
 Find the derivative of
 
@@ -142,12 +142,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-16
 note: math-derivatives
 title: "Differentiate an Exponential Function"
 skills: [Exponential Functions]
----
+-->
 
 Find the derivative of
 
@@ -169,12 +169,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-17
 note: math-derivatives
 title: "Differentiate a Trigonometric Sum"
 skills: [Trigonometric Functions, Sum and Difference]
----
+-->
 
 Find the derivative of
 
@@ -202,12 +202,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-18
 note: math-derivatives
 title: "Differentiate a Natural Logarithm"
 skills: [Logarithmic Functions]
----
+-->
 
 Find the derivative of
 
@@ -224,12 +224,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-19
 note: math-derivatives
 title: "Use the Product Rule"
 skills: [Product Rule, Exponential Functions]
----
+-->
 
 Find the derivative of
 
@@ -253,12 +253,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-110
 note: math-derivatives
 title: "Use the Quotient Rule"
 skills: [Quotient Rule]
----
+-->
 
 Find the derivative of
 
@@ -294,12 +294,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-21
 note: math-derivatives
 title: "Apply the Chain Rule to a Power"
 skills: [Chain Rule, Power Rule]
----
+-->
 
 Find the derivative of
 
@@ -322,12 +322,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-22
 note: math-derivatives
 title: "Apply the Chain Rule to a Trigonometric Function"
 skills: [Chain Rule, Trigonometric Functions]
----
+-->
 
 Find the derivative of
 
@@ -352,12 +352,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-23
 note: math-derivatives
 title: "Differentiate a Logarithm of a Composite Function"
 skills: [Chain Rule, Logarithmic Functions]
----
+-->
 
 Find the derivative of
 
@@ -384,12 +384,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-24
 note: math-derivatives
 title: "Differentiate an Inverse Trig Function"
 skills: [Chain Rule, Inverse Trigonometric Functions]
----
+-->
 
 Find the derivative of
 
@@ -415,12 +415,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-25
 note: math-derivatives
 title: "Implicit Differentiation with Mixed Terms"
 skills: [Implicit Differentiation, Product Rule]
----
+-->
 
 Differentiate implicitly and solve for $\frac{dy}{dx}$:
 
@@ -454,12 +454,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-26
 note: math-derivatives
 title: "Find Velocity and Acceleration"
 skills: [Higher-Order Derivatives, Motion]
----
+-->
 
 Let
 
@@ -489,12 +489,12 @@ a(2)=6(2)-12=0
 $$
 :::
 
----
+<!--
 id: derivatives-27
 note: math-derivatives
 title: "Estimate a Square Root with Linearization"
 skills: [Linear Approximation]
----
+-->
 
 Use the linear approximation of $f(x)=\sqrt{x}$ at $x=16$ to estimate $\sqrt{16.2}$.
 
@@ -536,12 +536,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-28
 note: math-derivatives
 title: "Find Where a Function Increases"
 skills: [Increasing and Decreasing, Critical Points]
----
+-->
 
 Suppose
 
@@ -579,12 +579,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-31
 note: math-derivatives
 title: "Related Rates for the Area of a Circle"
 skills: [Related Rates]
----
+-->
 
 A circle's radius is increasing at a rate of $0.5$ cm/s. How fast is the area changing when the radius is $10$ cm?
 
@@ -614,12 +614,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-32
 note: math-derivatives
 title: "Tangent Line from an Implicit Curve"
 skills: [Implicit Differentiation, Tangent Lines]
----
+-->
 
 Find the equation of the tangent line to
 
@@ -655,12 +655,12 @@ y-5=-\frac{3}{5}(x-3)
 $$
 :::
 
----
+<!--
 id: derivatives-33
 note: math-derivatives
 title: "Maximize the Area of a Rectangle"
 skills: [Optimization]
----
+-->
 
 A rectangle has perimeter $40$ m. What dimensions give the maximum area?
 
@@ -708,12 +708,12 @@ $$
 So the rectangle with maximum area is a $10$ m by $10$ m square.
 :::
 
----
+<!--
 id: derivatives-34
 note: math-derivatives
 title: "Estimate Measurement Error with Differentials"
 skills: [Differentials, Error Estimation]
----
+-->
 
 A circular disk has radius $10$ cm, and the radius measurement may be off by about $0.05$ cm. Use differentials to estimate the possible error in the area.
 
@@ -744,12 +744,12 @@ $$
 which is approximately $3.14\text{ cm}^2$.
 :::
 
----
+<!--
 id: derivatives-35
 note: math-derivatives
 title: "Take One Newton Step"
 skills: [Newton's Method]
----
+-->
 
 Use one step of Newton's method to approximate the root of
 
@@ -795,12 +795,12 @@ $$
 $$
 :::
 
----
+<!--
 id: derivatives-41
 note: math-derivatives
 title: "Show an Absolute Value Function Is Not Differentiable"
 skills: [Continuity and Differentiability, Formal Definition]
----
+-->
 
 Show that
 
@@ -836,12 +836,12 @@ $$
 The one-sided derivatives are not equal, so $f'(0)$ does not exist.
 :::
 
----
+<!--
 id: derivatives-42
 note: math-derivatives
 title: "Classify a Cubic Using Derivatives"
 skills: [Critical Points, Concavity, Higher-Order Derivatives]
----
+-->
 
 For
 
@@ -895,12 +895,12 @@ $$
 changes sign at $x=0$, there is an inflection point at $x=0$.
 :::
 
----
+<!--
 id: derivatives-43
 note: math-derivatives
 title: "Maximize Area with a Fence and a Wall"
 skills: [Optimization]
----
+-->
 
 A rectangular pen is built against a straight wall, so only three sides need fencing. If $24$ m of fencing are available, what dimensions maximize the area?
 
@@ -948,12 +948,12 @@ $$
 So the maximum area occurs for dimensions $6$ m by $6$ m by $12$ m, with the $12$ m side against the wall.
 :::
 
----
+<!--
 id: derivatives-44
 note: math-derivatives
 title: "Find a Tangent Line on a Mixed Implicit Curve"
 skills: [Implicit Differentiation, Product Rule, Tangent Lines]
----
+-->
 
 For the curve
 

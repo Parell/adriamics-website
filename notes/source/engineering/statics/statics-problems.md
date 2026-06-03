@@ -1,9 +1,9 @@
----
+<!--
 id: statics-11
 note: engineering-statics
 title: "State the Plane Equilibrium Equations"
 skills: [Equilibrium Equations]
----
+-->
 
 Write the three independent equilibrium equations for a rigid body in a plane.
 
@@ -17,12 +17,12 @@ $$
 The moment may be taken about any convenient point $O$.
 :::
 
----
+<!--
 id: statics-12
 note: engineering-statics
 title: "Identify a Particle Model"
 skills: [Modeling Assumptions]
----
+-->
 
 A body is modeled as having mass but no size, so only translation matters. What idealization is this?
 
@@ -32,12 +32,12 @@ This is the **particle idealization**.
 A particle has mass but no dimensions, so rotation is ignored and only force balance matters.
 :::
 
----
+<!--
 id: statics-13
 note: engineering-statics
 title: "Compute a Force Moment"
 skills: [Moments]
----
+-->
 
 A 40 N force acts perpendicular to a wrench 0.6 m from point $O$. Find the moment magnitude about $O$.
 
@@ -55,12 +55,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-14
 note: engineering-statics
 title: "Compute a Couple Moment"
 skills: [Couples, Moments]
----
+-->
 
 Two equal and opposite 25 N forces are separated by 0.30 m. Find the couple moment magnitude.
 
@@ -84,12 +84,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-15
 note: engineering-statics
 title: "Identify Pin Reactions"
 skills: [Support Reactions]
----
+-->
 
 In 2D, what reaction components can a pin or hinge supply?
 
@@ -103,12 +103,12 @@ $$
 It does not supply a reaction moment.
 :::
 
----
+<!--
 id: statics-16
 note: engineering-statics
 title: "Identify Roller Reactions"
 skills: [Support Reactions]
----
+-->
 
 A roller sits on a smooth horizontal surface. What reaction does it supply?
 
@@ -118,12 +118,12 @@ A roller on a smooth horizontal surface supplies **one vertical normal reaction*
 It allows horizontal motion and does not resist a moment.
 :::
 
----
+<!--
 id: statics-17
 note: engineering-statics
 title: "Replace a Uniform Load"
 skills: [Distributed Loads, Resultants]
----
+-->
 
 Replace a uniform load of 5 kN/m acting over 4 m with a single equivalent force. Give the magnitude and location.
 
@@ -143,12 +143,12 @@ $$
 It acts at the midpoint of the loaded region, so the line of action is 2 m from either end.
 :::
 
----
+<!--
 id: statics-18
 note: engineering-statics
 title: "Replace a Triangular Load"
 skills: [Distributed Loads, Resultants]
----
+-->
 
 Replace a triangular load that increases from 0 to 9 kN/m over 6 m with a single equivalent force. Give the magnitude and its location from the zero-load end.
 
@@ -168,12 +168,12 @@ $$
 from the zero-load end.
 :::
 
----
+<!--
 id: statics-19
 note: engineering-statics
 title: "Find Maximum Static Friction"
 skills: [Friction]
----
+-->
 
 If $\mu_s = 0.35$ and $N = 400$ N, what is the maximum static friction?
 
@@ -197,12 +197,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-110
 note: engineering-statics
 title: "Locate the Centroid of a Rectangle"
 skills: [Centroids, Symmetry]
----
+-->
 
 A 8 cm by 10 cm rectangular plate is measured from a lower-left corner. Where is its centroid?
 
@@ -222,12 +222,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-21
 note: engineering-statics
 title: "Find Beam Reactions for a Center Load"
 skills: [Equilibrium Equations, Support Reactions]
----
+-->
 
 A 6 m simply supported beam carries a 12 kN point load at midspan. Find the support reactions at $A$ and $B$.
 
@@ -263,12 +263,12 @@ R_A = 6\ \text{kN}, \qquad R_B = 6\ \text{kN}
 $$
 :::
 
----
+<!--
 id: statics-22
 note: engineering-statics
 title: "Find Reactions Under a Uniform Load"
 skills: [Distributed Loads, Support Reactions]
----
+-->
 
 A 5 m simply supported beam carries a uniform load of 2 kN/m over its entire span. Find the support reactions.
 
@@ -292,12 +292,12 @@ R_A = 5\ \text{kN}, \qquad R_B = 5\ \text{kN}
 $$
 :::
 
----
+<!--
 id: statics-23
 note: engineering-statics
 title: "Use the Zero-Force Member Rule"
 skills: [Trusses, Zero-Force Members]
----
+-->
 
 At an unloaded truss joint, three members meet. Two are collinear. Which member carries zero force?
 
@@ -307,12 +307,12 @@ The **third member**, the one that is **not collinear** with the other two, is a
 This follows directly from joint equilibrium.
 :::
 
----
+<!--
 id: statics-24
 note: engineering-statics
 title: "Solve a Two-Force Joint"
 skills: [Trusses, Method of Joints, Equilibrium Equations]
----
+-->
 
 At a truss joint, member $AB$ is horizontal to the left, and member $AC$ rises 3 m for every 4 m of horizontal run to the right. A 12 kN downward load acts at the joint. Find the force in each member, assuming member forces are tensile if they pull away from the joint.
 
@@ -348,12 +348,12 @@ F_{AB} = 16\ \text{kN}, \qquad F_{AC} = 20\ \text{kN}
 $$
 :::
 
----
+<!--
 id: statics-25
 note: engineering-statics
 title: "Find the Friction Force at Impending Slip"
 skills: [Friction, Equilibrium Equations]
----
+-->
 
 A 200 N crate sits on a horizontal floor. A horizontal push of 40 N is applied. If $\mu_s = 0.25$, what friction force acts on the crate?
 
@@ -379,12 +379,12 @@ $$
 It acts opposite the push.
 :::
 
----
+<!--
 id: statics-26
 note: engineering-statics
 title: "Find Internal Forces at a Cut"
 skills: [Internal Loads, Free-Body Diagrams, Equilibrium Equations]
----
+-->
 
 A 4 m simply supported beam carries an 8 kN point load at midspan. Find the internal shear force and bending moment at a section 3 m from the left support, using the left segment.
 
@@ -424,12 +424,12 @@ V = 4\ \text{kN}, \qquad M = 4\ \text{kN} \cdot \text{m}
 $$
 :::
 
----
+<!--
 id: statics-27
 note: engineering-statics
 title: "Find the Centroid of a Composite Area"
 skills: [Centroids, Composite Areas]
----
+-->
 
 A 6 cm by 4 cm rectangle has a 2 cm by 2 cm square hole removed from its upper-right corner. Find the centroid of the remaining area relative to the lower-left corner.
 
@@ -471,12 +471,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-28
 note: engineering-statics
 title: "Check Static Determinacy"
 skills: [Support Reactions, Statical Determinacy]
----
+-->
 
 A 2D beam is supported by a pin at $A$, a roller at $B$, and a cable at $C$. How many independent reaction unknowns are there, and is equilibrium alone enough to solve them?
 
@@ -498,12 +498,12 @@ In 2D, rigid-body equilibrium provides only 3 independent equations, so equilibr
 Additional compatibility or geometry information would be needed.
 :::
 
----
+<!--
 id: statics-31
 note: engineering-statics
 title: "Balance a Mixed Beam Load"
 skills: [Distributed Loads, Support Reactions, Equilibrium Equations]
----
+-->
 
 A 6 m simply supported beam carries a triangular load that increases from 0 at the left end to 6 kN/m at the right end, plus a 6 kN point load located 2 m from the left support. Find the support reactions.
 
@@ -549,12 +549,12 @@ R_A = 10\ \text{kN}, \qquad R_B = 14\ \text{kN}
 $$
 :::
 
----
+<!--
 id: statics-32
 note: engineering-statics
 title: "Required Coefficient of Static Friction"
 skills: [Friction]
----
+-->
 
 A 600 N crate is pushed horizontally with 300 N just before it moves. What minimum coefficient of static friction is required?
 
@@ -584,12 +584,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-33
 note: engineering-statics
 title: "Combine a Force and a Couple"
 skills: [Moments, Couples]
----
+-->
 
 A 10 kN downward force acts 2 m to the right of point $A$, and a 4 kN*m counterclockwise couple also acts on the body. What is the net moment about $A$? Take counterclockwise as positive.
 
@@ -621,12 +621,12 @@ $$
 clockwise.
 :::
 
----
+<!--
 id: statics-34
 note: engineering-statics
 title: "Find the Center of Gravity of Discrete Masses"
 skills: [Centroids, Center of Gravity]
----
+-->
 
 Three masses lie on a line at $x = 0$ m, $x = 2$ m, and $x = 5$ m. Their masses are 2 kg, 3 kg, and 5 kg. Find $\bar{x}$.
 
@@ -654,12 +654,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-35
 note: engineering-statics
 title: "Find Shear and Moment at a Section"
 skills: [Internal Loads, Equilibrium Equations]
----
+-->
 
 A 8 m simply supported beam carries a 12 kN point load 2 m from the left support. Find the internal shear force and bending moment at a section 3 m from the left support.
 
@@ -711,12 +711,12 @@ V = 3\ \text{kN}, \qquad M = 15\ \text{kN} \cdot \text{m}
 $$
 :::
 
----
+<!--
 id: statics-41
 note: engineering-statics
 title: "Load a Beam with Multiple Actions"
 skills: [Distributed Loads, Support Reactions, Equilibrium Equations]
----
+-->
 
 A 8 m beam is supported by a pin at $A$ and a roller at $B$. It carries a 4 kN/m uniform load over the first 2 m from $A$, an 8 kN point load 5 m from $A$, and an 8 kN*m counterclockwise couple. Find the reactions at $A$ and $B$.
 
@@ -762,12 +762,12 @@ R_A = 11\ \text{kN}, \qquad R_B = 5\ \text{kN}
 $$
 :::
 
----
+<!--
 id: statics-42
 note: engineering-statics
 title: "Find the Centroid of an L-Section"
 skills: [Centroids, Composite Areas]
----
+-->
 
 An 8 cm by 8 cm square has a 4 cm by 4 cm square removed from its upper-right corner. Find the centroid of the remaining area relative to the lower-left corner.
 
@@ -809,12 +809,12 @@ $$
 $$
 :::
 
----
+<!--
 id: statics-43
 note: engineering-statics
 title: "Decide Whether Equilibrium Alone Is Enough"
 skills: [Statical Determinacy, Support Reactions]
----
+-->
 
 A rigid body in 2D is supported by a pin at $A$, a roller at $B$, and a cable at $C$. How many independent reaction unknowns are present, and can equilibrium alone determine them?
 
@@ -836,12 +836,12 @@ unknowns in total.
 In 2D, a rigid body has only 3 independent equilibrium equations, so equilibrium alone is not enough to solve the problem.
 :::
 
----
+<!--
 id: statics-44
 note: engineering-statics
 title: "Recover Internal Forces from a Cut Segment"
 skills: [Internal Loads, Free-Body Diagrams, Equilibrium Equations]
----
+-->
 
 A beam segment has a 10 kN upward force at the left end, a 6 kN downward force 1 m from the left end, and a 4 kN*m clockwise couple at 2 m from the left end. A cut is made 3 m from the left end. Using the common left-face convention, find $N$, $V$, and $M$ at the cut.
 

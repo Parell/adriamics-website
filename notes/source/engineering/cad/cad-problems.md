@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-cad-11"
 note: "engineering-cad"
-title: "Review: Focus"
+title: "Review: CAD"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for CAD."
+answer: "CAD uses computer tools to create precise digital models of parts, assemblies, and drawings."
 skills:
-  - "Focus"
----
+  - "CAD"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **CAD**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for CAD.
+One short answer is: CAD uses computer tools to create precise digital models of parts, assemblies, and drawings.
 :::

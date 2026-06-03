@@ -1,15 +1,15 @@
----
+<!--
 id: "physics-geophysics-11"
 note: "physics-geophysics"
-title: "Review: Focus"
+title: "Review: Geophysics"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for geophysics."
+answer: "Geophysics applies physics to the Earth, from its interior structure to its gravity, magnetism, and surface processes."
 skills:
-  - "Focus"
----
+  - "Geophysics"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Geophysics**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for geophysics.
+One short answer is: Geophysics applies physics to the Earth, from its interior structure to its gravity, magnetism, and surface processes.
 :::

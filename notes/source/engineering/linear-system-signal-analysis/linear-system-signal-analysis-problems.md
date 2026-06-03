@@ -1,9 +1,9 @@
----
+<!--
 id: linear-system-signal-analysis-11
 note: engineering-linear-system-signal-analysis
 title: "Classify a Signal"
 skills: [Signals, Signal Types]
----
+-->
 
 Classify the signal below as continuous-time or discrete-time, and state whether it is deterministic or random:
 
@@ -17,12 +17,12 @@ The signal is **continuous-time** because it is defined for real values of $t$.
 It is **deterministic** because it is given by an explicit formula, not a statistical description.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-12
 note: engineering-linear-system-signal-analysis
 title: "Shift a Step Signal"
 skills: [Time Shifting]
----
+-->
 
 If
 
@@ -42,12 +42,12 @@ $$
 This is the original step delayed by $3$ units.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-13
 note: engineering-linear-system-signal-analysis
 title: "Find Even and Odd Parts"
 skills: [Even and Odd Parts]
----
+-->
 
 Let
 
@@ -87,12 +87,12 @@ x_o(t) = \frac{(t+2)-(-t+2)}{2} = t
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-14
 note: engineering-linear-system-signal-analysis
 title: "Test Linearity"
 skills: [Linearity]
----
+-->
 
 Is the system
 
@@ -120,12 +120,12 @@ $$
 These are not the same, so the system is not linear.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-15
 note: engineering-linear-system-signal-analysis
 title: "Check Memory and Causality"
 skills: [Memory, Causality]
----
+-->
 
 For the system
 
@@ -141,12 +141,12 @@ The system **has memory** because $y(t)$ depends on $x(t-1)$, not just the input
 It is **causal** because it depends only on the present value $x(t)$ and the past value $x(t-1)$, not on any future input.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-16
 note: engineering-linear-system-signal-analysis
 title: "Use the Impulse Shift Property"
 skills: [Impulse Response, Convolution]
----
+-->
 
 For an LTI system with impulse response $h(t)$, what is the output when the input is
 
@@ -164,12 +164,12 @@ $$
 This follows from the shift property of convolution.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-17
 note: engineering-linear-system-signal-analysis
 title: "Convolve with a Delayed Impulse"
 skills: [Convolution, Discrete Time]
----
+-->
 
 Given
 
@@ -199,12 +199,12 @@ y[n] = \delta[n-2] + \delta[n-3]
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-18
 note: engineering-linear-system-signal-analysis
 title: "Find the Fundamental Angular Frequency"
 skills: [Fourier Series, Period]
----
+-->
 
 A periodic signal has period
 
@@ -234,12 +234,12 @@ $$
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-19
 note: engineering-linear-system-signal-analysis
 title: "Read a Pole from a Transfer Function"
 skills: [Transfer Function, Poles and Zeros]
----
+-->
 
 For
 
@@ -259,12 +259,12 @@ $$
 Since $-5$ has negative real part, the pole lies in the **left-half plane**.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-110
 note: engineering-linear-system-signal-analysis
 title: "Read a Scalar State-Space Model"
 skills: [State-Space, Continuous Time]
----
+-->
 
 For the system
 
@@ -294,12 +294,12 @@ A = -3,\quad B = 2,\quad C = 4,\quad D = -1.
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-21
 note: engineering-linear-system-signal-analysis
 title: "Classify a Differential-Equation Model"
 skills: [LTI Systems, Differential Equations]
----
+-->
 
 Determine whether the system
 
@@ -317,12 +317,12 @@ It is **time invariant** because the coefficients are constant and there is no e
 So the system is **LTI**.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-22
 note: engineering-linear-system-signal-analysis
 title: "Split a Polynomial Signal"
 skills: [Even and Odd Parts]
----
+-->
 
 Let
 
@@ -364,12 +364,12 @@ x_o(t) = \frac{(t^2+3t)-(t^2-3t)}{2} = 3t
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-23
 note: engineering-linear-system-signal-analysis
 title: "Output of a Moving-Average Filter"
 skills: [Convolution, Impulse Response]
----
+-->
 
 Let
 
@@ -407,12 +407,12 @@ y[n] =
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-24
 note: engineering-linear-system-signal-analysis
 title: "Compute a Sinusoidal Steady-State Output"
 skills: [Frequency Response, Sinusoids]
----
+-->
 
 An LTI system has frequency response
 
@@ -438,12 +438,12 @@ y(t) = 2\cos\left(5t - \frac{\pi}{6}\right)
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-25
 note: engineering-linear-system-signal-analysis
 title: "Shift a Known Fourier Transform"
 skills: [Fourier Transform, Time Shift]
----
+-->
 
 Suppose
 
@@ -479,12 +479,12 @@ $$
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-26
 note: engineering-linear-system-signal-analysis
 title: "Solve a First-Order System with Laplace Transforms"
 skills: [Laplace Transform, Initial Conditions]
----
+-->
 
 Solve for $y(t)$ given
 
@@ -518,12 +518,12 @@ y(t) = \frac{1}{4}\left(1 - e^{-4t}\right)u(t)
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-27
 note: engineering-linear-system-signal-analysis
 title: "Find the Transfer Function of a Difference Equation"
 skills: [Z-Transform, Difference Equations]
----
+-->
 
 For the causal system
 
@@ -559,12 +559,12 @@ $$
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-28
 note: engineering-linear-system-signal-analysis
 title: "Apply the Nyquist Criterion"
 skills: [Sampling, Aliasing]
----
+-->
 
 A signal has highest frequency content at $900$ Hz. What is the Nyquist rate, and is sampling at $1.5$ kHz sufficient to avoid aliasing?
 
@@ -580,12 +580,12 @@ So the sampling rate must be greater than $1800$ Hz to avoid aliasing.
 Since $1.5$ kHz $= 1500$ Hz is below $1800$ Hz, it is **not sufficient**.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-31
 note: engineering-linear-system-signal-analysis
 title: "Impulse Input as a Weighted Sum"
 skills: [Convolution, Impulse Response]
----
+-->
 
 An LTI system has impulse response
 
@@ -615,12 +615,12 @@ y(t) = 3e^{-2(t-1)}u(t-1) - 2e^{-2t}u(t) + e^{-2(t-3)}u(t-3)
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-32
 note: engineering-linear-system-signal-analysis
 title: "Attenuation of a Sinusoid"
 skills: [Frequency Response, Sinusoids]
----
+-->
 
 An LTI system has frequency response
 
@@ -668,12 +668,12 @@ y(t) = \sqrt{5}\cos\big(2t - \tan^{-1}(2)\big)
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-33
 note: engineering-linear-system-signal-analysis
 title: "Aliased Tone"
 skills: [Sampling, Aliasing]
----
+-->
 
 A $3.4$ kHz sinusoid is sampled at $4$ kHz. What aliased frequency appears after sampling?
 
@@ -695,12 +695,12 @@ $$
 in the baseband interval $[0, f_s/2]$.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-34
 note: engineering-linear-system-signal-analysis
 title: "State-Space to Transfer Function"
 skills: [State-Space, Transfer Function]
----
+-->
 
 For the scalar state-space model
 
@@ -736,12 +736,12 @@ H(s) = \frac{4s+11}{s+2}
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-35
 note: engineering-linear-system-signal-analysis
 title: "Interpret a Symmetric Periodic Waveform"
 skills: [Fourier Series, Symmetry]
----
+-->
 
 A real periodic signal has period
 
@@ -769,12 +769,12 @@ $$
 So the harmonics occur at integer multiples of $100$ Hz.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-41
 note: engineering-linear-system-signal-analysis
 title: "Convolution of Two Rectangular Pulses"
 skills: [Convolution, Piecewise Signals]
----
+-->
 
 Let
 
@@ -813,12 +813,12 @@ $$
 So the output is a trapezoid made of two ramps and a flat middle section.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-42
 note: engineering-linear-system-signal-analysis
 title: "Solve a Forced First-Order System"
 skills: [Laplace Transform, Partial Fractions]
----
+-->
 
 Solve for $y(t)$ given
 
@@ -852,12 +852,12 @@ y(t) = \big(e^{-2t} - e^{-3t}\big)u(t)
 $$
 :::
 
----
+<!--
 id: linear-system-signal-analysis-43
 note: engineering-linear-system-signal-analysis
 title: "Stability and Causality from Poles"
 skills: [Poles and Zeros, Stability]
----
+-->
 
 Consider
 
@@ -885,12 +885,12 @@ That ROC does not include the $j\omega$ axis, so the system would not be stable.
 Therefore, a **causal stable realization is not possible**.
 :::
 
----
+<!--
 id: linear-system-signal-analysis-44
 note: engineering-linear-system-signal-analysis
 title: "Frequency Response from an Exponential Impulse Response"
 skills: [Frequency Response, Fourier Transform]
----
+-->
 
 A system has impulse response
 

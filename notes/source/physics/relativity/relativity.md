@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 # Relativity
 # 1. Why relativity is needed
 
@@ -176,7 +168,7 @@ Proper time is the shortest time elapsed between two timelike-separated events a
 
 A moving clock is observed to run slow.
 
-If $\Delta \tau$ is the proper time measured in the clock’s rest frame, then an observer who sees the clock moving measures:
+If $\Delta \tau$ is the proper time measured in the clockâ€™s rest frame, then an observer who sees the clock moving measures:
 
 $$
 \Delta t = \gamma \Delta \tau
@@ -196,7 +188,7 @@ $$
 
 An object moving relative to an observer is shortened along the direction of motion.
 
-If $L_0$ is the proper length measured in the object’s rest frame, then the observed length is:
+If $L_0$ is the proper length measured in the objectâ€™s rest frame, then the observed length is:
 
 $$
 L = \frac{L_0}{\gamma}
@@ -237,7 +229,7 @@ Relativity of simultaneity is not a minor correction. It is the key idea that ma
 
 ## Common interpretation trap
 
-If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of “same time” is frame-dependent.
+If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of â€œsame timeâ€ is frame-dependent.
 
 ---
 
@@ -625,3 +617,14 @@ $$
 - Forgetting that momentum is $\gamma mv$, not just $mv$.
 - Applying special-relativity formulas to strong gravity without checking the model.
 - Confusing gravitational time dilation with Doppler shift, which are related but not the same effect.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

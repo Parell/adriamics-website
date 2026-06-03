@@ -1,9 +1,9 @@
----
+<!--
 id: logic-11
 note: math-logic
 title: "Identify Propositions"
 skills: [Propositions, Truth Values]
----
+-->
 
 Which of the following are propositions?
 
@@ -19,12 +19,12 @@ Which of the following are propositions?
 4. This is a proposition, and it is true.
 :::
 
----
+<!--
 id: logic-12
 note: math-logic
 title: "Evaluate a Compound Statement"
 skills: [Logical Connectives, Truth Tables]
----
+-->
 
 Let $P$ be true and $Q$ be false. Find the truth value of
 
@@ -52,12 +52,12 @@ $$
 $$
 :::
 
----
+<!--
 id: logic-13
 note: math-logic
 title: "Read an Implication Correctly"
 skills: [Implication, Biconditional]
----
+-->
 
 If $P$ is false and $Q$ is false, determine the truth values of $P \to Q$ and $P \leftrightarrow Q$.
 
@@ -75,12 +75,12 @@ P \leftrightarrow Q = T.
 $$
 :::
 
----
+<!--
 id: logic-14
 note: math-logic
 title: "Find the Contrapositive"
 skills: [Implication, Contrapositive]
----
+-->
 
 Write the contrapositive of the statement:
 
@@ -100,12 +100,12 @@ So the contrapositive is:
 If a number is not divisible by $3$, then it is not divisible by $6$.
 :::
 
----
+<!--
 id: logic-15
 note: math-logic
 title: "Negate a Conjunction with a Disjunction"
 skills: [De Morgan's Laws, Negation]
----
+-->
 
 Find a logically equivalent formula for
 
@@ -133,12 +133,12 @@ $$
 $$
 :::
 
----
+<!--
 id: logic-16
 note: math-logic
 title: "Expand a Biconditional"
 skills: [Biconditional, Logical Equivalence]
----
+-->
 
 Rewrite $P \leftrightarrow Q$ using only implications.
 
@@ -152,12 +152,12 @@ $$
 This matches the definition of "if and only if."
 :::
 
----
+<!--
 id: logic-17
 note: math-logic
 title: "Negate a Universal Statement"
 skills: [Quantifiers, Negating Quantifiers]
----
+-->
 
 Negate the statement
 
@@ -175,12 +175,12 @@ $$
 In words: there exists at least one $x$ for which $P(x)$ is false.
 :::
 
----
+<!--
 id: logic-18
 note: math-logic
 title: "Negate an Existential Statement"
 skills: [Quantifiers, Negating Quantifiers]
----
+-->
 
 Negate the statement
 
@@ -202,12 +202,12 @@ $$
 $$
 :::
 
----
+<!--
 id: logic-19
 note: math-logic
 title: "Compare Quantifier Order"
 skills: [Quantifiers, Order Matters]
----
+-->
 
 Are the statements
 
@@ -233,12 +233,12 @@ The second statement says there is one single $y$ that works for every $x$.
 These are different claims, so they are not logically equivalent.
 :::
 
----
+<!--
 id: logic-110
 note: math-logic
 title: "Tautology or Contradiction"
 skills: [Tautology, Contradiction]
----
+-->
 
 Classify each formula:
 
@@ -250,12 +250,12 @@ Classify each formula:
 2. $P \land \neg P$ is a contradiction because it is never true.
 :::
 
----
+<!--
 id: logic-21
 note: math-logic
 title: "Simplify an Expression with an Implication"
 skills: [Implication, De Morgan's Laws, Logical Equivalence]
----
+-->
 
 Simplify the formula
 
@@ -289,12 +289,12 @@ P \land \neg Q.
 $$
 :::
 
----
+<!--
 id: logic-22
 note: math-logic
 title: "Negate a Universal Conditional"
 skills: [Quantifiers, Implication, Negating Quantifiers]
----
+-->
 
 Negate the statement
 
@@ -328,12 +328,12 @@ $$
 $$
 :::
 
----
+<!--
 id: logic-23
 note: math-logic
 title: "Chain Two Implications"
 skills: [Rules of Inference, Hypothetical Syllogism]
----
+-->
 
 From the premises
 
@@ -363,12 +363,12 @@ R.
 $$
 :::
 
----
+<!--
 id: logic-24
 note: math-logic
 title: "Use Disjunctive Syllogism"
 skills: [Rules of Inference, Disjunctive Syllogism]
----
+-->
 
 From the premises
 
@@ -398,12 +398,12 @@ R.
 $$
 :::
 
----
+<!--
 id: logic-25
 note: math-logic
 title: "Prove by Cases"
 skills: [Proof Methods, Proof by Cases]
----
+-->
 
 Show that $R$ follows from the premises
 
@@ -426,12 +426,12 @@ $$
 is a valid conclusion.
 :::
 
----
+<!--
 id: logic-26
 note: math-logic
 title: "Put a Formula into CNF"
 skills: [Normal Forms, Distributive Laws]
----
+-->
 
 Convert
 
@@ -451,12 +451,12 @@ $$
 This is in conjunctive normal form because it is an AND of OR-clauses.
 :::
 
----
+<!--
 id: logic-27
 note: math-logic
 title: "Prove a Simple Subset Relation"
 skills: [Logic and Sets, Subset Proof]
----
+-->
 
 Prove that
 
@@ -478,12 +478,12 @@ A \cap B \subseteq A.
 $$
 :::
 
----
+<!--
 id: logic-28
 note: math-logic
 title: "Apply Resolution"
 skills: [Rules of Inference, Resolution]
----
+-->
 
 From the premises
 
@@ -513,12 +513,12 @@ Q.
 $$
 :::
 
----
+<!--
 id: logic-31
 note: math-logic
 title: "Find a Counterexample"
 skills: [Counterexample, Proof Methods]
----
+-->
 
 Disprove the claim that every integer is even.
 
@@ -530,12 +530,12 @@ Take the integer $1$. It is not even, so the claim "every integer is even" is fa
 Thus a single counterexample disproof is sufficient.
 :::
 
----
+<!--
 id: logic-32
 note: math-logic
 title: "Spot a Common Invalid Argument"
 skills: [Pitfalls, Rules of Inference]
----
+-->
 
 Consider the argument:
 
@@ -551,12 +551,12 @@ The premise $P \to Q$ does not allow you to conclude $P$ from $Q$.
 In this example, many shapes are rectangles without being squares, so the conclusion does not follow.
 :::
 
----
+<!--
 id: logic-33
 note: math-logic
 title: "Translate Necessary and Sufficient"
 skills: [Implication, Common Pitfalls]
----
+-->
 
 Let $L$ mean "the person is licensed" and $D$ mean "the person is driving."
 
@@ -579,12 +579,12 @@ L \to D.
 $$
 :::
 
----
+<!--
 id: logic-34
 note: math-logic
 title: "Find a Satisfying Assignment"
 skills: [Satisfiability, Truth Tables]
----
+-->
 
 Find truth values for $P$ and $Q$ that make
 
@@ -610,12 +610,12 @@ $$
 One satisfying assignment is $P = F$ and $Q = T$.
 :::
 
----
+<!--
 id: logic-35
 note: math-logic
 title: "Classify a Formula"
 skills: [Tautology, Contradiction, Contingency]
----
+-->
 
 Is
 
@@ -633,12 +633,12 @@ But the formula also requires $\neg Q$.
 So the formula cannot be true under any assignment. It is a contradiction.
 :::
 
----
+<!--
 id: logic-41
 note: math-logic
 title: "Simplify a Nested Formula"
 skills: [Logical Equivalence, De Morgan's Laws, Implication]
----
+-->
 
 Simplify
 
@@ -676,12 +676,12 @@ $$
 This is an equivalent formula using only $\neg$, $\land$, and $\lor$.
 :::
 
----
+<!--
 id: logic-42
 note: math-logic
 title: "Compare Nested Quantifiers on a Finite Domain"
 skills: [Quantifiers, Order Matters, Domain of Discourse]
----
+-->
 
 Let the domain be $\{1,2\}$, and let $P(x,y)$ mean $x=y$.
 
@@ -705,12 +705,12 @@ For $\exists y\, \forall x\, P(x,y)$, we would need one single $y$ that equals b
 Thus the first statement is true and the second is false.
 :::
 
----
+<!--
 id: logic-43
 note: math-logic
 title: "Prove a Set Identity"
 skills: [Logic and Sets, De Morgan's Laws]
----
+-->
 
 Prove that
 
@@ -752,12 +752,12 @@ $$
 Since the two sides contain exactly the same elements, the sets are equal.
 :::
 
----
+<!--
 id: logic-44
 note: math-logic
 title: "Check a Mixed Consistency Claim"
 skills: [Satisfiability, Quantifiers, Rules of Inference]
----
+-->
 
 Is the set of statements
 

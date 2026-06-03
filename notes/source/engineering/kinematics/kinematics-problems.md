@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-kinematics-11"
 note: "engineering-kinematics"
-title: "Review: Focus"
+title: "Review: Kinematics"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for kinematics."
+answer: "Kinematics describes motion without asking about the forces that cause it."
 skills:
-  - "Focus"
----
+  - "Kinematics"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Kinematics**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for kinematics.
+One short answer is: Kinematics describes motion without asking about the forces that cause it.
 :::

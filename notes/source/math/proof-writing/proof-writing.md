@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 # Proof Writing
 # 1. What a proof does
 
@@ -28,11 +20,11 @@ If a step is not justified by one of these, it is a gap.
 
 Mathematical claims usually have one of these shapes:
 
-- Universal statements: “for all”
-- Existential statements: “there exists”
-- Implications: “if ... then ...”
-- Equivalences: “if and only if”
-- Negations: “it is not the case that ...”
+- Universal statements: â€œfor allâ€
+- Existential statements: â€œthere existsâ€
+- Implications: â€œif ... then ...â€
+- Equivalences: â€œif and only ifâ€
+- Negations: â€œit is not the case that ...â€
 
 Each shape suggests a different proof strategy.
 
@@ -60,14 +52,14 @@ Common phrases:
 
 | Phrase | Logical meaning |
 | --- | --- |
-| “For all \(x\)” | \(\forall x\) |
-| “There exists \(x\)” | \(\exists x\) |
-| “If \(P\), then \(Q\)” | \(P \Rightarrow Q\) |
-| “\(P\) only if \(Q\)” | \(P \Rightarrow Q\) |
-| “\(P\) if \(Q\)” | \(Q \Rightarrow P\) |
-| “\(P\) iff \(Q\)” | \(P \Leftrightarrow Q\) |
-| “At least one” | existential |
-| “Exactly one” | existence plus uniqueness |
+| â€œFor all \(x\)â€ | \(\forall x\) |
+| â€œThere exists \(x\)â€ | \(\exists x\) |
+| â€œIf \(P\), then \(Q\)â€ | \(P \Rightarrow Q\) |
+| â€œ\(P\) only if \(Q\)â€ | \(P \Rightarrow Q\) |
+| â€œ\(P\) if \(Q\)â€ | \(Q \Rightarrow P\) |
+| â€œ\(P\) iff \(Q\)â€ | \(P \Leftrightarrow Q\) |
+| â€œAt least oneâ€ | existential |
+| â€œExactly oneâ€ | existence plus uniqueness |
 
 ## Watch the quantifier order
 
@@ -155,7 +147,7 @@ This is a constructive existence proof.
 
 ## Uniqueness
 
-To prove “there exists exactly one \(x\) such that \(P(x)\)”:
+To prove â€œthere exists exactly one \(x\) such that \(P(x)\)â€:
 
 1. Prove existence.
 2. Assume \(x_1\) and \(x_2\) both satisfy \(P\).
@@ -253,7 +245,7 @@ The impossibility may be:
 - A logical contradiction such as \(A \land \neg A\)
 - A violation of a definition
 - A conflict with a known theorem
-- A numerical impossibility, such as “an integer is both even and odd”
+- A numerical impossibility, such as â€œan integer is both even and oddâ€
 
 ### Example
 
@@ -545,12 +537,12 @@ Good proof writing is clear, not decorative.
 
 Use signposts:
 
-- “Assume...”
-- “Let \(x\) be arbitrary...”
-- “By definition...”
-- “Therefore...”
-- “Hence...”
-- “It follows that...”
+- â€œAssume...â€
+- â€œLet \(x\) be arbitrary...â€
+- â€œBy definition...â€
+- â€œTherefore...â€
+- â€œHence...â€
+- â€œIt follows that...â€
 
 These guide the reader through the argument.
 
@@ -558,9 +550,9 @@ These guide the reader through the argument.
 
 For longer proofs, start with a short roadmap:
 
-- “We prove this by contradiction.”
-- “We prove both inclusions.”
-- “We use induction on \(n\).”
+- â€œWe prove this by contradiction.â€
+- â€œWe prove both inclusions.â€
+- â€œWe use induction on \(n\).â€
 
 ## Avoid hidden assumptions
 
@@ -568,12 +560,12 @@ State assumptions explicitly.
 
 Bad:
 
-- “Let \(x\) be the solution.”
+- â€œLet \(x\) be the solution.â€
 
 Better:
 
-- “Suppose \(x\) is any solution.”
-- “Let \(x\) be an arbitrary element of \(A\).”
+- â€œSuppose \(x\) is any solution.â€
+- â€œLet \(x\) be an arbitrary element of \(A\).â€
 
 ## Make variable names stable
 
@@ -587,9 +579,9 @@ A long algebraic manipulation should still be anchored by a sentence explaining 
 
 Finish with a sentence that explicitly links your work back to the statement:
 
-- “Therefore, \(P\) holds.”
-- “So \(f\) is injective.”
-- “Thus \(A = B\).”
+- â€œTherefore, \(P\) holds.â€
+- â€œSo \(f\) is injective.â€
+- â€œThus \(A = B\).â€
 
 ---
 
@@ -625,10 +617,10 @@ This often reveals the correct path.
 
 For example:
 
-- “\(n\) is prime”
-- “\(f\) is injective”
-- “\(A \subseteq B\)”
-- “\(x \in A \cup B\)”
+- â€œ\(n\) is primeâ€
+- â€œ\(f\) is injectiveâ€
+- â€œ\(A \subseteq B\)â€
+- â€œ\(x \in A \cup B\)â€
 
 ## Step 4: Try a small example
 
@@ -673,7 +665,7 @@ Ask:
 ## Common mistakes
 
 - Proving examples instead of the general statement
-- Mixing up “if” and “only if”
+- Mixing up â€œifâ€ and â€œonly ifâ€
 - Forgetting to prove both directions of an equivalence
 - Using a base case that is not actually the first case
 - Assuming the conclusion in an inductive step
@@ -733,3 +725,14 @@ $$
 $$
 \text{To prove } P \Rightarrow Q, \text{ it is enough to show } \neg Q \Rightarrow \neg P.
 $$
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

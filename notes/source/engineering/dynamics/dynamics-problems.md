@@ -1,9 +1,9 @@
----
+<!--
 id: dynamics-11
 note: engineering-dynamics
 title: "Classify the Study of Motion"
 skills: [Kinematics, Kinetics]
----
+-->
 
 Which branch of dynamics describes motion without considering the forces that cause it?
 
@@ -13,12 +13,12 @@ That is **kinematics**.
 Kinematics describes motion itself, while kinetics connects motion to the forces and moments that produce it.
 :::
 
----
+<!--
 id: dynamics-12
 note: engineering-dynamics
 title: "Differentiate a Position Function"
 skills: [Position, Velocity, Acceleration]
----
+-->
 
 Given
 
@@ -52,12 +52,12 @@ a(2) = 6
 $$
 :::
 
----
+<!--
 id: dynamics-13
 note: engineering-dynamics
 title: "Use Constant Acceleration to Find Speed"
 skills: [Rectilinear Motion, Constant Acceleration]
----
+-->
 
 A cart starts from rest and accelerates at $4 \, \text{m/s}^2$ for $3$ s. Find its speed.
 
@@ -75,12 +75,12 @@ v = 0 + 4(3) = 12 \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-14
 note: engineering-dynamics
 title: "Find Displacement Under Constant Acceleration"
 skills: [Rectilinear Motion, Constant Acceleration]
----
+-->
 
 A particle starts at $x_0 = 5$ m with $v_0 = 2 \, \text{m/s}$ and constant acceleration $a = 1 \, \text{m/s}^2$. Find $x$ after $4$ s.
 
@@ -102,12 +102,12 @@ x = 5 + 8 + 8 = 21 \, \text{m}
 $$
 :::
 
----
+<!--
 id: dynamics-15
 note: engineering-dynamics
 title: "Read Velocity and Acceleration from Cartesian Components"
 skills: [Cartesian Components, Curvilinear Motion]
----
+-->
 
 For the position vector
 
@@ -141,12 +141,12 @@ $$
 $$
 :::
 
----
+<!--
 id: dynamics-16
 note: engineering-dynamics
 title: "Compute Normal Acceleration"
 skills: [Normal-Tangential Motion, Curvilinear Motion]
----
+-->
 
 A particle moves along a curved path at a speed of $15 \, \text{m/s}$ on a path with radius of curvature $25$ m. Find its normal acceleration.
 
@@ -164,12 +164,12 @@ a_n = \frac{15^2}{25} = \frac{225}{25} = 9 \, \text{m/s}^2
 $$
 :::
 
----
+<!--
 id: dynamics-17
 note: engineering-dynamics
 title: "Add Velocities in Relative Motion"
 skills: [Relative Motion]
----
+-->
 
 A walkway moves east at $1.5 \, \text{m/s}$. A person walks east relative to the walkway at $0.8 \, \text{m/s}$. What is the person's speed relative to the ground?
 
@@ -183,12 +183,12 @@ $$
 So the person's ground speed is $2.3 \, \text{m/s}$ east.
 :::
 
----
+<!--
 id: dynamics-18
 note: engineering-dynamics
 title: "Apply Newton's Second Law"
 skills: [Particle Kinetics, Newton's Second Law]
----
+-->
 
 A $5$ kg particle has a net force of $20$ N to the right. Find its acceleration.
 
@@ -208,12 +208,12 @@ $$
 The acceleration is $4 \, \text{m/s}^2$ to the right.
 :::
 
----
+<!--
 id: dynamics-19
 note: engineering-dynamics
 title: "Use Friction at a Contact Surface"
 skills: [Particle Kinetics, Friction]
----
+-->
 
 A surface has normal force $N = 40$ N and kinetic friction coefficient $\mu_k = 0.25$. Find the kinetic friction force.
 
@@ -231,12 +231,12 @@ f_k = 0.25(40) = 10 \, \text{N}
 $$
 :::
 
----
+<!--
 id: dynamics-110
 note: engineering-dynamics
 title: "Find Tangential Speed in Pure Rotation"
 skills: [Rigid-Body Kinematics, Pure Rotation]
----
+-->
 
 A point lies $0.4$ m from a fixed axis on a rigid body rotating at $\omega = 6 \, \text{rad/s}$. Find the point's speed.
 
@@ -254,12 +254,12 @@ v = 6(0.4) = 2.4 \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-21
 note: engineering-dynamics
 title: "Use Work-Energy with a Constant Force"
 skills: [Work-Energy Methods, Kinetic Energy]
----
+-->
 
 A $2$ kg cart moves at $3 \, \text{m/s}$. A constant force of $10$ N acts in the direction of motion over $4$ m on a level track. Find the final speed.
 
@@ -297,12 +297,12 @@ v_2 = 7 \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-22
 note: engineering-dynamics
 title: "Track Energy with a Spring"
 skills: [Work-Energy Methods, Springs]
----
+-->
 
 A $1$ kg block is released from rest by a spring with $k = 100 \, \text{N/m}$ compressed $0.20$ m on a frictionless track. Find the speed when the spring returns to its natural length.
 
@@ -330,12 +330,12 @@ v = 2 \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-23
 note: engineering-dynamics
 title: "Use Impulse to Find Final Velocity"
 skills: [Impulse-Momentum Methods, Linear Momentum]
----
+-->
 
 A $3$ kg particle starts from rest and is acted on by a $30$ N force for $0.2$ s. Find its final speed.
 
@@ -363,12 +363,12 @@ v_2 = 2 \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-24
 note: engineering-dynamics
 title: "Solve a Friction Problem with Force Balance"
 skills: [Particle Kinetics, Friction, Newton's Second Law]
----
+-->
 
 A $10$ kg block slides on a horizontal surface. A $50$ N horizontal force pulls it to the right, and $\mu_k = 0.2$. Take $g = 10 \, \text{m/s}^2$. Find the acceleration.
 
@@ -398,12 +398,12 @@ a = \frac{30}{10} = 3 \, \text{m/s}^2
 $$
 :::
 
----
+<!--
 id: dynamics-25
 note: engineering-dynamics
 title: "Combine Translation and Rotation"
 skills: [Rigid-Body Kinematics, Relative Motion]
----
+-->
 
 Point $A$ on a rigid bar moves to the right at $1.5 \, \text{m/s}$. The bar rotates counterclockwise at $3 \, \text{rad/s}$, and point $B$ is $0.6$ m above $A$. Find $\mathbf{v}_B$.
 
@@ -433,12 +433,12 @@ $$
 Point $B$ moves left at $0.3 \, \text{m/s}$.
 :::
 
----
+<!--
 id: dynamics-26
 note: engineering-dynamics
 title: "Find Angular Acceleration from a Moment"
 skills: [Rigid-Body Kinetics, Parallel-Axis Theorem]
----
+-->
 
 A thin rod has mass $4$ kg and length $1.5$ m. It rotates about one end. If the net moment about the end is $6$ N$\cdot$m, find its angular acceleration.
 
@@ -468,12 +468,12 @@ $$
 $$
 :::
 
----
+<!--
 id: dynamics-27
 note: engineering-dynamics
 title: "Choose the Best Method"
 skills: [Choosing the Right Method]
----
+-->
 
 A problem asks for the speed of a block after it slides a known distance on a rough surface. Which method is usually best?
 
@@ -483,12 +483,12 @@ The best choice is usually **work-energy**.
 The distance is known, so it is often faster to write the work done by gravity, friction, or other forces and relate it to the change in kinetic energy instead of solving for time first.
 :::
 
----
+<!--
 id: dynamics-28
 note: engineering-dynamics
 title: "Spot a Common Pitfall"
 skills: [Common Pitfalls, Rectilinear Motion]
----
+-->
 
 A particle has acceleration $a(t) = 3t$. Can you use $v = v_0 + at$ with $a$ taken at the final time? Why or why not?
 
@@ -510,12 +510,12 @@ $$
 to find velocity.
 :::
 
----
+<!--
 id: dynamics-31
 note: engineering-dynamics
 title: "Recognize Variable Acceleration by Position"
 skills: [Rectilinear Motion, Variable Acceleration]
----
+-->
 
 A particle moves in a straight line with acceleration
 
@@ -557,12 +557,12 @@ v = 2\sqrt{10} \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-32
 note: engineering-dynamics
 title: "Use Work-Energy on an Incline"
 skills: [Work-Energy Methods, Gravity]
----
+-->
 
 A $2$ kg crate starts from rest and slides $5$ m down a frictionless $30^\circ$ incline. Take $g = 10 \, \text{m/s}^2$. Find the speed at the bottom.
 
@@ -596,12 +596,12 @@ v = 5\sqrt{2} \, \text{m/s}
 $$
 :::
 
----
+<!--
 id: dynamics-33
 note: engineering-dynamics
 title: "Use Impulse-Momentum in an Impact"
 skills: [Impulse-Momentum Methods, Linear Momentum]
----
+-->
 
 A $0.5$ kg puck moving east at $8 \, \text{m/s}$ is struck by an average $12$ N force to the west for $0.5$ s. Find its final velocity.
 
@@ -635,12 +635,12 @@ $$
 The puck ends with speed $4 \, \text{m/s}$ to the west.
 :::
 
----
+<!--
 id: dynamics-34
 note: engineering-dynamics
 title: "Find a Point's Velocity and Acceleration on a Rotating Bar"
 skills: [Rigid-Body Kinematics, Rigid-Body Kinetics]
----
+-->
 
 A rigid bar has point $A$ moving to the right at $2 \, \text{m/s}$ with acceleration $1 \, \text{m/s}^2$ to the right. The bar rotates counterclockwise with $\omega = 4 \, \text{rad/s}$ and $\alpha = 2 \, \text{rad/s}^2$. Point $B$ is $0.5$ m above $A$. Find $\mathbf{v}_B$ and $\mathbf{a}_B$.
 
@@ -700,12 +700,12 @@ $$
 So point $B$ is instantaneously at rest, and its acceleration is $8 \, \text{m/s}^2$ downward.
 :::
 
----
+<!--
 id: dynamics-35
 note: engineering-dynamics
 title: "Choose the Right Impact Method"
 skills: [Choosing the Right Method, Impulse-Momentum Methods]
----
+-->
 
 A $2$ kg cart slows from $6 \, \text{m/s}$ to $2 \, \text{m/s}$ in $0.1$ s during a collision. What method should you use to find the average impact force, and what is that force?
 
@@ -727,12 +727,12 @@ $$
 So the average impact force is $80$ N opposite the cart's motion.
 :::
 
----
+<!--
 id: dynamics-41
 note: engineering-dynamics
 title: "Analyze Planar Motion from Position Functions"
 skills: [Cartesian Components, Curvilinear Motion]
----
+-->
 
 A particle has position
 
@@ -782,12 +782,12 @@ $$
 Since the acceleration points generally in the same direction as the velocity, the particle is speeding up at $t=2$.
 :::
 
----
+<!--
 id: dynamics-42
 note: engineering-dynamics
 title: "Velocity and Acceleration of a Rotating Point"
 skills: [Rigid-Body Kinematics, Normal-Tangential Motion]
----
+-->
 
 A wheel of radius $0.5$ m has $\omega = 2 \, \text{rad/s}$ and $\alpha = 2 \, \text{rad/s}^2$ at an instant. For a point on the rim, find the speed, tangential acceleration, normal acceleration, and total acceleration magnitude.
 
@@ -821,12 +821,12 @@ a = \sqrt{a_t^2 + a_n^2}
 $$
 :::
 
----
+<!--
 id: dynamics-43
 note: engineering-dynamics
 title: "Use Rotational Work-Energy"
 skills: [Work-Energy Methods, Rigid-Body Kinetics]
----
+-->
 
 A uniform rod has mass $2$ kg and length $1$ m and rotates about one end. A constant moment of $6$ N$\cdot$m acts on it as it turns through $90^\circ$ from rest. Find its angular speed at the end of the turn.
 
@@ -874,12 +874,12 @@ $$
 $$
 :::
 
----
+<!--
 id: dynamics-44
 note: engineering-dynamics
 title: "Handle a Rotating Frame with Coriolis Acceleration"
 skills: [Relative Motion, Rotating Frames]
----
+-->
 
 A collar slides outward in a radial slot on a disk rotating counterclockwise with constant angular velocity $\omega = 4 \, \text{rad/s}$. At the instant shown, the collar is $0.5$ m from the center and has outward relative speed $\dot{r} = 2 \, \text{m/s}$. The disk has no angular acceleration and the radial speed is constant, so $\ddot{r} = 0$. Find the Coriolis acceleration magnitude and the total acceleration vector.
 

@@ -1,9 +1,9 @@
----
+<!--
 id: vectors-11
 note: math-vectors
 title: "Find a Position Vector"
 skills: [Position Vectors]
----
+-->
 
 If $P = (4, -1, 3)$, what is the position vector of $P$?
 
@@ -17,12 +17,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-12
 note: math-vectors
 title: "Convert to Component Form"
 skills: [Notation, Component Form]
----
+-->
 
 Write $6\mathbf{i} - 2\mathbf{j} + 5\mathbf{k}$ in component form.
 
@@ -43,12 +43,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-13
 note: math-vectors
 title: "Find a Vector from Two Points"
 skills: [Two Points, Component Form]
----
+-->
 
 Find $\overrightarrow{AB}$ where $A = (-1, 3)$ and $B = (5, -2)$.
 
@@ -64,12 +64,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-14
 note: math-vectors
 title: "Find a Magnitude"
 skills: [Magnitude]
----
+-->
 
 Find the magnitude of $\langle 9, 12 \rangle$.
 
@@ -91,12 +91,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-15
 note: math-vectors
 title: "Find a Unit Vector"
 skills: [Unit Vectors, Magnitude]
----
+-->
 
 Find the unit vector in the direction of $\langle 5, 12 \rangle$.
 
@@ -115,12 +115,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-16
 note: math-vectors
 title: "Add Two Vectors"
 skills: [Vector Addition]
----
+-->
 
 Compute the sum:
 
@@ -136,12 +136,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-17
 note: math-vectors
 title: "Subtract Two Vectors"
 skills: [Vector Subtraction]
----
+-->
 
 Compute the difference:
 
@@ -158,12 +158,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-18
 note: math-vectors
 title: "Multiply by a Scalar"
 skills: [Scalar Multiplication]
----
+-->
 
 Compute
 
@@ -180,12 +180,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-19
 note: math-vectors
 title: "Compute a Dot Product"
 skills: [Dot Product]
----
+-->
 
 Find the dot product:
 
@@ -205,12 +205,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-110
 note: math-vectors
 title: "Compute a Cross Product"
 skills: [Cross Product]
----
+-->
 
 Find
 
@@ -238,12 +238,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-21
 note: math-vectors
 title: "Find a Direction Angle"
 skills: [Direction Angle, Trigonometry]
----
+-->
 
 Find the direction angle of $\langle 1, \sqrt{3} \rangle$.
 
@@ -267,12 +267,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-22
 note: math-vectors
 title: "Find a Vector and Its Length"
 skills: [Two Points, Magnitude]
----
+-->
 
 A vector goes from $A = (2, -1, 5)$ to $B = (7, 3, 2)$.
 
@@ -297,12 +297,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-23
 note: math-vectors
 title: "Find the Angle Between Two Vectors"
 skills: [Dot Product, Angle Between Vectors]
----
+-->
 
 Find the angle between
 
@@ -345,12 +345,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-24
 note: math-vectors
 title: "Project One Vector Onto Another"
 skills: [Projection, Dot Product]
----
+-->
 
 Find the vector projection of $\mathbf{v} = \langle 4, 3 \rangle$ onto $\mathbf{u} = \langle 3, 4 \rangle$.
 
@@ -381,12 +381,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-25
 note: math-vectors
 title: "Split a Vector into Parallel and Perpendicular Parts"
 skills: [Projection, Orthogonal Decomposition]
----
+-->
 
 Let
 
@@ -431,12 +431,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-26
 note: math-vectors
 title: "Find the Area of a Parallelogram"
 skills: [Cross Product, Area]
----
+-->
 
 Find the area of the parallelogram spanned by
 
@@ -479,12 +479,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-27
 note: math-vectors
 title: "Write an Equation of a Plane"
 skills: [Planes, Normal Vector]
----
+-->
 
 Find the equation of the plane through $(1, 4, -2)$ with normal vector $\langle 2, -1, 3 \rangle$.
 
@@ -512,12 +512,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-28
 note: math-vectors
 title: "Find the Distance from a Point to a Plane"
 skills: [Planes, Distance Formula]
----
+-->
 
 Find the distance from the point $(2, 1, 0)$ to the plane
 
@@ -546,12 +546,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-31
 note: math-vectors
 title: "Model a Displacement"
 skills: [Displacement, Magnitude]
----
+-->
 
 A drone flies $3$ km east, $4$ km north, and $12$ km upward.
 
@@ -578,12 +578,12 @@ $$
 So the drone is $13$ km from the starting point.
 :::
 
----
+<!--
 id: vectors-32
 note: math-vectors
 title: "Write a Line Through Two Points"
 skills: [Lines, Two Points]
----
+-->
 
 Write a vector equation of the line through $A = (1, 2, -1)$ and $B = (5, 0, 3)$.
 
@@ -610,12 +610,12 @@ x = 1 + 2t,\qquad y = 2 - t,\qquad z = -1 + 2t
 $$
 :::
 
----
+<!--
 id: vectors-33
 note: math-vectors
 title: "Find a Plane Through Three Points"
 skills: [Planes, Cross Product, Two Points]
----
+-->
 
 Find the equation of the plane through
 
@@ -649,12 +649,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-34
 note: math-vectors
 title: "Find the Area of a Triangle from Coordinates"
 skills: [Cross Product, Area, Two Points]
----
+-->
 
 Find the area of the triangle with vertices
 
@@ -690,12 +690,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-35
 note: math-vectors
 title: "Decide the Relationship Between a Line and a Plane"
 skills: [Lines, Planes, Dot Product]
----
+-->
 
 Consider the line
 
@@ -735,12 +735,12 @@ $$
 Since the direction vector is orthogonal to the plane's normal vector, the line is parallel to the plane.
 :::
 
----
+<!--
 id: vectors-41
 note: math-vectors
 title: "Find the Intersection of a Line and a Plane"
 skills: [Lines, Planes, Substitution]
----
+-->
 
 Find the point where the line
 
@@ -794,12 +794,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-42
 note: math-vectors
 title: "Find the Closest Point on a Line"
 skills: [Projection, Lines, Orthogonal Decomposition]
----
+-->
 
 Let the line be
 
@@ -842,12 +842,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-43
 note: math-vectors
 title: "Decompose a Vector and Measure the Perpendicular Part"
 skills: [Projection, Orthogonal Decomposition, Magnitude]
----
+-->
 
 Let
 
@@ -893,12 +893,12 @@ $$
 $$
 :::
 
----
+<!--
 id: vectors-44
 note: math-vectors
 title: "Use Dot and Cross Products Together"
 skills: [Dot Product, Cross Product, Angle Between Vectors]
----
+-->
 
 Two nonzero vectors satisfy
 

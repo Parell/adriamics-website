@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 # Optics
 # 1. What optics studies
 
@@ -662,3 +654,14 @@ Optics links ray behavior, wave behavior, and imaging systems. The most importan
 - Use wave optics for interference, diffraction, and polarization.
 
 When in doubt, start with a diagram, identify the relevant interfaces or apertures, and track signs and phase changes carefully.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

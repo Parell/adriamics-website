@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-simulation-11"
 note: "engineering-simulation"
-title: "Review: Focus"
+title: "Review: Simulation"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for simulation."
+answer: "Simulation uses a model to explore how a system behaves before the real system is built or changed."
 skills:
-  - "Focus"
----
+  - "Simulation"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Simulation**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for simulation.
+One short answer is: Simulation uses a model to explore how a system behaves before the real system is built or changed.
 :::

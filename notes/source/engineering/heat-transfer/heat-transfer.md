@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # 1. What heat transfer is
 
 **Heat transfer** is the study of energy transport driven by a temperature difference.
@@ -31,10 +24,10 @@ The key modeling idea is to replace a physical system with a simplified thermal 
 | Heat | $Q$ | J |
 | Heat rate | $\dot{Q}$ | W |
 | Temperature | $T$ | K or $^\circ$C |
-| Thermal conductivity | $k$ | W/(m·K) |
-| Convection coefficient | $h$ | W/(m$^2$·K) |
+| Thermal conductivity | $k$ | W/(mÂ·K) |
+| Convection coefficient | $h$ | W/(m$^2$Â·K) |
 | Emissivity | $\varepsilon$ | dimensionless |
-| Specific heat | $c_p$ | J/(kg·K) |
+| Specific heat | $c_p$ | J/(kgÂ·K) |
 | Density | $\rho$ | kg/m$^3$ |
 | Thermal diffusivity | $\alpha$ | m$^2$/s |
 
@@ -286,7 +279,7 @@ $$
 
 where:
 
-- $\sigma = 5.670 \times 10^{-8}\ \text{W/(m}^2\text{·K}^4)$
+- $\sigma = 5.670 \times 10^{-8}\ \text{W/(m}^2\text{Â·K}^4)$
 - $\varepsilon$ is emissivity, with $0 \le \varepsilon \le 1$
 
 ## Net radiation to a large surrounding
@@ -761,3 +754,22 @@ Nu = \frac{hL}{k},\quad
 Bi = \frac{hL_c}{k},\quad
 Fo = \frac{\alpha t}{L^2}
 $$
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Nilsson and Riedel, *Electric Circuits*
+- Sedra and Smith, *Microelectronic Circuits*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- Leake and Borger, *Engineering Design Graphics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

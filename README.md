@@ -10,15 +10,7 @@ Build the static note pages, catalog, search index, practice pages, and sitemap 
 
 Notes live in per-topic folders under `notes/subjects/...`, and each note source file must match its folder name, for example `notes/subjects/math/algebra/algebra.md`.
 
-- legal/safety systems
-- Github contributions?
-- Thermodynamics tables, Phyics constants
-- weak-area detection for each subject
-- Every page should have visible sources, author/reviewer history, version history
-
-Use zillow data set for housing and efficency page
-
-
+---
 
 You are generating one problems file for my notes website.
 

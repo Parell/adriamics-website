@@ -1,9 +1,9 @@
----
+<!--
 id: arithmetic-11
 note: math-arithmetic
 title: "Write 8,405.72 in Expanded Form"
 skills: [Place Value, Expanded Form]
----
+-->
 
 Write $8{,}405.72$ in expanded form.
 
@@ -17,12 +17,12 @@ $$
 This matches the thousands, hundreds, ones, tenths, and hundredths places.
 :::
 
----
+<!--
 id: arithmetic-12
 note: math-arithmetic
 title: "Compare Two Integers"
 skills: [Comparing Numbers, Integers]
----
+-->
 
 Fill in the correct symbol:
 
@@ -38,12 +38,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-13
 note: math-arithmetic
 title: "Find an Absolute Value"
 skills: [Absolute Value]
----
+-->
 
 Evaluate:
 
@@ -59,12 +59,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-14
 note: math-arithmetic
 title: "Add Whole Numbers"
 skills: [Addition, Place Value]
----
+-->
 
 Compute:
 
@@ -98,12 +98,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-15
 note: math-arithmetic
 title: "Add Decimals"
 skills: [Decimals, Addition]
----
+-->
 
 Compute:
 
@@ -125,12 +125,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-16
 note: math-arithmetic
 title: "Subtract Whole Numbers"
 skills: [Subtraction, Place Value]
----
+-->
 
 Compute:
 
@@ -166,12 +166,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-17
 note: math-arithmetic
 title: "Multiply by a One-Digit Number"
 skills: [Multiplication, Repeated Addition]
----
+-->
 
 Compute:
 
@@ -187,12 +187,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-18
 note: math-arithmetic
 title: "Divide Evenly"
 skills: [Division, Quotients]
----
+-->
 
 Compute:
 
@@ -214,12 +214,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-19
 note: math-arithmetic
 title: "Evaluate a Basic Expression"
 skills: [Order of Operations]
----
+-->
 
 Compute:
 
@@ -249,12 +249,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-110
 note: math-arithmetic
 title: "Decide Whether 29 Is Prime or Composite"
 skills: [Prime and Composite Numbers]
----
+-->
 
 Is $29$ prime or composite?
 
@@ -264,12 +264,12 @@ Check whether $29$ has any factors besides $1$ and itself. It is not divisible b
 Therefore, $29$ is prime.
 :::
 
----
+<!--
 id: arithmetic-21
 note: math-arithmetic
 title: "Use Signed Addition and Subtraction"
 skills: [Signed Numbers, Addition]
----
+-->
 
 Compute:
 
@@ -293,12 +293,12 @@ $$
 So the value is $1$.
 :::
 
----
+<!--
 id: arithmetic-22
 note: math-arithmetic
 title: "Find the Greatest Common Factor"
 skills: [Factors, GCF]
----
+-->
 
 Find the greatest common factor of $18$ and $24$.
 
@@ -322,12 +322,12 @@ GCF(18,24)=6
 $$
 :::
 
----
+<!--
 id: arithmetic-23
 note: math-arithmetic
 title: "Convert a Fraction to a Decimal and Add"
 skills: [Fractions, Decimals, Addition]
----
+-->
 
 Compute:
 
@@ -349,12 +349,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-24
 note: math-arithmetic
 title: "Multiply Fractions"
 skills: [Fractions, Multiplication]
----
+-->
 
 Compute:
 
@@ -376,12 +376,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-25
 note: math-arithmetic
 title: "Find a Unit Rate"
 skills: [Rates, Unit Rate]
----
+-->
 
 A car travels $180$ miles in $3$ hours. What is its unit rate in miles per hour?
 
@@ -395,12 +395,12 @@ $$
 So the unit rate is $60$ miles per hour.
 :::
 
----
+<!--
 id: arithmetic-26
 note: math-arithmetic
 title: "Solve a Proportion"
 skills: [Ratios, Proportions]
----
+-->
 
 Solve for $x$:
 
@@ -426,12 +426,12 @@ x = 12
 $$
 :::
 
----
+<!--
 id: arithmetic-27
 note: math-arithmetic
 title: "Estimate and Then Multiply"
 skills: [Estimation, Multiplication]
----
+-->
 
 Estimate $49 \times 21$ using compatible numbers, then find the exact product.
 
@@ -457,12 +457,12 @@ $$
 The estimate is close to the exact value.
 :::
 
----
+<!--
 id: arithmetic-28
 note: math-arithmetic
 title: "Use Square and Cube Roots"
 skills: [Roots, Exponents]
----
+-->
 
 Compute:
 
@@ -490,12 +490,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-31
 note: math-arithmetic
 title: "Apply a Scale Factor"
 skills: [Ratios, Scale Factor]
----
+-->
 
 A drawing is enlarged by a scale factor of $3$.
 
@@ -511,12 +511,12 @@ $$
 So the new length is $12$ cm.
 :::
 
----
+<!--
 id: arithmetic-32
 note: math-arithmetic
 title: "Compute Simple Interest"
 skills: [Percents, Simple Interest]
----
+-->
 
 Find the simple interest on $\$450$ at $6\%$ for $2$ years.
 
@@ -540,12 +540,12 @@ $$
 So the total is $\$504$.
 :::
 
----
+<!--
 id: arithmetic-33
 note: math-arithmetic
 title: "Find a Percent Increase"
 skills: [Percents, Percent Increase]
----
+-->
 
 A jacket costs $\$80$ and is marked up by $15\%$.
 
@@ -567,12 +567,12 @@ $$
 The new price is $\$92$.
 :::
 
----
+<!--
 id: arithmetic-34
 note: math-arithmetic
 title: "Write a Large Number in Standard Form"
 skills: [Scientific Notation]
----
+-->
 
 Write $7.4 \times 10^5$ in standard form.
 
@@ -584,12 +584,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-35
 note: math-arithmetic
 title: "Use Division with a Remainder"
 skills: [Division, Remainders, Problem-Solving Workflow]
----
+-->
 
 A school buys $95$ pencils in packs of $8$.
 
@@ -605,12 +605,12 @@ $$
 This means there are $11$ full packs and $7$ pencils left over.
 :::
 
----
+<!--
 id: arithmetic-41
 note: math-arithmetic
 title: "Mix Exponents, Roots, and Order of Operations"
 skills: [Order of Operations, Exponents, Roots]
----
+-->
 
 Compute:
 
@@ -656,12 +656,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-42
 note: math-arithmetic
 title: "Apply Two Percent Changes in a Row"
 skills: [Percents, Problem-Solving Workflow]
----
+-->
 
 A $\$50$ item is increased by $20\%$ and then decreased by $10\%$.
 
@@ -695,12 +695,12 @@ $$
 The final price is $\$54$.
 :::
 
----
+<!--
 id: arithmetic-43
 note: math-arithmetic
 title: "Combine Fractions and Decimals"
 skills: [Fractions, Decimals, Addition, Subtraction]
----
+-->
 
 Compute:
 
@@ -736,12 +736,12 @@ $$
 $$
 :::
 
----
+<!--
 id: arithmetic-44
 note: math-arithmetic
 title: "Estimate and Compute a Scientific-Notation Product"
 skills: [Scientific Notation, Estimation, Exponents]
----
+-->
 
 Estimate and then compute:
 

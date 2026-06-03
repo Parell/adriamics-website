@@ -1,15 +1,15 @@
----
+<!--
 id: "physics-astrophysics-and-cosmology-11"
 note: "physics-astrophysics-and-cosmology"
-title: "Review: Focus"
+title: "Review: Astrophysics and Cosmology"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for astrophysics and cosmology."
+answer: "Astrophysics and cosmology study stars, galaxies, and the large-scale structure and evolution of the universe."
 skills:
-  - "Focus"
----
+  - "Astrophysics and Cosmology"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Astrophysics and Cosmology**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for astrophysics and cosmology.
+One short answer is: Astrophysics and cosmology study stars, galaxies, and the large-scale structure and evolution of the universe.
 :::

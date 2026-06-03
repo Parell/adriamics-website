@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-instrumentation-11"
 note: "engineering-instrumentation"
-title: "Review: Focus"
+title: "Review: Instrumentation"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for instrumentation."
+answer: "Instrumentation focuses on measuring physical quantities accurately and turning them into usable signals."
 skills:
-  - "Focus"
----
+  - "Instrumentation"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Instrumentation**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for instrumentation.
+One short answer is: Instrumentation focuses on measuring physical quantities accurately and turning them into usable signals.
 :::

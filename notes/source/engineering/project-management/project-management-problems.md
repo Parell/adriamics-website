@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-project-management-11"
 note: "engineering-project-management"
-title: "Review: Focus"
+title: "Review: Project Management"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for project management."
+answer: "Project management coordinates people, tasks, time, and cost so a project can meet its scope and finish successfully."
 skills:
-  - "Focus"
----
+  - "Project Management"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Project Management**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for project management.
+One short answer is: Project management coordinates people, tasks, time, and cost so a project can meet its scope and finish successfully.
 :::

@@ -1,9 +1,9 @@
----
+<!--
 id: electricity-and-magnetism-11
 note: physics-electricity-and-magnetism
 title: "Force Between Two Point Charges"
 skills: [Coulomb's law, Point charges]
----
+-->
 
 Two point charges, $q_1 = +3\,\mu\text{C}$ and $q_2 = -2\,\mu\text{C}$, are separated by $0.50\ \text{m}$.
 
@@ -29,12 +29,12 @@ $$
 Because the charges have opposite signs, the force is attractive.
 :::
 
----
+<!--
 id: electricity-and-magnetism-12
 note: physics-electricity-and-magnetism
 title: "Electric Field of a Point Charge"
 skills: [Electric field, Point charges]
----
+-->
 
 A charge of $+5.0\ \text{nC}$ is located in space.
 
@@ -60,12 +60,12 @@ $$
 Since the charge is positive, the field points away from the charge.
 :::
 
----
+<!--
 id: electricity-and-magnetism-13
 note: physics-electricity-and-magnetism
 title: "Linear Charge Density"
 skills: [Charge densities, Continuous charge distributions]
----
+-->
 
 A uniform charge of $12\ \mu\text{C}$ is spread along a thin wire of length $3.0\ \text{m}$.
 
@@ -91,12 +91,12 @@ $$
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-14
 note: physics-electricity-and-magnetism
 title: "Electric Flux Through a Flat Surface"
 skills: [Electric flux]
----
+-->
 
 A uniform electric field of magnitude $200\ \text{N/C}$ passes through a flat surface of area $0.15\ \text{m}^2$.
 
@@ -122,12 +122,12 @@ $$
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-15
 note: physics-electricity-and-magnetism
 title: "Charge Enclosed by a Gaussian Surface"
 skills: [Gauss's law, Electric flux]
----
+-->
 
 A closed surface has electric flux
 
@@ -161,12 +161,12 @@ Q_{\text{enc}} = 4.4\times 10^{-8}\ \text{C}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-16
 note: physics-electricity-and-magnetism
 title: "Potential from Two Point Charges"
 skills: [Electric potential, Superposition]
----
+-->
 
 At a point in space, a $+4.0\ \text{nC}$ charge is $0.30\ \text{m}$ away and a $-1.0\ \text{nC}$ charge is $0.20\ \text{m}$ away.
 
@@ -196,12 +196,12 @@ V = 120 - 45 = 75\ \text{V}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-17
 note: physics-electricity-and-magnetism
 title: "Change in Potential Energy"
 skills: [Electric potential, Potential energy]
----
+-->
 
 A charge of $+3.0\ \mu\text{C}$ moves from a point at $20\ \text{V}$ to a point at $-10\ \text{V}$.
 
@@ -233,12 +233,12 @@ $$
 The potential energy decreases.
 :::
 
----
+<!--
 id: electricity-and-magnetism-18
 note: physics-electricity-and-magnetism
 title: "Dielectric Constant from Capacitance"
 skills: [Capacitance, Dielectrics]
----
+-->
 
 A capacitor has capacitance $2.0\ \mu\text{F}$ in vacuum. After a dielectric is inserted, its capacitance becomes $6.0\ \mu\text{F}$.
 
@@ -258,12 +258,12 @@ $$
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-19
 note: physics-electricity-and-magnetism
 title: "Resistance of a Uniform Wire"
 skills: [Resistance, Ohm's law]
----
+-->
 
 A wire has resistivity $2.0\times 10^{-6}\ \Omega\cdot\text{m}$, length $4.0\ \text{m}$, and cross-sectional area $2.0\times 10^{-6}\ \text{m}^2$.
 
@@ -295,12 +295,12 @@ I = \frac{V}{R} = \frac{12}{4.0} = 3.0\ \text{A}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-110
 note: physics-electricity-and-magnetism
 title: "Magnetic Force on a Current-Carrying Wire"
 skills: [Magnetic force, Current]
----
+-->
 
 A straight wire segment of length $0.30\ \text{m}$ carries a current of $5.0\ \text{A}$.
 It is placed in a uniform magnetic field of magnitude $0.40\ \text{T}$, and the wire is perpendicular to the field.
@@ -325,12 +325,12 @@ F = 0.60\ \text{N}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-21
 note: physics-electricity-and-magnetism
 title: "Net Field from Two Point Charges on a Line"
 skills: [Superposition, Electric field]
----
+-->
 
 Two charges lie on a line: a $+6.0\ \text{nC}$ charge on the left and a $-6.0\ \text{nC}$ charge on the right. A point is exactly halfway between them, $0.10\ \text{m}$ from each charge.
 
@@ -360,12 +360,12 @@ $$
 The direction is to the right, from the positive charge toward the negative charge.
 :::
 
----
+<!--
 id: electricity-and-magnetism-22
 note: physics-electricity-and-magnetism
 title: "Gauss's Law for an Infinite Sheet"
 skills: [Gauss's law, Electric field]
----
+-->
 
 An infinite sheet of charge has surface charge density
 
@@ -395,12 +395,12 @@ $$
 Because the sheet is positively charged, the field points away from the sheet on both sides.
 :::
 
----
+<!--
 id: electricity-and-magnetism-23
 note: physics-electricity-and-magnetism
 title: "Work from a Potential Difference"
 skills: [Electric potential, Potential energy]
----
+-->
 
 A $3.0\ \mu\text{C}$ charge moves from a point at $20\ \text{V}$ to a point at $-10\ \text{V}$.
 
@@ -430,12 +430,12 @@ W_{\text{field}} = 9.0\times 10^{-5}\ \text{J}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-24
 note: physics-electricity-and-magnetism
 title: "Capacitors in Series"
 skills: [Capacitor combinations, Capacitance]
----
+-->
 
 Two capacitors of $3.0\ \mu\text{F}$ and $6.0\ \mu\text{F}$ are connected in series across a $12\ \text{V}$ battery.
 
@@ -463,12 +463,12 @@ $$
 In series, each capacitor has the same charge, so each one stores $24\ \mu\text{C}$.
 :::
 
----
+<!--
 id: electricity-and-magnetism-25
 note: physics-electricity-and-magnetism
 title: "Kirchhoff Loop with Power"
 skills: [Kirchhoff's rules, Power]
----
+-->
 
 A $12\ \text{V}$ battery is connected in series with a $2\ \Omega$ resistor and a $4\ \Omega$ resistor.
 
@@ -494,12 +494,12 @@ P = I^2R = (2)^2(4) = 16\ \text{W}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-26
 note: physics-electricity-and-magnetism
 title: "RC Charging After One Time Constant"
 skills: [RC circuits, Time constant]
----
+-->
 
 An RC circuit has $R = 2.0\ \text{k}\Omega$, $C = 100\ \mu\text{F}$, and is connected to a $12\ \text{V}$ battery.
 
@@ -529,12 +529,12 @@ Q(\tau) \approx 0.632(1.2\times 10^{-3}) = 7.6\times 10^{-4}\ \text{C}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-27
 note: physics-electricity-and-magnetism
 title: "Magnetic Field of a Long Straight Wire"
 skills: [Ampere's law, Magnetic field]
----
+-->
 
 A long straight wire carries a current of $8.0\ \text{A}$.
 
@@ -558,12 +558,12 @@ B = 3.2\times 10^{-5}\ \text{T}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-28
 note: physics-electricity-and-magnetism
 title: "Motion in a Uniform Magnetic Field"
 skills: [Magnetic force, Circular motion]
----
+-->
 
 A proton moves perpendicular to a uniform magnetic field of magnitude $0.50\ \text{T}$ with speed $2.0\times 10^5\ \text{m/s}$.
 
@@ -587,12 +587,12 @@ r \approx 4.2\times 10^{-3}\ \text{m}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-31
 note: physics-electricity-and-magnetism
 title: "Field from an Infinite Line Charge"
 skills: [Gauss's law, Electric field]
----
+-->
 
 An infinite line of charge has linear charge density
 
@@ -622,12 +622,12 @@ $$
 Since the line charge is positive, the field points away from the line.
 :::
 
----
+<!--
 id: electricity-and-magnetism-32
 note: physics-electricity-and-magnetism
 title: "Magnetic Field Inside a Solenoid"
 skills: [Ampere's law, Magnetic field]
----
+-->
 
 A solenoid has $900$ turns over a length of $0.30\ \text{m}$ and carries a current of $2.0\ \text{A}$.
 
@@ -657,12 +657,12 @@ B \approx 7.5\times 10^{-3}\ \text{T}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-33
 note: physics-electricity-and-magnetism
 title: "Direction of an Induced Current"
 skills: [Faraday's law, Lenz's law]
----
+-->
 
 A circular loop lies in the page. The magnetic field through the loop points into the page and is increasing.
 
@@ -676,12 +676,12 @@ Using the right-hand rule, a field out of the page is produced by a counterclock
 So the induced current is counterclockwise.
 :::
 
----
+<!--
 id: electricity-and-magnetism-34
 note: physics-electricity-and-magnetism
 title: "Motional EMF in a Sliding Bar"
 skills: [Motional emf, Current]
----
+-->
 
 A metal bar of length $0.40\ \text{m}$ slides at $5.0\ \text{m/s}$ through a magnetic field of magnitude $0.80\ \text{T}$.
 The bar and its motion are perpendicular to the field.
@@ -709,12 +709,12 @@ I = \frac{\mathcal{E}}{R} = \frac{1.6}{2.0} = 0.80\ \text{A}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-35
 note: physics-electricity-and-magnetism
 title: "Current Growth in an RL Circuit"
 skills: [RL circuits, Time constant]
----
+-->
 
 An RL circuit has resistance $4.0\ \Omega$, inductance $0.20\ \text{H}$, and final current $3.0\ \text{A}$.
 
@@ -744,12 +744,12 @@ I \approx 1.9\ \text{A}
 $$
 :::
 
----
+<!--
 id: electricity-and-magnetism-41
 note: physics-electricity-and-magnetism
 title: "Charging Capacitor and the Displacement Current"
 skills: [Maxwell's equations, Current circuits]
----
+-->
 
 A capacitor is charging in a circuit, and the conduction current in the wire is $0.40\ \text{A}$.
 
@@ -774,12 +774,12 @@ $$
 in magnitude.
 :::
 
----
+<!--
 id: electricity-and-magnetism-42
 note: physics-electricity-and-magnetism
 title: "Zero Potential, Nonzero Field"
 skills: [Electric potential, Electric field]
----
+-->
 
 Two charges, $+2.0\ \text{nC}$ and $-2.0\ \text{nC}$, are placed on a line, each $0.10\ \text{m}$ from the midpoint.
 
@@ -809,12 +809,12 @@ $$
 The field points toward the negative charge.
 :::
 
----
+<!--
 id: electricity-and-magnetism-43
 note: physics-electricity-and-magnetism
 title: "Electric and Magnetic Flux Through a Closed Surface"
 skills: [Gauss's law, Maxwell's equations]
----
+-->
 
 A closed surface encloses a net charge of $+3.0\ \text{nC}$ and also surrounds a bar magnet.
 
@@ -843,12 +843,12 @@ $$
 So the surface has nonzero electric flux, but zero net magnetic flux.
 :::
 
----
+<!--
 id: electricity-and-magnetism-44
 note: physics-electricity-and-magnetism
 title: "Faraday Sign Convention"
 skills: [Faraday's law, Lenz's law]
----
+-->
 
 A circular loop lies in the page. The magnetic field through the loop points out of the page and is increasing.
 

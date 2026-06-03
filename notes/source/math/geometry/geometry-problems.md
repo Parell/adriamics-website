@@ -1,9 +1,9 @@
----
+<!--
 id: geometry-11
 note: math-geometry
 title: "Write the Notation for a Segment"
 skills: [Notation, Segments]
----
+-->
 
 What is the notation for the line segment with endpoints $A$ and $B$?
 
@@ -17,12 +17,12 @@ $$
 A segment has two endpoints and finite length.
 :::
 
----
+<!--
 id: geometry-12
 note: math-geometry
 title: "Find a Complementary Angle"
 skills: [Angle Relationships]
----
+-->
 
 One angle measures $37^\circ$. If it is complementary to another angle, what is the measure of the other angle?
 
@@ -36,12 +36,12 @@ $$
 $$
 :::
 
----
+<!--
 id: geometry-13
 note: math-geometry
 title: "Use Vertical Angles"
 skills: [Vertical Angles, Angle Relationships]
----
+-->
 
 Two lines intersect. One angle measures $128^\circ$. What is the measure of its vertical angle?
 
@@ -53,12 +53,12 @@ $$
 $$
 :::
 
----
+<!--
 id: geometry-14
 note: math-geometry
 title: "Complete a Triangle Angle Sum"
 skills: [Triangle Angle Sum]
----
+-->
 
 In a triangle, two angles measure $48^\circ$ and $67^\circ$. What is the measure of the third angle?
 
@@ -72,12 +72,12 @@ $$
 $$
 :::
 
----
+<!--
 id: geometry-15
 note: math-geometry
 title: "Find the Base Angles of an Isosceles Triangle"
 skills: [Isosceles Triangles, Triangle Angle Sum]
----
+-->
 
 An isosceles triangle has a vertex angle of $46^\circ$. What is the measure of each base angle?
 
@@ -99,12 +99,12 @@ $$
 Each base angle measures $67^\circ$.
 :::
 
----
+<!--
 id: geometry-16
 note: math-geometry
 title: "Check the Triangle Inequality"
 skills: [Triangle Inequality]
----
+-->
 
 Can side lengths $5$, $7$, and $13$ form a triangle?
 
@@ -122,12 +122,12 @@ and $12$ is not greater than $13$.
 So these side lengths do not form a triangle.
 :::
 
----
+<!--
 id: geometry-17
 note: math-geometry
 title: "Identify a Triangle Congruence Criterion"
 skills: [Congruence, Triangle Congruence Criteria]
----
+-->
 
 Two triangles have two corresponding sides and the included angle congruent. Which triangle congruence criterion applies?
 
@@ -141,12 +141,12 @@ That is the SAS criterion:
 The angle must be included between the two sides.
 :::
 
----
+<!--
 id: geometry-18
 note: math-geometry
 title: "Scale a Similar Triangle"
 skills: [Similarity, Scale Factor]
----
+-->
 
 Two similar triangles have a scale factor of $4$ from the smaller triangle to the larger triangle. If a side of the smaller triangle is $6$ cm, what is the corresponding side of the larger triangle?
 
@@ -160,12 +160,12 @@ $$
 The corresponding side is $24$ cm.
 :::
 
----
+<!--
 id: geometry-19
 note: math-geometry
 title: "Use the Pythagorean Theorem"
 skills: [Right Triangles, Pythagorean Theorem]
----
+-->
 
 A right triangle has legs of lengths $8$ and $15$. What is the length of the hypotenuse?
 
@@ -195,12 +195,12 @@ c=17
 $$
 :::
 
----
+<!--
 id: geometry-110
 note: math-geometry
 title: "Find an Inscribed Angle"
 skills: [Circles, Inscribed Angles]
----
+-->
 
 An inscribed angle intercepts an arc that measures $124^\circ$. What is the measure of the inscribed angle?
 
@@ -216,12 +216,12 @@ $$
 The inscribed angle measures $62^\circ$.
 :::
 
----
+<!--
 id: geometry-21
 note: math-geometry
 title: "Solve with Parallel Lines"
 skills: [Parallel Lines, Corresponding Angles, Linear Equations]
----
+-->
 
 Two parallel lines are cut by a transversal. One corresponding angle measures $3x+7^\circ$ and the matching angle measures $5x-9^\circ$. Find $x$.
 
@@ -251,12 +251,12 @@ x=8
 $$
 :::
 
----
+<!--
 id: geometry-22
 note: math-geometry
 title: "Exterior Angle in an Isosceles Triangle"
 skills: [Isosceles Triangles, Triangle Angle Sum, Supplementary Angles]
----
+-->
 
 An isosceles triangle has a vertex angle of $34^\circ$. What is the measure of an exterior angle at one base?
 
@@ -282,12 +282,12 @@ $$
 The exterior angle measures $107^\circ$.
 :::
 
----
+<!--
 id: geometry-23
 note: math-geometry
 title: "Use Similarity with Perimeter"
 skills: [Similarity, Perimeter, Scale Factor]
----
+-->
 
 Two similar triangles have a scale factor of $3:2$ from the smaller triangle to the larger triangle. If the smaller triangle has perimeter $20$ cm, what is the larger perimeter?
 
@@ -303,12 +303,12 @@ $$
 The larger perimeter is $30$ cm.
 :::
 
----
+<!--
 id: geometry-24
 note: math-geometry
 title: "Apply a Dilation and a Reflection"
 skills: [Dilations, Reflections, Coordinate Geometry]
----
+-->
 
 A point is at $(2,-3)$. It is dilated about the origin by a factor of $4$ and then reflected across the $x$-axis. Where does it land?
 
@@ -328,12 +328,12 @@ $$
 The image is $(8,12)$.
 :::
 
----
+<!--
 id: geometry-25
 note: math-geometry
 title: "Use Parallelogram Angle Properties"
 skills: [Parallelograms, Angle Relationships]
----
+-->
 
 A parallelogram has one angle that measures $68^\circ$. What are the measures of an adjacent angle and the opposite angle?
 
@@ -355,12 +355,12 @@ $$
 So the angles are $112^\circ$ and $68^\circ$.
 :::
 
----
+<!--
 id: geometry-26
 note: math-geometry
 title: "Find the Number of Sides of a Polygon"
 skills: [Polygons, Interior Angle Sum]
----
+-->
 
 A polygon has an interior angle sum of $1260^\circ$. How many sides does it have?
 
@@ -386,12 +386,12 @@ $$
 The polygon has $9$ sides.
 :::
 
----
+<!--
 id: geometry-27
 note: math-geometry
 title: "Find the Radius from Coordinates"
 skills: [Circles, Distance Formula, Coordinate Geometry]
----
+-->
 
 A circle has center $(2,-1)$ and passes through $(6,2)$. What is its radius?
 
@@ -413,12 +413,12 @@ $$
 The radius is $5$.
 :::
 
----
+<!--
 id: geometry-28
 note: math-geometry
 title: "Use a Radius and a Tangent"
 skills: [Circles, Tangents, Triangle Angle Sum]
----
+-->
 
 A radius is drawn to a point of tangency, and a segment from that same point of tangency goes to an external point. If the angle at the external point is $27^\circ$, what is the angle at the center?
 
@@ -434,12 +434,12 @@ $$
 The angle at the center is $63^\circ$.
 :::
 
----
+<!--
 id: geometry-31
 note: math-geometry
 title: "Use Similar Triangles in a Shadow Problem"
 skills: [Similarity, Proportional Reasoning]
----
+-->
 
 A $6$-foot person casts an $8$-foot shadow. At the same time, a tree casts a $20$-foot shadow. How tall is the tree?
 
@@ -463,12 +463,12 @@ $$
 The tree is $15$ feet tall.
 :::
 
----
+<!--
 id: geometry-32
 note: math-geometry
 title: "Solve a Ladder Problem"
 skills: [Right Triangles, Pythagorean Theorem]
----
+-->
 
 A $13$-foot ladder reaches a window $12$ feet above the ground. How far is the base of the ladder from the wall?
 
@@ -494,12 +494,12 @@ $$
 The base of the ladder is $5$ feet from the wall.
 :::
 
----
+<!--
 id: geometry-33
 note: math-geometry
 title: "Find the Area of a Sector"
 skills: [Circles, Sector Area, Area]
----
+-->
 
 Find the area of a sector with radius $10$ m and central angle $72^\circ$.
 
@@ -527,12 +527,12 @@ $$
 The area is $20\pi$ square meters.
 :::
 
----
+<!--
 id: geometry-34
 note: math-geometry
 title: "Find the Surface Area of a Rectangular Prism"
 skills: [Surface Area, Rectangular Prisms]
----
+-->
 
 A rectangular prism has length $8$ cm, width $5$ cm, and height $3$ cm. What is its surface area?
 
@@ -560,12 +560,12 @@ $$
 The surface area is $158$ cm$^2$.
 :::
 
----
+<!--
 id: geometry-35
 note: math-geometry
 title: "Show a Rectangle with Coordinates"
 skills: [Coordinate Geometry, Proof Strategies, Rectangles]
----
+-->
 
 Use coordinates to show that the quadrilateral with vertices $A(0,0)$, $B(4,0)$, $C(4,3)$, and $D(0,3)$ is a rectangle.
 
@@ -587,12 +587,12 @@ Also, opposite sides are parallel:
 Since the quadrilateral has four right angles, it is a rectangle.
 :::
 
----
+<!--
 id: geometry-41
 note: math-geometry
 title: "Use the Power of a Point"
 skills: [Circles, Power of a Point, Tangents]
----
+-->
 
 From an external point, a tangent segment has length $12$ cm and a secant has external part $9$ cm and whole length $x$ cm. Find $x$.
 
@@ -620,12 +620,12 @@ $$
 The whole secant length is $16$ cm.
 :::
 
----
+<!--
 id: geometry-42
 note: math-geometry
 title: "Classify a Square by Coordinates"
 skills: [Coordinate Geometry, Quadrilaterals, Slopes, Distance Formula]
----
+-->
 
 Determine whether the quadrilateral with vertices $A(0,0)$, $B(4,2)$, $C(2,6)$, and $D(-2,4)$ is a square.
 
@@ -657,12 +657,12 @@ The slopes are negative reciprocals, so $AB \perp BC$.
 Since the figure has four equal sides and a right angle, it is a square.
 :::
 
----
+<!--
 id: geometry-43
 note: math-geometry
 title: "Scale Area and Volume Under a Dilation"
 skills: [Dilations, Area Scale Factor, Volume Scale Factor]
----
+-->
 
 A figure is dilated by a factor of $3$. If its original area is $14\text{ cm}^2$ and its original volume is $14\text{ cm}^3$, what are the new area and new volume?
 
@@ -689,12 +689,12 @@ $$
 The new area is $126\text{ cm}^2$ and the new volume is $378\text{ cm}^3$.
 :::
 
----
+<!--
 id: geometry-44
 note: math-geometry
 title: "Find a Chord Length from the Center"
 skills: [Circles, Right Triangles, Perpendicular Bisectors]
----
+-->
 
 A circle has center $O$ and radius $10$ cm. A chord $AB$ is $16$ cm long, and the segment from $O$ to the chord meets the chord at its midpoint $M$. Find the length of $OM$.
 

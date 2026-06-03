@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-06-02
-sources: []
----
 # Interactive Visualizations
 
 Interactive visualizations turn a static equation or diagram into something the learner can move, tune, and inspect. This page is a home for force diagrams, graph animations, circuit diagrams, organic reaction mechanisms, thermodynamic cycle plots, vector fields, and formula sliders.
@@ -137,3 +130,9 @@ If this page grows into a set of real demos, keep the same structure for each on
 5. Reuse the same visual language so the page feels like one system.
 
 That is enough to make the page useful without turning it into a generic playground.
+
+## Sources
+
+- [CommonMark Specification](https://spec.commonmark.org/)
+- [GitHub Docs](https://docs.github.com/)
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

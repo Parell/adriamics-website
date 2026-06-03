@@ -1,31 +1,15 @@
----
+<!--
 id: "engineering-cost-risk-analysis-11"
 note: "engineering-cost-risk-analysis"
 title: "Review: Cost/Risk Analysis"
 type: "text"
-answer: "Placeholder notes for cost/risk analysis."
+answer: "Cost/risk analysis estimates project cost while accounting for uncertainty, tradeoffs, and possible downside."
 skills:
   - "Cost/Risk Analysis"
----
+-->
 
 What is the main idea of **Cost/Risk Analysis**?
 
 :::solution
-One short answer is: Placeholder notes for cost/risk analysis.
-:::
-
----
-id: "engineering-cost-risk-analysis-31"
-note: "engineering-cost-risk-analysis"
-title: "Review: Focus"
-type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for cost/risk analysis."
-skills:
-  - "Focus"
----
-
-What is the main idea of **Focus**?
-
-:::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for cost/risk analysis.
+One short answer is: Cost/risk analysis estimates project cost while accounting for uncertainty, tradeoffs, and possible downside.
 :::

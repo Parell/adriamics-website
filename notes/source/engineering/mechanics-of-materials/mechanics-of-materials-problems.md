@@ -1,9 +1,9 @@
----
+<!--
 id: mechanics-of-materials-11
 note: engineering-mechanics-of-materials
 title: "Compute the Normal Stress in a Tension Member"
 skills: [Normal Stress, Axial Loading]
----
+-->
 
 A steel bar carries a tensile force of $24\ \text{kN}$ and has a cross-sectional area of $600\ \text{mm}^2$.
 
@@ -29,12 +29,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-12
 note: engineering-mechanics-of-materials
 title: "Find Engineering Strain from Elongation"
 skills: [Strain, Deformation]
----
+-->
 
 A bar with original length $750\ \text{mm}$ elongates by $1.5\ \text{mm}$.
 
@@ -60,12 +60,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-13
 note: engineering-mechanics-of-materials
 title: "Use Hooke's Law for a Linear Elastic Material"
 skills: [Hooke's Law, Stress-Strain]
----
+-->
 
 A linearly elastic material has Young's modulus $E = 210\ \text{GPa}$.
 If it experiences a normal stress of $105\ \text{MPa}$, what is the axial strain?
@@ -96,12 +96,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-14
 note: engineering-mechanics-of-materials
 title: "Compute Free Thermal Expansion"
 skills: [Thermal Strain, Expansion]
----
+-->
 
 A steel rod has length $2.5\ \text{m}$ and coefficient of thermal expansion
 
@@ -135,12 +135,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-15
 note: engineering-mechanics-of-materials
 title: "Find the Maximum Shear Stress in a Circular Shaft"
 skills: [Torsion, Shear Stress]
----
+-->
 
 A solid circular shaft with diameter $60\ \text{mm}$ carries a torque of $600\ \text{N}\cdot\text{m}$.
 
@@ -170,12 +170,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-16
 note: engineering-mechanics-of-materials
 title: "Compute the Angle of Twist"
 skills: [Angle of Twist, Torsion]
----
+-->
 
 A solid circular shaft has length $1.5\ \text{m}$, diameter $50\ \text{mm}$, shear modulus $G = 80\ \text{GPa}$, and applied torque $900\ \text{N}\cdot\text{m}$.
 
@@ -217,12 +217,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-17
 note: engineering-mechanics-of-materials
 title: "Find the Maximum Bending Stress in a Rectangle"
 skills: [Bending Stress, Section Properties]
----
+-->
 
 A beam section is rectangular with width $100\ \text{mm}$ and height $150\ \text{mm}$.
 The internal bending moment at a section is $8\ \text{kN}\cdot\text{m}$.
@@ -267,12 +267,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-18
 note: engineering-mechanics-of-materials
 title: "Compute Maximum Beam Shear Stress in a Rectangle"
 skills: [Beam Shear Stress, Shear Force]
----
+-->
 
 A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$.
 The internal shear force is $15\ \text{kN}$.
@@ -305,12 +305,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-19
 note: engineering-mechanics-of-materials
 title: "Interpret a Concentrated Load in a Shear Diagram"
 skills: [Internal Force Resultants, Shear Diagrams]
----
+-->
 
 A beam's shear-force diagram is being drawn from left to right.
 At one point, the beam crosses a $12\ \text{kN}$ downward concentrated load.
@@ -329,12 +329,12 @@ $$
 at that point.
 :::
 
----
+<!--
 id: mechanics-of-materials-110
 note: engineering-mechanics-of-materials
 title: "Find the Euler Buckling Load"
 skills: [Euler Buckling, Columns]
----
+-->
 
 A pinned-pinned column has
 
@@ -368,12 +368,12 @@ P_{cr} \approx 219\ \text{kN}
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-21
 note: engineering-mechanics-of-materials
 title: "Sum the Elongation of a Two-Segment Bar"
 skills: [Axial Deformation, Piecewise Segments]
----
+-->
 
 A steel bar has two segments in series. Segment 1 has length $400\ \text{mm}$ and area $200\ \text{mm}^2$. Segment 2 has length $600\ \text{mm}$ and area $300\ \text{mm}^2$.
 The bar carries a tensile force of $12\ \text{kN}$ throughout, and $E = 200\ \text{GPa}$.
@@ -406,12 +406,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-22
 note: engineering-mechanics-of-materials
 title: "Analyze a Stepped Bar with Constant Axial Force"
 skills: [Axial Stress, Piecewise Segments, Deformation]
----
+-->
 
 A stepped steel bar is in tension with an axial force of $18\ \text{kN}$.
 Its segments are:
@@ -467,12 +467,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-23
 note: engineering-mechanics-of-materials
 title: "Find the Stress from a Fully Restrained Temperature Rise"
 skills: [Thermal Stress, Constrained Expansion]
----
+-->
 
 A steel bar with length $2\ \text{m}$ is fixed between rigid walls.
 Its coefficient of thermal expansion is
@@ -504,12 +504,12 @@ $$
 Because the bar is prevented from expanding, the stress is compressive.
 :::
 
----
+<!--
 id: mechanics-of-materials-24
 note: engineering-mechanics-of-materials
 title: "Share Load Between Parallel Bars"
 skills: [Parallel Members, Compatibility, Stiffness]
----
+-->
 
 Two bars connect rigid plates in parallel. Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$.
 One bar is steel with $E = 200\ \text{GPa}$, and the other is aluminum with $E = 70\ \text{GPa}$.
@@ -552,12 +552,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-25
 note: engineering-mechanics-of-materials
 title: "Find Principal Stresses from a Plane Stress State"
 skills: [Stress Transformation, Principal Stress, Mohr's Circle]
----
+-->
 
 A point in a member is under the plane stress state
 
@@ -603,12 +603,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-26
 note: engineering-mechanics-of-materials
 title: "Transform Stress to a Rotated Plane"
 skills: [Stress Transformation, Rotated Planes]
----
+-->
 
 Using the same plane stress state
 
@@ -653,12 +653,12 @@ $$
 The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress is $-24\ \text{MPa}$.
 :::
 
----
+<!--
 id: mechanics-of-materials-27
 note: engineering-mechanics-of-materials
 title: "Use the Beam Shear Formula on a Rectangular Section"
 skills: [Beam Shear Stress, Shear Formula]
----
+-->
 
 A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$.
 The internal shear force is $15\ \text{kN}$.
@@ -709,12 +709,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-31
 note: engineering-mechanics-of-materials
 title: "Integrate the Deflection of a Cantilever"
 skills: [Beam Deflection, Integration]
----
+-->
 
 A cantilever beam has length $2\ \text{m}$ and an end load of $4\ \text{kN}$.
 The beam has $E = 200\ \text{GPa}$ and $I = 8.0 \times 10^6\ \text{mm}^4$.
@@ -771,12 +771,12 @@ $$
 So the tip deflection is about $6.7\ \text{mm}$ downward.
 :::
 
----
+<!--
 id: mechanics-of-materials-32
 note: engineering-mechanics-of-materials
 title: "Convert Power to Shaft Diameter"
 skills: [Power Transmission, Torsion, Shaft Design]
----
+-->
 
 A motor delivers $12\ \text{kW}$ at $900\ \text{rpm}$ to a solid circular shaft.
 If the allowable shear stress is $40\ \text{MPa}$, what minimum shaft diameter is required?
@@ -825,12 +825,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-33
 note: engineering-mechanics-of-materials
 title: "Combine Axial Load and Bending"
 skills: [Combined Loading, Axial Stress, Bending Stress]
----
+-->
 
 A member carries a compressive axial load of $30\ \text{kN}$ and an internal bending moment of $6\ \text{kN}\cdot\text{m}$.
 Its cross-section is a rectangle with width $80\ \text{mm}$ and height $160\ \text{mm}$.
@@ -889,12 +889,12 @@ $$
 So the top fiber is more highly compressed, and the bottom fiber is in tension.
 :::
 
----
+<!--
 id: mechanics-of-materials-34
 note: engineering-mechanics-of-materials
 title: "Decide Which Column Failure Mode Governs"
 skills: [Euler Buckling, Yielding, Design Check]
----
+-->
 
 A steel column has length $3\ \text{m}$, pinned-pinned ends, Young's modulus $E = 200\ \text{GPa}$, and a circular cross-section with diameter $40\ \text{mm}$.
 The yield strength is $250\ \text{MPa}$.
@@ -939,12 +939,12 @@ $$
 Since $27.6\ \text{kN} < 314\ \text{kN}$, Euler buckling governs.
 :::
 
----
+<!--
 id: mechanics-of-materials-35
 note: engineering-mechanics-of-materials
 title: "Check a Plane Stress State with von Mises"
 skills: [von Mises, Failure Criterion, Plane Stress]
----
+-->
 
 A ductile part has the plane stress state
 
@@ -979,12 +979,12 @@ Because $74.2\ \text{MPa} < 75\ \text{MPa}$, yielding is not predicted.
 The part is just barely safe.
 :::
 
----
+<!--
 id: mechanics-of-materials-41
 note: engineering-mechanics-of-materials
 title: "Include a Stress Concentration in a Torsion Design Check"
 skills: [Stress Concentration, Torsion, Design Check]
----
+-->
 
 A solid circular shaft has diameter $50\ \text{mm}$ and a shoulder with stress concentration factor $K_t = 1.6$.
 If the allowable maximum shear stress is $50\ \text{MPa}$, what is the largest torque the shaft can carry?
@@ -1027,12 +1027,12 @@ $$
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-42
 note: engineering-mechanics-of-materials
 title: "Solve a Thermal-Indeterminate Parallel-Bar System"
 skills: [Thermal Stress, Parallel Members, Compatibility]
----
+-->
 
 Two bars connect rigid plates in parallel.
 Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$.
@@ -1108,12 +1108,12 @@ $$
 So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries about $1.8\ \text{kN}$.
 :::
 
----
+<!--
 id: mechanics-of-materials-43
 note: engineering-mechanics-of-materials
 title: "Check a Shaft in Combined Bending and Torsion"
 skills: [Combined Loading, Torsion, Failure Criterion]
----
+-->
 
 A solid circular shaft with diameter $60\ \text{mm}$ carries a bending moment of $300\ \text{N}\cdot\text{m}$ and a torque of $500\ \text{N}\cdot\text{m}$.
 
@@ -1166,12 +1166,12 @@ $$
 Since $24.8\ \text{MPa} < 40\ \text{MPa}$, the shaft is safe by the von Mises criterion.
 :::
 
----
+<!--
 id: mechanics-of-materials-44
 note: engineering-mechanics-of-materials
 title: "Apply Goodman Fatigue Design"
 skills: [Fatigue, Goodman Diagram, Design Check]
----
+-->
 
 A member has alternating stress and mean stress
 
@@ -1209,12 +1209,12 @@ n = 3
 $$
 :::
 
----
+<!--
 id: mechanics-of-materials-45
 note: engineering-mechanics-of-materials
 title: "Check an Eccentrically Loaded Column"
 skills: [Combined Loading, Euler Buckling, Design Check]
----
+-->
 
 A solid steel column has diameter $30\ \text{mm}$, length $3\ \text{m}$, and modulus $E = 200\ \text{GPa}$.
 It carries a compressive load of $8\ \text{kN}$ applied with eccentricity $15\ \text{mm}$.

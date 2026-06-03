@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # 1. What counts as a second-order ODE
 
 A **second-order ordinary differential equation** is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:
@@ -388,7 +381,7 @@ depending on the forcing and the eigenstructure of the operator.
 
 # 9. Mechanical applications
 
-Many second-order ODEs come from Newton’s second law:
+Many second-order ODEs come from Newtonâ€™s second law:
 
 $$
 m y'' = \sum F
@@ -614,3 +607,14 @@ $$
 $$
 \zeta = \frac{c}{2\sqrt{mk}}
 $$
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

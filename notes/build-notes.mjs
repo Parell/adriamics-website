@@ -1,9 +1,7 @@
 import fs from 'node:fs/promises';
 import crypto from 'node:crypto';
-import { execFile } from 'node:child_process';
 import path from 'node:path';
 import vm from 'node:vm';
-import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -11,19 +9,11 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
-const sourceHistoryPath = path.join(notesRoot, 'source-history.json');
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
 const headerArtworkUrl = encodeURI('/assets/name.gif');
 const notesThemeStorageKey = 'ues-notes:contrast-mode';
-const metadataSeparator = ' | ';
-const provenanceVersionLimit = 8;
-const provenanceReviewLimit = 8;
-const execFileAsync = promisify(execFile);
-const gitHistoryCache = new Map();
-const gitFileContentCache = new Map();
-let sourceHistoryPromise = null;
 const practiceLevelLabels = new Map([
   [1, 'Direct Practice'],
   [2, 'Integrated Practice'],
@@ -202,192 +192,28 @@ function parseFrontmatter(block) {
   return metadata;
 }
 
-function getMetadataLabel(metadata, fallbackPath) {
-  const parts = getMetadataParts(metadata);
-  return parts.length ? parts.join(metadataSeparator) : (fallbackPath ?? '');
-}
-
-function formatMetadataValue(value) {
-  if (Array.isArray(value)) {
-    return value
-      .map((item) => String(item ?? '').trim())
-      .filter(Boolean)
-      .join(', ');
-  }
-
-  return String(value ?? '').trim();
-}
-
-function formatReviewerValue(value) {
-  const normalize = (item) => String(item ?? '')
-    .trim()
-    .replace(/^,+\s*/, '')
-    .replace(/^["']+/, '')
-    .replace(/["']+$/, '');
-
-  if (Array.isArray(value)) {
-    return value
-      .map(normalize)
-      .filter(Boolean)
-      .join(', ');
-  }
-
-  return normalize(value);
-}
-
-function isProbablyUrl(value) {
-  return /^https?:\/\/\S+$/i.test(String(value ?? '').trim());
-}
-
-function normalizeSourceEntry(entry) {
-  if (typeof entry === 'string') {
-    const value = entry.trim();
-
-    if (!value) {
-      return null;
-    }
-
-    return {
-      label: value,
-      href: isProbablyUrl(value) ? value : '',
-      note: '',
-    };
-  }
-
-  if (!entry || typeof entry !== 'object') {
-    return null;
-  }
-
-  const label = formatMetadataValue(entry.title ?? entry.name ?? entry.label ?? entry.source ?? entry.citation);
-  const href = formatMetadataValue(entry.url ?? entry.href);
-  const note = formatMetadataValue(entry.note ?? entry.description ?? entry.details);
-
-  if (!label && !href) {
-    return null;
-  }
-
-  return {
-    label: label || href,
-    href: isProbablyUrl(href) ? href : '',
-    note,
-  };
-}
-
-function formatGitDate(isoDate) {
-  const normalized = String(isoDate ?? '').trim();
-
-  if (!normalized) {
-    return '';
-  }
-
-  const date = new Date(normalized);
-
-  if (Number.isNaN(date.getTime())) {
-    return normalized;
-  }
-
-  return date.toISOString().slice(0, 10);
-}
-
-function formatShortSha(sha) {
-  return String(sha ?? '').slice(0, 7);
-}
-
 function buildGithubBlobUrl(relativePath) {
   return `${githubRepoUrl}/blob/${githubRepoBranch}/${toPosix(relativePath)}`;
 }
 
-function buildGithubCommitUrl(sha) {
-  return `${githubRepoUrl}/commit/${sha}`;
+function buildGithubBlameUrl(sourceUrl) {
+  return String(sourceUrl ?? '').replace('/blob/', '/blame/');
 }
 
-function formatReviewSummary(metadata) {
-  const parts = [];
-  const status = formatMetadataValue(metadata?.status);
-  const lastReviewed = formatMetadataValue(metadata?.last_reviewed);
-  const auditors = formatReviewerValue(metadata?.auditors);
-
-  if (status) {
-    parts.push(status);
-  }
-
-  if (lastReviewed) {
-    parts.push(`Reviewed ${lastReviewed}`);
-  }
-
-  if (auditors) {
-    parts.push(`Reviewers: ${auditors}`);
-  }
-
-  return parts;
-}
-
-function normalizeReviewSummaryPart(part) {
-  const value = String(part ?? '').trim();
-
-  if (/^Reviewers:/i.test(value)) {
-    const reviewers = value.replace(/^Reviewers:\s*/i, '');
-    return `Reviewers: ${formatReviewerValue(reviewers)}`;
-  }
-
-  return value;
-}
-
-function getMetadataParts(metadata) {
-  if (!metadata || typeof metadata !== 'object') {
-    return [];
-  }
-
-  const parts = [];
-  const subject = formatMetadataValue(metadata.subject);
-  const topic = formatMetadataValue(metadata.topic);
-  const level = formatMetadataValue(metadata.level);
-  const status = formatMetadataValue(metadata.status);
-  const lastReviewed = formatMetadataValue(metadata.last_reviewed);
-
-  if (subject) parts.push(subject);
-  if (topic) parts.push(topic);
-  if (level) parts.push(level);
-  if (status) parts.push(status);
-  if (lastReviewed) parts.push(`Reviewed ${lastReviewed}`);
-
-  if (Array.isArray(metadata.auditors) && metadata.auditors.length) {
-    const auditors = formatMetadataValue(metadata.auditors);
-
-    if (auditors) {
-      parts.push(`Auditors: ${auditors}`);
-    }
-  }
-
-  return parts;
-}
-
-function renderPracticeMetadataLine(metadata) {
-  const parts = getMetadataParts(metadata);
-  if (!parts.length) {
+function renderSourceLinks(sourceUrl) {
+  if (!sourceUrl) {
     return '';
   }
 
-  return renderMetadataLine(parts.join(metadataSeparator), 'viewer-meta practice-note-meta-line');
+  return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Blame</a>`;
 }
 
-function renderSourceJumpLink() {
-  return `<a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a>`;
-}
-
-function renderMetadataLine(metadataText, className) {
-  const text = String(metadataText ?? '').trim();
-
-  if (!text) {
+function renderMetadataLine(className, sourceUrl = null) {
+  if (!sourceUrl) {
     return '';
   }
 
-  return `<p class="${className}">${escapeHtml(text)} | ${renderSourceJumpLink()}</p>`;
-}
-
-function getPageUrl(pagePath) {
-  const normalized = toPosix(pagePath).replace(/^notes\//, '').replace(/\.md$/i, '');
-  return `/notes/${normalized}/`;
+  return `<p class="${className}">${renderSourceLinks(sourceUrl)}</p>`;
 }
 
 function getNoteRoutePath(notePath) {
@@ -399,177 +225,8 @@ function getNoteSourcePath(notePath) {
   return path.join(notesRoot, 'source', normalized);
 }
 
-async function runGit(args) {
-  const result = await execFileAsync('git', args, {
-    cwd: repoRoot,
-    maxBuffer: 20 * 1024 * 1024,
-  });
-
-  return String(result.stdout ?? '');
-}
-
-async function getGitFileHistory(relativePath) {
-  const normalizedPath = toPosix(relativePath);
-
-  if (gitHistoryCache.has(normalizedPath)) {
-    return gitHistoryCache.get(normalizedPath);
-  }
-
-  if (!sourceHistoryPromise) {
-    sourceHistoryPromise = fs.readFile(sourceHistoryPath, 'utf8')
-      .then((text) => JSON.parse(text))
-      .catch(() => ({}));
-  }
-
-  const sourceHistory = await sourceHistoryPromise;
-  const history = sourceHistory?.[normalizedPath] ?? {
-    relativePath: normalizedPath,
-    sourceUrl: buildGithubBlobUrl(normalizedPath),
-    commits: [],
-    authorSummary: [],
-    reviewSnapshots: [],
-  };
-
-  gitHistoryCache.set(normalizedPath, history);
-  return history;
-}
-
-function renderSourceEntries(sources) {
-  const entries = Array.isArray(sources)
-    ? sources.map(normalizeSourceEntry).filter(Boolean)
-    : [];
-
-  if (!entries.length) {
-    return '<p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>';
-  }
-
-  return `<ul class="notes-provenance__list">${entries.map((entry) => {
-    const linkText = escapeHtml(entry.label);
-    const noteText = entry.note ? `<span class="notes-provenance__note">${escapeHtml(entry.note)}</span>` : '';
-
-    if (entry.href) {
-      return `<li class="notes-provenance__item"><a class="notes-provenance__link" href="${escapeHtml(entry.href)}" target="_blank" rel="noreferrer">${linkText}</a>${noteText}</li>`;
-    }
-
-    return `<li class="notes-provenance__item">${linkText}${noteText}</li>`;
-  }).join('')}</ul>`;
-}
-
-function renderGitFileLinks(fileLinks) {
-  if (!Array.isArray(fileLinks) || !fileLinks.length) {
-    return '<p class="notes-provenance__empty">No GitHub source file was recorded for this page.</p>';
-  }
-
-  return `<ul class="notes-provenance__list">${fileLinks.map((fileLink) => {
-    const label = escapeHtml(fileLink.label);
-    const href = buildGithubBlobUrl(fileLink.path);
-    const pathLabel = escapeHtml(fileLink.path);
-    return `<li class="notes-provenance__item"><a class="notes-provenance__link" href="${escapeHtml(href)}" target="_blank" rel="noreferrer">${label}</a><span class="notes-provenance__note">${pathLabel}</span></li>`;
-  }).join('')}</ul>`;
-}
-
-function renderAuthorHistory(authorSummary) {
-  if (!Array.isArray(authorSummary) || !authorSummary.length) {
-    return '<p class="notes-provenance__empty">No Git history was found for this file.</p>';
-  }
-
-  return `<ul class="notes-provenance__list">${authorSummary.map((entry) => {
-    const firstDate = formatGitDate(entry.firstDate);
-    const lastDate = formatGitDate(entry.lastDate);
-    const range = firstDate && lastDate
-      ? firstDate === lastDate
-        ? firstDate
-        : `${firstDate} to ${lastDate}`
-      : '';
-    const metaParts = [];
-
-    if (entry.count) {
-      metaParts.push(`${entry.count} commit${entry.count === 1 ? '' : 's'}`);
-    }
-
-    if (range) {
-      metaParts.push(range);
-    }
-
-    return `<li class="notes-provenance__item"><strong>${escapeHtml(entry.author || 'Unknown author')}</strong>${metaParts.length ? `<span class="notes-provenance__note">${escapeHtml(metaParts.join(' | '))}</span>` : ''}</li>`;
-  }).join('')}</ul>`;
-}
-
-function renderReviewHistory(reviewSnapshots) {
-  if (!Array.isArray(reviewSnapshots) || !reviewSnapshots.length) {
-    return '<p class="notes-provenance__empty">No reviewer metadata was found in this file history.</p>';
-  }
-
-  return `<ol class="notes-provenance__list notes-provenance__list--ordered">${reviewSnapshots.slice(-provenanceReviewLimit).reverse().map((entry) => {
-    const details = [
-      formatGitDate(entry.date),
-      ...((Array.isArray(entry.summary) ? entry.summary : []).map(normalizeReviewSummaryPart)),
-    ].filter(Boolean);
-
-    return `<li class="notes-provenance__item"><a class="notes-provenance__link" href="${escapeHtml(buildGithubCommitUrl(entry.sha))}" target="_blank" rel="noreferrer">${escapeHtml(formatShortSha(entry.sha))}</a><span class="notes-provenance__note">${escapeHtml(details.join(' | ') || 'No review details recorded')}</span><span class="notes-provenance__note">${escapeHtml(entry.subject || '')}</span></li>`;
-  }).join('')}</ol>`;
-}
-
-function renderVersionHistory(commits) {
-  if (!Array.isArray(commits) || !commits.length) {
-    return '<p class="notes-provenance__empty">No version history was found for this file.</p>';
-  }
-
-  return `<ol class="notes-provenance__list notes-provenance__list--ordered">${commits.slice(0, provenanceVersionLimit).map((entry) => {
-    const details = [
-      formatGitDate(entry.date),
-      entry.author,
-      entry.subject,
-    ].filter(Boolean);
-
-    return `<li class="notes-provenance__item"><a class="notes-provenance__link" href="${escapeHtml(buildGithubCommitUrl(entry.sha))}" target="_blank" rel="noreferrer">${escapeHtml(formatShortSha(entry.sha))}</a><span class="notes-provenance__note">${escapeHtml(details.join(' | ') || 'No version details recorded')}</span></li>`;
-  }).join('')}</ol>`;
-}
-
-function renderProvenanceSection({
-  sources,
-  fileLinks,
-  authorSummary,
-  reviewSnapshots,
-  commits,
-}) {
-  return `<section class="notes-provenance panel" aria-labelledby="provenance-title">
-    <div class="notes-provenance__head">
-      <p class="section-label">Provenance</p>
-      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
-      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
-    </div>
-    <div class="notes-provenance__grid">
-      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
-        <h3 id="provenance-sources-title">Sources</h3>
-        ${renderSourceEntries(sources)}
-      </section>
-      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
-        <h3 id="provenance-files-title">GitHub files</h3>
-        ${renderGitFileLinks(fileLinks)}
-      </section>
-      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
-        <h3 id="provenance-authors-title">Author history</h3>
-        ${renderAuthorHistory(authorSummary)}
-      </section>
-      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
-        <h3 id="provenance-reviewers-title">Reviewer history</h3>
-        ${renderReviewHistory(reviewSnapshots)}
-      </section>
-      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
-        <h3 id="provenance-versions-title">Version history</h3>
-        ${renderVersionHistory(commits)}
-      </section>
-    </div>
-  </section>`;
-}
-
 function getNoteOutputDir(notePath) {
   return path.join(notesRoot, getNoteRoutePath(notePath));
-}
-
-function getPracticeSourcePath(notePath) {
-  return getNoteSourcePath(notePath).replace(/\.md$/i, '-problems.md');
 }
 
 function getPracticeOutputDir(notePath) {
@@ -2159,14 +1816,13 @@ function buildNoteHtml({
   interactiveDemoHtml = '',
   canonicalUrl,
   editUrl,
+  sourceUrl,
   structures,
   structure,
   notePath,
   outputDir,
   assetVersions,
   practiceUrl = null,
-  metadataLabel,
-  provenance,
 }) {
   const tocHtml = renderTableOfContents(bodyHtml);
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
@@ -2187,7 +1843,7 @@ function buildNoteHtml({
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
-          ${renderMetadataLine(metadataLabel, 'viewer-meta')}
+          ${renderMetadataLine('viewer-meta', sourceUrl)}
         </div>
       <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
@@ -2199,7 +1855,6 @@ function buildNoteHtml({
         ${interactiveDemoHtml}
         ${bodyHtml}
       </article>
-      ${renderProvenanceSection(provenance)}
     </section>
   `;
 
@@ -2251,8 +1906,8 @@ function trimBlankLines(lines) {
   return lines.slice(start, end);
 }
 
-function isPracticeFrontmatterStart(lines, index) {
-  if (lines[index]?.trim() !== '---') {
+function isPracticeMetadataStart(lines, index) {
+  if (lines[index]?.trim() !== '<!--') {
     return false;
   }
 
@@ -2375,28 +2030,28 @@ function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
       break;
     }
 
-    if (!isPracticeFrontmatterStart(lines, index)) {
+    if (!isPracticeMetadataStart(lines, index)) {
       throw new Error(`Unexpected content before a problem block in ${sourcePath} on line ${index + 1}.`);
     }
 
-    const frontmatterLines = [];
+    const metadataLines = [];
     index += 1;
 
-    while (index < lines.length && lines[index].trim() !== '---') {
-      frontmatterLines.push(lines[index]);
+    while (index < lines.length && lines[index].trim() !== '-->') {
+      metadataLines.push(lines[index]);
       index += 1;
     }
 
     if (index >= lines.length) {
-      throw new Error(`Missing closing frontmatter delimiter in ${sourcePath}.`);
+      throw new Error(`Missing closing metadata delimiter in ${sourcePath}.`);
     }
 
-    const metadata = parseFrontmatter(frontmatterLines.join('\n'));
+    const metadata = parseFrontmatter(metadataLines.join('\n'));
     index += 1;
 
     const bodyLines = [];
 
-    while (index < lines.length && !isPracticeFrontmatterStart(lines, index)) {
+    while (index < lines.length && !isPracticeMetadataStart(lines, index)) {
       bodyLines.push(lines[index]);
       index += 1;
     }
@@ -2478,8 +2133,8 @@ function buildPracticeHtml({
   description,
   canonicalUrl,
   noteUrl,
-  noteMetadata,
   editUrl,
+  sourceUrl,
   notePath,
   practiceSourcePath,
   structures,
@@ -2487,7 +2142,6 @@ function buildPracticeHtml({
   outputDir,
   assetVersions,
   problems,
-  provenance,
 }) {
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
@@ -2497,10 +2151,16 @@ function buildPracticeHtml({
       return renderPracticeProblem(problem, practiceSourcePath, notePath);
     }).join('');
 
-    return `<section class="practice-level panel" aria-labelledby="practice-level-${group.level}">
+    return `<section class="practice-level practice-level--level-${escapeHtml(String(group.level))} panel" data-practice-level="${escapeHtml(String(group.level))}" aria-labelledby="practice-level-${group.level}">
         <div class="practice-level__head">
-          <p class="section-label">Level ${escapeHtml(String(group.level))}</p>
-          <h2 id="practice-level-${escapeHtml(String(group.level))}">${escapeHtml(group.label)}</h2>
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-${escapeHtml(String(group.level))}">${escapeHtml(group.label)}</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">${escapeHtml(String(group.level))}</span>
+          </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
           ${levelProblemHtml}
@@ -2523,7 +2183,7 @@ function buildPracticeHtml({
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
-          ${renderPracticeMetadataLine(noteMetadata)}
+          ${renderMetadataLine('viewer-meta practice-note-meta-line', sourceUrl)}
         </div>
         <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
@@ -2533,7 +2193,6 @@ function buildPracticeHtml({
       <div class="practice-problem-list">
         ${problemHtml}
       </div>
-      ${renderProvenanceSection(provenance)}
     </section>`;
 
   return renderNotesPageDocument({
@@ -2694,17 +2353,14 @@ async function loadPracticeProblems(notes) {
     const note = noteBySourcePath.get(noteSourcePath);
 
     if (!note) {
-      throw new Error(`Practice file has no matching note: ${toPosix(path.relative(notesRoot, practiceSourcePath))}`);
+      continue;
     }
 
     const markdown = await fs.readFile(practiceSourcePath, 'utf8');
-    const noteMarkdown = await fs.readFile(noteSourcePath, 'utf8');
-    const { metadata: noteMetadata } = splitFrontmatter(noteMarkdown);
     const problems = parsePracticeProblems(markdown, practiceSourcePath, seenProblemIds);
 
     practiceByNotePath.set(note.path, {
       note,
-      noteMetadata,
       sourcePath: practiceSourcePath,
       problems,
     });
@@ -2750,46 +2406,31 @@ async function exists(filePath) {
 async function buildNotePage(note, urlPath, structures, assetVersions, practice = null) {
   const sourcePath = getNoteSourcePath(note.path);
   const markdown = await fs.readFile(sourcePath, 'utf8');
-  const { metadata, body } = splitFrontmatter(markdown);
+  const { body } = splitFrontmatter(markdown);
   const bodyWithoutManualToc = stripManualTableOfContents(body);
-  const title = typeof metadata?.title === 'string' && metadata.title.trim()
-    ? metadata.title.trim()
-    : note.title;
-  const metadataLabel = getMetadataLabel(metadata, note.path);
+  const title = note.title;
   const bodyForDisplay = stripLeadingTitleHeading(bodyWithoutManualToc, title);
   const summary = getSummary(bodyForDisplay) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(toPosix(path.relative(repoRoot, sourcePath)))}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
-  const provenanceHistory = await getGitFileHistory(toPosix(path.relative(repoRoot, sourcePath)));
+  const sourceUrl = buildGithubBlobUrl(toPosix(path.relative(repoRoot, sourcePath)));
   const bodyHtml = renderBlocks(bodyForDisplay, `notes/${note.path}`);
   const interactiveDemoHtml = buildMathInteractiveDemo(note);
   const pageHtml = buildNoteHtml({
     title,
     description,
-    metadataLabel,
     bodyHtml,
     interactiveDemoHtml,
     canonicalUrl,
     editUrl,
+    sourceUrl,
     structures,
     structure: note.structure,
     notePath: note.path,
     practiceUrl: practice ? getPracticeUrl(note.path) : null,
     outputDir: getNoteOutputDir(note.path),
     assetVersions,
-    provenance: {
-      sources: metadata?.sources ?? [],
-      fileLinks: [
-        {
-          label: 'Note source file',
-          path: toPosix(path.relative(repoRoot, sourcePath)),
-        },
-      ],
-      authorSummary: provenanceHistory.authorSummary,
-      reviewSnapshots: provenanceHistory.reviewSnapshots,
-      commits: provenanceHistory.commits,
-    },
   });
   const outputPath = path.join(getNoteOutputDir(note.path), 'index.html');
 
@@ -2807,24 +2448,19 @@ async function buildNotePage(note, urlPath, structures, assetVersions, practice 
 async function buildPracticePage(practice, structures, assetVersions) {
   const sourcePath = practice.sourcePath;
   const note = practice.note;
-  const noteMetadata = practice.noteMetadata;
-  const noteTitle = typeof noteMetadata?.title === 'string' && noteMetadata.title.trim()
-    ? noteMetadata.title.trim()
-    : note.title;
-  const title = `${noteTitle} Practice`;
+  const title = `${note.title} Practice`;
   const description = `${practice.problems.length} practice problem${practice.problems.length === 1 ? '' : 's'}`;
   const canonicalUrl = `${siteOrigin}${getPracticeUrl(note.path)}`;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
-  const practiceHistory = await getGitFileHistory(relativeSourcePath);
-  const noteHistory = await getGitFileHistory(toPosix(path.relative(repoRoot, getNoteSourcePath(note.path))));
+  const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
   const pageHtml = buildPracticeHtml({
     title,
     description,
     canonicalUrl,
     noteUrl: getNoteUrl(note.path),
-    noteMetadata,
     editUrl,
+    sourceUrl,
     notePath: note.path,
     practiceSourcePath: sourcePath,
     structures,
@@ -2832,22 +2468,6 @@ async function buildPracticePage(practice, structures, assetVersions) {
     outputDir: getPracticeOutputDir(note.path),
     assetVersions,
     problems: practice.problems,
-    provenance: {
-      sources: noteMetadata?.sources ?? [],
-      fileLinks: [
-        {
-          label: 'Practice source file',
-          path: relativeSourcePath,
-        },
-        {
-          label: 'Note source file',
-          path: toPosix(path.relative(repoRoot, getNoteSourcePath(note.path))),
-        },
-      ],
-      authorSummary: practiceHistory.authorSummary,
-      reviewSnapshots: noteHistory.reviewSnapshots,
-      commits: practiceHistory.commits,
-    },
   });
   const outputPath = path.join(getPracticeOutputDir(note.path), 'index.html');
 
@@ -2871,6 +2491,11 @@ async function buildSearchIndex(entries) {
 async function buildSitemap(noteUrls, practiceUrls) {
   const urls = [
     `${siteOrigin}/`,
+    `${siteOrigin}/blog/what-this-site-is-for.html`,
+    `${siteOrigin}/energy-housing-policy/`,
+    `${siteOrigin}/privacy-policy/`,
+    `${siteOrigin}/terms-of-service/`,
+    `${siteOrigin}/safety/`,
     `${siteOrigin}/notes/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),

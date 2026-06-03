@@ -1,9 +1,9 @@
----
+<!--
 id: thermodynamics-i-11
 note: physics-thermodynamics-i
 title: "Identify a Closed System"
 skills: [System type, Boundaries]
----
+-->
 
 A gas is sealed inside a piston-cylinder device. The piston can move, and heat can cross the boundary, but no mass can enter or leave.
 
@@ -15,12 +15,12 @@ This is a **closed system** or **control mass**.
 Mass does not cross the boundary, but energy can cross as heat or work.
 :::
 
----
+<!--
 id: thermodynamics-i-12
 note: physics-thermodynamics-i
 title: "Classify Properties by Size Dependence"
 skills: [Extensive properties, Intensive properties]
----
+-->
 
 Which of the following are extensive properties?
 
@@ -40,12 +40,12 @@ $$
 Pressure $P$ and temperature $T$ are intensive properties.
 :::
 
----
+<!--
 id: thermodynamics-i-13
 note: physics-thermodynamics-i
 title: "Convert Gauge Pressure to Absolute Pressure"
 skills: [Pressure, Units]
----
+-->
 
 A tire gauge reads $220\ \text{kPa}$ and the atmospheric pressure is $101\ \text{kPa}$.
 
@@ -65,12 +65,12 @@ P_{abs} = 220 + 101 = 321\ \text{kPa}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-14
 note: physics-thermodynamics-i
 title: "Convert Celsius to Kelvin"
 skills: [Temperature, Units]
----
+-->
 
 Convert $27^\circ\text{C}$ to Kelvin.
 
@@ -88,12 +88,12 @@ T = 27 + 273.15 = 300.15\ \text{K}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-15
 note: physics-thermodynamics-i
 title: "Choose the Phase Region"
 skills: [Pure substances, Phase regions]
----
+-->
 
 A pure substance is at a pressure of $500\ \text{kPa}$ and a temperature below $T_{sat}$ at that pressure.
 
@@ -103,12 +103,12 @@ What phase region is it in?
 If the temperature is below the saturation temperature at the given pressure, the substance is in the **compressed liquid** or **subcooled liquid** region.
 :::
 
----
+<!--
 id: thermodynamics-i-16
 note: physics-thermodynamics-i
 title: "Compute Quality from Masses"
 skills: [Quality, Saturated mixtures]
----
+-->
 
 A saturated liquid-vapor mixture contains $3\ \text{kg}$ of saturated liquid and $9\ \text{kg}$ of saturated vapor.
 
@@ -128,12 +128,12 @@ x = \frac{9}{3+9} = \frac{9}{12} = 0.75
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-17
 note: physics-thermodynamics-i
 title: "Use the Ideal Gas Law"
 skills: [Ideal gas, Equation of state]
----
+-->
 
 An ideal gas has
 
@@ -157,12 +157,12 @@ v = \frac{RT}{P} = \frac{0.287(300)}{300} = 0.287\ \text{m}^3/\text{kg}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-18
 note: physics-thermodynamics-i
 title: "Find Constant-Pressure Boundary Work"
 skills: [Boundary work, Sign conventions]
----
+-->
 
 A gas expands at constant pressure from $0.50\ \text{m}^3$ to $0.80\ \text{m}^3$ while the pressure remains $150\ \text{kPa}$.
 
@@ -184,12 +184,12 @@ $$
 The work is positive because the system does work on the surroundings.
 :::
 
----
+<!--
 id: thermodynamics-i-19
 note: physics-thermodynamics-i
 title: "Apply the Closed-System First Law"
 skills: [First Law, Closed systems]
----
+-->
 
 A closed system receives $120\ \text{kJ}$ of heat and does $35\ \text{kJ}$ of work. Neglect changes in kinetic and potential energy.
 
@@ -209,12 +209,12 @@ $$
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-110
 note: physics-thermodynamics-i
 title: "Compute Mass Flow Rate"
 skills: [Mass flow rate, Control volumes]
----
+-->
 
 Air with density $1.2\ \text{kg/m}^3$ flows through a duct with area $0.050\ \text{m}^2$ at a speed of $20\ \text{m/s}$.
 
@@ -234,12 +234,12 @@ $$
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-21
 note: physics-thermodynamics-i
 title: "Find a Saturated Mixture Property"
 skills: [Saturated mixtures, Quality]
----
+-->
 
 A saturated mixture has
 
@@ -263,12 +263,12 @@ u = 500 + 0.20(1500) = 500 + 300 = 800\ \text{kJ/kg}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-22
 note: physics-thermodynamics-i
 title: "Approximate a Compressed-Liquid Enthalpy"
 skills: [Compressed liquid approximation, Property data]
----
+-->
 
 At a given temperature, a liquid has
 
@@ -304,12 +304,12 @@ h \approx 340.5\ \text{kJ/kg}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-23
 note: physics-thermodynamics-i
 title: "Use an Isentropic Ideal-Gas Relation"
 skills: [Isentropic ideal gas relations, Ideal gas]
----
+-->
 
 Air with $k = 1.4$ is compressed isentropically from $P_1 = 100\ \text{kPa}$ and $T_1 = 300\ \text{K}$ to $P_2 = 400\ \text{kPa}$.
 
@@ -333,12 +333,12 @@ T_2 \approx 300(4^{0.2857}) \approx 446\ \text{K}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-24
 note: physics-thermodynamics-i
 title: "Evaluate Polytropic Boundary Work"
 skills: [Polytropic work, Boundary work, Ideal gas]
----
+-->
 
 An ideal gas undergoes an isothermal expansion. At the initial state,
 
@@ -368,12 +368,12 @@ W_b = 60(0.693) \approx 41.6\ \text{kJ}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-25
 note: physics-thermodynamics-i
 title: "Solve a Spring-Loaded Energy Balance"
 skills: [Spring work, First Law, Closed systems]
----
+-->
 
 A piston-cylinder device compresses a linear spring from $x_1 = 0$ to $x_2 = 0.20\ \text{m}$. The spring constant is $k = 8.0\ \text{kN/m}$.
 
@@ -405,12 +405,12 @@ $$
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-26
 note: physics-thermodynamics-i
 title: "Analyze a Turbine"
 skills: [Turbine, Steady-flow energy]
----
+-->
 
 A steady adiabatic turbine has negligible kinetic and potential energy changes. The mass flow rate is $3\ \text{kg/s}$, the inlet enthalpy is $h_1 = 3200\ \text{kJ/kg}$, and the outlet enthalpy is $h_2 = 2500\ \text{kJ/kg}$.
 
@@ -430,12 +430,12 @@ $$
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-27
 note: physics-thermodynamics-i
 title: "Analyze a Throttling Valve"
 skills: [Throttling valve, Enthalpy]
----
+-->
 
 A throttling valve drops the pressure of a fluid from $900\ \text{kPa}$ to $200\ \text{kPa}$.
 
@@ -455,12 +455,12 @@ h_2 = 245\ \text{kJ/kg}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-28
 note: physics-thermodynamics-i
 title: "Compute Ideal-Gas Entropy Change"
 skills: [Entropy, Ideal gas entropy changes]
----
+-->
 
 Air has
 
@@ -494,12 +494,12 @@ s_2 - s_1 \approx 0.4075 - 0.1988 = 0.2087\ \text{kJ/(kg\cdot K)}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-31
 note: physics-thermodynamics-i
 title: "Mix Two Streams"
 skills: [Mixing chamber, Control volumes, First Law]
----
+-->
 
 An adiabatic mixing chamber has two inlet streams of the same substance:
 
@@ -543,12 +543,12 @@ h_{out} = 433.3\ \text{kJ/kg}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-32
 note: physics-thermodynamics-i
 title: "Analyze a Heat Exchanger"
 skills: [Heat exchanger, Control volumes, Energy balance]
----
+-->
 
 An adiabatic heat exchanger has a hot stream and a cold stream. The hot stream has
 
@@ -590,12 +590,12 @@ h_{c,out} = 166.7\ \text{kJ/kg}
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-33
 note: physics-thermodynamics-i
 title: "Evaluate a Heat Engine"
 skills: [Heat engine, Efficiency, Second Law]
----
+-->
 
 A heat engine absorbs $900\ \text{kJ}$ from a hot reservoir and rejects $540\ \text{kJ}$ to a cold reservoir during one cycle.
 
@@ -629,12 +629,12 @@ $$
 So the efficiency is $40\%$.
 :::
 
----
+<!--
 id: thermodynamics-i-34
 note: physics-thermodynamics-i
 title: "Evaluate a Refrigerator"
 skills: [Refrigerator, COP, Second Law]
----
+-->
 
 A refrigerator removes $420\ \text{kJ}$ of heat from the cold space and requires $140\ \text{kJ}$ of work input.
 
@@ -666,12 +666,12 @@ COP_{HP} = \frac{Q_H}{W_{net,in}} = \frac{560}{140} = 4
 $$
 :::
 
----
+<!--
 id: thermodynamics-i-35
 note: physics-thermodynamics-i
 title: "Check Entropy Generation"
 skills: [Entropy principle, Second Law]
----
+-->
 
 Six hundred kilojoules of heat flows directly from a $600\ \text{K}$ reservoir to a $300\ \text{K}$ reservoir.
 
@@ -699,12 +699,12 @@ $$
 Because $\Delta S_{universe} > 0$, the process satisfies the Second Law.
 :::
 
----
+<!--
 id: thermodynamics-i-41
 note: physics-thermodynamics-i
 title: "Evaluate an Otto Cycle"
 skills: [Otto cycle, Efficiency]
----
+-->
 
 An air-standard Otto cycle has a compression ratio of $r = 8$ and $k = 1.4$.
 
@@ -738,12 +738,12 @@ $$
 So the efficiency is about $56.5\%$.
 :::
 
----
+<!--
 id: thermodynamics-i-42
 note: physics-thermodynamics-i
 title: "Evaluate a Brayton Cycle"
 skills: [Brayton cycle, Efficiency]
----
+-->
 
 An air-standard Brayton cycle has a pressure ratio of $r_p = 6$ and $k = 1.4$.
 
@@ -777,12 +777,12 @@ $$
 So the efficiency is about $40\%$.
 :::
 
----
+<!--
 id: thermodynamics-i-43
 note: physics-thermodynamics-i
 title: "Compute Rankine Cycle Efficiency"
 skills: [Rankine cycle, First Law, Cycles]
----
+-->
 
 An ideal Rankine cycle has the following enthalpies:
 
@@ -826,12 +826,12 @@ $$
 So the efficiency is about $33.1\%$.
 :::
 
----
+<!--
 id: thermodynamics-i-44
 note: physics-thermodynamics-i
 title: "Apply the Workflow to a Sealed Tank"
 skills: [Problem-solving workflow, Closed systems, Sign conventions]
----
+-->
 
 A rigid, sealed tank contains gas. It loses $5\ \text{kJ}$ of heat to the surroundings and receives $12\ \text{kJ}$ of electrical work input. Neglect kinetic and potential energy changes.
 

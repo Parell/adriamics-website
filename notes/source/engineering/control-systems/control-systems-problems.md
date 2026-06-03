@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-control-systems-11"
 note: "engineering-control-systems"
-title: "Review: Focus"
+title: "Review: Control Systems"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for control systems."
+answer: "Control systems use feedback to make a process follow a desired output even when disturbances are present."
 skills:
-  - "Focus"
----
+  - "Control Systems"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Control Systems**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for control systems.
+One short answer is: Control systems use feedback to make a process follow a desired output even when disturbances are present.
 :::

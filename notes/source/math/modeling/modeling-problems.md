@@ -1,9 +1,9 @@
----
+<!--
 id: modeling-11
 note: math-modeling
 title: "Identify the Main Goal of a Model"
 skills: [Modeling goals]
----
+-->
 
 A model is built to estimate next month's demand from current sales data.
 
@@ -15,12 +15,12 @@ This is mainly a model for predicting future behavior.
 The model uses current data to estimate what is likely to happen next month.
 :::
 
----
+<!--
 id: modeling-12
 note: math-modeling
 title: "Classify a Random Demand Model"
 skills: [Deterministic and stochastic]
----
+-->
 
 A store demand model includes random day-to-day fluctuations.
 
@@ -32,12 +32,12 @@ It is stochastic.
 A stochastic model includes randomness, and the demand changes unpredictably from day to day.
 :::
 
----
+<!--
 id: modeling-13
 note: math-modeling
 title: "Classify an Inventory Snapshot"
 skills: [Static and dynamic]
----
+-->
 
 A one-day inventory report gives the number of items on hand at a single moment.
 
@@ -49,12 +49,12 @@ It is static.
 A static model describes one snapshot in time rather than how the system changes over time.
 :::
 
----
+<!--
 id: modeling-14
 note: math-modeling
 title: "Classify a Temperature Reading"
 skills: [Continuous and discrete]
----
+-->
 
 Temperature changes smoothly throughout the day.
 
@@ -66,12 +66,12 @@ It is continuous.
 Temperature varies smoothly, so a continuous model is appropriate.
 :::
 
----
+<!--
 id: modeling-15
 note: math-modeling
 title: "Identify a Linear Relation"
 skills: [Linear and nonlinear]
----
+-->
 
 Is the relation
 
@@ -87,12 +87,12 @@ It is linear.
 It has the form $y = mx + b$, which is the standard linear form.
 :::
 
----
+<!--
 id: modeling-16
 note: math-modeling
 title: "Compute Absolute Error"
 skills: [Absolute error]
----
+-->
 
 A model predicts $47$ when the true value is $50$.
 
@@ -114,12 +114,12 @@ $$
 The absolute error is $3$.
 :::
 
----
+<!--
 id: modeling-17
 note: math-modeling
 title: "Compute Relative Error"
 skills: [Relative error]
----
+-->
 
 A model predicts $94$ when the true value is $100$.
 
@@ -141,12 +141,12 @@ $$
 The relative error is $0.06$, or $6\%$.
 :::
 
----
+<!--
 id: modeling-18
 note: math-modeling
 title: "Find a Residual"
 skills: [Residuals]
----
+-->
 
 A data point has observed value $18$ and model prediction $15$.
 
@@ -168,12 +168,12 @@ $$
 The residual is $3$.
 :::
 
----
+<!--
 id: modeling-19
 note: math-modeling
 title: "Tell Growth from the Sign"
 skills: [Growth and decay]
----
+-->
 
 In the model
 
@@ -193,12 +193,12 @@ For $\frac{dP}{dt} = kP$, that means $k < 0$.
 So $k$ must be negative.
 :::
 
----
+<!--
 id: modeling-110
 note: math-modeling
 title: "Read a Logistic Carrying Capacity"
 skills: [Logistic growth]
----
+-->
 
 Consider the logistic model
 
@@ -222,12 +222,12 @@ P \to 800.
 $$
 :::
 
----
+<!--
 id: modeling-21
 note: math-modeling
 title: "Write an Exponential Growth Model"
 skills: [Differential equations, Growth and decay]
----
+-->
 
 A population starts at $250$ and grows at a rate proportional to its size with growth rate $k = 0.04$.
 
@@ -247,12 +247,12 @@ P(t) = 250e^{0.04t}.
 $$
 :::
 
----
+<!--
 id: modeling-22
 note: math-modeling
 title: "Set Up a Balance Equation"
 skills: [Conservation laws, Differential equations]
----
+-->
 
 A tank contains $60$ liters of water.
 
@@ -280,12 +280,12 @@ V(t) = 60 + 5t.
 $$
 :::
 
----
+<!--
 id: modeling-23
 note: math-modeling
 title: "Find the Units of a Parameter"
 skills: [Dimensional analysis]
----
+-->
 
 In the equation
 
@@ -309,12 +309,12 @@ $$
 So the units of $k$ are inverse hours.
 :::
 
----
+<!--
 id: modeling-24
 note: math-modeling
 title: "Estimate the Timescale"
 skills: [Scaling and nondimensionalization, Growth and decay]
----
+-->
 
 If
 
@@ -340,12 +340,12 @@ $$
 The rough timescale is $4$ time units.
 :::
 
----
+<!--
 id: modeling-25
 note: math-modeling
 title: "Write a Least-Squares Objective"
 skills: [Least squares, Residuals]
----
+-->
 
 For the data points $(1,4)$, $(2,7)$, and $(3,8)$, use the linear model
 
@@ -369,12 +369,12 @@ S(m,b) = (4 - (m+b))^2 + (7 - (2m+b))^2 + (8 - (3m+b))^2.
 $$
 :::
 
----
+<!--
 id: modeling-26
 note: math-modeling
 title: "Interpret a Curved Residual Plot"
 skills: [Residuals, Validation and error analysis]
----
+-->
 
 A linear fit leaves residuals that bend upward and then downward instead of scattering randomly around zero.
 
@@ -388,12 +388,12 @@ In particular, the relationship is likely nonlinear, or an important variable ma
 A good residual plot for a linear model should look random, not curved.
 :::
 
----
+<!--
 id: modeling-27
 note: math-modeling
 title: "Name the State Variables"
 skills: [Modeling cycle, Systems of equations]
----
+-->
 
 Two connected lakes each have a fish population that changes over time, and the populations affect one another.
 
@@ -405,12 +405,12 @@ The state vector should contain the two fish populations, one for each lake.
 Because both quantities evolve together, a system of equations is appropriate.
 :::
 
----
+<!--
 id: modeling-28
 note: math-modeling
 title: "Choose the Right Model Family"
 skills: [Difference equations, Model families]
----
+-->
 
 A store updates its inventory once each week using last week's stock and this week's sales.
 
@@ -422,12 +422,12 @@ A difference equation model is the best fit.
 The updates happen in discrete weekly steps, so a step-by-step recursive rule matches the situation.
 :::
 
----
+<!--
 id: modeling-31
 note: math-modeling
 title: "Choose a Model for Saturating Growth"
 skills: [Logistic growth, Model families]
----
+-->
 
 A fish population grows quickly at first, but it levels off near $500$ because the lake has limited food.
 
@@ -439,12 +439,12 @@ A logistic growth model is most appropriate.
 The population starts with near-exponential growth, but the leveling off shows a carrying capacity, which is exactly what logistic growth models.
 :::
 
----
+<!--
 id: modeling-32
 note: math-modeling
 title: "Set Up a Linear Programming Model"
 skills: [Optimization models]
----
+-->
 
 A factory makes tables and chairs.
 
@@ -482,12 +482,12 @@ $$
 This is a linear programming model because the objective and constraints are linear.
 :::
 
----
+<!--
 id: modeling-33
 note: math-modeling
 title: "Use a Conservation Law in a Tank"
 skills: [Conservation laws, Linear models]
----
+-->
 
 A tank starts with $90$ liters.
 
@@ -515,12 +515,12 @@ $$
 $$
 :::
 
----
+<!--
 id: modeling-34
 note: math-modeling
 title: "Choose a Stochastic Model"
 skills: [Probabilistic models, Deterministic and stochastic]
----
+-->
 
 A clinic's patient arrivals vary unpredictably from hour to hour.
 
@@ -532,12 +532,12 @@ A stochastic model is better because the arrivals include randomness.
 A deterministic model would give the same output every time from the same input, but the clinic's arrivals fluctuate unpredictably.
 :::
 
----
+<!--
 id: modeling-35
 note: math-modeling
 title: "Use a Graph Model for Routing"
 skills: [Graph and network models]
----
+-->
 
 A delivery app represents intersections as points and roads as connections between them.
 
@@ -551,12 +551,12 @@ The intersections are nodes and the roads are edges.
 It can help with routing, shortest-path questions, and flow problems.
 :::
 
----
+<!--
 id: modeling-41
 note: math-modeling
 title: "Choose the Better Long-Term Model"
 skills: [Logistic growth, Common pitfalls]
----
+-->
 
 A population is $400$ now.
 
@@ -578,12 +578,12 @@ In a closed habitat, resources are limited, so growth should eventually slow dow
 The exponential model grows without bound, while the logistic model levels off at the carrying capacity.
 :::
 
----
+<!--
 id: modeling-42
 note: math-modeling
 title: "Diagnose a Calibration Problem"
 skills: [Overfitting and underfitting, Validation and error analysis]
----
+-->
 
 A fitted model matches every calibration point exactly, but it performs poorly on new data and shows a clear pattern of errors.
 
@@ -595,12 +595,12 @@ This suggests overfitting, because the model is too flexible and learned the cal
 The clear error pattern on new data also suggests the model structure may be missing an important effect.
 :::
 
----
+<!--
 id: modeling-43
 note: math-modeling
 title: "Balance at Equilibrium"
 skills: [Conservation laws, Problem-solving checklist]
----
+-->
 
 A model uses the balance law
 
@@ -626,12 +626,12 @@ $$
 $$
 :::
 
----
+<!--
 id: modeling-44
 note: math-modeling
 title: "Build a Modeling Plan"
 skills: [Modeling cycle, Probabilistic models, Optimization models]
----
+-->
 
 A business wants to forecast weekly demand, which has random swings, and then minimize production cost while respecting machine limits.
 

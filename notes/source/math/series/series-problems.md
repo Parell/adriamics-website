@@ -1,9 +1,9 @@
----
+<!--
 id: series-11
 note: math-series
 title: "Necessary Condition for Convergence"
 skills: [Necessary condition for convergence]
----
+-->
 
 If the series
 
@@ -31,12 +31,12 @@ $$
 This condition is necessary, but not sufficient.
 :::
 
----
+<!--
 id: series-12
 note: math-series
 title: "Sum a Geometric Series"
 skills: [Geometric series]
----
+-->
 
 Find the sum of
 
@@ -57,12 +57,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-13
 note: math-series
 title: "Compute a Finite Geometric Sum"
 skills: [Finite geometric sum]
----
+-->
 
 Compute
 
@@ -87,12 +87,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-14
 note: math-series
 title: "Evaluate a Telescoping Sum"
 skills: [Telescoping series]
----
+-->
 
 Evaluate
 
@@ -122,12 +122,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-15
 note: math-series
 title: "Decide a p-Series"
 skills: [p-series]
----
+-->
 
 Does
 
@@ -147,12 +147,12 @@ $$
 Since $p>1$, the series converges.
 :::
 
----
+<!--
 id: series-16
 note: math-series
 title: "Classify an Alternating p-Series"
 skills: [Alternating series test, Absolute convergence check]
----
+-->
 
 Classify the series
 
@@ -183,12 +183,12 @@ The terms decrease to $0$, so the series converges.
 Therefore, the series is conditionally convergent.
 :::
 
----
+<!--
 id: series-17
 note: math-series
 title: "Spot Divergence from the Terms"
 skills: [Divergence test]
----
+-->
 
 Does
 
@@ -208,12 +208,12 @@ $$
 Since the terms do not go to $0$, the series diverges.
 :::
 
----
+<!--
 id: series-18
 note: math-series
 title: "Compare to a Known Convergent Series"
 skills: [Comparison test]
----
+-->
 
 Does
 
@@ -244,12 +244,12 @@ $$
 also converges.
 :::
 
----
+<!--
 id: series-19
 note: math-series
 title: "Geometric Series with a Negative Ratio"
 skills: [Geometric series]
----
+-->
 
 Find the sum of
 
@@ -270,12 +270,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-110
 note: math-series
 title: "Check Absolute Convergence"
 skills: [Absolute convergence check]
----
+-->
 
 Determine whether
 
@@ -298,12 +298,12 @@ This is a $p$-series with $p=2$, so it converges.
 Therefore, the original series converges absolutely.
 :::
 
----
+<!--
 id: series-21
 note: math-series
 title: "Use Direct Comparison"
 skills: [Comparison test]
----
+-->
 
 Determine whether
 
@@ -323,12 +323,12 @@ $$
 Since $\sum \frac{1}{n^2}$ converges, the comparison test gives convergence of the given series.
 :::
 
----
+<!--
 id: series-22
 note: math-series
 title: "Use Limit Comparison"
 skills: [Limit comparison test]
----
+-->
 
 Determine whether
 
@@ -364,12 +364,12 @@ $$
 diverges, the given series also diverges.
 :::
 
----
+<!--
 id: series-23
 note: math-series
 title: "Apply the Integral Test"
 skills: [Integral test]
----
+-->
 
 Determine whether
 
@@ -399,12 +399,12 @@ $$
 This is finite, so the series converges.
 :::
 
----
+<!--
 id: series-24
 note: math-series
 title: "Apply the Ratio Test"
 skills: [Ratio test]
----
+-->
 
 Determine whether
 
@@ -438,12 +438,12 @@ $$
 So the ratio test gives divergence.
 :::
 
----
+<!--
 id: series-25
 note: math-series
 title: "Apply the Root Test"
 skills: [Root test]
----
+-->
 
 Determine whether
 
@@ -465,12 +465,12 @@ $$
 Since $L<1$, the series converges absolutely.
 :::
 
----
+<!--
 id: series-26
 note: math-series
 title: "Find an Interval of Convergence"
 skills: [Power series, Radius and interval of convergence]
----
+-->
 
 Find the interval of convergence of
 
@@ -535,12 +535,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-27
 note: math-series
 title: "Differentiate a Power Series"
 skills: [Differentiation and integration, Power series]
----
+-->
 
 For $|x|<1$, find a power series for
 
@@ -568,12 +568,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-28
 note: math-series
 title: "Expand a Rational Function by Substitution"
 skills: [Geometric series, Power series]
----
+-->
 
 For $|x|<1$, write
 
@@ -609,12 +609,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-31
 note: math-series
 title: "Reindex a Series"
 skills: [Index shifting]
----
+-->
 
 Rewrite
 
@@ -634,12 +634,12 @@ $$
 This is a $p$-series with $p=2$, so it converges.
 :::
 
----
+<!--
 id: series-32
 note: math-series
 title: "Choose the Right Comparison"
 skills: [Limit comparison test]
----
+-->
 
 Determine whether
 
@@ -669,12 +669,12 @@ So the series behaves like $\sum \frac1n$.
 Because the harmonic series diverges, the given series diverges as well.
 :::
 
----
+<!--
 id: series-33
 note: math-series
 title: "Evaluate a Telescoping Series"
 skills: [Telescoping series]
----
+-->
 
 Evaluate
 
@@ -708,12 +708,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-34
 note: math-series
 title: "Build a Logarithm Series"
 skills: [Geometric series, Integration]
----
+-->
 
 Use the geometric series to write the Maclaurin series for
 
@@ -749,12 +749,12 @@ x+\frac{x^2}{2}+\frac{x^3}{3}+\frac{x^4}{4}.
 $$
 :::
 
----
+<!--
 id: series-35
 note: math-series
 title: "Use a Power Series to Sum a Series"
 skills: [Differentiation and integration, Power series]
----
+-->
 
 Evaluate
 
@@ -790,12 +790,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-41
 note: math-series
 title: "Approximate with a Taylor Polynomial"
 skills: [Taylor and Maclaurin series, Error thinking]
----
+-->
 
 Use the Maclaurin series for $\sin x$ to approximate $\sin(0.2)$ with the first two nonzero terms.
 
@@ -829,12 +829,12 @@ $$
 The next omitted term is very small, so this is a good local approximation.
 :::
 
----
+<!--
 id: series-42
 note: math-series
 title: "Find a Binomial Coefficient"
 skills: [Binomial-type expansion]
----
+-->
 
 In the expansion of
 
@@ -860,12 +860,12 @@ $$
 $$
 :::
 
----
+<!--
 id: series-43
 note: math-series
 title: "Match Coefficients"
 skills: [Matching coefficients]
----
+-->
 
 Suppose
 
@@ -936,12 +936,12 @@ a_n=2 \quad \text{for all } n\ge 1.
 $$
 :::
 
----
+<!--
 id: series-44
 note: math-series
 title: "Classify a Mixed-Sign Series"
 skills: [Alternating series test, Absolute convergence check]
----
+-->
 
 Classify
 

@@ -1,9 +1,9 @@
----
+<!--
 id: electrical-circuit-analysis-11
 note: engineering-electrical-circuit-analysis
 title: "Differentiate a Charge Function"
 skills: [Current, Derivatives]
----
+-->
 
 If
 
@@ -29,12 +29,12 @@ $$
 So the current is $19$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-12
 note: engineering-electrical-circuit-analysis
 title: "Compute Power with Passive Sign Convention"
 skills: [Passive Sign Convention, Power]
----
+-->
 
 A device has $v = 9$ V across it, and the current of $2$ A enters the positive-labeled terminal.
 
@@ -56,12 +56,12 @@ $$
 The device absorbs $18$ W.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-13
 note: engineering-electrical-circuit-analysis
 title: "Find Current from Ohm's Law"
 skills: [Ohm's Law, Resistors]
----
+-->
 
 A $6~\Omega$ resistor has $24$ V across it.
 
@@ -83,12 +83,12 @@ $$
 So the current is $4$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-14
 note: engineering-electrical-circuit-analysis
 title: "Add Series Resistors"
 skills: [Series Resistance]
----
+-->
 
 Find the equivalent resistance of three series resistors:
 
@@ -106,12 +106,12 @@ $$
 So the equivalent resistance is $15~\Omega$.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-15
 note: engineering-electrical-circuit-analysis
 title: "Combine Two Parallel Resistors"
 skills: [Parallel Resistance]
----
+-->
 
 Find the equivalent resistance of $4~\Omega$ and $12~\Omega$ in parallel.
 
@@ -131,12 +131,12 @@ $$
 The equivalent resistance is $3~\Omega$.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-16
 note: engineering-electrical-circuit-analysis
 title: "Use a Voltage Divider"
 skills: [Voltage Divider, Series Resistance]
----
+-->
 
 A $12$ V source drives two series resistors, $2~k\Omega$ and $4~k\Omega$.
 
@@ -158,12 +158,12 @@ $$
 So $V_{out} = 8$ V.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-17
 note: engineering-electrical-circuit-analysis
 title: "Use a Current Divider"
 skills: [Current Divider, Parallel Resistance]
----
+-->
 
 A total current of $6$ A enters two parallel resistors, $3~\Omega$ and $6~\Omega$.
 
@@ -185,12 +185,12 @@ $$
 So the $3~\Omega$ branch carries $4$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-18
 note: engineering-electrical-circuit-analysis
 title: "Energy in a Capacitor"
 skills: [Energy Storage, Capacitors]
----
+-->
 
 A capacitor has $C = 2~\mu\text{F}$ and voltage $v = 10$ V.
 
@@ -216,12 +216,12 @@ $$
 So the stored energy is $1.0\times 10^{-4}$ J.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-19
 note: engineering-electrical-circuit-analysis
 title: "Write an Element Impedance"
 skills: [Phasors, Impedance]
----
+-->
 
 At angular frequency $\omega = 1000$ rad/s, what is the impedance of a $2~\mu\text{F}$ capacitor?
 
@@ -245,12 +245,12 @@ $$
 So the impedance is $-j500~\Omega$.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-110
 note: engineering-electrical-circuit-analysis
 title: "Balance Currents at a Node"
 skills: [KCL]
----
+-->
 
 At a node, $2$ A and $5$ A enter, and $3$ A leaves through one branch.
 
@@ -276,12 +276,12 @@ $$
 The other branch must carry $4$ A leaving the node.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-21
 note: engineering-electrical-circuit-analysis
 title: "Write a Branch Current from Node Voltages"
 skills: [Node Voltage, Ohm's Law]
----
+-->
 
 Node $a$ is at $12$ V and node $b$ is at $5$ V.
 
@@ -303,12 +303,12 @@ $$
 The current from $a$ to $b$ is $1$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-22
 note: engineering-electrical-circuit-analysis
 title: "Solve a Simple Supernode"
 skills: [Supernodes, KCL, Ohm's Law]
----
+-->
 
 A supernode contains two unknown node voltages $V_a$ and $V_b$.
 
@@ -358,12 +358,12 @@ $$
 So $V_a = 12$ V.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-23
 note: engineering-electrical-circuit-analysis
 title: "Solve Two Mesh Currents"
 skills: [Mesh Analysis, KVL, Shared Resistor]
----
+-->
 
 Two clockwise mesh currents $i_1$ and $i_2$ share a $1~\Omega$ resistor.
 
@@ -427,12 +427,12 @@ $$
 So $i_1 = 8$ A and $i_2 = 4$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-24
 note: engineering-electrical-circuit-analysis
 title: "Use a Supermesh"
 skills: [Supermesh, Mesh Analysis, KVL]
----
+-->
 
 Two clockwise mesh currents $i_1$ and $i_2$ share a branch with a $1$ A current source.
 
@@ -492,12 +492,12 @@ $$
 So $i_1 = 2$ A and $i_2 = 3$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-25
 note: engineering-electrical-circuit-analysis
 title: "Apply Superposition to a Node"
 skills: [Superposition, Node Voltage, Voltage Divider]
----
+-->
 
 A node is connected to ground through a $6~\Omega$ resistor.
 
@@ -535,12 +535,12 @@ $$
 So the node voltage is $15$ V.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-26
 note: engineering-electrical-circuit-analysis
 title: "Find a Thevenin Equivalent"
 skills: [Thevenin Equivalent, Resistance Reduction, Voltage Divider]
----
+-->
 
 A $12$ V source feeds a $2~\Omega$ resistor in series with a node.
 
@@ -564,12 +564,12 @@ $$
 So the Thevenin equivalent is $V_{th} = 8$ V in series with $R_{th} = \frac{4}{3}~\Omega$.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-27
 note: engineering-electrical-circuit-analysis
 title: "Find an RC Step Response"
 skills: [RC Circuits, Time Constant, Capacitors]
----
+-->
 
 A $12$ V source charges a $100~\mu\text{F}$ capacitor through a $3~k\Omega$ resistor.
 
@@ -611,12 +611,12 @@ $$
 which is about $7.6$ V.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-28
 note: engineering-electrical-circuit-analysis
 title: "Find a Series AC Current"
 skills: [Phasors, Impedance, Ohm's Law]
----
+-->
 
 A source of $10\angle 0^\circ$ V at $\omega = 1000$ rad/s drives a series $100~\Omega$ resistor and $0.1$ H inductor.
 
@@ -663,12 +663,12 @@ $$
 
 :::
 
----
+<!--
 id: electrical-circuit-analysis-31
 note: engineering-electrical-circuit-analysis
 title: "Transform a Source to Simplify a Load"
 skills: [Source Transformation, Current Divider, Norton Equivalent]
----
+-->
 
 A $12$ V source in series with a $6~\Omega$ resistor drives a $6~\Omega$ load.
 
@@ -692,12 +692,12 @@ $$
 So the load current is $1$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-32
 note: engineering-electrical-circuit-analysis
 title: "Compute Load Power from a Thevenin Model"
 skills: [Thevenin Equivalent, Power]
----
+-->
 
 A sensor port is modeled by a Thevenin equivalent of $18$ V in series with $3~\Omega$.
 
@@ -725,12 +725,12 @@ $$
 So the load absorbs $24$ W.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-33
 note: engineering-electrical-circuit-analysis
 title: "Estimate an RL Current After a Switch Closes"
 skills: [RL Circuits, Time Constant, Inductors]
----
+-->
 
 A $10$ V source, $5~\Omega$ resistor, and $0.5$ H inductor are connected in series when a switch closes at $t=0$.
 
@@ -766,12 +766,12 @@ $$
 which is about $1.73$ A.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-34
 note: engineering-electrical-circuit-analysis
 title: "Find Real Power and Power Factor"
 skills: [AC Power, Power Factor, Phasors]
----
+-->
 
 A $120$ V rms source supplies a load current of $4$ A rms that lags the voltage by $30^\circ$.
 
@@ -797,12 +797,12 @@ $$
 So the load has real power about $416$ W and power factor $0.866$ lagging.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-35
 note: engineering-electrical-circuit-analysis
 title: "Evaluate an Inverting Amplifier"
 skills: [Operational Amplifiers, Inverting Amplifier, Negative Feedback]
----
+-->
 
 An ideal inverting op-amp has $R_{in} = 2~k\Omega$ and $R_f = 8~k\Omega$.
 
@@ -828,12 +828,12 @@ $$
 So the output is $-2$ V.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-41
 note: engineering-electrical-circuit-analysis
 title: "Maximize Power to a Load"
 skills: [Thevenin Equivalent, Maximum Power Transfer, Power]
----
+-->
 
 A linear network seen from two terminals has a Thevenin equivalent of $20$ V in series with $5~\Omega$.
 
@@ -865,12 +865,12 @@ $$
 So $R_L = 5~\Omega$ and the maximum load power is $20$ W.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-42
 note: engineering-electrical-circuit-analysis
 title: "Use Continuity in an RC Transient"
 skills: [RC Circuits, Time Constant, Energy Storage]
----
+-->
 
 A capacitor of $200~\mu\text{F}$ is initially at $6$ V.
 
@@ -930,12 +930,12 @@ $$
 So the capacitor reaches $12$ V after $0.2\ln 2 \approx 0.139$ s.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-43
 note: engineering-electrical-circuit-analysis
 title: "Find the Resonant Frequency of a Series RLC Circuit"
 skills: [Resonance, Series RLC, Frequency Response]
----
+-->
 
 A series RLC circuit has $L = 50$ mH and $C = 200~\mu\text{F}$.
 
@@ -967,12 +967,12 @@ $$
 So the resonant frequency is about $50.3$ Hz.
 :::
 
----
+<!--
 id: electrical-circuit-analysis-44
 note: engineering-electrical-circuit-analysis
 title: "Evaluate an Inverting Summing Amplifier"
 skills: [Operational Amplifiers, Summing Amplifier, Negative Feedback]
----
+-->
 
 An ideal inverting summing amplifier has feedback resistor $R_f = 12~k\Omega$.
 

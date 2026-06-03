@@ -1,9 +1,9 @@
----
+<!--
 id: probability-11
 note: math-probability
 title: "Count a Simple Sample Space"
 skills: [Sample Spaces, Equally Likely Outcomes]
----
+-->
 
 A fair coin is flipped twice. What is the probability of getting exactly one head?
 
@@ -23,12 +23,12 @@ P(\text{exactly one head}) = \frac{2}{4} = \frac{1}{2}
 $$
 :::
 
----
+<!--
 id: probability-12
 note: math-probability
 title: "Choose a Committee"
 skills: [Combinations, Counting Methods]
----
+-->
 
 How many ways can you choose 3 students from a group of 8?
 
@@ -40,12 +40,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-13
 note: math-probability
 title: "Arrange Runners"
 skills: [Permutations, Counting Methods]
----
+-->
 
 How many ordered outcomes are there for the gold, silver, and bronze places among 7 runners?
 
@@ -57,12 +57,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-14
 note: math-probability
 title: "Count Distinct Arrangements"
 skills: [Repeated Objects, Counting Methods]
----
+-->
 
 How many distinct arrangements of the letters in BOOK are there?
 
@@ -74,12 +74,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-15
 note: math-probability
 title: "Use the Complement Rule"
 skills: [Complement Rule]
----
+-->
 
 A fair die is rolled 3 times. What is the probability of getting at least one 6?
 
@@ -97,12 +97,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-16
 note: math-probability
 title: "Apply the Addition Rule"
 skills: [Addition Rule, Events]
----
+-->
 
 Suppose
 
@@ -126,12 +126,12 @@ P(A \cup B)=0.42+0.31-0.08=0.65
 $$
 :::
 
----
+<!--
 id: probability-17
 note: math-probability
 title: "Find a Conditional Probability"
 skills: [Conditional Probability]
----
+-->
 
 Suppose
 
@@ -155,12 +155,12 @@ P(A \mid B)=\frac{0.12}{0.3}=0.4
 $$
 :::
 
----
+<!--
 id: probability-18
 note: math-probability
 title: "Evaluate a Bernoulli Mean and Variance"
 skills: [Bernoulli Distribution, Expectation, Variance]
----
+-->
 
 If $X \sim \mathrm{Bernoulli}(0.7)$, find $E[X]$ and $\mathrm{Var}(X)$.
 
@@ -184,12 +184,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-19
 note: math-probability
 title: "Compute a Binomial Probability"
 skills: [Binomial Distribution]
----
+-->
 
 If $X \sim \mathrm{Binomial}(5,0.2)$, find $P(X=2)$.
 
@@ -213,12 +213,12 @@ P(X=2)=10(0.04)(0.512)=0.2048
 $$
 :::
 
----
+<!--
 id: probability-110
 note: math-probability
 title: "Standardize a Normal Random Variable"
 skills: [Normal Distribution, Standardization]
----
+-->
 
 If $X \sim \mathcal{N}(100,15^2)$, what is the $z$-score for $x=130$?
 
@@ -236,12 +236,12 @@ z=\frac{130-100}{15}=\frac{30}{15}=2
 $$
 :::
 
----
+<!--
 id: probability-21
 note: math-probability
 title: "Count Draws Without Replacement"
 skills: [Hypergeometric Distribution, Sampling Without Replacement]
----
+-->
 
 A box contains 6 good parts and 4 defective parts. Two parts are drawn without replacement. What is the probability that exactly 1 part is defective?
 
@@ -259,12 +259,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-22
 note: math-probability
 title: "Update a Belief with Bayes' Theorem"
 skills: [Bayes Theorem, Conditional Probability]
----
+-->
 
 A disease affects 2% of a population. A test is 95% accurate for people who have the disease, and it gives a false positive 10% of the time for people who do not have the disease. If a person tests positive, what is the probability that the person actually has the disease?
 
@@ -296,12 +296,12 @@ $$
 So the probability is about $0.162$.
 :::
 
----
+<!--
 id: probability-23
 note: math-probability
 title: "Use the Geometric Memoryless Property"
 skills: [Geometric Distribution, Memoryless Property]
----
+-->
 
 If $X \sim \mathrm{Geometric}(0.25)$, find $P(X>7 \mid X>3)$.
 
@@ -327,12 +327,12 @@ $$
 So the probability is about $0.316$.
 :::
 
----
+<!--
 id: probability-24
 note: math-probability
 title: "Solve a Negative Binomial Count"
 skills: [Negative Binomial Distribution]
----
+-->
 
 A basketball player makes each free throw with probability $0.6$, independently. What is the probability that the third make occurs on the fifth attempt?
 
@@ -354,12 +354,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-25
 note: math-probability
 title: "Compute a Poisson Count Probability"
 skills: [Poisson Distribution]
----
+-->
 
 A support line receives 4 calls per hour on average. What is the probability of exactly 2 calls in a half hour?
 
@@ -385,12 +385,12 @@ $$
 which is about $0.271$.
 :::
 
----
+<!--
 id: probability-26
 note: math-probability
 title: "Compute an Exponential Waiting-Time Probability"
 skills: [Exponential Distribution]
----
+-->
 
 The waiting time to the next event has an exponential distribution with rate 3 per hour. What is the probability of waiting more than 20 minutes?
 
@@ -416,12 +416,12 @@ $$
 This is about $0.368$.
 :::
 
----
+<!--
 id: probability-27
 note: math-probability
 title: "Use Inclusion-Exclusion for Three Events"
 skills: [Inclusion-Exclusion]
----
+-->
 
 Suppose
 
@@ -452,12 +452,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-28
 note: math-probability
 title: "Check Independence from a Joint Table"
 skills: [Joint Distribution, Marginal Distributions, Independence]
----
+-->
 
 A joint pmf is given by
 
@@ -506,12 +506,12 @@ The same factorization works for the other entries as well, so the joint distrib
 Therefore, $X$ and $Y$ are independent.
 :::
 
----
+<!--
 id: probability-31
 note: math-probability
 title: "Find an Expected Value from a Discrete Distribution"
 skills: [Expectation, Functions of Random Variables]
----
+-->
 
 Let $X$ take the values $1$, $2$, and $4$ with probabilities $0.2$, $0.5$, and $0.3$, respectively. If the payoff is $X^2$, what is the expected payoff?
 
@@ -535,12 +535,12 @@ $$
 The expected payoff is $7$.
 :::
 
----
+<!--
 id: probability-32
 note: math-probability
 title: "Model an Expected Count with Indicators"
 skills: [Indicator Variables, Linearity of Expectation]
----
+-->
 
 A fair die is rolled 5 times. Let $X$ be the number of adjacent pairs that match. Find $E[X]$.
 
@@ -566,12 +566,12 @@ E[X]=4\cdot \frac{1}{6}=\frac{2}{3}
 $$
 :::
 
----
+<!--
 id: probability-33
 note: math-probability
 title: "Model a Sampling Situation"
 skills: [Hypergeometric Distribution, Sampling Without Replacement]
----
+-->
 
 A box has 8 good components and 4 defective components. Three components are drawn without replacement. What is the probability that at least one component is defective?
 
@@ -597,12 +597,12 @@ $$
 $$
 :::
 
----
+<!--
 id: probability-34
 note: math-probability
 title: "Waiting Time to the Third Event"
 skills: [Gamma Distribution, Poisson Process]
----
+-->
 
 Calls arrive at a rate of 2 per hour. Under the gamma model, what is the mean waiting time until the third call?
 
@@ -624,12 +624,12 @@ $$
 The mean waiting time is $1.5$ hours.
 :::
 
----
+<!--
 id: probability-35
 note: math-probability
 title: "Infer a Beta Model for a Proportion"
 skills: [Beta Distribution, Proportions]
----
+-->
 
 A parameter $p$ represents a conversion rate, so it must stay between 0 and 1. Which distribution from the note is a natural choice for modeling $p$?
 
@@ -639,12 +639,12 @@ The beta distribution is defined on the interval $[0,1]$, so it is a natural mod
 Therefore, the appropriate choice is the beta distribution.
 :::
 
----
+<!--
 id: probability-41
 note: math-probability
 title: "Combine Total Probability and Bayes"
 skills: [Law of Total Probability, Bayes Theorem]
----
+-->
 
 Machine A makes 60% of the items and has a defect rate of 1%. Machine B makes the other 40% and has a defect rate of 4%. If an item is defective, what is the probability that it came from Machine A?
 
@@ -674,12 +674,12 @@ $$
 So the probability is about $0.273$.
 :::
 
----
+<!--
 id: probability-42
 note: math-probability
 title: "Approximate a Binomial Count with a Normal Model"
 skills: [Normal Approximation, Binomial Distribution, Continuity Correction]
----
+-->
 
 If $X \sim \mathrm{Binomial}(100,0.2)$, approximate $P(16 \le X \le 24)$ using a normal model.
 
@@ -721,12 +721,12 @@ P(16 \le X \le 24) \approx P(-1.125 \le Z \le 1.125) \approx 0.739
 $$
 :::
 
----
+<!--
 id: probability-43
 note: math-probability
 title: "Compare Sample Sizes with Standard Error"
 skills: [Law of Large Numbers, Standard Error]
----
+-->
 
 A population has mean 50 and standard deviation 12. Compare the standard error of the sample mean for samples of size 36 and 144. Which sample mean should be more stable?
 
@@ -752,12 +752,12 @@ $$
 The sample mean from 144 observations has the smaller standard error, so it should be more stable and closer to the true mean. That is the kind of behavior predicted by the law of large numbers.
 :::
 
----
+<!--
 id: probability-44
 note: math-probability
 title: "Use the Union Bound"
 skills: [Union Bound, Events]
----
+-->
 
 Three independent backup checks have failure probabilities 0.03, 0.05, and 0.02. Give an upper bound on the probability that at least one check fails.
 

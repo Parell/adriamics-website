@@ -1,9 +1,9 @@
----
+<!--
 id: trigonometry-11
 note: math-trigonometry
 title: "Convert 150 Degrees to Radians"
 skills: [Angle Measure, Radians]
----
+-->
 
 Convert $150^\circ$ to radians.
 
@@ -15,12 +15,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-12
 note: math-trigonometry
 title: "Convert 7 Pi Over 6 to Degrees"
 skills: [Angle Measure, Radians]
----
+-->
 
 Convert $\frac{7\pi}{6}$ to degrees.
 
@@ -32,12 +32,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-13
 note: math-trigonometry
 title: "Read a Unit Circle Coordinate"
 skills: [Unit Circle, Coordinates]
----
+-->
 
 On the unit circle, what point corresponds to the angle $\frac{\pi}{3}$?
 
@@ -61,12 +61,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-14
 note: math-trigonometry
 title: "Evaluate Sine Using a Reference Angle"
 skills: [Reference Angles, Quadrants]
----
+-->
 
 Evaluate $\sin\left(\frac{5\pi}{4}\right)$.
 
@@ -80,12 +80,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-15
 note: math-trigonometry
 title: "Find a Trig Ratio from a Right Triangle"
 skills: [Right Triangle Ratios]
----
+-->
 
 A right triangle has opposite side $7$ and hypotenuse $25$ relative to angle $\theta$.
 
@@ -99,12 +99,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-16
 note: math-trigonometry
 title: "Evaluate a Reciprocal Trig Function"
 skills: [Reciprocal Identities]
----
+-->
 
 If $\cos \theta = \frac{1}{2}$, what is $\sec \theta$?
 
@@ -116,12 +116,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-17
 note: math-trigonometry
 title: "Evaluate a Special Angle Tangent"
 skills: [Special Angles]
----
+-->
 
 Evaluate $\tan\left(\frac{\pi}{6}\right)$.
 
@@ -133,12 +133,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-18
 note: math-trigonometry
 title: "Use Periodicity to Simplify an Expression"
 skills: [Periodicity]
----
+-->
 
 Simplify $\sin(x + 2\pi)$.
 
@@ -150,12 +150,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-19
 note: math-trigonometry
 title: "Identify Where Tangent Is Undefined"
 skills: [Domain, Periodicity]
----
+-->
 
 For which values of $x$ is $\tan x$ undefined?
 
@@ -171,12 +171,12 @@ $$
 for any integer $k$.
 :::
 
----
+<!--
 id: trigonometry-110
 note: math-trigonometry
 title: "Use the Pythagorean Identity to Find Cosine"
 skills: [Pythagorean Identity, Quadrants]
----
+-->
 
 If $\sin x = \frac{3}{5}$ and $x$ is in Quadrant I, find $\cos x$.
 
@@ -208,12 +208,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-21
 note: math-trigonometry
 title: "Evaluate Cosine in Quadrant III"
 skills: [Reference Angles, Quadrants]
----
+-->
 
 Evaluate $\cos\left(\frac{7\pi}{6}\right)$.
 
@@ -227,12 +227,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-22
 note: math-trigonometry
 title: "Find a Trig Ratio After Using the Triangle"
 skills: [Right Triangle Ratios, Special Triangles]
----
+-->
 
 A right triangle has legs $7$ and $24$.
 
@@ -264,12 +264,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-23
 note: math-trigonometry
 title: "Identify Amplitude, Period, and Midline"
 skills: [Graph Transformations, Period]
----
+-->
 
 For
 
@@ -295,12 +295,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-24
 note: math-trigonometry
 title: "Find a Phase Shift from Standard Form"
 skills: [Graph Transformations, Phase Shift]
----
+-->
 
 For
 
@@ -328,12 +328,12 @@ $$
 or, equivalently, $\frac{\pi}{3}$ to the left.
 :::
 
----
+<!--
 id: trigonometry-25
 note: math-trigonometry
 title: "Evaluate an Exact Value with a Sum Identity"
 skills: [Sum Identities, Special Angles]
----
+-->
 
 Evaluate
 
@@ -369,12 +369,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-26
 note: math-trigonometry
 title: "Interpret an Inverse Trig Expression"
 skills: [Inverse Trig, Principal Range]
----
+-->
 
 Evaluate $\arcsin\left(\frac{\sqrt{3}}{2}\right)$.
 
@@ -392,12 +392,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-27
 note: math-trigonometry
 title: "Solve a Sine Equation on an Interval"
 skills: [Trig Equations, Periodicity]
----
+-->
 
 Solve for $x$ on $[0, 2\pi)$:
 
@@ -423,12 +423,12 @@ x = \frac{\pi}{6} \quad \text{and} \quad x = \frac{5\pi}{6}
 $$
 :::
 
----
+<!--
 id: trigonometry-28
 note: math-trigonometry
 title: "Solve a Tangent Equation"
 skills: [Trig Equations, Periodicity]
----
+-->
 
 Solve for all real $x$:
 
@@ -452,12 +452,12 @@ $$
 for any integer $k$.
 :::
 
----
+<!--
 id: trigonometry-31
 note: math-trigonometry
 title: "Find a Height from an Angle of Elevation"
 skills: [Angles of Elevation, Tangent]
----
+-->
 
 A drone is $20$ m horizontally from an observer.
 
@@ -485,12 +485,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-32
 note: math-trigonometry
 title: "Use the Law of Sines"
 skills: [Law of Sines]
----
+-->
 
 In triangle $ABC$, $A = 30^\circ$, $B = 45^\circ$, and $a = 10$.
 
@@ -520,12 +520,12 @@ b = 10 \cdot \frac{\sqrt{2}/2}{1/2} = 10\sqrt{2}
 $$
 :::
 
----
+<!--
 id: trigonometry-33
 note: math-trigonometry
 title: "Use the Law of Cosines"
 skills: [Law of Cosines]
----
+-->
 
 In triangle $ABC$, the sides are $a = 7$, $b = 9$, and the included angle $C = 60^\circ$.
 
@@ -559,12 +559,12 @@ c = \sqrt{67}
 $$
 :::
 
----
+<!--
 id: trigonometry-34
 note: math-trigonometry
 title: "Interpret a Sinusoidal Model"
 skills: [Sinusoidal Models, Graph Transformations]
----
+-->
 
 The height of a tide is modeled by
 
@@ -592,12 +592,12 @@ $$
 So the maximum height is $11$ and the period is $12$ hours.
 :::
 
----
+<!--
 id: trigonometry-35
 note: math-trigonometry
 title: "Find the Area of an Oblique Triangle"
 skills: [Triangle Area, Trig Area Formula]
----
+-->
 
 Two sides of a triangle are $8$ and $12$ with included angle $45^\circ$.
 
@@ -621,12 +621,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-41
 note: math-trigonometry
 title: "Use a Double-Angle Identity with a Given Sine Value"
 skills: [Double-Angle Identities, Pythagorean Identity]
----
+-->
 
 If $\sin x = \frac{3}{5}$ and $x$ is in Quadrant I, find $\cos(2x)$.
 
@@ -654,12 +654,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-42
 note: math-trigonometry
 title: "Rewrite a Product as a Sum"
 skills: [Product-to-Sum]
----
+-->
 
 Rewrite $\sin(3x)\cos(x)$ using a product-to-sum identity.
 
@@ -677,12 +677,12 @@ $$
 $$
 :::
 
----
+<!--
 id: trigonometry-43
 note: math-trigonometry
 title: "Determine the Number of Triangles in an SSA Case"
 skills: [Law of Sines, SSA Ambiguity]
----
+-->
 
 In a triangle, $A = 30^\circ$, $a = 10$, and $b = 14$.
 
@@ -712,12 +712,12 @@ $$
 there are two possible triangles.
 :::
 
----
+<!--
 id: trigonometry-44
 note: math-trigonometry
 title: "Evaluate a Half-Angle Exactly"
 skills: [Half-Angle Formulas, Special Angles]
----
+-->
 
 Find the exact value of $\cos\left(\frac{\pi}{12}\right)$.
 

@@ -1,9 +1,9 @@
----
+<!--
 id: second-order-odes-11
 note: math-second-order-odes
 title: "Classify a Second-Order ODE"
 skills: [Classification, Standard Form]
----
+-->
 
 Classify the differential equation below. State whether it is second-order, linear, homogeneous, and constant-coefficient.
 
@@ -21,12 +21,12 @@ It is homogeneous because the right-hand side is \(0\).
 It has constant coefficients because \(1\), \(3\), and \(-4\) are constants.
 :::
 
----
+<!--
 id: second-order-odes-12
 note: math-second-order-odes
 title: "Write in Normalized Form"
 skills: [Standard Form, Linear Equations]
----
+-->
 
 Rewrite the equation in normalized form \(y'' + p(x)y' + q(x)y = r(x)\).
 
@@ -48,12 +48,12 @@ y'' - \frac{1}{2}y' + \frac{7}{4}y = \frac{5}{4}e^x.
 $$
 :::
 
----
+<!--
 id: second-order-odes-13
 note: math-second-order-odes
 title: "Check Existence and Uniqueness"
 skills: [Existence and Uniqueness, Initial Conditions]
----
+-->
 
 Does the existence and uniqueness theorem guarantee a unique local solution near \(x=0\) for the initial value problem below?
 
@@ -73,12 +73,12 @@ The function \(f\) is continuous everywhere, and its partial derivatives with re
 Therefore the theorem guarantees a unique local solution near \(x=0\).
 :::
 
----
+<!--
 id: second-order-odes-14
 note: math-second-order-odes
 title: "Solve a Distinct-Root Homogeneous Equation"
 skills: [Characteristic Equation, Distinct Roots]
----
+-->
 
 Solve the homogeneous equation.
 
@@ -106,12 +106,12 @@ y = C_1 e^{2x} + C_2 e^{3x}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-15
 note: math-second-order-odes
 title: "Solve a Repeated-Root Equation"
 skills: [Characteristic Equation, Repeated Roots]
----
+-->
 
 Solve the homogeneous equation.
 
@@ -133,12 +133,12 @@ y = (C_1 + C_2 x)e^{2x}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-16
 note: math-second-order-odes
 title: "Solve a Complex-Root Equation"
 skills: [Characteristic Equation, Complex Roots]
----
+-->
 
 Solve the homogeneous equation.
 
@@ -166,12 +166,12 @@ y = C_1 \cos(3x) + C_2 \sin(3x).
 $$
 :::
 
----
+<!--
 id: second-order-odes-17
 note: math-second-order-odes
 title: "Choose a Resonant Trial"
 skills: [Undetermined Coefficients, Resonance]
----
+-->
 
 For the equation below, what trial form should you use for a particular solution in undetermined coefficients?
 
@@ -195,12 +195,12 @@ y_p = Ax^2 e^x.
 $$
 :::
 
----
+<!--
 id: second-order-odes-18
 note: math-second-order-odes
 title: "Solve an Euler-Cauchy Equation"
 skills: [Euler-Cauchy Equations, Power Trial]
----
+-->
 
 Solve the equation for \(x>0\).
 
@@ -240,12 +240,12 @@ y = C_1 x^2 + C_2 x^{-2}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-19
 note: math-second-order-odes
 title: "Compute a Wronskian"
 skills: [Wronskian, Linear Independence]
----
+-->
 
 Compute the Wronskian of the two functions below.
 
@@ -280,12 +280,12 @@ $$
 On any interval that does not include \(0\), the functions are linearly independent.
 :::
 
----
+<!--
 id: second-order-odes-110
 note: math-second-order-odes
 title: "Find the Natural Frequency and Damping Ratio"
 skills: [Mechanical Models, Damping Ratio]
----
+-->
 
 A mass-spring system has
 
@@ -311,12 +311,12 @@ $$
 Since \(\zeta=1\), the system is critically damped.
 :::
 
----
+<!--
 id: second-order-odes-21
 note: math-second-order-odes
 title: "Solve an Initial Value Problem"
 skills: [Characteristic Equation, Initial Value Problems]
----
+-->
 
 Solve the initial value problem.
 
@@ -368,12 +368,12 @@ y = -2e^x + 3e^{2x}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-22
 note: math-second-order-odes
 title: "Solve a Resonant Forced Equation"
 skills: [Undetermined Coefficients, Resonance]
----
+-->
 
 Solve the initial value problem.
 
@@ -437,12 +437,12 @@ y = e^x\left(x + \frac12 x^2\right).
 $$
 :::
 
----
+<!--
 id: second-order-odes-23
 note: math-second-order-odes
 title: "Solve an Euler-Cauchy Initial Value Problem"
 skills: [Euler-Cauchy Equations, Initial Value Problems]
----
+-->
 
 Solve the initial value problem for \(x>0\).
 
@@ -494,12 +494,12 @@ y = \frac{5}{4}x^2 + \frac{7}{4}x^{-2}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-24
 note: math-second-order-odes
 title: "Use a Known Solution to Finish the General Solution"
 skills: [Reduction of Order, Euler-Cauchy Equations]
----
+-->
 
 Given that \(y_1=x\) is one nonzero solution of the equation below, find a second linearly independent solution and the general solution.
 
@@ -517,12 +517,12 @@ y = C_1x + C_2x^2.
 $$
 :::
 
----
+<!--
 id: second-order-odes-25
 note: math-second-order-odes
 title: "Analyze a Boundary Value Problem"
 skills: [Boundary Value Problems, Complex Roots]
----
+-->
 
 Determine whether the boundary value problem has one solution, no solutions, or infinitely many solutions.
 
@@ -570,12 +570,12 @@ y = C\sin(\pi x).
 $$
 :::
 
----
+<!--
 id: second-order-odes-26
 note: math-second-order-odes
 title: "Solve a Critically Damped Motion Problem"
 skills: [Mechanical Models, Critical Damping]
----
+-->
 
 A mass-spring system is modeled by
 
@@ -631,12 +631,12 @@ $$
 Because the root is repeated, the motion is critically damped.
 :::
 
----
+<!--
 id: second-order-odes-27
 note: math-second-order-odes
 title: "Find the Steady-State Response"
 skills: [Forced Vibration, Undetermined Coefficients]
----
+-->
 
 Find a particular solution for the forced vibration equation.
 
@@ -676,12 +676,12 @@ y_p = \frac{6}{5}\sin(2t).
 $$
 :::
 
----
+<!--
 id: second-order-odes-28
 note: math-second-order-odes
 title: "Find the Interval of Guaranteed Uniqueness"
 skills: [Existence and Uniqueness, Standard Form]
----
+-->
 
 For the initial value problem below, on what largest open interval containing \(x=2\) is a unique local solution guaranteed?
 
@@ -707,12 +707,12 @@ $$
 That is the largest open interval containing \(x=2\) on which a unique local solution is guaranteed.
 :::
 
----
+<!--
 id: second-order-odes-31
 note: math-second-order-odes
 title: "Model a Simple Mass-Spring Motion"
 skills: [Mechanical Models, Harmonic Motion]
----
+-->
 
 A \(2\)-kg mass is attached to a spring with spring constant \(18\) N/m. The mass is displaced \(1/2\) meter from equilibrium and released from rest.
 
@@ -776,12 +776,12 @@ t=\frac{\pi}{6}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-32
 note: math-second-order-odes
 title: "Solve a Critically Damped IVP"
 skills: [Mechanical Models, Critical Damping]
----
+-->
 
 Solve the initial value problem.
 
@@ -829,12 +829,12 @@ y = (2+8t)e^{-4t}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-33
 note: math-second-order-odes
 title: "Find a Particular Solution for Forced Oscillation"
 skills: [Forced Vibration, Undetermined Coefficients]
----
+-->
 
 Find a particular solution for the forced vibration equation below.
 
@@ -868,12 +868,12 @@ y_p = \frac65\sin(2t).
 $$
 :::
 
----
+<!--
 id: second-order-odes-34
 note: math-second-order-odes
 title: "A Boundary Value Problem with a Unique Solution"
 skills: [Boundary Value Problems, Linear Independence]
----
+-->
 
 Solve the boundary value problem.
 
@@ -913,12 +913,12 @@ y=0.
 $$
 :::
 
----
+<!--
 id: second-order-odes-35
 note: math-second-order-odes
 title: "Predict Long-Term Behavior from Roots"
 skills: [Characteristic Roots, Long-Term Behavior]
----
+-->
 
 For the equation below, describe the long-term behavior of the general solution as \(x\to\infty\).
 
@@ -944,12 +944,12 @@ The \(e^{2x}\) term grows as \(x\to\infty\), while the \(e^{-x}\) term decays.
 So a generic solution grows without bound, and the equilibrium is unstable unless \(C_1=0\).
 :::
 
----
+<!--
 id: second-order-odes-41
 note: math-second-order-odes
 title: "Solve a Resonant Forced Problem"
 skills: [Undetermined Coefficients, Resonance]
----
+-->
 
 Solve the initial value problem.
 
@@ -1007,12 +1007,12 @@ y = 2x\sin(2x).
 $$
 :::
 
----
+<!--
 id: second-order-odes-42
 note: math-second-order-odes
 title: "Solve a Damped Forced Oscillator"
 skills: [Damped Vibration, Forced Vibration]
----
+-->
 
 Solve the initial value problem.
 
@@ -1106,12 +1106,12 @@ y = e^{-x}\left(-\frac32\cos(2x) + \frac12\sin(2x) + \frac52\right).
 $$
 :::
 
----
+<!--
 id: second-order-odes-43
 note: math-second-order-odes
 title: "Solve an Euler-Cauchy Boundary Value Problem"
 skills: [Euler-Cauchy Equations, Boundary Value Problems]
----
+-->
 
 Solve the boundary value problem for \(x>0\).
 
@@ -1163,12 +1163,12 @@ y = \frac43x + \frac23x^{-1}.
 $$
 :::
 
----
+<!--
 id: second-order-odes-44
 note: math-second-order-odes
 title: "Use Variation of Parameters"
 skills: [Variation of Parameters, Wronskian]
----
+-->
 
 Solve the differential equation on any interval where the forcing term is defined.
 

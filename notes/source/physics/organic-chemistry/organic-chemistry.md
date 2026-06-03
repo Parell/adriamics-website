@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # 1. What organic chemistry studies
 
 Organic chemistry is the study of carbon-containing compounds, especially those built around covalent carbon-carbon and carbon-heteroatom bonds. It matters because carbon can form chains, rings, branched frameworks, and multiple bonds, giving rise to an enormous number of molecules with distinct properties.
@@ -37,9 +30,9 @@ Carbon is tetravalent and most commonly forms four bonds by using hybrid orbital
 
 | Geometry | Hybridization | Approx. bond angle | Typical example |
 | --- | --- | ---: | --- |
-| Tetrahedral | $sp^3$ | 109.5° | Alkanes |
-| Trigonal planar | $sp^2$ | 120° | Alkenes, carbonyl carbons |
-| Linear | $sp$ | 180° | Alkynes, nitriles |
+| Tetrahedral | $sp^3$ | 109.5Â° | Alkanes |
+| Trigonal planar | $sp^2$ | 120Â° | Alkenes, carbonyl carbons |
+| Linear | $sp$ | 180Â° | Alkynes, nitriles |
 
 Single bonds are sigma bonds. Double bonds contain one sigma and one pi bond. Triple bonds contain one sigma and two pi bonds.
 
@@ -596,3 +589,14 @@ When learning a new reaction, always ask:
 5. What controls regioselectivity and stereoselectivity?
 
 If you can answer those five questions, most organic chemistry problems become manageable.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,9 +1,9 @@
----
+<!--
 id: physics-ii-11
 note: physics-physics-ii
 title: "Compute Force from an Electric Field"
 skills: [Electric field, Electric force]
----
+-->
 
 A $3.0\,\mu\text{C}$ charge is placed in a uniform electric field of $250\ \text{N/C}$. What is the force magnitude?
 
@@ -23,12 +23,12 @@ $$
 The force magnitude is $7.5 \times 10^{-4}\ \text{N}$.
 :::
 
----
+<!--
 id: physics-ii-12
 note: physics-physics-ii
 title: "Find the Force Between Two Point Charges"
 skills: [Coulomb's law, Charge]
----
+-->
 
 A $+2.0\,\mu\text{C}$ charge and a $-3.0\,\mu\text{C}$ charge are $0.40\ \text{m}$ apart. What is the magnitude of the force between them? State whether the force is attractive or repulsive.
 
@@ -52,12 +52,12 @@ $$
 Because the charges have opposite signs, the force is attractive.
 :::
 
----
+<!--
 id: physics-ii-13
 note: physics-physics-ii
 title: "Electric Field of a Point Charge"
 skills: [Electric field]
----
+-->
 
 Find the magnitude of the electric field $0.30\ \text{m}$ from a $+4.0\,\text{nC}$ point charge.
 
@@ -81,12 +81,12 @@ $$
 The field points away from the positive charge.
 :::
 
----
+<!--
 id: physics-ii-14
 note: physics-physics-ii
 title: "Calculate Electric Flux"
 skills: [Electric flux]
----
+-->
 
 A uniform field of $150\ \text{N/C}$ passes through a flat $0.20\ \text{m}^2$ surface. The field makes a $60^\circ$ angle with the surface normal. What is the electric flux?
 
@@ -108,12 +108,12 @@ $$
 $$
 :::
 
----
+<!--
 id: physics-ii-15
 note: physics-physics-ii
 title: "Use Gauss's Law to Find Enclosed Charge"
 skills: [Gauss's law]
----
+-->
 
 A closed surface has electric flux $1.13 \times 10^4\ \text{N}\cdot\text{m}^2/\text{C}$. What charge is enclosed?
 
@@ -143,12 +143,12 @@ $$
 The enclosed charge is positive because the flux is positive.
 :::
 
----
+<!--
 id: physics-ii-16
 note: physics-physics-ii
 title: "Potential of a Point Charge"
 skills: [Electric potential]
----
+-->
 
 What is the electric potential $0.20\ \text{m}$ from a $-5.0\,\text{nC}$ point charge?
 
@@ -170,12 +170,12 @@ V = -225\ \text{V}
 $$
 :::
 
----
+<!--
 id: physics-ii-17
 note: physics-physics-ii
 title: "Find a Capacitor's Capacitance"
 skills: [Capacitance]
----
+-->
 
 A capacitor stores $12\,\mu\text{C}$ when the potential difference across it is $6\ \text{V}$. What is its capacitance?
 
@@ -199,12 +199,12 @@ C = 2.0\ \mu\text{F}
 $$
 :::
 
----
+<!--
 id: physics-ii-18
 note: physics-physics-ii
 title: "Current and Power in a Resistor"
 skills: [Ohm's law, Power]
----
+-->
 
 A $12\ \text{V}$ battery is connected across a $6\ \Omega$ resistor. What current flows, and what power is dissipated?
 
@@ -224,12 +224,12 @@ $$
 The current is $2\ \text{A}$ and the power is $24\ \text{W}$.
 :::
 
----
+<!--
 id: physics-ii-19
 note: physics-physics-ii
 title: "Magnetic Force on a Moving Charge"
 skills: [Magnetic force]
----
+-->
 
 A $+2.0\,\mu\text{C}$ charge moves at $300\ \text{m/s}$ perpendicular to a $0.50\ \text{T}$ magnetic field. What is the magnetic force magnitude?
 
@@ -251,12 +251,12 @@ F = 3.0 \times 10^{-4}\ \text{N}
 $$
 :::
 
----
+<!--
 id: physics-ii-110
 note: physics-physics-ii
 title: "Electric Field Amplitude of an EM Wave"
 skills: [EM waves]
----
+-->
 
 An electromagnetic wave in vacuum has magnetic-field amplitude $2.0 \times 10^{-6}\ \text{T}$. What is the electric-field amplitude?
 
@@ -278,12 +278,12 @@ E = 600\ \text{V/m}
 $$
 :::
 
----
+<!--
 id: physics-ii-21
 note: physics-physics-ii
 title: "Equivalent Resistance in Series and Parallel"
 skills: [Series and parallel resistors, Ohm's law]
----
+-->
 
 A $4\ \Omega$ resistor is in series with a parallel pair of $6\ \Omega$ and $3\ \Omega$ resistors. If the combination is connected to a $12\ \text{V}$ source, what total current flows?
 
@@ -313,12 +313,12 @@ I = \frac{V}{R_{eq}} = \frac{12}{6} = 2\ \text{A}
 $$
 :::
 
----
+<!--
 id: physics-ii-22
 note: physics-physics-ii
 title: "RC Time Constant and Charging Charge"
 skills: [RC circuits, Capacitors]
----
+-->
 
 A $20\,\mu\text{F}$ capacitor charges through a $150\ \text{k}\Omega$ resistor from a $9\ \text{V}$ battery. Find the time constant and the charge after one time constant.
 
@@ -348,12 +348,12 @@ Q(\tau) \approx 180\ \mu\text{C}(0.632) \approx 114\ \mu\text{C}
 $$
 :::
 
----
+<!--
 id: physics-ii-23
 note: physics-physics-ii
 title: "Currents in Parallel Branches"
 skills: [Parallel circuits, Ohm's law]
----
+-->
 
 A $12\ \text{V}$ source is connected across a $6\ \Omega$ resistor and a $3\ \Omega$ resistor in parallel. What is the current in each branch and the total current?
 
@@ -379,12 +379,12 @@ I_{tot} = I_1 + I_2 = 6\ \text{A}
 $$
 :::
 
----
+<!--
 id: physics-ii-24
 note: physics-physics-ii
 title: "Field from a Long Straight Wire"
 skills: [Magnetic field of a wire]
----
+-->
 
 A long straight wire carries $10\ \text{A}$. What is the magnetic field magnitude $5.0\ \text{cm}$ from the wire?
 
@@ -406,12 +406,12 @@ B = 4.0 \times 10^{-5}\ \text{T}
 $$
 :::
 
----
+<!--
 id: physics-ii-25
 note: physics-physics-ii
 title: "Force on a Current-Carrying Wire"
 skills: [Magnetic force on a wire]
----
+-->
 
 A $0.40\ \text{m}$ wire carries $5.0\ \text{A}$ in a $0.20\ \text{T}$ field. The wire is perpendicular to the field. What is the magnetic force?
 
@@ -429,12 +429,12 @@ F = (5.0)(0.40)(0.20) = 0.40\ \text{N}
 $$
 :::
 
----
+<!--
 id: physics-ii-26
 note: physics-physics-ii
 title: "Induced emf in a Coil"
 skills: [Faraday's law, Lenz's law]
----
+-->
 
 A $25$-turn coil of area $0.020\ \text{m}^2$ sits perpendicular to a magnetic field. The field drops from $0.60\ \text{T}$ to $0.10\ \text{T}$ in $0.10\ \text{s}$. The coil resistance is $5.0\ \Omega$. Find the induced emf and current magnitude.
 
@@ -464,12 +464,12 @@ I = \frac{\mathcal{E}}{R} = \frac{2.5}{5.0} = 0.50\ \text{A}
 $$
 :::
 
----
+<!--
 id: physics-ii-27
 note: physics-physics-ii
 title: "Current Growth in an RL Circuit"
 skills: [RL circuits]
----
+-->
 
 An RL circuit has $L = 2.0\ \text{H}$ and $R = 10\ \Omega$. If the current is growing toward a maximum of $4.0\ \text{A}$, what is the time constant and the current after one time constant?
 
@@ -493,12 +493,12 @@ I(\tau) = 4.0(1-e^{-1}) \approx 4.0(0.632) = 2.53\ \text{A}
 $$
 :::
 
----
+<!--
 id: physics-ii-28
 note: physics-physics-ii
 title: "Resonance in a Series RLC Circuit"
 skills: [Resonance, AC circuits]
----
+-->
 
 A series RLC circuit has $R = 15\ \Omega$, $L = 0.25\ \text{H}$, and $C = 0.040\ \text{F}$. What is the resonant angular frequency, and what current amplitude flows at resonance if the source has amplitude $30\ \text{V}$?
 
@@ -528,12 +528,12 @@ I_0 = \frac{V_0}{Z} = \frac{30}{15} = 2\ \text{A}
 $$
 :::
 
----
+<!--
 id: physics-ii-31
 note: physics-physics-ii
 title: "Field from an Infinite Line Charge"
 skills: [Cylindrical symmetry, Gauss's law]
----
+-->
 
 An infinite line has linear charge density $4.0\,\mu\text{C/m}$. What is the electric field magnitude $0.10\ \text{m}$ away?
 
@@ -563,12 +563,12 @@ $$
 The field points outward from the line if the charge density is positive.
 :::
 
----
+<!--
 id: physics-ii-32
 note: physics-physics-ii
 title: "Infer Resistivity from Geometry"
 skills: [Resistivity]
----
+-->
 
 A wire is $2.0\ \text{m}$ long, has resistance $0.80\ \Omega$, and cross-sectional area $2.0 \times 10^{-6}\ \text{m}^2$. What is its resistivity?
 
@@ -596,12 +596,12 @@ $$
 $$
 :::
 
----
+<!--
 id: physics-ii-33
 note: physics-physics-ii
 title: "Radius of Circular Motion in a Magnetic Field"
 skills: [Circular motion, Magnetic force]
----
+-->
 
 A particle with mass $3.2 \times 10^{-26}\ \text{kg}$ and charge $1.6 \times 10^{-19}\ \text{C}$ moves at $2.0 \times 10^5\ \text{m/s}$ perpendicular to a $0.50\ \text{T}$ field. What is the radius of its path?
 
@@ -623,12 +623,12 @@ r = 0.080\ \text{m}
 $$
 :::
 
----
+<!--
 id: physics-ii-34
 note: physics-physics-ii
 title: "Image Formation with a Thin Lens"
 skills: [Thin lenses]
----
+-->
 
 A converging lens has focal length $15\ \text{cm}$. An object is placed $30\ \text{cm}$ from the lens. Find the image distance and magnification.
 
@@ -666,12 +666,12 @@ $$
 The image is real, inverted, and the same size as the object.
 :::
 
----
+<!--
 id: physics-ii-35
 note: physics-physics-ii
 title: "Double-Slit Fringe Position"
 skills: [Interference]
----
+-->
 
 A double slit has slit separation $0.20\ \text{mm}$. A screen is $2.0\ \text{m}$ away. Light of wavelength $500\ \text{nm}$ is used. Where is the second bright fringe?
 
@@ -695,12 +695,12 @@ $$
 So the second bright fringe is $1.0\ \text{cm}$ from the center.
 :::
 
----
+<!--
 id: physics-ii-41
 note: physics-physics-ii
 title: "Induction with Lenz's Law"
 skills: [Faraday's law, Lenz's law]
----
+-->
 
 A square single-turn loop with side $0.20\ \text{m}$ lies in a magnetic field pointing out of the page. The field increases from $0.10\ \text{T}$ to $0.30\ \text{T}$ in $0.50\ \text{s}$. If the loop resistance is $0.40\ \Omega$, what are the induced current magnitude and direction?
 
@@ -738,12 +738,12 @@ $$
 Because the out-of-page flux is increasing, the induced field must point into the page, so the current is clockwise.
 :::
 
----
+<!--
 id: physics-ii-42
 note: physics-physics-ii
 title: "Exponential Charging in an RC Circuit"
 skills: [RC circuits, Time constant]
----
+-->
 
 A $50\,\mu\text{F}$ capacitor charges through a $40\ \text{k}\Omega$ resistor from a $24\ \text{V}$ battery. Find the time constant, the charge after two time constants, and the current after two time constants.
 
@@ -787,12 +787,12 @@ $$
 That is about $81\ \mu\text{A}$.
 :::
 
----
+<!--
 id: physics-ii-43
 note: physics-physics-ii
 title: "Series RLC Behavior Away from Resonance"
 skills: [AC circuits, Reactance]
----
+-->
 
 A series circuit has $R = 30\ \Omega$, $L = 0.20\ \text{H}$, and $C = 100\ \mu\text{F}$. It is driven by a $120\ \text{V}$ source at $50\ \text{Hz}$. Find $X_L$, $X_C$, the impedance, and whether the current leads or lags the source voltage.
 
@@ -832,12 +832,12 @@ $$
 Because $X_L > X_C$, the circuit is net inductive, so the current lags the source voltage.
 :::
 
----
+<!--
 id: physics-ii-44
 note: physics-physics-ii
 title: "Total Internal Reflection"
 skills: [Total internal reflection, Refraction]
----
+-->
 
 Light goes from glass with index $1.5$ into air with index $1.0$. What is the critical angle? If the incident angle is $45^\circ$, what happens?
 

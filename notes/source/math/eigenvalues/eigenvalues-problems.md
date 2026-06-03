@@ -1,9 +1,9 @@
----
+<!--
 id: eigenvalues-11
 note: math-eigenvalues
 title: "Check an Eigenvector"
 skills: [Eigenvectors, Core Idea]
----
+-->
 
 Let
 
@@ -65,12 +65,12 @@ $$
 $v$ is an eigenvector and the eigenvalue is $2$.
 :::
 
----
+<!--
 id: eigenvalues-12
 note: math-eigenvalues
 title: "Read Eigenvalues from a Triangular Matrix"
 skills: [Triangular Matrices, Eigenvalues]
----
+-->
 
 Find the eigenvalues of
 
@@ -93,12 +93,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-13
 note: math-eigenvalues
 title: "Solve a Characteristic Equation"
 skills: [Characteristic Equation, Factoring]
----
+-->
 
 Find the eigenvalues of
 
@@ -149,12 +149,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-14
 note: math-eigenvalues
 title: "Find an Eigenspace"
 skills: [Eigenspaces, Null Space]
----
+-->
 
 For
 
@@ -217,12 +217,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-15
 note: math-eigenvalues
 title: "Use Trace to Find the Missing Eigenvalue"
 skills: [Trace, Eigenvalues]
----
+-->
 
 A $2 \times 2$ matrix has eigenvalues $6$ and $k$. Its trace is $11$.
 
@@ -242,12 +242,12 @@ k = 5.
 $$
 :::
 
----
+<!--
 id: eigenvalues-16
 note: math-eigenvalues
 title: "Decide Whether a Matrix Is Invertible"
 skills: [Invertibility, Eigenvalues]
----
+-->
 
 A matrix has eigenvalues $3$, $0$, and $-2$.
 
@@ -259,12 +259,12 @@ A matrix is invertible if and only if $0$ is not an eigenvalue.
 Since $0$ is one of the eigenvalues here, the matrix is not invertible.
 :::
 
----
+<!--
 id: eigenvalues-17
 note: math-eigenvalues
 title: "Identify Algebraic Multiplicity"
 skills: [Multiplicity, Characteristic Polynomial]
----
+-->
 
 The characteristic polynomial of a matrix is
 
@@ -280,12 +280,12 @@ The algebraic multiplicity is the multiplicity of the root in the characteristic
 Since $(\lambda - 2)$ appears three times, the algebraic multiplicity of $2$ is $3$.
 :::
 
----
+<!--
 id: eigenvalues-18
 note: math-eigenvalues
 title: "Use a Projection Matrix"
 skills: [Projection Matrices, Special Matrices]
----
+-->
 
 What are the only possible eigenvalues of a projection matrix $P$ satisfying
 
@@ -325,12 +325,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-19
 note: math-eigenvalues
 title: "Find the Eigenvalues of a Rotation Matrix"
 skills: [Complex Eigenvalues, Real Matrices]
----
+-->
 
 Find the eigenvalues of
 
@@ -371,12 +371,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-110
 note: math-eigenvalues
 title: "Compute Eigenvalues of a 2x2 Matrix"
 skills: [Characteristic Equation, 2x2 Formula]
----
+-->
 
 Find the eigenvalues of
 
@@ -421,12 +421,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-21
 note: math-eigenvalues
 title: "Find Eigenvectors for Both Eigenvalues"
 skills: [Eigenvectors, Eigenspaces, Characteristic Equation]
----
+-->
 
 For
 
@@ -486,12 +486,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-22
 note: math-eigenvalues
 title: "Compare Multiplicities"
 skills: [Multiplicity, Eigenspaces]
----
+-->
 
 For
 
@@ -561,12 +561,12 @@ which has dimension $1$.
 Therefore the geometric multiplicity is $1$.
 :::
 
----
+<!--
 id: eigenvalues-23
 note: math-eigenvalues
 title: "Decide Whether a Matrix Is Diagonalizable"
 skills: [Diagonalization, Multiplicity]
----
+-->
 
 Is
 
@@ -606,12 +606,12 @@ From $(A-2I)v=0$, we get $y=0$ and $z=0$, with $x$ free. So the eigenspace for $
 That is not enough independent eigenvectors. The matrix is not diagonalizable.
 :::
 
----
+<!--
 id: eigenvalues-24
 note: math-eigenvalues
 title: "Build P and D from Eigenpairs"
 skills: [Diagonalization, Eigenvectors]
----
+-->
 
 Suppose a matrix has the eigenpairs
 
@@ -670,12 +670,12 @@ D =
 $$
 :::
 
----
+<!--
 id: eigenvalues-25
 note: math-eigenvalues
 title: "Use Trace and Determinant to Check Your Work"
 skills: [Trace, Determinant, Eigenvalues]
----
+-->
 
 You found that the eigenvalues of
 
@@ -719,12 +719,12 @@ $$
 Since the product does not match the determinant, the proposed eigenvalues are not correct.
 :::
 
----
+<!--
 id: eigenvalues-26
 note: math-eigenvalues
 title: "Use a Symmetric Matrix"
 skills: [Symmetric Matrices, Orthogonal Eigenvectors]
----
+-->
 
 For
 
@@ -810,12 +810,12 @@ $$
 so the eigenvectors are orthogonal.
 :::
 
----
+<!--
 id: eigenvalues-27
 note: math-eigenvalues
 title: "Use a Nilpotent Matrix"
 skills: [Nilpotent Matrices, Eigenvalues]
----
+-->
 
 Suppose a matrix satisfies
 
@@ -849,12 +849,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-28
 note: math-eigenvalues
 title: "Find Complex Eigenvalues from a Real Matrix"
 skills: [Complex Eigenvalues, Trace and Determinant, Characteristic Equation]
----
+-->
 
 Find the eigenvalues of
 
@@ -910,12 +910,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-31
 note: math-eigenvalues
 title: "Predict Long-Term Behavior from Eigenvalues"
 skills: [Applications, Dynamical Systems]
----
+-->
 
 A discrete system is defined by
 
@@ -951,12 +951,12 @@ $$
 So the component in the $\frac{1}{4}$-direction dies out, while the component in the $\frac{3}{2}$-direction dominates.
 :::
 
----
+<!--
 id: eigenvalues-32
 note: math-eigenvalues
 title: "Analyze a Differential Equation"
 skills: [Applications, Differential Equations]
----
+-->
 
 Consider the system
 
@@ -990,12 +990,12 @@ so it stays constant in size.
 Thus one mode decays and the other remains neutral.
 :::
 
----
+<!--
 id: eigenvalues-33
 note: math-eigenvalues
 title: "Find a Steady-State Eigenvector"
 skills: [Applications, Markov Chains]
----
+-->
 
 Let
 
@@ -1062,12 +1062,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-34
 note: math-eigenvalues
 title: "Use Diagonalization to Track Repeated Action"
 skills: [Diagonalization, Applications]
----
+-->
 
 Suppose $v_1$ and $v_2$ are eigenvectors of $A$ with eigenvalues $3$ and $\frac{1}{3}$, respectively. Let
 
@@ -1105,12 +1105,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-35
 note: math-eigenvalues
 title: "Identify Principal Directions"
 skills: [Symmetric Matrices, Applications]
----
+-->
 
 For the symmetric matrix
 
@@ -1168,12 +1168,12 @@ $$
 $$
 :::
 
----
+<!--
 id: eigenvalues-41
 note: math-eigenvalues
 title: "When Is a Triangular Matrix Diagonalizable?"
 skills: [Diagonalization, Multiplicity, Triangular Matrices]
----
+-->
 
 For
 
@@ -1215,12 +1215,12 @@ k \ne 2.
 $$
 :::
 
----
+<!--
 id: eigenvalues-42
 note: math-eigenvalues
 title: "A Repeated Eigenvalue in Three Dimensions"
 skills: [Multiplicity, Diagonalization, Eigenspaces]
----
+-->
 
 Consider
 
@@ -1262,12 +1262,12 @@ That is fewer than its algebraic multiplicity, so $B$ does not have three indepe
 Therefore $B$ is not diagonalizable.
 :::
 
----
+<!--
 id: eigenvalues-43
 note: math-eigenvalues
 title: "Use Orthogonality and the Characteristic Equation"
 skills: [Orthogonal Matrices, Complex Eigenvalues, Trace and Determinant]
----
+-->
 
 A real $2 \times 2$ orthogonal matrix has determinant $1$ and trace $0$.
 
@@ -1303,12 +1303,12 @@ i \quad \text{and} \quad -i.
 $$
 :::
 
----
+<!--
 id: eigenvalues-44
 note: math-eigenvalues
 title: "Complex Eigenvalues from Trace and Determinant"
 skills: [Complex Eigenvalues, Characteristic Equation, Trace and Determinant]
----
+-->
 
 A real $2 \times 2$ matrix has trace $4$ and determinant $13$.
 

@@ -1,9 +1,9 @@
----
+<!--
 id: proof-writing-11
 note: math-proof-writing
 title: "Rewrite a Universal Conditional Statement"
 skills: [Quantifiers, Implication]
----
+-->
 
 Rewrite the statement below using symbols:
 
@@ -23,12 +23,12 @@ $$
 $$
 :::
 
----
+<!--
 id: proof-writing-12
 note: math-proof-writing
 title: "Negate a Quantified Statement"
 skills: [Quantifiers, Negation]
----
+-->
 
 Write the negation of
 
@@ -48,12 +48,12 @@ $$
 In words, there is a real number that is greater than or equal to every real number.
 :::
 
----
+<!--
 id: proof-writing-13
 note: math-proof-writing
 title: "Split an 'If and Only If'"
 skills: [Logical Form, Equivalence]
----
+-->
 
 What two implications must be proved to establish $P \Leftrightarrow Q$?
 
@@ -69,12 +69,12 @@ $$
 Proving both directions is exactly what makes the statement an equivalence.
 :::
 
----
+<!--
 id: proof-writing-14
 note: math-proof-writing
 title: "Add Two Even Integers"
 skills: [Direct Proof, Even/Odd]
----
+-->
 
 Prove that if $m$ and $n$ are even integers, then $m+n$ is even.
 
@@ -94,12 +94,12 @@ $$
 Because $a+b$ is an integer, $m+n$ is even.
 :::
 
----
+<!--
 id: proof-writing-15
 note: math-proof-writing
 title: "Multiply Two Odd Integers"
 skills: [Direct Proof, Even/Odd]
----
+-->
 
 Prove that if $m$ and $n$ are odd integers, then $mn$ is odd.
 
@@ -125,12 +125,12 @@ $$
 This has the form $2k+1$, so $mn$ is odd.
 :::
 
----
+<!--
 id: proof-writing-16
 note: math-proof-writing
 title: "Add Divisible Numbers"
 skills: [Direct Proof, Divisibility]
----
+-->
 
 Prove that if $a \mid b$ and $a \mid c$, then $a \mid (b+c)$.
 
@@ -148,12 +148,12 @@ $$
 Because $k+\ell$ is an integer, $a \mid (b+c)$.
 :::
 
----
+<!--
 id: proof-writing-17
 note: math-proof-writing
 title: "A Basic Set Inclusion"
 skills: [Set Inclusion]
----
+-->
 
 Prove that $A \cap B \subseteq A$.
 
@@ -167,12 +167,12 @@ A \cap B \subseteq A.
 $$
 :::
 
----
+<!--
 id: proof-writing-18
 note: math-proof-writing
 title: "Check Injectivity"
 skills: [Injective, Functions]
----
+-->
 
 Let $f(x) = 5x - 2$ on $\mathbb{R}$. Prove that $f$ is injective.
 
@@ -198,12 +198,12 @@ $$
 Therefore $f$ is injective.
 :::
 
----
+<!--
 id: proof-writing-19
 note: math-proof-writing
 title: "Check Surjectivity"
 skills: [Surjective, Functions]
----
+-->
 
 Let $g(x) = x^3$ on $\mathbb{R}$. Prove that $g$ is surjective.
 
@@ -223,12 +223,12 @@ $$
 So every real number has a preimage under $g$, and $g$ is surjective.
 :::
 
----
+<!--
 id: proof-writing-20
 note: math-proof-writing
 title: "Give a Witness"
 skills: [Existence, Rational Numbers]
----
+-->
 
 Show that there exists a rational number between $1$ and $2$.
 
@@ -248,12 +248,12 @@ $$
 So a rational number between $1$ and $2$ exists.
 :::
 
----
+<!--
 id: proof-writing-21
 note: math-proof-writing
 title: "Distribute a Set Intersection"
 skills: [Set Equality, Set Inclusion]
----
+-->
 
 Prove that
 
@@ -281,12 +281,12 @@ In the second case, $x \in A$ and $x \in C$, so $x \in A \cap (B \cup C)$.
 Thus the two sets are equal.
 :::
 
----
+<!--
 id: proof-writing-22
 note: math-proof-writing
 title: "An Even-Difference Relation"
 skills: [Relations, Direct Proof]
----
+-->
 
 On the integers, define a relation $R$ by $aRb$ if $a-b$ is even. Prove that $R$ is reflexive, symmetric, and transitive.
 
@@ -322,12 +322,12 @@ $$
 so $a-c$ is even. Hence $aRc$.
 :::
 
----
+<!--
 id: proof-writing-23
 note: math-proof-writing
 title: "Use the Contrapositive"
 skills: [Contrapositive, Even/Odd]
----
+-->
 
 Prove that if $n^2$ is even, then $n$ is even.
 
@@ -345,12 +345,12 @@ This has the form $2m+1$, so $n^2$ is odd.
 Therefore the contrapositive is true, and so the original statement is true.
 :::
 
----
+<!--
 id: proof-writing-24
 note: math-proof-writing
 title: "A Contradiction Argument"
 skills: [Contradiction, Irrationality]
----
+-->
 
 Prove that $\sqrt{2}$ is irrational.
 
@@ -384,12 +384,12 @@ So $b^2$ is even, hence $b$ is even. That means both $a$ and $b$ are even, contr
 Therefore $\sqrt{2}$ is irrational.
 :::
 
----
+<!--
 id: proof-writing-25
 note: math-proof-writing
 title: "Split Into Cases"
 skills: [Cases, Modulo]
----
+-->
 
 Prove that for any integer $n$, $n^2 \equiv 0$ or $1 \pmod{4}$.
 
@@ -411,12 +411,12 @@ $$
 In either case, $n^2 \equiv 0$ or $1 \pmod{4}$.
 :::
 
----
+<!--
 id: proof-writing-26
 note: math-proof-writing
 title: "Induction on a Sum"
 skills: [Induction, Sums]
----
+-->
 
 Prove by induction that for all integers $n \ge 1$,
 
@@ -456,12 +456,12 @@ $$
 This is exactly the desired formula with $n = k+1$. Therefore the statement holds for all $n \ge 1$.
 :::
 
----
+<!--
 id: proof-writing-27
 note: math-proof-writing
 title: "Existence and Uniqueness"
 skills: [Existence, Uniqueness]
----
+-->
 
 Show that there exists exactly one real number $x$ such that
 
@@ -485,12 +485,12 @@ So $x=6$ is a solution, which proves existence.
 If $x_1$ and $x_2$ both satisfy $3x - 7 = 11$, then each must equal $6$, so $x_1 = x_2$. Thus the solution is unique.
 :::
 
----
+<!--
 id: proof-writing-28
 note: math-proof-writing
 title: "A Cubic Function Is Bijective"
 skills: [Functions, Injective, Surjective]
----
+-->
 
 Let $f(x) = x^3$ on $\mathbb{R}$. Prove that $f$ is bijective.
 
@@ -525,12 +525,12 @@ So every real number has a preimage, and $f$ is surjective.
 Therefore $f$ is bijective.
 :::
 
----
+<!--
 id: proof-writing-31
 note: math-proof-writing
 title: "Prove a Linear Map Is Bijective"
 skills: [Functions, Injective, Surjective]
----
+-->
 
 Let $f(x) = 4x - 1$ on $\mathbb{R}$. Prove that $f$ is bijective.
 
@@ -566,12 +566,12 @@ This choice gives $f(x)=y$, so $f$ is surjective.
 Therefore $f$ is bijective.
 :::
 
----
+<!--
 id: proof-writing-32
 note: math-proof-writing
 title: "Recover a Set Inclusion"
 skills: [Set Inclusion, Set Equality]
----
+-->
 
 Suppose $A \cap B = A$. Prove that $A \subseteq B$.
 
@@ -587,12 +587,12 @@ A \subseteq B.
 $$
 :::
 
----
+<!--
 id: proof-writing-33
 note: math-proof-writing
 title: "Exactly One of Two Consecutive Integers Is Even"
 skills: [Cases, Even/Odd]
----
+-->
 
 Prove that for every integer $n$, exactly one of $n$ and $n+1$ is even.
 
@@ -618,12 +618,12 @@ is even.
 So in either case, exactly one of $n$ and $n+1$ is even.
 :::
 
----
+<!--
 id: proof-writing-34
 note: math-proof-writing
 title: "Sum of the First Odd Numbers"
 skills: [Induction, Sums]
----
+-->
 
 Prove by induction that for all integers $n \ge 1$,
 
@@ -661,12 +661,12 @@ $$
 So the formula holds for $k+1$. Therefore it holds for all $n \ge 1$.
 :::
 
----
+<!--
 id: proof-writing-35
 note: math-proof-writing
 title: "No Integer Squares to Two"
 skills: [Contradiction, Integers]
----
+-->
 
 Prove that there is no integer $n$ such that
 
@@ -692,12 +692,12 @@ But the left-hand side is even, while the right-hand side is odd, which is impos
 Therefore no integer $n$ satisfies $n^2=2$.
 :::
 
----
+<!--
 id: proof-writing-41
 note: math-proof-writing
 title: "Quantifier Order Matters"
 skills: [Quantifiers, Logic]
----
+-->
 
 Give a concrete predicate and domain where
 
@@ -727,12 +727,12 @@ But $\exists y\, \forall x\, P(x,y)$ is false, because no single real number $y$
 This shows that the order of the quantifiers matters.
 :::
 
----
+<!--
 id: proof-writing-42
 note: math-proof-writing
 title: "A Set Characterization"
 skills: [Set Equality, Set Inclusion]
----
+-->
 
 Prove that
 
@@ -754,12 +754,12 @@ Now assume $A \cap B = A$. Let $x \in A$. Then $x \in A \cap B$, so $x \in B$.
 Thus every element of $A$ is an element of $B$, which means $A \subseteq B$.
 :::
 
----
+<!--
 id: proof-writing-43
 note: math-proof-writing
 title: "A Bijection Gives Exactly One Solution"
 skills: [Functions, Existence, Uniqueness]
----
+-->
 
 Let $f:\mathbb{R}\to\mathbb{R}$ be bijective. Prove that for each $y\in\mathbb{R}$, the equation $f(x)=y$ has exactly one solution.
 
@@ -789,12 +789,12 @@ $$
 Therefore the equation $f(x)=y$ has exactly one solution.
 :::
 
----
+<!--
 id: proof-writing-44
 note: math-proof-writing
 title: "Irrationality of Root Two"
 skills: [Contradiction, Irrationality]
----
+-->
 
 Prove that $\sqrt{2}$ is irrational.
 

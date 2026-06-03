@@ -1,12 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
-
 # 1. What a derivative means
 
 The derivative measures how a function changes as its input changes.
@@ -737,3 +728,14 @@ $$
 - Using the second derivative test when $f''(c)=0$ and drawing a conclusion anyway.
 - Writing $\frac{d}{dx}[\ln x]=\frac{1}{x}$ without checking that the domain requires $x>0$.
 - Solving an optimization problem algebraically but forgetting to interpret the result in context.
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

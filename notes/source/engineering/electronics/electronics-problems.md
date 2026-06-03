@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-electronics-11"
 note: "engineering-electronics"
-title: "Review: Focus"
+title: "Review: Electronics"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for electronics."
+answer: "Electronics studies circuits that control current, voltage, and signal behavior using passive and active components."
 skills:
-  - "Focus"
----
+  - "Electronics"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Electronics**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for electronics.
+One short answer is: Electronics studies circuits that control current, voltage, and signal behavior using passive and active components.
 :::

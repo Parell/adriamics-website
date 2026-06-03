@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-quality-control-11"
 note: "engineering-quality-control"
-title: "Review: Focus"
+title: "Review: Quality Control"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for quality control."
+answer: "Quality control keeps a process within acceptable limits by measuring variation and acting on defects early."
 skills:
-  - "Focus"
----
+  - "Quality Control"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Quality Control**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for quality control.
+One short answer is: Quality control keeps a process within acceptable limits by measuring variation and acting on defects early.
 :::

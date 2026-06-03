@@ -1,11 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
-
 ## Welcome to UES
 
 UES, the Universal Education System, is a growing library of subject notes built to make technical topics easier to study, review, and revisit.
@@ -32,3 +24,10 @@ Start with the topic list for the subject you need, open the page that matches y
 - Notes are written as concise overviews, not full textbooks.
 - Topics are grouped by subject so related material stays together.
 - Some sections may still be placeholders while the library continues to grow after the first release.
+
+## Sources
+
+- [CommonMark Specification](https://spec.commonmark.org/)
+- [GitHub Docs](https://docs.github.com/)
+- [Wikimedia Commons image credit](https://commons.wikimedia.org/w/index.php?curid=156464890)
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

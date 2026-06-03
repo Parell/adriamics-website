@@ -1,9 +1,9 @@
----
+<!--
 id: classical-mechanics-11
 note: physics-classical-mechanics
 title: "Model a Body as a Particle"
 skills: [Modeling assumptions, Scope and core ideas]
----
+-->
 
 A large object is represented by a single position vector in a mechanics model. What simplifying assumption is being used?
 
@@ -13,12 +13,12 @@ The object is being treated as a particle.
 That means we ignore its size and rotation and focus only on its translational motion.
 :::
 
----
+<!--
 id: classical-mechanics-12
 note: physics-classical-mechanics
 title: "Differentiate a Position Function"
 skills: [Position, velocity, and acceleration, Kinematics]
----
+-->
 
 If
 
@@ -54,12 +54,12 @@ a(2) = 4
 $$
 :::
 
----
+<!--
 id: classical-mechanics-13
 note: physics-classical-mechanics
 title: "Find the Net Force"
 skills: [Newton's second law]
----
+-->
 
 A $4$ kg cart accelerates at $3\ \text{m/s}^2$ to the east. What is the net force on the cart?
 
@@ -79,12 +79,12 @@ $$
 to the east.
 :::
 
----
+<!--
 id: classical-mechanics-14
 note: physics-classical-mechanics
 title: "Compute Work from a Constant Force"
 skills: [Work]
----
+-->
 
 A constant force of $15\ \text{N}$ acts at an angle of $60^\circ$ to a displacement of $4\ \text{m}$. How much work is done?
 
@@ -108,12 +108,12 @@ W = 60 \cdot \frac{1}{2} = 30\ \text{J}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-15
 note: physics-classical-mechanics
 title: "Compute Linear Momentum"
 skills: [Linear momentum]
----
+-->
 
 A $0.5$ kg puck moves at $8\ \text{m/s}$. What is its momentum?
 
@@ -133,12 +133,12 @@ $$
 The momentum points in the same direction as the velocity.
 :::
 
----
+<!--
 id: classical-mechanics-16
 note: physics-classical-mechanics
 title: "Compute Average Power"
 skills: [Power]
----
+-->
 
 A machine does $180\ \text{J}$ of work in $3\ \text{s}$. What is its average power?
 
@@ -156,12 +156,12 @@ P = \frac{180}{3} = 60\ \text{W}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-17
 note: physics-classical-mechanics
 title: "Use Rotational Kinematics"
 skills: [Rotational kinematics]
----
+-->
 
 A wheel starts with angular velocity $\omega_0 = 2\ \text{rad/s}$ and angular acceleration $\alpha = 4\ \text{rad/s}^2$. What is its angular velocity after $3\ \text{s}$?
 
@@ -179,12 +179,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-18
 note: physics-classical-mechanics
 title: "Find a Torque"
 skills: [Torque]
----
+-->
 
 A $12\ \text{N}$ force is applied perpendicular to a wrench $0.25\ \text{m}$ from the pivot. What is the torque?
 
@@ -202,12 +202,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-19
 note: physics-classical-mechanics
 title: "Find the Period of SHM"
 skills: [Simple harmonic motion, Period and frequency]
----
+-->
 
 A mass-spring system has $m = 2\ \text{kg}$ and $k = 8\ \text{N/m}$. What is its period?
 
@@ -225,12 +225,12 @@ T = \frac{2\pi}{\omega} = \frac{2\pi}{2} = \pi\ \text{s}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-110
 note: physics-classical-mechanics
 title: "Write a Lagrangian"
 skills: [Lagrangian]
----
+-->
 
 For a mass-spring system with kinetic energy
 
@@ -260,12 +260,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-21
 note: physics-classical-mechanics
 title: "Projectile Motion to the Peak"
 skills: [Projectile motion, Kinematics]
----
+-->
 
 A ball is launched from level ground at $20\ \text{m/s}$ at an angle of $60^\circ$ above the horizontal. Take $g = 10\ \text{m/s}^2$. How far horizontally has it traveled when it reaches its highest point?
 
@@ -297,12 +297,12 @@ x = v_{0x}t = 10\sqrt{3}\ \text{m}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-22
 note: physics-classical-mechanics
 title: "Relative Motion on a River"
 skills: [Relative motion, Vectors]
----
+-->
 
 A swimmer moves at $3\ \text{m/s}$ due north relative to the water, while the river flows at $4\ \text{m/s}$ due east. What is the swimmer's velocity relative to the bank?
 
@@ -330,12 +330,12 @@ $$
 north of east.
 :::
 
----
+<!--
 id: classical-mechanics-23
 note: physics-classical-mechanics
 title: "Work-Energy with Friction"
 skills: [Work-energy theorem, Friction]
----
+-->
 
 A $2$ kg block starts from rest. A horizontal force of $6\ \text{N}$ pulls it $5\ \text{m}$, while kinetic friction exerts a $2\ \text{N}$ force opposite the motion. What is the block's speed after moving $5\ \text{m}$?
 
@@ -367,12 +367,12 @@ v = 2\sqrt{5}\ \text{m/s}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-24
 note: physics-classical-mechanics
 title: "Impulse Changes Momentum"
 skills: [Impulse, Linear momentum]
----
+-->
 
 A $0.5$ kg puck moves at $6\ \text{m/s}$ to the right. A force of $10\ \text{N}$ acts to the left for $0.2\ \text{s}$. What is the puck's final speed?
 
@@ -406,12 +406,12 @@ $$
 to the right.
 :::
 
----
+<!--
 id: classical-mechanics-25
 note: physics-classical-mechanics
 title: "Center of Mass of Two Masses"
 skills: [Center of mass]
----
+-->
 
 Two masses lie on the $x$-axis: $2$ kg at $x = 0$ and $6$ kg at $x = 4\ \text{m}$. What is the center of mass?
 
@@ -429,12 +429,12 @@ x_{cm} = \frac{2(0) + 6(4)}{2 + 6} = \frac{24}{8} = 3\ \text{m}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-26
 note: physics-classical-mechanics
 title: "Rolling Without Slipping"
 skills: [Rolling without slipping, Rotational kinetic energy]
----
+-->
 
 A wheel of radius $0.3\ \text{m}$ rolls without slipping at $5\ \text{m/s}$. The wheel has mass $4\ \text{kg}$ and moment of inertia $I = \frac{1}{2}mR^2$. Find its angular speed and its total kinetic energy.
 
@@ -478,12 +478,12 @@ T = 50 + 25 = 75\ \text{J}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-27
 note: physics-classical-mechanics
 title: "Static Support Forces"
 skills: [Equilibrium conditions, Statics]
----
+-->
 
 A uniform $2$ m beam weighs $40\ \text{N}$ and is supported at both ends. A $60\ \text{N}$ load hangs $1.5$ m from the left end. What are the upward support forces at the left and right ends?
 
@@ -517,12 +517,12 @@ R_L = 100 - 65 = 35\ \text{N}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-28
 note: physics-classical-mechanics
 title: "Derive a Simple Equation of Motion"
 skills: [Lagrangian, Euler-Lagrange equation]
----
+-->
 
 For a mass-spring oscillator with
 
@@ -570,12 +570,12 @@ m\ddot{x} + kx = 0
 $$
 :::
 
----
+<!--
 id: classical-mechanics-31
 note: physics-classical-mechanics
 title: "Two-Body Pulley System"
 skills: [Newton's second law, Constraints]
----
+-->
 
 A $2$ kg block on a frictionless table is connected by a light string over a frictionless pulley to a hanging $1$ kg mass. Find the acceleration of the system and the string tension. Take $g = 10\ \text{m/s}^2$.
 
@@ -615,12 +615,12 @@ T = 2a = \frac{20}{3}\ \text{N}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-32
 note: physics-classical-mechanics
 title: "Perfectly Inelastic Collision"
 skills: [Conservation of linear momentum, Collisions]
----
+-->
 
 A $2$ kg cart moving at $3\ \text{m/s}$ collides with a stationary $4$ kg cart. The carts stick together. What is their final speed, and how much kinetic energy is lost?
 
@@ -660,12 +660,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-33
 note: physics-classical-mechanics
 title: "Torque, Angular Acceleration, and Rotation"
 skills: [Torque, Rotational kinematics, Moment of inertia]
----
+-->
 
 A uniform disk has mass $2$ kg and radius $0.5$ m. A tangential force of $4\ \text{N}$ is applied at the rim for $2\ \text{s}$ starting from rest. Find the angular acceleration, the angular speed after $2\ \text{s}$, and the angle turned through.
 
@@ -701,12 +701,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-34
 note: physics-classical-mechanics
 title: "Compare Two Circular Orbits"
 skills: [Circular orbits, Central-force intuition]
----
+-->
 
 A satellite moves in a circular orbit of radius $r_1$ around a planet. Another satellite orbits at radius $r_2 = 4r_1$. What are the ratios $v_2/v_1$ and $T_2/T_1$?
 
@@ -730,12 +730,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-35
 note: physics-classical-mechanics
 title: "Choose the Best Mechanics Tool"
 skills: [Problem-solving workflow]
----
+-->
 
 For each situation, name the main tool from the workflow that is most useful.
 
@@ -753,12 +753,12 @@ Use the tool that matches the situation:
 (d) Angular momentum conservation
 :::
 
----
+<!--
 id: classical-mechanics-41
 note: physics-classical-mechanics
 title: "Rolling Disk Dropping Through a Height"
 skills: [Rolling without slipping, Rotational kinetic energy, Work and energy]
----
+-->
 
 A solid disk starts from rest and rolls without slipping down a track, dropping through a vertical height $h$. Derive its speed at the bottom in terms of $g$ and $h$.
 
@@ -798,12 +798,12 @@ v = \sqrt{\frac{4gh}{3}}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-42
 note: physics-classical-mechanics
 title: "Spin-Up from Conservation of Angular Momentum"
 skills: [Conservation of angular momentum, Rotational kinetic energy]
----
+-->
 
 A skater's moment of inertia decreases from $6\ \text{kg}\cdot\text{m}^2$ to $2\ \text{kg}\cdot\text{m}^2$ while angular momentum is conserved. If the initial angular speed is $3\ \text{rad/s}$, find the final angular speed and the change in rotational kinetic energy.
 
@@ -843,12 +843,12 @@ $$
 $$
 :::
 
----
+<!--
 id: classical-mechanics-43
 note: physics-classical-mechanics
 title: "Beam Balance with Multiple Loads"
 skills: [Equilibrium conditions, Statics]
----
+-->
 
 A $3$ m uniform beam weighs $30\ \text{N}$ and is supported at both ends. Additional loads of $20\ \text{N}$ and $50\ \text{N}$ hang at $0.5$ m and $2.5$ m from the left end, respectively. What are the support forces?
 
@@ -882,12 +882,12 @@ R_L = 100 - 60 = 40\ \text{N}
 $$
 :::
 
----
+<!--
 id: classical-mechanics-44
 note: physics-classical-mechanics
 title: "Lagrangian with Two Springs"
 skills: [Lagrangian, Euler-Lagrange equation]
----
+-->
 
 A mass moves on a frictionless line between two identical springs, each with spring constant $k$. If the mass is displaced by $x$ from equilibrium, derive the equation of motion using the Lagrangian method.
 

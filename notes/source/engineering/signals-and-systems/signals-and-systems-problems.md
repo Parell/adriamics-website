@@ -1,15 +1,15 @@
----
+<!--
 id: "engineering-signals-and-systems-11"
 note: "engineering-signals-and-systems"
-title: "Review: Focus"
+title: "Review: Signals and Systems"
 type: "text"
-answer: "Cover the main concepts, methods, terminology, and representative problems for signals and systems."
+answer: "Signals and systems studies how input signals are transformed by linear systems and how those transformations can be analyzed in time and frequency."
 skills:
-  - "Focus"
----
+  - "Signals and Systems"
+-->
 
-What is the main idea of **Focus**?
+What is the main idea of **Signals and Systems**?
 
 :::solution
-One short answer is: Cover the main concepts, methods, terminology, and representative problems for signals and systems.
+One short answer is: Signals and systems studies how input signals are transformed by linear systems and how those transformations can be analyzed in time and frequency.
 :::

@@ -1,9 +1,9 @@
----
+<!--
 id: limits-11
 note: math-limits
 title: "Evaluate a Polynomial Limit"
 skills: [What a Limit Means, Direct Substitution]
----
+-->
 
 Evaluate the limit:
 
@@ -21,12 +21,12 @@ $$
 So the limit is $21$.
 :::
 
----
+<!--
 id: limits-12
 note: math-limits
 title: "Factor a Removable Discontinuity"
 skills: [Algebraic Techniques, Removable Discontinuity]
----
+-->
 
 Evaluate the limit:
 
@@ -56,12 +56,12 @@ $$
 So the limit is $2$.
 :::
 
----
+<!--
 id: limits-13
 note: math-limits
 title: "Read a Left-Hand Limit from a Piecewise Function"
 skills: [One-Sided Limits, Piecewise Functions]
----
+-->
 
 Let
 
@@ -85,12 +85,12 @@ $$
 $$
 :::
 
----
+<!--
 id: limits-14
 note: math-limits
 title: "Use the Sine Standard Limit"
 skills: [Special Limits, Trigonometric Limits]
----
+-->
 
 Evaluate the limit:
 
@@ -106,12 +106,12 @@ $$
 $$
 :::
 
----
+<!--
 id: limits-15
 note: math-limits
 title: "Identify an Oscillating Limit"
 skills: [Oscillation, Limits That Do Not Exist]
----
+-->
 
 Does the limit exist?
 
@@ -125,12 +125,12 @@ No. As $x$ gets close to $0$, the inside value $\frac{1}{x}$ grows without bound
 Since it does not approach a single value, the limit does not exist.
 :::
 
----
+<!--
 id: limits-16
 note: math-limits
 title: "Evaluate a Rational Limit at Infinity"
 skills: [Limits at Infinity, Rational Functions]
----
+-->
 
 Evaluate the limit:
 
@@ -148,12 +148,12 @@ $$
 So the limit is $\frac{5}{2}$.
 :::
 
----
+<!--
 id: limits-17
 note: math-limits
 title: "Recognize an Infinite Limit"
 skills: [Infinite Limits, Vertical Asymptotes]
----
+-->
 
 Evaluate the limit:
 
@@ -173,12 +173,12 @@ $$
 This means $x=2$ is a vertical asymptote.
 :::
 
----
+<!--
 id: limits-18
 note: math-limits
 title: "Use Continuity of a Polynomial"
 skills: [Continuity, Direct Substitution]
----
+-->
 
 Evaluate the limit:
 
@@ -196,12 +196,12 @@ $$
 So the limit is $1$.
 :::
 
----
+<!--
 id: limits-19
 note: math-limits
 title: "Evaluate an Exponential Standard Limit"
 skills: [Special Limits, Exponential Limits]
----
+-->
 
 Evaluate the limit:
 
@@ -217,12 +217,12 @@ $$
 $$
 :::
 
----
+<!--
 id: limits-110
 note: math-limits
 title: "Rationalize a Root Limit"
 skills: [Algebraic Techniques, Rationalizing]
----
+-->
 
 Evaluate the limit:
 
@@ -247,12 +247,12 @@ $$
 So the limit is $\frac{1}{6}$.
 :::
 
----
+<!--
 id: limits-21
 note: math-limits
 title: "Make a Removable Discontinuity Continuous"
 skills: [Continuity, Factoring, Removable Discontinuity]
----
+-->
 
 Let
 
@@ -292,12 +292,12 @@ k=8
 $$
 :::
 
----
+<!--
 id: limits-22
 note: math-limits
 title: "Determine Whether a Piecewise Limit Exists"
 skills: [One-Sided Limits, Piecewise Functions, Algebraic Techniques]
----
+-->
 
 Let
 
@@ -335,12 +335,12 @@ $$
 Since the one-sided limits are different, the two-sided limit does not exist.
 :::
 
----
+<!--
 id: limits-23
 note: math-limits
 title: "Combine a Factored Limit with a Simple Substitution"
 skills: [Limit Laws, Factoring, Direct Substitution]
----
+-->
 
 Evaluate the limit:
 
@@ -370,12 +370,12 @@ $$
 So the limit is $6$.
 :::
 
----
+<!--
 id: limits-24
 note: math-limits
 title: "Use a Standard Trig Limit with a Constant"
 skills: [Special Limits, Trigonometric Limits, Limit Laws]
----
+-->
 
 Evaluate the limit:
 
@@ -399,12 +399,12 @@ $$
 So the limit is $3$.
 :::
 
----
+<!--
 id: limits-25
 note: math-limits
 title: "Apply the Squeeze Theorem"
 skills: [Squeeze Theorem, Oscillation, Limits at a Point]
----
+-->
 
 Evaluate the limit:
 
@@ -432,12 +432,12 @@ $$
 $$
 :::
 
----
+<!--
 id: limits-26
 note: math-limits
 title: "Find the Horizontal Asymptote"
 skills: [Limits at Infinity, Horizontal Asymptotes, Rational Functions]
----
+-->
 
 Find the horizontal asymptote of
 
@@ -461,12 +461,12 @@ y=2
 $$
 :::
 
----
+<!--
 id: limits-27
 note: math-limits
 title: "Use the Logarithmic Standard Limit"
 skills: [Special Limits, Logarithmic Limits, Limit Laws]
----
+-->
 
 Evaluate the limit:
 
@@ -495,12 +495,12 @@ $$
 $$
 :::
 
----
+<!--
 id: limits-28
 note: math-limits
 title: "Choose the Value that Makes a Piecewise Function Continuous"
 skills: [Continuity, Piecewise Functions]
----
+-->
 
 Let
 
@@ -533,12 +533,12 @@ $$
 The one-sided limits are different, so no value of $k$ can make the function continuous at $x=1$.
 :::
 
----
+<!--
 id: limits-31
 note: math-limits
 title: "Model a Vertical Asymptote"
 skills: [Infinite Limits, Vertical Asymptotes, Modeling]
----
+-->
 
 A sensor reading is modeled by
 
@@ -560,12 +560,12 @@ $$
 This means $x=5$ is a vertical asymptote.
 :::
 
----
+<!--
 id: limits-32
 note: math-limits
 title: "Interpret a Long-Run Ratio"
 skills: [Limits at Infinity, Horizontal Asymptotes, Rational Functions]
----
+-->
 
 For
 
@@ -585,12 +585,12 @@ $$
 So the model approaches $\frac{7}{2}$ in the long run.
 :::
 
----
+<!--
 id: limits-33
 note: math-limits
 title: "Use L'Hopital's Rule Once"
 skills: ["L'Hopital's Rule", Exponential Limits]
----
+-->
 
 Evaluate the limit:
 
@@ -616,12 +616,12 @@ $$
 So the limit is $2$.
 :::
 
----
+<!--
 id: limits-34
 note: math-limits
 title: "Classify a Jump at a Pricing Threshold"
 skills: [One-Sided Limits, Piecewise Functions, Continuity]
----
+-->
 
 A delivery fee is modeled by
 
@@ -654,12 +654,12 @@ The one-sided limits are different, so $F$ is not continuous at $w=5$.
 This is a jump discontinuity.
 :::
 
----
+<!--
 id: limits-35
 note: math-limits
 title: "Spot a Hole and Its Fill-In Value"
 skills: [Removable Discontinuity, Algebraic Techniques, Continuity]
----
+-->
 
 The function
 
@@ -695,12 +695,12 @@ Since the limit exists but the original function is undefined at $x=3$, the disc
 To remove it, define $g(3)=6$.
 :::
 
----
+<!--
 id: limits-41
 note: math-limits
 title: "Use the Epsilon-Delta Definition"
 skills: [Formal Definition, Epsilon-Delta]
----
+-->
 
 Use the epsilon-delta definition to show that
 
@@ -738,12 +738,12 @@ $$
 which proves the limit.
 :::
 
----
+<!--
 id: limits-42
 note: math-limits
 title: "Solve for a Continuous Piecewise Rule"
 skills: [Continuity, Piecewise Functions, Algebraic Techniques]
----
+-->
 
 Let
 
@@ -801,12 +801,12 @@ b=-8
 $$
 :::
 
----
+<!--
 id: limits-43
 note: math-limits
 title: "Combine Squeeze and a Standard Limit"
 skills: [Squeeze Theorem, Oscillation, Limit Laws]
----
+-->
 
 Evaluate the limit:
 
@@ -842,12 +842,12 @@ $$
 So the limit is $0$.
 :::
 
----
+<!--
 id: limits-44
 note: math-limits
 title: "Continuity and End Behavior Together"
 skills: [Continuity, Removable Discontinuity, Limits at Infinity]
----
+-->
 
 Let
 

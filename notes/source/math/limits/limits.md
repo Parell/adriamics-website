@@ -1,10 +1,3 @@
----
-auditors:
-  - "@Parell"
-status: draft
-last_reviewed: 2026-05-22
-sources: []
----
 # 1. What a limit means
 
 A **limit** describes the value a function approaches as the input approaches some point.
@@ -521,7 +514,7 @@ If a rational function has numerator degree exactly one higher than the denomina
 
 ---
 
-# 9. Indeterminate forms and L'Hôpital's rule
+# 9. Indeterminate forms and L'HÃ´pital's rule
 
 An **indeterminate form** is an expression that does not determine the limit by itself.
 
@@ -537,7 +530,7 @@ Common forms:
 
 The form tells you that more work is needed; it does not tell you the answer.
 
-## L'Hôpital's rule
+## L'HÃ´pital's rule
 
 If
 
@@ -557,7 +550,7 @@ when the right-hand limit exists and the rule's hypotheses are satisfied.
 
 ## When to use it
 
-Use L'Hôpital's rule after:
+Use L'HÃ´pital's rule after:
 
 - Confirming an indeterminate form
 - Checking that derivatives exist where needed
@@ -565,7 +558,7 @@ Use L'Hôpital's rule after:
 
 ## When not to overuse it
 
-L'Hôpital's rule is powerful, but algebra is often faster.
+L'HÃ´pital's rule is powerful, but algebra is often faster.
 
 For example, factorization or a standard trig limit is usually cleaner than repeated differentiation.
 
@@ -575,7 +568,7 @@ $$
 \lim_{x \to 0} \frac{e^x-1}{x}
 $$
 
-This is $\frac{0}{0}$, so L'Hôpital gives:
+This is $\frac{0}{0}$, so L'HÃ´pital gives:
 
 $$
 \lim_{x \to 0} \frac{e^x}{1} = 1
@@ -595,14 +588,14 @@ When you see a limit, use this sequence.
 6. If $x \to \infty$ or $x \to -\infty$, compare leading terms.
 7. If the function is piecewise, compute left and right limits separately.
 8. If the expression is oscillatory or complicated, consider the squeeze theorem.
-9. Use L'Hôpital's rule only when the hypotheses fit and a simpler approach is not better.
+9. Use L'HÃ´pital's rule only when the hypotheses fit and a simpler approach is not better.
 
 ## Common mistakes
 
 - Treating the limit as the same thing as the function value
 - Cancelling terms before checking for zero denominators
 - Forgetting to check both one-sided limits
-- Using L'Hôpital's rule on a non-indeterminate form
+- Using L'HÃ´pital's rule on a non-indeterminate form
 - Replacing $x$ with $\infty$ as if it were a number
 - Ignoring domain restrictions
 
@@ -682,7 +675,7 @@ $$
 \lim_{x \to a} f(x)=L
 $$
 
-## L'Hôpital's rule
+## L'HÃ´pital's rule
 
 For $\frac{0}{0}$ or $\frac{\infty}{\infty}$ forms:
 
@@ -691,3 +684,14 @@ $$
 $$
 
 when the rule applies.
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,9 +1,9 @@
----
+<!--
 id: integrals-11
 note: math-integrals
 title: "Use the Power Rule and Linearity"
 skills: [Power Rule, Linearity]
----
+-->
 
 Evaluate the indefinite integral:
 
@@ -33,12 +33,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-12
 note: math-integrals
 title: "Differentiate an Accumulation Function"
 skills: [Fundamental Theorem of Calculus, Accumulation Functions]
----
+-->
 
 Let
 
@@ -56,12 +56,12 @@ F'(x) = x^2 + 3x.
 $$
 :::
 
----
+<!--
 id: integrals-13
 note: math-integrals
 title: "Evaluate a Definite Integral with the FTC"
 skills: [Fundamental Theorem of Calculus, Definite Integrals]
----
+-->
 
 Compute:
 
@@ -88,12 +88,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-14
 note: math-integrals
 title: "Find an Average Value"
 skills: [Average Value, Definite Integrals]
----
+-->
 
 Find the average value of
 
@@ -123,12 +123,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-15
 note: math-integrals
 title: "Use Substitution on a Composite Function"
 skills: [Substitution, Antiderivatives]
----
+-->
 
 Evaluate:
 
@@ -156,12 +156,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-16
 note: math-integrals
 title: "Use Integration by Parts on a Product"
 skills: [Integration by Parts, Exponential Functions]
----
+-->
 
 Evaluate:
 
@@ -189,12 +189,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-17
 note: math-integrals
 title: "Decompose a Simple Rational Integral"
 skills: [Partial Fractions, Rational Functions]
----
+-->
 
 Evaluate:
 
@@ -232,12 +232,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-18
 note: math-integrals
 title: "Use a Trig Identity Before Integrating"
 skills: [Trig Identities, Definite Integrals]
----
+-->
 
 Compute:
 
@@ -268,12 +268,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-19
 note: math-integrals
 title: "Test an Improper Integral"
 skills: [Improper Integrals, Convergence]
----
+-->
 
 Evaluate the improper integral:
 
@@ -306,12 +306,12 @@ $$
 The integral converges to $\frac12$.
 :::
 
----
+<!--
 id: integrals-110
 note: math-integrals
 title: "Estimate an Integral with the Trapezoidal Rule"
 skills: [Trapezoidal Rule, Numerical Integration]
----
+-->
 
 Use the trapezoidal rule with $n=2$ to approximate
 
@@ -347,12 +347,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-21
 note: math-integrals
 title: "Substitute and Change the Bounds"
 skills: [Substitution, Definite Integrals]
----
+-->
 
 Evaluate:
 
@@ -383,12 +383,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-22
 note: math-integrals
 title: "Integrate a Logarithm by Parts"
 skills: [Integration by Parts, Logarithms]
----
+-->
 
 Evaluate:
 
@@ -439,12 +439,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-23
 note: math-integrals
 title: "Decompose a Rational Function with a Repeated Factor"
 skills: [Partial Fractions, Repeated Factors]
----
+-->
 
 Evaluate:
 
@@ -497,12 +497,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-24
 note: math-integrals
 title: "Use Trig Substitution on a Radical"
 skills: [Trig Substitution, Definite Integrals]
----
+-->
 
 Compute:
 
@@ -538,12 +538,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-25
 note: math-integrals
 title: "Find the Area Between Two Curves"
 skills: [Area Between Curves, Definite Integrals]
----
+-->
 
 Find the area between
 
@@ -574,12 +574,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-26
 note: math-integrals
 title: "Find Volume with the Washer Method"
 skills: [Washer Method, Volumes of Revolution]
----
+-->
 
 The region between $y=2$ and $y=x$ for $0 \le x \le 2$ is rotated about the $x$-axis. Find the volume.
 
@@ -602,12 +602,12 @@ V=\pi\left[4x-\frac{x^3}{3}\right]_0^2
 $$
 :::
 
----
+<!--
 id: integrals-27
 note: math-integrals
 title: "Find Mass from a Density Function"
 skills: [Mass, Density]
----
+-->
 
 A thin rod has density
 
@@ -633,12 +633,12 @@ m=\left[x+x^2\right]_0^6 = 6+36=42.
 $$
 :::
 
----
+<!--
 id: integrals-28
 note: math-integrals
 title: "Estimate an Integral with Simpson's Rule"
 skills: [Simpson's Rule, Numerical Integration]
----
+-->
 
 Use Simpson's rule with $n=2$ to approximate
 
@@ -674,12 +674,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-31
 note: math-integrals
 title: "Find Displacement from a Velocity Function"
 skills: [Applications, Velocity]
----
+-->
 
 A particle has velocity
 
@@ -713,12 +713,12 @@ $$
 So the displacement is $4$.
 :::
 
----
+<!--
 id: integrals-32
 note: math-integrals
 title: "Find Volume with the Shell Method"
 skills: [Shell Method, Volumes of Revolution]
----
+-->
 
 The region under
 
@@ -754,12 +754,12 @@ V = 2\pi \left[\frac{2}{5}x^{5/2}\right]_0^4
 $$
 :::
 
----
+<!--
 id: integrals-33
 note: math-integrals
 title: "Find a Probability from a Density Function"
 skills: [Probability Density Functions, Definite Integrals]
----
+-->
 
 Suppose a random variable has density
 
@@ -790,12 +790,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-34
 note: math-integrals
 title: "Evaluate an Improper Integral with a Vertical Asymptote"
 skills: [Improper Integrals, Convergence]
----
+-->
 
 Evaluate:
 
@@ -826,12 +826,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-35
 note: math-integrals
 title: "Find Geometric Area When the Sign Changes"
 skills: [Geometric Area, Sign Changes]
----
+-->
 
 Find the geometric area between
 
@@ -885,12 +885,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-41
 note: math-integrals
 title: "Handle an Endpoint Singularity with Parts"
 skills: [Improper Integrals, Integration by Parts]
----
+-->
 
 Evaluate:
 
@@ -942,12 +942,12 @@ $$
 $$
 :::
 
----
+<!--
 id: integrals-42
 note: math-integrals
 title: "Evaluate an Improper Integral After Substitution"
 skills: [Improper Integrals, Substitution]
----
+-->
 
 Evaluate:
 
@@ -992,12 +992,12 @@ $$
 So the integral converges to $\frac12$.
 :::
 
----
+<!--
 id: integrals-43
 note: math-integrals
 title: "Use Shells on a Region Between Curves"
 skills: [Shell Method, Area Between Curves]
----
+-->
 
 The region enclosed by
 
@@ -1041,12 +1041,12 @@ V = 2\pi\left[\frac{x^3}{3}-\frac{x^4}{4}\right]_0^1
 $$
 :::
 
----
+<!--
 id: integrals-44
 note: math-integrals
 title: "Combine Trig Substitution with a Trig Identity"
 skills: [Trig Substitution, Trig Identities]
----
+-->
 
 Compute:
 

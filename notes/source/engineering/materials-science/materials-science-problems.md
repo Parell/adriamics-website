@@ -1,9 +1,9 @@
----
+<!--
 id: materials-science-11
 note: engineering-materials-science
 title: "State the Processing Chain"
 skills: [Processing-structure-properties]
----
+-->
 
 According to the central idea in the note, what is the order of the four linked factors in materials science?
 
@@ -17,12 +17,12 @@ $$
 So processing affects structure, structure affects properties, and properties affect performance.
 :::
 
----
+<!--
 id: materials-science-12
 note: engineering-materials-science
 title: "Identify a Metallic Bond Effect"
 skills: [Bonding, Metals]
----
+-->
 
 Which bonding type is associated with delocalized electrons, electrical conductivity, and ductility?
 
@@ -32,12 +32,12 @@ That is **metallic bonding**.
 The delocalized electrons explain why metals conduct electricity and why they can deform plastically without immediately fracturing.
 :::
 
----
+<!--
 id: materials-science-13
 note: engineering-materials-science
 title: "Count Atoms in an FCC Cell"
 skills: [Crystal structures]
----
+-->
 
 How many atoms are in one face-centered cubic (FCC) unit cell?
 
@@ -51,12 +51,12 @@ $$
 atoms.
 :::
 
----
+<!--
 id: materials-science-14
 note: engineering-materials-science
 title: "Name a Vacancy Defect"
 skills: [Point defects]
----
+-->
 
 What point defect is created when an atom is missing from its normal lattice site?
 
@@ -66,12 +66,12 @@ That defect is a **vacancy**.
 It is one of the common point defects listed in the note.
 :::
 
----
+<!--
 id: materials-science-15
 note: engineering-materials-science
 title: "State What Miller Indices Describe"
 skills: [Miller indices, Crystallography]
----
+-->
 
 What do Miller indices describe in a crystal?
 
@@ -81,12 +81,12 @@ Miller indices describe **crystallographic planes and directions**.
 They are used to identify things like slip systems, cleavage planes, and anisotropy.
 :::
 
----
+<!--
 id: materials-science-16
 note: engineering-materials-science
 title: "Compute Engineering Stress"
 skills: [Stress, Units]
----
+-->
 
 A tensile specimen carries a force of $12$ kN over an original area of $30$ mm$^2$.
 
@@ -112,12 +112,12 @@ $$
 $$
 :::
 
----
+<!--
 id: materials-science-17
 note: engineering-materials-science
 title: "Choose the Right Heat Treatment"
 skills: [Heat treatment]
----
+-->
 
 Which heat treatment is used to increase hardness by rapid cooling?
 
@@ -127,12 +127,12 @@ That treatment is **quenching**.
 Rapid cooling can suppress diffusion and produce a harder microstructure.
 :::
 
----
+<!--
 id: materials-science-18
 note: engineering-materials-science
 title: "Match a Material Class to Its Traits"
 skills: [Polymers, Material classes]
----
+-->
 
 Which material class is typically low density, low modulus, viscoelastic, and strongly dependent on temperature and strain rate?
 
@@ -142,12 +142,12 @@ That class is **polymers**.
 The note lists them as low density, low stiffness, and strongly affected by temperature and strain rate.
 :::
 
----
+<!--
 id: materials-science-19
 note: engineering-materials-science
 title: "Identify the Best Characterization Tool"
 skills: [XRD, Characterization]
----
+-->
 
 Which characterization method is best for identifying crystal structure and phase identity by lattice spacing?
 
@@ -157,12 +157,12 @@ The best method is **X-ray diffraction (XRD)**.
 The note says XRD is used for crystal structure and phase identification.
 :::
 
----
+<!--
 id: materials-science-110
 note: engineering-materials-science
 title: "Pick the First Selection Step"
 skills: [Materials selection]
----
+-->
 
 Before screening candidate materials, what is the first thing you should define in the selection workflow?
 
@@ -172,12 +172,12 @@ You should first define the **function of the part**.
 From there, you can identify the loading, environment, temperature, lifetime, and other constraints.
 :::
 
----
+<!--
 id: materials-science-21
 note: engineering-materials-science
 title: "Find the Unit-Cell Edge Length"
 skills: [Crystal structures, FCC]
----
+-->
 
 An FCC metal has atomic radius $r = 0.125$ nm.
 
@@ -203,12 +203,12 @@ a \approx 0.354\ \text{nm}
 $$
 :::
 
----
+<!--
 id: materials-science-22
 note: engineering-materials-science
 title: "Compare Two Grain Sizes"
 skills: [Hall-Petch, Grain-size strengthening]
----
+-->
 
 Material A has a grain size of $16\ \mu\text{m}$ and material B has a grain size of $4\ \mu\text{m}$.
 
@@ -234,12 +234,12 @@ So material B has the larger Hall-Petch term, by a factor of $2$.
 Therefore, **material B** should have the higher yield strength.
 :::
 
----
+<!--
 id: materials-science-23
 note: engineering-materials-science
 title: "Use the Lever Rule for Phase Fractions"
 skills: [Lever rule, Phase diagrams]
----
+-->
 
 At a temperature in a two-phase $\alpha+\beta$ region, suppose
 
@@ -275,12 +275,12 @@ $$
 So the two phases are present in equal amounts.
 :::
 
----
+<!--
 id: materials-science-24
 note: engineering-materials-science
 title: "Interpret the Effect of Temperature on Diffusivity"
 skills: [Diffusion, Arrhenius relation]
----
+-->
 
 Using
 
@@ -296,12 +296,12 @@ As $T$ increases, the quantity $-Q/RT$ becomes less negative, so the exponential
 Therefore, **diffusivity increases** with temperature, and it usually increases rapidly because of the exponential dependence.
 :::
 
----
+<!--
 id: materials-science-25
 note: engineering-materials-science
 title: "Read a Tensile Curve Milestone"
 skills: [Tensile test, Plastic deformation]
----
+-->
 
 On a tensile test curve, what does the ultimate tensile strength mark?
 
@@ -311,12 +311,12 @@ The ultimate tensile strength is the **maximum engineering stress** reached on t
 After that point, necking usually begins.
 :::
 
----
+<!--
 id: materials-science-26
 note: engineering-materials-science
 title: "Order a Precipitation-Hardening Sequence"
 skills: [Precipitation hardening, Heat treatment]
----
+-->
 
 Put the precipitation-hardening steps in order, and state why quenching is used.
 
@@ -330,12 +330,12 @@ The usual sequence is:
 Quenching is used to retain a **supersaturated solid solution** so that fine precipitates can form during aging.
 :::
 
----
+<!--
 id: materials-science-27
 note: engineering-materials-science
 title: "Convert Strain to True Strain"
 skills: [True strain, Deformation]
----
+-->
 
 A specimen stretches from $50$ mm to $55$ mm.
 
@@ -357,12 +357,12 @@ $$
 That is the exact true strain.
 :::
 
----
+<!--
 id: materials-science-28
 note: engineering-materials-science
 title: "Identify a Crystal Structure from Geometry"
 skills: [Crystal structures, Coordination number]
----
+-->
 
 A crystal structure has 4 atoms per unit cell, a coordination number of 12, and a packing factor of 0.74.
 
@@ -374,12 +374,12 @@ Those values match **face-centered cubic (FCC)**.
 The note lists FCC as having 4 atoms per unit cell, coordination number 12, and packing factor 0.74.
 :::
 
----
+<!--
 id: materials-science-31
 note: engineering-materials-science
 title: "Choose a Material for a Lightweight Stiff Panel"
 skills: [Composites, Materials selection]
----
+-->
 
 You need a panel for a drone wing skin that is light, stiff, and reinforced in a preferred direction.
 
@@ -391,12 +391,12 @@ The best fit is a **composite**, especially a fiber-reinforced polymer.
 Composites are used for high specific stiffness, directional reinforcement, and tailored performance.
 :::
 
----
+<!--
 id: materials-science-32
 note: engineering-materials-science
 title: "Predict the Phase Fraction from Composition"
 skills: [Lever rule, Phase diagrams]
----
+-->
 
 An alloy is in an $\alpha+\beta$ region with
 
@@ -426,12 +426,12 @@ $$
 So $\alpha$ is more abundant, with a mass fraction of $0.6$ versus $0.4$ for $\beta$.
 :::
 
----
+<!--
 id: materials-science-33
 note: engineering-materials-science
 title: "Estimate Crack Safety"
 skills: [Fracture toughness, Stress intensity]
----
+-->
 
 A component has stress $\sigma = 120$ MPa, crack size $a = 5$ mm, and geometry factor $Y = 1$.
 
@@ -463,12 +463,12 @@ $$
 the component is **safe by this criterion**.
 :::
 
----
+<!--
 id: materials-science-34
 note: engineering-materials-science
 title: "Pick a Heat Treatment for Toughness"
 skills: [Tempering, Heat treatment]
----
+-->
 
 A steel part is too brittle after quenching.
 
@@ -480,12 +480,12 @@ The next step should be **tempering**.
 The note says tempering reduces brittleness after a quench while helping keep useful hardness.
 :::
 
----
+<!--
 id: materials-science-35
 note: engineering-materials-science
 title: "Choose a Strengthening Mechanism for Aluminum"
 skills: [Precipitation hardening, Alloys]
----
+-->
 
 A designer strengthens an aluminum alloy by solution heat treating, quenching, and then aging it so that fine precipitates form.
 
@@ -497,12 +497,12 @@ That is **precipitation hardening**.
 The fine precipitates impede dislocation motion and raise strength.
 :::
 
----
+<!--
 id: materials-science-41
 note: engineering-materials-science
 title: "Predict the Effect of Fine Grains and Cold Work"
 skills: [Hall-Petch, Strain hardening]
----
+-->
 
 A metal is made finer-grained and then cold-worked.
 
@@ -514,12 +514,12 @@ The **yield strength increases** and the **ductility decreases**.
 Fine grains strengthen the metal by impeding dislocation motion, and cold work increases dislocation density, which makes further slip harder.
 :::
 
----
+<!--
 id: materials-science-42
 note: engineering-materials-science
 title: "Select a High-Temperature Insulating Material"
 skills: [Ceramics, Materials selection]
----
+-->
 
 A part must keep its shape at high temperature, resist wear, and act as an electrical insulator.
 
@@ -531,12 +531,12 @@ The best fit is a **ceramic**.
 The main tradeoff is that ceramics are typically **brittle** and have low ductility.
 :::
 
----
+<!--
 id: materials-science-43
 note: engineering-materials-science
 title: "Explain Why Quenching Changes Properties"
 skills: [Martensite, Processing-structure-properties]
----
+-->
 
 A rapid quench changes a steel microstructure to martensite.
 
@@ -550,12 +550,12 @@ That new structure is much harder, but also more brittle.
 So the processing change leads to a structure change, which then changes properties.
 :::
 
----
+<!--
 id: materials-science-44
 note: engineering-materials-science
 title: "Choose a Hard-But-Not-Brittle Heat Treatment"
 skills: [Heat treatment, Toughness]
----
+-->
 
 A steel gear needs high hardness, but it must not fail in a brittle way.
 

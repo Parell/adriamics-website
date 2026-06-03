@@ -1,9 +1,9 @@
----
+<!--
 id: relativity-11
 note: physics-relativity
 title: "State the Two Postulates"
 skills: [Postulates, Inertial Frames]
----
+-->
 
 State the two postulates of special relativity.
 
@@ -16,12 +16,12 @@ The two postulates are:
 These are the starting point for special relativity.
 :::
 
----
+<!--
 id: relativity-12
 note: physics-relativity
 title: "Compute a Lorentz Factor"
 skills: [Lorentz Factor]
----
+-->
 
 For a speed of $v = 0.6c$, compute the Lorentz factor $\gamma$.
 
@@ -39,12 +39,12 @@ $$
 $$
 :::
 
----
+<!--
 id: relativity-13
 note: physics-relativity
 title: "Classify an Interval"
 skills: [Spacetime Interval, Causality]
----
+-->
 
 Two events are separated by $\Delta t = 4\ \text{ns}$ and $\Delta x = 1\ \text{m}$ in one spatial dimension. Classify the spacetime interval.
 
@@ -64,12 +64,12 @@ $$
 the interval is timelike.
 :::
 
----
+<!--
 id: relativity-14
 note: physics-relativity
 title: "Time Dilation from Proper Time"
 skills: [Time Dilation, Lorentz Factor]
----
+-->
 
 A clock has proper time $\Delta \tau = 8\ \text{s}$ and moves at $0.6c$ relative to you. How much time do you measure?
 
@@ -87,12 +87,12 @@ $$
 $$
 :::
 
----
+<!--
 id: relativity-15
 note: physics-relativity
 title: "Length Contraction of a Rod"
 skills: [Length Contraction, Proper Length]
----
+-->
 
 A rod has proper length $L_0 = 12\ \text{m}$ and moves at $0.8c$ relative to you. What length do you measure?
 
@@ -110,12 +110,12 @@ L = \frac{L_0}{\gamma} = \frac{12}{5/3} = 12\cdot \frac{3}{5} = 7.2\ \text{m}.
 $$
 :::
 
----
+<!--
 id: relativity-16
 note: physics-relativity
 title: "Relativity of Simultaneity"
 skills: [Relativity of Simultaneity, Lorentz Transformations]
----
+-->
 
 In one frame, two events are simultaneous and separated by $12\ \text{m}$ along the $x$-axis. If $S'$ moves in the $+x$ direction at $0.6c$, what is $\Delta t'$?
 
@@ -140,12 +140,12 @@ $$
 $$
 :::
 
----
+<!--
 id: relativity-17
 note: physics-relativity
 title: "Add Two Velocities"
 skills: [Velocity Addition]
----
+-->
 
 A probe moves at $0.5c$ relative to a ship, and the ship moves at $0.5c$ relative to Earth in the same direction. What speed does Earth measure for the probe?
 
@@ -163,12 +163,12 @@ u = \frac{0.5c+0.5c}{1+0.25} = \frac{c}{1.25} = 0.8c.
 $$
 :::
 
----
+<!--
 id: relativity-18
 note: physics-relativity
 title: "Find the Rest Energy"
 skills: [Rest Energy, Mass-Energy Equivalence]
----
+-->
 
 What is the rest energy of a $1\ \text{kg}$ object?
 
@@ -186,12 +186,12 @@ E_0 = (1\ \text{kg})(3.00\times 10^8\ \text{m/s})^2 = 9.0\times 10^{16}\ \text{J
 $$
 :::
 
----
+<!--
 id: relativity-19
 note: physics-relativity
 title: "Name the Proper Time"
 skills: [Proper Time]
----
+-->
 
 What do you call the time measured by a clock that travels with two timelike-separated events?
 
@@ -201,12 +201,12 @@ That time is called the **proper time**.
 It is the time measured in the rest frame of the clock.
 :::
 
----
+<!--
 id: relativity-110
 note: physics-relativity
 title: "Use the Photon Momentum Relation"
 skills: [Photon Relations]
----
+-->
 
 For a photon with energy $E$, what is its momentum?
 
@@ -224,12 +224,12 @@ p = \frac{E}{c}.
 $$
 :::
 
----
+<!--
 id: relativity-21
 note: physics-relativity
 title: "Transform One Event"
 skills: [Lorentz Transformations, Lorentz Factor]
----
+-->
 
 In frame $S$, an event occurs at $t = 2.0\times 10^{-8}\ \text{s}$ and $x = 3.0\ \text{m}$. If $S'$ moves at $v = 0.6c$ in the $+x$ direction, find $x'$ and $t'$.
 
@@ -275,12 +275,12 @@ t' = 1.25(2.0\times 10^{-8} - 6.0\times 10^{-9})
 $$
 :::
 
----
+<!--
 id: relativity-22
 note: physics-relativity
 title: "Use Proper Time and Distance"
 skills: [Time Dilation, Proper Time]
----
+-->
 
 A spaceship moves at $0.8c$ for $10\ \mu\text{s}$ as measured in Earth frame. How much proper time passes on the ship, and how far does it travel in Earth frame?
 
@@ -306,12 +306,12 @@ $$
 So the ship experiences $6\ \mu\text{s}$, and it travels $2400\ \text{m}$ in Earth frame.
 :::
 
----
+<!--
 id: relativity-23
 note: physics-relativity
 title: "Interval to Causality"
 skills: [Spacetime Interval, Causality]
----
+-->
 
 Two events are separated by $\Delta t = 20\ \text{ns}$ and $\Delta x = 9\ \text{m}$. Can a light signal connect them?
 
@@ -331,12 +331,12 @@ $$
 the interval is spacelike. A light signal cannot connect the events, so there is no causal connection at or below light speed.
 :::
 
----
+<!--
 id: relativity-24
 note: physics-relativity
 title: "Relativistic Kinetic Energy"
 skills: [Kinetic Energy, Lorentz Factor]
----
+-->
 
 What is the kinetic energy of a $2\ \text{kg}$ object moving at $0.6c$?
 
@@ -366,12 +366,12 @@ K = 0.5 \cdot 9.0\times 10^{16} = 4.5\times 10^{16}\ \text{J}.
 $$
 :::
 
----
+<!--
 id: relativity-25
 note: physics-relativity
 title: "Energy from Momentum"
 skills: [Energy-Momentum Relation, Momentum]
----
+-->
 
 A particle has rest mass $m$ and momentum $p = \frac{3}{4}mc$. Find its total energy in terms of $m$ and $c$.
 
@@ -402,12 +402,12 @@ E = \frac{5}{4}mc^2.
 $$
 :::
 
----
+<!--
 id: relativity-26
 note: physics-relativity
 title: "Particle Reaches the Detector"
 skills: [Time Dilation, Applied Problem]
----
+-->
 
 A particle has proper lifetime $2.2\ \mu\text{s}$ and moves at $0.8c$. It is created $500\ \text{m}$ above a detector. Does it reach the detector before decaying?
 
@@ -433,12 +433,12 @@ $$
 Since $880\ \text{m} > 500\ \text{m}$, the particle reaches the detector before decaying.
 :::
 
----
+<!--
 id: relativity-27
 note: physics-relativity
 title: "Simultaneous Flashes in Another Frame"
 skills: [Relativity of Simultaneity, Frame Dependence]
----
+-->
 
 Two lightning flashes happen simultaneously in Earth's frame and are separated by $20\ \text{m}$ along the $x$-axis. If a train moves at $0.6c$ in the $+x$ direction, what time separation does the train measure?
 
@@ -465,12 +465,12 @@ $$
 So the flashes are not simultaneous in the train frame.
 :::
 
----
+<!--
 id: relativity-28
 note: physics-relativity
 title: "Photon Energy Loss from Redshift"
 skills: [Gravitational Redshift, Photon Relations]
----
+-->
 
 A photon is emitted with frequency $6.0\times 10^{14}\ \text{Hz}$ and later observed at $5.4\times 10^{14}\ \text{Hz}$. By what percentage did its energy change?
 
@@ -492,12 +492,12 @@ $$
 So the energy dropped to $90\%$ of its original value, a decrease of $10\%$.
 :::
 
----
+<!--
 id: relativity-31
 note: physics-relativity
 title: "Decide Between SR and GR"
 skills: [General Relativity, Special Relativity, Inertial Frames]
----
+-->
 
 A problem asks for the clock-rate correction needed for a GPS satellite relative to a ground clock. Which theory is essential, and why?
 
@@ -507,12 +507,12 @@ General relativity is essential, because the satellite and the ground clock are 
 Special relativity handles motion in inertial frames, but it does not account for gravitational time dilation. GPS needs both motion and gravity, so the gravitational effect requires general relativity.
 :::
 
----
+<!--
 id: relativity-32
 note: physics-relativity
 title: "Muon Reaches the Ground"
 skills: [Time Dilation, Applied Problem]
----
+-->
 
 A muon has proper lifetime $2.2\ \mu\text{s}$ and moves at $0.6c$. It is created in the upper atmosphere $500\ \text{m}$ above the ground. Does it reach the ground before decaying?
 
@@ -538,12 +538,12 @@ $$
 So the muon travels about $495\ \text{m}$, which is just short of $500\ \text{m}$. It does not quite reach the ground.
 :::
 
----
+<!--
 id: relativity-33
 note: physics-relativity
 title: "Why Simultaneity Can Change"
 skills: [Relativity of Simultaneity, Frame Dependence]
----
+-->
 
 Two lightning strikes happen simultaneously in Earth's frame at opposite ends of a moving train. Explain why a passenger on the train can disagree about whether they were simultaneous.
 
@@ -559,12 +559,12 @@ If the two strikes occur at different positions, the $vx/c^2$ term is different 
 So simultaneity depends on the frame.
 :::
 
----
+<!--
 id: relativity-34
 note: physics-relativity
 title: "Final Mass After a Head-On Collision"
 skills: [Energy-Momentum Relation, Conservation Laws]
----
+-->
 
 Two identical particles each have rest mass $m$ and move directly toward each other at $0.6c$. They collide and stick together. What is the rest mass of the final composite object?
 
@@ -594,12 +594,12 @@ M = 2.5m.
 $$
 :::
 
----
+<!--
 id: relativity-35
 note: physics-relativity
 title: "What Happens to a Photon Climbing Out of Gravity"
 skills: [Gravitational Redshift, Photon Relations]
----
+-->
 
 A photon climbs out of a gravitational field and its frequency drops by $12\%$. By what percent does its energy drop?
 
@@ -615,12 +615,12 @@ so energy changes by the same percentage as frequency.
 If the frequency drops by $12\%$, the energy also drops by $12\%$.
 :::
 
----
+<!--
 id: relativity-41
 note: physics-relativity
 title: "Solve for the Relative Speed"
 skills: [Relativity of Simultaneity, Lorentz Transformations]
----
+-->
 
 In frame $S$, two events are simultaneous and separated by $24\ \text{m}$. Another frame $S'$ measures them to be $80\ \text{ns}$ apart in time. What is the speed of $S'$ relative to $S$? Give the magnitude.
 
@@ -684,12 +684,12 @@ v = \frac{c}{\sqrt{2}} \approx 0.707c.
 $$
 :::
 
----
+<!--
 id: relativity-42
 note: physics-relativity
 title: "Find the Interval and Proper Time"
 skills: [Spacetime Interval, Proper Time]
----
+-->
 
 Two events occur $10\ \text{ns}$ apart and $1.8\ \text{m}$ apart. Find the invariant interval and the proper time between them, if it exists.
 
@@ -717,12 +717,12 @@ $$
 So the proper time is $8\ \text{ns}$.
 :::
 
----
+<!--
 id: relativity-43
 note: physics-relativity
 title: "Why the Final Object Is Heavier"
 skills: [Energy-Momentum Relation, Conservation Laws]
----
+-->
 
 Two identical particles each have rest mass $m$ and move at $0.6c$ in opposite directions. They collide and form one object at rest. Show that the final object's rest mass is larger than $2m$.
 
@@ -754,12 +754,12 @@ $$
 That is larger than $2m$ because some kinetic energy has been converted into rest mass.
 :::
 
----
+<!--
 id: relativity-44
 note: physics-relativity
 title: "Explain Why Light Bends Near a Star"
 skills: [Equivalence Principle, Light Bending, General Relativity]
----
+-->
 
 Why does light bend near a massive object in general relativity, even though light has no rest mass?
 

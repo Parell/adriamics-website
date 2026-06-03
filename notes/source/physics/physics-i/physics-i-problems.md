@@ -1,9 +1,9 @@
----
+<!--
 id: physics-i-11
 note: physics-physics-i
 title: "Identify the SI Unit of Torque"
 skills: [Units]
----
+-->
 
 What is the SI unit of torque?
 
@@ -17,12 +17,12 @@ $$
 This is equivalent to newton-meter.
 :::
 
----
+<!--
 id: physics-i-12
 note: physics-physics-i
 title: "Classify Acceleration as a Scalar or Vector"
 skills: [Scalars and vectors]
----
+-->
 
 Is acceleration a scalar or a vector?
 
@@ -32,12 +32,12 @@ Acceleration is a vector because it has both magnitude and direction.
 So the correct classification is **vector**.
 :::
 
----
+<!--
 id: physics-i-13
 note: physics-physics-i
 title: "Compute Average Velocity"
 skills: [Kinematics]
----
+-->
 
 A cyclist moves from $x = 15$ m to $x = 87$ m in $12$ s. What is the average velocity?
 
@@ -61,12 +61,12 @@ $$
 $$
 :::
 
----
+<!--
 id: physics-i-14
 note: physics-physics-i
 title: "Find Final Velocity with Constant Acceleration"
 skills: [Kinematics]
----
+-->
 
 An object starts with velocity $2$ m/s and accelerates at $3$ m/s$^2$ for $4$ s. What is its final velocity?
 
@@ -84,12 +84,12 @@ v = 2 + 3(4) = 14 \text{ m/s}
 $$
 :::
 
----
+<!--
 id: physics-i-15
 note: physics-physics-i
 title: "Find Position Under Constant Acceleration"
 skills: [Kinematics]
----
+-->
 
 An object starts at $x_0 = -3$ m with velocity $5$ m/s and acceleration $-2$ m/s$^2$. Where is it after $3$ s?
 
@@ -111,12 +111,12 @@ x = -3 + 15 - 9 = 3 \text{ m}
 $$
 :::
 
----
+<!--
 id: physics-i-16
 note: physics-physics-i
 title: "Resolve a Vector into Components"
 skills: [Vectors, Two-dimensional motion]
----
+-->
 
 A force of $20$ N acts at an angle of $60^\circ$ above the positive $x$-axis. Find its $x$- and $y$-components.
 
@@ -140,12 +140,12 @@ F_y = 20\sin 60^\circ \approx 17.3 \text{ N}
 $$
 :::
 
----
+<!--
 id: physics-i-17
 note: physics-physics-i
 title: "State the Acceleration of Free Fall"
 skills: [Free fall]
----
+-->
 
 If upward is positive, what is the acceleration of a dropped object near Earth?
 
@@ -159,12 +159,12 @@ $$
 The negative sign appears because the acceleration points downward.
 :::
 
----
+<!--
 id: physics-i-18
 note: physics-physics-i
 title: "Use Newton's Second Law"
 skills: [Newton's laws]
----
+-->
 
 A $6$ kg cart has a net horizontal force of $18$ N acting on it. What is its acceleration?
 
@@ -182,12 +182,12 @@ a = \frac{F}{m} = \frac{18}{6} = 3 \text{ m/s}^2
 $$
 :::
 
----
+<!--
 id: physics-i-19
 note: physics-physics-i
 title: "Find the Weight of an Object"
 skills: [Weight, Common forces]
----
+-->
 
 What is the weight of a $12$ kg object near Earth's surface?
 
@@ -207,12 +207,12 @@ $$
 The force points downward.
 :::
 
----
+<!--
 id: physics-i-110
 note: physics-physics-i
 title: "Compute Average Power"
 skills: [Power, Work and energy]
----
+-->
 
 A machine does $450$ J of work in $15$ s. What is its average power?
 
@@ -230,12 +230,12 @@ $$
 $$
 :::
 
----
+<!--
 id: physics-i-21
 note: physics-physics-i
 title: "Find the Time of Flight for a Projectile"
 skills: [Projectile motion, Kinematics]
----
+-->
 
 A ball is launched at $20$ m/s at an angle of $30^\circ$ above the horizontal and lands at the same height. How long is it in the air?
 
@@ -259,12 +259,12 @@ T = \frac{2(10)}{9.8} \approx 2.04 \text{ s}
 $$
 :::
 
----
+<!--
 id: physics-i-22
 note: physics-physics-i
 title: "Find Acceleration with Kinetic Friction"
 skills: [Friction, Newton's laws]
----
+-->
 
 A $5$ kg block slides on a horizontal floor. It is pulled horizontally by an $18$ N force, and the coefficient of kinetic friction is $0.20$. What is the block's acceleration?
 
@@ -294,12 +294,12 @@ a = \frac{F_{net}}{m} = \frac{8.2}{5} = 1.64 \text{ m/s}^2
 $$
 :::
 
----
+<!--
 id: physics-i-23
 note: physics-physics-i
 title: "Use Energy to Find a Spring Speed"
 skills: [Work and energy, Springs]
----
+-->
 
 A $0.50$ kg block is attached to a spring with $k = 200$ N/m. The spring is compressed $0.10$ m and the surface is frictionless. What is the block's speed when the spring returns to equilibrium?
 
@@ -331,12 +331,12 @@ v = 2.0 \text{ m/s}
 $$
 :::
 
----
+<!--
 id: physics-i-24
 note: physics-physics-i
 title: "Find the Final Speed in a Perfectly Inelastic Collision"
 skills: [Momentum, Collisions]
----
+-->
 
 A $2$ kg cart moving $3$ m/s east sticks to a $4$ kg cart at rest. What is the final velocity of the combined carts?
 
@@ -364,12 +364,12 @@ $$
 The direction is east.
 :::
 
----
+<!--
 id: physics-i-25
 note: physics-physics-i
 title: "Find Angular Acceleration from Torque"
 skills: [Torque, Rotational dynamics]
----
+-->
 
 A force of $12$ N is applied perpendicular to a wrench that is $0.40$ m long. If the moment of inertia about the rotation axis is $0.80$ kg m$^2$, what is the angular acceleration?
 
@@ -393,12 +393,12 @@ $$
 $$
 :::
 
----
+<!--
 id: physics-i-26
 note: physics-physics-i
 title: "Find the Centripetal Force"
 skills: [Circular motion, Centripetal force]
----
+-->
 
 A $0.50$ kg stone tied to a string of radius $2.0$ m moves in a circle at $6.0$ m/s. What inward force is required?
 
@@ -422,12 +422,12 @@ $$
 The force must point inward, toward the center of the circle.
 :::
 
----
+<!--
 id: physics-i-27
 note: physics-physics-i
 title: "Find the Period of a Mass-Spring System"
 skills: [Simple harmonic motion, Springs]
----
+-->
 
 A $0.80$ kg mass is attached to a spring with $k = 50$ N/m. What is the period of the oscillation?
 
@@ -449,12 +449,12 @@ T \approx 2\pi(0.126) \approx 0.79 \text{ s}
 $$
 :::
 
----
+<!--
 id: physics-i-28
 note: physics-physics-i
 title: "Find the Center of Mass on a Line"
 skills: [Center of mass, Statics]
----
+-->
 
 Two masses lie on the $x$-axis: a $2$ kg mass at $x = 0$ m and a $6$ kg mass at $x = 4$ m. Where is the center of mass?
 
@@ -476,12 +476,12 @@ x_{cm} = \frac{24}{8} = 3 \text{ m}
 $$
 :::
 
----
+<!--
 id: physics-i-31
 note: physics-physics-i
 title: "Find How Far a Horizontal Projectile Travels"
 skills: [Projectile motion, Kinematics]
----
+-->
 
 A ball is launched horizontally at $14$ m/s from a cliff that is $20$ m high. How far from the base of the cliff does it land?
 
@@ -505,12 +505,12 @@ x = v_xt = 14(2.02) \approx 28.3 \text{ m}
 $$
 :::
 
----
+<!--
 id: physics-i-32
 note: physics-physics-i
 title: "Find Acceleration for a Pulled Block on a Rough Surface"
 skills: [Free-body diagrams, Friction, Newton's laws]
----
+-->
 
 A $10$ kg crate is pulled by a $40$ N force at an angle of $25^\circ$ above the horizontal. The coefficient of kinetic friction is $0.30$. What is the crate's acceleration?
 
@@ -550,12 +550,12 @@ a = \frac{12.0}{10} = 1.20 \text{ m/s}^2
 $$
 :::
 
----
+<!--
 id: physics-i-33
 note: physics-physics-i
 title: "Find the Final Velocity After a Collision"
 skills: [Momentum, Collisions]
----
+-->
 
 A $1.5$ kg cart moves east at $4$ m/s and hits a $0.5$ kg cart moving west at $1$ m/s. The carts stick together. What is their final velocity?
 
@@ -581,12 +581,12 @@ $$
 The direction is east.
 :::
 
----
+<!--
 id: physics-i-34
 note: physics-physics-i
 title: "Find the Support Force on a Beam"
 skills: [Statics, Torque]
----
+-->
 
 A uniform $4.0$ m beam weighs $200$ N. It is supported at both ends, and a $100$ N sign hangs $1.0$ m from the left end. What is the force on the left support?
 
@@ -622,12 +622,12 @@ F_L = 300 - 125 = 175 \text{ N}
 $$
 :::
 
----
+<!--
 id: physics-i-35
 note: physics-physics-i
 title: "Use Rolling Without Slipping"
 skills: [Rolling motion, Rotation]
----
+-->
 
 A wheel of radius $0.30$ m rolls without slipping at $4.5$ m/s for $6.0$ s. How many radians does it rotate?
 
@@ -651,12 +651,12 @@ $$
 $$
 :::
 
----
+<!--
 id: physics-i-41
 note: physics-physics-i
 title: "Relate Spring Energy to Gravitational Height"
 skills: [Energy, Gravity, Springs]
----
+-->
 
 A $2.0$ kg block starts at rest on a frictionless track. A spring with $k = 300$ N/m launches it so that it rises $1.5$ m before stopping. How much was the spring compressed?
 
@@ -686,12 +686,12 @@ x \approx 0.44 \text{ m}
 $$
 :::
 
----
+<!--
 id: physics-i-42
 note: physics-physics-i
 title: "Find the Friction Force on a Leaning Ladder"
 skills: [Statics, Torque, Friction]
----
+-->
 
 A uniform $5.0$ m ladder weighs $200$ N and leans against a frictionless wall at an angle of $60^\circ$ above the floor. What friction force must the floor provide to keep the ladder at rest?
 
@@ -731,12 +731,12 @@ f_s \approx 57.7 \text{ N}
 $$
 :::
 
----
+<!--
 id: physics-i-43
 note: physics-physics-i
 title: "Show That Orbital Speed Does Not Depend on Satellite Mass"
 skills: [Gravity, Circular motion]
----
+-->
 
 A satellite moves in a circular orbit of radius $r$ around a planet of mass $M$. Use the formulas in the note to show that the satellite's mass cancels, and give the orbital speed.
 
@@ -768,12 +768,12 @@ $$
 The orbital speed does not depend on the satellite mass.
 :::
 
----
+<!--
 id: physics-i-44
 note: physics-physics-i
 title: "Find the Speed at Equilibrium in Simple Harmonic Motion"
 skills: [Simple harmonic motion, Energy]
----
+-->
 
 A $0.50$ kg mass on a spring with $k = 200$ N/m is released from rest at an amplitude of $0.10$ m. What is its speed when it passes through equilibrium?
 

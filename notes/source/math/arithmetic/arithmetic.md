@@ -6,28 +6,6 @@ last_reviewed: 2026-05-22
 sources: []
 ---
 
-## Table of contents
-
-1. [Numbers and place value](#toc-1)
-2. [Addition](#toc-2)
-3. [Subtraction](#toc-3)
-4. [Multiplication](#toc-4)
-5. [Division](#toc-5)
-6. [Order of operations](#toc-6)
-7. [Integers and signed arithmetic](#toc-7)
-8. [Factors, multiples, and primes](#toc-8)
-9. [Fractions](#toc-9)
-10. [Decimals](#toc-10)
-11. [Ratios, rates, and proportions](#toc-11)
-12. [Percents](#toc-12)
-13. [Exponents, roots, and scientific notation](#toc-13)
-14. [Estimation, rounding, and error checks](#toc-14)
-15. [Problem-solving workflow](#toc-15)
-16. [Formula sheet](#toc-16)
-
----
-
-<a id="toc-1"></a>
 # 1. Numbers and place value
 
 Arithmetic studies numbers and the basic operations used to combine, compare, and transform them.
@@ -41,14 +19,14 @@ The main arithmetic operations are:
 
 ## Number sets
 
-| Number set | Description | Examples |
-| ---------- | ----------- | -------- |
-| Natural numbers | Counting numbers | $1,\ 2,\ 3,\ 4$ |
-| Whole numbers | Natural numbers and zero | $0,\ 1,\ 2,\ 3$ |
-| Integers | Positive numbers, negative numbers, and zero | $-3,\ -2,\ -1,\ 0,\ 1$ |
-| Rational numbers | Numbers expressible as a fraction | $\frac{1}{2},\ -\frac{5}{3},\ 0.75$ |
-| Irrational numbers | Numbers not expressible as a terminating or repeating fraction | $\sqrt{2},\ \pi$ |
-| Real numbers | Rational and irrational numbers together | $-4,\ 0,\ \frac{2}{3},\ \sqrt{5}$ |
+| Number set         | Description                                                    | Examples                            |
+| ------------------ | -------------------------------------------------------------- | ----------------------------------- |
+| Natural numbers    | Counting numbers                                               | $1,\ 2,\ 3,\ 4$                     |
+| Whole numbers      | Natural numbers and zero                                       | $0,\ 1,\ 2,\ 3$                     |
+| Integers           | Positive numbers, negative numbers, and zero                   | $-3,\ -2,\ -1,\ 0,\ 1$              |
+| Rational numbers   | Numbers expressible as a fraction                              | $\frac{1}{2},\ -\frac{5}{3},\ 0.75$ |
+| Irrational numbers | Numbers not expressible as a terminating or repeating fraction | $\sqrt{2},\ \pi$                    |
+| Real numbers       | Rational and irrational numbers together                       | $-4,\ 0,\ \frac{2}{3},\ \sqrt{5}$   |
 
 Arithmetic usually begins with whole numbers, then extends to integers, fractions, decimals, and real numbers.
 
@@ -64,14 +42,14 @@ $$
 
 the place values are:
 
-| Digit | Place | Value |
-| ----- | ----- | ----: |
-| $4$ | Thousands | $4000$ |
-| $3$ | Hundreds | $300$ |
-| $8$ | Tens | $80$ |
-| $2$ | Ones | $2$ |
-| $6$ | Tenths | $0.6$ |
-| $5$ | Hundredths | $0.05$ |
+| Digit | Place      |  Value |
+| ----- | ---------- | -----: |
+| $4$   | Thousands  | $4000$ |
+| $3$   | Hundreds   |  $300$ |
+| $8$   | Tens       |   $80$ |
+| $2$   | Ones       |    $2$ |
+| $6$   | Tenths     |  $0.6$ |
+| $5$   | Hundredths | $0.05$ |
 
 Expanded form:
 
@@ -83,14 +61,14 @@ $$
 
 Use the symbols:
 
-| Symbol | Meaning |
-| ------ | ------- |
-| $=$ | equal to |
-| $\ne$ | not equal to |
-| $<$ | less than |
-| $>$ | greater than |
-| $\le$ | less than or equal to |
-| $\ge$ | greater than or equal to |
+| Symbol | Meaning                  |
+| ------ | ------------------------ |
+| $=$    | equal to                 |
+| $\ne$  | not equal to             |
+| $<$    | less than                |
+| $>$    | greater than             |
+| $\le$  | less than or equal to    |
+| $\ge$  | greater than or equal to |
 
 Examples:
 
@@ -130,7 +108,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. Addition
 
 Addition combines quantities.
@@ -148,12 +125,12 @@ where:
 
 ## Properties of addition
 
-| Property | Rule |
-| -------- | ---- |
-| Commutative property | $a + b = b + a$ |
+| Property             | Rule                        |
+| -------------------- | --------------------------- |
+| Commutative property | $a + b = b + a$             |
 | Associative property | $(a + b) + c = a + (b + c)$ |
-| Additive identity | $a + 0 = a$ |
-| Additive inverse | $a + (-a) = 0$ |
+| Additive identity    | $a + 0 = a$                 |
+| Additive inverse     | $a + (-a) = 0$              |
 
 ## Adding whole numbers
 
@@ -233,7 +210,6 @@ Unlike quantities cannot be combined without conversion or interpretation.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Subtraction
 
 Subtraction finds the difference between quantities.
@@ -356,7 +332,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Multiplication
 
 Multiplication represents repeated addition, scaling, or area.
@@ -380,13 +355,13 @@ $$
 
 ## Properties of multiplication
 
-| Property | Rule |
-| -------- | ---- |
-| Commutative property | $ab = ba$ |
-| Associative property | $(ab)c = a(bc)$ |
-| Multiplicative identity | $a \cdot 1 = a$ |
+| Property                        | Rule            |
+| ------------------------------- | --------------- |
+| Commutative property            | $ab = ba$       |
+| Associative property            | $(ab)c = a(bc)$ |
+| Multiplicative identity         | $a \cdot 1 = a$ |
 | Multiplicative property of zero | $a \cdot 0 = 0$ |
-| Distributive property | $a(b+c)=ab+ac$ |
+| Distributive property           | $a(b+c)=ab+ac$  |
 
 ## Repeated addition
 
@@ -441,7 +416,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Division
 
 Division separates a quantity into equal groups or finds a rate.
@@ -564,7 +538,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Order of operations
 
 Order of operations gives a consistent way to evaluate expressions.
@@ -654,7 +627,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 # 7. Integers and signed arithmetic
 
 Integers include positive numbers, negative numbers, and zero.
@@ -723,12 +695,12 @@ $$
 
 ## Multiplying and dividing signed numbers
 
-| Signs | Product or quotient |
-| ----- | ------------------- |
-| Positive and positive | Positive |
-| Negative and negative | Positive |
-| Positive and negative | Negative |
-| Negative and positive | Negative |
+| Signs                 | Product or quotient |
+| --------------------- | ------------------- |
+| Positive and positive | Positive            |
+| Negative and negative | Positive            |
+| Positive and negative | Negative            |
+| Negative and positive | Negative            |
 
 Examples:
 
@@ -760,7 +732,6 @@ $$
 
 ---
 
-<a id="toc-8"></a>
 # 8. Factors, multiples, and primes
 
 ## Factors
@@ -881,7 +852,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 9. Fractions
 
 A fraction represents part of a whole, a ratio, or division.
@@ -1036,7 +1006,6 @@ $$
 
 ---
 
-<a id="toc-10"></a>
 # 10. Decimals
 
 Decimals are base-ten fractions.
@@ -1057,12 +1026,12 @@ $$
 
 ## Decimal place values
 
-| Place | Fraction | Decimal example |
-| ----- | -------- | --------------- |
-| Tenths | $\frac{1}{10}$ | $0.1$ |
-| Hundredths | $\frac{1}{100}$ | $0.01$ |
-| Thousandths | $\frac{1}{1000}$ | $0.001$ |
-| Ten-thousandths | $\frac{1}{10000}$ | $0.0001$ |
+| Place           | Fraction          | Decimal example |
+| --------------- | ----------------- | --------------- |
+| Tenths          | $\frac{1}{10}$    | $0.1$           |
+| Hundredths      | $\frac{1}{100}$   | $0.01$          |
+| Thousandths     | $\frac{1}{1000}$  | $0.001$         |
+| Ten-thousandths | $\frac{1}{10000}$ | $0.0001$        |
 
 ## Adding and subtracting decimals
 
@@ -1146,7 +1115,6 @@ $$
 
 ---
 
-<a id="toc-11"></a>
 # 11. Ratios, rates, and proportions
 
 ## Ratio
@@ -1251,7 +1219,6 @@ If $0<k<1$, the figure is reduced.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Percents
 
 Percent means per hundred.
@@ -1367,7 +1334,6 @@ $$
 
 ---
 
-<a id="toc-13"></a>
 # 13. Exponents, roots, and scientific notation
 
 ## Exponents
@@ -1388,15 +1354,15 @@ $$
 
 ## Exponent rules
 
-| Rule | Formula |
-| ---- | ------- |
-| Product of powers | $a^m a^n = a^{m+n}$ |
-| Quotient of powers | $\frac{a^m}{a^n}=a^{m-n}$ |
-| Power of a power | $(a^m)^n=a^{mn}$ |
-| Power of a product | $(ab)^n=a^n b^n$ |
+| Rule                | Formula                                      |
+| ------------------- | -------------------------------------------- |
+| Product of powers   | $a^m a^n = a^{m+n}$                          |
+| Quotient of powers  | $\frac{a^m}{a^n}=a^{m-n}$                    |
+| Power of a power    | $(a^m)^n=a^{mn}$                             |
+| Power of a product  | $(ab)^n=a^n b^n$                             |
 | Power of a quotient | $\left(\frac{a}{b}\right)^n=\frac{a^n}{b^n}$ |
-| Zero exponent | $a^0=1$ |
-| Negative exponent | $a^{-n}=\frac{1}{a^n}$ |
+| Zero exponent       | $a^0=1$                                      |
+| Negative exponent   | $a^{-n}=\frac{1}{a^n}$                       |
 
 Restrictions:
 
@@ -1448,17 +1414,17 @@ $$
 
 Common perfect squares:
 
-| $n$ | $n^2$ |
-| ---: | ---: |
-| $1$ | $1$ |
-| $2$ | $4$ |
-| $3$ | $9$ |
-| $4$ | $16$ |
-| $5$ | $25$ |
-| $6$ | $36$ |
-| $7$ | $49$ |
-| $8$ | $64$ |
-| $9$ | $81$ |
+|  $n$ | $n^2$ |
+| ---: | ----: |
+|  $1$ |   $1$ |
+|  $2$ |   $4$ |
+|  $3$ |   $9$ |
+|  $4$ |  $16$ |
+|  $5$ |  $25$ |
+|  $6$ |  $36$ |
+|  $7$ |  $49$ |
+|  $8$ |  $64$ |
+|  $9$ |  $81$ |
 | $10$ | $100$ |
 | $11$ | $121$ |
 | $12$ | $144$ |
@@ -1513,7 +1479,6 @@ $$
 
 ---
 
-<a id="toc-14"></a>
 # 14. Estimation, rounding, and error checks
 
 Estimation gives a quick approximate answer before or after exact calculation.
@@ -1581,12 +1546,12 @@ $$
 
 Use inverse operations:
 
-| Operation | Inverse check |
-| --------- | ------------- |
-| Addition | Subtraction |
-| Subtraction | Addition |
-| Multiplication | Division |
-| Division | Multiplication |
+| Operation      | Inverse check  |
+| -------------- | -------------- |
+| Addition       | Subtraction    |
+| Subtraction    | Addition       |
+| Multiplication | Division       |
+| Division       | Multiplication |
 
 Examples:
 
@@ -1616,7 +1581,6 @@ $$
 
 ---
 
-<a id="toc-15"></a>
 # 15. Problem-solving workflow
 
 Use this checklist for most arithmetic problems.
@@ -1652,14 +1616,14 @@ $$
 
 Use the wording and structure of the problem.
 
-| Wording | Common operation |
-| ------- | ---------------- |
-| total, altogether, combined | Addition |
-| difference, left, fewer, how much more | Subtraction |
-| groups of, times, product, area | Multiplication |
-| per, each, quotient, shared equally | Division |
-| out of 100, discount, markup, tax | Percent |
-| same ratio, scale, equivalent rates | Proportion |
+| Wording                                | Common operation |
+| -------------------------------------- | ---------------- |
+| total, altogether, combined            | Addition         |
+| difference, left, fewer, how much more | Subtraction      |
+| groups of, times, product, area        | Multiplication   |
+| per, each, quotient, shared equally    | Division         |
+| out of 100, discount, markup, tax      | Percent          |
+| same ratio, scale, equivalent rates    | Proportion       |
 
 ## Step 4: Set up the expression
 
@@ -1706,7 +1670,6 @@ $$
 
 ---
 
-<a id="toc-16"></a>
 # 16. Formula sheet
 
 ## Place value and comparison

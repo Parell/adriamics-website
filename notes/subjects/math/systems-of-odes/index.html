@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/systems-of-odes/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,54 @@
       <div class="viewer-head">
         <div>
           <h1>Systems of ODEs</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fsystems-of-odes%2Fsystems-of-odes.md&amp;title=%5BCorrection%5D%3A%20Systems%20of%20ODEs" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/systems-of-odes/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">What a system of ODEs is</a></p></li><li><p><a href="#toc-2">Matrix form and solution structure</a></p></li><li><p><a href="#toc-3">Linear autonomous systems</a></p></li><li><p><a href="#toc-4">Eigenvalues and eigenvectors</a></p></li><li><p><a href="#toc-5">The matrix exponential</a></p></li><li><p><a href="#toc-6">Nonhomogeneous linear systems</a></p></li><li><p><a href="#toc-7">Phase portraits and stability</a></p></li><li><p><a href="#toc-8">Nonlinear systems and linearization</a></p></li><li><p><a href="#toc-9">Common modeling patterns</a></p></li><li><p><a href="#toc-10">Problem-solving workflow</a></p></li><li><p><a href="#toc-11">Formula sheet</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-what-a-system-of-odes-is">1. What a system of ODEs is</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-a-system-of-odes-is">1. What a system of ODEs is</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#initial-value-problems">Initial value problems</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-matrix-form-and-solution-structure">2. Matrix form and solution structure</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-system">Linear system</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#superposition">Superposition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#dimension-of-the-solution-space">Dimension of the solution space</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-linear-autonomous-systems">3. Linear autonomous systems</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#why-this-case-matters">Why this case matters</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#decoupling-idea">Decoupling idea</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-eigenvalues-and-eigenvectors">4. Eigenvalues and eigenvectors</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#general-principle">General principle</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#real-eigenvalues">Real eigenvalues</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#complex-eigenvalues">Complex eigenvalues</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#repeated-eigenvalues">Repeated eigenvalues</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-the-matrix-exponential">5. The matrix exponential</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#definition">Definition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#diagonalizable-case">Diagonalizable case</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#practical-use">Practical use</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-nonhomogeneous-linear-systems">6. Nonhomogeneous linear systems</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#general-solution-structure">General solution structure</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variation-of-parameters">Variation of parameters</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-forcing-types">Common forcing types</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#7-phase-portraits-and-stability">7. Phase portraits and stability</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#equilibria">Equilibria</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#stability-ideas">Stability ideas</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#classification-for-2x2-systems">Classification for 2x2 systems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#trace-determinant-test-for-2x2-systems">Trace-determinant test for 2x2 systems</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-nonlinear-systems-and-linearization">8. Nonlinear systems and linearization</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linearization">Linearization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#interpreting-the-linearization">Interpreting the linearization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#caveat">Caveat</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-common-modeling-patterns">9. Common modeling patterns</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#coupled-growth-and-decay">Coupled growth and decay</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mass-spring-systems">Mass-spring systems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#predator-prey-models">Predator-prey models</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electrical-circuits">Electrical circuits</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-identify-the-type">1. Identify the type</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-rewrite-in-matrix-form">2. Rewrite in matrix form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-find-equilibria">3. Find equilibria</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-compute-eigenvalues">4. Compute eigenvalues</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-build-the-solution-basis">5. Build the solution basis</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-apply-initial-conditions">6. Apply initial conditions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-interpret-the-result">7. Interpret the result</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-formula-sheet">11. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#homogeneous-linear-system">Homogeneous linear system</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exact-solution">Exact solution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#matrix-exponential">Matrix exponential</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#eigenmode-solution">Eigenmode solution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#characteristic-polynomial-for-2x2-systems">Characteristic polynomial for 2x2 systems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#linearization-near-equilibrium">Linearization near equilibrium</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#forced-linear-system">Forced linear system</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variation-of-parameters-2">Variation of parameters</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#key-pitfalls">Key pitfalls</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#quick-intuition">Quick intuition</a></li></ol></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="phase-portrait" data-math-demo-id="systems-of-odes">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Phase portrait</h2>
+      <p class="interactive-demo__summary">Adjust the linear system to see trajectories spiral, settle, or diverge in the xy-plane.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Phase portrait controls">
+        <label class="interactive-demo__control" for="math-demo-systems-of-odes-alpha">
+    <span class="interactive-demo__control-label">Growth term <output id="math-demo-systems-of-odes-alpha-value">0.2</output></span>
+    <input id="math-demo-systems-of-odes-alpha" type="range" min="-1" max="1" step="0.05" value="0.2" />
+  </label><label class="interactive-demo__control" for="math-demo-systems-of-odes-beta">
+    <span class="interactive-demo__control-label">Rotation term <output id="math-demo-systems-of-odes-beta-value">1</output></span>
+    <input id="math-demo-systems-of-odes-beta" type="range" min="-2" max="2" step="0.05" value="1" />
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Stability</span>
+    <span class="interactive-demo__metric-value" id="math-demo-systems-of-odes-stability">spiral source</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Initial point</span>
+    <span class="interactive-demo__metric-value" id="math-demo-systems-of-odes-start">(1, -0.5)</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="math-demo-systems-of-odes-title math-demo-systems-of-odes-desc">
+          <title id="math-demo-systems-of-odes-title">Phase portrait</title>
+          <desc id="math-demo-systems-of-odes-desc">A vector field and trajectory in the phase plane.</desc>
+          <g id="math-demo-systems-of-odes-field" stroke="var(--border)" stroke-width="2" stroke-linecap="round"></g>
+          <path id="math-demo-systems-of-odes-trajectory" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
+          <circle id="math-demo-systems-of-odes-phase-point" cx="0" cy="0" r="7" fill="var(--pomodoro-short)" />
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <h1 id="1-what-a-system-of-odes-is">1. What a system of ODEs is</h1>
 <p>A <strong>system of ordinary differential equations</strong> is a set of coupled equations for two or more unknown functions of one independent variable, usually time $t$.</p>
 <p>Example:</p>
 <div class="math-block">$$
@@ -112,7 +165,6 @@ $$</div>
 $$</div>
 <p>An initial condition fixes the particular solution among the family of all solutions.</p>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-matrix-form-and-solution-structure">2. Matrix form and solution structure</h1>
 <p>Many systems can be written compactly with vectors and matrices.</p>
 <h2 id="linear-system">Linear system</h2>
@@ -134,7 +186,6 @@ $$</div>
 <h2 id="dimension-of-the-solution-space">Dimension of the solution space</h2>
 <p>For an $n \times n$ first-order linear homogeneous system, the general solution depends on $n$ constants. Equivalently, you need $n$ independent initial conditions to determine a unique solution.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-linear-autonomous-systems">3. Linear autonomous systems</h1>
 <p>The canonical form is</p>
 <div class="math-block">$$
@@ -167,7 +218,6 @@ $$</div>
 <h2 id="decoupling-idea">Decoupling idea</h2>
 <p>If you can find a change of variables that diagonalizes or simplifies $A$, the system may split into independent scalar ODEs. This is the linear-algebra viewpoint behind most solution methods.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-eigenvalues-and-eigenvectors">4. Eigenvalues and eigenvectors</h1>
 <p>For a homogeneous linear system $\mathbf{x}&#39; = A\mathbf{x}$, try solutions of the form</p>
 <div class="math-block">$$
@@ -206,7 +256,6 @@ e^{\lambda t}(\mathbf{v} + t\mathbf{w})
 $$</div>
 <p>where $\mathbf{w}$ is a generalized eigenvector.</p>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-the-matrix-exponential">5. The matrix exponential</h1>
 <p>The exact solution of</p>
 <div class="math-block">$$
@@ -240,7 +289,6 @@ $$</div>
 <p>You often do not compute the full series. Instead, use:</p>
 <ul><li><p>diagonalization</p></li><li><p>eigenvector decomposition</p></li><li><p>Jordan form when necessary</p></li><li><p>software or a calculator for large systems</p></li></ul>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-nonhomogeneous-linear-systems">6. Nonhomogeneous linear systems</h1>
 <p>The forced system</p>
 <div class="math-block">$$
@@ -265,7 +313,6 @@ $$</div>
 <ul><li><p>constants</p></li><li><p>polynomials</p></li><li><p>exponentials</p></li><li><p>sines and cosines</p></li><li><p>combinations of the above</p></li></ul>
 <p>For constant-coefficient systems, undetermined coefficients can work when the forcing has a simple form.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-phase-portraits-and-stability">7. Phase portraits and stability</h1>
 <p>For a two-dimensional autonomous system, the <strong>phase plane</strong> is the $(x,y)$ plane of states. A <strong>phase portrait</strong> shows representative trajectories.</p>
 <h2 id="equilibria">Equilibria</h2>
@@ -305,7 +352,6 @@ $$</div>
 $$</div>
 <p>This quickly tells you whether the eigenvalues are real or complex and whether the origin is stable.</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-nonlinear-systems-and-linearization">8. Nonlinear systems and linearization</h1>
 <p>A nonlinear system has the form</p>
 <div class="math-block">$$
@@ -334,7 +380,6 @@ $$</div>
 <h2 id="caveat">Caveat</h2>
 <p>Linearization is a local tool. It tells you about behavior near an equilibrium, not the full global dynamics.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-common-modeling-patterns">9. Common modeling patterns</h1>
 <h2 id="coupled-growth-and-decay">Coupled growth and decay</h2>
 <p>If one variable feeds another, the system may look like</p>
@@ -369,7 +414,6 @@ $$</div>
 <h2 id="electrical-circuits">Electrical circuits</h2>
 <p>In circuits with capacitors and inductors, Kirchhoff&#39;s laws often produce systems for charge and current. These are frequently linear with constant coefficients.</p>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-problem-solving-workflow">10. Problem-solving workflow</h1>
 <p>When solving a system of ODEs, use a disciplined sequence.</p>
 <h2 id="1-identify-the-type">1. Identify the type</h2>
@@ -397,7 +441,6 @@ $$</div>
 <p>Check whether the solution:</p>
 <ul><li><p>grows or decays</p></li><li><p>oscillates</p></li><li><p>approaches equilibrium</p></li><li><p>matches the physical context</p></li></ul>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-formula-sheet">11. Formula sheet</h1>
 <h2 id="homogeneous-linear-system">Homogeneous linear system</h2>
 <div class="math-block">$$
@@ -438,13 +481,37 @@ $$</div>
 <h2 id="quick-intuition">Quick intuition</h2>
 <ul><li><p>Eigenvalues control time behavior.</p></li><li><p>Eigenvectors control directions.</p></li><li><p>The matrix exponential packages the whole solution.</p></li><li><p>Nonlinear systems are often best understood locally by linearization.</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/systems-of-odes/systems-of-odes.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/systems-of-odes/systems-of-odes.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-a-system-of-odes-is">1. What a system of ODEs is</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#initial-value-problems">Initial value problems</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-matrix-form-and-solution-structure">2. Matrix form and solution structure</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-system">Linear system</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#superposition">Superposition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#dimension-of-the-solution-space">Dimension of the solution space</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-linear-autonomous-systems">3. Linear autonomous systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-this-case-matters">Why this case matters</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#decoupling-idea">Decoupling idea</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-eigenvalues-and-eigenvectors">4. Eigenvalues and eigenvectors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#general-principle">General principle</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#real-eigenvalues">Real eigenvalues</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#complex-eigenvalues">Complex eigenvalues</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#repeated-eigenvalues">Repeated eigenvalues</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-the-matrix-exponential">5. The matrix exponential</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#definition">Definition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#diagonalizable-case">Diagonalizable case</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#practical-use">Practical use</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-nonhomogeneous-linear-systems">6. Nonhomogeneous linear systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#general-solution-structure">General solution structure</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variation-of-parameters">Variation of parameters</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-forcing-types">Common forcing types</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-phase-portraits-and-stability">7. Phase portraits and stability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equilibria">Equilibria</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stability-ideas">Stability ideas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#classification-for-2x2-systems">Classification for 2x2 systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trace-determinant-test-for-2x2-systems">Trace-determinant test for 2x2 systems</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-nonlinear-systems-and-linearization">8. Nonlinear systems and linearization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linearization">Linearization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interpreting-the-linearization">Interpreting the linearization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#caveat">Caveat</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-common-modeling-patterns">9. Common modeling patterns</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#coupled-growth-and-decay">Coupled growth and decay</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mass-spring-systems">Mass-spring systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#predator-prey-models">Predator-prey models</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#electrical-circuits">Electrical circuits</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#1-identify-the-type">1. Identify the type</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#2-rewrite-in-matrix-form">2. Rewrite in matrix form</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#3-find-equilibria">3. Find equilibria</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#4-compute-eigenvalues">4. Compute eigenvalues</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#5-build-the-solution-basis">5. Build the solution basis</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#6-apply-initial-conditions">6. Apply initial conditions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#7-interpret-the-result">7. Interpret the result</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-formula-sheet">11. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#homogeneous-linear-system">Homogeneous linear system</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#exact-solution">Exact solution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#matrix-exponential">Matrix exponential</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#eigenmode-solution">Eigenmode solution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#characteristic-polynomial-for-2x2-systems">Characteristic polynomial for 2x2 systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linearization-near-equilibrium">Linearization near equilibrium</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#forced-linear-system">Forced linear system</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variation-of-parameters-2">Variation of parameters</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#key-pitfalls">Key pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#quick-intuition">Quick intuition</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

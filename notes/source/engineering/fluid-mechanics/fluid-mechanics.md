@@ -7,26 +7,6 @@ sources: []
 ---
 
 # Fluid Mechanics
-
-## Table of contents
-
-1. [What fluid mechanics studies](#toc-1)
-2. [Fluid properties and classification](#toc-2)
-3. [Pressure and hydrostatics](#toc-3)
-4. [Fluid statics applications](#toc-4)
-5. [Control volume analysis](#toc-5)
-6. [Bernoulli equation and energy form](#toc-6)
-7. [Momentum equation](#toc-7)
-8. [Dimensional analysis and similitude](#toc-8)
-9. [Internal flows and losses](#toc-9)
-10. [External flow and boundary layers](#toc-10)
-11. [Compressible flow basics](#toc-11)
-12. [Problem-solving workflow](#toc-12)
-13. [Formula summary](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. What fluid mechanics studies
 
 Fluid mechanics is the study of how fluids move and how they respond to forces.
@@ -51,7 +31,6 @@ The main task is to choose the right control volume, assumptions, and level of d
 
 ---
 
-<a id="toc-2"></a>
 # 2. Fluid properties and classification
 
 ## Common properties
@@ -129,7 +108,6 @@ Common pipe-flow guidance:
 
 ---
 
-<a id="toc-3"></a>
 # 3. Pressure and hydrostatics
 
 ## Pressure
@@ -186,7 +164,6 @@ The density used in each segment must match the fluid in that segment. Do not us
 
 ---
 
-<a id="toc-4"></a>
 # 4. Fluid statics applications
 
 ## Hydrostatic force on a plane surface
@@ -243,7 +220,6 @@ The pressure at a given depth depends on fluid density and depth, not container 
 
 ---
 
-<a id="toc-5"></a>
 # 5. Control volume analysis
 
 Most flow problems are easiest in a **control volume** framework.
@@ -304,7 +280,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Bernoulli equation and energy form
 
 ## Bernoulli equation
@@ -366,7 +341,6 @@ Do not use Bernoulli across a pump, across a significant loss, or through a stro
 
 ---
 
-<a id="toc-7"></a>
 # 7. Momentum equation
 
 The linear momentum equation is the workhorse for forces on jets, bends, nozzles, and control devices.
@@ -413,7 +387,6 @@ Be consistent with inlet and outlet velocity directions. Most errors in momentum
 
 ---
 
-<a id="toc-8"></a>
 # 8. Dimensional analysis and similitude
 
 Dimensional analysis reduces variables and identifies key nondimensional groups.
@@ -468,7 +441,6 @@ In many problems, exact similarity is impossible. Then the dominant nondimension
 
 ---
 
-<a id="toc-9"></a>
 # 9. Internal flows and losses
 
 Internal flow refers to flow in pipes, ducts, and channels.
@@ -554,7 +526,6 @@ $$
 
 ---
 
-<a id="toc-10"></a>
 # 10. External flow and boundary layers
 
 When a fluid flows over a surface, viscosity creates a thin region near the wall called the **boundary layer**.
@@ -602,7 +573,6 @@ These coefficients are often determined experimentally or from correlations.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Compressible flow basics
 
 Compressibility matters when density changes are not negligible, especially for gases at high speed.
@@ -650,7 +620,6 @@ At that point, mass flow rate reaches a maximum for the given upstream condition
 
 ---
 
-<a id="toc-12"></a>
 # 12. Problem-solving workflow
 
 ## General workflow
@@ -688,7 +657,6 @@ At that point, mass flow rate reaches a maximum for the given upstream condition
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula summary
 
 ## Fluid properties

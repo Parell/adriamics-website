@@ -5,26 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What dynamics studies](#toc-1)
-2. [Kinematics fundamentals](#toc-2)
-3. [Rectilinear motion](#toc-3)
-4. [Curvilinear motion](#toc-4)
-5. [Relative motion](#toc-5)
-6. [Particle kinetics](#toc-6)
-7. [Work-energy methods](#toc-7)
-8. [Impulse-momentum methods](#toc-8)
-9. [Rigid-body kinematics](#toc-9)
-10. [Rigid-body kinetics](#toc-10)
-11. [Choosing the right method](#toc-11)
-12. [Common pitfalls](#toc-12)
-13. [Formula sheet](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. What dynamics studies
 
 Dynamics is the study of motion and the forces that cause or respond to motion. It sits between statics and vibration-heavy advanced mechanics.
@@ -67,7 +47,6 @@ where \(G\) is the center of mass and \(\mathbf{H}\) is angular momentum.
 
 ---
 
-<a id="toc-2"></a>
 # 2. Kinematics fundamentals
 
 Kinematics describes how objects move.
@@ -118,7 +97,6 @@ The safest workflow is to write position as a vector first, then differentiate.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Rectilinear motion
 
 Rectilinear motion is motion along a straight line. It is the simplest and most common starting point.
@@ -173,7 +151,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Curvilinear motion
 
 Curvilinear motion occurs along a curved path. Two common coordinate systems are Cartesian and normal-tangential coordinates.
@@ -239,7 +216,6 @@ Polar coordinates are useful for motion involving rotation about a point.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Relative motion
 
 Relative motion compares the motion of one body to another moving reference frame.
@@ -285,7 +261,6 @@ The \(2\boldsymbol{\omega} \times \mathbf{v}_{rel}\) term is the Coriolis term.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Particle kinetics
 
 Particle kinetics links forces to translational acceleration.
@@ -342,7 +317,6 @@ The friction force opposes impending or relative motion along the contact surfac
 
 ---
 
-<a id="toc-7"></a>
 # 7. Work-energy methods
 
 Work-energy is often faster than force-balance when displacement is easier to track than time.
@@ -403,7 +377,6 @@ For a block released on a rough incline, the work-energy method often gives spee
 
 ---
 
-<a id="toc-8"></a>
 # 8. Impulse-momentum methods
 
 Impulse-momentum is useful when forces act over a short time, such as impacts or thrust events.
@@ -439,7 +412,6 @@ Impulse-momentum is not ideal if the force is unknown and the time interval is l
 
 ---
 
-<a id="toc-9"></a>
 # 9. Rigid-body kinematics
 
 Rigid-body motion combines translation and rotation.
@@ -490,7 +462,6 @@ In planar motion, a body can often be treated as instantaneously rotating about 
 
 ---
 
-<a id="toc-10"></a>
 # 10. Rigid-body kinetics
 
 Rigid-body kinetics extends Newton's laws to bodies with rotation.
@@ -552,7 +523,6 @@ This form is useful for rolling, pulleys, and rotating links.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Choosing the right method
 
 The best method depends on what the problem gives and what it asks for.
@@ -587,7 +557,6 @@ If the problem asks for a force, start with free-body diagrams and Newton's laws
 
 ---
 
-<a id="toc-12"></a>
 # 12. Common pitfalls
 
 - Mixing up **kinematics** and **kinetics**
@@ -609,7 +578,6 @@ If the problem asks for a force, start with free-body diagrams and Newton's laws
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula sheet
 
 ## Particle motion

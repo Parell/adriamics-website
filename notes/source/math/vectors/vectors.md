@@ -7,24 +7,6 @@ sources: []
 ---
 
 # Vectors
-
-## Table of contents
-
-1. [What a vector is](#toc-1)
-2. [Notation and components](#toc-2)
-3. [Magnitude and unit vectors](#toc-3)
-4. [Basic vector operations](#toc-4)
-5. [Dot product](#toc-5)
-6. [Cross product](#toc-6)
-7. [Vector projections](#toc-7)
-8. [Lines and planes](#toc-8)
-9. [Common workflows](#toc-9)
-10. [Formula summary](#toc-10)
-11. [Pitfalls](#toc-11)
-
----
-
-<a id="toc-1"></a>
 # 1. What a vector is
 
 A **vector** is an object with both magnitude and direction. In geometry and physics, vectors represent quantities such as displacement, velocity, acceleration, and force.
@@ -60,7 +42,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. Notation and components
 
 Vectors may be written in several equivalent forms:
@@ -113,7 +94,6 @@ This is one of the most common ways vectors appear in geometry problems.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Magnitude and unit vectors
 
 The **magnitude** or length of $\mathbf{v} = \langle v_1, v_2, \dots, v_n \rangle$ is
@@ -165,7 +145,6 @@ with the correct quadrant chosen from the signs of $x$ and $y$.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Basic vector operations
 
 ## Addition and subtraction
@@ -208,7 +187,6 @@ It has zero magnitude and no direction.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Dot product
 
 The **dot product** of two vectors in $\mathbb{R}^n$ is
@@ -270,7 +248,6 @@ The vector projection is covered in the next section.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Cross product
 
 The **cross product** is defined for vectors in $\mathbb{R}^3$.
@@ -330,7 +307,6 @@ Use the right-hand rule to determine direction.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Vector projections
 
 The projection of $\mathbf{v}$ onto $\mathbf{u}$ is the component of $\mathbf{v}$ that points along $\mathbf{u}$.
@@ -369,7 +345,6 @@ and $\mathbf{v}_\perp \cdot \mathbf{u} = 0$.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Lines and planes
 
 Vectors provide compact equations for geometric objects.
@@ -424,7 +399,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 9. Common workflows
 
 ## Find the vector from one point to another
@@ -467,7 +441,6 @@ If the problem gives a geometric picture, convert it to vectors first. The algeb
 
 ---
 
-<a id="toc-10"></a>
 # 10. Formula summary
 
 ## Core formulas
@@ -512,7 +485,6 @@ $$
 
 ---
 
-<a id="toc-11"></a>
 # 11. Pitfalls
 
 ## Sign mistakes in components

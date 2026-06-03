@@ -9,26 +9,6 @@ sources: []
 # Algebra
 
 Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.
-
-## Table of contents
-
-1. [Core ideas and notation](#toc-1)
-2. [Expressions and algebraic manipulation](#toc-2)
-3. [Linear equations and inequalities](#toc-3)
-4. [Systems of equations](#toc-4)
-5. [Exponents, radicals, and powers](#toc-5)
-6. [Polynomials and factoring](#toc-6)
-7. [Rational expressions](#toc-7)
-8. [Quadratic equations and parabolas](#toc-8)
-9. [Functions](#toc-9)
-10. [Exponential and logarithmic relationships](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Common pitfalls](#toc-12)
-13. [Formula summary](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. Core ideas and notation
 
 At its core, algebra replaces specific numbers with symbols so that one argument can describe many cases.
@@ -78,7 +58,6 @@ This property is one of the most important tools in algebra.
 
 ---
 
-<a id="toc-2"></a>
 # 2. Expressions and algebraic manipulation
 
 An **expression** is a combination of numbers, variables, and operations, but without an equals sign.
@@ -153,7 +132,6 @@ This is not an equation to solve; it is a pattern to use.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Linear equations and inequalities
 
 A **linear equation** has variables only to the first power.
@@ -248,7 +226,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Systems of equations
 
 A system asks for values that satisfy multiple equations at once.
@@ -311,7 +288,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Exponents, radicals, and powers
 
 Exponents compress repeated multiplication.
@@ -386,7 +362,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Polynomials and factoring
 
 A **polynomial** is a sum of terms of the form $ax^n$, where $n$ is a nonnegative integer.
@@ -456,7 +431,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 # 7. Rational expressions
 
 A **rational expression** is a quotient of polynomials:
@@ -522,7 +496,6 @@ Typical workflow:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Quadratic equations and parabolas
 
 A quadratic equation has the form
@@ -619,7 +592,6 @@ If $a > 0$, the parabola opens upward. If $a < 0$, it opens downward.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Functions
 
 A **function** assigns each input exactly one output.
@@ -703,7 +675,6 @@ Not every function has an inverse on its full domain.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Exponential and logarithmic relationships
 
 Exponential functions model repeated multiplication:
@@ -799,7 +770,6 @@ so the solution is valid.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 When solving an algebra problem, use a disciplined sequence.
@@ -858,7 +828,6 @@ Valid.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Common pitfalls
 
 - Combining unlike terms, such as treating $x + x^2$ as $2x^2$.
@@ -880,7 +849,6 @@ Valid.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula summary
 
 ## Core identities

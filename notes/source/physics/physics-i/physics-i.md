@@ -5,27 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What Physics I covers](#toc-1)
-2. [Units, vectors, and notation](#toc-2)
-3. [One-dimensional kinematics](#toc-3)
-4. [Two-dimensional motion and projectiles](#toc-4)
-5. [Newton's laws and free-body diagrams](#toc-5)
-6. [Common forces](#toc-6)
-7. [Work, energy, and power](#toc-7)
-8. [Momentum, impulse, and collisions](#toc-8)
-9. [Rotation and torque](#toc-9)
-10. [Gravity and circular motion](#toc-10)
-11. [Simple harmonic motion](#toc-11)
-12. [Statics and equilibrium](#toc-12)
-13. [Problem-solving workflow](#toc-13)
-14. [Formula summary](#toc-14)
-
----
-
-<a id="toc-1"></a>
 # What Physics I covers
 
 Physics I is usually the first university-level mechanics course. The core goal is to describe how objects move and why they move using a small set of conservation laws and force laws.
@@ -47,7 +26,6 @@ The subject is not about memorizing a large number of formulas. Most problems re
 
 ---
 
-<a id="toc-2"></a>
 # Units, vectors, and notation
 
 ## SI base quantities
@@ -96,7 +74,6 @@ Be consistent once the axes are chosen.
 
 ---
 
-<a id="toc-3"></a>
 # One-dimensional kinematics
 
 Kinematics describes motion in terms of position, velocity, and acceleration.
@@ -174,7 +151,6 @@ if upward is positive.
 
 ---
 
-<a id="toc-4"></a>
 # Two-dimensional motion and projectiles
 
 In two dimensions, motion is analyzed independently along perpendicular axes.
@@ -241,7 +217,6 @@ Do not use the magnitude of velocity in every equation. The $x$ and $y$ componen
 
 ---
 
-<a id="toc-5"></a>
 # Newton's laws and free-body diagrams
 
 Newton's laws connect forces and motion.
@@ -281,7 +256,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # Common forces
 
 ## Weight
@@ -347,7 +321,6 @@ The minus sign indicates a restoring force.
 
 ---
 
-<a id="toc-7"></a>
 # Work, energy, and power
 
 Energy methods are often simpler than direct force analysis when the question concerns speed, height, or turning points.
@@ -437,7 +410,6 @@ Use Newton's laws when:
 
 ---
 
-<a id="toc-8"></a>
 # Momentum, impulse, and collisions
 
 Momentum is the quantity most useful when forces act over short times or when bodies collide.
@@ -498,7 +470,6 @@ Momentum is a vector. Conservation must be applied separately in each direction.
 
 ---
 
-<a id="toc-9"></a>
 # Rotation and torque
 
 Rotational motion is the angular analogue of linear motion.
@@ -601,7 +572,6 @@ Rolling problems often combine translation, rotation, and energy.
 
 ---
 
-<a id="toc-10"></a>
 # Gravity and circular motion
 
 ## Universal gravitation
@@ -653,7 +623,6 @@ $$
 
 ---
 
-<a id="toc-11"></a>
 # Simple harmonic motion
 
 Simple harmonic motion describes oscillations around stable equilibrium.
@@ -706,7 +675,6 @@ This approximation is accurate only for small angular displacements.
 
 ---
 
-<a id="toc-12"></a>
 # Statics and equilibrium
 
 Statics studies objects at rest or moving with constant velocity.
@@ -755,7 +723,6 @@ The center of mass is the effective point where translational motion can be trac
 
 ---
 
-<a id="toc-13"></a>
 # Problem-solving workflow
 
 Good mechanics solutions are usually built in the same order.
@@ -811,7 +778,6 @@ Translate the answer back into the language of the problem. A correct number is 
 
 ---
 
-<a id="toc-14"></a>
 # Formula summary
 
 ## Kinematics

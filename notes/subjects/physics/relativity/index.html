@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/relativity/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -66,25 +83,27 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Physics</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" aria-current="page" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/" data-notes-nav-item>Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/" data-notes-nav-item>Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" aria-current="page" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
           <h1>Relativity</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fphysics%2Frelativity%2Frelativity.md&amp;title=%5BCorrection%5D%3A%20Relativity" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/relativity/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">Why relativity is needed</a></p></li><li><p><a href="#toc-2">Special relativity: postulates and frames</a></p></li><li><p><a href="#toc-3">Lorentz transformations</a></p></li><li><p><a href="#toc-4">Spacetime interval and causality</a></p></li><li><p><a href="#toc-5">Time dilation and length contraction</a></p></li><li><p><a href="#toc-6">Relativity of simultaneity</a></p></li><li><p><a href="#toc-7">Velocity and acceleration in relativity</a></p></li><li><p><a href="#toc-8">Energy and momentum</a></p></li><li><p><a href="#toc-9">Relativistic dynamics and collisions</a></p></li><li><p><a href="#toc-10">General relativity: gravity as geometry</a></p></li><li><p><a href="#toc-11">Gravitational time dilation and light bending</a></p></li><li><p><a href="#toc-12">Common problem-solving workflow</a></p></li><li><p><a href="#toc-13">Formula sheet</a></p></li><li><p><a href="#toc-14">Common mistakes to avoid</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-why-relativity-is-needed">1. Why relativity is needed</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-why-relativity-is-needed">1. Why relativity is needed</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#when-to-use-relativity">When to use relativity</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-special-relativity-postulates-and-frames">2. Special relativity: postulates and frames</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#postulates">Postulates</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#reference-frames">Reference frames</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#events">Events</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-lorentz-transformations">3. Lorentz transformations</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#galilean-limit">Galilean limit</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#interpretation">Interpretation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-spacetime-interval-and-causality">4. Spacetime interval and causality</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#interval-classification">Interval classification</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#proper-time">Proper time</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-time-dilation-and-length-contraction">5. Time dilation and length contraction</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#time-dilation">Time dilation</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example-pattern">Example pattern</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#length-contraction">Length contraction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#proper-quantities">Proper quantities</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-relativity-of-simultaneity">6. Relativity of simultaneity</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#why-it-matters">Why it matters</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-interpretation-trap">Common interpretation trap</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-velocity-and-acceleration-in-relativity">7. Velocity and acceleration in relativity</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#velocity-addition">Velocity addition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-speeds-do-not-simply-add">Why speeds do not simply add</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#relativistic-momentum-direction">Relativistic momentum direction</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-energy-and-momentum">8. Energy and momentum</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#relativistic-momentum">Relativistic momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#total-energy">Total energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rest-energy">Rest energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#energy-momentum-relation">Energy-momentum relation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#four-momentum">Four-momentum</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-relativistic-dynamics-and-collisions">9. Relativistic dynamics and collisions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#conservation-laws">Conservation laws</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inelastic-collisions">Inelastic collisions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#threshold-and-reaction-problems">Threshold and reaction problems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#practical-workflow">Practical workflow</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-general-relativity-gravity-as-geometry">10. General relativity: gravity as geometry</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-idea">Core idea</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#equivalence-principle">Equivalence principle</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#stress-energy-source">Stress-energy source</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-general-relativity-matters">When general relativity matters</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-gravitational-time-dilation-and-light-bending">11. Gravitational time dilation and light bending</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#gravitational-time-dilation">Gravitational time dilation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#gravitational-redshift">Gravitational redshift</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#light-bending">Light bending</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-common-problem-solving-workflow">12. Common problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#step-1-identify-the-regime">Step 1: Identify the regime</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-2-choose-the-right-frame">Step 2: Choose the right frame</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-3-list-invariants">Step 3: List invariants</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-4-translate-the-geometry-correctly">Step 4: Translate the geometry correctly</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-5-write-the-governing-equations">Step 5: Write the governing equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-6-check-limits">Step 6: Check limits</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-formula-sheet">13. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#lorentz-factor">Lorentz factor</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#lorentz-transformations">Lorentz transformations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#interval">Interval</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#time-dilation-2">Time dilation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#length-contraction-2">Length contraction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#velocity-addition-2">Velocity addition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#momentum-and-energy">Momentum and energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#photon-relations">Photon relations</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#14-common-mistakes-to-avoid">14. Common mistakes to avoid</a></li></ol></div>
+    </nav>
+        
+        <h1 id="1-why-relativity-is-needed">1. Why relativity is needed</h1>
 <p>Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed of light, but it fails for:</p>
 <ul><li><p>Particles moving near light speed</p></li><li><p>Accurate timing in satellites and particle accelerators</p></li><li><p>Strong gravitational fields</p></li></ul>
 <p>Relativity replaces absolute time with spacetime and ensures that the speed of light in vacuum,</p>
@@ -97,7 +116,6 @@ $$</div>
 <ul><li><p>A speed is a significant fraction of $c$</p></li><li><p>The problem involves light signals, clocks, or simultaneity</p></li><li><p>The problem asks for rest mass, rest energy, or invariant interval</p></li><li><p>Gravity must be treated as curved spacetime rather than a force in flat space</p></li></ul>
 <p>For everyday speeds, classical formulas are usually adequate because relativistic corrections are tiny.</p>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-special-relativity-postulates-and-frames">2. Special relativity: postulates and frames</h1>
 <p>Special relativity applies to inertial frames, meaning frames moving at constant velocity relative to one another.</p>
 <h2 id="postulates">Postulates</h2>
@@ -116,7 +134,6 @@ $$</div>
 $$</div>
 <p>or, often, by the spacetime coordinate pair $(ct, x)$ in one dimension.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-lorentz-transformations">3. Lorentz transformations</h1>
 <p>The Lorentz transformations relate the coordinates of the same event between two inertial frames moving at relative speed $v$ along the $x$-axis.</p>
 <p>Define:</p>
@@ -149,7 +166,6 @@ $$</div>
 <p>The transformations mix space and time. That is the mathematical reason that:</p>
 <ul><li><p>Moving clocks run slow</p></li><li><p>Moving rods contract along the direction of motion</p></li><li><p>Simultaneity becomes frame-dependent</p></li></ul>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-spacetime-interval-and-causality">4. Spacetime interval and causality</h1>
 <p>The spacetime interval between two events is invariant under Lorentz transformations.</p>
 <p>In one spatial dimension:</p>
@@ -175,7 +191,6 @@ $$</div>
 $$</div>
 <p>Proper time is the shortest time elapsed between two timelike-separated events among inertial paths.</p>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-time-dilation-and-length-contraction">5. Time dilation and length contraction</h1>
 <h2 id="time-dilation">Time dilation</h2>
 <p>A moving clock is observed to run slow.</p>
@@ -200,7 +215,6 @@ $$</div>
 <ul><li><p>Proper time: time measured in the object&#39;s rest frame</p></li><li><p>Proper length: length measured in the object&#39;s rest frame</p></li></ul>
 <p>These are the natural reference values in relativity problems.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-relativity-of-simultaneity">6. Relativity of simultaneity</h1>
 <p>Events that are simultaneous in one frame need not be simultaneous in another.</p>
 <p>From the Lorentz transformation:</p>
@@ -217,7 +231,6 @@ $$</div>
 <h2 id="common-interpretation-trap">Common interpretation trap</h2>
 <p>If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of “same time” is frame-dependent.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-velocity-and-acceleration-in-relativity">7. Velocity and acceleration in relativity</h1>
 <p>Classical velocity addition fails at high speed.</p>
 <h2 id="velocity-addition">Velocity addition</h2>
@@ -239,7 +252,6 @@ $$</div>
 <h2 id="relativistic-momentum-direction">Relativistic momentum direction</h2>
 <p>For force and acceleration problems, the acceleration need not point in the same direction as the applied force in a simple Newtonian way because momentum depends on $\gamma$.</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-energy-and-momentum">8. Energy and momentum</h1>
 <p>Relativity unifies energy and momentum into a single framework.</p>
 <h2 id="relativistic-momentum">Relativistic momentum</h2>
@@ -287,7 +299,6 @@ P^\mu = \left(\frac{E}{c}, \mathbf{p}\right)
 $$</div>
 <p>Its invariant magnitude is tied to rest mass.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-relativistic-dynamics-and-collisions">9. Relativistic dynamics and collisions</h1>
 <p>The relativistic conservation laws look familiar, but the conserved quantities are different from the classical approximations.</p>
 <h2 id="conservation-laws">Conservation laws</h2>
@@ -308,7 +319,6 @@ $$</div>
 <h2 id="practical-workflow">Practical workflow</h2>
 <ol><li><p>Identify the reference frame.</p></li><li><p>Write energy and momentum conservation.</p></li><li><p>Use the relativistic energy-momentum relation.</p></li><li><p>Keep $c$ explicit until the final step.</p></li><li><p>Check whether the result stays below $c$ for any material particle.</p></li></ol>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-general-relativity-gravity-as-geometry">10. General relativity: gravity as geometry</h1>
 <p>Special relativity handles inertial frames. General relativity extends the framework to accelerated frames and gravity.</p>
 <h2 id="core-idea">Core idea</h2>
@@ -324,7 +334,6 @@ $$</div>
 <p>General relativity is important for:</p>
 <ul><li><p>GPS timing corrections</p></li><li><p>Black holes and neutron stars</p></li><li><p>Precision orbital dynamics</p></li><li><p>Gravitational lensing</p></li><li><p>Cosmology</p></li></ul>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-gravitational-time-dilation-and-light-bending">11. Gravitational time dilation and light bending</h1>
 <h2 id="gravitational-time-dilation">Gravitational time dilation</h2>
 <p>Clocks deeper in a gravitational field tick more slowly relative to clocks higher up.</p>
@@ -342,7 +351,6 @@ $$</div>
 <p>Light follows curved spacetime, so its path bends near massive objects.</p>
 <p>This is one of the classic observational tests of general relativity.</p>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-common-problem-solving-workflow">12. Common problem-solving workflow</h1>
 <p>Use this workflow for most relativity problems.</p>
 <h2 id="step-1-identify-the-regime">Step 1: Identify the regime</h2>
@@ -379,7 +387,6 @@ $$</div>
 <h2 id="step-6-check-limits">Step 6: Check limits</h2>
 <p>Verify that your result reduces to the classical answer when $v \ll c$.</p>
 <hr />
-<a id="toc-13"></a>
 <h1 id="13-formula-sheet">13. Formula sheet</h1>
 <h2 id="lorentz-factor">Lorentz factor</h2>
 <div class="math-block">$$
@@ -433,17 +440,40 @@ $$</div>
 E = pc
 $$</div>
 <hr />
-<a id="toc-14"></a>
 <h1 id="14-common-mistakes-to-avoid">14. Common mistakes to avoid</h1>
 <ul><li><p>Using Galilean velocity addition when speeds are relativistic.</p></li><li><p>Treating coordinate time as proper time.</p></li><li><p>Forgetting that proper length is measured in the object&#39;s rest frame.</p></li><li><p>Assuming simultaneity is universal.</p></li><li><p>Mixing up which frame is $S$ and which is $S&#39;$ in Lorentz transformations.</p></li><li><p>Dropping factors of $c$ too early.</p></li><li><p>Using $K = \frac{1}{2}mv^2$ at high speed.</p></li><li><p>Forgetting that momentum is $\gamma mv$, not just $mv$.</p></li><li><p>Applying special-relativity formulas to strong gravity without checking the model.</p></li><li><p>Confusing gravitational time dilation with Doppler shift, which are related but not the same effect.</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/physics/relativity/relativity.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/physics/relativity/relativity.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-why-relativity-is-needed">1. Why relativity is needed</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-to-use-relativity">When to use relativity</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-special-relativity-postulates-and-frames">2. Special relativity: postulates and frames</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#postulates">Postulates</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#reference-frames">Reference frames</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#events">Events</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-lorentz-transformations">3. Lorentz transformations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#galilean-limit">Galilean limit</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interpretation">Interpretation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-spacetime-interval-and-causality">4. Spacetime interval and causality</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interval-classification">Interval classification</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proper-time">Proper time</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-time-dilation-and-length-contraction">5. Time dilation and length contraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#time-dilation">Time dilation</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#example-pattern">Example pattern</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#length-contraction">Length contraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proper-quantities">Proper quantities</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-relativity-of-simultaneity">6. Relativity of simultaneity</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-it-matters">Why it matters</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-interpretation-trap">Common interpretation trap</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-velocity-and-acceleration-in-relativity">7. Velocity and acceleration in relativity</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#velocity-addition">Velocity addition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-speeds-do-not-simply-add">Why speeds do not simply add</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#relativistic-momentum-direction">Relativistic momentum direction</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-energy-and-momentum">8. Energy and momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#relativistic-momentum">Relativistic momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#total-energy">Total energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rest-energy">Rest energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy-momentum-relation">Energy-momentum relation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#four-momentum">Four-momentum</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-relativistic-dynamics-and-collisions">9. Relativistic dynamics and collisions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservation-laws">Conservation laws</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#inelastic-collisions">Inelastic collisions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#threshold-and-reaction-problems">Threshold and reaction problems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#practical-workflow">Practical workflow</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-general-relativity-gravity-as-geometry">10. General relativity: gravity as geometry</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#core-idea">Core idea</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equivalence-principle">Equivalence principle</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stress-energy-source">Stress-energy source</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-general-relativity-matters">When general relativity matters</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-gravitational-time-dilation-and-light-bending">11. Gravitational time dilation and light bending</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#gravitational-time-dilation">Gravitational time dilation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#gravitational-redshift">Gravitational redshift</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#light-bending">Light bending</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-common-problem-solving-workflow">12. Common problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-1-identify-the-regime">Step 1: Identify the regime</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-2-choose-the-right-frame">Step 2: Choose the right frame</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-3-list-invariants">Step 3: List invariants</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-4-translate-the-geometry-correctly">Step 4: Translate the geometry correctly</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-5-write-the-governing-equations">Step 5: Write the governing equations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-6-check-limits">Step 6: Check limits</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-formula-sheet">13. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#lorentz-factor">Lorentz factor</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#lorentz-transformations">Lorentz transformations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interval">Interval</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#time-dilation-2">Time dilation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#length-contraction-2">Length contraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#velocity-addition-2">Velocity addition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#momentum-and-energy">Momentum and energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#photon-relations">Photon relations</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#14-common-mistakes-to-avoid">14. Common mistakes to avoid</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

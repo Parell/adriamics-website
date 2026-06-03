@@ -5,29 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [Core quantities and circuit elements](#toc-1)
-2. [Reference directions and sign conventions](#toc-2)
-3. [Ohm's law and Kirchhoff's laws](#toc-3)
-4. [Series, parallel, and equivalent reduction](#toc-4)
-5. [Node-voltage analysis](#toc-5)
-6. [Mesh-current analysis](#toc-6)
-7. [Source transformations and superposition](#toc-7)
-8. [Thevenin and Norton equivalents](#toc-8)
-9. [Power, energy, and maximum power transfer](#toc-9)
-10. [First-order transients: RC and RL](#toc-10)
-11. [Sinusoidal steady state and phasors](#toc-11)
-12. [Impedance, admittance, and AC power](#toc-12)
-13. [Resonance and frequency response](#toc-13)
-14. [Operational amplifier basics](#toc-14)
-15. [Problem-solving workflow](#toc-15)
-16. [Formula sheet](#toc-16)
-
----
-
-<a id="toc-1"></a>
 # 1. Core quantities and circuit elements
 
 Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components.
@@ -72,7 +49,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. Reference directions and sign conventions
 
 Circuit equations are only consistent when voltage and current references are chosen deliberately.
@@ -101,7 +77,6 @@ Do not mix reference directions in the same equation set. Pick one sign conventi
 
 ---
 
-<a id="toc-3"></a>
 # 3. Ohm's law and Kirchhoff's laws
 
 ## Ohm's law
@@ -145,7 +120,6 @@ KCL and KVL work cleanly in lumped circuits where physical dimensions are small 
 
 ---
 
-<a id="toc-4"></a>
 # 4. Series, parallel, and equivalent reduction
 
 ## Resistors in series
@@ -199,7 +173,6 @@ The branch with smaller resistance carries more current.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Node-voltage analysis
 
 Node-voltage analysis is usually the most efficient method for circuits with many current sources or many branches tied to a few nodes.
@@ -247,7 +220,6 @@ Do not write KCL separately for nodes connected by an ideal voltage source unles
 
 ---
 
-<a id="toc-6"></a>
 # 6. Mesh-current analysis
 
 Mesh-current analysis is efficient for planar circuits with many voltage sources.
@@ -288,7 +260,6 @@ Mesh analysis only applies directly to planar circuits unless the circuit is re-
 
 ---
 
-<a id="toc-7"></a>
 # 7. Source transformations and superposition
 
 ## Source transformation
@@ -330,7 +301,6 @@ You cannot superpose power directly, because power is not linear in voltage or c
 
 ---
 
-<a id="toc-8"></a>
 # 8. Thevenin and Norton equivalents
 
 Any linear two-terminal network can be replaced by an equivalent source-resistance pair.
@@ -390,7 +360,6 @@ They simplify repeated load calculations and make maximum power transfer analysi
 
 ---
 
-<a id="toc-9"></a>
 # 9. Power, energy, and maximum power transfer
 
 ## Instantaneous power
@@ -435,7 +404,6 @@ Maximum power transfer does not mean maximum efficiency. At $R_L = R_{th}$, half
 
 ---
 
-<a id="toc-10"></a>
 # 10. First-order transients: RC and RL
 
 First-order circuits contain one energy storage element and produce exponential responses.
@@ -507,7 +475,6 @@ At $t = \tau$, the response has moved about $63.2\%$ of the way from its initial
 
 ---
 
-<a id="toc-11"></a>
 # 11. Sinusoidal steady state and phasors
 
 Sinusoidal steady-state analysis converts differential equations into algebraic equations at a fixed angular frequency $\omega$.
@@ -572,7 +539,6 @@ $$
 
 ---
 
-<a id="toc-12"></a>
 # 12. Impedance, admittance, and AC power
 
 ## Admittance
@@ -647,7 +613,6 @@ where $\theta$ is the phase angle between voltage and current.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Resonance and frequency response
 
 ## Series resonance
@@ -705,7 +670,6 @@ Typical asymptotic slopes:
 
 ---
 
-<a id="toc-14"></a>
 # 14. Operational amplifier basics
 
 Ideal op-amp analysis is a standard tool in circuit theory.
@@ -763,7 +727,6 @@ Ideal op-amp rules fail if the output saturates or if feedback is not negative.
 
 ---
 
-<a id="toc-15"></a>
 # 15. Problem-solving workflow
 
 ## Recommended workflow
@@ -800,7 +763,6 @@ Ideal op-amp rules fail if the output saturates or if feedback is not negative.
 
 ---
 
-<a id="toc-16"></a>
 # 16. Formula sheet
 
 ## DC relations

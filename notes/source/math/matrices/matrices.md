@@ -5,30 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What a matrix is](#toc-1)
-2. [Matrix notation and dimensions](#toc-2)
-3. [Types of matrices](#toc-3)
-4. [Matrix operations](#toc-4)
-5. [Matrix multiplication](#toc-5)
-6. [Transpose and symmetry](#toc-6)
-7. [Row reduction and echelon form](#toc-7)
-8. [Determinants](#toc-8)
-9. [Inverse matrices](#toc-9)
-10. [Systems of linear equations](#toc-10)
-11. [Rank, nullity, and subspaces](#toc-11)
-12. [Eigenvalues and eigenvectors](#toc-12)
-13. [Diagonalization and matrix powers](#toc-13)
-14. [Special matrices and decompositions](#toc-14)
-15. [Problem-solving workflow](#toc-15)
-16. [Formula sheet](#toc-16)
-17. [Common mistakes to avoid](#toc-17)
-
----
-
-<a id="toc-1"></a>
 # 1. What a matrix is
 
 A **matrix** is a rectangular array of numbers, symbols, or expressions arranged in rows and columns.
@@ -69,7 +45,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. Matrix notation and dimensions
 
 The **size** or **dimension** of a matrix is written as:
@@ -126,7 +101,6 @@ Two matrices are equal if and only if:
 
 ---
 
-<a id="toc-3"></a>
 # 3. Types of matrices
 
 | Type | Definition | Example |
@@ -166,7 +140,6 @@ Trace is defined only for square matrices.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Matrix operations
 
 ## Addition and subtraction
@@ -256,7 +229,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Matrix multiplication
 
 Matrix multiplication is not entrywise. It is defined by row-by-column products.
@@ -345,7 +317,6 @@ That viewpoint is often the fastest way to interpret $Ax=b$.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Transpose and symmetry
 
 The **transpose** of a matrix $A$ is denoted $A^T$ and is formed by swapping rows and columns.
@@ -413,7 +384,6 @@ Every diagonal entry of a skew-symmetric matrix is zero.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Row reduction and echelon form
 
 Row operations are used to solve systems and simplify matrices.
@@ -459,7 +429,6 @@ Pivot columns identify which variables are basic in a linear system.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Determinants
 
 The determinant is a scalar associated with a square matrix.
@@ -553,7 +522,6 @@ This method is conceptually useful, but for large matrices row reduction is ofte
 
 ---
 
-<a id="toc-9"></a>
 # 9. Inverse matrices
 
 If $A$ is square, its inverse $A^{-1}$ satisfies:
@@ -624,7 +592,6 @@ on one side and, if needed, on both sides.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Systems of linear equations
 
 A linear system can be written as:
@@ -698,7 +665,6 @@ where:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Rank, nullity, and subspaces
 
 ## Rank
@@ -745,7 +711,6 @@ If the null space contains only the zero vector, then $A$ has full column rank.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Eigenvalues and eigenvectors
 
 For a square matrix $A$, a nonzero vector $v$ is an **eigenvector** if:
@@ -805,7 +770,6 @@ $$
 
 ---
 
-<a id="toc-13"></a>
 # 13. Diagonalization and matrix powers
 
 A matrix $A$ is **diagonalizable** if:
@@ -854,7 +818,6 @@ where $Q$ is orthogonal.
 
 ---
 
-<a id="toc-14"></a>
 # 14. Special matrices and decompositions
 
 ## Orthogonal matrices
@@ -931,7 +894,6 @@ QR decomposition is central in least-squares problems and numerical algorithms.
 
 ---
 
-<a id="toc-15"></a>
 # 15. Problem-solving workflow
 
 Use this sequence for most matrix problems.
@@ -995,7 +957,6 @@ $$
 
 ---
 
-<a id="toc-16"></a>
 # 16. Formula sheet
 
 ## Core definitions
@@ -1100,7 +1061,6 @@ $$
 
 ---
 
-<a id="toc-17"></a>
 # 17. Common mistakes to avoid
 
 - Treating matrix multiplication as commutative.

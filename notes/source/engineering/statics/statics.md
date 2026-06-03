@@ -5,28 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What statics studies](#toc-1)
-2. [Modeling assumptions](#toc-2)
-3. [Forces, moments, and couples](#toc-3)
-4. [Equilibrium equations](#toc-4)
-5. [Free-body diagrams](#toc-5)
-6. [Support reactions](#toc-6)
-7. [Distributed loads, centroids, and resultants](#toc-7)
-8. [Trusses](#toc-8)
-9. [Frames and machines](#toc-9)
-10. [Friction](#toc-10)
-11. [Internal loads in beams](#toc-11)
-12. [Centroids and centers of gravity](#toc-12)
-13. [Problem-solving workflow](#toc-13)
-14. [Common mistakes](#toc-14)
-15. [Formula sheet](#toc-15)
-
----
-
-<a id="toc-1"></a>
 # 1. What statics studies
 
 Statics is the branch of mechanics that deals with bodies in equilibrium, meaning there is no net translation or rotation.
@@ -51,7 +29,6 @@ Typical statics topics include:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Modeling assumptions
 
 Statics problems usually rely on idealizations. The answer is only as good as the model.
@@ -90,7 +67,6 @@ $$
 
 ---
 
-<a id="toc-3"></a>
 # 3. Forces, moments, and couples
 
 ## Force vectors
@@ -147,7 +123,6 @@ This is useful when breaking a force into components before taking moments.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Equilibrium equations
 
 Equilibrium requires both translational and rotational balance.
@@ -200,7 +175,6 @@ These are the only independent equilibrium equations for a rigid body.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Free-body diagrams
 
 A free-body diagram, or FBD, is the most important tool in statics.
@@ -236,7 +210,6 @@ If the computed value is negative, the actual direction is opposite to the assum
 
 ---
 
-<a id="toc-6"></a>
 # 6. Support reactions
 
 Different supports impose different kinematic constraints and therefore produce different reaction components.
@@ -266,7 +239,6 @@ Do not confuse "more unknowns than equations" with "unsolvable." It only means e
 
 ---
 
-<a id="toc-7"></a>
 # 7. Distributed loads, centroids, and resultants
 
 A distributed load can often be replaced by an equivalent concentrated force.
@@ -307,7 +279,6 @@ Equivalent resultants simplify support-reaction calculations, but the equivalent
 
 ---
 
-<a id="toc-8"></a>
 # 8. Trusses
 
 A truss is an assembly of slender members connected by pin joints and loaded only at the joints, ideally.
@@ -367,7 +338,6 @@ Use these as shortcuts, but verify them when the loading changes.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Frames and machines
 
 Frames and machines are assemblies with multiple members that are not necessarily two-force members.
@@ -401,7 +371,6 @@ This is a third-law pair, but it acts on different bodies, so do not cancel it w
 
 ---
 
-<a id="toc-10"></a>
 # 10. Friction
 
 Friction resists relative motion between surfaces.
@@ -456,7 +425,6 @@ where $\phi$ is the angle between the resultant contact reaction and the normal.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Internal loads in beams
 
 When a beam is cut at some location, internal resultants appear on the cut surface.
@@ -507,7 +475,6 @@ These relations are the basis of shear-force and bending-moment diagrams.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Centroids and centers of gravity
 
 The centroid is a purely geometric property. The center of gravity is the point where the resultant weight acts.
@@ -541,7 +508,6 @@ For a continuous body, replace sums with integrals.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Problem-solving workflow
 
 Statics becomes manageable when you follow a fixed process.
@@ -566,7 +532,6 @@ Statics becomes manageable when you follow a fixed process.
 
 ---
 
-<a id="toc-14"></a>
 # 14. Common mistakes
 
 These errors account for most lost points in statics.
@@ -586,7 +551,6 @@ When a computed answer is negative, first check whether the magnitude is reasona
 
 ---
 
-<a id="toc-15"></a>
 # 15. Formula sheet
 
 ## Equilibrium

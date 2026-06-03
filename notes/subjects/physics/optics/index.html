@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/optics/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -66,25 +83,27 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Physics</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" aria-current="page" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/" data-notes-nav-item>Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/" data-notes-nav-item>Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" aria-current="page" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
           <h1>Optics</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fphysics%2Foptics%2Foptics.md&amp;title=%5BCorrection%5D%3A%20Optics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/optics/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">What optics studies</a></p></li><li><p><a href="#toc-2">Light as a wave and a ray</a></p></li><li><p><a href="#toc-3">Geometric optics</a></p></li><li><p><a href="#toc-4">Reflection and mirrors</a></p></li><li><p><a href="#toc-5">Refraction and Snell&#39;s law</a></p></li><li><p><a href="#toc-6">Thin lenses and image formation</a></p></li><li><p><a href="#toc-7">Optical instruments</a></p></li><li><p><a href="#toc-8">Wave optics</a></p></li><li><p><a href="#toc-9">Interference</a></p></li><li><p><a href="#toc-10">Diffraction</a></p></li><li><p><a href="#toc-11">Polarization</a></p></li><li><p><a href="#toc-12">Common problem-solving workflow</a></p></li><li><p><a href="#toc-13">Formula summary</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-what-optics-studies">1. What optics studies</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-optics-studies">1. What optics studies</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-ideas">Core ideas</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-light-as-a-wave-and-a-ray">2. Light as a wave and a ray</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#ray-model">Ray model</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#wave-model">Wave model</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#refractive-index">Refractive index</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-geometric-optics">3. Geometric optics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#paraxial-approximation">Paraxial approximation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#image-types">Image types</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#object-and-image-conventions">Object and image conventions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-reflection-and-mirrors">4. Reflection and mirrors</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#law-of-reflection">Law of reflection</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#plane-mirrors">Plane mirrors</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#spherical-mirrors">Spherical mirrors</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mirror-equation">Mirror equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#ray-tracing-for-mirrors">Ray tracing for mirrors</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mirror-cases">Common mirror cases</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-refraction-and-snells-law">5. Refraction and Snell&#39;s law</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#snells-law">Snell&#39;s law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#physical-meaning">Physical meaning</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#critical-angle-and-total-internal-reflection">Critical angle and total internal reflection</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#dispersion">Dispersion</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-thin-lenses-and-image-formation">6. Thin lenses and image formation</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#lens-types">Lens types</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#thin-lens-equation">Thin lens equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#ray-tracing-for-lenses">Ray tracing for lenses</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#image-behavior">Image behavior</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#converging-lens">Converging lens</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#diverging-lens">Diverging lens</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#lensmakers-equation">Lensmaker&#39;s equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiple-optical-elements">Multiple optical elements</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-optical-instruments">7. Optical instruments</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#human-eye">Human eye</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#magnifiers">Magnifiers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#microscopes">Microscopes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#telescopes">Telescopes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#camera-and-sensor-systems">Camera and sensor systems</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-wave-optics">8. Wave optics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#superposition-principle">Superposition principle</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#coherence">Coherence</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#path-difference">Path difference</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-interference">9. Interference</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#double-slit-interference">Double-slit interference</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#thin-film-interference">Thin-film interference</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#newtons-rings-and-related-patterns">Newton&#39;s rings and related patterns</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-diffraction">10. Diffraction</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#single-slit-diffraction">Single-slit diffraction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#diffraction-grating">Diffraction grating</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#resolution">Resolution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-misconceptions">Common misconceptions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-polarization">11. Polarization</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#types-of-polarization">Types of polarization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#polarizers">Polarizers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#brewsters-angle">Brewster&#39;s angle</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-common-problem-solving-workflow">12. Common problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#step-by-step-workflow">Step-by-step workflow</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#fast-checks">Fast checks</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#frequent-pitfalls">Frequent pitfalls</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-formula-summary">13. Formula summary</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#geometry-and-rays">Geometry and rays</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mirrors-and-lenses">Mirrors and lenses</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#wave-optics">Wave optics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#polarization">Polarization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#summary">Summary</a></li></ol></li></ol></div>
+    </nav>
+        
+        <h1 id="1-what-optics-studies">1. What optics studies</h1>
 <p>Optics is the branch of physics that studies the behavior of light and its interactions with matter. In practice, the subject is usually split into:</p>
 <ul><li><p><strong>Geometric optics</strong>: treats light as rays and is accurate when optical components are much larger than the wavelength.</p></li><li><p><strong>Wave optics</strong>: treats light as a wave and is needed for interference, diffraction, and polarization.</p></li></ul>
 <p>Light is an electromagnetic wave. In vacuum it travels at speed</p>
@@ -99,7 +118,6 @@ $$</div>
 <h2 id="core-ideas">Core ideas</h2>
 <ul><li><p>Rays show the direction of energy flow in the short-wavelength limit.</p></li><li><p>Reflection sends light back into the original medium.</p></li><li><p>Refraction changes the ray direction when light crosses an interface.</p></li><li><p>Lenses and mirrors form images by redirecting rays.</p></li><li><p>Wave effects appear when the aperture or obstacle size is comparable to the wavelength.</p></li></ul>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-light-as-a-wave-and-a-ray">2. Light as a wave and a ray</h1>
 <h2 id="ray-model">Ray model</h2>
 <p>The ray model is a geometric approximation. It works well when:</p>
@@ -132,7 +150,6 @@ $$</div>
 <ul><li><p>Air: approximately $1.0003$</p></li><li><p>Water: about $1.33$</p></li><li><p>Glass: often between $1.5$ and $1.9$</p></li></ul>
 <p>The larger the refractive index, the slower light travels in the material.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-geometric-optics">3. Geometric optics</h1>
 <p>Geometric optics is built on three main principles:</p>
 <ol><li><p>Light travels in straight lines in a uniform medium.</p></li><li><p>Rays obey the law of reflection.</p></li><li><p>Rays obey Snell&#39;s law at interfaces.</p></li></ol>
@@ -149,7 +166,6 @@ $$</div>
 <ul><li><p>Real object distances are positive.</p></li><li><p>Real image distances are positive for mirrors, but lens conventions can vary.</p></li><li><p>Focal length sign depends on whether the element is converging or diverging.</p></li></ul>
 <p>The safest approach is to state the convention being used before solving.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-reflection-and-mirrors">4. Reflection and mirrors</h1>
 <h2 id="law-of-reflection">Law of reflection</h2>
 <p>The angle of incidence equals the angle of reflection:</p>
@@ -188,7 +204,6 @@ $$</div>
 <h2 id="common-mirror-cases">Common mirror cases</h2>
 <ul><li><p>Object beyond the center of curvature: real, inverted, reduced image between $f$ and $R$.</p></li><li><p>Object at the center of curvature: real, inverted, same size at $R$.</p></li><li><p>Object between $R$ and $f$: real, inverted, enlarged image beyond $R$.</p></li><li><p>Object inside $f$: virtual, upright, enlarged image behind the mirror.</p></li></ul>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-refraction-and-snells-law">5. Refraction and Snell&#39;s law</h1>
 <p>Refraction occurs when light crosses into a medium with a different refractive index. The speed changes, and the direction usually changes too.</p>
 <h2 id="snells-law">Snell&#39;s law</h2>
@@ -211,7 +226,6 @@ $$</div>
 <ul><li><p>Shorter wavelengths usually have larger $n$.</p></li><li><p>Blue light bends more than red light.</p></li></ul>
 <p>This is why prisms spread white light into a spectrum.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-thin-lenses-and-image-formation">6. Thin lenses and image formation</h1>
 <p>Thin lenses are idealized as lenses with negligible thickness compared to object and image distances.</p>
 <h2 id="lens-types">Lens types</h2>
@@ -251,7 +265,6 @@ P_{total} = P_1 + P_2 + \cdots
 $$</div>
 <p>with $f$ in meters and power in diopters $(\text{D})$.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-optical-instruments">7. Optical instruments</h1>
 <h2 id="human-eye">Human eye</h2>
 <p>The eye acts like a variable-focus imaging system. Important terms:</p>
@@ -272,7 +285,6 @@ $$</div>
 <p>For imaging systems:</p>
 <ul><li><p>Aperture controls light gathering and depth of field.</p></li><li><p>Focal length controls field of view and magnification.</p></li><li><p>Sensor size influences framing and effective perspective in a given setup.</p></li></ul>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-wave-optics">8. Wave optics</h1>
 <p>Wave optics becomes essential when the wavelength cannot be neglected relative to the size of the slit, aperture, or obstacle.</p>
 <h2 id="superposition-principle">Superposition principle</h2>
@@ -291,7 +303,6 @@ $$</div>
 \Delta \phi = \frac{2\pi}{\lambda}\Delta r
 $$</div>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-interference">9. Interference</h1>
 <p>Interference is the constructive or destructive addition of waves.</p>
 <h2 id="double-slit-interference">Double-slit interference</h2>
@@ -317,7 +328,6 @@ $$</div>
 <p>Many interference patterns arise from varying film thickness or geometry. The exact formulas depend on the setup, but the workflow is always:</p>
 <ol><li><p>Find the optical path difference.</p></li><li><p>Include any phase reversal on reflection.</p></li><li><p>Apply bright/dark conditions.</p></li></ol>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-diffraction">10. Diffraction</h1>
 <p>Diffraction is the spreading of waves around obstacles and through apertures.</p>
 <h2 id="single-slit-diffraction">Single-slit diffraction</h2>
@@ -343,7 +353,6 @@ $$</div>
 <h2 id="common-misconceptions">Common misconceptions</h2>
 <ul><li><p>Diffraction is not the same as interference, but both are wave effects and often occur together.</p></li><li><p>A smaller aperture does not just &quot;dim&quot; the image; it also increases blur from diffraction.</p></li></ul>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-polarization">11. Polarization</h1>
 <p>Polarization describes the orientation of the electric field in a transverse wave.</p>
 <h2 id="types-of-polarization">Types of polarization</h2>
@@ -364,7 +373,6 @@ $$</div>
 <p>Applications:</p>
 <ul><li><p>Reducing glare</p></li><li><p>Polarized sunglasses</p></li><li><p>Optical measurement</p></li></ul>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-common-problem-solving-workflow">12. Common problem-solving workflow</h1>
 <p>Optics problems usually become manageable if you classify them correctly first.</p>
 <h2 id="step-by-step-workflow">Step-by-step workflow</h2>
@@ -375,7 +383,6 @@ $$</div>
 <h2 id="frequent-pitfalls">Frequent pitfalls</h2>
 <ul><li><p>Mixing up angle measured from the normal with angle measured from the surface.</p></li><li><p>Forgetting a phase flip on reflection from lower to higher refractive index.</p></li><li><p>Using the thin lens formula with a thick lens without justification.</p></li><li><p>Confusing real image with inverted image: real images are usually inverted, but the key distinction is whether rays actually converge.</p></li><li><p>Ignoring units when using focal length and optical power.</p></li></ul>
 <hr />
-<a id="toc-13"></a>
 <h1 id="13-formula-summary">13. Formula summary</h1>
 <h2 id="geometry-and-rays">Geometry and rays</h2>
 <div class="math-block">$$
@@ -432,13 +439,37 @@ $$</div>
 <ul><li><p>Use geometric optics for mirrors, lenses, refraction, and image formation.</p></li><li><p>Use wave optics for interference, diffraction, and polarization.</p></li></ul>
 <p>When in doubt, start with a diagram, identify the relevant interfaces or apertures, and track signs and phase changes carefully.</p>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/physics/optics/optics.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/physics/optics/optics.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-optics-studies">1. What optics studies</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#core-ideas">Core ideas</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-light-as-a-wave-and-a-ray">2. Light as a wave and a ray</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#ray-model">Ray model</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#wave-model">Wave model</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#refractive-index">Refractive index</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-geometric-optics">3. Geometric optics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#paraxial-approximation">Paraxial approximation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#image-types">Image types</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#object-and-image-conventions">Object and image conventions</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-reflection-and-mirrors">4. Reflection and mirrors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#law-of-reflection">Law of reflection</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#plane-mirrors">Plane mirrors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#spherical-mirrors">Spherical mirrors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mirror-equation">Mirror equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#ray-tracing-for-mirrors">Ray tracing for mirrors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-mirror-cases">Common mirror cases</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-refraction-and-snells-law">5. Refraction and Snell&#39;s law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#snells-law">Snell&#39;s law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#physical-meaning">Physical meaning</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#critical-angle-and-total-internal-reflection">Critical angle and total internal reflection</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#dispersion">Dispersion</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-thin-lenses-and-image-formation">6. Thin lenses and image formation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#lens-types">Lens types</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#thin-lens-equation">Thin lens equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#ray-tracing-for-lenses">Ray tracing for lenses</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#image-behavior">Image behavior</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#converging-lens">Converging lens</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#diverging-lens">Diverging lens</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#lensmakers-equation">Lensmaker&#39;s equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiple-optical-elements">Multiple optical elements</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-optical-instruments">7. Optical instruments</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#human-eye">Human eye</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#magnifiers">Magnifiers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#microscopes">Microscopes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#telescopes">Telescopes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#camera-and-sensor-systems">Camera and sensor systems</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-wave-optics">8. Wave optics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#superposition-principle">Superposition principle</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#coherence">Coherence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#path-difference">Path difference</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-interference">9. Interference</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#double-slit-interference">Double-slit interference</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#thin-film-interference">Thin-film interference</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-rings-and-related-patterns">Newton&#39;s rings and related patterns</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-diffraction">10. Diffraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#single-slit-diffraction">Single-slit diffraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#diffraction-grating">Diffraction grating</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#resolution">Resolution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-misconceptions">Common misconceptions</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-polarization">11. Polarization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#types-of-polarization">Types of polarization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#polarizers">Polarizers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#brewsters-angle">Brewster&#39;s angle</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-common-problem-solving-workflow">12. Common problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-by-step-workflow">Step-by-step workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fast-checks">Fast checks</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#frequent-pitfalls">Frequent pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-formula-summary">13. Formula summary</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#geometry-and-rays">Geometry and rays</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mirrors-and-lenses">Mirrors and lenses</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#wave-optics">Wave optics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#polarization">Polarization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#summary">Summary</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

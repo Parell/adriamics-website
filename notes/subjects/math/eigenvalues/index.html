@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/eigenvalues/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,58 @@
       <div class="viewer-head">
         <div>
           <h1>Eigenvalues</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Feigenvalues%2Feigenvalues.md&amp;title=%5BCorrection%5D%3A%20Eigenvalues" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/eigenvalues/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">Core idea</a></p></li><li><p><a href="#toc-2">Characteristic equation</a></p></li><li><p><a href="#toc-3">Eigenvectors and eigenspaces</a></p></li><li><p><a href="#toc-4">Multiplicity</a></p></li><li><p><a href="#toc-5">Determinant, trace, and invertibility</a></p></li><li><p><a href="#toc-6">Diagonalization</a></p></li><li><p><a href="#toc-7">Special matrix classes</a></p></li><li><p><a href="#toc-8">Complex eigenvalues and real matrices</a></p></li><li><p><a href="#toc-9">How to compute eigenvalues by hand</a></p></li><li><p><a href="#toc-10">Applications</a></p></li><li><p><a href="#toc-11">Problem-solving workflow</a></p></li><li><p><a href="#toc-12">Formula sheet</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-core-idea">1. Core idea</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-core-idea">1. Core idea</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#geometric-meaning">Geometric meaning</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-characteristic-equation">2. Characteristic equation</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#why-the-determinant-condition-works">Why the determinant condition works</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-eigenvectors-and-eigenspaces">3. Eigenvectors and eigenspaces</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example-continued">Example continued</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#important-restriction">Important restriction</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-multiplicity">4. Multiplicity</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#algebraic-multiplicity">Algebraic multiplicity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#geometric-multiplicity">Geometric multiplicity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#fundamental-inequality">Fundamental inequality</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#repeated-eigenvalue-example">Repeated eigenvalue example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-determinant-trace-and-invertibility">5. Determinant, trace, and invertibility</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#determinant">Determinant</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#trace">Trace</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#invertibility-test">Invertibility test</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#triangular-matrices">Triangular matrices</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-diagonalization">6. Diagonalization</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#why-diagonalization-matters">Why diagonalization matters</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#diagonalizability-criterion">Diagonalizability criterion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-2">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-special-matrix-classes">7. Special matrix classes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#symmetric-matrices">Symmetric matrices</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#projection-matrices">Projection matrices</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#nilpotent-matrices">Nilpotent matrices</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#orthogonal-matrices">Orthogonal matrices</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-complex-eigenvalues-and-real-matrices">8. Complex eigenvalues and real matrices</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#conjugate-pairs">Conjugate pairs</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-how-to-compute-eigenvalues-by-hand">9. How to compute eigenvalues by hand</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#for-a-general-matrix">For a general matrix</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#for-a-2-times-2-matrix">For a $2 \times 2$ matrix</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-computational-shortcut">Common computational shortcut</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-applications">10. Applications</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#dynamical-systems">Dynamical systems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#differential-equations">Differential equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#principal-directions">Principal directions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#markov-chains">Markov chains</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#step-1-confirm-the-matrix-is-square">Step 1: Confirm the matrix is square</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-2-form-the-characteristic-polynomial">Step 2: Form the characteristic polynomial</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-3-use-structure-before-brute-force">Step 3: Use structure before brute force</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-4-find-eigenspaces">Step 4: Find eigenspaces</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-5-compare-multiplicities">Step 5: Compare multiplicities</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-6-decide-whether-diagonalization-is-possible">Step 6: Decide whether diagonalization is possible</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-7-verify-with-trace-and-determinant">Step 7: Verify with trace and determinant</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-formula-sheet">12. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#definitions">Definitions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiplicity">Multiplicity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#determinant-and-trace">Determinant and trace</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#invertibility">Invertibility</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#diagonalization">Diagonalization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#real-symmetric-matrices">Real symmetric matrices</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#special-cases">Special cases</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes-to-avoid">Common mistakes to avoid</a></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="eigenvalues" data-math-demo-id="eigenvalues">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Eigenvector directions</h2>
+      <p class="interactive-demo__summary">Use a symmetric matrix so the real eigenvectors stay visible as the transformation changes.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Eigenvector directions controls">
+        <label class="interactive-demo__control" for="math-demo-eigenvalues-a">
+    <span class="interactive-demo__control-label">a <output id="math-demo-eigenvalues-a-value">1.5</output></span>
+    <input id="math-demo-eigenvalues-a" type="range" min="-2" max="2" step="0.25" value="1.5" />
+  </label><label class="interactive-demo__control" for="math-demo-eigenvalues-b">
+    <span class="interactive-demo__control-label">b <output id="math-demo-eigenvalues-b-value">0.75</output></span>
+    <input id="math-demo-eigenvalues-b" type="range" min="-2" max="2" step="0.25" value="0.75" />
+  </label><label class="interactive-demo__control" for="math-demo-eigenvalues-d">
+    <span class="interactive-demo__control-label">d <output id="math-demo-eigenvalues-d-value">0.25</output></span>
+    <input id="math-demo-eigenvalues-d" type="range" min="-2" max="2" step="0.25" value="0.25" />
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Eigenvalue 1</span>
+    <span class="interactive-demo__metric-value" id="math-demo-eigenvalues-lambda1">1.87</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Eigenvalue 2</span>
+    <span class="interactive-demo__metric-value" id="math-demo-eigenvalues-lambda2">-0.12</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="math-demo-eigenvalues-title math-demo-eigenvalues-desc">
+          <title id="math-demo-eigenvalues-title">Eigenvectors</title>
+          <desc id="math-demo-eigenvalues-desc">A transformed grid with eigenvector directions highlighted.</desc>
+          <g id="math-demo-eigenvalues-grid" stroke="var(--border)" stroke-width="1" opacity="0.8"></g>
+          <path id="math-demo-eigenvalues-ellipse" fill="rgba(255,255,255,0.06)" stroke="var(--accent-strong)" stroke-width="3" />
+          <line id="math-demo-eigenvalues-evec-1" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-short)" stroke-width="4" />
+          <line id="math-demo-eigenvalues-evec-2" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-long)" stroke-width="4" />
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <h1 id="1-core-idea">1. Core idea</h1>
 <p>An <strong>eigenvector</strong> of a square matrix $A$ is a nonzero vector $v$ whose direction is unchanged by the linear transformation defined by $A$.</p>
 <p>It satisfies</p>
 <div class="math-block">$$
@@ -99,7 +156,6 @@ $$</div>
 <p>Examples:</p>
 <ul><li><p>A stretch in the $x$-direction has eigenvectors on the coordinate axes.</p></li><li><p>A projection matrix has eigenvalue $1$ on the subspace preserved by the projection and eigenvalue $0$ on the directions collapsed.</p></li><li><p>A pure rotation in $\mathbb{R}^2$ usually has no real eigenvectors unless the angle is $0$ or $\pi$.</p></li></ul>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-characteristic-equation">2. Characteristic equation</h1>
 <p>Starting from</p>
 <div class="math-block">$$
@@ -158,7 +214,6 @@ $$</div>
 \lambda = 5,\quad \lambda = 2
 $$</div>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-eigenvectors-and-eigenspaces">3. Eigenvectors and eigenspaces</h1>
 <p>Once an eigenvalue $\lambda$ is known, find its eigenvectors by solving</p>
 <div class="math-block">$$
@@ -238,7 +293,6 @@ $$</div>
 <h2 id="important-restriction">Important restriction</h2>
 <p>The zero vector is never called an eigenvector. If it were allowed, every scalar would become an eigenvalue candidate, which would destroy the definition.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-multiplicity">4. Multiplicity</h1>
 <p>Eigenvalues can repeat.</p>
 <h2 id="algebraic-multiplicity">Algebraic multiplicity</h2>
@@ -310,7 +364,6 @@ $$</div>
 <p>which has geometric multiplicity $1$.</p>
 <p>This matrix has too few linearly independent eigenvectors to diagonalize.</p>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-determinant-trace-and-invertibility">5. Determinant, trace, and invertibility</h1>
 <p>Eigenvalues encode several global properties of a matrix.</p>
 <h2 id="determinant">Determinant</h2>
@@ -336,7 +389,6 @@ $$</div>
 <p>If $A$ is upper or lower triangular, its eigenvalues are the diagonal entries.</p>
 <p>This is one of the fastest ways to read off eigenvalues by inspection.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-diagonalization">6. Diagonalization</h1>
 <p>A matrix $A$ is <strong>diagonalizable</strong> if there exists an invertible matrix $P$ and a diagonal matrix $D$ such that</p>
 <div class="math-block">$$
@@ -417,7 +469,6 @@ $$</div>
 A = PDP^{-1}
 $$</div>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-special-matrix-classes">7. Special matrix classes</h1>
 <h2 id="symmetric-matrices">Symmetric matrices</h2>
 <p>If $A$ is real symmetric, then:</p>
@@ -482,7 +533,6 @@ $$</div>
 1 \quad \text{or} \quad -1
 $$</div>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-complex-eigenvalues-and-real-matrices">8. Complex eigenvalues and real matrices</h1>
 <p>Not every real matrix has real eigenvalues.</p>
 <p>Example:</p>
@@ -522,7 +572,6 @@ $$</div>
 <p>is also an eigenvalue.</p>
 <p>This happens because the characteristic polynomial has real coefficients.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-how-to-compute-eigenvalues-by-hand">9. How to compute eigenvalues by hand</h1>
 <h2 id="for-a-general-matrix">For a general matrix</h2>
 <ol><li><p>Form $A - \lambda I$.</p></li><li><p>Compute $\det(A - \lambda I)$.</p></li><li><p>Solve the characteristic equation.</p></li><li><p>For each eigenvalue, solve $(A - \lambda I)v = 0$.</p></li><li><p>Check how many independent eigenvectors you obtained.</p></li></ol>
@@ -552,7 +601,6 @@ $$</div>
 <h2 id="common-computational-shortcut">Common computational shortcut</h2>
 <p>For triangular matrices, do not expand a full determinant. Read the eigenvalues directly from the diagonal.</p>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-applications">10. Applications</h1>
 <h2 id="dynamical-systems">Dynamical systems</h2>
 <p>For</p>
@@ -574,7 +622,6 @@ $$</div>
 <h2 id="markov-chains">Markov chains</h2>
 <p>For a stochastic matrix, $\lambda = 1$ is especially important. The corresponding eigenvectors help describe steady states and long-run distributions.</p>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-problem-solving-workflow">11. Problem-solving workflow</h1>
 <p>Use this checklist for most eigenvalue problems.</p>
 <h2 id="step-1-confirm-the-matrix-is-square">Step 1: Confirm the matrix is square</h2>
@@ -608,7 +655,6 @@ $$</div>
 $$</div>
 <p>to catch arithmetic mistakes.</p>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-formula-sheet">12. Formula sheet</h1>
 <h2 id="definitions">Definitions</h2>
 <div class="math-block">$$
@@ -671,13 +717,37 @@ $$</div>
 <h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
 <ul><li><p>Forgetting that eigenvalues are defined for square matrices.</p></li><li><p>Solving $\det(A)=0$ instead of $\det(A-\lambda I)=0$.</p></li><li><p>Calling the zero vector an eigenvector.</p></li><li><p>Finding eigenvalues but not computing eigenvectors.</p></li><li><p>Assuming a repeated eigenvalue guarantees enough eigenvectors to diagonalize.</p></li><li><p>Forgetting that complex eigenvalues can occur for real matrices.</p></li><li><p>Mixing up algebraic multiplicity and geometric multiplicity.</p></li><li><p>Ignoring trace and determinant checks after solving the characteristic equation.</p></li><li><p>Claiming $A = PDP^{-1}$ without putting eigenvectors in the columns of $P$ in the same order as the eigenvalues in $D$.</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/eigenvalues/eigenvalues.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/eigenvalues/eigenvalues.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-core-idea">1. Core idea</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#geometric-meaning">Geometric meaning</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-characteristic-equation">2. Characteristic equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-the-determinant-condition-works">Why the determinant condition works</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-eigenvectors-and-eigenspaces">3. Eigenvectors and eigenspaces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-continued">Example continued</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#important-restriction">Important restriction</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-multiplicity">4. Multiplicity</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#algebraic-multiplicity">Algebraic multiplicity</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#geometric-multiplicity">Geometric multiplicity</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fundamental-inequality">Fundamental inequality</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#repeated-eigenvalue-example">Repeated eigenvalue example</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-determinant-trace-and-invertibility">5. Determinant, trace, and invertibility</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#determinant">Determinant</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trace">Trace</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#invertibility-test">Invertibility test</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#triangular-matrices">Triangular matrices</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-diagonalization">6. Diagonalization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-diagonalization-matters">Why diagonalization matters</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#diagonalizability-criterion">Diagonalizability criterion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-2">Example</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-special-matrix-classes">7. Special matrix classes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#symmetric-matrices">Symmetric matrices</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#projection-matrices">Projection matrices</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#nilpotent-matrices">Nilpotent matrices</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#orthogonal-matrices">Orthogonal matrices</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-complex-eigenvalues-and-real-matrices">8. Complex eigenvalues and real matrices</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conjugate-pairs">Conjugate pairs</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-how-to-compute-eigenvalues-by-hand">9. How to compute eigenvalues by hand</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#for-a-general-matrix">For a general matrix</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#for-a-2-times-2-matrix">For a $2 \times 2$ matrix</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-computational-shortcut">Common computational shortcut</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-applications">10. Applications</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#dynamical-systems">Dynamical systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#differential-equations">Differential equations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#principal-directions">Principal directions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#markov-chains">Markov chains</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-1-confirm-the-matrix-is-square">Step 1: Confirm the matrix is square</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-2-form-the-characteristic-polynomial">Step 2: Form the characteristic polynomial</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-3-use-structure-before-brute-force">Step 3: Use structure before brute force</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-4-find-eigenspaces">Step 4: Find eigenspaces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-5-compare-multiplicities">Step 5: Compare multiplicities</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-6-decide-whether-diagonalization-is-possible">Step 6: Decide whether diagonalization is possible</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-7-verify-with-trace-and-determinant">Step 7: Verify with trace and determinant</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-formula-sheet">12. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#definitions">Definitions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiplicity">Multiplicity</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#determinant-and-trace">Determinant and trace</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#invertibility">Invertibility</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#diagonalization">Diagonalization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#real-symmetric-matrices">Real symmetric matrices</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#special-cases">Special cases</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#common-mistakes-to-avoid">Common mistakes to avoid</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

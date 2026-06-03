@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/classical-mechanics/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -66,25 +83,27 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Physics</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" aria-current="page" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/" data-notes-nav-item>Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/" data-notes-nav-item>Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" aria-current="page" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
           <h1>Classical Mechanics</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fphysics%2Fclassical-mechanics%2Fclassical-mechanics.md&amp;title=%5BCorrection%5D%3A%20Classical%20Mechanics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/classical-mechanics/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">Scope and core ideas</a></p></li><li><p><a href="#toc-2">Kinematics in one and three dimensions</a></p></li><li><p><a href="#toc-3">Newton&#39;s laws and free-body diagrams</a></p></li><li><p><a href="#toc-4">Work, energy, and power</a></p></li><li><p><a href="#toc-5">Momentum, impulse, and collisions</a></p></li><li><p><a href="#toc-6">Rotation and rigid bodies</a></p></li><li><p><a href="#toc-7">Angular momentum and torque</a></p></li><li><p><a href="#toc-8">Oscillations and simple harmonic motion</a></p></li><li><p><a href="#toc-9">Gravitation and central forces</a></p></li><li><p><a href="#toc-10">Constraints, equilibrium, and statics</a></p></li><li><p><a href="#toc-11">Lagrangian and Hamiltonian ideas</a></p></li><li><p><a href="#toc-12">Problem-solving workflow</a></p></li><li><p><a href="#toc-13">Formula summary</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-scope-and-core-ideas">1. Scope and core ideas</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-scope-and-core-ideas">1. Scope and core ideas</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#modeling-assumptions">Modeling assumptions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-kinematics-in-one-and-three-dimensions">2. Kinematics in one and three dimensions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#position-velocity-and-acceleration">Position, velocity, and acceleration</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#constant-acceleration-relations">Constant-acceleration relations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#projectile-motion">Projectile motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#relative-motion">Relative motion</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-newtons-laws-and-free-body-diagrams">3. Newton&#39;s laws and free-body diagrams</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#newtons-first-law">Newton&#39;s first law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#newtons-second-law">Newton&#39;s second law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#newtons-third-law">Newton&#39;s third law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#free-body-diagrams">Free-body diagrams</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#friction">Friction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inertial-and-non-inertial-frames">Inertial and non-inertial frames</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-work-energy-and-power">4. Work, energy, and power</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#work-energy-theorem">Work-energy theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservative-forces-and-potential-energy">Conservative forces and potential energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservation-of-mechanical-energy">Conservation of mechanical energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#power">Power</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-momentum-impulse-and-collisions">5. Momentum, impulse, and collisions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-momentum">Linear momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#impulse">Impulse</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservation-of-linear-momentum">Conservation of linear momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#collisions">Collisions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#perfectly-inelastic-collision">Perfectly inelastic collision</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#elastic-collision">Elastic collision</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#coefficient-of-restitution">Coefficient of restitution</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#center-of-mass">Center of mass</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-rotation-and-rigid-bodies">6. Rotation and rigid bodies</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#angular-variables">Angular variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotational-kinematics">Rotational kinematics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-and-angular-relations">Linear and angular relations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#moment-of-inertia">Moment of inertia</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#parallel-axis-theorem">Parallel-axis theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotational-kinetic-energy">Rotational kinetic energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rolling-without-slipping">Rolling without slipping</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-angular-momentum-and-torque">7. Angular momentum and torque</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#torque">Torque</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotational-equation-of-motion">Rotational equation of motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#angular-momentum">Angular momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#angular-impulse-momentum">Angular impulse-momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservation-of-angular-momentum">Conservation of angular momentum</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-oscillations-and-simple-harmonic-motion">8. Oscillations and simple harmonic motion</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#simple-harmonic-motion">Simple harmonic motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#period-and-frequency">Period and frequency</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#velocity-and-acceleration-in-shm">Velocity and acceleration in SHM</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#energy-in-shm">Energy in SHM</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#damping-and-forcing">Damping and forcing</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-gravitation-and-central-forces">9. Gravitation and central forces</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#newtons-law-of-gravitation">Newton&#39;s law of gravitation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#gravitational-potential-energy">Gravitational potential energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#circular-orbits">Circular orbits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#central-force-intuition">Central-force intuition</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-constraints-equilibrium-and-statics">10. Constraints, equilibrium, and statics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#equilibrium-conditions">Equilibrium conditions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#typical-statics-workflow">Typical statics workflow</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#constraints">Constraints</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-lagrangian-and-hamiltonian-ideas">11. Lagrangian and Hamiltonian ideas</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#generalized-coordinates">Generalized coordinates</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#lagrangian">Lagrangian</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-use-lagranges-equations">Why use Lagrange&#39;s equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#canonical-momentum">Canonical momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#hamiltonian-idea">Hamiltonian idea</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-problem-solving-workflow">12. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#start-with-the-model">Start with the model</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#choose-the-right-tool">Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-pitfalls">Common pitfalls</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-formula-summary">13. Formula summary</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#kinematics">Kinematics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#newtonian-dynamics">Newtonian dynamics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#work-and-energy">Work and energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#momentum">Momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotation">Rotation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#spring-and-shm">Spring and SHM</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#gravitation">Gravitation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rolling">Rolling</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#lagrangian-form">Lagrangian form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#compact-takeaway">Compact takeaway</a></li></ol></li></ol></div>
+    </nav>
+        
+        <h1 id="1-scope-and-core-ideas">1. Scope and core ideas</h1>
 <p>Classical mechanics describes the motion of bodies under the action of forces, along with the conservation laws that govern that motion.</p>
 <p>It is the foundation for:</p>
 <ul><li><p>particle dynamics</p></li><li><p>rigid-body motion</p></li><li><p>vibrations and waves</p></li><li><p>orbital motion</p></li><li><p>mechanical engineering analysis</p></li></ul>
@@ -95,7 +114,6 @@
 <ul><li><p>bodies can be treated as particles</p></li><li><p>objects may be rigid</p></li><li><p>motion occurs in an inertial frame</p></li><li><p>forces can be idealized as weight, normal force, tension, spring force, or drag</p></li></ul>
 <p>Knowing which assumptions are valid is often more important than algebra.</p>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-kinematics-in-one-and-three-dimensions">2. Kinematics in one and three dimensions</h1>
 <p>Kinematics describes motion without explaining its cause.</p>
 <h2 id="position-velocity-and-acceleration">Position, velocity, and acceleration</h2>
@@ -147,7 +165,6 @@ $$</div>
 <p>Velocities and accelerations follow by differentiating with respect to time.</p>
 <p>This is essential in moving-platform and rotating-frame problems.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-newtons-laws-and-free-body-diagrams">3. Newton&#39;s laws and free-body diagrams</h1>
 <p>Newton&#39;s laws connect force to motion.</p>
 <h2 id="newtons-first-law">Newton&#39;s first law</h2>
@@ -184,7 +201,6 @@ $$</div>
 <p>Newton&#39;s second law holds in inertial frames.</p>
 <p>In accelerating or rotating frames, fictitious forces may be needed to preserve a Newtonian form.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-work-energy-and-power">4. Work, energy, and power</h1>
 <p>Energy methods are often simpler than force balance when displacement is the main unknown.</p>
 <h2 id="work">Work</h2>
@@ -247,7 +263,6 @@ $$</div>
 P = \mathbf{F}\cdot \mathbf{v}
 $$</div>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-momentum-impulse-and-collisions">5. Momentum, impulse, and collisions</h1>
 <h2 id="linear-momentum">Linear momentum</h2>
 <div class="math-block">$$
@@ -294,7 +309,6 @@ $$</div>
 \sum \mathbf{F}_{ext} = M\mathbf{a}_{cm}
 $$</div>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-rotation-and-rigid-bodies">6. Rotation and rigid bodies</h1>
 <p>Rigid-body motion includes translation and rotation.</p>
 <h2 id="angular-variables">Angular variables</h2>
@@ -368,7 +382,6 @@ a_{cm} = R\alpha
 $$</div>
 <p>Rolling problems often combine translation, rotation, and static friction.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-angular-momentum-and-torque">7. Angular momentum and torque</h1>
 <h2 id="torque">Torque</h2>
 <p>Torque is the rotational effect of force:</p>
@@ -406,7 +419,6 @@ $$</div>
 <p>This is especially useful for:</p>
 <ul><li><p>spinning skaters</p></li><li><p>satellites</p></li><li><p>planetary motion</p></li><li><p>rotating collisions</p></li></ul>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-oscillations-and-simple-harmonic-motion">8. Oscillations and simple harmonic motion</h1>
 <h2 id="simple-harmonic-motion">Simple harmonic motion</h2>
 <p>A system exhibits simple harmonic motion when the restoring force is proportional to displacement and directed toward equilibrium:</p>
@@ -462,7 +474,6 @@ $$</div>
 <p>Important behaviors:</p>
 <ul><li><p>underdamping: oscillates with decaying amplitude</p></li><li><p>critical damping: fastest return without oscillation</p></li><li><p>overdamping: non-oscillatory and slower</p></li><li><p>resonance: large response near natural frequency</p></li></ul>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-gravitation-and-central-forces">9. Gravitation and central forces</h1>
 <h2 id="newtons-law-of-gravitation">Newton&#39;s law of gravitation</h2>
 <p>Two masses attract with force:</p>
@@ -497,7 +508,6 @@ $$</div>
 <p>In central-force motion:</p>
 <ul><li><p>force points toward or away from a center</p></li><li><p>angular momentum is conserved</p></li><li><p>motion often reduces to an effective one-dimensional radial problem</p></li></ul>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-constraints-equilibrium-and-statics">10. Constraints, equilibrium, and statics</h1>
 <p>Static equilibrium means no translational or rotational acceleration.</p>
 <h2 id="equilibrium-conditions">Equilibrium conditions</h2>
@@ -520,7 +530,6 @@ $$</div>
 <ul><li><p>bead constrained on a wire</p></li><li><p>block on an incline</p></li><li><p>pulley system</p></li><li><p>rigid rod with pinned supports</p></li></ul>
 <p>Constraint forces often do no work in idealized models, but they still matter in force balance.</p>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-lagrangian-and-hamiltonian-ideas">11. Lagrangian and Hamiltonian ideas</h1>
 <p>The Lagrangian formulation is a higher-level way to derive equations of motion.</p>
 <h2 id="generalized-coordinates">Generalized coordinates</h2>
@@ -554,7 +563,6 @@ $$</div>
 $$</div>
 <p>though this is not universal in all formulations.</p>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-problem-solving-workflow">12. Problem-solving workflow</h1>
 <h2 id="start-with-the-model">Start with the model</h2>
 <p>Ask:</p>
@@ -566,7 +574,6 @@ $$</div>
 <h2 id="sanity-checks">Sanity checks</h2>
 <ul><li><p>Do units match on both sides?</p></li><li><p>Does the result reduce to a known special case?</p></li><li><p>Does the sign make physical sense?</p></li><li><p>Is the answer bounded or physically plausible?</p></li></ul>
 <hr />
-<a id="toc-13"></a>
 <h1 id="13-formula-summary">13. Formula summary</h1>
 <h2 id="kinematics">Kinematics</h2>
 <div class="math-block">$$
@@ -650,13 +657,37 @@ $$</div>
 <p>Classical mechanics is mostly about choosing the right representation:</p>
 <ul><li><p>force balance for instantaneous dynamics</p></li><li><p>energy for path-independent force fields</p></li><li><p>momentum for impacts and isolated systems</p></li><li><p>torque and angular momentum for rotation</p></li><li><p>generalized coordinates for constrained motion</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/physics/classical-mechanics/classical-mechanics.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/physics/classical-mechanics/classical-mechanics.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-scope-and-core-ideas">1. Scope and core ideas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#modeling-assumptions">Modeling assumptions</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-kinematics-in-one-and-three-dimensions">2. Kinematics in one and three dimensions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#position-velocity-and-acceleration">Position, velocity, and acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constant-acceleration-relations">Constant-acceleration relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#projectile-motion">Projectile motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#relative-motion">Relative motion</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-newtons-laws-and-free-body-diagrams">3. Newton&#39;s laws and free-body diagrams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-first-law">Newton&#39;s first law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-second-law">Newton&#39;s second law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-third-law">Newton&#39;s third law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-body-diagrams">Free-body diagrams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#friction">Friction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#inertial-and-non-inertial-frames">Inertial and non-inertial frames</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-work-energy-and-power">4. Work, energy, and power</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work-energy-theorem">Work-energy theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservative-forces-and-potential-energy">Conservative forces and potential energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservation-of-mechanical-energy">Conservation of mechanical energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#power">Power</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-momentum-impulse-and-collisions">5. Momentum, impulse, and collisions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-momentum">Linear momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#impulse">Impulse</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservation-of-linear-momentum">Conservation of linear momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#collisions">Collisions</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#perfectly-inelastic-collision">Perfectly inelastic collision</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#elastic-collision">Elastic collision</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#coefficient-of-restitution">Coefficient of restitution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#center-of-mass">Center of mass</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-rotation-and-rigid-bodies">6. Rotation and rigid bodies</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angular-variables">Angular variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotational-kinematics">Rotational kinematics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-and-angular-relations">Linear and angular relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#moment-of-inertia">Moment of inertia</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#parallel-axis-theorem">Parallel-axis theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotational-kinetic-energy">Rotational kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rolling-without-slipping">Rolling without slipping</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-angular-momentum-and-torque">7. Angular momentum and torque</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#torque">Torque</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotational-equation-of-motion">Rotational equation of motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angular-momentum">Angular momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angular-impulse-momentum">Angular impulse-momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservation-of-angular-momentum">Conservation of angular momentum</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-oscillations-and-simple-harmonic-motion">8. Oscillations and simple harmonic motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#simple-harmonic-motion">Simple harmonic motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#period-and-frequency">Period and frequency</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#velocity-and-acceleration-in-shm">Velocity and acceleration in SHM</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy-in-shm">Energy in SHM</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#damping-and-forcing">Damping and forcing</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-gravitation-and-central-forces">9. Gravitation and central forces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-law-of-gravitation">Newton&#39;s law of gravitation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#gravitational-potential-energy">Gravitational potential energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#circular-orbits">Circular orbits</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#central-force-intuition">Central-force intuition</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-constraints-equilibrium-and-statics">10. Constraints, equilibrium, and statics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equilibrium-conditions">Equilibrium conditions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-statics-workflow">Typical statics workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constraints">Constraints</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-lagrangian-and-hamiltonian-ideas">11. Lagrangian and Hamiltonian ideas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#generalized-coordinates">Generalized coordinates</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#lagrangian">Lagrangian</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-use-lagranges-equations">Why use Lagrange&#39;s equations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#canonical-momentum">Canonical momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#hamiltonian-idea">Hamiltonian idea</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-problem-solving-workflow">12. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#start-with-the-model">Start with the model</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#choose-the-right-tool">Choose the right tool</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-pitfalls">Common pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-formula-summary">13. Formula summary</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinematics">Kinematics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtonian-dynamics">Newtonian dynamics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work-and-energy">Work and energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#momentum">Momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotation">Rotation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#spring-and-shm">Spring and SHM</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#gravitation">Gravitation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rolling">Rolling</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#lagrangian-form">Lagrangian form</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#compact-takeaway">Compact takeaway</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

@@ -5,25 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What counts as a second-order ODE](#toc-1)
-2. [Classification and standard forms](#toc-2)
-3. [Existence, uniqueness, and IVPs](#toc-3)
-4. [Homogeneous linear equations with constant coefficients](#toc-4)
-5. [Forcing and particular solutions](#toc-5)
-6. [Variable-coefficient special cases](#toc-6)
-7. [Reduction of order and variation of parameters](#toc-7)
-8. [Initial and boundary value problems](#toc-8)
-9. [Mechanical applications](#toc-9)
-10. [Qualitative behavior](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Formula summary](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What counts as a second-order ODE
 
 A **second-order ordinary differential equation** is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:
@@ -51,7 +32,6 @@ The central tasks are usually:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Classification and standard forms
 
 ## Linear vs nonlinear
@@ -108,7 +88,6 @@ with constants \(a \neq 0\), \(b\), and \(c\).
 
 ---
 
-<a id="toc-3"></a>
 # 3. Existence, uniqueness, and IVPs
 
 For the initial value problem
@@ -139,7 +118,6 @@ to pin down one specific solution.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Homogeneous linear equations with constant coefficients
 
 The foundational case is
@@ -212,7 +190,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Forcing and particular solutions
 
 For a nonhomogeneous linear equation
@@ -288,7 +265,6 @@ where \(u_1\) and \(u_2\) are determined from a system involving the Wronskian.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Variable-coefficient special cases
 
 ## Euler-Cauchy equations
@@ -325,7 +301,6 @@ is a common route.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Reduction of order and variation of parameters
 
 ## Reduction of order
@@ -369,7 +344,6 @@ variation of parameters uses the Wronskian to build \(u_1\) and \(u_2\).
 
 ---
 
-<a id="toc-8"></a>
 # 8. Initial and boundary value problems
 
 ## Initial value problems
@@ -412,7 +386,6 @@ depending on the forcing and the eigenstructure of the operator.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Mechanical applications
 
 Many second-order ODEs come from Newton’s second law:
@@ -483,7 +456,6 @@ If \(F(t)\) is periodic, resonance and near-resonance can produce large response
 
 ---
 
-<a id="toc-10"></a>
 # 10. Qualitative behavior
 
 Even when an exact formula is available, it helps to understand the shape of the solution.
@@ -528,7 +500,6 @@ For linear constant-coefficient equations, the real parts of the characteristic 
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 1. Put the equation in standard form.
@@ -562,7 +533,6 @@ For linear constant-coefficient equations, the real parts of the characteristic 
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula summary
 
 ## Standard linear form

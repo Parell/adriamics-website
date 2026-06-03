@@ -5,25 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What organic chemistry studies](#toc-1)
-2. [Atomic structure and bonding](#toc-2)
-3. [Functional groups and naming](#toc-3)
-4. [Isomerism and stereochemistry](#toc-4)
-5. [Acidity, basicity, and electron flow](#toc-5)
-6. [Reaction mechanisms](#toc-6)
-7. [Core reaction families](#toc-7)
-8. [Carbonyl chemistry](#toc-8)
-9. [Spectroscopy and structure determination](#toc-9)
-10. [Organic chemistry in biology](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Formula summary](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What organic chemistry studies
 
 Organic chemistry is the study of carbon-containing compounds, especially those built around covalent carbon-carbon and carbon-heteroatom bonds. It matters because carbon can form chains, rings, branched frameworks, and multiple bonds, giving rise to an enormous number of molecules with distinct properties.
@@ -48,7 +29,6 @@ Organic chemistry is less about memorizing isolated reactions and more about rec
 
 ---
 
-<a id="toc-2"></a>
 # 2. Atomic structure and bonding
 
 ## Carbon bonding
@@ -93,7 +73,6 @@ Examples of strong electron-withdrawing groups:
 
 ---
 
-<a id="toc-3"></a>
 # 3. Functional groups and naming
 
 Functional groups determine the identity and reactivity of a molecule. When solving problems, identify the highest-priority functional group first, then build the rest of the analysis around it.
@@ -138,7 +117,6 @@ Benzene derivatives are common. If a benzene ring contains a principal functiona
 
 ---
 
-<a id="toc-4"></a>
 # 4. Isomerism and stereochemistry
 
 ## Constitutional isomers
@@ -199,7 +177,6 @@ Important examples:
 
 ---
 
-<a id="toc-5"></a>
 # 5. Acidity, basicity, and electron flow
 
 Organic chemistry problems often begin with a proton transfer or end with one. Acidity and basicity control what species are present and therefore what can react.
@@ -244,7 +221,6 @@ In many cases, harder and smaller nucleophiles favor more polar, less polarizabl
 
 ---
 
-<a id="toc-6"></a>
 # 6. Reaction mechanisms
 
 Mechanisms explain how a reaction happens step by step. A mechanism should conserve atoms, charge, and valence at every stage.
@@ -283,7 +259,6 @@ Useful distinction:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Core reaction families
 
 ## Substitution reactions
@@ -361,7 +336,6 @@ tertiary > secondary > primary > methyl, with allylic and benzylic radicals addi
 
 ---
 
-<a id="toc-8"></a>
 # 8. Carbonyl chemistry
 
 Carbonyl compounds are central because the C=O bond is polarized and the carbon is electrophilic.
@@ -411,7 +385,6 @@ The most important practical step is deciding whether the carbonyl partner can f
 
 ---
 
-<a id="toc-9"></a>
 # 9. Spectroscopy and structure determination
 
 Structure determination is usually a puzzle with several data sources.
@@ -470,7 +443,6 @@ Each ring or pi bond counts as one degree. A triple bond counts as two.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Organic chemistry in biology
 
 Organic chemistry is the language of biology at the molecular level.
@@ -514,7 +486,6 @@ DNA and RNA are polymers of nucleotides connected by phosphodiester bonds. Base 
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 When a problem looks unfamiliar, use the same sequence every time.
@@ -571,7 +542,6 @@ Confirm that:
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula summary
 
 ## Core relations

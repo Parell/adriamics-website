@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/arithmetic/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,59 @@
       <div class="viewer-head">
         <div>
           <h1>Arithmetic</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Farithmetic%2Farithmetic.md&amp;title=%5BCorrection%5D%3A%20Arithmetic" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/arithmetic/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">Numbers and place value</a></p></li><li><p><a href="#toc-2">Addition</a></p></li><li><p><a href="#toc-3">Subtraction</a></p></li><li><p><a href="#toc-4">Multiplication</a></p></li><li><p><a href="#toc-5">Division</a></p></li><li><p><a href="#toc-6">Order of operations</a></p></li><li><p><a href="#toc-7">Integers and signed arithmetic</a></p></li><li><p><a href="#toc-8">Factors, multiples, and primes</a></p></li><li><p><a href="#toc-9">Fractions</a></p></li><li><p><a href="#toc-10">Decimals</a></p></li><li><p><a href="#toc-11">Ratios, rates, and proportions</a></p></li><li><p><a href="#toc-12">Percents</a></p></li><li><p><a href="#toc-13">Exponents, roots, and scientific notation</a></p></li><li><p><a href="#toc-14">Estimation, rounding, and error checks</a></p></li><li><p><a href="#toc-15">Problem-solving workflow</a></p></li><li><p><a href="#toc-16">Formula sheet</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-numbers-and-place-value">1. Numbers and place value</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-numbers-and-place-value">1. Numbers and place value</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#number-sets">Number sets</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#place-value">Place value</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#comparing-numbers">Comparing numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#absolute-value">Absolute value</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-addition">2. Addition</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#properties-of-addition">Properties of addition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#adding-whole-numbers">Adding whole numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#adding-decimals">Adding decimals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#adding-like-terms">Adding like terms</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-subtraction">3. Subtraction</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#properties-of-subtraction">Properties of subtraction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#subtracting-whole-numbers">Subtracting whole numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#subtracting-decimals">Subtracting decimals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#difference-as-distance">Difference as distance</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-multiplication">4. Multiplication</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#properties-of-multiplication">Properties of multiplication</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#repeated-addition">Repeated addition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiplying-by-powers-of-ten">Multiplying by powers of ten</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#area-interpretation">Area interpretation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-division">5. Division</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#division-and-multiplication">Division and multiplication</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#remainders">Remainders</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#dividing-by-powers-of-ten">Dividing by powers of ten</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#fractions-as-division">Fractions as division</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-order-of-operations">6. Order of operations</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#grouping-symbols">Grouping symbols</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#left-to-right-rule">Left-to-right rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#nested-expressions">Nested expressions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-integers-and-signed-arithmetic">7. Integers and signed arithmetic</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#number-line">Number line</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#adding-signed-numbers">Adding signed numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#subtracting-signed-numbers">Subtracting signed numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiplying-and-dividing-signed-numbers">Multiplying and dividing signed numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#opposites">Opposites</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-factors-multiples-and-primes">8. Factors, multiples, and primes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#factors">Factors</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiples">Multiples</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#prime-and-composite-numbers">Prime and composite numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#prime-factorization">Prime factorization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#greatest-common-factor">Greatest common factor</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#least-common-multiple">Least common multiple</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-fractions">9. Fractions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#equivalent-fractions">Equivalent fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#simplifying-fractions">Simplifying fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiplying-fractions">Multiplying fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#dividing-fractions">Dividing fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#adding-and-subtracting-fractions">Adding and subtracting fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mixed-numbers">Mixed numbers</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#10-decimals">10. Decimals</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#decimal-place-values">Decimal place values</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#adding-and-subtracting-decimals">Adding and subtracting decimals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multiplying-decimals">Multiplying decimals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#dividing-decimals">Dividing decimals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#converting-decimals-to-fractions">Converting decimals to fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#converting-fractions-to-decimals">Converting fractions to decimals</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-ratios-rates-and-proportions">11. Ratios, rates, and proportions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#ratio">Ratio</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rate">Rate</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#proportion">Proportion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#solving-a-proportion">Solving a proportion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#scale-factor">Scale factor</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-percents">12. Percents</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#percent-of-a-number">Percent of a number</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#finding-the-percent">Finding the percent</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#percent-increase">Percent increase</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#percent-decrease">Percent decrease</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#simple-interest">Simple interest</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-exponents-roots-and-scientific-notation">13. Exponents, roots, and scientific notation</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#exponents">Exponents</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exponent-rules">Exponent rules</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#roots">Roots</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#squares-and-square-roots">Squares and square roots</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#scientific-notation">Scientific notation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#operations-with-scientific-notation">Operations with scientific notation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#14-estimation-rounding-and-error-checks">14. Estimation, rounding, and error checks</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#rounding">Rounding</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#compatible-numbers">Compatible numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#estimating-products">Estimating products</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#estimating-quotients">Estimating quotients</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#error-checks">Error checks</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#15-problem-solving-workflow">15. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#step-1-identify-the-goal">Step 1: Identify the goal</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-2-list-knowns-and-unknowns">Step 2: List knowns and unknowns</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-3-choose-the-operation">Step 3: Choose the operation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-4-set-up-the-expression">Step 4: Set up the expression</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-5-calculate-carefully">Step 5: Calculate carefully</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-6-check-units-and-meaning">Step 6: Check units and meaning</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-7-verify-with-an-inverse-operation">Step 7: Verify with an inverse operation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#16-formula-sheet">16. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#place-value-and-comparison">Place value and comparison</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#basic-operation-properties">Basic operation properties</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#subtraction-and-division">Subtraction and division</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#signed-numbers">Signed numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#fractions">Fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#decimals">Decimals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#ratios-and-proportions">Ratios and proportions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#percents">Percents</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exponents-and-roots">Exponents and roots</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes-to-avoid">Common mistakes to avoid</a></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="arithmetic" data-math-demo-id="arithmetic">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Number line moves</h2>
+      <p class="interactive-demo__summary">Change a starting value and a step to see addition and subtraction as movement on a number line.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Number line moves controls">
+        <label class="interactive-demo__control" for="math-demo-arithmetic-start">
+    <span class="interactive-demo__control-label">Start value <output id="math-demo-arithmetic-start-value">2</output></span>
+    <input id="math-demo-arithmetic-start" type="range" min="-10" max="10" step="1" value="2" />
+  </label><label class="interactive-demo__control" for="math-demo-arithmetic-step">
+    <span class="interactive-demo__control-label">Step size <output id="math-demo-arithmetic-step-value">4</output></span>
+    <input id="math-demo-arithmetic-step" type="range" min="-10" max="10" step="1" value="4" />
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Update</span>
+    <span class="interactive-demo__metric-value" id="math-demo-arithmetic-equation">2 + 4 = 6</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Distance from zero</span>
+    <span class="interactive-demo__metric-value" id="math-demo-arithmetic-distance">6</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 220" role="img" aria-labelledby="math-demo-arithmetic-title math-demo-arithmetic-desc">
+          <title id="math-demo-arithmetic-title">Animated number line</title>
+          <desc id="math-demo-arithmetic-desc">A number line with a movable start point and step size.</desc>
+          <g id="math-demo-arithmetic-grid" stroke="var(--border)" stroke-width="1" opacity="0.95"></g>
+          <line x1="50" y1="110" x2="750" y2="110" stroke="var(--accent-strong)" stroke-width="2" />
+          <g id="math-demo-arithmetic-ticks" stroke="var(--muted)" stroke-width="1"></g>
+          <circle id="math-demo-arithmetic-start-point" cx="0" cy="110" r="9" fill="var(--pomodoro-short)" />
+          <circle id="math-demo-arithmetic-end-point" cx="0" cy="110" r="9" fill="var(--accent-strong)" />
+          <line id="math-demo-arithmetic-arrow" x1="0" y1="110" x2="0" y2="110" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round" />
+          <text id="math-demo-arithmetic-start-label" x="0" y="140" fill="var(--text)" font-size="18" text-anchor="middle"></text>
+          <text id="math-demo-arithmetic-end-label" x="0" y="78" fill="var(--text)" font-size="18" text-anchor="middle"></text>
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <h1 id="1-numbers-and-place-value">1. Numbers and place value</h1>
 <p>Arithmetic studies numbers and the basic operations used to combine, compare, and transform them.</p>
 <p>The main arithmetic operations are:</p>
 <ul><li><p>Addition</p></li><li><p>Subtraction</p></li><li><p>Multiplication</p></li><li><p>Division</p></li></ul>
@@ -132,7 +190,6 @@ $$</div>
 |0| = 0
 $$</div>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-addition">2. Addition</h1>
 <p>Addition combines quantities.</p>
 <p>For two numbers:</p>
@@ -192,7 +249,6 @@ $$</div>
 $$</div>
 <p>Unlike quantities cannot be combined without conversion or interpretation.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-subtraction">3. Subtraction</h1>
 <p>Subtraction finds the difference between quantities.</p>
 <p>For two numbers:</p>
@@ -270,7 +326,6 @@ $$</div>
 \text{distance between } -3 \text{ and } 5 = |5-(-3)| = 8
 $$</div>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-multiplication">4. Multiplication</h1>
 <p>Multiplication represents repeated addition, scaling, or area.</p>
 <p>For two numbers:</p>
@@ -318,7 +373,6 @@ $$</div>
 A = 7 \cdot 5 = 35
 $$</div>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-division">5. Division</h1>
 <p>Division separates a quantity into equal groups or finds a rate.</p>
 <p>For two numbers:</p>
@@ -394,7 +448,6 @@ $$</div>
 \frac{3}{4}=3\div4=0.75
 $$</div>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-order-of-operations">6. Order of operations</h1>
 <p>Order of operations gives a consistent way to evaluate expressions.</p>
 <p>Use this sequence:</p>
@@ -449,7 +502,6 @@ $$</div>
 2[9+7] = 2[16] = 32
 $$</div>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-integers-and-signed-arithmetic">7. Integers and signed arithmetic</h1>
 <p>Integers include positive numbers, negative numbers, and zero.</p>
 <div class="math-block">$$
@@ -514,7 +566,6 @@ $$</div>
 a + (-a) = 0
 $$</div>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-factors-multiples-and-primes">8. Factors, multiples, and primes</h1>
 <h2 id="factors">Factors</h2>
 <p>A factor divides a number evenly.</p>
@@ -589,7 +640,6 @@ $$</div>
 LCM(6,8)=24
 $$</div>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-fractions">9. Fractions</h1>
 <p>A fraction represents part of a whole, a ratio, or division.</p>
 <div class="math-block">$$
@@ -689,7 +739,6 @@ $$</div>
 17 = 5(3) + 2
 $$</div>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-decimals">10. Decimals</h1>
 <p>Decimals are base-ten fractions.</p>
 <p>Examples:</p>
@@ -755,7 +804,6 @@ $$</div>
 \frac{7}{8}=7\div8=0.875
 $$</div>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-ratios-rates-and-proportions">11. Ratios, rates, and proportions</h1>
 <h2 id="ratio">Ratio</h2>
 <p>A ratio compares two quantities by division.</p>
@@ -822,7 +870,6 @@ $$</div>
 <p>If $k&gt;1$, the figure is enlarged.</p>
 <p>If $0&lt;k&lt;1$, the figure is reduced.</p>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-percents">12. Percents</h1>
 <p>Percent means per hundred.</p>
 <div class="math-block">$$
@@ -895,7 +942,6 @@ $$</div>
 A = P(1+rt)
 $$</div>
 <hr />
-<a id="toc-13"></a>
 <h1 id="13-exponents-roots-and-scientific-notation">13. Exponents, roots, and scientific notation</h1>
 <h2 id="exponents">Exponents</h2>
 <p>An exponent indicates repeated multiplication.</p>
@@ -975,7 +1021,6 @@ $$</div>
 (3\times10^4)(2\times10^5)=6\times10^9
 $$</div>
 <hr />
-<a id="toc-14"></a>
 <h1 id="14-estimation-rounding-and-error-checks">14. Estimation, rounding, and error checks</h1>
 <p>Estimation gives a quick approximate answer before or after exact calculation.</p>
 <h2 id="rounding">Rounding</h2>
@@ -1032,7 +1077,6 @@ $$</div>
 12 \cdot 7 = 84
 $$</div>
 <hr />
-<a id="toc-15"></a>
 <h1 id="15-problem-solving-workflow">15. Problem-solving workflow</h1>
 <p>Use this checklist for most arithmetic problems.</p>
 <h2 id="step-1-identify-the-goal">Step 1: Identify the goal</h2>
@@ -1073,7 +1117,6 @@ $$</div>
 ab=c \quad \Rightarrow \quad c\div b=a
 $$</div>
 <hr />
-<a id="toc-16"></a>
 <h1 id="16-formula-sheet">16. Formula sheet</h1>
 <h2 id="place-value-and-comparison">Place value and comparison</h2>
 <p>Expanded form:</p>
@@ -1280,13 +1323,37 @@ $$</div>
 <h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
 <ul><li><p>Adding or subtracting decimals without lining up decimal points.</p></li><li><p>Treating subtraction as commutative.</p></li><li><p>Treating division as commutative.</p></li><li><p>Dividing by zero.</p></li><li><p>Forgetting to work left to right for multiplication/division or addition/subtraction.</p></li><li><p>Adding fractions before finding a common denominator.</p></li><li><p>Multiplying fractions by adding numerators and denominators.</p></li><li><p>Dividing fractions without using the reciprocal of the divisor.</p></li><li><p>Dropping negative signs during multi-step calculations.</p></li><li><p>Confusing percent form with decimal form.</p></li><li><p>Using $25$ instead of $0.25$ for $25\%$ in calculations.</p></li><li><p>Moving the decimal in only one number when dividing decimals.</p></li><li><p>Rounding too early in a multi-step problem.</p></li><li><p>Forgetting that $1$ is neither prime nor composite.</p></li><li><p>Assuming an estimate must equal the exact answer.</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/arithmetic/arithmetic.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/arithmetic/arithmetic.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-numbers-and-place-value">1. Numbers and place value</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#number-sets">Number sets</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#place-value">Place value</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#comparing-numbers">Comparing numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#absolute-value">Absolute value</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-addition">2. Addition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#properties-of-addition">Properties of addition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#adding-whole-numbers">Adding whole numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#adding-decimals">Adding decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#adding-like-terms">Adding like terms</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-subtraction">3. Subtraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#properties-of-subtraction">Properties of subtraction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#subtracting-whole-numbers">Subtracting whole numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#subtracting-decimals">Subtracting decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#difference-as-distance">Difference as distance</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-multiplication">4. Multiplication</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#properties-of-multiplication">Properties of multiplication</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#repeated-addition">Repeated addition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiplying-by-powers-of-ten">Multiplying by powers of ten</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#area-interpretation">Area interpretation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-division">5. Division</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#division-and-multiplication">Division and multiplication</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#remainders">Remainders</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#dividing-by-powers-of-ten">Dividing by powers of ten</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fractions-as-division">Fractions as division</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-order-of-operations">6. Order of operations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#grouping-symbols">Grouping symbols</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#left-to-right-rule">Left-to-right rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#nested-expressions">Nested expressions</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-integers-and-signed-arithmetic">7. Integers and signed arithmetic</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#number-line">Number line</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#adding-signed-numbers">Adding signed numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#subtracting-signed-numbers">Subtracting signed numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiplying-and-dividing-signed-numbers">Multiplying and dividing signed numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#opposites">Opposites</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-factors-multiples-and-primes">8. Factors, multiples, and primes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#factors">Factors</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiples">Multiples</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#prime-and-composite-numbers">Prime and composite numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#prime-factorization">Prime factorization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#greatest-common-factor">Greatest common factor</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#least-common-multiple">Least common multiple</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-fractions">9. Fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equivalent-fractions">Equivalent fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#simplifying-fractions">Simplifying fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiplying-fractions">Multiplying fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#dividing-fractions">Dividing fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#adding-and-subtracting-fractions">Adding and subtracting fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mixed-numbers">Mixed numbers</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-decimals">10. Decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#decimal-place-values">Decimal place values</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#adding-and-subtracting-decimals">Adding and subtracting decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#multiplying-decimals">Multiplying decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#dividing-decimals">Dividing decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#converting-decimals-to-fractions">Converting decimals to fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#converting-fractions-to-decimals">Converting fractions to decimals</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-ratios-rates-and-proportions">11. Ratios, rates, and proportions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#ratio">Ratio</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rate">Rate</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proportion">Proportion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#solving-a-proportion">Solving a proportion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#scale-factor">Scale factor</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-percents">12. Percents</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#percent-of-a-number">Percent of a number</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#finding-the-percent">Finding the percent</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#percent-increase">Percent increase</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#percent-decrease">Percent decrease</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#simple-interest">Simple interest</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-exponents-roots-and-scientific-notation">13. Exponents, roots, and scientific notation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#exponents">Exponents</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#exponent-rules">Exponent rules</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#roots">Roots</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#squares-and-square-roots">Squares and square roots</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#scientific-notation">Scientific notation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#operations-with-scientific-notation">Operations with scientific notation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#14-estimation-rounding-and-error-checks">14. Estimation, rounding, and error checks</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rounding">Rounding</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#compatible-numbers">Compatible numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#estimating-products">Estimating products</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#estimating-quotients">Estimating quotients</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#error-checks">Error checks</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#15-problem-solving-workflow">15. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-1-identify-the-goal">Step 1: Identify the goal</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-2-list-knowns-and-unknowns">Step 2: List knowns and unknowns</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-3-choose-the-operation">Step 3: Choose the operation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-4-set-up-the-expression">Step 4: Set up the expression</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-5-calculate-carefully">Step 5: Calculate carefully</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-6-check-units-and-meaning">Step 6: Check units and meaning</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-7-verify-with-an-inverse-operation">Step 7: Verify with an inverse operation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#16-formula-sheet">16. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#place-value-and-comparison">Place value and comparison</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#basic-operation-properties">Basic operation properties</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#subtraction-and-division">Subtraction and division</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#signed-numbers">Signed numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fractions">Fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#decimals">Decimals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#ratios-and-proportions">Ratios and proportions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#percents">Percents</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#exponents-and-roots">Exponents and roots</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#common-mistakes-to-avoid">Common mistakes to avoid</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

@@ -6,27 +6,8 @@ last_reviewed: 2026-05-22
 sources: []
 ---
 
-## Table of contents
-
-1. [Indefinite integrals and antiderivatives](#toc-2)
-2. [Definite integrals and area](#toc-3)
-3. [The Fundamental Theorem of Calculus](#toc-4)
-4. [Core antiderivative rules](#toc-5)
-5. [Substitution](#toc-6)
-6. [Integration by parts](#toc-7)
-7. [Partial fractions](#toc-8)
-8. [Trigonometric integrals and substitutions](#toc-9)
-9. [Improper integrals](#toc-10)
-10. [Applications](#toc-11)
-11. [Numerical integration](#toc-12)
-12. [Problem-solving workflow](#toc-13)
-13. [Common mistakes](#toc-14)
-14. [Formula sheet](#toc-15)
-
 ---
-
-<a id="toc-1"></a>
-# Integrals
+# 1. What are Integrals
 
 An **integral** measures accumulation. In calculus, that accumulation is usually:
 
@@ -43,8 +24,7 @@ The central idea is that differentiation and integration are inverse operations.
 
 ---
 
-<a id="toc-2"></a>
-# 1. Indefinite integrals and antiderivatives
+# 2 Indefinite integrals and antiderivatives
 
 An **antiderivative** of $f(x)$ is a function $F(x)$ such that
 
@@ -83,8 +63,7 @@ gives displacement, up to an initial condition.
 
 ---
 
-<a id="toc-3"></a>
-# 2. Definite integrals and area
+# 3 Definite integrals and area
 
 The definite integral of $f(x)$ from $a$ to $b$ is written
 
@@ -140,7 +119,6 @@ This is a common interpretation: the integral is the total, and dividing by inte
 
 ---
 
-<a id="toc-4"></a>
 # 3. The Fundamental Theorem of Calculus
 
 The **Fundamental Theorem of Calculus** connects derivatives and integrals.
@@ -181,7 +159,6 @@ Without the FTC, definite integrals would require limit computations every time.
 
 ---
 
-<a id="toc-5"></a>
 # 4. Core antiderivative rules
 
 These formulas appear constantly.
@@ -260,7 +237,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 5. Substitution
 
 **Substitution** reverses the chain rule. Use it when an integrand contains a function and its derivative, or a recognizable composite expression.
@@ -325,7 +301,6 @@ If $u=g(x)$, then when $x=a$, use $u=g(a)$, and when $x=b$, use $u=g(b)$.
 
 ---
 
-<a id="toc-7"></a>
 # 6. Integration by parts
 
 Integration by parts comes from the product rule:
@@ -391,7 +366,6 @@ This is a heuristic, not a rule, but it often leads to a useful choice.
 
 ---
 
-<a id="toc-8"></a>
 # 7. Partial fractions
 
 Partial fraction decomposition is used for rational functions:
@@ -456,7 +430,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 8. Trigonometric integrals and substitutions
 
 ## Trigonometric integrals
@@ -528,7 +501,6 @@ $$
 
 ---
 
-<a id="toc-10"></a>
 # 9. Improper integrals
 
 An **improper integral** has at least one issue:
@@ -572,7 +544,6 @@ This is a standard comparison test baseline.
 
 ---
 
-<a id="toc-11"></a>
 # 10. Applications
 
 Integrals appear anywhere accumulation matters.
@@ -653,7 +624,6 @@ $$
 
 ---
 
-<a id="toc-12"></a>
 # 11. Numerical integration
 
 When an antiderivative is hard or unavailable, approximate the integral numerically.
@@ -684,7 +654,6 @@ $$
 
 ---
 
-<a id="toc-13"></a>
 # 12. Problem-solving workflow
 
 A reliable integration workflow saves time and reduces mistakes.
@@ -708,7 +677,6 @@ A reliable integration workflow saves time and reduces mistakes.
 
 ---
 
-<a id="toc-14"></a>
 # 13. Common mistakes
 
 ## Forgetting the constant of integration
@@ -753,7 +721,6 @@ Many integration problems are really algebra problems in disguise:
 
 ---
 
-<a id="toc-15"></a>
 # 14. Formula sheet
 
 ## Core formulas

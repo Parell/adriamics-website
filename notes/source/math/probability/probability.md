@@ -5,26 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [Probability language and sample spaces](#toc-1)
-2. [Counting methods](#toc-2)
-3. [Axioms and basic rules](#toc-3)
-4. [Conditional probability and Bayes' theorem](#toc-4)
-5. [Random variables](#toc-5)
-6. [Expectation, variance, and moments](#toc-6)
-7. [Common discrete distributions](#toc-7)
-8. [Common continuous distributions](#toc-8)
-9. [Joint distributions and dependence](#toc-9)
-10. [Law of large numbers and central limit theorem](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Formula sheet](#toc-12)
-13. [Common mistakes to avoid](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. Probability language and sample spaces
 
 Probability is the mathematics of uncertainty. A probability model has three parts:
@@ -88,7 +68,6 @@ Interpretation:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Counting methods
 
 Counting is often the first step in a probability problem. If you can count outcomes correctly, the probability usually follows.
@@ -178,7 +157,6 @@ This is useful for allocation and composition problems.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Axioms and basic rules
 
 Probability obeys a few core rules. Most other formulas come from these.
@@ -242,7 +220,6 @@ The union bound is useful for quick upper bounds.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Conditional probability and Bayes' theorem
 
 Conditional probability updates probability after new information is observed.
@@ -329,7 +306,6 @@ Bayes' theorem converts a test result into an updated belief about the underlyin
 
 ---
 
-<a id="toc-5"></a>
 # 5. Random variables
 
 A **random variable** maps outcomes to numbers.
@@ -404,7 +380,6 @@ For monotone transformations of continuous variables, the pdf can often be obtai
 
 ---
 
-<a id="toc-6"></a>
 # 6. Expectation, variance, and moments
 
 Expectation is the long-run average value of a random variable.
@@ -518,7 +493,6 @@ These moments are useful for characterizing distributions.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Common discrete distributions
 
 Discrete distributions model counts, categories, and repeated trials.
@@ -654,7 +628,6 @@ Use hypergeometric instead of binomial when draws are dependent because the popu
 
 ---
 
-<a id="toc-8"></a>
 # 8. Common continuous distributions
 
 Continuous distributions model measurements and waiting times.
@@ -755,7 +728,6 @@ It is especially useful in Bayesian modeling.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Joint distributions and dependence
 
 Many problems involve multiple random variables.
@@ -854,7 +826,6 @@ The diagonal entries are variances.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Law of large numbers and central limit theorem
 
 These limit theorems explain why averages become stable and why the normal distribution appears so often.
@@ -912,7 +883,6 @@ Use a continuity correction when appropriate.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 Probability problems are usually easier if you identify the model before doing algebra.
@@ -989,7 +959,6 @@ Indicator variables are a powerful way to count expected numbers of events.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula sheet
 
 ## Core rules
@@ -1174,7 +1143,6 @@ $$
 
 ---
 
-<a id="toc-13"></a>
 # 13. Common mistakes to avoid
 
 - Confusing permutations with combinations.

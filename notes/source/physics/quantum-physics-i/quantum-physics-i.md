@@ -5,25 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What quantum physics studies](#toc-1)
-2. [Classical limits and why quantum theory is needed](#toc-2)
-3. [Wave functions and probability](#toc-3)
-4. [Schrodinger equation](#toc-4)
-5. [Operators, observables, and measurement](#toc-5)
-6. [Uncertainty and superposition](#toc-6)
-7. [Standard model problems](#toc-7)
-8. [Spin and two-level systems](#toc-8)
-9. [Approximation methods](#toc-9)
-10. [Problem-solving workflow](#toc-10)
-11. [Common pitfalls](#toc-11)
-12. [Formula summary](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What quantum physics studies
 
 Quantum physics describes matter and radiation at atomic and subatomic scales, where energy exchange is quantized and measurement outcomes are fundamentally probabilistic.
@@ -52,7 +33,6 @@ Quantum mechanics is not just "small-scale classical mechanics." It uses differe
 
 ---
 
-<a id="toc-2"></a>
 # 2. Classical limits and why quantum theory is needed
 
 Classical physics works well when the action scale is large compared with Planck's constant:
@@ -98,7 +78,6 @@ Particles show interference, which cannot be explained by purely classical traje
 
 ---
 
-<a id="toc-3"></a>
 # 3. Wave functions and probability
 
 The state of a one-dimensional particle is often written as $\psi(x,t)$.
@@ -152,7 +131,6 @@ Expectation values are weighted averages over measurement outcomes.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Schrodinger equation
 
 The time-dependent Schrodinger equation governs state evolution:
@@ -205,7 +183,6 @@ This is the main source of quantization in introductory quantum mechanics.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Operators, observables, and measurement
 
 An observable is represented by a linear operator. For common one-dimensional problems:
@@ -260,7 +237,6 @@ This relation underlies the uncertainty principle.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Uncertainty and superposition
 
 The Heisenberg uncertainty principle states
@@ -293,7 +269,6 @@ Two states with the same probabilities can behave differently if their phases di
 
 ---
 
-<a id="toc-7"></a>
 # 7. Standard model problems
 
 Introductory courses repeatedly use a small set of solvable systems. Mastering their boundary conditions and eigenstates is the fastest way to build skill.
@@ -370,7 +345,6 @@ The hydrogen atom explains the origin of atomic spectra and quantum numbers.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Spin and two-level systems
 
 Spin is an intrinsic quantum degree of freedom with no classical analog. For an electron, spin-$\tfrac{1}{2}$ means the measured spin projection along an axis takes only two values:
@@ -417,7 +391,6 @@ Measurements along one axis project the state into one of the allowed eigenstate
 
 ---
 
-<a id="toc-9"></a>
 # 9. Approximation methods
 
 Many realistic quantum systems do not have closed-form solutions. Introductory courses usually emphasize a few approximation ideas.
@@ -450,7 +423,6 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ---
 
-<a id="toc-10"></a>
 # 10. Problem-solving workflow
 
 1. Identify the physical system and the relevant potential.
@@ -479,7 +451,6 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ---
 
-<a id="toc-11"></a>
 # 11. Common pitfalls
 
 - Confusing the wave function with a literal particle trajectory.
@@ -500,7 +471,6 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula summary
 
 ## Fundamental relations

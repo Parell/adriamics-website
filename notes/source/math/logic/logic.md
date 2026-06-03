@@ -5,26 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What logic studies](#toc-1)
-2. [Propositions and truth values](#toc-2)
-3. [Logical connectives](#toc-3)
-4. [Logical equivalence and algebra of propositions](#toc-4)
-5. [Predicates and quantifiers](#toc-5)
-6. [Rules of inference](#toc-6)
-7. [Proof methods](#toc-7)
-8. [Normal forms and simplification](#toc-8)
-9. [Logic and sets](#toc-9)
-10. [Satisfiability and consistency](#toc-10)
-11. [Common pitfalls](#toc-11)
-12. [Problem-solving workflow](#toc-12)
-13. [Formula sheet](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. What logic studies
 
 Logic is the study of valid reasoning. In mathematics, it provides the language and rules used to build definitions, state theorems, and prove conclusions from assumptions.
@@ -53,7 +33,6 @@ Logic is also the foundation for:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Propositions and truth values
 
 A **proposition** is a declarative statement that is either true or false, but not both.
@@ -88,7 +67,6 @@ They are the most direct way to test equivalence or validity for small propositi
 
 ---
 
-<a id="toc-3"></a>
 # 3. Logical connectives
 
 The standard connectives are negation, conjunction, disjunction, implication, and biconditional.
@@ -186,7 +164,6 @@ It is true when exactly one of $P$ and $Q$ is true.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Logical equivalence and algebra of propositions
 
 Two propositions are **logically equivalent** if they have the same truth table.
@@ -297,7 +274,6 @@ Only the contrapositive is logically equivalent to the original implication.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Predicates and quantifiers
 
 Predicate logic extends propositional logic by allowing statements about objects.
@@ -377,7 +353,6 @@ is true over the real numbers, integers, and natural numbers, but not meaningful
 
 ---
 
-<a id="toc-6"></a>
 # 6. Rules of inference
 
 Rules of inference describe valid argument forms.
@@ -463,7 +438,6 @@ To test validity, you can use:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Proof methods
 
 ## Direct proof
@@ -526,7 +500,6 @@ To disprove "all even numbers are prime," use $4$.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Normal forms and simplification
 
 Normal forms standardize formulas so they can be compared or processed systematically.
@@ -589,7 +562,6 @@ Equivalently, to test whether $\phi$ is always true, check whether $\neg \phi$ c
 
 ---
 
-<a id="toc-9"></a>
 # 9. Logic and sets
 
 Set operations mirror logical connectives closely.
@@ -628,7 +600,6 @@ This is the set-theoretic version of a universal implication proof.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Satisfiability and consistency
 
 A formula is **satisfiable** if there exists at least one assignment of truth values that makes it true.
@@ -666,7 +637,6 @@ is satisfiable but not a tautology.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Common pitfalls
 
 ## Confusing implication with causation
@@ -705,7 +675,6 @@ From $P \to Q$, you cannot conclude $Q \to P$.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Problem-solving workflow
 
 When solving a logic problem, work in this order:
@@ -753,7 +722,6 @@ Apply negation rules mechanically:
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula sheet
 
 ## Core equivalences

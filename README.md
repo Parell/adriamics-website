@@ -12,17 +12,13 @@ Notes live in per-topic folders under `notes/subjects/...`, and each note source
 
 - legal/safety systems
 - Github contributions?
-- Interactive calculators
 - Thermodynamics tables, Phyics constants
 - weak-area detection for each subject
 - Every page should have visible sources, author/reviewer history, version history
-- Force diagrams
-- Graph animations
-- Circuit diagrams
-- Organic reaction mechanisms
-- Thermodynamic cycle plots
-- Vector field visualizations
-- Interactive sliders for formulas
+
+Use zillow data set for housing and efficency page
+
+
 
 You are generating one problems file for my notes website.
 
@@ -47,7 +43,7 @@ Strict file rules:
 
 Output format:
 
-* The output must be a single Markdown file.
+* The output must be a single Markdown file. 
 * Each problem must be separated by `---`.
 * Each problem must use YAML frontmatter like the template:
 

@@ -5,24 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What a series is](#toc-1)
-2. [Core vocabulary](#toc-2)
-3. [Geometric and telescoping series](#toc-3)
-4. [Convergence tests](#toc-4)
-5. [Power series](#toc-5)
-6. [Taylor and Maclaurin series](#toc-6)
-7. [Manipulating series](#toc-7)
-8. [Common examples to know](#toc-8)
-9. [Problem-solving workflow](#toc-9)
-10. [Pitfalls](#toc-10)
-11. [Formula sheet](#toc-11)
-
----
-
-<a id="toc-1"></a>
 # 1. What a series is
 
 A **series** is the sum of the terms of a sequence.
@@ -71,7 +53,6 @@ Series are used to:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Core vocabulary
 
 ## Convergent and divergent
@@ -120,7 +101,6 @@ For conditionally convergent series, rearranging terms can change the sum. This 
 
 ---
 
-<a id="toc-3"></a>
 # 3. Geometric and telescoping series
 
 ## Geometric series
@@ -180,7 +160,6 @@ so the series converges to $1$.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Convergence tests
 
 No single test works best in every case. Choose the test that matches the structure of the series.
@@ -317,7 +296,6 @@ If the absolute series converges, the original series converges absolutely.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Power series
 
 A **power series** centered at $c$ has the form
@@ -383,7 +361,6 @@ They convert difficult functions into algebraic objects that can be:
 
 ---
 
-<a id="toc-6"></a>
 # 6. Taylor and Maclaurin series
 
 The Taylor series of a function $f$ centered at $a$ is
@@ -460,7 +437,6 @@ When approximating with a Taylor polynomial, ask:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Manipulating series
 
 ## Index shifting
@@ -516,7 +492,6 @@ This method is useful for:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Common examples to know
 
 ## Harmonic series
@@ -571,7 +546,6 @@ This is a common derivation pattern.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Problem-solving workflow
 
 ## For convergence questions
@@ -603,7 +577,6 @@ This is a common derivation pattern.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Pitfalls
 
 - Confusing the term test with a convergence test. Terms going to $0$ are necessary, not sufficient.
@@ -617,7 +590,6 @@ This is a common derivation pattern.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Formula sheet
 
 ## Core definitions

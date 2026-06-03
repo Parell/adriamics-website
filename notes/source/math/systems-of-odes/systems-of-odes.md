@@ -5,24 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What a system of ODEs is](#toc-1)
-2. [Matrix form and solution structure](#toc-2)
-3. [Linear autonomous systems](#toc-3)
-4. [Eigenvalues and eigenvectors](#toc-4)
-5. [The matrix exponential](#toc-5)
-6. [Nonhomogeneous linear systems](#toc-6)
-7. [Phase portraits and stability](#toc-7)
-8. [Nonlinear systems and linearization](#toc-8)
-9. [Common modeling patterns](#toc-9)
-10. [Problem-solving workflow](#toc-10)
-11. [Formula sheet](#toc-11)
-
----
-
-<a id="toc-1"></a>
 # 1. What a system of ODEs is
 
 A **system of ordinary differential equations** is a set of coupled equations for two or more unknown functions of one independent variable, usually time $t$.
@@ -69,7 +51,6 @@ An initial condition fixes the particular solution among the family of all solut
 
 ---
 
-<a id="toc-2"></a>
 # 2. Matrix form and solution structure
 
 Many systems can be written compactly with vectors and matrices.
@@ -111,7 +92,6 @@ For an $n \times n$ first-order linear homogeneous system, the general solution 
 
 ---
 
-<a id="toc-3"></a>
 # 3. Linear autonomous systems
 
 The canonical form is
@@ -160,7 +140,6 @@ If you can find a change of variables that diagonalizes or simplifies $A$, the s
 
 ---
 
-<a id="toc-4"></a>
 # 4. Eigenvalues and eigenvectors
 
 For a homogeneous linear system $\mathbf{x}' = A\mathbf{x}$, try solutions of the form
@@ -228,7 +207,6 @@ where $\mathbf{w}$ is a generalized eigenvector.
 
 ---
 
-<a id="toc-5"></a>
 # 5. The matrix exponential
 
 The exact solution of
@@ -286,7 +264,6 @@ You often do not compute the full series. Instead, use:
 
 ---
 
-<a id="toc-6"></a>
 # 6. Nonhomogeneous linear systems
 
 The forced system
@@ -334,7 +311,6 @@ For constant-coefficient systems, undetermined coefficients can work when the fo
 
 ---
 
-<a id="toc-7"></a>
 # 7. Phase portraits and stability
 
 For a two-dimensional autonomous system, the **phase plane** is the $(x,y)$ plane of states. A **phase portrait** shows representative trajectories.
@@ -408,7 +384,6 @@ This quickly tells you whether the eigenvalues are real or complex and whether t
 
 ---
 
-<a id="toc-8"></a>
 # 8. Nonlinear systems and linearization
 
 A nonlinear system has the form
@@ -456,7 +431,6 @@ Linearization is a local tool. It tells you about behavior near an equilibrium, 
 
 ---
 
-<a id="toc-9"></a>
 # 9. Common modeling patterns
 
 ## Coupled growth and decay
@@ -512,7 +486,6 @@ In circuits with capacitors and inductors, Kirchhoff's laws often produce system
 
 ---
 
-<a id="toc-10"></a>
 # 10. Problem-solving workflow
 
 When solving a system of ODEs, use a disciplined sequence.
@@ -571,7 +544,6 @@ Check whether the solution:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Formula sheet
 
 ## Homogeneous linear system

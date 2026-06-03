@@ -6,26 +6,7 @@ last_reviewed: 2026-05-22
 sources: []
 ---
 
-# Derivatives
 
-## Table of contents
-
-1. [What a derivative means](#toc-1)
-2. [Formal definition](#toc-2)
-3. [Notation](#toc-3)
-4. [Core differentiation rules](#toc-4)
-5. [Derivatives of common functions](#toc-5)
-6. [Chain rule and composite functions](#toc-6)
-7. [Implicit differentiation](#toc-7)
-8. [Higher-order derivatives](#toc-8)
-9. [Linear approximation and differentials](#toc-9)
-10. [Applications of derivatives](#toc-10)
-11. [Optimization workflow](#toc-11)
-12. [Formula sheet](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What a derivative means
 
 The derivative measures how a function changes as its input changes.
@@ -52,7 +33,6 @@ If the derivative is:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Formal definition
 
 The derivative of $f$ at $x$ is defined by the limit
@@ -97,7 +77,6 @@ is continuous at $x=0$, but not differentiable there because the left-hand and r
 
 ---
 
-<a id="toc-3"></a>
 # 3. Notation
 
 If $y=f(x)$, common derivative notations include:
@@ -122,7 +101,6 @@ Leibniz notation is especially useful when applying the chain rule because it ke
 
 ---
 
-<a id="toc-4"></a>
 # 4. Core differentiation rules
 
 These rules let you differentiate most elementary functions efficiently.
@@ -205,7 +183,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Derivatives of common functions
 
 ## Exponential functions
@@ -288,7 +265,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Chain rule and composite functions
 
 The chain rule is essential for differentiating nested functions.
@@ -357,7 +333,6 @@ This is where many mistakes happen. Do not differentiate the inside and outside 
 
 ---
 
-<a id="toc-7"></a>
 # 7. Implicit differentiation
 
 Sometimes a relation involving $x$ and $y$ is not solved explicitly for $y$.
@@ -426,7 +401,6 @@ $$
 
 ---
 
-<a id="toc-8"></a>
 # 8. Higher-order derivatives
 
 The second derivative is the derivative of the first derivative:
@@ -481,7 +455,6 @@ Since $f''(x)$ changes sign at $x=0$, the graph has an inflection point there.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Linear approximation and differentials
 
 Near a point $x=a$, a differentiable function is well approximated by its tangent line.
@@ -540,7 +513,6 @@ Differentials are useful in error estimation and applied modeling.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Applications of derivatives
 
 ## Increasing and decreasing behavior
@@ -605,7 +577,6 @@ This method works well when the initial guess is reasonable and $f'(x_n)\ne 0$.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Optimization workflow
 
 Many applied derivative problems reduce to optimization.
@@ -654,7 +625,6 @@ $$
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula sheet
 
 ## Definition

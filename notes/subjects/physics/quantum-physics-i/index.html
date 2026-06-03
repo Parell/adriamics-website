@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/quantum-physics-i/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -66,25 +83,27 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Physics</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" aria-current="page" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/lab-and-measurement/" data-notes-nav-item>Lab and Measurement</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/biophysics/" data-notes-nav-item>Biophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Thermodynamics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/physics-ii/" data-notes-nav-item>Physics II</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/physics/quantum-physics-i/" aria-current="page" data-notes-nav-item>Quantum Physics I</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/classical-mechanics/" data-notes-nav-item>Classical Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/electricity-and-magnetism/" data-notes-nav-item>Electricity and Magnetism</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/relativity/" data-notes-nav-item>Relativity</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/optics/" data-notes-nav-item>Optics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/organic-chemistry/" data-notes-nav-item>Organic Chemistry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/computational-physics/" data-notes-nav-item>Computational Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/astrophysics-and-cosmology/" data-notes-nav-item>Astrophysics and Cosmology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/condensed-matter-physics/" data-notes-nav-item>Condensed Matter Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/geophysics/" data-notes-nav-item>Geophysics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/particle-and-nuclear-physics/" data-notes-nav-item>Particle and Nuclear Physics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/physics/plasma-physics/" data-notes-nav-item>Plasma Physics</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
           <h1>Quantum Physics I</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fphysics%2Fquantum-physics-i%2Fquantum-physics-i.md&amp;title=%5BCorrection%5D%3A%20Quantum%20Physics%20I" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/physics/quantum-physics-i/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">What quantum physics studies</a></p></li><li><p><a href="#toc-2">Classical limits and why quantum theory is needed</a></p></li><li><p><a href="#toc-3">Wave functions and probability</a></p></li><li><p><a href="#toc-4">Schrodinger equation</a></p></li><li><p><a href="#toc-5">Operators, observables, and measurement</a></p></li><li><p><a href="#toc-6">Uncertainty and superposition</a></p></li><li><p><a href="#toc-7">Standard model problems</a></p></li><li><p><a href="#toc-8">Spin and two-level systems</a></p></li><li><p><a href="#toc-9">Approximation methods</a></p></li><li><p><a href="#toc-10">Problem-solving workflow</a></p></li><li><p><a href="#toc-11">Common pitfalls</a></p></li><li><p><a href="#toc-12">Formula summary</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-what-quantum-physics-studies">1. What quantum physics studies</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-quantum-physics-studies">1. What quantum physics studies</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-vocabulary">Core vocabulary</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-classical-limits-and-why-quantum-theory-is-needed">2. Classical limits and why quantum theory is needed</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#empirical-clues">Empirical clues</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#blackbody-radiation">Blackbody radiation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#photoelectric-effect">Photoelectric effect</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#atomic-spectra">Atomic spectra</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electron-diffraction">Electron diffraction</a></li></ol></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-wave-functions-and-probability">3. Wave functions and probability</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#normalization">Normalization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#acceptable-wave-functions">Acceptable wave functions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#expectation-values">Expectation values</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-schrodinger-equation">4. Schrodinger equation</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#time-independent-form">Time-independent form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#interpretation">Interpretation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-operators-observables-and-measurement">5. Operators, observables, and measurement</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#eigenvalue-equation">Eigenvalue equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#hermitian-operators">Hermitian operators</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#commutators">Commutators</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-uncertainty-and-superposition">6. Uncertainty and superposition</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#physical-meaning">Physical meaning</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#superposition">Superposition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#relative-phase">Relative phase</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#7-standard-model-problems">7. Standard model problems</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#infinite-square-well">Infinite square well</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#finite-potential-step">Finite potential step</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#potential-barrier-and-tunneling">Potential barrier and tunneling</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#harmonic-oscillator">Harmonic oscillator</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#hydrogen-atom">Hydrogen atom</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-spin-and-two-level-systems">8. Spin and two-level systems</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#bra-ket-notation">Bra-ket notation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#basis-states">Basis states</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#stern-gerlach-intuition">Stern-Gerlach intuition</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-approximation-methods">9. Approximation methods</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#perturbation-theory">Perturbation theory</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variational-method">Variational method</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#wkb-idea">WKB idea</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#practical-checks">Practical checks</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-workflow-infinite-well">Example workflow: infinite well</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-common-pitfalls">11. Common pitfalls</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#units-to-check">Units to check</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-formula-summary">12. Formula summary</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#fundamental-relations">Fundamental relations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#canonical-operators">Canonical operators</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-model-energies">Common model energies</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#barrier-scale">Barrier scale</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mental-model">Mental model</a></li></ol></li></ol></div>
+    </nav>
+        
+        <h1 id="1-what-quantum-physics-studies">1. What quantum physics studies</h1>
 <p>Quantum physics describes matter and radiation at atomic and subatomic scales, where energy exchange is quantized and measurement outcomes are fundamentally probabilistic.</p>
 <p>The subject is built around a few recurring ideas:</p>
 <ul><li><p>States are represented by wave functions or vectors in a complex vector space.</p></li><li><p>Observables are represented by operators.</p></li><li><p>Measured values come from eigenvalues of those operators.</p></li><li><p>Probabilities come from squared amplitudes, not direct field intensity or classical trajectories.</p></li><li><p>Time evolution is deterministic for the state, but measurement outcomes are not.</p></li></ul>
@@ -92,7 +111,6 @@
 <table><thead><tr><th>Term</th><th>Meaning</th></tr></thead><tbody><tr><td>State</td><td>Complete mathematical description of the system</td></tr><tr><td>Observable</td><td>Measurable physical quantity such as position, momentum, or energy</td></tr><tr><td>Wave function</td><td>Complex amplitude whose magnitude squared gives probability density</td></tr><tr><td>Eigenstate</td><td>State that returns a definite value when an observable is measured</td></tr><tr><td>Superposition</td><td>Linear combination of allowed states</td></tr><tr><td>Collapse</td><td>Update of state after measurement in the textbook formulation</td></tr><tr><td>Operator</td><td>Rule that acts on states to produce another state</td></tr></tbody></table>
 <p>Quantum mechanics is not just &quot;small-scale classical mechanics.&quot; It uses different rules for states, measurement, and prediction.</p>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-classical-limits-and-why-quantum-theory-is-needed">2. Classical limits and why quantum theory is needed</h1>
 <p>Classical physics works well when the action scale is large compared with Planck&#39;s constant:</p>
 <div class="math-block">$$
@@ -117,7 +135,6 @@ $$</div>
 <h3 id="electron-diffraction">Electron diffraction</h3>
 <p>Particles show interference, which cannot be explained by purely classical trajectories.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-wave-functions-and-probability">3. Wave functions and probability</h1>
 <p>The state of a one-dimensional particle is often written as $\psi(x,t)$.</p>
 <p>The probability density is</p>
@@ -148,7 +165,6 @@ $$</div>
 $$</div>
 <p>Expectation values are weighted averages over measurement outcomes.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-schrodinger-equation">4. Schrodinger equation</h1>
 <p>The time-dependent Schrodinger equation governs state evolution:</p>
 <div class="math-block">$$
@@ -180,7 +196,6 @@ $$</div>
 <ul><li><p>$\phi$ is an energy eigenstate.</p></li><li><p>$E$ is the corresponding allowed energy.</p></li><li><p>Boundary conditions quantize the allowed solutions in many systems.</p></li></ul>
 <p>This is the main source of quantization in introductory quantum mechanics.</p>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-operators-observables-and-measurement">5. Operators, observables, and measurement</h1>
 <p>An observable is represented by a linear operator. For common one-dimensional problems:</p>
 <div class="math-block">$$
@@ -215,7 +230,6 @@ $$</div>
 $$</div>
 <p>This relation underlies the uncertainty principle.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-uncertainty-and-superposition">6. Uncertainty and superposition</h1>
 <p>The Heisenberg uncertainty principle states</p>
 <div class="math-block">$$
@@ -234,7 +248,6 @@ $$</div>
 <h2 id="relative-phase">Relative phase</h2>
 <p>Two states with the same probabilities can behave differently if their phases differ. Phase matters whenever states interfere.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-standard-model-problems">7. Standard model problems</h1>
 <p>Introductory courses repeatedly use a small set of solvable systems. Mastering their boundary conditions and eigenstates is the fastest way to build skill.</p>
 <h2 id="infinite-square-well">Infinite square well</h2>
@@ -281,7 +294,6 @@ E_n \propto -\frac{1}{n^2}
 $$</div>
 <p>The hydrogen atom explains the origin of atomic spectra and quantum numbers.</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-spin-and-two-level-systems">8. Spin and two-level systems</h1>
 <p>Spin is an intrinsic quantum degree of freedom with no classical analog. For an electron, spin-$\tfrac{1}{2}$ means the measured spin projection along an axis takes only two values:</p>
 <div class="math-block">$$
@@ -310,7 +322,6 @@ $$</div>
 <h2 id="stern-gerlach-intuition">Stern-Gerlach intuition</h2>
 <p>Measurements along one axis project the state into one of the allowed eigenstates for that axis. Measurements along different axes generally do not commute.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-approximation-methods">9. Approximation methods</h1>
 <p>Many realistic quantum systems do not have closed-form solutions. Introductory courses usually emphasize a few approximation ideas.</p>
 <h2 id="perturbation-theory">Perturbation theory</h2>
@@ -329,7 +340,6 @@ $$</div>
 <p>When the de Broglie wavelength changes slowly, semiclassical approximations can estimate tunneling and quantization.</p>
 <p>The basic intuition is to connect classical motion with quantum phase accumulation.</p>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-problem-solving-workflow">10. Problem-solving workflow</h1>
 <ol><li><p>Identify the physical system and the relevant potential.</p></li><li><p>Decide whether the problem is time-dependent or time-independent.</p></li><li><p>Write the Hamiltonian and the correct boundary conditions.</p></li><li><p>Solve the differential equation or eigenvalue problem.</p></li><li><p>Normalize the wave function.</p></li><li><p>Compute observables using expectation values or measurement rules.</p></li><li><p>Check units, limits, and physical interpretation.</p></li></ol>
 <h2 id="practical-checks">Practical checks</h2>
@@ -337,13 +347,11 @@ $$</div>
 <h2 id="example-workflow-infinite-well">Example workflow: infinite well</h2>
 <ol><li><p>Set $V=0$ inside the well and $V=\infty$ outside.</p></li><li><p>Impose $\psi(0)=\psi(L)=0$.</p></li><li><p>Solve the sinusoidal differential equation.</p></li><li><p>Keep only the allowed integer modes.</p></li><li><p>Normalize the eigenfunctions.</p></li><li><p>Use $E_n$ to answer questions about level spacing and transitions.</p></li></ol>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-common-pitfalls">11. Common pitfalls</h1>
 <ul><li><p>Confusing the wave function with a literal particle trajectory.</p></li><li><p>Treating $|\psi|^2$ as the wave function itself instead of the probability density.</p></li><li><p>Forgetting to normalize before computing probabilities or expectation values.</p></li><li><p>Using the wrong operator for momentum or energy.</p></li><li><p>Mixing up state evolution with measurement outcomes.</p></li><li><p>Ignoring boundary conditions, which often determine the allowed energies.</p></li><li><p>Assuming quantum systems must have zero energy in the ground state.</p></li><li><p>Applying classical intuition to tunneling or interference without checking the wavelength scale.</p></li></ul>
 <h2 id="units-to-check">Units to check</h2>
 <ul><li><p>$\hbar$ has units of J·s.</p></li><li><p>Momentum operator introduces $1/\text{length}$.</p></li><li><p>Energy eigenvalues must have units of energy.</p></li><li><p>Probability is dimensionless.</p></li></ul>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-formula-summary">12. Formula summary</h1>
 <h2 id="fundamental-relations">Fundamental relations</h2>
 <div class="math-block">$$
@@ -394,13 +402,37 @@ $$</div>
 <p><strong>state -&gt; operator -&gt; boundary conditions -&gt; eigenvalues -&gt; probabilities -&gt; interpretation</strong></p>
 <p>That order prevents most beginner mistakes and matches how the theory is actually used in practice.</p>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/physics/quantum-physics-i/quantum-physics-i.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/physics/quantum-physics-i/quantum-physics-i.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-quantum-physics-studies">1. What quantum physics studies</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#core-vocabulary">Core vocabulary</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-classical-limits-and-why-quantum-theory-is-needed">2. Classical limits and why quantum theory is needed</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#empirical-clues">Empirical clues</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#blackbody-radiation">Blackbody radiation</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#photoelectric-effect">Photoelectric effect</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#atomic-spectra">Atomic spectra</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#electron-diffraction">Electron diffraction</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-wave-functions-and-probability">3. Wave functions and probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normalization">Normalization</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#acceptable-wave-functions">Acceptable wave functions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#expectation-values">Expectation values</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-schrodinger-equation">4. Schrodinger equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#time-independent-form">Time-independent form</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#interpretation">Interpretation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-operators-observables-and-measurement">5. Operators, observables, and measurement</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#eigenvalue-equation">Eigenvalue equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#hermitian-operators">Hermitian operators</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#commutators">Commutators</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-uncertainty-and-superposition">6. Uncertainty and superposition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#physical-meaning">Physical meaning</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#superposition">Superposition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#relative-phase">Relative phase</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-standard-model-problems">7. Standard model problems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#infinite-square-well">Infinite square well</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#finite-potential-step">Finite potential step</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#potential-barrier-and-tunneling">Potential barrier and tunneling</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#harmonic-oscillator">Harmonic oscillator</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#hydrogen-atom">Hydrogen atom</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-spin-and-two-level-systems">8. Spin and two-level systems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#bra-ket-notation">Bra-ket notation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#basis-states">Basis states</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stern-gerlach-intuition">Stern-Gerlach intuition</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-approximation-methods">9. Approximation methods</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#perturbation-theory">Perturbation theory</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variational-method">Variational method</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#wkb-idea">WKB idea</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#practical-checks">Practical checks</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-workflow-infinite-well">Example workflow: infinite well</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-common-pitfalls">11. Common pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#units-to-check">Units to check</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-formula-summary">12. Formula summary</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fundamental-relations">Fundamental relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#canonical-operators">Canonical operators</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-model-energies">Common model energies</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#barrier-scale">Barrier scale</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mental-model">Mental model</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

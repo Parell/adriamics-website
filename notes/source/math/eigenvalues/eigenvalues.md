@@ -7,25 +7,6 @@ sources: []
 ---
 
 # Eigenvalues
-
-## Table of contents
-
-1. [Core idea](#toc-1)
-2. [Characteristic equation](#toc-2)
-3. [Eigenvectors and eigenspaces](#toc-3)
-4. [Multiplicity](#toc-4)
-5. [Determinant, trace, and invertibility](#toc-5)
-6. [Diagonalization](#toc-6)
-7. [Special matrix classes](#toc-7)
-8. [Complex eigenvalues and real matrices](#toc-8)
-9. [How to compute eigenvalues by hand](#toc-9)
-10. [Applications](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Formula sheet](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. Core idea
 
 An **eigenvector** of a square matrix $A$ is a nonzero vector $v$ whose direction is unchanged by the linear transformation defined by $A$.
@@ -59,7 +40,6 @@ Examples:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Characteristic equation
 
 Starting from
@@ -144,7 +124,6 @@ $$
 
 ---
 
-<a id="toc-3"></a>
 # 3. Eigenvectors and eigenspaces
 
 Once an eigenvalue $\lambda$ is known, find its eigenvectors by solving
@@ -251,7 +230,6 @@ The zero vector is never called an eigenvector. If it were allowed, every scalar
 
 ---
 
-<a id="toc-4"></a>
 # 4. Multiplicity
 
 Eigenvalues can repeat.
@@ -350,7 +328,6 @@ This matrix has too few linearly independent eigenvectors to diagonalize.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Determinant, trace, and invertibility
 
 Eigenvalues encode several global properties of a matrix.
@@ -397,7 +374,6 @@ This is one of the fastest ways to read off eigenvalues by inspection.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Diagonalization
 
 A matrix $A$ is **diagonalizable** if there exists an invertible matrix $P$ and a diagonal matrix $D$ such that
@@ -510,7 +486,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 # 7. Special matrix classes
 
 ## Symmetric matrices
@@ -613,7 +588,6 @@ $$
 
 ---
 
-<a id="toc-8"></a>
 # 8. Complex eigenvalues and real matrices
 
 Not every real matrix has real eigenvalues.
@@ -671,7 +645,6 @@ This happens because the characteristic polynomial has real coefficients.
 
 ---
 
-<a id="toc-9"></a>
 # 9. How to compute eigenvalues by hand
 
 ## For a general matrix
@@ -724,7 +697,6 @@ For triangular matrices, do not expand a full determinant. Read the eigenvalues 
 
 ---
 
-<a id="toc-10"></a>
 # 10. Applications
 
 ## Dynamical systems
@@ -768,7 +740,6 @@ For a stochastic matrix, $\lambda = 1$ is especially important. The correspondin
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 Use this checklist for most eigenvalue problems.
@@ -832,7 +803,6 @@ to catch arithmetic mistakes.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula sheet
 
 ## Definitions

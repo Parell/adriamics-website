@@ -7,26 +7,6 @@ sources: []
 ---
 
 # Electricity and Magnetism
-
-## Table of contents
-
-1. [Scope and core ideas](#toc-1)
-2. [Charge, force, and electric field](#toc-2)
-3. [Electric flux and Gauss's law](#toc-3)
-4. [Electric potential and energy](#toc-4)
-5. [Capacitance and dielectrics](#toc-5)
-6. [Current, resistance, and DC circuits](#toc-6)
-7. [Magnetic fields and magnetic forces](#toc-7)
-8. [Sources of magnetic fields](#toc-8)
-9. [Electromagnetic induction](#toc-9)
-10. [Inductance and RL transients](#toc-10)
-11. [Maxwell's equations](#toc-11)
-12. [Problem-solving workflow](#toc-12)
-13. [Formula summary](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. Scope and core ideas
 
 Electricity and magnetism describe how charges interact, how fields store and transfer energy, and how changing fields generate each other.
@@ -71,7 +51,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. Charge, force, and electric field
 
 Electric charge comes in positive and negative signs. Like charges repel, unlike charges attract.
@@ -139,7 +118,6 @@ The hardest step is usually choosing the right symmetry. If a distribution has s
 
 ---
 
-<a id="toc-3"></a>
 # 3. Electric flux and Gauss's law
 
 Electric flux measures how much electric field passes through a surface.
@@ -210,7 +188,6 @@ For a long uniformly charged solid cylinder, use Gauss's law separately inside a
 
 ---
 
-<a id="toc-4"></a>
 # 4. Electric potential and energy
 
 Electric potential gives a scalar description of electric energy per unit charge.
@@ -284,7 +261,6 @@ Properties:
 
 ---
 
-<a id="toc-5"></a>
 # 5. Capacitance and dielectrics
 
 A capacitor stores separated charge and electric energy.
@@ -362,7 +338,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Current, resistance, and DC circuits
 
 Current is the rate at which charge flows:
@@ -455,7 +430,6 @@ After one time constant:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Magnetic fields and magnetic forces
 
 Magnetic fields act on moving charges and currents.
@@ -517,7 +491,6 @@ If velocity has both parallel and perpendicular components, the path is helical.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Sources of magnetic fields
 
 Moving charge creates magnetic fields.
@@ -572,7 +545,6 @@ inside the core region.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Electromagnetic induction
 
 Changing magnetic flux induces an electromotive force.
@@ -626,7 +598,6 @@ This is one of the most common places where sign mistakes happen.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Inductance and RL transients
 
 An inductor resists changes in current because changing current changes magnetic flux.
@@ -681,7 +652,6 @@ Changing current in one coil can induce emf in another nearby coil. This is the 
 
 ---
 
-<a id="toc-11"></a>
 # 11. Maxwell's equations
 
 Maxwell's equations unify electricity and magnetism.
@@ -741,7 +711,6 @@ which is the speed of light in vacuum.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Problem-solving workflow
 
 Electromagnetism problems usually become manageable if you classify them correctly before doing algebra.
@@ -790,7 +759,6 @@ Ask:
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula summary
 
 ## Electrostatics

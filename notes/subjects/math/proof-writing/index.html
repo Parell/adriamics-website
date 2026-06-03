@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/proof-writing/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,79 @@
       <div class="viewer-head">
         <div>
           <h1>Proof Writing</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fproof-writing%2Fproof-writing.md&amp;title=%5BCorrection%5D%3A%20Proof%20Writing" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/proof-writing/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">What a proof does</a></p></li><li><p><a href="#toc-2">Reading mathematical statements</a></p></li><li><p><a href="#toc-3">Core proof structures</a></p></li><li><p><a href="#toc-4">Direct proof</a></p></li><li><p><a href="#toc-5">Contrapositive and contradiction</a></p></li><li><p><a href="#toc-6">Cases, existence, and uniqueness</a></p></li><li><p><a href="#toc-7">Induction</a></p></li><li><p><a href="#toc-8">Proofs about sets, functions, and relations</a></p></li><li><p><a href="#toc-9">Common theorem shapes</a></p></li><li><p><a href="#toc-10">Writing style and presentation</a></p></li><li><p><a href="#toc-11">Problem-solving workflow</a></p></li><li><p><a href="#toc-12">Checklist and common mistakes</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-what-a-proof-does">1. What a proof does</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-a-proof-does">1. What a proof does</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#proof-ingredients">Proof ingredients</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#typical-statement-forms">Typical statement forms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#what-counts-as-a-proof">What counts as a proof</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-reading-mathematical-statements">2. Reading mathematical statements</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#translate-the-language">Translate the language</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#watch-the-quantifier-order">Watch the quantifier order</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#negations">Negations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#unpack-definitions">Unpack definitions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-core-proof-structures">3. Core proof structures</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#implication">Implication</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#equivalence">Equivalence</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#existence">Existence</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#uniqueness">Uniqueness</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#universal-statements">Universal statements</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-direct-proof">4. Direct proof</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#template">Template</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-even-plus-even-is-even">Example: even plus even is even</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-product-of-odd-integers">Example: product of odd integers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-to-use-direct-proof">When to use direct proof</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-contrapositive-and-contradiction">5. Contrapositive and contradiction</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#contrapositive">Contrapositive</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#contradiction">Contradiction</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example-2">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#choosing-between-them">Choosing between them</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-cases-existence-and-uniqueness">6. Cases, existence, and uniqueness</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#proof-by-cases">Proof by cases</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example-3">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#existence-proofs">Existence proofs</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#constructive-existence">Constructive existence</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#nonconstructive-existence">Nonconstructive existence</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#uniqueness-proofs">Uniqueness proofs</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-induction">7. Induction</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#standard-induction">Standard induction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-4">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#strong-induction">Strong induction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-induction-pitfalls">Common induction pitfalls</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-proofs-about-sets-functions-and-relations">8. Proofs about sets, functions, and relations</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#set-equality">Set equality</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example-5">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#function-properties">Function properties</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#injective">Injective</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#surjective">Surjective</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#bijective">Bijective</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#relations">Relations</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-common-theorem-shapes">9. Common theorem shapes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#divisibility-proofs">Divisibility proofs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#parity-proofs">Parity proofs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inequality-proofs">Inequality proofs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#maximum-minimum-proofs">Maximum/minimum proofs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#existence-of-solutions">Existence of solutions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-writing-style-and-presentation">10. Writing style and presentation</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#keep-the-logical-structure-visible">Keep the logical structure visible</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#state-the-plan-when-useful">State the plan when useful</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#avoid-hidden-assumptions">Avoid hidden assumptions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#make-variable-names-stable">Make variable names stable</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#separate-algebra-from-logic">Separate algebra from logic</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#end-with-the-claim">End with the claim</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#step-1-rewrite-the-statement">Step 1: Rewrite the statement</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-2-test-the-shape">Step 2: Test the shape</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-3-expand-definitions">Step 3: Expand definitions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-4-try-a-small-example">Step 4: Try a small example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-5-write-the-argument-in-order">Step 5: Write the argument in order</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-6-check-the-proof-backwards">Step 6: Check the proof backwards</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-checklist-and-common-mistakes">12. Checklist and common mistakes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#proof-checklist">Proof checklist</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#quick-reference">Quick reference</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-summary">Formula summary</a></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="proof-strategy" data-math-demo-id="proof-writing">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Proof strategy map</h2>
+      <p class="interactive-demo__summary">Choose a proof strategy and watch the same claim reorganize into a different reasoning path.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Proof strategy map controls">
+        <div class="interactive-demo__control">
+            <span class="interactive-demo__control-label">Strategy <output id="math-demo-proof-writing-strategy-value">direct</output></span>
+            <div class="interactive-demo__toggle-row">
+              <button
+    type="button"
+    class="interactive-demo__toggle is-active"
+    id="math-demo-proof-writing-direct"
+    data-toggle-value="direct"
+    aria-pressed="true"
+  >Direct</button>
+              <button
+    type="button"
+    class="interactive-demo__toggle"
+    id="math-demo-proof-writing-contrapositive"
+    data-toggle-value="contrapositive"
+    aria-pressed="false"
+  >Contrapositive</button>
+              <button
+    type="button"
+    class="interactive-demo__toggle"
+    id="math-demo-proof-writing-contradiction"
+    data-toggle-value="contradiction"
+    aria-pressed="false"
+  >Contradiction</button>
+              <button
+    type="button"
+    class="interactive-demo__toggle"
+    id="math-demo-proof-writing-cases"
+    data-toggle-value="cases"
+    aria-pressed="false"
+  >Cases</button>
+            </div>
+          </div>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Claim</span>
+    <span class="interactive-demo__metric-value" id="math-demo-proof-writing-goal">If n is even, then n^2 is even</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">First step</span>
+    <span class="interactive-demo__metric-value" id="math-demo-proof-writing-hint">Write n = 2k</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 260" role="img" aria-labelledby="math-demo-proof-writing-title math-demo-proof-writing-desc">
+          <title id="math-demo-proof-writing-title">Proof flow</title>
+          <desc id="math-demo-proof-writing-desc">A simple proof flowchart showing how the reasoning path changes with strategy.</desc>
+          <g id="math-demo-proof-writing-nodes"></g>
+          <g id="math-demo-proof-writing-links" stroke="var(--border)" stroke-width="3"></g>
+        </svg>
+        <p class="interactive-demo__note">The highlighted path shows the reasoning order that matches the chosen strategy.</p>
+      </div>
+    </div>
+  </section>
+        <h1 id="1-what-a-proof-does">1. What a proof does</h1>
 <p>A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.</p>
 <p>The goal is not to explain why a statement feels true. The goal is to remove doubt.</p>
 <h2 id="proof-ingredients">Proof ingredients</h2>
@@ -100,7 +178,6 @@
 <ul><li><p>Symbolic derivations from definitions</p></li><li><p>A chain of logically equivalent statements</p></li><li><p>A complete case analysis</p></li><li><p>Induction on a natural parameter</p></li><li><p>A contradiction that forces the negation of the assumption</p></li></ul>
 <p>Examples, diagrams, and numerical checks can motivate a proof, but they do not replace one.</p>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-reading-mathematical-statements">2. Reading mathematical statements</h1>
 <p>Before proving anything, rewrite the statement carefully.</p>
 <h2 id="translate-the-language">Translate the language</h2>
@@ -135,7 +212,6 @@ $$</div>
 <ul><li><p>Even: \(n\) is even if \(n = 2k\) for some integer \(k\)</p></li><li><p>Divisible: \(a \mid b\) means \(b = ak\) for some integer \(k\)</p></li><li><p>Injective: \(f(x_1) = f(x_2)\) implies \(x_1 = x_2\)</p></li><li><p>Surjective: for every \(y\) in the codomain, there exists \(x\) with \(f(x) = y\)</p></li></ul>
 <p>When stuck, rewrite the claim using definitions and symbols.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-core-proof-structures">3. Core proof structures</h1>
 <p>Most undergraduate proofs fall into a small number of templates.</p>
 <h2 id="implication">Implication</h2>
@@ -163,7 +239,6 @@ $$</div>
 <p>To prove \(\forall x\, P(x)\), start with an arbitrary \(x\) and prove \(P(x)\).</p>
 <p>Do not assume special properties of \(x\) unless the statement gives them.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-direct-proof">4. Direct proof</h1>
 <p>A direct proof starts from the hypotheses and derives the conclusion by valid deductions.</p>
 <h2 id="template">Template</h2>
@@ -187,7 +262,6 @@ $$</div>
 <p>Use direct proof when:</p>
 <ul><li><p>The conclusion follows naturally from the hypothesis</p></li><li><p>Definitions are algebraic or constructive</p></li><li><p>The statement is about closure, parity, divisibility, or inequalities</p></li></ul>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-contrapositive-and-contradiction">5. Contrapositive and contradiction</h1>
 <p>These are the two main indirect proof methods.</p>
 <h2 id="contrapositive">Contrapositive</h2>
@@ -227,7 +301,6 @@ $$</div>
 <h2 id="choosing-between-them">Choosing between them</h2>
 <ul><li><p>Use contrapositive when the negated conclusion is easier to work with.</p></li><li><p>Use contradiction when the negation of the entire statement creates a strong structural conflict.</p></li></ul>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-cases-existence-and-uniqueness">6. Cases, existence, and uniqueness</h1>
 <p>Some proofs need branching logic.</p>
 <h2 id="proof-by-cases">Proof by cases</h2>
@@ -257,7 +330,6 @@ $$</div>
 <ol><li><p>Assume two objects satisfy the defining property.</p></li><li><p>Compare them.</p></li><li><p>Conclude they are equal.</p></li></ol>
 <p>This is often paired with an existence proof.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-induction">7. Induction</h1>
 <p>Induction proves statements indexed by the natural numbers.</p>
 <h2 id="standard-induction">Standard induction</h2>
@@ -294,7 +366,6 @@ $$</div>
 <h2 id="common-induction-pitfalls">Common induction pitfalls</h2>
 <ul><li><p>Forgetting the base case</p></li><li><p>Assuming what you are trying to prove</p></li><li><p>Proving only \(P(k)\Rightarrow P(k+1)\) without starting the chain</p></li><li><p>Failing to state the arbitrary integer \(k\)</p></li></ul>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-proofs-about-sets-functions-and-relations">8. Proofs about sets, functions, and relations</h1>
 <p>These proofs rely heavily on unpacking definitions.</p>
 <h2 id="set-equality">Set equality</h2>
@@ -326,7 +397,6 @@ $$</div>
 <ul><li><p>Reflexive: \(aRa\)</p></li><li><p>Symmetric: \(aRb \Rightarrow bRa\)</p></li><li><p>Antisymmetric: \(aRb\) and \(bRa\) imply \(a=b\)</p></li><li><p>Transitive: \(aRb\) and \(bRc\) imply \(aRc\)</p></li></ul>
 <p>These are usually proved directly from the definition of the relation.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-common-theorem-shapes">9. Common theorem shapes</h1>
 <p>Many theorems repeat the same patterns under different vocabulary.</p>
 <h2 id="divisibility-proofs">Divisibility proofs</h2>
@@ -354,7 +424,6 @@ $$</div>
 <p>Typical strategies:</p>
 <ul><li><p>Explicit construction</p></li><li><p>Intermediate value theorem</p></li><li><p>Counting argument</p></li><li><p>Compactness or extremal choice</p></li></ul>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-writing-style-and-presentation">10. Writing style and presentation</h1>
 <p>Good proof writing is clear, not decorative.</p>
 <h2 id="keep-the-logical-structure-visible">Keep the logical structure visible</h2>
@@ -378,7 +447,6 @@ $$</div>
 <p>Finish with a sentence that explicitly links your work back to the statement:</p>
 <ul><li><p>“Therefore, \(P\) holds.”</p></li><li><p>“So \(f\) is injective.”</p></li><li><p>“Thus \(A = B\).”</p></li></ul>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-problem-solving-workflow">11. Problem-solving workflow</h1>
 <p>When you are unsure how to start, use this sequence.</p>
 <h2 id="step-1-rewrite-the-statement">Step 1: Rewrite the statement</h2>
@@ -403,7 +471,6 @@ $$</div>
 <p>Ask:</p>
 <ul><li><p>Did I prove what I claimed?</p></li><li><p>Did I use every assumption correctly?</p></li><li><p>Did I accidentally assume the result?</p></li><li><p>Are the quantifiers correct?</p></li></ul>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-checklist-and-common-mistakes">12. Checklist and common mistakes</h1>
 <h2 id="proof-checklist">Proof checklist</h2>
 <ul><li><p>State the claim clearly.</p></li><li><p>Identify the proof method.</p></li><li><p>Expand definitions early.</p></li><li><p>Track quantifiers carefully.</p></li><li><p>Justify each nontrivial step.</p></li><li><p>Use complete cases when needed.</p></li><li><p>Close the proof with the exact conclusion.</p></li></ul>
@@ -442,13 +509,37 @@ $$</div>
 \text{To prove } P \Rightarrow Q, \text{ it is enough to show } \neg Q \Rightarrow \neg P.
 $$</div>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/proof-writing/proof-writing.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/proof-writing/proof-writing.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-a-proof-does">1. What a proof does</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proof-ingredients">Proof ingredients</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-statement-forms">Typical statement forms</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#what-counts-as-a-proof">What counts as a proof</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-reading-mathematical-statements">2. Reading mathematical statements</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#translate-the-language">Translate the language</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#watch-the-quantifier-order">Watch the quantifier order</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#negations">Negations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#unpack-definitions">Unpack definitions</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-core-proof-structures">3. Core proof structures</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#implication">Implication</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equivalence">Equivalence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#existence">Existence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#uniqueness">Uniqueness</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#universal-statements">Universal statements</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-direct-proof">4. Direct proof</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#template">Template</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-even-plus-even-is-even">Example: even plus even is even</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-product-of-odd-integers">Example: product of odd integers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-to-use-direct-proof">When to use direct proof</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-contrapositive-and-contradiction">5. Contrapositive and contradiction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#contrapositive">Contrapositive</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#contradiction">Contradiction</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#example-2">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#choosing-between-them">Choosing between them</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-cases-existence-and-uniqueness">6. Cases, existence, and uniqueness</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proof-by-cases">Proof by cases</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#example-3">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#existence-proofs">Existence proofs</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#constructive-existence">Constructive existence</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#nonconstructive-existence">Nonconstructive existence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#uniqueness-proofs">Uniqueness proofs</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-induction">7. Induction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#standard-induction">Standard induction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-4">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#strong-induction">Strong induction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-induction-pitfalls">Common induction pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-proofs-about-sets-functions-and-relations">8. Proofs about sets, functions, and relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#set-equality">Set equality</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#example-5">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#function-properties">Function properties</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#injective">Injective</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#surjective">Surjective</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#bijective">Bijective</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#relations">Relations</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-common-theorem-shapes">9. Common theorem shapes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#divisibility-proofs">Divisibility proofs</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#parity-proofs">Parity proofs</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#inequality-proofs">Inequality proofs</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#maximum-minimum-proofs">Maximum/minimum proofs</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#existence-of-solutions">Existence of solutions</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-writing-style-and-presentation">10. Writing style and presentation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#keep-the-logical-structure-visible">Keep the logical structure visible</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#state-the-plan-when-useful">State the plan when useful</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#avoid-hidden-assumptions">Avoid hidden assumptions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#make-variable-names-stable">Make variable names stable</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#separate-algebra-from-logic">Separate algebra from logic</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#end-with-the-claim">End with the claim</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-1-rewrite-the-statement">Step 1: Rewrite the statement</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-2-test-the-shape">Step 2: Test the shape</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-3-expand-definitions">Step 3: Expand definitions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-4-try-a-small-example">Step 4: Try a small example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-5-write-the-argument-in-order">Step 5: Write the argument in order</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-6-check-the-proof-backwards">Step 6: Check the proof backwards</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-checklist-and-common-mistakes">12. Checklist and common mistakes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proof-checklist">Proof checklist</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-mistakes">Common mistakes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#quick-reference">Quick reference</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#formula-summary">Formula summary</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

@@ -5,25 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What heat transfer is](#toc-1)
-2. [Three modes of heat transfer](#toc-2)
-3. [Conduction](#toc-3)
-4. [Convection](#toc-4)
-5. [Radiation](#toc-5)
-6. [Thermal resistance networks](#toc-6)
-7. [Steady-state composite walls](#toc-7)
-8. [Transient heat transfer](#toc-8)
-9. [Heat exchangers](#toc-9)
-10. [Dimensionless groups](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Formula sheet](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What heat transfer is
 
 **Heat transfer** is the study of energy transport driven by a temperature difference.
@@ -59,7 +40,6 @@ The key modeling idea is to replace a physical system with a simplified thermal 
 
 ---
 
-<a id="toc-2"></a>
 # 2. Three modes of heat transfer
 
 ## Conduction
@@ -104,7 +84,6 @@ In many real systems, more than one mechanism acts at once, so the correct model
 
 ---
 
-<a id="toc-3"></a>
 # 3. Conduction
 
 Conduction is governed by **Fourier's law**.
@@ -226,7 +205,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Convection
 
 Convection is modeled with **Newton's law of cooling**.
@@ -288,7 +266,6 @@ The characteristic length $L_c$ depends on the geometry.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Radiation
 
 Radiation is thermal energy exchange by electromagnetic emission.
@@ -354,7 +331,6 @@ View factors are essential in furnace, enclosure, and spacecraft thermal problem
 
 ---
 
-<a id="toc-6"></a>
 # 6. Thermal resistance networks
 
 Thermal circuits are one of the most useful simplifications in heat transfer.
@@ -421,7 +397,6 @@ This is often how surface temperatures are found.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Steady-state composite walls
 
 Composite systems combine several materials or mechanisms.
@@ -485,7 +460,6 @@ If the outer radius is below the critical value, adding insulation can increase 
 
 ---
 
-<a id="toc-8"></a>
 # 8. Transient heat transfer
 
 Transient problems study how temperature changes with time.
@@ -564,7 +538,6 @@ Large $\alpha$ means temperature disturbances spread quickly.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Heat exchangers
 
 Heat exchangers transfer thermal energy between two fluids without mixing them.
@@ -632,7 +605,6 @@ Heat exchanger performance improves by:
 
 ---
 
-<a id="toc-10"></a>
 # 10. Dimensionless groups
 
 Dimensionless numbers help organize heat transfer correlations.
@@ -686,7 +658,6 @@ Measures dimensionless time for transient conduction.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 Heat transfer problems are easiest when you structure them before calculating.
@@ -727,7 +698,6 @@ Heat transfer problems are easiest when you structure them before calculating.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula sheet
 
 ## Conduction

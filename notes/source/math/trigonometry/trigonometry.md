@@ -5,25 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What trigonometry studies](#toc-1)
-2. [Angles and the unit circle](#toc-2)
-3. [Right-triangle ratios](#toc-3)
-4. [Core trigonometric functions](#toc-4)
-5. [Graphs and transformations](#toc-5)
-6. [Key identities](#toc-6)
-7. [Solving trigonometric equations](#toc-7)
-8. [Inverse trigonometric functions](#toc-8)
-9. [Laws for non-right triangles](#toc-9)
-10. [Applications](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Formula sheet](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What trigonometry studies
 
 Trigonometry is the study of relationships between angles and side lengths in triangles, and more generally the study of periodic behavior through the sine, cosine, and tangent functions.
@@ -46,7 +27,6 @@ The most important idea is that trigonometric functions are not just triangle ra
 
 ---
 
-<a id="toc-2"></a>
 # 2. Angles and the unit circle
 
 ## Angle measure
@@ -141,7 +121,6 @@ because the reference angle is $\pi/6$ and sine is positive in Quadrant II.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Right-triangle ratios
 
 For a right triangle, trig functions can be defined as ratios of side lengths relative to a chosen acute angle $\theta$.
@@ -236,7 +215,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Core trigonometric functions
 
 ## Definitions
@@ -320,7 +298,6 @@ These identities are used constantly for simplification and proof.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Graphs and transformations
 
 ## Standard graphs
@@ -414,7 +391,6 @@ has:
 
 ---
 
-<a id="toc-6"></a>
 # 6. Key identities
 
 ## Cofunction identities
@@ -516,7 +492,6 @@ Common mistakes:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Solving trigonometric equations
 
 Trig equations usually have infinitely many solutions because trig functions are periodic.
@@ -608,7 +583,6 @@ Always check solutions in the original equation.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Inverse trigonometric functions
 
 Inverse trig functions recover angles from trig values.
@@ -679,7 +653,6 @@ because $\tan(\pi/6) = \sqrt{3}/3$ and $\pi/6$ lies in the arctan principal rang
 
 ---
 
-<a id="toc-9"></a>
 # 9. Laws for non-right triangles
 
 Trigonometry also solves oblique triangles, which do not contain a right angle.
@@ -742,7 +715,6 @@ Always check whether the given data actually forms a valid triangle.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Applications
 
 ## Navigation and surveying
@@ -807,7 +779,6 @@ and in 3D, rotations and projections rely on the same ideas.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 ## Choosing the right tool
@@ -841,7 +812,6 @@ Good checks include:
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula sheet
 
 ## Definitions

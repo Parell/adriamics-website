@@ -7,28 +7,6 @@ sources: []
 ---
 
 # Physics II
-
-## Table of contents
-
-1. [Core ideas and units](#toc-1)
-2. [Electric charge and Coulomb's law](#toc-2)
-3. [Electric field and flux](#toc-3)
-4. [Gauss's law](#toc-4)
-5. [Electric potential and potential energy](#toc-5)
-6. [Capacitance and dielectrics](#toc-6)
-7. [Current, resistance, and DC circuits](#toc-7)
-8. [Magnetic fields and magnetic force](#toc-8)
-9. [Sources of magnetic fields](#toc-9)
-10. [Electromagnetic induction](#toc-10)
-11. [AC circuits and resonance](#toc-11)
-12. [Electromagnetic waves](#toc-12)
-13. [Optics and light](#toc-13)
-14. [Problem-solving workflow](#toc-14)
-15. [Formula summary](#toc-15)
-
----
-
-<a id="toc-1"></a>
 # 1. Core ideas and units
 
 Physics II is usually the second introductory university physics course and is centered on:
@@ -83,7 +61,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. Electric charge and Coulomb's law
 
 ## Charge
@@ -141,7 +118,6 @@ For continuous charge distributions, replace the sum with an integral.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Electric field and flux
 
 ## Electric field
@@ -199,7 +175,6 @@ where $\theta$ is the angle between $\mathbf{E}$ and the surface normal.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Gauss's law
 
 Gauss's law relates electric flux through a closed surface to enclosed charge:
@@ -258,7 +233,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Electric potential and potential energy
 
 ## Potential energy
@@ -334,7 +308,6 @@ for electrostatic motion with no nonconservative work.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Capacitance and dielectrics
 
 ## Capacitors
@@ -401,7 +374,6 @@ Typical effects:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Current, resistance, and DC circuits
 
 ## Current
@@ -521,7 +493,6 @@ Interpretation:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Magnetic fields and magnetic force
 
 ## Magnetic field
@@ -580,7 +551,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 9. Sources of magnetic fields
 
 ## Biot-Savart law
@@ -633,7 +603,6 @@ At the introductory level, magnetic materials are often treated through the idea
 
 ---
 
-<a id="toc-10"></a>
 # 10. Electromagnetic induction
 
 ## Magnetic flux
@@ -720,7 +689,6 @@ $$
 
 ---
 
-<a id="toc-11"></a>
 # 11. AC circuits and resonance
 
 ## Sinusoidal voltage and current
@@ -792,7 +760,6 @@ At resonance:
 
 ---
 
-<a id="toc-12"></a>
 # 12. Electromagnetic waves
 
 Changing electric and magnetic fields sustain each other and propagate as electromagnetic waves.
@@ -847,7 +814,6 @@ Frequency increases while wavelength decreases across that sequence.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Optics and light
 
 Many Physics II courses end with geometrical optics and basic wave optics.
@@ -936,7 +902,6 @@ for slit width $a$ and nonzero integer $m$.
 
 ---
 
-<a id="toc-14"></a>
 # 14. Problem-solving workflow
 
 1. Identify the topic family: electrostatics, circuits, magnetism, induction, AC, waves, or optics.
@@ -964,7 +929,6 @@ for slit width $a$ and nonzero integer $m$.
 
 ---
 
-<a id="toc-15"></a>
 # 15. Formula summary
 
 ## Electrostatics

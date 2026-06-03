@@ -5,30 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [Scope and core ideas](#toc-1)
-2. [Stress, strain, and constitutive behavior](#toc-2)
-3. [Axial loading of bars](#toc-3)
-4. [Thermal strain and statically indeterminate axial systems](#toc-4)
-5. [Torsion of circular shafts](#toc-5)
-6. [Shear and internal force resultants](#toc-6)
-7. [Bending stress in beams](#toc-7)
-8. [Beam shear stress](#toc-8)
-9. [Stress and strain transformations](#toc-9)
-10. [Mohr's circle](#toc-10)
-11. [Deflection of beams and shafts](#toc-11)
-12. [Columns and buckling](#toc-12)
-13. [Combined loading and failure criteria](#toc-13)
-14. [Fatigue and design checks](#toc-14)
-15. [Problem-solving workflow](#toc-15)
-16. [Formula sheet](#toc-16)
-17. [Common mistakes](#toc-17)
-
----
-
-<a id="toc-1"></a>
 # 1. Scope and core ideas
 
 Mechanics of materials studies how solid members deform and fail under load. The central goal is to relate:
@@ -67,7 +43,6 @@ If any link is wrong, the final answer is usually wrong even if the algebra is c
 
 ---
 
-<a id="toc-2"></a>
 # 2. Stress, strain, and constitutive behavior
 
 ## Normal stress
@@ -160,7 +135,6 @@ This matters in three-dimensional stress states and constrained members.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Axial loading of bars
 
 ## Deformation of a prismatic bar
@@ -223,7 +197,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Thermal strain and statically indeterminate axial systems
 
 ## Free thermal expansion
@@ -292,7 +265,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Torsion of circular shafts
 
 ## Torsion formula
@@ -369,7 +341,6 @@ This relation is often used to determine the design torque for rotating shafts.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Shear and internal force resultants
 
 ## Internal resultants
@@ -420,7 +391,6 @@ where $w(x)$ is the distributed load.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Bending stress in beams
 
 ## Flexure formula
@@ -507,7 +477,6 @@ The key assumptions are:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Beam shear stress
 
 ## General shear formula
@@ -554,7 +523,6 @@ is rarely sufficient for beam sections because the local distribution is not uni
 
 ---
 
-<a id="toc-9"></a>
 # 9. Stress and strain transformations
 
 ## Plane stress state
@@ -625,7 +593,6 @@ Strains transform similarly, but use engineering shear strain and the appropriat
 
 ---
 
-<a id="toc-10"></a>
 # 10. Mohr's circle
 
 Mohr's circle is a graphical method for plane stress or plane strain transformation.
@@ -690,7 +657,6 @@ The circle is safer if the geometry of the stress state is easy to mix up.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Deflection of beams and shafts
 
 ## Beam curvature relation
@@ -771,7 +737,6 @@ $$
 
 ---
 
-<a id="toc-12"></a>
 # 12. Columns and buckling
 
 ## Euler buckling
@@ -826,7 +791,6 @@ You must identify which regime applies before choosing the allowable load.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Combined loading and failure criteria
 
 ## Superposition of stress components
@@ -902,7 +866,6 @@ Use the failure criterion that matches the material and the type of failure expe
 
 ---
 
-<a id="toc-14"></a>
 # 14. Fatigue and design checks
 
 ## Fatigue basics
@@ -954,7 +917,6 @@ Different courses and texts use slightly different fatigue diagrams. Use the one
 
 ---
 
-<a id="toc-15"></a>
 # 15. Problem-solving workflow
 
 ## General workflow
@@ -997,7 +959,6 @@ Check:
 
 ---
 
-<a id="toc-16"></a>
 # 16. Formula sheet
 
 ## Axial
@@ -1099,7 +1060,6 @@ $$
 
 ---
 
-<a id="toc-17"></a>
 # 17. Common mistakes
 
 - Using the wrong area moment of inertia for the bending axis.

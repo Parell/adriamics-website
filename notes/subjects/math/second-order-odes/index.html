@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/second-order-odes/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,54 @@
       <div class="viewer-head">
         <div>
           <h1>Second Order ODEs</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fsecond-order-odes%2Fsecond-order-odes.md&amp;title=%5BCorrection%5D%3A%20Second%20Order%20ODEs" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/second-order-odes/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">What counts as a second-order ODE</a></p></li><li><p><a href="#toc-2">Classification and standard forms</a></p></li><li><p><a href="#toc-3">Existence, uniqueness, and IVPs</a></p></li><li><p><a href="#toc-4">Homogeneous linear equations with constant coefficients</a></p></li><li><p><a href="#toc-5">Forcing and particular solutions</a></p></li><li><p><a href="#toc-6">Variable-coefficient special cases</a></p></li><li><p><a href="#toc-7">Reduction of order and variation of parameters</a></p></li><li><p><a href="#toc-8">Initial and boundary value problems</a></p></li><li><p><a href="#toc-9">Mechanical applications</a></p></li><li><p><a href="#toc-10">Qualitative behavior</a></p></li><li><p><a href="#toc-11">Problem-solving workflow</a></p></li><li><p><a href="#toc-12">Formula summary</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-what-counts-as-a-second-order-ode">1. What counts as a second-order ODE</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-counts-as-a-second-order-ode">1. What counts as a second-order ODE</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-classification-and-standard-forms">2. Classification and standard forms</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-vs-nonlinear">Linear vs nonlinear</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#homogeneous-vs-nonhomogeneous">Homogeneous vs nonhomogeneous</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-standard-forms">Common standard forms</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#general-linear-form">General linear form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#normalized-form">Normalized form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#constant-coefficient-form">Constant-coefficient form</a></li></ol></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-existence-uniqueness-and-ivps">3. Existence, uniqueness, and IVPs</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#why-two-initial-conditions">Why two initial conditions?</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-homogeneous-linear-equations-with-constant-coefficients">4. Homogeneous linear equations with constant coefficients</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#case-1-two-distinct-real-roots">Case 1: two distinct real roots</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#case-2-repeated-real-root">Case 2: repeated real root</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#case-3-complex-conjugate-roots">Case 3: complex conjugate roots</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-forcing-and-particular-solutions">5. Forcing and particular solutions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#undetermined-coefficients">Undetermined coefficients</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#resonance-rule">Resonance rule</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#example-of-resonance">Example of resonance</a></li></ol></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variation-of-parameters">Variation of parameters</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-variable-coefficient-special-cases">6. Variable-coefficient special cases</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#euler-cauchy-equations">Euler-Cauchy equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#reduction-by-substitution">Reduction by substitution</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#7-reduction-of-order-and-variation-of-parameters">7. Reduction of order and variation of parameters</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#reduction-of-order">Reduction of order</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#wronskian">Wronskian</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-initial-and-boundary-value-problems">8. Initial and boundary value problems</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#initial-value-problems">Initial value problems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#boundary-value-problems">Boundary value problems</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-mechanical-applications">9. Mechanical applications</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#mass-spring-system">Mass-spring system</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#damped-vibration">Damped vibration</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#damping-regimes">Damping regimes</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#forced-vibration">Forced vibration</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-qualitative-behavior">10. Qualitative behavior</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#stability-of-equilibrium">Stability of equilibrium</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#phase-plane-viewpoint">Phase-plane viewpoint</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#long-term-behavior">Long-term behavior</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#fast-method-selection">Fast method selection</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-pitfalls">Common pitfalls</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-formula-summary">12. Formula summary</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#standard-linear-form">Standard linear form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#normalized-form-2">Normalized form</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#constant-coefficient-homogeneous-equation">Constant-coefficient homogeneous equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#solution-templates">Solution templates</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#euler-cauchy-trial">Euler-Cauchy trial</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#general-linear-solution">General linear solution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#wronskian-2">Wronskian</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mass-spring-frequency">Mass-spring frequency</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#damping-ratio">Damping ratio</a></li></ol></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="oscillator" data-math-demo-id="second-order-odes">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Damped oscillator</h2>
+      <p class="interactive-demo__summary">Tweak damping and frequency to see how the oscillation fades and tightens over time.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Damped oscillator controls">
+        <label class="interactive-demo__control" for="math-demo-second-order-odes-damping">
+    <span class="interactive-demo__control-label">Damping <output id="math-demo-second-order-odes-damping-value">0.18</output></span>
+    <input id="math-demo-second-order-odes-damping" type="range" min="0" max="1" step="0.05" value="0.18" />
+  </label><label class="interactive-demo__control" for="math-demo-second-order-odes-frequency">
+    <span class="interactive-demo__control-label">Frequency <output id="math-demo-second-order-odes-frequency-value">2</output></span>
+    <input id="math-demo-second-order-odes-frequency" type="range" min="0.5" max="4" step="0.1" value="2" />
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Period</span>
+    <span class="interactive-demo__metric-value" id="math-demo-second-order-odes-period">3.14</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Decay</span>
+    <span class="interactive-demo__metric-value" id="math-demo-second-order-odes-decay">slow</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="math-demo-second-order-odes-title math-demo-second-order-odes-desc">
+          <title id="math-demo-second-order-odes-title">Oscillator</title>
+          <desc id="math-demo-second-order-odes-desc">A damped oscillation plotted over time.</desc>
+          <g id="math-demo-second-order-odes-axes" stroke="var(--border)" stroke-width="1"></g>
+          <path id="math-demo-second-order-odes-oscillation" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
+          <path id="math-demo-second-order-odes-envelope" fill="none" stroke="var(--pomodoro-long)" stroke-width="2" stroke-dasharray="6 6" />
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <h1 id="1-what-counts-as-a-second-order-ode">1. What counts as a second-order ODE</h1>
 <p>A <strong>second-order ordinary differential equation</strong> is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:</p>
 <div class="math-block">$$
 F(x, y, y&#39;, y&#39;&#39;) = 0
@@ -95,7 +148,6 @@ $$</div>
 <p>The central tasks are usually:</p>
 <ul><li><p>solve the equation exactly when possible</p></li><li><p>classify the motion or response</p></li><li><p>apply initial or boundary conditions</p></li><li><p>interpret the physical behavior</p></li></ul>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-classification-and-standard-forms">2. Classification and standard forms</h1>
 <h2 id="linear-vs-nonlinear">Linear vs nonlinear</h2>
 <p>A second-order ODE is <strong>linear</strong> if it can be written as</p>
@@ -130,7 +182,6 @@ ay&#39;&#39; + by&#39; + cy = g(x)
 $$</div>
 <p>with constants \(a \neq 0\), \(b\), and \(c\).</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-existence-uniqueness-and-ivps">3. Existence, uniqueness, and IVPs</h1>
 <p>For the initial value problem</p>
 <div class="math-block">$$
@@ -149,7 +200,6 @@ y(x_0) = y_0,\qquad y&#39;(x_0) = v_0
 $$</div>
 <p>to pin down one specific solution.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-homogeneous-linear-equations-with-constant-coefficients">4. Homogeneous linear equations with constant coefficients</h1>
 <p>The foundational case is</p>
 <div class="math-block">$$
@@ -195,7 +245,6 @@ $$</div>
 y(x) = C_1 e^x + C_2 e^{2x}
 $$</div>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-forcing-and-particular-solutions">5. Forcing and particular solutions</h1>
 <p>For a nonhomogeneous linear equation</p>
 <div class="math-block">$$
@@ -236,7 +285,6 @@ y_p = u_1(x)y_1(x) + u_2(x)y_2(x)
 $$</div>
 <p>where \(u_1\) and \(u_2\) are determined from a system involving the Wronskian.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-variable-coefficient-special-cases">6. Variable-coefficient special cases</h1>
 <h2 id="euler-cauchy-equations">Euler-Cauchy equations</h2>
 <p>The Euler-Cauchy, or equidimensional, form is</p>
@@ -259,7 +307,6 @@ x = e^t
 $$</div>
 <p>is a common route.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-reduction-of-order-and-variation-of-parameters">7. Reduction of order and variation of parameters</h1>
 <h2 id="reduction-of-order">Reduction of order</h2>
 <p>If one nonzero solution \(y_1\) of the homogeneous equation is known, try</p>
@@ -286,7 +333,6 @@ y&#39;&#39; + p(x)y&#39; + q(x)y = r(x),
 $$</div>
 <p>variation of parameters uses the Wronskian to build \(u_1\) and \(u_2\).</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-initial-and-boundary-value-problems">8. Initial and boundary value problems</h1>
 <h2 id="initial-value-problems">Initial value problems</h2>
 <p>An IVP specifies values at a single point:</p>
@@ -306,7 +352,6 @@ $$</div>
 <ul><li><p>a unique solution</p></li><li><p>no solution</p></li><li><p>infinitely many solutions</p></li></ul>
 <p>depending on the forcing and the eigenstructure of the operator.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-mechanical-applications">9. Mechanical applications</h1>
 <p>Many second-order ODEs come from Newton’s second law:</p>
 <div class="math-block">$$
@@ -349,7 +394,6 @@ y(t) = y_{\text{transient}}(t) + y_{\text{steady}}(t)
 $$</div>
 <p>If \(F(t)\) is periodic, resonance and near-resonance can produce large response amplitudes.</p>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-qualitative-behavior">10. Qualitative behavior</h1>
 <p>Even when an exact formula is available, it helps to understand the shape of the solution.</p>
 <h2 id="stability-of-equilibrium">Stability of equilibrium</h2>
@@ -373,7 +417,6 @@ $$</div>
 <p>For linear constant-coefficient equations, the real parts of the characteristic roots control growth or decay.</p>
 <ul><li><p>Negative real part: decay</p></li><li><p>Zero real part: sustained oscillation or neutral behavior</p></li><li><p>Positive real part: growth and instability</p></li></ul>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-problem-solving-workflow">11. Problem-solving workflow</h1>
 <ol><li><p>Put the equation in standard form.</p></li><li><p>Determine whether it is linear or nonlinear.</p></li><li><p>Identify whether it is homogeneous.</p></li><li><p>Check if coefficients are constant, Euler-Cauchy, or variable.</p></li><li><p>Solve the homogeneous equation first.</p></li><li><p>Choose a method for a particular solution if forcing is present.</p></li><li><p>Apply initial or boundary conditions.</p></li><li><p>Sanity-check the result against the original equation and the expected behavior.</p></li></ol>
 <h2 id="fast-method-selection">Fast method selection</h2>
@@ -381,7 +424,6 @@ $$</div>
 <h2 id="common-pitfalls">Common pitfalls</h2>
 <ul><li><p>Forgetting two integration constants for a second-order homogeneous solution</p></li><li><p>Using an undetermined-coefficients guess that duplicates the homogeneous solution</p></li><li><p>Dropping the \(x\)-factor needed for repeated roots</p></li><li><p>Mixing up \(y&#39;\) and \(y&#39;&#39;\) when applying initial conditions</p></li><li><p>Applying a method that assumes constant coefficients to a variable-coefficient equation</p></li><li><p>Treating a boundary value problem like an initial value problem</p></li></ul>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-formula-summary">12. Formula summary</h1>
 <h2 id="standard-linear-form">Standard linear form</h2>
 <div class="math-block">$$
@@ -437,13 +479,37 @@ $$</div>
 \zeta = \frac{c}{2\sqrt{mk}}
 $$</div>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/second-order-odes/second-order-odes.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/second-order-odes/second-order-odes.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-counts-as-a-second-order-ode">1. What counts as a second-order ODE</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-classification-and-standard-forms">2. Classification and standard forms</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-vs-nonlinear">Linear vs nonlinear</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#homogeneous-vs-nonhomogeneous">Homogeneous vs nonhomogeneous</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-standard-forms">Common standard forms</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#general-linear-form">General linear form</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#normalized-form">Normalized form</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#constant-coefficient-form">Constant-coefficient form</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-existence-uniqueness-and-ivps">3. Existence, uniqueness, and IVPs</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-two-initial-conditions">Why two initial conditions?</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-homogeneous-linear-equations-with-constant-coefficients">4. Homogeneous linear equations with constant coefficients</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#case-1-two-distinct-real-roots">Case 1: two distinct real roots</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#case-2-repeated-real-root">Case 2: repeated real root</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#case-3-complex-conjugate-roots">Case 3: complex conjugate roots</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-forcing-and-particular-solutions">5. Forcing and particular solutions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#undetermined-coefficients">Undetermined coefficients</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#resonance-rule">Resonance rule</a></li><li class="notes-toc__item" style="--toc-indent: 3"><a class="notes-toc__link" href="#example-of-resonance">Example of resonance</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variation-of-parameters">Variation of parameters</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-variable-coefficient-special-cases">6. Variable-coefficient special cases</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#euler-cauchy-equations">Euler-Cauchy equations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#reduction-by-substitution">Reduction by substitution</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-reduction-of-order-and-variation-of-parameters">7. Reduction of order and variation of parameters</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#reduction-of-order">Reduction of order</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#wronskian">Wronskian</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-initial-and-boundary-value-problems">8. Initial and boundary value problems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#initial-value-problems">Initial value problems</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#boundary-value-problems">Boundary value problems</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-mechanical-applications">9. Mechanical applications</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mass-spring-system">Mass-spring system</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#damped-vibration">Damped vibration</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#damping-regimes">Damping regimes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#forced-vibration">Forced vibration</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-qualitative-behavior">10. Qualitative behavior</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#stability-of-equilibrium">Stability of equilibrium</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#phase-plane-viewpoint">Phase-plane viewpoint</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#long-term-behavior">Long-term behavior</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fast-method-selection">Fast method selection</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-pitfalls">Common pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-formula-summary">12. Formula summary</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#standard-linear-form">Standard linear form</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normalized-form-2">Normalized form</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constant-coefficient-homogeneous-equation">Constant-coefficient homogeneous equation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#solution-templates">Solution templates</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#euler-cauchy-trial">Euler-Cauchy trial</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#general-linear-solution">General linear solution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#wronskian-2">Wronskian</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mass-spring-frequency">Mass-spring frequency</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#damping-ratio">Damping ratio</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

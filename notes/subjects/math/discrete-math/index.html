@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/discrete-math/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,56 @@
       <div class="viewer-head">
         <div>
           <h1>Discrete Math</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fdiscrete-math%2Fdiscrete-math.md&amp;title=%5BCorrection%5D%3A%20Discrete%20Math" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/discrete-math/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <p>Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.</p>
-<h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">Logic and propositions</a></p></li><li><p><a href="#toc-2">Sets, functions, and relations</a></p></li><li><p><a href="#toc-3">Proof techniques</a></p></li><li><p><a href="#toc-4">Induction and recursion</a></p></li><li><p><a href="#toc-5">Counting and combinatorics</a></p></li><li><p><a href="#toc-6">Discrete probability</a></p></li><li><p><a href="#toc-7">Number theory and modular arithmetic</a></p></li><li><p><a href="#toc-8">Graphs and trees</a></p></li><li><p><a href="#toc-9">Algorithms, growth, and recurrences</a></p></li><li><p><a href="#toc-10">Problem-solving workflow</a></p></li><li><p><a href="#toc-11">Formula sheet</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#discrete-mathematics">Discrete Mathematics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-logic-and-propositions">1. Logic and propositions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#logical-operators">Logical operators</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-equivalences">Common equivalences</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#quantifiers">Quantifiers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#converse-inverse-contrapositive">Converse, inverse, contrapositive</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-sets-functions-and-relations">2. Sets, functions, and relations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sets">Sets</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#power-sets">Power sets</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#cartesian-products">Cartesian products</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#functions">Functions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#relations">Relations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#equivalence-relations-and-partitions">Equivalence relations and partitions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#partial-orders">Partial orders</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-proof-techniques">3. Proof techniques</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#direct-proof">Direct proof</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#proof-by-contrapositive">Proof by contrapositive</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#proof-by-contradiction">Proof by contradiction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#proof-by-cases">Proof by cases</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#existence-and-uniqueness">Existence and uniqueness</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-proof-pitfall">Common proof pitfall</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-induction-and-recursion">4. Induction and recursion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mathematical-induction">Mathematical induction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-2">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#strong-induction">Strong induction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#recursive-definitions">Recursive definitions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-counting-and-combinatorics">5. Counting and combinatorics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sum-and-product-rules">Sum and product rules</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#factorials-and-permutations">Factorials and permutations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#combinations">Combinations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#binomial-theorem">Binomial theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#counting-with-repetition">Counting with repetition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inclusion-exclusion">Inclusion-exclusion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#pigeonhole-principle">Pigeonhole principle</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-discrete-probability">6. Discrete probability</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sample-spaces-and-events">Sample spaces and events</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#basic-rules">Basic rules</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conditional-probability">Conditional probability</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#independence">Independence</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#expected-value">Expected value</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variance">Variance</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-number-theory-and-modular-arithmetic">7. Number theory and modular arithmetic</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#divisibility">Divisibility</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#prime-numbers">Prime numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#greatest-common-divisor">Greatest common divisor</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#modular-arithmetic">Modular arithmetic</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#modular-inverses">Modular inverses</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-3">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-graphs-and-trees">8. Graphs and trees</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#basic-terminology">Basic terminology</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#handshaking-lemma">Handshaking lemma</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#special-graph-classes">Special graph classes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#trees">Trees</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rooted-trees">Rooted trees</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#traversals">Traversals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-algorithms-growth-and-recurrences">9. Algorithms, growth, and recurrences</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#asymptotic-notation">Asymptotic notation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#growth-hierarchy">Growth hierarchy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#recurrence-relations">Recurrence relations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#solving-simple-recurrences">Solving simple recurrences</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#algorithm-correctness">Algorithm correctness</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-1-identify-the-object-type">Step 1: Identify the object type</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-2-translate-the-statement-into-formal-language">Step 2: Translate the statement into formal language</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-3-choose-the-right-tool">Step 3: Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-4-write-from-definitions">Step 4: Write from definitions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-5-check-edge-cases">Step 5: Check edge cases</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-6-validate-the-conclusion-type">Step 6: Validate the conclusion type</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-formula-sheet">11. Formula sheet</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#logic">Logic</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sets-2">Sets</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#counting">Counting</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#probability">Probability</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#number-theory">Number theory</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#graphs">Graphs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#growth">Growth</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes-to-avoid">Common mistakes to avoid</a></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="recursion-tree" data-math-demo-id="discrete-math">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Counting paths in a tree</h2>
+      <p class="interactive-demo__summary">Adjust the depth and branching factor to see how recursion and the product rule grow the number of outcomes.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Counting paths in a tree controls">
+        <label class="interactive-demo__control" for="math-demo-discrete-math-depth">
+    <span class="interactive-demo__control-label">Depth <output id="math-demo-discrete-math-depth-value">4</output></span>
+    <input id="math-demo-discrete-math-depth" type="range" min="1" max="6" step="1" value="4" />
+  </label><label class="interactive-demo__control" for="math-demo-discrete-math-branching">
+    <span class="interactive-demo__control-label">Branches <output id="math-demo-discrete-math-branching-value">2</output></span>
+    <select id="math-demo-discrete-math-branching">
+      <option value="2" selected>2 branches</option><option value="3">3 branches</option><option value="4">4 branches</option>
+    </select>
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Leaves</span>
+    <span class="interactive-demo__metric-value" id="math-demo-discrete-math-leaves">16</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Count</span>
+    <span class="interactive-demo__metric-value" id="math-demo-discrete-math-formula">2^4</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="math-demo-discrete-math-title math-demo-discrete-math-desc">
+          <title id="math-demo-discrete-math-title">Recursion tree</title>
+          <desc id="math-demo-discrete-math-desc">A tree that expands by a chosen branching factor and depth.</desc>
+          <g id="math-demo-discrete-math-links" stroke="var(--border)" stroke-width="2"></g>
+          <g id="math-demo-discrete-math-nodes" fill="var(--accent-strong)"></g>
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <h1 id="discrete-mathematics">Discrete Mathematics</h1>
+<p>Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.</p>
 <h2 id="1-logic-and-propositions">1. Logic and propositions</h2>
 <p>A <strong>proposition</strong> is a statement that is either true or false.</p>
 <p>Examples:</p>
@@ -135,7 +190,6 @@ n^2 = (2k)^2 = 4k^2 = 2(2k^2)
 $$</div>
 <p>so $n^2$ is even.</p>
 <hr />
-<a id="toc-2"></a>
 <h2 id="2-sets-functions-and-relations">2. Sets, functions, and relations</h2>
 <h2 id="sets">Sets</h2>
 <p>A <strong>set</strong> is an unordered collection of distinct objects.</p>
@@ -200,7 +254,6 @@ $$</div>
 <ul><li><p>$\subseteq$ on sets</p></li><li><p>$\le$ on integers</p></li><li><p>Divisibility on positive integers</p></li></ul>
 <p>Partially ordered sets are often visualized with <strong>Hasse diagrams</strong>.</p>
 <hr />
-<a id="toc-3"></a>
 <h2 id="3-proof-techniques">3. Proof techniques</h2>
 <p>Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions.</p>
 <h2 id="direct-proof">Direct proof</h2>
@@ -226,7 +279,6 @@ $$</div>
 <h2 id="common-proof-pitfall">Common proof pitfall</h2>
 <p>Do not verify a general statement with a few examples. Examples can suggest a pattern, but they do not prove it.</p>
 <hr />
-<a id="toc-4"></a>
 <h2 id="4-induction-and-recursion">4. Induction and recursion</h2>
 <h2 id="mathematical-induction">Mathematical induction</h2>
 <p>Induction proves statements indexed by the positive integers.</p>
@@ -267,7 +319,6 @@ $$</div>
 <p>To work with recursive definitions:</p>
 <ol><li><p>Identify base cases.</p></li><li><p>Identify the recurrence rule.</p></li><li><p>Check whether the rule determines each later value uniquely.</p></li></ol>
 <hr />
-<a id="toc-5"></a>
 <h2 id="5-counting-and-combinatorics">5. Counting and combinatorics</h2>
 <p>Counting arguments appear everywhere in probability, algorithms, graph theory, and proof.</p>
 <h2 id="sum-and-product-rules">Sum and product rules</h2>
@@ -328,7 +379,6 @@ $$</div>
 $$</div>
 <p>objects.</p>
 <hr />
-<a id="toc-6"></a>
 <h2 id="6-discrete-probability">6. Discrete probability</h2>
 <p>Probability in discrete math is usually built on counting.</p>
 <h2 id="sample-spaces-and-events">Sample spaces and events</h2>
@@ -379,7 +429,6 @@ $$</div>
 \mathrm{Var}(X) = \mathbb{E}[X^2] - (\mathbb{E}[X])^2
 $$</div>
 <hr />
-<a id="toc-7"></a>
 <h2 id="7-number-theory-and-modular-arithmetic">7. Number theory and modular arithmetic</h2>
 <h2 id="divisibility">Divisibility</h2>
 <p>For integers $a$ and $b$ with $a \ne 0$, we say $a$ divides $b$, written</p>
@@ -437,7 +486,6 @@ $$</div>
 x \equiv 5 \pmod 7
 $$</div>
 <hr />
-<a id="toc-8"></a>
 <h2 id="8-graphs-and-trees">8. Graphs and trees</h2>
 <p>A <strong>graph</strong> consists of vertices and edges.</p>
 <p>Notation:</p>
@@ -467,7 +515,6 @@ $$</div>
 <p>Common traversal orders:</p>
 <ul><li><p>Preorder</p></li><li><p>Inorder</p></li><li><p>Postorder</p></li><li><p>Breadth-first search</p></li></ul>
 <hr />
-<a id="toc-9"></a>
 <h2 id="9-algorithms-growth-and-recurrences">9. Algorithms, growth, and recurrences</h2>
 <p>Discrete math often studies whether a procedure is correct and how quickly it grows.</p>
 <h2 id="asymptotic-notation">Asymptotic notation</h2>
@@ -524,7 +571,6 @@ $$</div>
 <p>Loop invariants are a standard proof tool:</p>
 <ul><li><p>State a property true before the loop starts.</p></li><li><p>Show one iteration preserves it.</p></li><li><p>Use it at termination to prove correctness.</p></li></ul>
 <hr />
-<a id="toc-10"></a>
 <h2 id="10-problem-solving-workflow">10. Problem-solving workflow</h2>
 <p>Use this checklist for most discrete mathematics problems.</p>
 <h2 id="step-1-identify-the-object-type">Step 1: Identify the object type</h2>
@@ -548,7 +594,6 @@ $$</div>
 <p>Make sure the proof ends with the right type of claim:</p>
 <ul><li><p>Equality proved algebraically</p></li><li><p>Existence proved by construction</p></li><li><p>Uniqueness proved by comparison</p></li><li><p>Counting answer justified by combinatorial model</p></li></ul>
 <hr />
-<a id="toc-11"></a>
 <h2 id="11-formula-sheet">11. Formula sheet</h2>
 <h2 id="logic">Logic</h2>
 <div class="math-block">$$
@@ -625,13 +670,37 @@ $$</div>
 <h1 id="common-mistakes-to-avoid">Common mistakes to avoid</h1>
 <ul><li><p>Confusing the converse of a statement with its contrapositive.</p></li><li><p>Negating quantified statements incorrectly.</p></li><li><p>Treating examples as proof.</p></li><li><p>Using permutations when order does not matter.</p></li><li><p>Using combinations when order does matter.</p></li><li><p>Cancelling terms in modular arithmetic without checking inverses exist.</p></li><li><p>Assuming disjoint events are independent.</p></li><li><p>Forgetting that a relation and a function are different objects.</p></li><li><p>Claiming a graph is a tree without checking both connectedness and acyclicity.</p></li><li><p>Using asymptotic notation as if it were an exact equality.</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/discrete-math/discrete-math.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/discrete-math/discrete-math.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#1-logic-and-propositions">1. Logic and propositions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#logical-operators">Logical operators</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-equivalences">Common equivalences</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#quantifiers">Quantifiers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#converse-inverse-contrapositive">Converse, inverse, contrapositive</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#2-sets-functions-and-relations">2. Sets, functions, and relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sets">Sets</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#power-sets">Power sets</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#cartesian-products">Cartesian products</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#functions">Functions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#relations">Relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equivalence-relations-and-partitions">Equivalence relations and partitions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#partial-orders">Partial orders</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#3-proof-techniques">3. Proof techniques</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#direct-proof">Direct proof</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proof-by-contrapositive">Proof by contrapositive</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proof-by-contradiction">Proof by contradiction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#proof-by-cases">Proof by cases</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#existence-and-uniqueness">Existence and uniqueness</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-proof-pitfall">Common proof pitfall</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#4-induction-and-recursion">4. Induction and recursion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mathematical-induction">Mathematical induction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-2">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#strong-induction">Strong induction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#recursive-definitions">Recursive definitions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#5-counting-and-combinatorics">5. Counting and combinatorics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sum-and-product-rules">Sum and product rules</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#factorials-and-permutations">Factorials and permutations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#combinations">Combinations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#binomial-theorem">Binomial theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#counting-with-repetition">Counting with repetition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#inclusion-exclusion">Inclusion-exclusion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pigeonhole-principle">Pigeonhole principle</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#6-discrete-probability">6. Discrete probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sample-spaces-and-events">Sample spaces and events</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#basic-rules">Basic rules</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conditional-probability">Conditional probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#independence">Independence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#expected-value">Expected value</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variance">Variance</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#7-number-theory-and-modular-arithmetic">7. Number theory and modular arithmetic</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#divisibility">Divisibility</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#prime-numbers">Prime numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#greatest-common-divisor">Greatest common divisor</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#modular-arithmetic">Modular arithmetic</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#modular-inverses">Modular inverses</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-3">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#8-graphs-and-trees">8. Graphs and trees</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#basic-terminology">Basic terminology</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#handshaking-lemma">Handshaking lemma</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#special-graph-classes">Special graph classes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trees">Trees</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rooted-trees">Rooted trees</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#traversals">Traversals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#9-algorithms-growth-and-recurrences">9. Algorithms, growth, and recurrences</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#asymptotic-notation">Asymptotic notation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#growth-hierarchy">Growth hierarchy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#recurrence-relations">Recurrence relations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#solving-simple-recurrences">Solving simple recurrences</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#algorithm-correctness">Algorithm correctness</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-1-identify-the-object-type">Step 1: Identify the object type</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-2-translate-the-statement-into-formal-language">Step 2: Translate the statement into formal language</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-3-choose-the-right-tool">Step 3: Choose the right tool</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-4-write-from-definitions">Step 4: Write from definitions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-5-check-edge-cases">Step 5: Check edge cases</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-6-validate-the-conclusion-type">Step 6: Validate the conclusion type</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#11-formula-sheet">11. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#logic">Logic</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sets-2">Sets</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#counting">Counting</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#probability">Probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#number-theory">Number theory</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#graphs">Graphs</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#growth">Growth</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#common-mistakes-to-avoid">Common mistakes to avoid</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

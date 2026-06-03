@@ -5,24 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What a limit means](#toc-1)
-2. [Formal definition](#toc-2)
-3. [Limit laws](#toc-3)
-4. [One-sided and infinite limits](#toc-4)
-5. [Algebraic techniques](#toc-5)
-6. [Special limits to know cold](#toc-6)
-7. [Continuity and discontinuities](#toc-7)
-8. [Limits at infinity and asymptotes](#toc-8)
-9. [Indeterminate forms and L'Hôpital's rule](#toc-9)
-10. [Problem-solving workflow](#toc-10)
-11. [Formula sheet](#toc-11)
-
----
-
-<a id="toc-1"></a>
 # 1. What a limit means
 
 A **limit** describes the value a function approaches as the input approaches some point.
@@ -74,7 +56,6 @@ even though the original formula is undefined at $x=3$.
 
 ---
 
-<a id="toc-2"></a>
 # 2. Formal definition
 
 The rigorous definition of a limit uses $\varepsilon$ and $\delta$.
@@ -124,7 +105,6 @@ This is usually easier once the function has been algebraically simplified.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Limit laws
 
 If the individual limits exist, you can combine them algebraically.
@@ -195,7 +175,6 @@ If direct substitution gives an undefined form such as $\frac{0}{0}$, use anothe
 
 ---
 
-<a id="toc-4"></a>
 # 4. One-sided and infinite limits
 
 ## One-sided limits
@@ -281,7 +260,6 @@ does not exist because the function keeps oscillating between $-1$ and $1$.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Algebraic techniques
 
 When direct substitution fails, simplify first.
@@ -389,7 +367,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Special limits to know cold
 
 These are standard results used constantly in calculus.
@@ -438,7 +415,6 @@ These limits are the building blocks for derivative formulas involving trig, exp
 
 ---
 
-<a id="toc-7"></a>
 # 7. Continuity and discontinuities
 
 A function is **continuous at $a$** if all three conditions hold:
@@ -489,7 +465,6 @@ That is the fastest possible limit evaluation.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Limits at infinity and asymptotes
 
 Limits at infinity describe end behavior.
@@ -546,7 +521,6 @@ If a rational function has numerator degree exactly one higher than the denomina
 
 ---
 
-<a id="toc-9"></a>
 # 9. Indeterminate forms and L'Hôpital's rule
 
 An **indeterminate form** is an expression that does not determine the limit by itself.
@@ -609,7 +583,6 @@ $$
 
 ---
 
-<a id="toc-10"></a>
 # 10. Problem-solving workflow
 
 When you see a limit, use this sequence.
@@ -643,7 +616,6 @@ When you see a limit, use this sequence.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Formula sheet
 
 ## Core notation

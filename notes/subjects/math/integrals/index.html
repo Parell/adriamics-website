@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/integrals/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,26 +90,63 @@
       <div class="viewer-head">
         <div>
           <h1>Integrals</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fintegrals%2Fintegrals.md&amp;title=%5BCorrection%5D%3A%20Integrals" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/integrals/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-2">Indefinite integrals and antiderivatives</a></p></li><li><p><a href="#toc-3">Definite integrals and area</a></p></li><li><p><a href="#toc-4">The Fundamental Theorem of Calculus</a></p></li><li><p><a href="#toc-5">Core antiderivative rules</a></p></li><li><p><a href="#toc-6">Substitution</a></p></li><li><p><a href="#toc-7">Integration by parts</a></p></li><li><p><a href="#toc-8">Partial fractions</a></p></li><li><p><a href="#toc-9">Trigonometric integrals and substitutions</a></p></li><li><p><a href="#toc-10">Improper integrals</a></p></li><li><p><a href="#toc-11">Applications</a></p></li><li><p><a href="#toc-12">Numerical integration</a></p></li><li><p><a href="#toc-13">Problem-solving workflow</a></p></li><li><p><a href="#toc-14">Common mistakes</a></p></li><li><p><a href="#toc-15">Formula sheet</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="integrals">Integrals</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-are-integrals">1. What are Integrals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-indefinite-integrals-and-antiderivatives">2 Indefinite integrals and antiderivatives</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-properties">Linear properties</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#basic-interpretation">Basic interpretation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-definite-integrals-and-area">3 Definite integrals and area</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#riemann-sum-definition">Riemann sum definition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#signed-area">Signed area</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#average-value">Average value</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-the-fundamental-theorem-of-calculus">3. The Fundamental Theorem of Calculus</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#part-1">Part 1</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#part-2">Part 2</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-this-matters">Why this matters</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-core-antiderivative-rules">4. Core antiderivative rules</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#power-rule">Power rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exponential-and-logarithmic-forms">Exponential and logarithmic forms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#trigonometric-basics">Trigonometric basics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-algebraic-manipulations">Common algebraic manipulations</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-substitution">5. Substitution</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#pattern">Pattern</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#definite-integrals-with-substitution">Definite integrals with substitution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-substitution-cues">Common substitution cues</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-integration-by-parts">6. Integration by parts</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-2">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#liate-heuristic">LIATE heuristic</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-partial-fractions">7. Partial fractions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#basic-steps">Basic steps</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-denominator-forms">Common denominator forms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-3">Example</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-trigonometric-integrals-and-substitutions">8. Trigonometric integrals and substitutions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#trigonometric-integrals">Trigonometric integrals</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#trigonometric-substitution">Trigonometric substitution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-4">Example</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-improper-integrals">9. Improper integrals</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#infinite-interval">Infinite interval</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#vertical-asymptote">Vertical asymptote</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#convergence">Convergence</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#useful-benchmark">Useful benchmark</a></li></ol></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-applications">10. Applications</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#area-between-curves">Area between curves</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#volume-of-revolution">Volume of revolution</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#disk-method">Disk method</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#washer-method">Washer method</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#shell-method">Shell method</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mass-from-density">Mass from density</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#probability">Probability</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-numerical-integration">11. Numerical integration</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#trapezoidal-rule">Trapezoidal rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#simpsons-rule">Simpson&#39;s rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#error-intuition">Error intuition</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-problem-solving-workflow">12. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#fast-self-checks">Fast self-checks</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-common-mistakes">13. Common mistakes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#forgetting-the-constant-of-integration">Forgetting the constant of integration</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#using-the-wrong-variable-in-substitution">Using the wrong variable in substitution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mixing-up-signed-area-and-geometric-area">Mixing up signed area and geometric area</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#wrong-bounds-after-substitution">Wrong bounds after substitution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#missing-absolute-values-in-logarithms">Missing absolute values in logarithms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#algebra-mistakes-before-integrating">Algebra mistakes before integrating</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#14-formula-sheet">14. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-formulas">Core formulas</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-geometric-volumes">Common geometric volumes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#quick-reference">Quick reference</a></li></ol></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="integral" data-math-demo-id="integrals">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Area under a curve</h2>
+      <p class="interactive-demo__summary">Move the bounds to see how the accumulated area changes between two x-values.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Area under a curve controls">
+        <label class="interactive-demo__control" for="math-demo-integrals-left">
+    <span class="interactive-demo__control-label">Left bound a <output id="math-demo-integrals-left-value">-1.2</output></span>
+    <input id="math-demo-integrals-left" type="range" min="-3" max="1" step="0.1" value="-1.2" />
+  </label><label class="interactive-demo__control" for="math-demo-integrals-right">
+    <span class="interactive-demo__control-label">Right bound b <output id="math-demo-integrals-right-value">1.8</output></span>
+    <input id="math-demo-integrals-right" type="range" min="-1" max="3" step="0.1" value="1.8" />
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Area</span>
+    <span class="interactive-demo__metric-value" id="math-demo-integrals-area">0.00</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Riemann estimate</span>
+    <span class="interactive-demo__metric-value" id="math-demo-integrals-estimate">0.00</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="math-demo-integrals-title math-demo-integrals-desc">
+          <title id="math-demo-integrals-title">Integral area graph</title>
+          <desc id="math-demo-integrals-desc">A curve with shaded area and Riemann rectangles between two bounds.</desc>
+          <g id="math-demo-integrals-axes" stroke="var(--border)" stroke-width="1"></g>
+          <path id="math-demo-integrals-curve" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
+          <path id="math-demo-integrals-area-path" fill="rgba(255,255,255,0.08)" stroke="none" />
+          <g id="math-demo-integrals-rectangles"></g>
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <hr />
+<h1 id="1-what-are-integrals">1. What are Integrals</h1>
 <p>An <strong>integral</strong> measures accumulation. In calculus, that accumulation is usually:</p>
 <ul><li><p>area under a curve</p></li><li><p>total change from a rate of change</p></li><li><p>mass, charge, probability, or work accumulated over a region</p></li></ul>
 <p>There are two main types:</p>
 <ul><li><p><strong>Indefinite integrals</strong> give families of antiderivatives.</p></li><li><p><strong>Definite integrals</strong> give a numerical total over an interval.</p></li></ul>
 <p>The central idea is that differentiation and integration are inverse operations.</p>
 <hr />
-<a id="toc-2"></a>
-<h1 id="1-indefinite-integrals-and-antiderivatives">1. Indefinite integrals and antiderivatives</h1>
+<h1 id="2-indefinite-integrals-and-antiderivatives">2 Indefinite integrals and antiderivatives</h1>
 <p>An <strong>antiderivative</strong> of $f(x)$ is a function $F(x)$ such that</p>
 <div class="math-block">$$
 F&#39;(x) = f(x).
@@ -116,8 +170,7 @@ $$</div>
 $$</div>
 <p>gives displacement, up to an initial condition.</p>
 <hr />
-<a id="toc-3"></a>
-<h1 id="2-definite-integrals-and-area">2. Definite integrals and area</h1>
+<h1 id="3-definite-integrals-and-area">3 Definite integrals and area</h1>
 <p>The definite integral of $f(x)$ from $a$ to $b$ is written</p>
 <div class="math-block">$$
 \int_a^b f(x)\,dx.
@@ -150,7 +203,6 @@ f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
 $$</div>
 <p>This is a common interpretation: the integral is the total, and dividing by interval length gives the average height.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="3-the-fundamental-theorem-of-calculus">3. The Fundamental Theorem of Calculus</h1>
 <p>The <strong>Fundamental Theorem of Calculus</strong> connects derivatives and integrals.</p>
 <h2 id="part-1">Part 1</h2>
@@ -173,7 +225,6 @@ $$</div>
 <p>Without the FTC, definite integrals would require limit computations every time. With the FTC, most evaluation reduces to:</p>
 <ol><li><p>Find an antiderivative.</p></li><li><p>Plug in the endpoints.</p></li><li><p>Subtract.</p></li></ol>
 <hr />
-<a id="toc-5"></a>
 <h1 id="4-core-antiderivative-rules">4. Core antiderivative rules</h1>
 <p>These formulas appear constantly.</p>
 <h2 id="power-rule">Power rule</h2>
@@ -224,7 +275,6 @@ $$</div>
 = x^3 - 4\ln|x| + 5e^x + C.
 $$</div>
 <hr />
-<a id="toc-6"></a>
 <h1 id="5-substitution">5. Substitution</h1>
 <p><strong>Substitution</strong> reverses the chain rule. Use it when an integrand contains a function and its derivative, or a recognizable composite expression.</p>
 <h2 id="pattern">Pattern</h2>
@@ -261,7 +311,6 @@ $$</div>
 <h2 id="common-substitution-cues">Common substitution cues</h2>
 <ul><li><p>inner function and its derivative</p></li><li><p>powers of expressions like $(ax+b)^n$</p></li><li><p>radicals such as $\sqrt{1-x^2}$ or $\sqrt{a^2-x^2}$</p></li><li><p>trigonometric compositions</p></li></ul>
 <hr />
-<a id="toc-7"></a>
 <h1 id="6-integration-by-parts">6. Integration by parts</h1>
 <p>Integration by parts comes from the product rule:</p>
 <div class="math-block">$$
@@ -297,7 +346,6 @@ $$</div>
 <ol><li><p>Logarithmic</p></li><li><p>Inverse trigonometric</p></li><li><p>Algebraic</p></li><li><p>Trigonometric</p></li><li><p>Exponential</p></li></ol>
 <p>This is a heuristic, not a rule, but it often leads to a useful choice.</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="7-partial-fractions">7. Partial fractions</h1>
 <p>Partial fraction decomposition is used for rational functions:</p>
 <div class="math-block">$$
@@ -336,7 +384,6 @@ $$</div>
 \int \frac{1}{x(x+1)}\,dx = \ln|x| - \ln|x+1| + C.
 $$</div>
 <hr />
-<a id="toc-9"></a>
 <h1 id="8-trigonometric-integrals-and-substitutions">8. Trigonometric integrals and substitutions</h1>
 <h2 id="trigonometric-integrals">Trigonometric integrals</h2>
 <p>Useful identities often simplify powers of trig functions:</p>
@@ -382,7 +429,6 @@ $$</div>
 \int \frac{dx}{\sqrt{a^2-x^2}} = \arcsin(x/a) + C.
 $$</div>
 <hr />
-<a id="toc-10"></a>
 <h1 id="9-improper-integrals">9. Improper integrals</h1>
 <p>An <strong>improper integral</strong> has at least one issue:</p>
 <ul><li><p>infinite limits of integration</p></li><li><p>integrand becomes unbounded on the interval</p></li></ul>
@@ -407,7 +453,6 @@ $$</div>
 <p>the integral converges if and only if $p&gt;1$.</p>
 <p>This is a standard comparison test baseline.</p>
 <hr />
-<a id="toc-11"></a>
 <h1 id="10-applications">10. Applications</h1>
 <p>Integrals appear anywhere accumulation matters.</p>
 <h2 id="area-between-curves">Area between curves</h2>
@@ -457,7 +502,6 @@ $$</div>
 \int_{-\infty}^{\infty} f(x)\,dx = 1.
 $$</div>
 <hr />
-<a id="toc-12"></a>
 <h1 id="11-numerical-integration">11. Numerical integration</h1>
 <p>When an antiderivative is hard or unavailable, approximate the integral numerically.</p>
 <h2 id="trapezoidal-rule">Trapezoidal rule</h2>
@@ -474,14 +518,12 @@ $$</div>
 <h2 id="error-intuition">Error intuition</h2>
 <ul><li><p>More subintervals usually improve accuracy.</p></li><li><p>Smooth functions are approximated better than highly oscillatory or discontinuous functions.</p></li><li><p>Simpson&#39;s rule is often more accurate than the trapezoidal rule for the same number of intervals.</p></li></ul>
 <hr />
-<a id="toc-13"></a>
 <h1 id="12-problem-solving-workflow">12. Problem-solving workflow</h1>
 <p>A reliable integration workflow saves time and reduces mistakes.</p>
 <ol><li><p>Identify the integral type: indefinite, definite, improper, or application.</p></li><li><p>Simplify algebraically first.</p></li><li><p>Check whether a standard formula applies immediately.</p></li><li><p>Look for substitution patterns.</p></li><li><p>If the integrand is a product, consider integration by parts.</p></li><li><p>If the integrand is rational, try partial fractions.</p></li><li><p>If there are trig powers or radicals, consider trig identities or trig substitution.</p></li><li><p>For definite integrals, use the FTC after finding an antiderivative.</p></li><li><p>Check your answer by differentiating when possible.</p></li><li><p>For definite integrals, check sign and bounds.</p></li></ol>
 <h2 id="fast-self-checks">Fast self-checks</h2>
 <ul><li><p>Differentiate your antiderivative.</p></li><li><p>Test units in applied problems.</p></li><li><p>For definite integrals, estimate whether the sign and size are reasonable.</p></li></ul>
 <hr />
-<a id="toc-14"></a>
 <h1 id="13-common-mistakes">13. Common mistakes</h1>
 <h2 id="forgetting-the-constant-of-integration">Forgetting the constant of integration</h2>
 <p>For indefinite integrals,</p>
@@ -505,7 +547,6 @@ $$</div>
 <p>Many integration problems are really algebra problems in disguise:</p>
 <ul><li><p>expand carefully</p></li><li><p>factor correctly</p></li><li><p>simplify before choosing a technique</p></li></ul>
 <hr />
-<a id="toc-15"></a>
 <h1 id="14-formula-sheet">14. Formula sheet</h1>
 <h2 id="core-formulas">Core formulas</h2>
 <div class="math-block">$$
@@ -551,13 +592,37 @@ $$</div>
 <ul><li><p>like a composite function times its derivative, try substitution</p></li><li><p>like a product of unlike functions, try integration by parts</p></li><li><p>like a rational function, try partial fractions</p></li><li><p>like a trig expression with powers, use identities</p></li><li><p>like a radical of a quadratic, consider trig substitution</p></li><li><p>like a limit problem or infinite interval, treat it as improper</p></li></ul>
 <p>Integration becomes much easier once you classify the form correctly before doing any algebra.</p>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/integrals/integrals.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/integrals/integrals.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-indefinite-integrals-and-antiderivatives">1. Indefinite integrals and antiderivatives</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-properties">Linear properties</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#basic-interpretation">Basic interpretation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-definite-integrals-and-area">2. Definite integrals and area</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#riemann-sum-definition">Riemann sum definition</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#signed-area">Signed area</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#average-value">Average value</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-the-fundamental-theorem-of-calculus">3. The Fundamental Theorem of Calculus</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#part-1">Part 1</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#part-2">Part 2</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#why-this-matters">Why this matters</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-core-antiderivative-rules">4. Core antiderivative rules</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#power-rule">Power rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#exponential-and-logarithmic-forms">Exponential and logarithmic forms</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trigonometric-basics">Trigonometric basics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-algebraic-manipulations">Common algebraic manipulations</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-substitution">5. Substitution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pattern">Pattern</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#definite-integrals-with-substitution">Definite integrals with substitution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-substitution-cues">Common substitution cues</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-integration-by-parts">6. Integration by parts</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-2">Example</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#liate-heuristic">LIATE heuristic</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-partial-fractions">7. Partial fractions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#basic-steps">Basic steps</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-denominator-forms">Common denominator forms</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-3">Example</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-trigonometric-integrals-and-substitutions">8. Trigonometric integrals and substitutions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trigonometric-integrals">Trigonometric integrals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trigonometric-substitution">Trigonometric substitution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-4">Example</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-improper-integrals">9. Improper integrals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#infinite-interval">Infinite interval</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#vertical-asymptote">Vertical asymptote</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#convergence">Convergence</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#useful-benchmark">Useful benchmark</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-applications">10. Applications</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#area-between-curves">Area between curves</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#volume-of-revolution">Volume of revolution</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#disk-method">Disk method</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#washer-method">Washer method</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#shell-method">Shell method</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mass-from-density">Mass from density</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#probability">Probability</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-numerical-integration">11. Numerical integration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#trapezoidal-rule">Trapezoidal rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#simpsons-rule">Simpson&#39;s rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#error-intuition">Error intuition</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-problem-solving-workflow">12. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#fast-self-checks">Fast self-checks</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-common-mistakes">13. Common mistakes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#forgetting-the-constant-of-integration">Forgetting the constant of integration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#using-the-wrong-variable-in-substitution">Using the wrong variable in substitution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#mixing-up-signed-area-and-geometric-area">Mixing up signed area and geometric area</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#wrong-bounds-after-substitution">Wrong bounds after substitution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#missing-absolute-values-in-logarithms">Missing absolute values in logarithms</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#algebra-mistakes-before-integrating">Algebra mistakes before integrating</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#14-formula-sheet">14. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#core-formulas">Core formulas</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-geometric-volumes">Common geometric volumes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#quick-reference">Quick reference</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

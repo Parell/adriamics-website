@@ -7,25 +7,6 @@ sources: []
 ---
 
 # Proof Writing
-
-## Table of contents
-
-1. [What a proof does](#toc-1)
-2. [Reading mathematical statements](#toc-2)
-3. [Core proof structures](#toc-3)
-4. [Direct proof](#toc-4)
-5. [Contrapositive and contradiction](#toc-5)
-6. [Cases, existence, and uniqueness](#toc-6)
-7. [Induction](#toc-7)
-8. [Proofs about sets, functions, and relations](#toc-8)
-9. [Common theorem shapes](#toc-9)
-10. [Writing style and presentation](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Checklist and common mistakes](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What a proof does
 
 A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.
@@ -69,7 +50,6 @@ Examples, diagrams, and numerical checks can motivate a proof, but they do not r
 
 ---
 
-<a id="toc-2"></a>
 # 2. Reading mathematical statements
 
 Before proving anything, rewrite the statement carefully.
@@ -138,7 +118,6 @@ When stuck, rewrite the claim using definitions and symbols.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Core proof structures
 
 Most undergraduate proofs fall into a small number of templates.
@@ -190,7 +169,6 @@ Do not assume special properties of \(x\) unless the statement gives them.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Direct proof
 
 A direct proof starts from the hypotheses and derives the conclusion by valid deductions.
@@ -238,7 +216,6 @@ Use direct proof when:
 
 ---
 
-<a id="toc-5"></a>
 # 5. Contrapositive and contradiction
 
 These are the two main indirect proof methods.
@@ -311,7 +288,6 @@ Therefore \(\sqrt{2}\) is irrational.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Cases, existence, and uniqueness
 
 Some proofs need branching logic.
@@ -374,7 +350,6 @@ This is often paired with an existence proof.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Induction
 
 Induction proves statements indexed by the natural numbers.
@@ -440,7 +415,6 @@ Use strong induction when the next case depends on multiple earlier cases.
 
 ---
 
-<a id="toc-8"></a>
 # 8. Proofs about sets, functions, and relations
 
 These proofs rely heavily on unpacking definitions.
@@ -501,7 +475,6 @@ These are usually proved directly from the definition of the relation.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Common theorem shapes
 
 Many theorems repeat the same patterns under different vocabulary.
@@ -564,7 +537,6 @@ Typical strategies:
 
 ---
 
-<a id="toc-10"></a>
 # 10. Writing style and presentation
 
 Good proof writing is clear, not decorative.
@@ -621,7 +593,6 @@ Finish with a sentence that explicitly links your work back to the statement:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 When you are unsure how to start, use this sequence.
@@ -687,7 +658,6 @@ Ask:
 
 ---
 
-<a id="toc-12"></a>
 # 12. Checklist and common mistakes
 
 ## Proof checklist

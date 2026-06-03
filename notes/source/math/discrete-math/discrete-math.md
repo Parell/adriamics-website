@@ -9,24 +9,6 @@ sources: []
 # Discrete Mathematics
 
 Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.
-
-## Table of contents
-
-1. [Logic and propositions](#toc-1)
-2. [Sets, functions, and relations](#toc-2)
-3. [Proof techniques](#toc-3)
-4. [Induction and recursion](#toc-4)
-5. [Counting and combinatorics](#toc-5)
-6. [Discrete probability](#toc-6)
-7. [Number theory and modular arithmetic](#toc-7)
-8. [Graphs and trees](#toc-8)
-9. [Algorithms, growth, and recurrences](#toc-9)
-10. [Problem-solving workflow](#toc-10)
-11. [Formula sheet](#toc-11)
-
----
-
-<a id="toc-1"></a>
 ## 1. Logic and propositions
 
 A **proposition** is a statement that is either true or false.
@@ -119,7 +101,6 @@ so $n^2$ is even.
 
 ---
 
-<a id="toc-2"></a>
 ## 2. Sets, functions, and relations
 
 ## Sets
@@ -233,7 +214,6 @@ Partially ordered sets are often visualized with **Hasse diagrams**.
 
 ---
 
-<a id="toc-3"></a>
 ## 3. Proof techniques
 
 Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions.
@@ -287,7 +267,6 @@ Do not verify a general statement with a few examples. Examples can suggest a pa
 
 ---
 
-<a id="toc-4"></a>
 ## 4. Induction and recursion
 
 ## Mathematical induction
@@ -358,7 +337,6 @@ To work with recursive definitions:
 
 ---
 
-<a id="toc-5"></a>
 ## 5. Counting and combinatorics
 
 Counting arguments appear everywhere in probability, algorithms, graph theory, and proof.
@@ -454,7 +432,6 @@ objects.
 
 ---
 
-<a id="toc-6"></a>
 ## 6. Discrete probability
 
 Probability in discrete math is usually built on counting.
@@ -536,7 +513,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 ## 7. Number theory and modular arithmetic
 
 ## Divisibility
@@ -630,7 +606,6 @@ $$
 
 ---
 
-<a id="toc-8"></a>
 ## 8. Graphs and trees
 
 A **graph** consists of vertices and edges.
@@ -697,7 +672,6 @@ Common traversal orders:
 
 ---
 
-<a id="toc-9"></a>
 ## 9. Algorithms, growth, and recurrences
 
 Discrete math often studies whether a procedure is correct and how quickly it grows.
@@ -791,7 +765,6 @@ Loop invariants are a standard proof tool:
 
 ---
 
-<a id="toc-10"></a>
 ## 10. Problem-solving workflow
 
 Use this checklist for most discrete mathematics problems.
@@ -859,7 +832,6 @@ Make sure the proof ends with the right type of claim:
 
 ---
 
-<a id="toc-11"></a>
 ## 11. Formula sheet
 
 ## Logic

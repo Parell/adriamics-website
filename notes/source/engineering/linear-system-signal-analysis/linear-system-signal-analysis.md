@@ -6,27 +6,6 @@ last_reviewed: 2026-05-22
 sources: []
 ---
 
-# Linear System and Signal Analysis
-
-## Table of contents
-
-1. [Signals, systems, and core models](#toc-1)
-2. [Basic signal operations](#toc-2)
-3. [System properties](#toc-3)
-4. [Linear time-invariant systems](#toc-4)
-5. [Convolution](#toc-5)
-6. [Frequency response and steady-state sinusoidal analysis](#toc-6)
-7. [Fourier series and Fourier transform](#toc-7)
-8. [Laplace transform](#toc-8)
-9. [Z-transform and discrete-time analysis](#toc-9)
-10. [Sampling and reconstruction](#toc-10)
-11. [State-space viewpoint](#toc-11)
-12. [Problem-solving workflow](#toc-12)
-13. [Formula summary](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. Signals, systems, and core models
 
 ## Signals
@@ -35,14 +14,14 @@ A **signal** is a function that carries information. In engineering, signals usu
 
 Common classifications:
 
-| Type | Example | Notes |
-| --- | --- | --- |
-| Continuous-time | $x(t)$ | Defined for every real $t$ |
-| Discrete-time | $x[n]$ | Defined only at integer index $n$ |
-| Analog | Microphone voltage | Continuous amplitude |
-| Digital | Quantized samples | Finite resolution and sampled in time |
-| Deterministic | $e^{-at}$ | Exactly described by an equation |
-| Random | Thermal noise | Described statistically |
+| Type            | Example            | Notes                                 |
+| --------------- | ------------------ | ------------------------------------- |
+| Continuous-time | $x(t)$             | Defined for every real $t$            |
+| Discrete-time   | $x[n]$             | Defined only at integer index $n$     |
+| Analog          | Microphone voltage | Continuous amplitude                  |
+| Digital         | Quantized samples  | Finite resolution and sampled in time |
+| Deterministic   | $e^{-at}$          | Exactly described by an equation      |
+| Random          | Thermal noise      | Described statistically               |
 
 Useful elementary signals:
 
@@ -89,7 +68,6 @@ The most important system class in this subject is the **linear time-invariant**
 
 ---
 
-<a id="toc-2"></a>
 # 2. Basic signal operations
 
 ## Time shifting
@@ -152,7 +130,6 @@ The same formulas hold in discrete time by replacing $t$ with $n$.
 
 ---
 
-<a id="toc-3"></a>
 # 3. System properties
 
 ## Linearity
@@ -249,7 +226,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Linear time-invariant systems
 
 LTI systems are central because they are completely characterized by their response to an impulse.
@@ -297,7 +273,6 @@ To test whether such a model is LTI, check linearity and whether the coefficient
 
 ---
 
-<a id="toc-5"></a>
 # 5. Convolution
 
 Convolution is the main tool for computing the output of an LTI system.
@@ -375,7 +350,6 @@ This is a simple smoothing filter.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Frequency response and steady-state sinusoidal analysis
 
 ## Sinusoids as test signals
@@ -452,7 +426,6 @@ General rule:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Fourier series and Fourier transform
 
 ## Fourier series for periodic signals
@@ -508,13 +481,13 @@ It expresses a signal as a continuum of frequencies.
 
 ## Important properties
 
-| Property | Time domain | Frequency domain |
-| --- | --- | --- |
-| Linearity | $ax_1 + bx_2$ | $aX_1 + bX_2$ |
-| Time shift | $x(t-t_0)$ | $e^{-j\omega t_0}X(j\omega)$ |
-| Modulation | $e^{j\omega_0 t}x(t)$ | $X(j(\omega-\omega_0))$ |
-| Convolution | $x*h$ | $XH$ |
-| Multiplication | $x h$ | Convolution in frequency |
+| Property       | Time domain           | Frequency domain             |
+| -------------- | --------------------- | ---------------------------- |
+| Linearity      | $ax_1 + bx_2$         | $aX_1 + bX_2$                |
+| Time shift     | $x(t-t_0)$            | $e^{-j\omega t_0}X(j\omega)$ |
+| Modulation     | $e^{j\omega_0 t}x(t)$ | $X(j(\omega-\omega_0))$      |
+| Convolution    | $x*h$                 | $XH$                         |
+| Multiplication | $x h$                 | Convolution in frequency     |
 
 ## Parseval's relation
 
@@ -529,16 +502,15 @@ This is useful for energy calculations and spectral interpretation.
 
 ## Common transforms
 
-| Signal | Fourier transform |
-| --- | --- |
-| $\delta(t)$ | $1$ |
-| $u(t)$ | $\pi\delta(\omega) + \frac{1}{j\omega}$ in distribution sense |
-| $e^{-at}u(t),\ a>0$ | $\frac{1}{a+j\omega}$ |
-| Rectangular pulse | Sinc-shaped spectrum |
+| Signal              | Fourier transform                                             |
+| ------------------- | ------------------------------------------------------------- |
+| $\delta(t)$         | $1$                                                           |
+| $u(t)$              | $\pi\delta(\omega) + \frac{1}{j\omega}$ in distribution sense |
+| $e^{-at}u(t),\ a>0$ | $\frac{1}{a+j\omega}$                                         |
+| Rectangular pulse   | Sinc-shaped spectrum                                          |
 
 ---
 
-<a id="toc-8"></a>
 # 8. Laplace transform
 
 The Laplace transform is the main tool for continuous-time linear systems with initial conditions.
@@ -625,7 +597,6 @@ This is the standard route for transient response problems.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Z-transform and discrete-time analysis
 
 The Z-transform is the discrete-time counterpart of the Laplace transform.
@@ -691,7 +662,6 @@ This connects the Z-transform to steady-state sinusoidal behavior.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Sampling and reconstruction
 
 Sampling converts a continuous-time signal into a discrete-time signal:
@@ -739,7 +709,6 @@ This is idealized but useful for theory.
 
 ---
 
-<a id="toc-11"></a>
 # 11. State-space viewpoint
 
 State-space models represent systems using first-order vector equations.
@@ -788,7 +757,6 @@ State-space and transfer-function descriptions are equivalent for linear systems
 
 ---
 
-<a id="toc-12"></a>
 # 12. Problem-solving workflow
 
 ## Decide the domain first
@@ -831,7 +799,6 @@ This decides whether to use convolution, Fourier, Laplace, or Z-transform method
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula summary
 
 ## Core definitions

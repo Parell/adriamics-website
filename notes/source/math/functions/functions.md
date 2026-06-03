@@ -5,23 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What a function is](#toc-1)
-2. [Notation, domain, codomain, and range](#toc-2)
-3. [Reading and evaluating functions](#toc-3)
-4. [Common function families](#toc-4)
-5. [Transformations and graph behavior](#toc-5)
-6. [Composition and inverse functions](#toc-6)
-7. [Piecewise functions and modeling](#toc-7)
-8. [Rates of change and calculus connections](#toc-8)
-9. [Problem-solving workflow](#toc-9)
-10. [Formula sheet](#toc-10)
-
----
-
-<a id="toc-1"></a>
 # 1. What a function is
 
 A **function** is a rule that assigns each input exactly one output.
@@ -53,7 +36,6 @@ This is a fast visual check, but it is not a substitute for reasoning about the 
 
 ---
 
-<a id="toc-2"></a>
 # 2. Notation, domain, codomain, and range
 
 ## Standard notation
@@ -108,7 +90,6 @@ Do not confuse codomain with range. The codomain is a design choice; the range i
 
 ---
 
-<a id="toc-3"></a>
 # 3. Reading and evaluating functions
 
 ## Evaluating at a point
@@ -152,7 +133,6 @@ Keep units consistent when substituting values into formulas.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Common function families
 
 ## Polynomial functions
@@ -231,7 +211,6 @@ They are periodic and appear in waves, rotation, and oscillation models.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Transformations and graph behavior
 
 ## Basic transformations
@@ -309,7 +288,6 @@ Graphically:
 
 ---
 
-<a id="toc-6"></a>
 # 6. Composition and inverse functions
 
 ## Composition
@@ -401,7 +379,6 @@ Quick checks:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Piecewise functions and modeling
 
 ## Piecewise definitions
@@ -452,7 +429,6 @@ Good models should state:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Rates of change and calculus connections
 
 ## Average rate of change
@@ -488,7 +464,6 @@ Many calculus ideas depend on function properties:
 
 ---
 
-<a id="toc-9"></a>
 # 9. Problem-solving workflow
 
 When working with functions, use a consistent checklist.
@@ -519,7 +494,6 @@ When working with functions, use a consistent checklist.
 
 ---
 
-<a id="toc-10"></a>
 # 10. Formula sheet
 
 ## Definitions

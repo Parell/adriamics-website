@@ -7,25 +7,6 @@ sources: []
 ---
 
 # Geometry
-
-## Table of contents
-
-1. [Foundations and notation](#toc-1)
-2. [Angles, lines, and parallelism](#toc-2)
-3. [Triangles](#toc-3)
-4. [Congruence and similarity](#toc-4)
-5. [Right triangles and trigonometry](#toc-5)
-6. [Quadrilaterals and polygons](#toc-6)
-7. [Circles](#toc-7)
-8. [Coordinate geometry](#toc-8)
-9. [Transformations and symmetry](#toc-9)
-10. [Area, perimeter, surface area, and volume](#toc-10)
-11. [Proof strategies and problem-solving workflow](#toc-11)
-12. [Formula sheet](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. Foundations and notation
 
 Geometry studies shape, size, position, and relationships in the plane and in space.
@@ -61,7 +42,6 @@ Common notation:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Angles, lines, and parallelism
 
 ## Angle types
@@ -104,7 +84,6 @@ when $m \ne 0$.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Triangles
 
 Triangles are central because many geometric problems reduce to triangle relationships.
@@ -164,7 +143,6 @@ Key fact:
 
 ---
 
-<a id="toc-4"></a>
 # 4. Congruence and similarity
 
 ## Congruence
@@ -213,7 +191,6 @@ and corresponding angles are equal.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Right triangles and trigonometry
 
 ## Pythagorean theorem
@@ -265,7 +242,6 @@ Use trig when the problem involves an angle and a side length that is not direct
 
 ---
 
-<a id="toc-6"></a>
 # 6. Quadrilaterals and polygons
 
 ## Quadrilateral families
@@ -309,7 +285,6 @@ The exterior angles of any polygon sum to $360^\circ$.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Circles
 
 ## Core definitions
@@ -377,7 +352,6 @@ $$
 
 ---
 
-<a id="toc-8"></a>
 # 8. Coordinate geometry
 
 Coordinate geometry lets you translate geometric questions into algebra.
@@ -419,7 +393,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 9. Transformations and symmetry
 
 ## Rigid motions
@@ -451,7 +424,6 @@ Symmetry is often a shortcut for finding equal lengths, angles, or missing parts
 
 ---
 
-<a id="toc-10"></a>
 # 10. Area, perimeter, surface area, and volume
 
 ## Perimeter and area
@@ -487,7 +459,6 @@ Surface area is the total area of all outer faces. A reliable method is:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Proof strategies and problem-solving workflow
 
 ## Common proof tools
@@ -522,7 +493,6 @@ Surface area is the total area of all outer faces. A reliable method is:
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula sheet
 
 ## Angle and triangle formulas

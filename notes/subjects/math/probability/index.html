@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/probability/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,53 @@
       <div class="viewer-head">
         <div>
           <h1>Probability</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fmath%2Fprobability%2Fprobability.md&amp;title=%5BCorrection%5D%3A%20Probability" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/probability/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">Probability language and sample spaces</a></p></li><li><p><a href="#toc-2">Counting methods</a></p></li><li><p><a href="#toc-3">Axioms and basic rules</a></p></li><li><p><a href="#toc-4">Conditional probability and Bayes&#39; theorem</a></p></li><li><p><a href="#toc-5">Random variables</a></p></li><li><p><a href="#toc-6">Expectation, variance, and moments</a></p></li><li><p><a href="#toc-7">Common discrete distributions</a></p></li><li><p><a href="#toc-8">Common continuous distributions</a></p></li><li><p><a href="#toc-9">Joint distributions and dependence</a></p></li><li><p><a href="#toc-10">Law of large numbers and central limit theorem</a></p></li><li><p><a href="#toc-11">Problem-solving workflow</a></p></li><li><p><a href="#toc-12">Formula sheet</a></p></li><li><p><a href="#toc-13">Common mistakes to avoid</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-probability-language-and-sample-spaces">1. Probability language and sample spaces</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-probability-language-and-sample-spaces">1. Probability language and sample spaces</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#outcomes-events-and-sample-spaces">Outcomes, events, and sample spaces</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#event-operations">Event operations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#equally-likely-outcomes">Equally likely outcomes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#probability-as-a-number">Probability as a number</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-counting-methods">2. Counting methods</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#product-rule">Product rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#factorial">Factorial</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#permutations">Permutations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#combinations">Combinations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#with-and-without-replacement">With and without replacement</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-counting-patterns">Common counting patterns</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#arrangements-with-repeated-objects">Arrangements with repeated objects</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#stars-and-bars">Stars and bars</a></li></ol></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-axioms-and-basic-rules">3. Axioms and basic rules</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#kolmogorov-axioms">Kolmogorov axioms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#complement-rule">Complement rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#addition-rule">Addition rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inclusion-exclusion">Inclusion-exclusion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#union-bound">Union bound</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-conditional-probability-and-bayes-theorem">4. Conditional probability and Bayes&#39; theorem</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#conditional-probability">Conditional probability</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#independence">Independence</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#law-of-total-probability">Law of total probability</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#bayes-theorem">Bayes&#39; theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#diagnostic-interpretation">Diagnostic interpretation</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-random-variables">5. Random variables</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#discrete-random-variables">Discrete random variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#continuous-random-variables">Continuous random variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#cdf-for-continuous-and-discrete-variables">CDF for continuous and discrete variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#transformations">Transformations</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-expectation-variance-and-moments">6. Expectation, variance, and moments</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#expected-value">Expected value</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#linearity-of-expectation">Linearity of expectation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variance">Variance</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#covariance">Covariance</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#correlation">Correlation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#moments">Moments</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-common-discrete-distributions">7. Common discrete distributions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#bernoulli-distribution">Bernoulli distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#binomial-distribution">Binomial distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#geometric-distribution">Geometric distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#negative-binomial-distribution">Negative binomial distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#poisson-distribution">Poisson distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#hypergeometric-distribution">Hypergeometric distribution</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-common-continuous-distributions">8. Common continuous distributions</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#uniform-distribution">Uniform distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exponential-distribution">Exponential distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#normal-distribution">Normal distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#gamma-distribution">Gamma distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#beta-distribution">Beta distribution</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-joint-distributions-and-dependence">9. Joint distributions and dependence</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#joint-distribution">Joint distribution</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#marginal-distributions">Marginal distributions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conditional-distributions">Conditional distributions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#independence-of-random-variables">Independence of random variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conditional-expectation">Conditional expectation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#covariance-matrix">Covariance matrix</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-law-of-large-numbers-and-central-limit-theorem">10. Law of large numbers and central limit theorem</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#law-of-large-numbers">Law of large numbers</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#central-limit-theorem">Central limit theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#standard-error">Standard error</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#normal-approximation-to-binomial">Normal approximation to binomial</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#step-1-define-the-experiment">Step 1: Define the experiment</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-2-identify-the-event">Step 2: Identify the event</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-3-choose-the-right-tool">Step 3: Choose the right tool</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-4-compute-carefully">Step 4: Compute carefully</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#step-5-check-the-result">Step 5: Check the result</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#indicator-variables">Indicator variables</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-formula-sheet">12. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-rules">Core rules</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#bayes-and-total-probability">Bayes and total probability</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#counting">Counting</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#random-variables">Random variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#expectation-and-variance">Expectation and variance</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#standard-distributions">Standard distributions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#key-moments">Key moments</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#limit-theorems">Limit theorems</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-common-mistakes-to-avoid">13. Common mistakes to avoid</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#quick-reference-for-modeling">Quick reference for modeling</a></li></ol></div>
+    </nav>
+        <section class="interactive-demo panel" data-math-demo="probability" data-math-demo-id="probability">
+    <div class="interactive-demo__head">
+      <p class="section-label">Interactive visual</p>
+      <h2 class="interactive-demo__title">Binomial distribution</h2>
+      <p class="interactive-demo__summary">Adjust the success probability and trial count to see how the distribution of outcomes changes.</p>
+    </div>
+    <div class="interactive-demo__body">
+      <div class="interactive-demo__controls" role="group" aria-label="Binomial distribution controls">
+        <label class="interactive-demo__control" for="math-demo-probability-probability">
+    <span class="interactive-demo__control-label">Success probability p <output id="math-demo-probability-probability-value">0.5</output></span>
+    <input id="math-demo-probability-probability" type="range" min="0.1" max="0.9" step="0.05" value="0.5" />
+  </label><label class="interactive-demo__control" for="math-demo-probability-trials">
+    <span class="interactive-demo__control-label">Trials n <output id="math-demo-probability-trials-value">6</output></span>
+    <input id="math-demo-probability-trials" type="range" min="1" max="12" step="1" value="6" />
+  </label>
+      </div>
+      <div class="interactive-demo__figure">
+        <div class="interactive-demo__readouts"><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Expected value</span>
+    <span class="interactive-demo__metric-value" id="math-demo-probability-expected">3.0</span>
+  </div><div class="interactive-demo__metric">
+    <span class="interactive-demo__metric-label">Variance</span>
+    <span class="interactive-demo__metric-value" id="math-demo-probability-variance">1.5</span>
+  </div></div>
+        <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="math-demo-probability-title math-demo-probability-desc">
+          <title id="math-demo-probability-title">Probability bars</title>
+          <desc id="math-demo-probability-desc">A bar chart showing the distribution of success counts.</desc>
+          <g id="math-demo-probability-bars" fill="var(--accent-strong)"></g>
+          <g id="math-demo-probability-axis" stroke="var(--border)" stroke-width="1"></g>
+        </svg>
+        
+      </div>
+    </div>
+  </section>
+        <h1 id="1-probability-language-and-sample-spaces">1. Probability language and sample spaces</h1>
 <p>Probability is the mathematics of uncertainty. A probability model has three parts:</p>
 <ul><li><p>A <strong>sample space</strong> $\Omega$ of possible outcomes</p></li><li><p>A <strong>collection of events</strong> built from subsets of $\Omega$</p></li><li><p>A <strong>probability measure</strong> $P$ assigning likelihoods to events</p></li></ul>
 <h2 id="outcomes-events-and-sample-spaces">Outcomes, events, and sample spaces</h2>
@@ -114,7 +166,6 @@ $$</div>
 <p>Interpretation:</p>
 <ul><li><p>$P(A)=0$ means impossible in the model</p></li><li><p>$P(A)=1$ means certain in the model</p></li><li><p>Values near 0 or 1 mean very unlikely or very likely</p></li></ul>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-counting-methods">2. Counting methods</h1>
 <p>Counting is often the first step in a probability problem. If you can count outcomes correctly, the probability usually follows.</p>
 <h2 id="product-rule">Product rule</h2>
@@ -167,7 +218,6 @@ $$</div>
 $$</div>
 <p>This is useful for allocation and composition problems.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-axioms-and-basic-rules">3. Axioms and basic rules</h1>
 <p>Probability obeys a few core rules. Most other formulas come from these.</p>
 <h2 id="kolmogorov-axioms">Kolmogorov axioms</h2>
@@ -206,7 +256,6 @@ P\left(\bigcup_{i=1}^n A_i\right) \le \sum_{i=1}^n P(A_i)
 $$</div>
 <p>The union bound is useful for quick upper bounds.</p>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-conditional-probability-and-bayes-theorem">4. Conditional probability and Bayes&#39; theorem</h1>
 <p>Conditional probability updates probability after new information is observed.</p>
 <h2 id="conditional-probability">Conditional probability</h2>
@@ -258,7 +307,6 @@ $$</div>
 <ul><li><p>Prior probability: $P(A)$</p></li><li><p>Likelihood: $P(B \mid A)$</p></li><li><p>Evidence: $P(B)$</p></li><li><p>Posterior probability: $P(A \mid B)$</p></li></ul>
 <p>Bayes&#39; theorem converts a test result into an updated belief about the underlying cause.</p>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-random-variables">5. Random variables</h1>
 <p>A <strong>random variable</strong> maps outcomes to numbers.</p>
 <h2 id="discrete-random-variables">Discrete random variables</h2>
@@ -300,7 +348,6 @@ $$</div>
 <ol><li><p>Relating $Y$ to $X$</p></li><li><p>Solving for the relevant interval in terms of $X$</p></li><li><p>Integrating or summing over that interval</p></li></ol>
 <p>For monotone transformations of continuous variables, the pdf can often be obtained via the change-of-variables formula.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-expectation-variance-and-moments">6. Expectation, variance, and moments</h1>
 <p>Expectation is the long-run average value of a random variable.</p>
 <h2 id="expected-value">Expected value</h2>
@@ -371,7 +418,6 @@ $$</div>
 <p>The $k$th central moment is $E[(X-\mu)^k]$.</p>
 <p>These moments are useful for characterizing distributions.</p>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-common-discrete-distributions">7. Common discrete distributions</h1>
 <p>Discrete distributions model counts, categories, and repeated trials.</p>
 <h2 id="bernoulli-distribution">Bernoulli distribution</h2>
@@ -454,7 +500,6 @@ E[X] = n\frac{K}{N}
 $$</div>
 <p>Use hypergeometric instead of binomial when draws are dependent because the population is finite.</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-common-continuous-distributions">8. Common continuous distributions</h1>
 <p>Continuous distributions model measurements and waiting times.</p>
 <h2 id="uniform-distribution">Uniform distribution</h2>
@@ -517,7 +562,6 @@ f_X(x) = \frac{x^{\alpha-1}(1-x)^{\beta-1}}{B(\alpha,\beta)}, \quad 0 \le x \le 
 $$</div>
 <p>It is especially useful in Bayesian modeling.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-joint-distributions-and-dependence">9. Joint distributions and dependence</h1>
 <p>Many problems involve multiple random variables.</p>
 <h2 id="joint-distribution">Joint distribution</h2>
@@ -576,7 +620,6 @@ $$</div>
 $$</div>
 <p>The diagonal entries are variances.</p>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-law-of-large-numbers-and-central-limit-theorem">10. Law of large numbers and central limit theorem</h1>
 <p>These limit theorems explain why averages become stable and why the normal distribution appears so often.</p>
 <h2 id="law-of-large-numbers">Law of large numbers</h2>
@@ -610,7 +653,6 @@ X \sim \mathrm{Binomial}(n,p) \approx \mathcal{N}(np, np(1-p))
 $$</div>
 <p>Use a continuity correction when appropriate.</p>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-problem-solving-workflow">11. Problem-solving workflow</h1>
 <p>Probability problems are usually easier if you identify the model before doing algebra.</p>
 <h2 id="step-1-define-the-experiment">Step 1: Define the experiment</h2>
@@ -644,7 +686,6 @@ E[I_A] = P(A)
 $$</div>
 <p>Indicator variables are a powerful way to count expected numbers of events.</p>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-formula-sheet">12. Formula sheet</h1>
 <h2 id="core-rules">Core rules</h2>
 <div class="math-block">$$
@@ -768,20 +809,43 @@ $$</div>
 \frac{\bar{X}_n-\mu}{\sigma/\sqrt{n}} \approx \mathcal{N}(0,1)
 $$</div>
 <hr />
-<a id="toc-13"></a>
 <h1 id="13-common-mistakes-to-avoid">13. Common mistakes to avoid</h1>
 <ul><li><p>Confusing permutations with combinations.</p></li><li><p>Forgetting whether order matters.</p></li><li><p>Using the binomial model when sampling is without replacement from a small finite population.</p></li><li><p>Applying conditional probability as if events were independent.</p></li><li><p>Treating continuous variables like discrete ones, especially by assigning positive probability to a single point.</p></li><li><p>Forgetting to normalize a pdf or pmf.</p></li><li><p>Misusing Bayes&#39; theorem by swapping $P(A\mid B)$ and $P(B\mid A)$.</p></li><li><p>Ignoring the complement rule for &quot;at least one&quot; problems.</p></li><li><p>Assuming zero covariance implies independence.</p></li><li><p>Forgetting continuity corrections in normal approximations to discrete counts.</p></li></ul>
 <hr />
 <h1 id="quick-reference-for-modeling">Quick reference for modeling</h1>
 <ul><li><p>Use <strong>binomial</strong> for fixed independent trials with success probability $p$.</p></li><li><p>Use <strong>hypergeometric</strong> for sampling without replacement.</p></li><li><p>Use <strong>Poisson</strong> for counts of rare events in time or space.</p></li><li><p>Use <strong>exponential</strong> for waiting times between Poisson events.</p></li><li><p>Use <strong>normal</strong> for sums, averages, and large-sample approximations.</p></li><li><p>Use <strong>Bayes&#39; theorem</strong> when information is observed and beliefs must be updated.</p></li></ul>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/math/probability/probability.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/math/probability/probability.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-probability-language-and-sample-spaces">1. Probability language and sample spaces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#outcomes-events-and-sample-spaces">Outcomes, events, and sample spaces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#event-operations">Event operations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#equally-likely-outcomes">Equally likely outcomes</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#probability-as-a-number">Probability as a number</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-counting-methods">2. Counting methods</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#product-rule">Product rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#factorial">Factorial</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#permutations">Permutations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#combinations">Combinations</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#with-and-without-replacement">With and without replacement</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-counting-patterns">Common counting patterns</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#arrangements-with-repeated-objects">Arrangements with repeated objects</a></li><li class="notes-toc__item" style="--toc-indent: 2"><a class="notes-toc__link" href="#stars-and-bars">Stars and bars</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-axioms-and-basic-rules">3. Axioms and basic rules</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kolmogorov-axioms">Kolmogorov axioms</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#complement-rule">Complement rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#addition-rule">Addition rule</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#inclusion-exclusion">Inclusion-exclusion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#union-bound">Union bound</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-conditional-probability-and-bayes-theorem">4. Conditional probability and Bayes&#39; theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conditional-probability">Conditional probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#independence">Independence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#law-of-total-probability">Law of total probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#bayes-theorem">Bayes&#39; theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#diagnostic-interpretation">Diagnostic interpretation</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-random-variables">5. Random variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#discrete-random-variables">Discrete random variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#continuous-random-variables">Continuous random variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#cdf-for-continuous-and-discrete-variables">CDF for continuous and discrete variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#transformations">Transformations</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-expectation-variance-and-moments">6. Expectation, variance, and moments</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#expected-value">Expected value</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linearity-of-expectation">Linearity of expectation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variance">Variance</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#covariance">Covariance</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#correlation">Correlation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#moments">Moments</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-common-discrete-distributions">7. Common discrete distributions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#bernoulli-distribution">Bernoulli distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#binomial-distribution">Binomial distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#geometric-distribution">Geometric distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#negative-binomial-distribution">Negative binomial distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#poisson-distribution">Poisson distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#hypergeometric-distribution">Hypergeometric distribution</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-common-continuous-distributions">8. Common continuous distributions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#uniform-distribution">Uniform distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#exponential-distribution">Exponential distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-distribution">Normal distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#gamma-distribution">Gamma distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#beta-distribution">Beta distribution</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-joint-distributions-and-dependence">9. Joint distributions and dependence</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#joint-distribution">Joint distribution</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#marginal-distributions">Marginal distributions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conditional-distributions">Conditional distributions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#independence-of-random-variables">Independence of random variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conditional-expectation">Conditional expectation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#covariance-matrix">Covariance matrix</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-law-of-large-numbers-and-central-limit-theorem">10. Law of large numbers and central limit theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#law-of-large-numbers">Law of large numbers</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#central-limit-theorem">Central limit theorem</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#standard-error">Standard error</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-approximation-to-binomial">Normal approximation to binomial</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-problem-solving-workflow">11. Problem-solving workflow</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-1-define-the-experiment">Step 1: Define the experiment</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-2-identify-the-event">Step 2: Identify the event</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-3-choose-the-right-tool">Step 3: Choose the right tool</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-4-compute-carefully">Step 4: Compute carefully</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#step-5-check-the-result">Step 5: Check the result</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#indicator-variables">Indicator variables</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-formula-sheet">12. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#core-rules">Core rules</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#bayes-and-total-probability">Bayes and total probability</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#counting">Counting</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#random-variables">Random variables</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#expectation-and-variance">Expectation and variance</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#standard-distributions">Standard distributions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#key-moments">Key moments</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#limit-theorems">Limit theorems</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-common-mistakes-to-avoid">13. Common mistakes to avoid</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#quick-reference-for-modeling">Quick reference for modeling</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

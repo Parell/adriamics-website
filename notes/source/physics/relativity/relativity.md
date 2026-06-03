@@ -7,27 +7,6 @@ sources: []
 ---
 
 # Relativity
-
-## Table of contents
-
-1. [Why relativity is needed](#toc-1)
-2. [Special relativity: postulates and frames](#toc-2)
-3. [Lorentz transformations](#toc-3)
-4. [Spacetime interval and causality](#toc-4)
-5. [Time dilation and length contraction](#toc-5)
-6. [Relativity of simultaneity](#toc-6)
-7. [Velocity and acceleration in relativity](#toc-7)
-8. [Energy and momentum](#toc-8)
-9. [Relativistic dynamics and collisions](#toc-9)
-10. [General relativity: gravity as geometry](#toc-10)
-11. [Gravitational time dilation and light bending](#toc-11)
-12. [Common problem-solving workflow](#toc-12)
-13. [Formula sheet](#toc-13)
-14. [Common mistakes to avoid](#toc-14)
-
----
-
-<a id="toc-1"></a>
 # 1. Why relativity is needed
 
 Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed of light, but it fails for:
@@ -57,7 +36,6 @@ For everyday speeds, classical formulas are usually adequate because relativisti
 
 ---
 
-<a id="toc-2"></a>
 # 2. Special relativity: postulates and frames
 
 Special relativity applies to inertial frames, meaning frames moving at constant velocity relative to one another.
@@ -94,7 +72,6 @@ or, often, by the spacetime coordinate pair $(ct, x)$ in one dimension.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Lorentz transformations
 
 The Lorentz transformations relate the coordinates of the same event between two inertial frames moving at relative speed $v$ along the $x$-axis.
@@ -147,7 +124,6 @@ The transformations mix space and time. That is the mathematical reason that:
 
 ---
 
-<a id="toc-4"></a>
 # 4. Spacetime interval and causality
 
 The spacetime interval between two events is invariant under Lorentz transformations.
@@ -194,7 +170,6 @@ Proper time is the shortest time elapsed between two timelike-separated events a
 
 ---
 
-<a id="toc-5"></a>
 # 5. Time dilation and length contraction
 
 ## Time dilation
@@ -238,7 +213,6 @@ These are the natural reference values in relativity problems.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Relativity of simultaneity
 
 Events that are simultaneous in one frame need not be simultaneous in another.
@@ -267,7 +241,6 @@ If two flashes occur at the same time in one frame, that does not mean they were
 
 ---
 
-<a id="toc-7"></a>
 # 7. Velocity and acceleration in relativity
 
 Classical velocity addition fails at high speed.
@@ -304,7 +277,6 @@ For force and acceleration problems, the acceleration need not point in the same
 
 ---
 
-<a id="toc-8"></a>
 # 8. Energy and momentum
 
 Relativity unifies energy and momentum into a single framework.
@@ -381,7 +353,6 @@ Its invariant magnitude is tied to rest mass.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Relativistic dynamics and collisions
 
 The relativistic conservation laws look familiar, but the conserved quantities are different from the classical approximations.
@@ -424,7 +395,6 @@ For particle reactions, use the invariant quantity before and after the event. T
 
 ---
 
-<a id="toc-10"></a>
 # 10. General relativity: gravity as geometry
 
 Special relativity handles inertial frames. General relativity extends the framework to accelerated frames and gravity.
@@ -460,7 +430,6 @@ General relativity is important for:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Gravitational time dilation and light bending
 
 ## Gravitational time dilation
@@ -494,7 +463,6 @@ This is one of the classic observational tests of general relativity.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Common problem-solving workflow
 
 Use this workflow for most relativity problems.
@@ -567,7 +535,6 @@ Verify that your result reduces to the classical answer when $v \ll c$.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula sheet
 
 ## Lorentz factor
@@ -646,7 +613,6 @@ $$
 
 ---
 
-<a id="toc-14"></a>
 # 14. Common mistakes to avoid
 
 - Using Galilean velocity addition when speeds are relativistic.

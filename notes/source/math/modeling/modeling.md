@@ -5,25 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [What mathematical modeling is](#toc-1)
-2. [The modeling cycle](#toc-2)
-3. [Types of models](#toc-3)
-4. [Core modeling tools](#toc-4)
-5. [Parameter fitting and calibration](#toc-5)
-6. [Validation and error analysis](#toc-6)
-7. [Common model families](#toc-7)
-8. [Worked example: population growth](#toc-8)
-9. [Worked example: optimization model](#toc-9)
-10. [Common pitfalls](#toc-10)
-11. [Problem-solving checklist](#toc-11)
-12. [Formula summary](#toc-12)
-
----
-
-<a id="toc-1"></a>
 # 1. What mathematical modeling is
 
 Mathematical modeling is the process of representing a real-world system with mathematical structures so that the system can be analyzed, predicted, or optimized.
@@ -51,7 +32,6 @@ Modeling is always a tradeoff between fidelity and tractability. More detail usu
 
 ---
 
-<a id="toc-2"></a>
 # 2. The modeling cycle
 
 Most modeling problems follow a recurring cycle.
@@ -128,7 +108,6 @@ The best models are often iterative, not one-shot.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Types of models
 
 ## Deterministic and stochastic
@@ -208,7 +187,6 @@ Examples:
 
 ---
 
-<a id="toc-4"></a>
 # 4. Core modeling tools
 
 ## Dimensional analysis
@@ -294,7 +272,6 @@ where $\mathbf{x}$ is the state vector and $\mathbf{p}$ is the parameter vector.
 
 ---
 
-<a id="toc-5"></a>
 # 5. Parameter fitting and calibration
 
 Parameters are numbers chosen so the model matches observed data.
@@ -350,7 +327,6 @@ A model should generalize, not just memorize the calibration data.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Validation and error analysis
 
 Model validation checks whether the model is reliable for its intended use.
@@ -397,7 +373,6 @@ Useful checks include:
 
 ---
 
-<a id="toc-7"></a>
 # 7. Common model families
 
 ## Linear models
@@ -483,7 +458,6 @@ Examples:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Worked example: population growth
 
 Suppose a population grows at a rate proportional to its current size.
@@ -542,7 +516,6 @@ This adds self-limiting behavior:
 
 ---
 
-<a id="toc-9"></a>
 # 9. Worked example: optimization model
 
 Suppose a company wants to minimize cost while meeting a production target.
@@ -589,7 +562,6 @@ The important part is not just solving the equations. It is making sure the vari
 
 ---
 
-<a id="toc-10"></a>
 # 10. Common pitfalls
 
 ## Confusing correlation with causation
@@ -629,7 +601,6 @@ If multiple parameter sets produce nearly the same output, the model may not be 
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving checklist
 
 Use this workflow when building or solving a model.
@@ -649,7 +620,6 @@ If the result looks strange, do not force the algebra. Re-check the assumptions 
 
 ---
 
-<a id="toc-12"></a>
 # 12. Formula summary
 
 ## Growth and decay

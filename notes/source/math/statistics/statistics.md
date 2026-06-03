@@ -7,25 +7,6 @@ sources: []
 ---
 
 # Statistics
-
-## Table of contents
-
-1. [What statistics studies](#toc-1)
-2. [Data, variables, and measurement scales](#toc-2)
-3. [Describing a distribution](#toc-3)
-4. [Probability essentials](#toc-4)
-5. [Common distributions](#toc-5)
-6. [Sampling and the central limit theorem](#toc-6)
-7. [Estimation and confidence intervals](#toc-7)
-8. [Hypothesis testing](#toc-8)
-9. [Correlation and regression](#toc-9)
-10. [Nonparametric and categorical methods](#toc-10)
-11. [Practical workflow and pitfalls](#toc-11)
-12. [Formula sheet](#toc-12)
-
----
-
-<a id="toc-1"></a>
 ## 1. What statistics studies
 
 Statistics is the science of turning data into conclusions under uncertainty.
@@ -51,7 +32,6 @@ Because samples are incomplete, every statistical conclusion carries uncertainty
 
 ---
 
-<a id="toc-2"></a>
 ## 2. Data, variables, and measurement scales
 
 ## Types of variables
@@ -90,7 +70,6 @@ These are not cosmetic issues. They can change the answer.
 
 ---
 
-<a id="toc-3"></a>
 ## 3. Describing a distribution
 
 A distribution describes how values are spread across a variable.
@@ -167,7 +146,6 @@ This summary underlies the boxplot.
 
 ---
 
-<a id="toc-4"></a>
 ## 4. Probability essentials
 
 Probability models uncertainty mathematically.
@@ -241,7 +219,6 @@ Bayes' rule reverses conditioning. It is especially important in diagnostics and
 
 ---
 
-<a id="toc-5"></a>
 ## 5. Common distributions
 
 ## Bernoulli
@@ -330,7 +307,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 ## 6. Sampling and the central limit theorem
 
 ## Sampling distributions
@@ -379,7 +355,6 @@ If sampling is biased, inference can be precise and wrong at the same time.
 
 ---
 
-<a id="toc-7"></a>
 ## 7. Estimation and confidence intervals
 
 ## Point estimates
@@ -438,7 +413,6 @@ Margin of error usually decreases when:
 
 ---
 
-<a id="toc-8"></a>
 ## 8. Hypothesis testing
 
 Hypothesis testing is a framework for deciding whether observed data are consistent with a null model.
@@ -497,7 +471,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 ## 9. Correlation and regression
 
 ## Correlation
@@ -569,7 +542,6 @@ is the proportion of variability in the response explained by the model.
 
 ---
 
-<a id="toc-10"></a>
 ## 10. Nonparametric and categorical methods
 
 ## Categorical data
@@ -609,7 +581,6 @@ These are useful when data are skewed, ordinal, or have strong outliers.
 
 ---
 
-<a id="toc-11"></a>
 ## 11. Practical workflow and pitfalls
 
 ## A reliable analysis workflow
@@ -644,7 +615,6 @@ These are useful when data are skewed, ordinal, or have strong outliers.
 
 ---
 
-<a id="toc-12"></a>
 ## 12. Formula sheet
 
 ## Descriptive statistics

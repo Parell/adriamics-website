@@ -5,27 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [Thermodynamic systems and properties](#toc-1)
-2. [State, equilibrium, and processes](#toc-2)
-3. [Units, dimensions, and sign conventions](#toc-3)
-4. [Pure substances and property data](#toc-4)
-5. [Ideal gases and equations of state](#toc-5)
-6. [Heat, work, and energy](#toc-6)
-7. [First Law for closed systems](#toc-7)
-8. [First Law for control volumes](#toc-8)
-9. [Common steady-flow devices](#toc-9)
-10. [Second Law of Thermodynamics](#toc-10)
-11. [Entropy](#toc-11)
-12. [Power and refrigeration cycles](#toc-12)
-13. [Problem-solving workflow](#toc-13)
-14. [Formula sheet](#toc-14)
-
----
-
-<a id="toc-1"></a>
 # 1. Thermodynamic systems and properties
 
 Thermodynamics studies energy, matter, and property changes at the macroscopic scale.
@@ -95,7 +74,6 @@ $$
 
 ---
 
-<a id="toc-2"></a>
 # 2. State, equilibrium, and processes
 
 ## State
@@ -166,7 +144,6 @@ Path functions such as heat and work do not have to be zero over a cycle.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Units, dimensions, and sign conventions
 
 ## Common SI units
@@ -234,7 +211,6 @@ $$
 
 ---
 
-<a id="toc-4"></a>
 # 4. Pure substances and property data
 
 A **pure substance** has a fixed chemical composition throughout.
@@ -371,7 +347,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Ideal gases and equations of state
 
 An **equation of state** relates pressure, temperature, and volume.
@@ -506,7 +481,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Heat, work, and energy
 
 ## Energy
@@ -651,7 +625,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 # 7. First Law for closed systems
 
 The First Law is conservation of energy.
@@ -760,7 +733,6 @@ $$
 
 ---
 
-<a id="toc-8"></a>
 # 8. First Law for control volumes
 
 A control volume allows mass to cross the boundary.
@@ -835,7 +807,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 9. Common steady-flow devices
 
 For most steady-flow devices, start with:
@@ -1003,7 +974,6 @@ $$
 
 ---
 
-<a id="toc-10"></a>
 # 10. Second Law of Thermodynamics
 
 The First Law gives energy conservation. The Second Law gives direction and limits.
@@ -1114,7 +1084,6 @@ Real processes are irreversible due to effects such as:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Entropy
 
 Entropy is a thermodynamic property that measures energy dispersal and irreversibility.
@@ -1237,7 +1206,6 @@ These apply to simple compressible substances.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Power and refrigeration cycles
 
 A cycle returns the working fluid to its initial state, so property changes over the cycle are zero.
@@ -1436,7 +1404,6 @@ $$
 
 ---
 
-<a id="toc-13"></a>
 # 13. Problem-solving workflow
 
 Use this checklist for most Thermodynamics I problems.
@@ -1541,7 +1508,6 @@ Ask:
 
 ---
 
-<a id="toc-14"></a>
 # 14. Formula sheet
 
 ## Basic property relations

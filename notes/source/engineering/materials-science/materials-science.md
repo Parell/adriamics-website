@@ -7,26 +7,6 @@ sources: []
 ---
 
 # Materials Science
-
-## Table of contents
-
-1. [Core idea](#core-idea)
-2. [Atomic structure and bonding](#atomic-structure-and-bonding)
-3. [Crystal structures](#crystal-structures)
-4. [Defects and diffusion](#defects-and-diffusion)
-5. [Phase diagrams and phase transformations](#phase-diagrams-and-phase-transformations)
-6. [Mechanical behavior](#mechanical-behavior)
-7. [Heat treatment and strengthening](#heat-treatment-and-strengthening)
-8. [Classes of engineering materials](#classes-of-engineering-materials)
-9. [Characterization and testing](#characterization-and-testing)
-10. [Materials selection](#materials-selection)
-11. [Problem-solving workflow](#problem-solving-workflow)
-12. [Formula summary](#formula-summary)
-13. [Common pitfalls](#common-pitfalls)
-
----
-
-<a id="core-idea"></a>
 ## 1. Core idea
 
 Materials science studies how **structure**, **processing**, **properties**, and **performance** are linked.

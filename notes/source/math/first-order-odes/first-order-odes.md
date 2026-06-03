@@ -9,26 +9,6 @@ sources: []
 # First-Order ODEs
 
 First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y'$. They are the first serious class of differential equations because many modeling problems reduce to them, and because most core solution techniques appear here in their simplest form.
-
-## Table of contents
-
-1. [What a first-order ODE is](#toc-1)
-2. [Initial value problems and geometric meaning](#toc-2)
-3. [Separable equations](#toc-3)
-4. [Linear first-order equations](#toc-4)
-5. [Exact equations](#toc-5)
-6. [Homogeneous first-order equations](#toc-6)
-7. [Bernoulli equations](#toc-7)
-8. [Autonomous equations and equilibria](#toc-8)
-9. [Existence and uniqueness](#toc-9)
-10. [Modeling patterns](#toc-10)
-11. [Problem-solving workflow](#toc-11)
-12. [Common pitfalls](#toc-12)
-13. [Formula sheet](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. What a first-order ODE is
 
 A **first-order ODE** is any equation of the form
@@ -72,7 +52,6 @@ Examples:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Initial value problems and geometric meaning
 
 A first-order ODE usually becomes a specific problem once an initial condition is given:
@@ -131,7 +110,6 @@ What to look for:
 
 ---
 
-<a id="toc-3"></a>
 # 3. Separable equations
 
 A first-order ODE is **separable** if it can be written as
@@ -222,7 +200,6 @@ for a constant $A$ determined by the initial condition.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Linear first-order equations
 
 A first-order linear ODE has the standard form
@@ -317,7 +294,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Exact equations
 
 An equation of the form
@@ -417,7 +393,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Homogeneous first-order equations
 
 A first-order ODE of the form
@@ -487,7 +462,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 # 7. Bernoulli equations
 
 A **Bernoulli equation** has the form
@@ -520,7 +494,6 @@ Bernoulli equations are one of the cleanest examples of a nonlinear ODE that red
 
 ---
 
-<a id="toc-8"></a>
 # 8. Autonomous equations and equilibria
 
 An **autonomous** first-order ODE has the form
@@ -566,7 +539,6 @@ This gives the long-term behavior without solving explicitly.
 
 ---
 
-<a id="toc-9"></a>
 # 9. Existence and uniqueness
 
 For an IVP
@@ -603,7 +575,6 @@ This is a warning that a differential equation can look harmless and still fail 
 
 ---
 
-<a id="toc-10"></a>
 # 10. Modeling patterns
 
 First-order ODEs appear naturally in rate laws where the rate of change depends on the current state.
@@ -661,7 +632,6 @@ These often reduce to linear first-order equations after expressing concentratio
 
 ---
 
-<a id="toc-11"></a>
 # 11. Problem-solving workflow
 
 When facing a first-order ODE, classification is the main step.
@@ -692,7 +662,6 @@ Many errors happen because a student starts manipulating symbols before identify
 
 ---
 
-<a id="toc-12"></a>
 # 12. Common pitfalls
 
 - Treating a nonlinear equation as if the superposition principle applies. It does not.
@@ -706,7 +675,6 @@ Many errors happen because a student starts manipulating symbols before identify
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula sheet
 
 ## Core forms

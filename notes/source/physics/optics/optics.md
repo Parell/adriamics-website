@@ -7,26 +7,6 @@ sources: []
 ---
 
 # Optics
-
-## Table of contents
-
-1. [What optics studies](#toc-1)
-2. [Light as a wave and a ray](#toc-2)
-3. [Geometric optics](#toc-3)
-4. [Reflection and mirrors](#toc-4)
-5. [Refraction and Snell's law](#toc-5)
-6. [Thin lenses and image formation](#toc-6)
-7. [Optical instruments](#toc-7)
-8. [Wave optics](#toc-8)
-9. [Interference](#toc-9)
-10. [Diffraction](#toc-10)
-11. [Polarization](#toc-11)
-12. [Common problem-solving workflow](#toc-12)
-13. [Formula summary](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. What optics studies
 
 Optics is the branch of physics that studies the behavior of light and its interactions with matter. In practice, the subject is usually split into:
@@ -58,7 +38,6 @@ where $n$ is the refractive index.
 
 ---
 
-<a id="toc-2"></a>
 # 2. Light as a wave and a ray
 
 ## Ray model
@@ -119,7 +98,6 @@ The larger the refractive index, the slower light travels in the material.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Geometric optics
 
 Geometric optics is built on three main principles:
@@ -157,7 +135,6 @@ The safest approach is to state the convention being used before solving.
 
 ---
 
-<a id="toc-4"></a>
 # 4. Reflection and mirrors
 
 ## Law of reflection
@@ -236,7 +213,6 @@ Use these principal rays:
 
 ---
 
-<a id="toc-5"></a>
 # 5. Refraction and Snell's law
 
 Refraction occurs when light crosses into a medium with a different refractive index. The speed changes, and the direction usually changes too.
@@ -281,7 +257,6 @@ This is why prisms spread white light into a spectrum.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Thin lenses and image formation
 
 Thin lenses are idealized as lenses with negligible thickness compared to object and image distances.
@@ -357,7 +332,6 @@ with $f$ in meters and power in diopters $(\text{D})$.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Optical instruments
 
 ## Human eye
@@ -406,7 +380,6 @@ For imaging systems:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Wave optics
 
 Wave optics becomes essential when the wavelength cannot be neglected relative to the size of the slit, aperture, or obstacle.
@@ -440,7 +413,6 @@ $$
 
 ---
 
-<a id="toc-9"></a>
 # 9. Interference
 
 Interference is the constructive or destructive addition of waves.
@@ -489,7 +461,6 @@ Many interference patterns arise from varying film thickness or geometry. The ex
 
 ---
 
-<a id="toc-10"></a>
 # 10. Diffraction
 
 Diffraction is the spreading of waves around obstacles and through apertures.
@@ -536,7 +507,6 @@ Implications:
 
 ---
 
-<a id="toc-11"></a>
 # 11. Polarization
 
 Polarization describes the orientation of the electric field in a transverse wave.
@@ -577,7 +547,6 @@ Applications:
 
 ---
 
-<a id="toc-12"></a>
 # 12. Common problem-solving workflow
 
 Optics problems usually become manageable if you classify them correctly first.
@@ -613,7 +582,6 @@ Optics problems usually become manageable if you classify them correctly first.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula summary
 
 ## Geometry and rays

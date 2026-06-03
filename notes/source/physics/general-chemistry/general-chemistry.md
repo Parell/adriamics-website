@@ -5,29 +5,6 @@ status: draft
 last_reviewed: 2026-05-22
 sources: []
 ---
-
-## Table of contents
-
-1. [Scope and core ideas](#toc-1)
-2. [Matter, atoms, and the periodic table](#toc-2)
-3. [Electron structure and periodic trends](#toc-3)
-4. [Bonding and molecular shape](#toc-4)
-5. [Naming, formulas, and reactions](#toc-5)
-6. [Stoichiometry and limiting reagents](#toc-6)
-7. [States of matter and gases](#toc-7)
-8. [Solutions and concentration](#toc-8)
-9. [Thermochemistry](#toc-9)
-10. [Chemical equilibrium](#toc-10)
-11. [Acids, bases, and buffers](#toc-11)
-12. [Kinetics and reaction rate](#toc-12)
-13. [Redox and electrochemistry](#toc-13)
-14. [General chemistry for biology and medicine](#toc-14)
-15. [Problem-solving workflow](#toc-15)
-16. [Formula summary](#toc-16)
-
----
-
-<a id="toc-1"></a>
 # 1. Scope and core ideas
 
 General chemistry explains how matter is built, how it reacts, and how energy changes during those reactions. It is the language behind biology, physiology, pharmacology, and laboratory science.
@@ -49,7 +26,6 @@ Most introductory problems reduce to one of these tasks:
 
 ---
 
-<a id="toc-2"></a>
 # 2. Matter, atoms, and the periodic table
 
 ## Matter and composition
@@ -105,7 +81,6 @@ Key regions:
 
 ---
 
-<a id="toc-3"></a>
 # 3. Electron structure and periodic trends
 
 ## Electron configuration
@@ -150,7 +125,6 @@ These trends explain why:
 
 ---
 
-<a id="toc-4"></a>
 # 4. Bonding and molecular shape
 
 ## Ionic, covalent, and metallic bonding
@@ -215,7 +189,6 @@ Polarity strongly affects:
 
 ---
 
-<a id="toc-5"></a>
 # 5. Naming, formulas, and reactions
 
 ## Chemical nomenclature
@@ -259,7 +232,6 @@ Coefficients change amounts, not formulas.
 
 ---
 
-<a id="toc-6"></a>
 # 6. Stoichiometry and limiting reagents
 
 Stoichiometry converts between substances using balanced equation coefficients.
@@ -311,7 +283,6 @@ $$
 
 ---
 
-<a id="toc-7"></a>
 # 7. States of matter and gases
 
 ## Phases and phase changes
@@ -375,7 +346,6 @@ Gas laws explain:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Solutions and concentration
 
 ## Dissolution
@@ -430,7 +400,6 @@ Osmotic pressure is especially important in physiology because it affects water 
 
 ---
 
-<a id="toc-9"></a>
 # 9. Thermochemistry
 
 Thermochemistry studies energy transfer as heat in chemical and physical changes.
@@ -482,7 +451,6 @@ $$
 
 ---
 
-<a id="toc-10"></a>
 # 10. Chemical equilibrium
 
 Many reactions are reversible and reach dynamic equilibrium.
@@ -533,7 +501,6 @@ where ICE stands for initial, change, equilibrium.
 
 ---
 
-<a id="toc-11"></a>
 # 11. Acids, bases, and buffers
 
 Acid-base chemistry is one of the most important parts of general chemistry for biology and medicine.
@@ -622,7 +589,6 @@ This is a key idea for amino acids, drug ionization, and membrane transport.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Kinetics and reaction rate
 
 Thermodynamics tells whether a reaction is favorable; kinetics tells how fast it happens.
@@ -669,7 +635,6 @@ They only help the system reach equilibrium faster.
 
 ---
 
-<a id="toc-13"></a>
 # 13. Redox and electrochemistry
 
 ## Oxidation and reduction
@@ -727,7 +692,6 @@ Redox chemistry underlies:
 
 ---
 
-<a id="toc-14"></a>
 # 14. General chemistry for biology and medicine
 
 General chemistry becomes more useful when connected to real systems.
@@ -796,7 +760,6 @@ These topics often appear in lab courses and clinical measurements.
 
 ---
 
-<a id="toc-15"></a>
 # 15. Problem-solving workflow
 
 General chemistry problems are easier when you follow a fixed sequence.
@@ -831,7 +794,6 @@ General chemistry problems are easier when you follow a fixed sequence.
 
 ---
 
-<a id="toc-16"></a>
 # 16. Formula summary
 
 ## Core formulas

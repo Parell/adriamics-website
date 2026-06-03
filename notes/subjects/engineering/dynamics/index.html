@@ -21,7 +21,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=b708f2c3280b" />
+  <link rel="stylesheet" href="../../../notes.css?v=f5db93888cf1" />
   <script>
     window.MathJax = {
       tex: {
@@ -35,14 +35,15 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>
-  <script defer src="../../../notes.js?v=c1a25f023ad0"></script>
+  <script defer src="../../../notes.js?v=e1061cb27103"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
       Search notes
-    </button><button class="notes-action-chip" type="button" data-timer-trigger aria-expanded="false" aria-controls="timer-panel" data-notes-nav-item>
-      Timer
     </button><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/engineering/dynamics/practice/" data-notes-nav-item>Practice</a><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
 
   <header class="shell notes-header">
@@ -52,13 +53,29 @@
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><a href="/notes/subjects/medical-biology/general-chemistry/" data-subject-id="medical-biology" data-default-href="/notes/subjects/medical-biology/general-chemistry/" data-notes-nav-item>Medical / Biology</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li><li><a href="/notes/subjects/general/introduction/" data-subject-id="general" data-default-href="/notes/subjects/general/introduction/" data-notes-nav-item>General</a></li><li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li><li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
       <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
-  <main id="content" class="shell notes-layout notes-layout--has-toc" aria-label="Notes content">
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
     
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -73,18 +90,20 @@
       <div class="viewer-head">
         <div>
           <h1>Dynamics</h1>
-          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell</p>
+          <p class="viewer-meta">draft | Reviewed 2026-05-22 | Auditors: @Parell | <a class="viewer-source-jump" href="#provenance-sources-title">jump to sources</a></p>
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&amp;page_path=notes%2Fsource%2Fengineering%2Fdynamics%2Fdynamics.md&amp;title=%5BCorrection%5D%3A%20Dynamics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/engineering/dynamics/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        <h2 id="table-of-contents">Table of contents</h2>
-<ol><li><p><a href="#toc-1">What dynamics studies</a></p></li><li><p><a href="#toc-2">Kinematics fundamentals</a></p></li><li><p><a href="#toc-3">Rectilinear motion</a></p></li><li><p><a href="#toc-4">Curvilinear motion</a></p></li><li><p><a href="#toc-5">Relative motion</a></p></li><li><p><a href="#toc-6">Particle kinetics</a></p></li><li><p><a href="#toc-7">Work-energy methods</a></p></li><li><p><a href="#toc-8">Impulse-momentum methods</a></p></li><li><p><a href="#toc-9">Rigid-body kinematics</a></p></li><li><p><a href="#toc-10">Rigid-body kinetics</a></p></li><li><p><a href="#toc-11">Choosing the right method</a></p></li><li><p><a href="#toc-12">Common pitfalls</a></p></li><li><p><a href="#toc-13">Formula sheet</a></p></li></ol>
-<hr />
-<a id="toc-1"></a>
-<h1 id="1-what-dynamics-studies">1. What dynamics studies</h1>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-dynamics-studies">1. What dynamics studies</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#typical-modeling-assumptions">Typical modeling assumptions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#main-laws">Main laws</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-kinematics-fundamentals">2. Kinematics fundamentals</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#position-displacement-velocity-acceleration">Position, displacement, velocity, acceleration</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#vector-form">Vector form</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-rectilinear-motion">3. Rectilinear motion</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#constant-acceleration">Constant acceleration</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#variable-acceleration">Variable acceleration</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-pattern">Example pattern</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-curvilinear-motion">4. Curvilinear motion</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#cartesian-components">Cartesian components</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#normal-tangential-components">Normal-tangential components</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#polar-coordinates">Polar coordinates</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-relative-motion">5. Relative motion</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#translation-of-reference-frames">Translation of reference frames</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-use-cases">Common use cases</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotating-frames">Rotating frames</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-particle-kinetics">6. Particle kinetics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#newtons-second-law">Newton&#39;s second law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#free-body-diagrams">Free-body diagrams</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#friction">Friction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#typical-workflow">Typical workflow</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-work-energy-methods">7. Work-energy methods</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservative-forces">Conservative forces</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example-pattern-2">Example pattern</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#8-impulse-momentum-methods">8. Impulse-momentum methods</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-impulse-momentum">Linear impulse-momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#angular-impulse-momentum">Angular impulse-momentum</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#caution">Caution</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-rigid-body-kinematics">9. Rigid-body kinematics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#plane-motion">Plane motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#pure-translation">Pure translation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#pure-rotation-about-a-fixed-axis">Pure rotation about a fixed axis</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#instantaneous-center-of-zero-velocity">Instantaneous center of zero velocity</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-rigid-body-kinetics">10. Rigid-body kinetics</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#translation-of-the-mass-center">Translation of the mass center</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotation-about-the-mass-center">Rotation about the mass center</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rotation-about-another-point">Rotation about another point</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-inertia-facts">Common inertia facts</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#energy-for-rigid-bodies">Energy for rigid bodies</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-choosing-the-right-method">11. Choosing the right method</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#use-kinematics-when">Use kinematics when</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#use-newton-euler-when">Use Newton-Euler when</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#use-work-energy-when">Use work-energy when</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#use-impulse-momentum-when">Use impulse-momentum when</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#practical-decision-rule">Practical decision rule</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#12-common-pitfalls">12. Common pitfalls</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#13-formula-sheet">13. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#particle-motion">Particle motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#curvilinear-motion">Curvilinear motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rigid-body-motion">Rigid-body motion</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#energy">Energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#friction-2">Friction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#problem-solving-checklist">Problem-solving checklist</a></li></ol></li></ol></div>
+    </nav>
+        
+        <h1 id="1-what-dynamics-studies">1. What dynamics studies</h1>
 <p>Dynamics is the study of motion and the forces that cause or respond to motion. It sits between statics and vibration-heavy advanced mechanics.</p>
 <p>It is usually split into two parts:</p>
 <ul><li><p><strong>Kinematics</strong>: describes motion without considering forces</p></li><li><p><strong>Kinetics</strong>: relates motion to the forces and moments that produce it</p></li></ul>
@@ -106,7 +125,6 @@ $$</div>
 $$</div>
 <p>where \(G\) is the center of mass and \(\mathbf{H}\) is angular momentum.</p>
 <hr />
-<a id="toc-2"></a>
 <h1 id="2-kinematics-fundamentals">2. Kinematics fundamentals</h1>
 <p>Kinematics describes how objects move.</p>
 <h2 id="position-displacement-velocity-acceleration">Position, displacement, velocity, acceleration</h2>
@@ -139,7 +157,6 @@ $$</div>
 $$</div>
 <p>The safest workflow is to write position as a vector first, then differentiate.</p>
 <hr />
-<a id="toc-3"></a>
 <h1 id="3-rectilinear-motion">3. Rectilinear motion</h1>
 <p>Rectilinear motion is motion along a straight line. It is the simplest and most common starting point.</p>
 <h2 id="constant-acceleration">Constant acceleration</h2>
@@ -174,7 +191,6 @@ $$</div>
 x = \frac{1}{2}(2)(5^2) = 25 \, \text{m}
 $$</div>
 <hr />
-<a id="toc-4"></a>
 <h1 id="4-curvilinear-motion">4. Curvilinear motion</h1>
 <p>Curvilinear motion occurs along a curved path. Two common coordinate systems are Cartesian and normal-tangential coordinates.</p>
 <h2 id="cartesian-components">Cartesian components</h2>
@@ -215,7 +231,6 @@ $$</div>
 $$</div>
 <p>Polar coordinates are useful for motion involving rotation about a point.</p>
 <hr />
-<a id="toc-5"></a>
 <h1 id="5-relative-motion">5. Relative motion</h1>
 <p>Relative motion compares the motion of one body to another moving reference frame.</p>
 <h2 id="translation-of-reference-frames">Translation of reference frames</h2>
@@ -242,7 +257,6 @@ $$</div>
 $$</div>
 <p>The \(2\boldsymbol{\omega} \times \mathbf{v}_{rel}\) term is the Coriolis term.</p>
 <hr />
-<a id="toc-6"></a>
 <h1 id="6-particle-kinetics">6. Particle kinetics</h1>
 <p>Particle kinetics links forces to translational acceleration.</p>
 <h2 id="newtons-second-law">Newton&#39;s second law</h2>
@@ -271,7 +285,6 @@ $$</div>
 <h2 id="typical-workflow">Typical workflow</h2>
 <ol><li><p>Draw the particle and isolate it.</p></li><li><p>Choose axes aligned with the motion if possible.</p></li><li><p>Write \(\sum \mathbf{F} = m\mathbf{a}\).</p></li><li><p>Add kinematic relations if needed.</p></li><li><p>Solve algebraically before substituting numbers.</p></li></ol>
 <hr />
-<a id="toc-7"></a>
 <h1 id="7-work-energy-methods">7. Work-energy methods</h1>
 <p>Work-energy is often faster than force-balance when displacement is easier to track than time.</p>
 <h2 id="work">Work</h2>
@@ -309,7 +322,6 @@ $$</div>
 <h2 id="example-pattern-2">Example pattern</h2>
 <p>For a block released on a rough incline, the work-energy method often gives speed after sliding a known distance without needing time explicitly.</p>
 <hr />
-<a id="toc-8"></a>
 <h1 id="8-impulse-momentum-methods">8. Impulse-momentum methods</h1>
 <p>Impulse-momentum is useful when forces act over a short time, such as impacts or thrust events.</p>
 <h2 id="linear-impulse-momentum">Linear impulse-momentum</h2>
@@ -328,7 +340,6 @@ $$</div>
 <h2 id="caution">Caution</h2>
 <p>Impulse-momentum is not ideal if the force is unknown and the time interval is long unless the impulse can be integrated or approximated.</p>
 <hr />
-<a id="toc-9"></a>
 <h1 id="9-rigid-body-kinematics">9. Rigid-body kinematics</h1>
 <p>Rigid-body motion combines translation and rotation.</p>
 <h2 id="plane-motion">Plane motion</h2>
@@ -358,7 +369,6 @@ $$</div>
 <h2 id="instantaneous-center-of-zero-velocity">Instantaneous center of zero velocity</h2>
 <p>In planar motion, a body can often be treated as instantaneously rotating about a point with zero velocity. This is a useful geometric shortcut for velocity analysis, but it does not replace full acceleration analysis.</p>
 <hr />
-<a id="toc-10"></a>
 <h1 id="10-rigid-body-kinetics">10. Rigid-body kinetics</h1>
 <p>Rigid-body kinetics extends Newton&#39;s laws to bodies with rotation.</p>
 <h2 id="translation-of-the-mass-center">Translation of the mass center</h2>
@@ -393,7 +403,6 @@ T = \frac{1}{2}mv_G^2 + \frac{1}{2}I_G\omega^2
 $$</div>
 <p>This form is useful for rolling, pulleys, and rotating links.</p>
 <hr />
-<a id="toc-11"></a>
 <h1 id="11-choosing-the-right-method">11. Choosing the right method</h1>
 <p>The best method depends on what the problem gives and what it asks for.</p>
 <h2 id="use-kinematics-when">Use kinematics when</h2>
@@ -407,13 +416,11 @@ $$</div>
 <h2 id="practical-decision-rule">Practical decision rule</h2>
 <p>If the problem asks for a force, start with free-body diagrams and Newton&#39;s laws. If it asks for a speed after moving through a distance, work-energy is often shorter. If it asks about collision or impact, impulse-momentum is usually best.</p>
 <hr />
-<a id="toc-12"></a>
 <h1 id="12-common-pitfalls">12. Common pitfalls</h1>
 <ul><li><p>Mixing up <strong>kinematics</strong> and <strong>kinetics</strong></p></li><li><p>Using constant-acceleration formulas when acceleration is not constant</p></li><li><p>Forgetting to define a positive sign convention</p></li><li><p>Leaving out the normal or tangential acceleration component</p></li><li><p>Treating the center of mass as the same thing as a geometric center without checking symmetry</p></li><li><p>Using \(I_G\) when the problem needs \(I_O\), or vice versa</p></li><li><p>Forgetting that friction direction is opposite impending or relative motion</p></li><li><p>Applying rigid-body formulas to deformable systems</p></li><li><p>Skipping the free-body diagram and trying to solve from memory</p></li></ul>
 <h2 id="sanity-checks">Sanity checks</h2>
 <ul><li><p>Units must match at every step</p></li><li><p>Acceleration direction should agree with the chosen coordinates</p></li><li><p>A force balance should reduce correctly in special cases</p></li><li><p>Energy methods should conserve mechanical energy only when the model allows it</p></li></ul>
 <hr />
-<a id="toc-13"></a>
 <h1 id="13-formula-sheet">13. Formula sheet</h1>
 <h2 id="particle-motion">Particle motion</h2>
 <div class="math-block">$$
@@ -465,13 +472,37 @@ $$</div>
 <h2 id="problem-solving-checklist">Problem-solving checklist</h2>
 <ol><li><p>Draw the system and the free-body diagram.</p></li><li><p>Identify whether the body is a particle or rigid body.</p></li><li><p>Choose coordinates that simplify the equations.</p></li><li><p>Decide whether force, energy, or impulse methods are best.</p></li><li><p>Write the governing equations before plugging in numbers.</p></li><li><p>Check units and limiting cases.</p></li></ol>
       </article>
+      <section class="notes-provenance panel" aria-labelledby="provenance-title">
+    <div class="notes-provenance__head">
+      <p class="section-label">Provenance</p>
+      <h2 id="provenance-title">Sources, authors, reviewers, and versions</h2>
+      <p class="notes-provenance__lead">This section is generated from the note frontmatter and the Git history recorded in GitHub.</p>
+    </div>
+    <div class="notes-provenance__grid">
+      <section class="notes-provenance__section" aria-labelledby="provenance-sources-title">
+        <h3 id="provenance-sources-title">Sources</h3>
+        <p class="notes-provenance__empty">No external sources recorded in frontmatter yet.</p>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-files-title">
+        <h3 id="provenance-files-title">GitHub files</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/blob/master/notes/source/engineering/dynamics/dynamics.md" target="_blank" rel="noreferrer">Note source file</a><span class="notes-provenance__note">notes/source/engineering/dynamics/dynamics.md</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-authors-title">
+        <h3 id="provenance-authors-title">Author history</h3>
+        <ul class="notes-provenance__list"><li class="notes-provenance__item"><strong>Parell</strong><span class="notes-provenance__note">5 commits | 2026-05-22 to 2026-05-23</span></li></ul>
+      </section>
+      <section class="notes-provenance__section" aria-labelledby="provenance-reviewers-title">
+        <h3 id="provenance-reviewers-title">Reviewer history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | draft | Reviewed 2026-05-22 | Reviewers: @Parell</span><span class="notes-provenance__note">Structure change</span></li></ol>
+      </section>
+      <section class="notes-provenance__section notes-provenance__section--wide" aria-labelledby="provenance-versions-title">
+        <h3 id="provenance-versions-title">Version history</h3>
+        <ol class="notes-provenance__list notes-provenance__list--ordered"><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/067502ae10e9da995554c431ee935a371746c0ae" target="_blank" rel="noreferrer">067502a</a><span class="notes-provenance__note">2026-05-23 | Parell | Structure change</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/467d0a0021da7e86bd1c299b0f0e854d7e856863" target="_blank" rel="noreferrer">467d0a0</a><span class="notes-provenance__note">2026-05-23 | Parell | Move to static html files</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/ad6107ff20f95936dcde2cfc9bfbe5ccc8766b63" target="_blank" rel="noreferrer">ad6107f</a><span class="notes-provenance__note">2026-05-22 | Parell | More note drafts</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/8f2dd7f0b7aba8822f51e03c0049dbc385ba38d0" target="_blank" rel="noreferrer">8f2dd7f</a><span class="notes-provenance__note">2026-05-22 | Parell | Fix subjects not loading</span></li><li class="notes-provenance__item"><a class="notes-provenance__link" href="https://github.com/Parell/parell.github.io/commit/2d0e825db0a8035d73210ad65214942b5b79c58e" target="_blank" rel="noreferrer">2d0e825</a><span class="notes-provenance__note">2026-05-22 | Parell | notes and changed home page</span></li></ol>
+      </section>
+    </div>
+  </section>
     </section>
-    <nav class="notes-toc panel" aria-label="Table of contents">
-      <div class="notes-toc__head">
-        <p class="section-label">Table of contents</p>
-      </div>
-      <ol class="notes-toc__list"><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#1-what-dynamics-studies">1. What dynamics studies</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-modeling-assumptions">Typical modeling assumptions</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#main-laws">Main laws</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#2-kinematics-fundamentals">2. Kinematics fundamentals</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#position-displacement-velocity-acceleration">Position, displacement, velocity, acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#vector-form">Vector form</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#3-rectilinear-motion">3. Rectilinear motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#constant-acceleration">Constant acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#variable-acceleration">Variable acceleration</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-pattern">Example pattern</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#4-curvilinear-motion">4. Curvilinear motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#cartesian-components">Cartesian components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#normal-tangential-components">Normal-tangential components</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#polar-coordinates">Polar coordinates</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#5-relative-motion">5. Relative motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#translation-of-reference-frames">Translation of reference frames</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-use-cases">Common use cases</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotating-frames">Rotating frames</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#6-particle-kinetics">6. Particle kinetics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#newtons-second-law">Newton&#39;s second law</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#free-body-diagrams">Free-body diagrams</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#friction">Friction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#typical-workflow">Typical workflow</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#7-work-energy-methods">7. Work-energy methods</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#work">Work</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#kinetic-energy">Kinetic energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#conservative-forces">Conservative forces</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#example-pattern-2">Example pattern</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#8-impulse-momentum-methods">8. Impulse-momentum methods</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#linear-impulse-momentum">Linear impulse-momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#angular-impulse-momentum">Angular impulse-momentum</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#caution">Caution</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#9-rigid-body-kinematics">9. Rigid-body kinematics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#plane-motion">Plane motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pure-translation">Pure translation</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#pure-rotation-about-a-fixed-axis">Pure rotation about a fixed axis</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#instantaneous-center-of-zero-velocity">Instantaneous center of zero velocity</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#10-rigid-body-kinetics">10. Rigid-body kinetics</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#translation-of-the-mass-center">Translation of the mass center</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotation-about-the-mass-center">Rotation about the mass center</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rotation-about-another-point">Rotation about another point</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#common-inertia-facts">Common inertia facts</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy-for-rigid-bodies">Energy for rigid bodies</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#11-choosing-the-right-method">11. Choosing the right method</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-kinematics-when">Use kinematics when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-newton-euler-when">Use Newton-Euler when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-work-energy-when">Use work-energy when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#use-impulse-momentum-when">Use impulse-momentum when</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#practical-decision-rule">Practical decision rule</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#12-common-pitfalls">12. Common pitfalls</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#sanity-checks">Sanity checks</a></li><li class="notes-toc__item" style="--toc-indent: 0"><a class="notes-toc__link" href="#13-formula-sheet">13. Formula sheet</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#particle-motion">Particle motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#curvilinear-motion">Curvilinear motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#rigid-body-motion">Rigid-body motion</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#energy">Energy</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#friction-2">Friction</a></li><li class="notes-toc__item" style="--toc-indent: 1"><a class="notes-toc__link" href="#problem-solving-checklist">Problem-solving checklist</a></li></ol>
-    </nav>
+  
   </main>
   <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
     <div class="search-panel__card panel">

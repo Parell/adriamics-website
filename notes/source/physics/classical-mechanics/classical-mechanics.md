@@ -7,26 +7,6 @@ sources: []
 ---
 
 # Classical Mechanics
-
-## Table of contents
-
-1. [Scope and core ideas](#toc-1)
-2. [Kinematics in one and three dimensions](#toc-2)
-3. [Newton's laws and free-body diagrams](#toc-3)
-4. [Work, energy, and power](#toc-4)
-5. [Momentum, impulse, and collisions](#toc-5)
-6. [Rotation and rigid bodies](#toc-6)
-7. [Angular momentum and torque](#toc-7)
-8. [Oscillations and simple harmonic motion](#toc-8)
-9. [Gravitation and central forces](#toc-9)
-10. [Constraints, equilibrium, and statics](#toc-10)
-11. [Lagrangian and Hamiltonian ideas](#toc-11)
-12. [Problem-solving workflow](#toc-12)
-13. [Formula summary](#toc-13)
-
----
-
-<a id="toc-1"></a>
 # 1. Scope and core ideas
 
 Classical mechanics describes the motion of bodies under the action of forces, along with the conservation laws that govern that motion.
@@ -62,7 +42,6 @@ Knowing which assumptions are valid is often more important than algebra.
 
 ---
 
-<a id="toc-2"></a>
 # 2. Kinematics in one and three dimensions
 
 Kinematics describes motion without explaining its cause.
@@ -144,7 +123,6 @@ This is essential in moving-platform and rotating-frame problems.
 
 ---
 
-<a id="toc-3"></a>
 # 3. Newton's laws and free-body diagrams
 
 Newton's laws connect force to motion.
@@ -214,7 +192,6 @@ In accelerating or rotating frames, fictitious forces may be needed to preserve 
 
 ---
 
-<a id="toc-4"></a>
 # 4. Work, energy, and power
 
 Energy methods are often simpler than force balance when displacement is the main unknown.
@@ -314,7 +291,6 @@ $$
 
 ---
 
-<a id="toc-5"></a>
 # 5. Momentum, impulse, and collisions
 
 ## Linear momentum
@@ -391,7 +367,6 @@ $$
 
 ---
 
-<a id="toc-6"></a>
 # 6. Rotation and rigid bodies
 
 Rigid-body motion includes translation and rotation.
@@ -510,7 +485,6 @@ Rolling problems often combine translation, rotation, and static friction.
 
 ---
 
-<a id="toc-7"></a>
 # 7. Angular momentum and torque
 
 ## Torque
@@ -574,7 +548,6 @@ This is especially useful for:
 
 ---
 
-<a id="toc-8"></a>
 # 8. Oscillations and simple harmonic motion
 
 ## Simple harmonic motion
@@ -664,7 +637,6 @@ Important behaviors:
 
 ---
 
-<a id="toc-9"></a>
 # 9. Gravitation and central forces
 
 ## Newton's law of gravitation
@@ -723,7 +695,6 @@ In central-force motion:
 
 ---
 
-<a id="toc-10"></a>
 # 10. Constraints, equilibrium, and statics
 
 Static equilibrium means no translational or rotational acceleration.
@@ -769,7 +740,6 @@ Constraint forces often do no work in idealized models, but they still matter in
 
 ---
 
-<a id="toc-11"></a>
 # 11. Lagrangian and Hamiltonian ideas
 
 The Lagrangian formulation is a higher-level way to derive equations of motion.
@@ -830,7 +800,6 @@ though this is not universal in all formulations.
 
 ---
 
-<a id="toc-12"></a>
 # 12. Problem-solving workflow
 
 ## Start with the model
@@ -868,7 +837,6 @@ Ask:
 
 ---
 
-<a id="toc-13"></a>
 # 13. Formula summary
 
 ## Kinematics

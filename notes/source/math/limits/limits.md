@@ -47,6 +47,8 @@ $$
 
 even though the original formula is undefined at $x=3$.
 
+<!-- widget:limits -->
+
 ---
 
 # 2. Formal definition

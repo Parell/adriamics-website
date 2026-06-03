@@ -58,6 +58,8 @@ Truth tables list the truth value of a compound proposition for every combinatio
 
 They are the most direct way to test equivalence or validity for small propositional formulas.
 
+<!-- widget:logic -->
+
 ---
 
 # 3. Logical connectives

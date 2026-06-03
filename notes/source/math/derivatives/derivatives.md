@@ -22,6 +22,8 @@ If the derivative is:
 - Negative, the function is decreasing locally
 - Zero, the function may have a horizontal tangent
 
+<!-- widget:derivatives -->
+
 ---
 
 # 2. Formal definition

@@ -289,6 +289,8 @@ $$
 
 These identities are used constantly for simplification and proof.
 
+<!-- widget:trigonometry -->
+
 ---
 
 # 5. Graphs and transformations

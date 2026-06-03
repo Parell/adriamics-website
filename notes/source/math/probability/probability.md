@@ -539,6 +539,8 @@ Use when:
 - Constant success probability
 - Independence across trials
 
+<!-- widget:probability -->
+
 ## Geometric distribution
 
 Models the number of trials until the first success.

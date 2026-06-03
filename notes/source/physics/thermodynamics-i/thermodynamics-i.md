@@ -148,10 +148,10 @@ Path functions such as heat and work do not have to be zero over a cycle.
 | Pressure         | $P$       | Pa       |
 | Energy           | $E$       | J        |
 | Power            | $\dot{W}$ | W        |
-| Specific volume  | $v$       | mÂ³/kg     |
+| Specific volume  | $v$       | m³/kg      |
 | Specific energy  | $u, h$    | J/kg     |
 | Entropy          | $S$       | J/K      |
-| Specific entropy | $s$       | J/(kgÂ·K)  |
+| Specific entropy | $s$       | J/(kg·K)   |
 
 ## Pressure
 
@@ -1394,6 +1394,8 @@ Refrigerator COP:
 $$
 COP_R = \frac{q_L}{w_{comp,in}}
 $$
+
+<!-- widget:ts-diagrams -->
 
 ---
 

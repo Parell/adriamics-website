@@ -308,6 +308,8 @@ If $A$ is a matrix and $x$ is a vector, then $Ax$ is a linear combination of the
 
 That viewpoint is often the fastest way to interpret $Ax=b$.
 
+<!-- widget:matrices -->
+
 ---
 
 # 6. Transpose and symmetry

@@ -177,6 +177,8 @@ $$
 
 It has zero magnitude and no direction.
 
+<!-- widget:vectors -->
+
 ---
 
 # 5. Dot product

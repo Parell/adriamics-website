@@ -450,8 +450,126 @@ function isStandaloneAnchor(line) {
   return /^\s*<a\s+id="[^"]+"><\/a>\s*$/i.test(line);
 }
 
+function parseWidgetMarkerLine(line) {
+  const match = line.match(/^\s*<!--\s*widget:([^>]+?)\s*-->\s*$/i);
+
+  if (!match) {
+    return null;
+  }
+
+  return match[1].trim();
+}
+
+function resolveWidgetIncludeMarkers(markdown, widgetRegistry) {
+  const widgetsById = new Map(widgetRegistry.map((widget) => [widget.id, widget.html]));
+  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
+
+  return lines.map((line) => {
+    const widgetId = parseWidgetMarkerLine(line);
+
+    if (!widgetId) {
+      return line;
+    }
+
+    const widgetHtml = widgetsById.get(widgetId);
+
+    if (!widgetHtml) {
+      throw new Error(`Widget include marker "${widgetId}" does not match any widget definition.`);
+    }
+
+    return widgetHtml;
+  }).join('\n');
+}
+
 function isRawHtmlLine(line) {
-  return /^\s*</.test(line) && !/^\s*<\s*\/?\s*(?:p|li|ul|ol|table|thead|tbody|tr|td|th|pre|code|blockquote|div|section|article|h[1-6])\b/i.test(line);
+  return /^\s*</.test(line) && !/^\s*<!--/.test(line);
+}
+
+function extractWidgetRootId(html) {
+  const firstHtmlLine = String(html ?? '')
+    .replace(/\r\n/g, '\n')
+    .split('\n')
+    .find((line) => line.trim()) ?? '';
+  const match = firstHtmlLine.match(/^\s*<([A-Za-z][A-Za-z0-9:-]*)\b[^>]*\bid\s*=\s*["']([^"']+)["']/i);
+
+  return match ? match[2].trim() : '';
+}
+
+function collectWidgetBlocks(markdown, sourcePath, note) {
+  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
+  const bodyLines = [];
+  const widgets = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const markerLine = lines[index];
+    const widgetId = parseWidgetMarkerLine(markerLine);
+
+    if (!widgetId) {
+      bodyLines.push(markerLine);
+      index += 1;
+      continue;
+    }
+
+    const markerLineNumber = index + 1;
+    index += 1;
+
+    const widgetLines = [];
+
+    while (index < lines.length) {
+      const currentLine = lines[index];
+
+      if (isRawHtmlLine(currentLine)) {
+        widgetLines.push(currentLine);
+        index += 1;
+        continue;
+      }
+
+      if (!currentLine.trim()) {
+        let nextIndex = index;
+
+        while (nextIndex < lines.length && !lines[nextIndex].trim()) {
+          nextIndex += 1;
+        }
+
+        if (nextIndex < lines.length && isRawHtmlLine(lines[nextIndex])) {
+          widgetLines.push(...lines.slice(index, nextIndex));
+          index = nextIndex;
+          continue;
+        }
+
+        break;
+      }
+
+      break;
+    }
+
+    if (!widgetLines.length) {
+      bodyLines.push(markerLine);
+      continue;
+    }
+
+    const html = widgetLines.join('\n');
+    const rootId = extractWidgetRootId(html);
+
+    widgets.push({
+      id: widgetId,
+      html,
+      rootId,
+      sourcePath,
+      sourceLine: markerLineNumber,
+      notePath: note?.path ?? '',
+      noteTitle: note?.title ?? '',
+      noteUrl: note?.path ? getNoteUrl(note.path) : '',
+    });
+
+    bodyLines.push(...widgetLines);
+  }
+
+  return {
+    body: bodyLines.join('\n'),
+    widgets,
+  };
 }
 
 function isTableStart(lines, index) {
@@ -844,656 +962,6 @@ function getNoteSlug(notePath) {
   return path.basename(notePath, '.md');
 }
 
-function createDemoLabel(label, valueId, valueText = '') {
-  const valueMarkup = valueId
-    ? `<output id="${escapeHtml(valueId)}">${escapeHtml(valueText)}</output>`
-    : escapeHtml(valueText);
-
-  return `<span class="interactive-demo__control-label">${escapeHtml(label)} ${valueMarkup}</span>`;
-}
-
-function createRangeControl({
-  id,
-  label,
-  min,
-  max,
-  step,
-  value,
-  unit = '',
-}) {
-  const unitSuffix = unit ? ` ${escapeHtml(unit)}` : '';
-  const valueId = `${id}-value`;
-
-  return `<label class="interactive-demo__control" for="${escapeHtml(id)}">
-    ${createDemoLabel(label, valueId, `${value}${unitSuffix}`)}
-    <input id="${escapeHtml(id)}" type="range" min="${escapeHtml(String(min))}" max="${escapeHtml(String(max))}" step="${escapeHtml(String(step))}" value="${escapeHtml(String(value))}" />
-  </label>`;
-}
-
-function createSelectControl({
-  id,
-  label,
-  options,
-  value,
-}) {
-  const valueId = `${id}-value`;
-  const optionHtml = options.map((option) => {
-    const optionValue = typeof option === 'object' ? option.value : option;
-    const optionLabel = typeof option === 'object' ? option.label : option;
-    const selected = String(optionValue) === String(value) ? ' selected' : '';
-    return `<option value="${escapeHtml(String(optionValue))}"${selected}>${escapeHtml(String(optionLabel))}</option>`;
-  }).join('');
-
-  return `<label class="interactive-demo__control" for="${escapeHtml(id)}">
-    ${createDemoLabel(label, valueId, String(value))}
-    <select id="${escapeHtml(id)}">
-      ${optionHtml}
-    </select>
-  </label>`;
-}
-
-function createToggleButton({ id, label, value, checked = false }) {
-  return `<button
-    type="button"
-    class="interactive-demo__toggle${checked ? ' is-active' : ''}"
-    id="${escapeHtml(id)}"
-    data-toggle-value="${escapeHtml(String(value))}"
-    aria-pressed="${checked ? 'true' : 'false'}"
-  >${escapeHtml(label)}</button>`;
-}
-
-function createMetric({ id, label, value }) {
-  return `<div class="interactive-demo__metric">
-    <span class="interactive-demo__metric-label">${escapeHtml(label)}</span>
-    <span class="interactive-demo__metric-value" id="${escapeHtml(id)}">${escapeHtml(value)}</span>
-  </div>`;
-}
-
-function createDemoSection({
-  slug,
-  title,
-  summary,
-  kind,
-  controlsHtml,
-  figureHtml,
-  metricsHtml = '',
-  noteHtml = '',
-}) {
-  return `<section class="interactive-demo panel" data-math-demo="${escapeHtml(kind)}" data-math-demo-id="${escapeHtml(slug)}">
-    <div class="interactive-demo__head">
-      <p class="section-label">Interactive visual</p>
-      <h2 class="interactive-demo__title">${escapeHtml(title)}</h2>
-      <p class="interactive-demo__summary">${escapeHtml(summary)}</p>
-    </div>
-    <div class="interactive-demo__body">
-      <div class="interactive-demo__controls" role="group" aria-label="${escapeHtml(title)} controls">
-        ${controlsHtml}
-      </div>
-      <div class="interactive-demo__figure">
-        ${metricsHtml ? `<div class="interactive-demo__readouts">${metricsHtml}</div>` : ''}
-        ${figureHtml}
-        ${noteHtml ? `<p class="interactive-demo__note">${escapeHtml(noteHtml)}</p>` : ''}
-      </div>
-    </div>
-  </section>`;
-}
-
-function buildMathInteractiveDemo(note) {
-  if (!note || note.structureId !== 'math') {
-    return '';
-  }
-
-  const slug = getNoteSlug(note.path);
-  const id = `math-demo-${slug}`;
-
-  switch (slug) {
-    case 'arithmetic':
-      return createDemoSection({
-        slug,
-        kind: 'arithmetic',
-        title: 'Number line moves',
-        summary: 'Change a starting value and a step to see addition and subtraction as movement on a number line.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-start`, label: 'Start value', min: -10, max: 10, step: 1, value: 2 }),
-          createRangeControl({ id: `${id}-step`, label: 'Step size', min: -10, max: 10, step: 1, value: 4 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-equation`, label: 'Update', value: '2 + 4 = 6' }),
-          createMetric({ id: `${id}-distance`, label: 'Distance from zero', value: '6' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 220" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Animated number line</title>
-          <desc id="${escapeHtml(id)}-desc">A number line with a movable start point and step size.</desc>
-          <g id="${escapeHtml(id)}-grid" stroke="var(--border)" stroke-width="1" opacity="0.95"></g>
-          <line x1="50" y1="110" x2="750" y2="110" stroke="var(--accent-strong)" stroke-width="2" />
-          <g id="${escapeHtml(id)}-ticks" stroke="var(--muted)" stroke-width="1"></g>
-          <circle id="${escapeHtml(id)}-start-point" cx="0" cy="110" r="9" fill="var(--pomodoro-short)" />
-          <circle id="${escapeHtml(id)}-end-point" cx="0" cy="110" r="9" fill="var(--accent-strong)" />
-          <line id="${escapeHtml(id)}-arrow" x1="0" y1="110" x2="0" y2="110" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round" />
-          <text id="${escapeHtml(id)}-start-label" x="0" y="140" fill="var(--text)" font-size="18" text-anchor="middle"></text>
-          <text id="${escapeHtml(id)}-end-label" x="0" y="78" fill="var(--text)" font-size="18" text-anchor="middle"></text>
-        </svg>`,
-      });
-    case 'logic':
-      return createDemoSection({
-        slug,
-        kind: 'logic',
-        title: 'Truth table explorer',
-        summary: 'Switch the proposition values and connective to see how the truth table changes row by row.',
-        controlsHtml: [
-          `<div class="interactive-demo__control">
-            ${createDemoLabel('Connective', `${id}-connective-value`, 'and')}
-            <select id="${escapeHtml(id)}-connective">
-              <option value="and">and</option>
-              <option value="or">or</option>
-              <option value="implies">implies</option>
-              <option value="iff">iff</option>
-            </select>
-          </div>`,
-          `<div class="interactive-demo__control">
-            <span class="interactive-demo__control-label">Inputs</span>
-            <div class="interactive-demo__toggle-row">
-              ${createToggleButton({ id: `${id}-p`, label: 'P', value: 'true', checked: true })}
-              ${createToggleButton({ id: `${id}-q`, label: 'Q', value: 'true', checked: false })}
-            </div>
-          </div>`,
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-statement`, label: 'Statement', value: 'P and Q' }),
-          createMetric({ id: `${id}-result`, label: 'Result', value: 'false' }),
-        ].join(''),
-        figureHtml: `<table class="interactive-demo__table" aria-label="Truth table">
-          <thead>
-            <tr><th>P</th><th>Q</th><th>Value</th><th>Row</th></tr>
-          </thead>
-          <tbody>
-            <tr data-row="tt-ff"><td>F</td><td>F</td><td id="${escapeHtml(id)}-row-ff">F</td><td>1</td></tr>
-            <tr data-row="tt-ft"><td>F</td><td>T</td><td id="${escapeHtml(id)}-row-ft">F</td><td>2</td></tr>
-            <tr data-row="tt-tf"><td>T</td><td>F</td><td id="${escapeHtml(id)}-row-tf">F</td><td>3</td></tr>
-            <tr data-row="tt-tt"><td>T</td><td>T</td><td id="${escapeHtml(id)}-row-tt">T</td><td>4</td></tr>
-          </tbody>
-        </table>`,
-        noteHtml: 'The highlighted row shows the current input combination and output.',
-      });
-    case 'geometry':
-      return createDemoSection({
-        slug,
-        kind: 'geometry',
-        title: 'Triangle angle and area',
-        summary: 'Adjust an included angle and the two side lengths to see how triangle area and the third side respond.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-side-a`, label: 'Side a', min: 2, max: 12, step: 0.5, value: 7 }),
-          createRangeControl({ id: `${id}-side-b`, label: 'Side b', min: 2, max: 12, step: 0.5, value: 8 }),
-          createRangeControl({ id: `${id}-angle-c`, label: 'Included angle (deg)', min: 20, max: 140, step: 1, value: 62 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-area`, label: 'Area', value: '0' }),
-          createMetric({ id: `${id}-side-c`, label: 'Third side', value: '0' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Triangle visualizer</title>
-          <desc id="${escapeHtml(id)}-desc">A triangle whose shape changes with the included angle and side lengths.</desc>
-          <g id="${escapeHtml(id)}-tri-grid" stroke="var(--border)" stroke-width="1" opacity="0.7"></g>
-          <polygon id="${escapeHtml(id)}-triangle" points="" fill="rgba(255,255,255,0.06)" stroke="var(--accent-strong)" stroke-width="3" />
-          <circle id="${escapeHtml(id)}-vertex-a" cx="0" cy="0" r="5" fill="var(--pomodoro-short)" />
-          <circle id="${escapeHtml(id)}-vertex-b" cx="0" cy="0" r="5" fill="var(--pomodoro-short)" />
-          <circle id="${escapeHtml(id)}-vertex-c" cx="0" cy="0" r="5" fill="var(--pomodoro-long)" />
-          <text id="${escapeHtml(id)}-labels" x="20" y="300" fill="var(--text)" font-size="18"></text>
-        </svg>`,
-      });
-    case 'algebra':
-      return createDemoSection({
-        slug,
-        kind: 'line-graph',
-        title: 'Linear equation explorer',
-        summary: 'Change slope and intercept to see how y = mx + b shifts and tilts on the coordinate plane.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-slope`, label: 'Slope m', min: -4, max: 4, step: 0.1, value: 1.4 }),
-          createRangeControl({ id: `${id}-intercept`, label: 'Intercept b', min: -5, max: 5, step: 0.5, value: -1 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-equation`, label: 'Equation', value: 'y = 1.4x - 1.0' }),
-          createMetric({ id: `${id}-intercepts`, label: 'Intercepts', value: 'x = 0.7, y = -1.0' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Linear graph</title>
-          <desc id="${escapeHtml(id)}-desc">A line that updates as the slope and intercept change.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-line" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <circle id="${escapeHtml(id)}-y-intercept" cx="0" cy="0" r="6" fill="var(--pomodoro-short)" />
-          <circle id="${escapeHtml(id)}-x-intercept" cx="0" cy="0" r="6" fill="var(--pomodoro-long)" />
-        </svg>`,
-      });
-    case 'functions':
-      return createDemoSection({
-        slug,
-        kind: 'function-family',
-        title: 'Function family transformer',
-        summary: 'Choose a function family and shift, stretch, or lift it to see how the graph changes.',
-        controlsHtml: [
-          createSelectControl({
-            id: `${id}-family`,
-            label: 'Family',
-            value: 'quadratic',
-            options: [
-              { value: 'linear', label: 'Linear' },
-              { value: 'quadratic', label: 'Quadratic' },
-              { value: 'absolute', label: 'Absolute value' },
-              { value: 'rational', label: 'Rational' },
-              { value: 'exponential', label: 'Exponential' },
-            ],
-          }),
-          createRangeControl({ id: `${id}-stretch`, label: 'Vertical scale a', min: -3, max: 3, step: 0.1, value: 1.2 }),
-          createRangeControl({ id: `${id}-shift-x`, label: 'Horizontal shift h', min: -4, max: 4, step: 0.5, value: 1 }),
-          createRangeControl({ id: `${id}-shift-y`, label: 'Vertical shift k', min: -4, max: 4, step: 0.5, value: 0 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-formula`, label: 'Current form', value: 'y = 1.2 f(x - 1.0) + 0.0' }),
-          createMetric({ id: `${id}-domain`, label: 'Domain note', value: 'All real numbers' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Function family graph</title>
-          <desc id="${escapeHtml(id)}-desc">A transformed function graph with selectable families and sliders for scale and shift.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-base-path" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="2" stroke-dasharray="8 6" />
-          <path id="${escapeHtml(id)}-active-path" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-        </svg>`,
-      });
-    case 'probability':
-      return createDemoSection({
-        slug,
-        kind: 'probability',
-        title: 'Binomial distribution',
-        summary: 'Adjust the success probability and trial count to see how the distribution of outcomes changes.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-probability`, label: 'Success probability p', min: 0.1, max: 0.9, step: 0.05, value: 0.5 }),
-          createRangeControl({ id: `${id}-trials`, label: 'Trials n', min: 1, max: 12, step: 1, value: 6 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-expected`, label: 'Expected value', value: '3.0' }),
-          createMetric({ id: `${id}-variance`, label: 'Variance', value: '1.5' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Probability bars</title>
-          <desc id="${escapeHtml(id)}-desc">A bar chart showing the distribution of success counts.</desc>
-          <g id="${escapeHtml(id)}-bars" fill="var(--accent-strong)"></g>
-          <g id="${escapeHtml(id)}-axis" stroke="var(--border)" stroke-width="1"></g>
-        </svg>`,
-      });
-    case 'statistics':
-      return createDemoSection({
-        slug,
-        kind: 'statistics',
-        title: 'Dot plot and summary',
-        summary: 'Move five sample points to see how the mean, median, and spread respond to the data.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-x1`, label: 'Data point 1', min: 0, max: 100, step: 1, value: 18 }),
-          createRangeControl({ id: `${id}-x2`, label: 'Data point 2', min: 0, max: 100, step: 1, value: 32 }),
-          createRangeControl({ id: `${id}-x3`, label: 'Data point 3', min: 0, max: 100, step: 1, value: 54 }),
-          createRangeControl({ id: `${id}-x4`, label: 'Data point 4', min: 0, max: 100, step: 1, value: 68 }),
-          createRangeControl({ id: `${id}-x5`, label: 'Data point 5', min: 0, max: 100, step: 1, value: 86 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-mean`, label: 'Mean', value: '51.6' }),
-          createMetric({ id: `${id}-median`, label: 'Median', value: '54' }),
-          createMetric({ id: `${id}-range`, label: 'Range', value: '68' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Dot plot</title>
-          <desc id="${escapeHtml(id)}-desc">A dot plot of five data values on a number line.</desc>
-          <g id="${escapeHtml(id)}-axis" stroke="var(--border)" stroke-width="1"></g>
-          <g id="${escapeHtml(id)}-ticks" stroke="var(--muted)" stroke-width="1"></g>
-          <g id="${escapeHtml(id)}-points"></g>
-          <line id="${escapeHtml(id)}-mean-line" x1="0" y1="40" x2="0" y2="280" stroke="var(--pomodoro-long)" stroke-width="3" stroke-dasharray="8 6" />
-        </svg>`,
-      });
-    case 'trigonometry':
-      return createDemoSection({
-        slug,
-        kind: 'trig',
-        title: 'Unit circle and wave',
-        summary: 'Move the angle around the unit circle to watch sine and cosine update together.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-angle`, label: 'Angle', min: 0, max: 360, step: 1, value: 30 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-sin`, label: 'sin(theta)', value: '0.500' }),
-          createMetric({ id: `${id}-cos`, label: 'cos(theta)', value: '0.866' }),
-          createMetric({ id: `${id}-tan`, label: 'tan(theta)', value: '0.577' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Unit circle and sine wave</title>
-          <desc id="${escapeHtml(id)}-desc">The unit circle on the left and a sine wave on the right.</desc>
-          <circle id="${escapeHtml(id)}-circle" cx="170" cy="160" r="110" fill="none" stroke="var(--border)" stroke-width="2" />
-          <line id="${escapeHtml(id)}-circle-x" x1="60" y1="160" x2="280" y2="160" stroke="var(--border)" stroke-width="1" />
-          <line id="${escapeHtml(id)}-circle-y" x1="170" y1="50" x2="170" y2="270" stroke="var(--border)" stroke-width="1" />
-          <line id="${escapeHtml(id)}-radius" x1="170" y1="160" x2="170" y2="160" stroke="var(--accent-strong)" stroke-width="4" />
-          <circle id="${escapeHtml(id)}-point" cx="170" cy="160" r="7" fill="var(--pomodoro-short)" />
-          <path id="${escapeHtml(id)}-wave" fill="none" stroke="var(--pomodoro-long)" stroke-width="3" />
-          <line id="${escapeHtml(id)}-wave-marker" x1="0" y1="0" x2="0" y2="0" stroke="var(--accent-strong)" stroke-width="3" />
-        </svg>`,
-      });
-    case 'limits':
-      return createDemoSection({
-        slug,
-        kind: 'limit',
-        title: 'Approaching a limit',
-        summary: 'Move the removable discontinuity to see how the function approaches the same value from both sides.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-a`, label: 'Hole position a', min: -4, max: 4, step: 0.5, value: 1 }),
-          createRangeControl({ id: `${id}-probe`, label: 'Probe offset', min: 0.1, max: 2, step: 0.1, value: 0.6 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-limit`, label: 'Limit', value: '2.0' }),
-          createMetric({ id: `${id}-left-right`, label: 'Left/right values', value: 'approach the same height' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Limit graph</title>
-          <desc id="${escapeHtml(id)}-desc">A graph with a hole and probe points that move toward the limit.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-curve" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <circle id="${escapeHtml(id)}-hole" cx="0" cy="0" r="7" fill="var(--panel)" stroke="var(--pomodoro-short)" stroke-width="3" />
-          <circle id="${escapeHtml(id)}-left-probe" cx="0" cy="0" r="6" fill="var(--pomodoro-long)" />
-          <circle id="${escapeHtml(id)}-right-probe" cx="0" cy="0" r="6" fill="var(--pomodoro-short)" />
-        </svg>`,
-      });
-    case 'derivatives':
-      return createDemoSection({
-        slug,
-        kind: 'derivative',
-        title: 'Tangent line slope',
-        summary: 'Move the tangent point to see the instantaneous slope on a cubic curve.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-x0`, label: 'Point x0', min: -3, max: 3, step: 0.1, value: 0.8 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-slope`, label: 'Slope', value: '0.92' }),
-          createMetric({ id: `${id}-derivative`, label: 'Derivative', value: "f'(x0)" }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Derivative graph</title>
-          <desc id="${escapeHtml(id)}-desc">A curve with a tangent line at the selected point.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-curve" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <line id="${escapeHtml(id)}-tangent" x1="0" y1="0" x2="0" y2="0" stroke="var(--pomodoro-long)" stroke-width="3" />
-          <circle id="${escapeHtml(id)}-touch-point" cx="0" cy="0" r="7" fill="var(--pomodoro-short)" />
-        </svg>`,
-      });
-    case 'integrals':
-      return createDemoSection({
-        slug,
-        kind: 'integral',
-        title: 'Area under a curve',
-        summary: 'Move the bounds to see how the accumulated area changes between two x-values.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-left`, label: 'Left bound a', min: -3, max: 1, step: 0.1, value: -1.2 }),
-          createRangeControl({ id: `${id}-right`, label: 'Right bound b', min: -1, max: 3, step: 0.1, value: 1.8 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-area`, label: 'Area', value: '0.00' }),
-          createMetric({ id: `${id}-estimate`, label: 'Riemann estimate', value: '0.00' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Integral area graph</title>
-          <desc id="${escapeHtml(id)}-desc">A curve with shaded area and Riemann rectangles between two bounds.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-curve" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <path id="${escapeHtml(id)}-area-path" fill="rgba(255,255,255,0.08)" stroke="none" />
-          <g id="${escapeHtml(id)}-rectangles"></g>
-        </svg>`,
-      });
-    case 'series':
-      return createDemoSection({
-        slug,
-        kind: 'series',
-        title: 'Geometric partial sums',
-        summary: 'Adjust the ratio and term count to see how a geometric series approaches its limit.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-ratio`, label: 'Ratio r', min: 0.1, max: 0.9, step: 0.05, value: 0.5 }),
-          createRangeControl({ id: `${id}-terms`, label: 'Terms n', min: 1, max: 12, step: 1, value: 6 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-partial-sum`, label: 'Partial sum', value: '1.969' }),
-          createMetric({ id: `${id}-limit`, label: 'Limit', value: '2.000' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Partial sums</title>
-          <desc id="${escapeHtml(id)}-desc">A sequence of partial sums approaching a horizontal limit.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-curve" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <line id="${escapeHtml(id)}-limit-line" x1="40" y1="0" x2="760" y2="0" stroke="var(--pomodoro-long)" stroke-width="3" stroke-dasharray="8 6" />
-          <g id="${escapeHtml(id)}-points"></g>
-        </svg>`,
-      });
-    case 'vectors':
-      return createDemoSection({
-        slug,
-        kind: 'vectors',
-        title: 'Vector addition',
-        summary: 'Change the x and y components of two vectors and watch the resultant update in real time.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-ax`, label: 'Vector A x', min: -8, max: 8, step: 1, value: 5 }),
-          createRangeControl({ id: `${id}-ay`, label: 'Vector A y', min: -8, max: 8, step: 1, value: 3 }),
-          createRangeControl({ id: `${id}-bx`, label: 'Vector B x', min: -8, max: 8, step: 1, value: -2 }),
-          createRangeControl({ id: `${id}-by`, label: 'Vector B y', min: -8, max: 8, step: 1, value: 4 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-result`, label: 'Resultant', value: '(3, 7)' }),
-          createMetric({ id: `${id}-magnitude`, label: 'Magnitude', value: '7.62' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Vector sum</title>
-          <desc id="${escapeHtml(id)}-desc">Two component vectors and their resultant on a coordinate plane.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <line id="${escapeHtml(id)}-vector-a" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-short)" stroke-width="5" stroke-linecap="round" />
-          <line id="${escapeHtml(id)}-vector-b" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-long)" stroke-width="5" stroke-linecap="round" />
-          <line id="${escapeHtml(id)}-vector-r" x1="400" y1="160" x2="400" y2="160" stroke="var(--accent-strong)" stroke-width="5" stroke-linecap="round" />
-          <circle id="${escapeHtml(id)}-tip-a" cx="400" cy="160" r="7" fill="var(--pomodoro-short)" />
-          <circle id="${escapeHtml(id)}-tip-b" cx="400" cy="160" r="7" fill="var(--pomodoro-long)" />
-          <circle id="${escapeHtml(id)}-tip-r" cx="400" cy="160" r="7" fill="var(--accent-strong)" />
-        </svg>`,
-      });
-    case 'matrices':
-      return createDemoSection({
-        slug,
-        kind: 'matrix',
-        title: 'Linear transformation',
-        summary: 'Change the entries of a 2x2 matrix to see how it stretches and shears a grid.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-a`, label: 'a', min: -2, max: 2, step: 0.25, value: 1.25 }),
-          createRangeControl({ id: `${id}-b`, label: 'b', min: -2, max: 2, step: 0.25, value: 0.5 }),
-          createRangeControl({ id: `${id}-c`, label: 'c', min: -2, max: 2, step: 0.25, value: -0.25 }),
-          createRangeControl({ id: `${id}-d`, label: 'd', min: -2, max: 2, step: 0.25, value: 1 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-det`, label: 'Determinant', value: '1.375' }),
-          createMetric({ id: `${id}-trace`, label: 'Trace', value: '2.25' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Matrix transform</title>
-          <desc id="${escapeHtml(id)}-desc">A square grid and transformed basis vectors.</desc>
-          <g id="${escapeHtml(id)}-grid" stroke="var(--border)" stroke-width="1" opacity="0.8"></g>
-          <path id="${escapeHtml(id)}-square" fill="rgba(255,255,255,0.06)" stroke="var(--accent-strong)" stroke-width="3" />
-          <line id="${escapeHtml(id)}-basis-x" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-short)" stroke-width="5" />
-          <line id="${escapeHtml(id)}-basis-y" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-long)" stroke-width="5" />
-        </svg>`,
-      });
-    case 'eigenvalues':
-      return createDemoSection({
-        slug,
-        kind: 'eigenvalues',
-        title: 'Eigenvector directions',
-        summary: 'Use a symmetric matrix so the real eigenvectors stay visible as the transformation changes.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-a`, label: 'a', min: -2, max: 2, step: 0.25, value: 1.5 }),
-          createRangeControl({ id: `${id}-b`, label: 'b', min: -2, max: 2, step: 0.25, value: 0.75 }),
-          createRangeControl({ id: `${id}-d`, label: 'd', min: -2, max: 2, step: 0.25, value: 0.25 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-lambda1`, label: 'Eigenvalue 1', value: '1.87' }),
-          createMetric({ id: `${id}-lambda2`, label: 'Eigenvalue 2', value: '-0.12' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Eigenvectors</title>
-          <desc id="${escapeHtml(id)}-desc">A transformed grid with eigenvector directions highlighted.</desc>
-          <g id="${escapeHtml(id)}-grid" stroke="var(--border)" stroke-width="1" opacity="0.8"></g>
-          <path id="${escapeHtml(id)}-ellipse" fill="rgba(255,255,255,0.06)" stroke="var(--accent-strong)" stroke-width="3" />
-          <line id="${escapeHtml(id)}-evec-1" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-short)" stroke-width="4" />
-          <line id="${escapeHtml(id)}-evec-2" x1="400" y1="160" x2="400" y2="160" stroke="var(--pomodoro-long)" stroke-width="4" />
-        </svg>`,
-      });
-    case 'discrete-math':
-      return createDemoSection({
-        slug,
-        kind: 'recursion-tree',
-        title: 'Counting paths in a tree',
-        summary: 'Adjust the depth and branching factor to see how recursion and the product rule grow the number of outcomes.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-depth`, label: 'Depth', min: 1, max: 6, step: 1, value: 4 }),
-          createSelectControl({
-            id: `${id}-branching`,
-            label: 'Branches',
-            value: '2',
-            options: [
-              { value: '2', label: '2 branches' },
-              { value: '3', label: '3 branches' },
-              { value: '4', label: '4 branches' },
-            ],
-          }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-leaves`, label: 'Leaves', value: '16' }),
-          createMetric({ id: `${id}-formula`, label: 'Count', value: '2^4' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Recursion tree</title>
-          <desc id="${escapeHtml(id)}-desc">A tree that expands by a chosen branching factor and depth.</desc>
-          <g id="${escapeHtml(id)}-links" stroke="var(--border)" stroke-width="2"></g>
-          <g id="${escapeHtml(id)}-nodes" fill="var(--accent-strong)"></g>
-        </svg>`,
-      });
-    case 'modeling':
-      return createDemoSection({
-        slug,
-        kind: 'growth-model',
-        title: 'Growth model',
-        summary: 'Adjust the initial value and growth rate to see how a simple model changes over time.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-initial`, label: 'Initial value', min: 1, max: 20, step: 1, value: 5 }),
-          createRangeControl({ id: `${id}-rate`, label: 'Growth rate', min: -0.2, max: 0.4, step: 0.01, value: 0.08 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-year-5`, label: 'Value at t = 5', value: '7.35' }),
-          createMetric({ id: `${id}-trend`, label: 'Trend', value: 'growth' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Model growth curve</title>
-          <desc id="${escapeHtml(id)}-desc">A growth or decay curve with sample points.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-curve" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <g id="${escapeHtml(id)}-points"></g>
-        </svg>`,
-      });
-    case 'first-order-odes':
-      return createDemoSection({
-        slug,
-        kind: 'slope-field',
-        title: 'Slope field and solution',
-        summary: 'Move the initial value to see how the solution curve follows the same slope field.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-equilibrium`, label: 'Equilibrium level', min: -3, max: 3, step: 0.5, value: 1 }),
-          createRangeControl({ id: `${id}-initial`, label: 'Initial value', min: -4, max: 4, step: 0.5, value: -1 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-solution`, label: 'Solution', value: 'y(t) = 1 + Ce^-t' }),
-          createMetric({ id: `${id}-level`, label: 'Target level', value: '1.0' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Slope field</title>
-          <desc id="${escapeHtml(id)}-desc">A slope field with a solution curve through the selected initial value.</desc>
-          <g id="${escapeHtml(id)}-field" stroke="var(--border)" stroke-width="2" stroke-linecap="round"></g>
-          <path id="${escapeHtml(id)}-solution-path" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <circle id="${escapeHtml(id)}-initial-point" cx="0" cy="0" r="7" fill="var(--pomodoro-short)" />
-        </svg>`,
-      });
-    case 'second-order-odes':
-      return createDemoSection({
-        slug,
-        kind: 'oscillator',
-        title: 'Damped oscillator',
-        summary: 'Tweak damping and frequency to see how the oscillation fades and tightens over time.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-damping`, label: 'Damping', min: 0, max: 1, step: 0.05, value: 0.18 }),
-          createRangeControl({ id: `${id}-frequency`, label: 'Frequency', min: 0.5, max: 4, step: 0.1, value: 2 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-period`, label: 'Period', value: '3.14' }),
-          createMetric({ id: `${id}-decay`, label: 'Decay', value: 'slow' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Oscillator</title>
-          <desc id="${escapeHtml(id)}-desc">A damped oscillation plotted over time.</desc>
-          <g id="${escapeHtml(id)}-axes" stroke="var(--border)" stroke-width="1"></g>
-          <path id="${escapeHtml(id)}-oscillation" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <path id="${escapeHtml(id)}-envelope" fill="none" stroke="var(--pomodoro-long)" stroke-width="2" stroke-dasharray="6 6" />
-        </svg>`,
-      });
-    case 'systems-of-odes':
-      return createDemoSection({
-        slug,
-        kind: 'phase-portrait',
-        title: 'Phase portrait',
-        summary: 'Adjust the linear system to see trajectories spiral, settle, or diverge in the xy-plane.',
-        controlsHtml: [
-          createRangeControl({ id: `${id}-alpha`, label: 'Growth term', min: -1, max: 1, step: 0.05, value: 0.2 }),
-          createRangeControl({ id: `${id}-beta`, label: 'Rotation term', min: -2, max: 2, step: 0.05, value: 1 }),
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-stability`, label: 'Stability', value: 'spiral source' }),
-          createMetric({ id: `${id}-start`, label: 'Initial point', value: '(1, -0.5)' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Phase portrait</title>
-          <desc id="${escapeHtml(id)}-desc">A vector field and trajectory in the phase plane.</desc>
-          <g id="${escapeHtml(id)}-field" stroke="var(--border)" stroke-width="2" stroke-linecap="round"></g>
-          <path id="${escapeHtml(id)}-trajectory" fill="none" stroke="var(--accent-strong)" stroke-width="4" />
-          <circle id="${escapeHtml(id)}-phase-point" cx="0" cy="0" r="7" fill="var(--pomodoro-short)" />
-        </svg>`,
-      });
-    case 'proof-writing':
-      return createDemoSection({
-        slug,
-        kind: 'proof-strategy',
-        title: 'Proof strategy map',
-        summary: 'Choose a proof strategy and watch the same claim reorganize into a different reasoning path.',
-        controlsHtml: [
-          `<div class="interactive-demo__control">
-            ${createDemoLabel('Strategy', `${id}-strategy-value`, 'direct')}
-            <div class="interactive-demo__toggle-row">
-              ${createToggleButton({ id: `${id}-direct`, label: 'Direct', value: 'direct', checked: true })}
-              ${createToggleButton({ id: `${id}-contrapositive`, label: 'Contrapositive', value: 'contrapositive' })}
-              ${createToggleButton({ id: `${id}-contradiction`, label: 'Contradiction', value: 'contradiction' })}
-              ${createToggleButton({ id: `${id}-cases`, label: 'Cases', value: 'cases' })}
-            </div>
-          </div>`,
-        ].join(''),
-        metricsHtml: [
-          createMetric({ id: `${id}-goal`, label: 'Claim', value: 'If n is even, then n^2 is even' }),
-          createMetric({ id: `${id}-hint`, label: 'First step', value: 'Write n = 2k' }),
-        ].join(''),
-        figureHtml: `<svg class="interactive-demo__svg" viewBox="0 0 800 260" role="img" aria-labelledby="${escapeHtml(id)}-title ${escapeHtml(id)}-desc">
-          <title id="${escapeHtml(id)}-title">Proof flow</title>
-          <desc id="${escapeHtml(id)}-desc">A simple proof flowchart showing how the reasoning path changes with strategy.</desc>
-          <g id="${escapeHtml(id)}-nodes"></g>
-          <g id="${escapeHtml(id)}-links" stroke="var(--border)" stroke-width="3"></g>
-        </svg>`,
-        noteHtml: 'The highlighted path shows the reasoning order that matches the chosen strategy.',
-      });
-    default:
-      return '';
-  }
-}
-
 function renderSubjectLinks(structures, activeStructureId = null) {
   const links = structures.map((structure) => {
     const pagePath = getFirstPagePath(structure);
@@ -1569,6 +1037,16 @@ function renderTimerPanel() {
   </aside>`;
 }
 
+function renderNotesFooter() {
+  return `<footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+    </div>
+  </footer>`;
+}
+
 function buildLandingRedirectHtml() {
   const redirectUrl = '/notes/subjects/general/introduction/';
 
@@ -1606,11 +1084,7 @@ function buildLandingRedirectHtml() {
 }
 
 function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
-  const actions = [
-    `<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-expanded="false" aria-controls="search-panel" data-notes-nav-item>
-      Search notes
-    </button>`,
-  ];
+  const actions = [];
 
   if (practiceUrl) {
     actions.push(`<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>`);
@@ -1624,7 +1098,7 @@ function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
 }
 
 function renderFloatingActions(quickActionsHtml) {
-  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>`;
+  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>`;
 }
 
 function renderPomodoroBar() {
@@ -1730,6 +1204,7 @@ function renderNotesPageDocument({
   <main id="content" class="${escapeHtml(mainClass)}" aria-label="${escapeHtml(mainAriaLabel)}">
     ${mainHtml}
   </main>
+  ${renderNotesFooter()}
   ${renderSearchPanel()}
   ${renderTimerPanel()}
 </body>
@@ -1813,7 +1288,8 @@ function buildNoteHtml({
   title,
   description,
   bodyHtml,
-  interactiveDemoHtml = '',
+  beforeBodyHtml = '',
+  afterBodyHtml = '',
   canonicalUrl,
   editUrl,
   sourceUrl,
@@ -1852,8 +1328,9 @@ function buildNoteHtml({
       </div>
       <article class="markdown-body" id="note-content">
         ${tocHtml}
-        ${interactiveDemoHtml}
+        ${beforeBodyHtml}
         ${bodyHtml}
+        ${afterBodyHtml}
       </article>
     </section>
   `;
@@ -2098,6 +1575,10 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
           <h2 class="practice-problem__title"><span class="practice-problem__number">${escapeHtml(`${String(problem.level).trim()}.${String(problem.position).trim()}`)}</span><span class="practice-problem__title-text">${escapeHtml(problem.title)}</span></h2>
           <p class="practice-problem__meta">${metadataBits}</p>
         </div>
+        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+          <span class="practice-problem__complete-text">Complete</span>
+        </button>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         ${promptHtml}
@@ -2145,6 +1626,7 @@ function buildPracticeHtml({
 }) {
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
   const problemHtml = problemGroups.map((group) => {
     const levelProblemHtml = group.items.map(({ problem }) => {
@@ -2190,6 +1672,15 @@ function buildPracticeHtml({
           <a class="practice-back-link notes-action-chip" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to note</a>
         </div>
       </div>
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(totalProblems))} problems completed">
+        <div class="practice-progress__head">
+          <p class="section-label">Progress</p>
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of ${escapeHtml(String(totalProblems))} completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>
       <div class="practice-problem-list">
         ${problemHtml}
       </div>
@@ -2341,6 +1832,30 @@ function getGeneratedSourcePathFromOutputDir(outputDir) {
   return path.join(notesRoot, 'source', ...parts, `${parts.at(-1)}.md`);
 }
 
+async function loadNoteDocuments(notes) {
+  const noteDocuments = new Map();
+  const widgets = [];
+
+  for (const note of notes) {
+    const sourcePath = getNoteSourcePath(note.path);
+    const markdown = await fs.readFile(sourcePath, 'utf8');
+    const { body } = splitFrontmatter(markdown);
+    const bodyWithoutManualToc = stripManualTableOfContents(body);
+    const bodyWithoutTitle = stripLeadingTitleHeading(bodyWithoutManualToc, note.title);
+    const widgetResult = collectWidgetBlocks(bodyWithoutTitle, sourcePath, note);
+
+    noteDocuments.set(note.path, {
+      sourcePath,
+      bodyForDisplay: widgetResult.body,
+      widgets: widgetResult.widgets,
+    });
+
+    widgets.push(...widgetResult.widgets);
+  }
+
+  return { noteDocuments, widgets };
+}
+
 async function loadPracticeProblems(notes) {
   const noteBySourcePath = new Map(notes.map((note) => [getNoteSourcePath(note.path), note]));
   const seenProblemIds = new Map();
@@ -2403,25 +1918,23 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions, practice = null) {
-  const sourcePath = getNoteSourcePath(note.path);
-  const markdown = await fs.readFile(sourcePath, 'utf8');
-  const { body } = splitFrontmatter(markdown);
-  const bodyWithoutManualToc = stripManualTableOfContents(body);
+async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, practice = null, widgetRegistry = []) {
+  const sourcePath = noteDocument.sourcePath;
   const title = note.title;
-  const bodyForDisplay = stripLeadingTitleHeading(bodyWithoutManualToc, title);
+  const bodyForDisplay = noteDocument.bodyForDisplay;
   const summary = getSummary(bodyForDisplay) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(toPosix(path.relative(repoRoot, sourcePath)))}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
   const sourceUrl = buildGithubBlobUrl(toPosix(path.relative(repoRoot, sourcePath)));
-  const bodyHtml = renderBlocks(bodyForDisplay, `notes/${note.path}`);
-  const interactiveDemoHtml = buildMathInteractiveDemo(note);
+  const resolvedBodyForDisplay = resolveWidgetIncludeMarkers(bodyForDisplay, widgetRegistry);
+  const bodyHtml = renderBlocks(resolvedBodyForDisplay, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({
     title,
     description,
     bodyHtml,
-    interactiveDemoHtml,
+    beforeBodyHtml: '',
+    afterBodyHtml: '',
     canonicalUrl,
     editUrl,
     sourceUrl,
@@ -2441,7 +1954,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, practice 
     title,
     subject: note.structureTitle,
     url: urlPath,
-    text: trimMarkdownText(`${title} ${bodyForDisplay}`),
+    text: trimMarkdownText(`${title} ${resolvedBodyForDisplay}`),
   };
 }
 
@@ -2495,7 +2008,6 @@ async function buildSitemap(noteUrls, practiceUrls) {
     `${siteOrigin}/energy-housing-policy/`,
     `${siteOrigin}/privacy-policy/`,
     `${siteOrigin}/terms-of-service/`,
-    `${siteOrigin}/safety/`,
     `${siteOrigin}/notes/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
@@ -2521,14 +2033,20 @@ async function main() {
   await validateManifestCoverage(notes);
 
   const urls = notes.map((note) => getNoteUrl(note.path));
+  const { noteDocuments, widgets: widgetRegistry } = await loadNoteDocuments(notes);
   const practiceByNotePath = await loadPracticeProblems(notes);
   const practiceUrls = [];
   const searchEntries = [];
   for (let index = 0; index < notes.length; index += 1) {
     const note = notes[index];
     const practice = practiceByNotePath.get(note.path);
+    const noteDocument = noteDocuments.get(note.path);
 
-    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, practice));
+    if (!noteDocument) {
+      throw new Error(`Missing loaded note content for ${note.path}.`);
+    }
+
+    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, noteDocument, practice, widgetRegistry));
 
     if (practice) {
       const practicePage = await buildPracticePage(practice, manifest.structures, assetVersions);

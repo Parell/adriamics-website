@@ -216,6 +216,8 @@ $$
 | $x < 2$ | $(-\infty, 2)$ |
 | $-1 < x \le 4$ | $(-1, 4]$ |
 
+<!-- widget:algebra -->
+
 ---
 
 # 4. Systems of equations

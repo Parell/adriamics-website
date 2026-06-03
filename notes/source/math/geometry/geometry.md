@@ -133,6 +133,8 @@ Key fact:
 
 - The perpendicular bisector of a segment contains all points equidistant from the segment's endpoints.
 
+<!-- widget:geometry -->
+
 ---
 
 # 4. Congruence and similarity

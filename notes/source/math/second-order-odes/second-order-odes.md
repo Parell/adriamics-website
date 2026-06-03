@@ -431,6 +431,8 @@ $$
 | Critically damped | \(\zeta = 1\) | Fastest return without oscillation |
 | Overdamped | \(\zeta > 1\) | Non-oscillatory, slower return |
 
+<!-- widget:second-order-odes -->
+
 ## Forced vibration
 
 With external forcing \(F(t)\):

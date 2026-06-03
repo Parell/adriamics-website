@@ -100,6 +100,8 @@ What to look for:
 - Where slopes become large in magnitude
 - Whether solutions move toward or away from equilibrium values
 
+<!-- widget:first-order-odes -->
+
 ---
 
 # 3. Separable equations

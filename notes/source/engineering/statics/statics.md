@@ -201,6 +201,8 @@ Always label unknowns with symbols, not guessed directions.
 
 If the computed value is negative, the actual direction is opposite to the assumed direction.
 
+<!-- widget:free-body-diagrams -->
+
 ---
 
 # 6. Support reactions

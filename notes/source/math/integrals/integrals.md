@@ -109,6 +109,8 @@ $$
 
 This is a common interpretation: the integral is the total, and dividing by interval length gives the average height.
 
+<!-- widget:integrals -->
+
 ---
 
 # 3. The Fundamental Theorem of Calculus

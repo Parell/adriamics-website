@@ -30,6 +30,8 @@ Examples:
 - A projection matrix has eigenvalue $1$ on the subspace preserved by the projection and eigenvalue $0$ on the directions collapsed.
 - A pure rotation in $\mathbb{R}^2$ usually has no real eigenvectors unless the angle is $0$ or $\pi$.
 
+<!-- widget:eigenvalues -->
+
 ---
 
 # 2. Characteristic equation

@@ -252,6 +252,8 @@ f(bx)
 $$
 scales inputs horizontally by a factor of $1/|b|$.
 
+<!-- widget:functions -->
+
 ## End behavior
 
 End behavior describes what happens as $x \to \infty$ or $x \to -\infty$.

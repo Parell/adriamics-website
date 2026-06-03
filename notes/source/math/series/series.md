@@ -34,6 +34,8 @@ $$
 
 If the partial sums do not approach a finite limit, the series diverges.
 
+<!-- widget:series -->
+
 ## Why series matter
 
 Series are used to:

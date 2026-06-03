@@ -136,6 +136,8 @@ Z-scores are useful for comparing values across different scales.
 
 This summary underlies the boxplot.
 
+<!-- widget:statistics -->
+
 ---
 
 ## 4. Probability essentials

@@ -641,6 +641,8 @@ $$
 
 because $-2$ is to the right of $-5$.
 
+<!-- widget:arithmetic -->
+
 ## Adding signed numbers
 
 Same signs: add absolute values and keep the sign.

@@ -507,6 +507,8 @@ This adds self-limiting behavior:
 - Growth slows as $P$ approaches $K$
 - The equilibrium $P = K$ is stable
 
+<!-- widget:modeling -->
+
 ---
 
 # 9. Worked example: optimization model

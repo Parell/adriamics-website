@@ -308,6 +308,8 @@ $$
 
 So the claim holds in both cases.
 
+<!-- widget:proof-writing -->
+
 ## Existence proofs
 
 There are two main types.

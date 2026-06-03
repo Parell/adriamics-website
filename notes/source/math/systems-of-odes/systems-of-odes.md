@@ -375,6 +375,8 @@ $$
 
 This quickly tells you whether the eigenvalues are real or complex and whether the origin is stable.
 
+<!-- widget:systems-of-odes -->
+
 ---
 
 # 8. Nonlinear systems and linearization

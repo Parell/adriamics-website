@@ -327,6 +327,8 @@ To work with recursive definitions:
 2. Identify the recurrence rule.
 3. Check whether the rule determines each later value uniquely.
 
+<!-- widget:discrete-math -->
+
 ---
 
 ## 5. Counting and combinatorics

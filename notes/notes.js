@@ -9,8 +9,11 @@ const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
 const noteContent = document.getElementById('note-content');
 const practicePage = document.querySelector('[data-practice-page]');
+const practiceFilterButtons = Array.from(document.querySelectorAll('[data-practice-filter-button]'));
+const practiceFilterSummary = document.querySelector('[data-practice-filter-summary]');
 const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
+const practiceLevelSections = Array.from(document.querySelectorAll('[data-practice-level]'));
 const practiceProblemCards = Array.from(document.querySelectorAll('[data-practice-problem]'));
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
@@ -21,8 +24,10 @@ const SEARCH_INDEX_URL = '/notes/search-index.json';
 const NOTES_SESSION_STORAGE_KEY = 'ues-notes:last-pages-by-subject';
 const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
+const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
 const POMODORO_TIMER_STORAGE_KEY = 'ues-notes:pomodoro-timer';
 const POMODORO_COMPLETION_FLASH_MS = 2200;
+const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
 const POMODORO_TIMER_MODES = new Map([
   ['focus', { minutes: 25, label: 'Focus' }],
   ['short', { minutes: 5, label: 'Short break' }],
@@ -36,6 +41,7 @@ let searchIndexFailed = false;
 let activeSearchTrigger = searchTriggers[0] ?? null;
 let activeTimerTrigger = timerTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
+let activePracticeFilter = 'all';
 let pomodoroTimerState = null;
 let pomodoroTimerIntervalId = null;
 let pomodoroTimerCompletionTimeoutId = null;
@@ -178,6 +184,137 @@ function writePracticeCompletionIds(ids) {
   }
 }
 
+function getPracticeFilterStorageKey() {
+  if (!practicePage) {
+    return null;
+  }
+
+  return `${PRACTICE_FILTER_STORAGE_KEY_PREFIX}${window.location.pathname}`;
+}
+
+function readPracticeFilterValue() {
+  const storage = getLocalStorage();
+  const storageKey = getPracticeFilterStorageKey();
+
+  if (!storage || !storageKey) {
+    return 'all';
+  }
+
+  try {
+    const raw = storage.getItem(storageKey);
+    const normalized = String(raw ?? '').trim().toLowerCase();
+    return PRACTICE_FILTER_VALUES.has(normalized) ? normalized : 'all';
+  } catch {
+    return 'all';
+  }
+}
+
+function writePracticeFilterValue(value) {
+  const storage = getLocalStorage();
+  const storageKey = getPracticeFilterStorageKey();
+
+  if (!storage || !storageKey) {
+    return;
+  }
+
+  try {
+    storage.setItem(storageKey, value);
+  } catch {
+    // Ignore storage quota or privacy-mode failures.
+  }
+}
+
+function getPracticeFilterLabel(value) {
+  switch (value) {
+    case 'exam-i':
+      return 'Exam I';
+    case 'exam-ii':
+      return 'Exam II';
+    case 'final':
+      return 'Final';
+    case 'marked':
+      return 'Marked';
+    case 'missed':
+      return 'Missed';
+    default:
+      return 'All';
+  }
+}
+
+function isPracticeCardMarked(card) {
+  return card.classList.contains('is-complete');
+}
+
+function doesPracticeCardMatchFilter(card, value) {
+  switch (value) {
+    case 'exam-i':
+    case 'exam-ii':
+    case 'final':
+      return (card.dataset.exam ?? '') === value;
+    case 'marked':
+      return isPracticeCardMarked(card);
+    case 'missed':
+      return !isPracticeCardMarked(card);
+    case 'all':
+    default:
+      return true;
+  }
+}
+
+function updatePracticeFilterSummary(visibleCount, totalCount, value) {
+  if (!practiceFilterSummary) {
+    return;
+  }
+
+  if (value === 'all') {
+    practiceFilterSummary.textContent = `Showing all ${totalCount} problems`;
+    return;
+  }
+
+  practiceFilterSummary.textContent = `Showing ${visibleCount} of ${totalCount} problems for ${getPracticeFilterLabel(value)}`;
+}
+
+function updatePracticeFilterButtons(value) {
+  practiceFilterButtons.forEach((button) => {
+    const isActive = button.dataset.practiceFilter === value;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+}
+
+function applyPracticeFilter(value) {
+  if (!practicePage) {
+    return;
+  }
+
+  const normalized = PRACTICE_FILTER_VALUES.has(value) ? value : 'all';
+  let visibleCount = 0;
+  const visibleLevels = new Map();
+
+  practiceProblemCards.forEach((card) => {
+    const isVisible = doesPracticeCardMatchFilter(card, normalized);
+    card.hidden = !isVisible;
+
+    if (isVisible) {
+      visibleCount += 1;
+    }
+
+    const levelSection = card.closest('[data-practice-level]');
+
+    if (levelSection) {
+      visibleLevels.set(levelSection, (visibleLevels.get(levelSection) ?? false) || isVisible);
+    }
+  });
+
+  practiceLevelSections.forEach((section) => {
+    section.hidden = normalized === 'all' ? false : !(visibleLevels.get(section) ?? false);
+  });
+
+  activePracticeFilter = normalized;
+  updatePracticeFilterButtons(normalized);
+  updatePracticeFilterSummary(visibleCount, practiceProblemCards.length, normalized);
+}
+
 function updatePracticeProgressUi(completedCount, totalCount) {
   if (practiceProgressBar) {
     const progress = totalCount > 0 ? completedCount / totalCount : 0;
@@ -223,6 +360,7 @@ function syncPracticeCompletionState() {
   }
 
   applyPracticeCompletionState(readPracticeCompletionIds());
+  applyPracticeFilter(activePracticeFilter);
 }
 
 function persistPracticeCompletionState() {
@@ -251,6 +389,7 @@ function persistPracticeCompletionState() {
 
   writePracticeCompletionIds(completedIds);
   updatePracticeProgressUi(completedCount, practiceProblemCards.length);
+  applyPracticeFilter(activePracticeFilter);
 }
 
 function applyThemePreference(isSepia) {
@@ -3255,6 +3394,15 @@ timerTriggers.forEach((trigger) => {
   });
 });
 
+practiceFilterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const nextValue = String(button.dataset.practiceFilter ?? 'all').trim().toLowerCase();
+    const normalized = PRACTICE_FILTER_VALUES.has(nextValue) ? nextValue : 'all';
+    writePracticeFilterValue(normalized);
+    applyPracticeFilter(normalized);
+  });
+});
+
 document.addEventListener('click', (event) => {
   const themeButton = event.target.closest('[data-theme-toggle]');
 
@@ -3346,6 +3494,7 @@ revealQueryMatch();
 initFormulaSliderDemo();
 initMathInteractiveVisuals();
 syncPracticeCompletionState();
+applyPracticeFilter(readPracticeFilterValue());
 
 syncSubjectNavigation();
 syncPomodoroTimer();
@@ -3357,6 +3506,10 @@ window.addEventListener('storage', (event) => {
 
   if (event.key === getPracticeCompletionStorageKey() || event.key === null) {
     syncPracticeCompletionState();
+  }
+
+  if (event.key === getPracticeFilterStorageKey() || event.key === null) {
+    applyPracticeFilter(readPracticeFilterValue());
   }
 
   if (event.key === POMODORO_TIMER_STORAGE_KEY) {

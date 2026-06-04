@@ -1487,6 +1487,7 @@ function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, see
     title: String(metadata.title).trim(),
     type,
     answer: derivedAnswer,
+    exam: metadata.exam === undefined || metadata.exam === null ? '' : String(metadata.exam).trim(),
     tolerance: metadata.tolerance,
     unit: metadata.unit,
     skills: metadata.skills,
@@ -1551,12 +1552,42 @@ function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
   return problems;
 }
 
+function normalizePracticeExam(problem) {
+  const explicitExam = String(problem.exam ?? '').trim().toLowerCase();
+
+  if (explicitExam) {
+    if (['i', '1', 'exam i', 'exam 1'].includes(explicitExam)) {
+      return { key: 'exam-i', label: 'Exam I' };
+    }
+
+    if (['ii', '2', 'exam ii', 'exam 2'].includes(explicitExam)) {
+      return { key: 'exam-ii', label: 'Exam II' };
+    }
+
+    if (['final', 'exam final'].includes(explicitExam)) {
+      return { key: 'final', label: 'Final' };
+    }
+  }
+
+  if (problem.level <= 1) {
+    return { key: 'exam-i', label: 'Exam I' };
+  }
+
+  if (problem.level === 2) {
+    return { key: 'exam-ii', label: 'Exam II' };
+  }
+
+  return { key: 'final', label: 'Final' };
+}
+
 function renderPracticeProblem(problem, practiceSourcePath, notePath) {
   const promptHtml = renderBlocks(problem.promptMarkdown, practiceSourcePath);
   const solutionHtml = problem.solutionMarkdown
     ? renderBlocks(problem.solutionMarkdown, practiceSourcePath)
     : '<p class="practice-problem__solution-empty">No solution provided.</p>';
   const skills = renderPracticeSkills(notePath, problem.skills);
+  const exam = normalizePracticeExam(problem);
+  const problemNumber = `${String(problem.level).trim()}.${String(problem.position).trim()}`;
   const tolerance = problem.tolerance === undefined || problem.tolerance === null || String(problem.tolerance).trim() === ''
     ? ''
     : String(problem.tolerance).trim();
@@ -1565,14 +1596,16 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
     ? ''
     : String(problem.type).trim();
   const metadataBits = [
+    `<span class="practice-problem__exam">${escapeHtml(exam.label)}</span>`,
+    `<span class="practice-problem__problem">Problem ${escapeHtml(problemNumber)}</span>`,
     skills ? `<span class="practice-problem__uses"><span class="practice-problem__skills">${skills}</span></span>` : null,
     unit ? `<span>Unit ${escapeHtml(unit)}</span>` : null,
   ].filter(Boolean).join(' | ');
 
-  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem${type ? ` data-problem-type="${escapeHtml(type)}"` : ''}${problem.answer ? ` data-problem-answer="${escapeHtml(String(problem.answer).trim())}"` : ''}${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
+  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem data-exam="${escapeHtml(exam.key)}" data-problem-number="${escapeHtml(problemNumber)}"${type ? ` data-problem-type="${escapeHtml(type)}"` : ''}${problem.answer ? ` data-problem-answer="${escapeHtml(String(problem.answer).trim())}"` : ''}${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
       <div class="practice-problem__head">
         <div>
-          <h2 class="practice-problem__title"><span class="practice-problem__number">${escapeHtml(`${String(problem.level).trim()}.${String(problem.position).trim()}`)}</span><span class="practice-problem__title-text">${escapeHtml(problem.title)}</span></h2>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">${escapeHtml(problemNumber)}</span><span class="practice-problem__title-text">${escapeHtml(problem.title)}</span></h2>
           <p class="practice-problem__meta">${metadataBits}</p>
         </div>
         <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
@@ -1667,11 +1700,22 @@ function buildPracticeHtml({
           <h1>${escapeHtml(title)}</h1>
           ${renderMetadataLine('viewer-meta practice-note-meta-line', sourceUrl)}
         </div>
-        <div class="viewer-head__actions">
+      <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
           <a class="practice-back-link notes-action-chip" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to note</a>
         </div>
       </div>
+      <section class="practice-filters panel" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+        <p class="practice-filters__summary" data-practice-filter-summary aria-live="polite">Showing all ${escapeHtml(String(totalProblems))} problems</p>
+      </section>
       <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(totalProblems))} problems completed">
         <div class="practice-progress__head">
           <p class="section-label">Progress</p>
@@ -1996,6 +2040,19 @@ async function buildLandingPage(structures) {
   await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures), 'utf8');
 }
 
+async function buildRootIndexPage(siteCssVersion) {
+  const indexPath = path.join(repoRoot, 'index.html');
+  const html = await fs.readFile(indexPath, 'utf8');
+  const versionPattern = /site\.css\?v=[^"]+/;
+
+  if (!versionPattern.test(html)) {
+    throw new Error('Could not update the root stylesheet version in index.html.');
+  }
+
+  const updatedHtml = html.replace(versionPattern, `site.css?v=${siteCssVersion}`);
+  await fs.writeFile(indexPath, updatedHtml, 'utf8');
+}
+
 async function buildSearchIndex(entries) {
   const json = `${JSON.stringify(entries, null, 2)}\n`;
   await fs.writeFile(path.join(notesRoot, 'search-index.json'), json, 'utf8');
@@ -2026,6 +2083,7 @@ async function main() {
   const manifest = await loadManifest();
   const notes = flattenNotes(manifest.structures);
   const assetVersions = {
+    siteCss: await getAssetVersion(path.join(repoRoot, 'site.css')),
     notesCss: await getAssetVersion(path.join(notesRoot, 'notes.css')),
     notesJs: await getAssetVersion(path.join(notesRoot, 'notes.js')),
   };
@@ -2056,6 +2114,7 @@ async function main() {
 
   await removeStaleGeneratedPages(notes, practiceByNotePath);
 
+  await buildRootIndexPage(assetVersions.siteCss);
   await buildLandingPage(manifest.structures);
   await buildSearchIndex(searchEntries);
   await buildSitemap(urls, practiceUrls);

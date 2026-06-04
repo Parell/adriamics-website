@@ -1,6 +1,6 @@
 ## Summary
 
-Describe the content change in this pull request. PRs are for actual note updates, not feedback alone.
+Describe the content change in this pull request. PRs are for actual note updates, not discussion alone.
 
 ## Page Path(s)
 
@@ -8,7 +8,7 @@ List the note page paths changed by this PR.
 
 ## Related Issue(s)
 
-Link the feedback or correction issue that prompted this change.
+Link the issue that prompted this change.
 
 ## Sources / Verification
 

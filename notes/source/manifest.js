@@ -5,7 +5,7 @@ window.UES_GUIDE_MANIFEST = {
       title: 'General',
       children: [
         { title: 'Introduction', path: 'subjects/general/introduction/introduction.md' },
-        { title: 'Adding and Editing Documents', path: 'subjects/general/adding-and-editing-documents/adding-and-editing-documents.md' },
+        { title: 'Contribute', path: 'subjects/general/contribute/contribute.md' },
         { title: 'Interactive Visualizations', path: 'subjects/general/interactive-visualizations/interactive-visualizations.md' },
       ],
     },

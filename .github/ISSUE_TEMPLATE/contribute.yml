@@ -1,0 +1,83 @@
+name: Contribute
+description: Open a quick issue to fix a page, add examples, add practice, review, improve a visual, or suggest a topic.
+title: "[Contribute]: "
+labels:
+  - feedback
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Keep this short. One page, one request, and one sentence is enough to start.
+
+  - type: input
+    id: page_path
+    attributes:
+      label: Page path
+      description: Path to the page you were reading, or the closest related page.
+      placeholder: notes/source/math/derivatives/derivatives.md
+    validations:
+      required: true
+
+  - type: dropdown
+    id: role
+    attributes:
+      label: Best-fit role
+      description: Choose the role that best matches how you are helping.
+      options:
+        - Student user
+        - Contributor
+        - Reviewer
+        - Problem writer
+        - Visual builder
+        - Course mapper
+    validations:
+      required: true
+
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What needs help?
+      description: Pick the closest match so maintainers can triage quickly.
+      options:
+        - needs example
+        - needs practice problems
+        - needs review
+        - citation needed
+        - bug
+        - visualization
+        - good first issue
+        - other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: subject_tag
+    attributes:
+      label: Subject tag
+      description: Choose a subject when the issue clearly belongs to one.
+      options:
+        - General
+        - calculus
+        - physics
+        - engineering
+        - not sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: details
+    attributes:
+      label: Short description
+      description: One or two sentences is enough.
+      placeholder: Tell us what should change and why.
+    validations:
+      required: true
+
+  - type: textarea
+    id: source_reference
+    attributes:
+      label: Source or reference
+      description: Optional source, screenshot, or syllabus that helps confirm the request.
+      placeholder: Link, title, screenshot note, or class reference.
+    validations:
+      required: false

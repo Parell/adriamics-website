@@ -206,7 +206,7 @@ function renderSourceLinks(sourceUrl) {
     return '';
   }
 
-  return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Blame</a>`;
+  return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Changelog</a>`;
 }
 
 function renderMetadataLine(className, sourceUrl = null) {
@@ -2331,7 +2331,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   const summary = getSummary(bodyForDisplay) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
-  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(toPosix(path.relative(repoRoot, sourcePath)))}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
+  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(toPosix(path.relative(repoRoot, sourcePath)))}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
   const sourceUrl = buildGithubBlobUrl(toPosix(path.relative(repoRoot, sourcePath)));
   const resolvedBodyForDisplay = resolveWidgetIncludeMarkers(bodyForDisplay, widgetRegistry);
   const bodyHtml = renderBlocks(resolvedBodyForDisplay, `notes/${note.path}`);
@@ -2371,7 +2371,7 @@ async function buildPracticePage(practice, structures, assetVersions) {
   const description = `${practice.problems.length} practice problem${practice.problems.length === 1 ? '' : 's'}`;
   const canonicalUrl = `${siteOrigin}${getPracticeUrl(note.path)}`;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
-  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=correction.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Correction]: ${title}`)}`;
+  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
   const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
   const pageHtml = buildPracticeHtml({
     title,

@@ -9,6 +9,7 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
+const learningPathsPath = path.join(notesRoot, 'source', 'paths.json');
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
@@ -235,6 +236,22 @@ function getPracticeOutputDir(notePath) {
 
 function getPracticeUrl(notePath) {
   return `${getNoteUrl(notePath)}practice/`;
+}
+
+function getLearningPathUrl(slug) {
+  return `/notes/paths/${slug}/`;
+}
+
+function getLearningPathOutputDir(slug) {
+  return path.join(notesRoot, 'paths', slug);
+}
+
+function getLearningPathsIndexOutputDir() {
+  return path.join(notesRoot, 'paths');
+}
+
+function getLearningPathsIndexOutputPath() {
+  return path.join(getLearningPathsIndexOutputDir(), 'index.html');
 }
 
 function parsePracticeProblemId(id, sourcePath, problemIndex) {
@@ -963,7 +980,7 @@ function getNoteSlug(notePath) {
 }
 
 function renderSubjectLinks(structures, activeStructureId = null) {
-  const links = structures.map((structure) => {
+  const structureLinks = structures.map((structure) => {
     const pagePath = getFirstPagePath(structure);
 
     if (!pagePath) {
@@ -975,14 +992,19 @@ function renderSubjectLinks(structures, activeStructureId = null) {
     const current = isActive ? ' aria-current="true"' : '';
     const href = getNoteUrl(pagePath);
     return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
-  }).join('');
+  });
+
+  const pathsLink = `<li><a${activeStructureId === 'paths' ? ' class="is-active"' : ''}${activeStructureId === 'paths' ? ' aria-current="true"' : ''} href="/notes/paths/" data-notes-nav-item>Paths</a></li>`;
+  const combinedLinks = structureLinks.length
+    ? [structureLinks[0], pathsLink, ...structureLinks.slice(1)].join('')
+    : pathsLink;
 
   return `<aside class="notes-structures" aria-label="Guide structures">
           <div class="notes-header__brand">
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li>${links}<li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li>${combinedLinks}<li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
         </aside>`;
 }
 
@@ -1773,6 +1795,329 @@ async function loadManifest() {
   return manifest;
 }
 
+async function loadLearningPaths() {
+  const rawPaths = JSON.parse(await fs.readFile(learningPathsPath, 'utf8'));
+
+  if (!Array.isArray(rawPaths)) {
+    throw new Error('Could not load learning paths.');
+  }
+
+  return rawPaths.map((entry, index) => {
+    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+      throw new Error(`Learning path entry ${index + 1} must be an object.`);
+    }
+
+    const title = String(entry.title ?? '').trim();
+    const slug = String(entry.slug ?? '').trim();
+    const subject = String(entry.subject ?? '').trim();
+    const level = String(entry.level ?? '').trim();
+    const estimatedHours = Number(entry.estimated_hours);
+    const description = String(entry.description ?? '').trim();
+    const goal = String(entry.goal ?? '').trim();
+    const prerequisites = Array.isArray(entry.prerequisites)
+      ? entry.prerequisites.map((item) => String(item ?? '').trim()).filter(Boolean)
+      : [];
+    const steps = Array.isArray(entry.steps)
+      ? entry.steps.map((step, stepIndex) => {
+        if (!step || typeof step !== 'object' || Array.isArray(step)) {
+          throw new Error(`Learning path "${slug || title || index + 1}" step ${stepIndex + 1} must be an object.`);
+        }
+
+        return {
+          id: String(step.id ?? '').trim(),
+          title: String(step.title ?? '').trim(),
+          type: String(step.type ?? 'required').trim().toLowerCase() || 'required',
+          note: String(step.note ?? '').trim(),
+          practice: String(step.practice ?? '').trim(),
+          formula: String(step.formula ?? '').trim(),
+          mistakes: String(step.mistakes ?? '').trim(),
+          examTags: Array.isArray(step.exam_tags)
+            ? step.exam_tags.map((tag) => String(tag ?? '').trim()).filter(Boolean)
+            : [],
+        };
+      })
+      : [];
+
+    if (!title || !slug || !subject || !level || !Number.isFinite(estimatedHours) || !description || !goal || !steps.length) {
+      throw new Error(`Learning path entry ${index + 1} is missing required fields.`);
+    }
+
+    return {
+      title,
+      slug,
+      subject,
+      level,
+      estimatedHours,
+      description,
+      goal,
+      prerequisites,
+      steps,
+    };
+  });
+}
+
+function normalizePathFilterTag(tag) {
+  const value = String(tag ?? '').trim().toLowerCase();
+
+  if (['exam i', 'exam 1', 'i', '1'].includes(value)) {
+    return 'exam-i';
+  }
+
+  if (['exam ii', 'exam 2', 'ii', '2'].includes(value)) {
+    return 'exam-ii';
+  }
+
+  if (['final', 'exam final'].includes(value)) {
+    return 'final';
+  }
+
+  return '';
+}
+
+function getLearningPathReviewFilter(step) {
+  const firstTag = Array.isArray(step.examTags) ? step.examTags[0] : '';
+  return normalizePathFilterTag(firstTag);
+}
+
+function stripUrlDecorations(href) {
+  return String(href ?? '').split('#')[0].split('?')[0];
+}
+
+function hasAvailablePathResource(href, availableUrls) {
+  if (!href) {
+    return false;
+  }
+
+  return availableUrls.has(stripUrlDecorations(href));
+}
+
+function renderLearningPathResourceLink(label, href, className = '') {
+  return `<a class="notes-action-chip${className ? ` ${className}` : ''}" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
+}
+
+function renderLearningPathResourceLinks(step, availableNoteUrls, availablePracticeUrls) {
+  const links = [];
+
+  if (hasAvailablePathResource(step.note, availableNoteUrls)) {
+    links.push(renderLearningPathResourceLink('Read notes', step.note));
+  }
+
+  if (hasAvailablePathResource(step.practice, availablePracticeUrls)) {
+    links.push(renderLearningPathResourceLink('Practice', step.practice, 'notes-action-chip--practice'));
+  }
+
+  if (step.formula && hasAvailablePathResource(step.formula, availableNoteUrls)) {
+    links.push(renderLearningPathResourceLink('Formula sheet', step.formula));
+  }
+
+  if (step.mistakes && hasAvailablePathResource(step.mistakes, availableNoteUrls)) {
+    links.push(renderLearningPathResourceLink('Common mistakes', step.mistakes));
+  }
+
+  const reviewFilter = getLearningPathReviewFilter(step);
+  if (reviewFilter && hasAvailablePathResource(step.practice, availablePracticeUrls)) {
+    const reviewHref = `${step.practice}${step.practice.includes('?') ? '&' : '?'}filter=${encodeURIComponent(reviewFilter)}`;
+    links.push(renderLearningPathResourceLink('Exam review', reviewHref, 'notes-action-chip--practice'));
+  }
+
+  return links.join('');
+}
+
+function renderPathStepMeta(step) {
+  const parts = [
+    step.type === 'optional' ? 'Optional' : 'Required',
+    ...(Array.isArray(step.examTags) && step.examTags.length ? [step.examTags.join(' · ')] : []),
+  ];
+
+  return parts.join(' · ');
+}
+
+function renderLearningPathStep(step, position, availableNoteUrls, availablePracticeUrls) {
+  const examTags = Array.isArray(step.examTags) ? step.examTags.map((tag) => normalizePathFilterTag(tag)).filter(Boolean) : [];
+  const dataExamTags = examTags.join(' ');
+  const orderLabel = String(position).padStart(2, '0');
+
+  return `<li class="learning-path-step-item">
+    <article class="practice-problem panel learning-path-step" data-learning-path-step data-step-id="${escapeHtml(step.id)}" data-step-type="${escapeHtml(step.type)}"${dataExamTags ? ` data-exam-tags="${escapeHtml(dataExamTags)}"` : ''}>
+      <div class="practice-problem__head">
+        <div>
+          <h2 class="practice-problem__title"><span class="practice-problem__number">Step ${escapeHtml(orderLabel)}</span><span class="practice-problem__title-text">${escapeHtml(step.title)}</span></h2>
+          <p class="practice-problem__meta">${escapeHtml(renderPathStepMeta(step))}</p>
+        </div>
+        <button type="button" class="practice-problem__complete-toggle" data-learning-path-step-toggle aria-pressed="false">
+          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+          <span class="practice-problem__complete-text">Done</span>
+        </button>
+      </div>
+      <div class="practice-problem__prompt markdown-body">
+        <p>Open the linked note first, then use the practice set and review links to work the step in sequence.</p>
+      </div>
+      <div class="practice-problem__actions">
+        <div class="practice-problem__action-links" aria-label="${escapeHtml(step.title)} resources">
+          ${renderLearningPathResourceLinks(step, availableNoteUrls, availablePracticeUrls)}
+        </div>
+      </div>
+    </article>
+  </li>`;
+}
+
+function getLearningPathProgressSummary(completedCount, totalCount) {
+  if (completedCount <= 0) {
+    return 'Not started';
+  }
+
+  if (completedCount >= totalCount) {
+    return 'Complete';
+  }
+
+  return 'In progress';
+}
+
+function buildLearningPathCard(pathEntry) {
+  const prereqs = pathEntry.prerequisites.length ? pathEntry.prerequisites.join(', ') : 'None';
+
+  return `<article class="learning-path-card panel" data-learning-path-card data-path-slug="${escapeHtml(pathEntry.slug)}" data-path-total-steps="${escapeHtml(String(pathEntry.steps.length))}">
+    <div class="learning-path-card__head">
+      <div>
+        <p class="section-label">${escapeHtml(pathEntry.subject)}</p>
+        <h2 class="learning-path-card__title">${escapeHtml(pathEntry.title)}</h2>
+      </div>
+      <span class="learning-path-card__level">${escapeHtml(pathEntry.level)}</span>
+    </div>
+    <p class="learning-path-card__meta">${escapeHtml(String(pathEntry.estimatedHours))} hours</p>
+    <p class="learning-path-card__description">${escapeHtml(pathEntry.description)}</p>
+    <p class="learning-path-card__prereqs"><strong>Prerequisites:</strong> ${escapeHtml(prereqs)}</p>
+    <div class="learning-path-card__footer">
+      <a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(getLearningPathUrl(pathEntry.slug))}" data-path-card-action data-notes-nav-item>Start</a>
+      <p class="learning-path-card__status" data-path-card-status>Not started</p>
+    </div>
+  </article>`;
+}
+
+function buildLearningPathsIndexHtml(paths) {
+  return paths.map((pathEntry) => buildLearningPathCard(pathEntry)).join('');
+}
+
+function buildLearningPathPageHtml(pathEntry, structures, assetVersions, availableNoteUrls, availablePracticeUrls) {
+  const canonicalUrl = `${siteOrigin}${getLearningPathUrl(pathEntry.slug)}`;
+  const fileTitle = `${pathEntry.title} | Adriamics`;
+  const outputDir = getLearningPathOutputDir(pathEntry.slug);
+  const prereqs = pathEntry.prerequisites.length
+    ? pathEntry.prerequisites.map((prerequisite) => `<li>${escapeHtml(prerequisite)}</li>`).join('')
+    : '<li>None listed</li>';
+  const stepsHtml = pathEntry.steps.map((step, index) => renderLearningPathStep(step, index + 1, availableNoteUrls, availablePracticeUrls)).join('');
+  const firstFilteredCount = pathEntry.steps.length;
+  const mainHtml = `
+    <section class="learning-path-hero panel" data-learning-path-page data-learning-path-slug="${escapeHtml(pathEntry.slug)}" data-learning-path-total-steps="${escapeHtml(String(pathEntry.steps.length))}">
+      <div class="learning-path-hero__head">
+        <div>
+          <p class="section-label">Learning Path</p>
+          <h1>${escapeHtml(pathEntry.title)}</h1>
+          <p class="learning-path-hero__meta">${escapeHtml(pathEntry.subject)} · ${escapeHtml(pathEntry.level)} · ${escapeHtml(String(pathEntry.estimatedHours))} hours</p>
+        </div>
+        <a class="notes-action-chip" href="/notes/paths/" data-notes-nav-item>Back to paths</a>
+      </div>
+      <p class="learning-path-hero__goal"><strong>Goal:</strong> ${escapeHtml(pathEntry.goal)}</p>
+      <div class="learning-path-hero__grid">
+        <div>
+          <p class="learning-path-hero__label">Prerequisites</p>
+          <ul class="learning-path-hero__prereqs">${prereqs}</ul>
+        </div>
+        <div class="learning-path-hero__progress">
+          <p class="learning-path-hero__label">Progress</p>
+          <p class="learning-path-hero__status" data-learning-path-summary>Not started</p>
+        </div>
+      </div>
+      <section class="practice-progress" data-learning-path-progress role="progressbar" aria-label="Learning path progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(pathEntry.steps.length))} steps completed">
+        <div class="practice-progress__head">
+          <p class="section-label">Progress</p>
+          <p class="practice-progress__summary" data-learning-path-progress-summary>0 of ${escapeHtml(String(pathEntry.steps.length))} steps completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-learning-path-progress-fill></div>
+        </div>
+      </section>
+    </section>
+    <section class="practice-filters panel" data-learning-path-filters aria-label="Learning path filters">
+      <div class="practice-filters__bar" role="toolbar" aria-label="Learning path filters">
+        <button type="button" class="practice-filters__button is-active" data-learning-path-filter-button data-learning-path-filter="all" aria-pressed="true">All</button>
+        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="required" aria-pressed="false">Required</button>
+        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="optional" aria-pressed="false">Optional</button>
+        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="exam-i" aria-pressed="false">Exam I</button>
+        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="exam-ii" aria-pressed="false">Exam II</button>
+        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="final" aria-pressed="false">Final</button>
+      </div>
+      <p class="practice-filters__summary" data-learning-path-filter-summary aria-live="polite">Showing all ${escapeHtml(String(firstFilteredCount))} steps</p>
+    </section>
+    <ol class="learning-path-steps" data-learning-path-step-list>
+      ${stepsHtml}
+    </ol>`;
+
+  return renderNotesPageDocument({
+    title: fileTitle,
+    description: pathEntry.description,
+    canonicalUrl,
+    bodyClass: 'learning-path-page',
+    mainClass: 'shell learning-paths-layout',
+    mainAriaLabel: 'Learning path',
+    mainHtml,
+    structures,
+    activeStructureId: 'paths',
+    floatingActionsHtml: renderFloatingActions(''),
+    stylesheetHref: `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`,
+    scriptHref: `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`,
+  });
+}
+
+function buildLearningPathsIndexPage(paths, structures, assetVersions) {
+  const cardsHtml = buildLearningPathsIndexHtml(paths);
+  const mainHtml = `
+    <section class="learning-path-index-hero panel">
+      <p class="section-label">Learning Paths</p>
+      <h1>Learning Paths</h1>
+      <p class="learning-path-index-hero__lead">Study the existing notes in a guided order. Each path points to the source notes, practice sets, and review material already in the site.</p>
+    </section>
+    <section class="learning-path-grid" data-learning-path-card-list>
+      ${cardsHtml}
+    </section>`;
+
+  return renderNotesPageDocument({
+    title: 'Learning Paths | Adriamics',
+    description: 'Guided study paths for the notes site.',
+    canonicalUrl: `${siteOrigin}/notes/paths/`,
+    bodyClass: 'learning-paths-index-page',
+    mainClass: 'shell learning-paths-layout',
+    mainAriaLabel: 'Learning paths',
+    mainHtml,
+    structures,
+    activeStructureId: 'paths',
+    floatingActionsHtml: renderFloatingActions(''),
+    stylesheetHref: `${getRelativeNotesAssetHref(getLearningPathsIndexOutputDir(), 'notes.css')}?v=${assetVersions.notesCss}`,
+    scriptHref: `${getRelativeNotesAssetHref(getLearningPathsIndexOutputDir(), 'notes.js')}?v=${assetVersions.notesJs}`,
+  });
+}
+
+async function buildLearningPathsLandingPage(paths, structures, assetVersions) {
+  await ensureDir(getLearningPathsIndexOutputPath());
+  await fs.writeFile(getLearningPathsIndexOutputPath(), buildLearningPathsIndexPage(paths, structures, assetVersions), 'utf8');
+}
+
+async function buildLearningPathPages(paths, structures, assetVersions, availableNoteUrls, availablePracticeUrls) {
+  const pathUrls = [];
+
+  for (const pathEntry of paths) {
+    const outputDir = getLearningPathOutputDir(pathEntry.slug);
+    const outputPath = path.join(outputDir, 'index.html');
+    const pageHtml = buildLearningPathPageHtml(pathEntry, structures, assetVersions, availableNoteUrls, availablePracticeUrls);
+
+    await ensureDir(outputPath);
+    await fs.writeFile(outputPath, pageHtml, 'utf8');
+    pathUrls.push(getLearningPathUrl(pathEntry.slug));
+  }
+
+  return pathUrls;
+}
+
 function flattenNotes(structures) {
   const notes = [];
 
@@ -1953,6 +2298,23 @@ async function removeStaleGeneratedPages(notes, practiceByNotePath) {
   await visit(path.join(notesRoot, 'subjects'));
 }
 
+async function removeStaleLearningPathPages(paths) {
+  const expectedSlugs = new Set(paths.map((entry) => entry.slug));
+  const outputRoot = getLearningPathsIndexOutputDir();
+
+  if (!(await exists(outputRoot))) {
+    return;
+  }
+
+  const entries = await fs.readdir(outputRoot, { withFileTypes: true });
+
+  await Promise.all(entries
+    .filter((entry) => entry.isDirectory() && !expectedSlugs.has(entry.name))
+    .map(async (entry) => {
+      await fs.rm(path.join(outputRoot, entry.name), { recursive: true, force: true });
+    }));
+}
+
 async function exists(filePath) {
   try {
     await fs.access(filePath);
@@ -2058,7 +2420,7 @@ async function buildSearchIndex(entries) {
   await fs.writeFile(path.join(notesRoot, 'search-index.json'), json, 'utf8');
 }
 
-async function buildSitemap(noteUrls, practiceUrls) {
+async function buildSitemap(noteUrls, practiceUrls, pathUrls) {
   const urls = [
     `${siteOrigin}/`,
     `${siteOrigin}/blog/what-this-site-is-for.html`,
@@ -2066,8 +2428,10 @@ async function buildSitemap(noteUrls, practiceUrls) {
     `${siteOrigin}/privacy-policy/`,
     `${siteOrigin}/terms-of-service/`,
     `${siteOrigin}/notes/`,
+    `${siteOrigin}/notes/paths/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
+    ...pathUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -2081,6 +2445,7 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 
 async function main() {
   const manifest = await loadManifest();
+  const learningPaths = await loadLearningPaths();
   const notes = flattenNotes(manifest.structures);
   const assetVersions = {
     siteCss: await getAssetVersion(path.join(repoRoot, 'site.css')),
@@ -2091,6 +2456,7 @@ async function main() {
   await validateManifestCoverage(notes);
 
   const urls = notes.map((note) => getNoteUrl(note.path));
+  const noteUrlSet = new Set(urls);
   const { noteDocuments, widgets: widgetRegistry } = await loadNoteDocuments(notes);
   const practiceByNotePath = await loadPracticeProblems(notes);
   const practiceUrls = [];
@@ -2113,11 +2479,16 @@ async function main() {
   }
 
   await removeStaleGeneratedPages(notes, practiceByNotePath);
+  await removeStaleLearningPathPages(learningPaths);
+
+  const availablePracticeUrls = new Set(practiceUrls);
+  const pathUrls = await buildLearningPathPages(learningPaths, manifest.structures, assetVersions, noteUrlSet, availablePracticeUrls);
 
   await buildRootIndexPage(assetVersions.siteCss);
   await buildLandingPage(manifest.structures);
+  await buildLearningPathsLandingPage(learningPaths, manifest.structures, assetVersions);
   await buildSearchIndex(searchEntries);
-  await buildSitemap(urls, practiceUrls);
+  await buildSitemap(urls, practiceUrls, pathUrls);
 }
 
 await main();

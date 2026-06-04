@@ -712,6 +712,161 @@ body.notes-page--sepia .notes-search-match {
   align-items: start;
 }
 
+.learning-paths-layout {
+  display: grid;
+  gap: 1rem;
+}
+
+.learning-path-index-hero,
+.learning-path-hero,
+.learning-path-card {
+  padding: 1.1rem 1.1rem 1rem;
+}
+
+.learning-path-index-hero h1,
+.learning-path-hero h1 {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.7rem, 3vw, 2.65rem);
+  line-height: 1.04;
+}
+
+.learning-path-index-hero__lead,
+.learning-path-hero__meta,
+.learning-path-card__meta,
+.learning-path-card__description,
+.learning-path-card__prereqs,
+.learning-path-card__status,
+.learning-path-hero__goal {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.learning-path-index-hero__lead,
+.learning-path-hero__goal {
+  max-width: 72ch;
+}
+
+.learning-path-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.learning-path-card {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.learning-path-card__head,
+.learning-path-hero__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.learning-path-card__title {
+  margin: 0.15rem 0 0;
+  font-size: 1.2rem;
+  line-height: 1.15;
+}
+
+.learning-path-card__level {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.1rem;
+  padding: 0.42rem 0.7rem;
+  border: 1px solid var(--border);
+  background: var(--accent-soft);
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.learning-path-card__footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem 0.9rem;
+}
+
+.learning-path-card__prereqs strong {
+  color: var(--text);
+}
+
+.learning-path-card__status {
+  font-weight: 600;
+}
+
+.learning-path-hero {
+  display: grid;
+  gap: 1rem;
+}
+
+.learning-path-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.35fr) minmax(0, 0.85fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.learning-path-hero__label {
+  margin: 0 0 0.35rem;
+  color: var(--accent-strong);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.learning-path-hero__prereqs {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.learning-path-hero__prereqs li {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2rem;
+  padding: 0.36rem 0.65rem;
+  border: 1px solid var(--border);
+  background: var(--control-bg);
+  color: var(--text);
+}
+
+.learning-path-hero__progress {
+  display: grid;
+  gap: 0.25rem;
+}
+
+.learning-path-hero__status {
+  color: var(--accent-strong);
+  font-weight: 700;
+}
+
+.learning-path-steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.learning-path-step-item[hidden] {
+  display: none;
+}
+
 .notes-structures {
   display: grid;
   gap: 0.65rem;
@@ -1925,6 +2080,11 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
     grid-template-columns: minmax(0, 1fr);
   }
 
+  .learning-path-grid,
+  .learning-path-hero__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .notes-footer {
     margin-top: 0.9rem;
   }
@@ -1932,6 +2092,11 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   .viewer-head__actions {
     width: 100%;
     justify-content: flex-end;
+  }
+
+  .learning-path-card__head,
+  .learning-path-hero__head {
+    flex-direction: column;
   }
 
   .notes-sidebar,
@@ -2003,6 +2168,9 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   .notes-sidebar,
   .notes-toc,
   .notes-viewer,
+  .learning-path-index-hero,
+  .learning-path-hero,
+  .learning-path-card,
   .notes-footer__inner,
   .search-panel__card {
     padding: 1rem;

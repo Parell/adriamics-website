@@ -15,6 +15,14 @@ const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
 const practiceLevelSections = Array.from(document.querySelectorAll('[data-practice-level]'));
 const practiceProblemCards = Array.from(document.querySelectorAll('[data-practice-problem]'));
+const learningPathPage = document.querySelector('[data-learning-path-page]');
+const learningPathCardElements = Array.from(document.querySelectorAll('[data-learning-path-card]'));
+const learningPathStepCards = Array.from(document.querySelectorAll('[data-learning-path-step]'));
+const learningPathFilterButtons = Array.from(document.querySelectorAll('[data-learning-path-filter-button]'));
+const learningPathProgressBar = document.querySelector('[data-learning-path-progress]');
+const learningPathProgressSummary = document.querySelector('[data-learning-path-progress-summary]');
+const learningPathStatus = document.querySelector('[data-learning-path-summary]');
+const learningPathFilterSummary = document.querySelector('[data-learning-path-filter-summary]');
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
 const pomodoroPresetButtons = Array.from(document.querySelectorAll('[data-pomodoro-trigger]'));
@@ -25,9 +33,12 @@ const NOTES_SESSION_STORAGE_KEY = 'ues-notes:last-pages-by-subject';
 const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
+const LEARNING_PATH_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:learning-path-completion:';
+const LEARNING_PATH_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:learning-path-filter:';
 const POMODORO_TIMER_STORAGE_KEY = 'ues-notes:pomodoro-timer';
 const POMODORO_COMPLETION_FLASH_MS = 2200;
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
+const LEARNING_PATH_FILTER_VALUES = new Set(['all', 'required', 'optional', 'exam-i', 'exam-ii', 'final']);
 const POMODORO_TIMER_MODES = new Map([
   ['focus', { minutes: 25, label: 'Focus' }],
   ['short', { minutes: 5, label: 'Short break' }],
@@ -42,6 +53,7 @@ let activeSearchTrigger = searchTriggers[0] ?? null;
 let activeTimerTrigger = timerTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
+let activeLearningPathFilter = 'all';
 let pomodoroTimerState = null;
 let pomodoroTimerIntervalId = null;
 let pomodoroTimerCompletionTimeoutId = null;
@@ -206,6 +218,15 @@ function readPracticeFilterValue() {
     return PRACTICE_FILTER_VALUES.has(normalized) ? normalized : 'all';
   } catch {
     return 'all';
+  }
+}
+
+function getPracticeFilterFromUrl() {
+  try {
+    const value = String(new URL(window.location.href).searchParams.get('filter') ?? '').trim().toLowerCase();
+    return PRACTICE_FILTER_VALUES.has(value) ? value : null;
+  } catch {
+    return null;
   }
 }
 
@@ -390,6 +411,309 @@ function persistPracticeCompletionState() {
   writePracticeCompletionIds(completedIds);
   updatePracticeProgressUi(completedCount, practiceProblemCards.length);
   applyPracticeFilter(activePracticeFilter);
+}
+
+function getCurrentLearningPathSlug() {
+  return String(learningPathPage?.dataset.learningPathSlug ?? '').trim();
+}
+
+function getLearningPathCompletionStorageKey(slug = getCurrentLearningPathSlug()) {
+  const normalizedSlug = String(slug ?? '').trim();
+
+  if (!normalizedSlug) {
+    return null;
+  }
+
+  return `${LEARNING_PATH_COMPLETION_STORAGE_KEY_PREFIX}${normalizedSlug}`;
+}
+
+function readLearningPathCompletionIds(slug = getCurrentLearningPathSlug()) {
+  const storage = getLocalStorage();
+  const storageKey = getLearningPathCompletionStorageKey(slug);
+
+  if (!storage || !storageKey) {
+    return new Set();
+  }
+
+  try {
+    const raw = storage.getItem(storageKey);
+
+    if (!raw) {
+      return new Set();
+    }
+
+    const parsed = JSON.parse(raw);
+
+    if (!Array.isArray(parsed)) {
+      return new Set();
+    }
+
+    return new Set(parsed.map((value) => (typeof value === 'string' ? value.trim() : '')).filter(Boolean));
+  } catch {
+    return new Set();
+  }
+}
+
+function writeLearningPathCompletionIds(ids, slug = getCurrentLearningPathSlug()) {
+  const storage = getLocalStorage();
+  const storageKey = getLearningPathCompletionStorageKey(slug);
+
+  if (!storage || !storageKey) {
+    return;
+  }
+
+  try {
+    storage.setItem(storageKey, JSON.stringify(Array.from(ids)));
+  } catch {
+    // Ignore storage quota or privacy-mode failures.
+  }
+}
+
+function getLearningPathFilterStorageKey() {
+  const slug = getCurrentLearningPathSlug();
+
+  if (!slug) {
+    return null;
+  }
+
+  return `${LEARNING_PATH_FILTER_STORAGE_KEY_PREFIX}${slug}`;
+}
+
+function readLearningPathFilterValue() {
+  const storage = getLocalStorage();
+  const storageKey = getLearningPathFilterStorageKey();
+
+  if (!storage || !storageKey) {
+    return 'all';
+  }
+
+  try {
+    const raw = storage.getItem(storageKey);
+    const normalized = String(raw ?? '').trim().toLowerCase();
+    return LEARNING_PATH_FILTER_VALUES.has(normalized) ? normalized : 'all';
+  } catch {
+    return 'all';
+  }
+}
+
+function writeLearningPathFilterValue(value) {
+  const storage = getLocalStorage();
+  const storageKey = getLearningPathFilterStorageKey();
+
+  if (!storage || !storageKey) {
+    return;
+  }
+
+  try {
+    storage.setItem(storageKey, value);
+  } catch {
+    // Ignore storage quota or privacy-mode failures.
+  }
+}
+
+function getLearningPathFilterLabel(value) {
+  switch (value) {
+    case 'required':
+      return 'Required';
+    case 'optional':
+      return 'Optional';
+    case 'exam-i':
+      return 'Exam I';
+    case 'exam-ii':
+      return 'Exam II';
+    case 'final':
+      return 'Final';
+    default:
+      return 'All';
+  }
+}
+
+function getLearningPathProgressSummary(completedCount, totalCount) {
+  if (completedCount <= 0) {
+    return 'Not started';
+  }
+
+  if (completedCount >= totalCount) {
+    return 'Complete';
+  }
+
+  return 'In progress';
+}
+
+function doesLearningPathStepMatchFilter(step, value) {
+  const normalizedType = String(step.dataset.stepType ?? '').trim().toLowerCase();
+  const examTags = String(step.dataset.examTags ?? '').trim().split(/\s+/).filter(Boolean);
+
+  switch (value) {
+    case 'required':
+    case 'optional':
+      return normalizedType === value;
+    case 'exam-i':
+    case 'exam-ii':
+    case 'final':
+      return examTags.includes(value);
+    case 'all':
+    default:
+      return true;
+  }
+}
+
+function updateLearningPathProgressUi(completedCount, totalCount) {
+  const progress = totalCount > 0 ? completedCount / totalCount : 0;
+
+  if (learningPathProgressBar) {
+    learningPathProgressBar.style.setProperty('--practice-progress', String(Math.max(0, Math.min(1, progress))));
+    learningPathProgressBar.setAttribute('aria-valuenow', String(Math.round(Math.max(0, Math.min(100, progress * 100)))));
+    learningPathProgressBar.setAttribute('aria-valuetext', `${completedCount} of ${totalCount} steps completed`);
+  }
+
+  if (learningPathProgressSummary) {
+    learningPathProgressSummary.textContent = `${completedCount} of ${totalCount} steps completed`;
+  }
+
+  if (learningPathStatus) {
+    learningPathStatus.textContent = getLearningPathProgressSummary(completedCount, totalCount);
+  }
+}
+
+function updateLearningPathFilterButtons(value) {
+  learningPathFilterButtons.forEach((button) => {
+    const isActive = button.dataset.learningPathFilter === value;
+    button.classList.toggle('is-active', isActive);
+    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
+  });
+}
+
+function updateLearningPathFilterSummary(visibleCount, totalCount, value) {
+  if (!learningPathFilterSummary) {
+    return;
+  }
+
+  if (value === 'all') {
+    learningPathFilterSummary.textContent = `Showing all ${totalCount} steps`;
+    return;
+  }
+
+  learningPathFilterSummary.textContent = `Showing ${visibleCount} of ${totalCount} steps for ${getLearningPathFilterLabel(value)}`;
+}
+
+function applyLearningPathFilter(value) {
+  if (!learningPathPage) {
+    return;
+  }
+
+  const normalized = LEARNING_PATH_FILTER_VALUES.has(value) ? value : 'all';
+  let visibleCount = 0;
+
+  learningPathStepCards.forEach((step) => {
+    const isVisible = doesLearningPathStepMatchFilter(step, normalized);
+    const stepItem = step.closest('.learning-path-step-item');
+
+    if (stepItem) {
+      stepItem.hidden = !isVisible;
+    } else {
+      step.hidden = !isVisible;
+    }
+
+    if (isVisible) {
+      visibleCount += 1;
+    }
+  });
+
+  activeLearningPathFilter = normalized;
+  updateLearningPathFilterButtons(normalized);
+  updateLearningPathFilterSummary(visibleCount, learningPathStepCards.length, normalized);
+}
+
+function applyLearningPathCompletionState(completedIds) {
+  if (!learningPathPage) {
+    return;
+  }
+
+  const completedSet = completedIds instanceof Set ? completedIds : new Set(completedIds);
+  let completedCount = 0;
+
+  learningPathStepCards.forEach((step) => {
+    const toggle = step.querySelector('[data-learning-path-step-toggle]');
+    const stepId = String(step.dataset.stepId ?? '').trim();
+    const isComplete = Boolean(stepId) && completedSet.has(stepId);
+
+    step.classList.toggle('is-complete', isComplete);
+
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
+    }
+
+    if (isComplete) {
+      completedCount += 1;
+    }
+  });
+
+  updateLearningPathProgressUi(completedCount, learningPathStepCards.length);
+}
+
+function syncLearningPathState() {
+  if (!learningPathPage) {
+    return;
+  }
+
+  const filterValue = readLearningPathFilterValue();
+  activeLearningPathFilter = filterValue;
+  applyLearningPathCompletionState(readLearningPathCompletionIds());
+  applyLearningPathFilter(filterValue);
+}
+
+function persistLearningPathCompletionState() {
+  if (!learningPathPage) {
+    return;
+  }
+
+  const completedIds = new Set();
+  let completedCount = 0;
+
+  learningPathStepCards.forEach((step) => {
+    const toggle = step.querySelector('[data-learning-path-step-toggle]');
+    const stepId = String(step.dataset.stepId ?? '').trim();
+    const isComplete = toggle?.getAttribute('aria-pressed') === 'true';
+
+    step.classList.toggle('is-complete', Boolean(isComplete));
+
+    if (toggle) {
+      toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
+    }
+
+    if (isComplete && stepId) {
+      completedIds.add(stepId);
+      completedCount += 1;
+    }
+  });
+
+  writeLearningPathCompletionIds(completedIds);
+  updateLearningPathProgressUi(completedCount, learningPathStepCards.length);
+  applyLearningPathFilter(activeLearningPathFilter);
+  updateLearningPathLandingCards();
+}
+
+function updateLearningPathLandingCards() {
+  if (!learningPathCardElements.length) {
+    return;
+  }
+
+  learningPathCardElements.forEach((card) => {
+    const slug = String(card.dataset.pathSlug ?? '').trim();
+    const totalSteps = Number(card.dataset.pathTotalSteps ?? '0');
+    const completedCount = readLearningPathCompletionIds(slug).size;
+    const progressStatus = card.querySelector('[data-path-card-status]');
+    const action = card.querySelector('[data-path-card-action]');
+
+    if (progressStatus) {
+      progressStatus.textContent = getLearningPathProgressSummary(completedCount, totalSteps);
+    }
+
+    if (action) {
+      action.textContent = completedCount > 0 ? 'Continue' : 'Start';
+    }
+  });
 }
 
 function applyThemePreference(isSepia) {
@@ -3403,11 +3727,36 @@ practiceFilterButtons.forEach((button) => {
   });
 });
 
+learningPathFilterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    const nextValue = String(button.dataset.learningPathFilter ?? 'all').trim().toLowerCase();
+    const normalized = LEARNING_PATH_FILTER_VALUES.has(nextValue) ? nextValue : 'all';
+    writeLearningPathFilterValue(normalized);
+    applyLearningPathFilter(normalized);
+  });
+});
+
 document.addEventListener('click', (event) => {
   const themeButton = event.target.closest('[data-theme-toggle]');
 
   if (themeButton) {
     toggleThemePreference();
+    return;
+  }
+
+  const pathCompletionButton = event.target.closest('[data-learning-path-step-toggle]');
+
+  if (pathCompletionButton) {
+    const pathStep = pathCompletionButton.closest('[data-learning-path-step]');
+
+    if (pathStep) {
+      pathCompletionButton.setAttribute(
+        'aria-pressed',
+        pathCompletionButton.getAttribute('aria-pressed') === 'true' ? 'false' : 'true',
+      );
+      persistLearningPathCompletionState();
+    }
+
     return;
   }
 
@@ -3494,7 +3843,13 @@ revealQueryMatch();
 initFormulaSliderDemo();
 initMathInteractiveVisuals();
 syncPracticeCompletionState();
-applyPracticeFilter(readPracticeFilterValue());
+const initialPracticeFilter = getPracticeFilterFromUrl() ?? readPracticeFilterValue();
+if (getPracticeFilterFromUrl()) {
+  writePracticeFilterValue(initialPracticeFilter);
+}
+applyPracticeFilter(initialPracticeFilter);
+syncLearningPathState();
+updateLearningPathLandingCards();
 
 syncSubjectNavigation();
 syncPomodoroTimer();
@@ -3512,6 +3867,24 @@ window.addEventListener('storage', (event) => {
     applyPracticeFilter(readPracticeFilterValue());
   }
 
+  if (
+    event.key === null
+    || String(event.key ?? '').startsWith(LEARNING_PATH_COMPLETION_STORAGE_KEY_PREFIX)
+    || event.key === getLearningPathCompletionStorageKey()
+  ) {
+    if (learningPathPage) {
+      syncLearningPathState();
+    }
+
+    updateLearningPathLandingCards();
+  }
+
+  if (event.key === getLearningPathFilterStorageKey() || event.key === null) {
+    if (learningPathPage) {
+      syncLearningPathState();
+    }
+  }
+
   if (event.key === POMODORO_TIMER_STORAGE_KEY) {
     syncPomodoroTimer();
   }
@@ -3520,6 +3893,8 @@ window.addEventListener('pageshow', syncSubjectNavigation);
 window.addEventListener('pageshow', syncThemePreference);
 window.addEventListener('pageshow', syncPomodoroTimer);
 window.addEventListener('pageshow', syncPracticeCompletionState);
+window.addEventListener('pageshow', syncLearningPathState);
+window.addEventListener('pageshow', updateLearningPathLandingCards);
 window.addEventListener('pageshow', initFormulaSliderDemo);
 window.addEventListener('pageshow', initMathInteractiveVisuals);
 document.addEventListener('visibilitychange', () => {

@@ -88,6 +88,84 @@ const REQUIRED_HISTORY_SERIES_IDS = [
   "singapore_health_spending_gdp_share",
 ];
 
+const DASHBOARD_SUMMARY_TEXT =
+  "Current U.S. spending is high because prices, coverage, subsidies, and insurance are fragmented. This model tests whether transparent national prices, catastrophic insurance, automatic subsidies, and savings accounts could reduce public cost growth.";
+
+const DASHBOARD_CATEGORY_LABELS = {
+  published: "Published data",
+  model: "Model calculation",
+  policy: "Policy assumption",
+};
+
+const DASHBOARD_STATIC_FALLBACK = [
+  {
+    label: "U.S. health spending",
+    value: 5300000000000,
+    subvalue: "Baseline year 2024",
+    category: DASHBOARD_CATEGORY_LABELS.published,
+    sourceName: "CMS National Health Expenditure Fact Sheet",
+    sourceUrl:
+      "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
+    method: "published value",
+    formatValue: formatCompactCurrency,
+  },
+  {
+    label: "U.S. health spending as a share of GDP",
+    value: 0.18,
+    subvalue: "Baseline year 2024",
+    category: DASHBOARD_CATEGORY_LABELS.published,
+    sourceName: "CMS National Health Expenditure Fact Sheet",
+    sourceUrl:
+      "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
+    method: "published value",
+    formatValue: formatPercent,
+  },
+  {
+    label: "Medicare spending",
+    value: 1118000000000,
+    subvalue: "Baseline year 2024",
+    category: DASHBOARD_CATEGORY_LABELS.published,
+    sourceName: "CMS National Health Expenditure Fact Sheet",
+    sourceUrl:
+      "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
+    method: "published value",
+    formatValue: formatCompactCurrency,
+  },
+  {
+    label: "Medicaid spending",
+    value: 931700000000,
+    subvalue: "Baseline year 2024",
+    category: DASHBOARD_CATEGORY_LABELS.published,
+    sourceName: "CMS National Health Expenditure Fact Sheet",
+    sourceUrl:
+      "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
+    method: "published value",
+    formatValue: formatCompactCurrency,
+  },
+  {
+    label: "Out-of-pocket spending",
+    value: 556600000000,
+    subvalue: "Baseline year 2024",
+    category: DASHBOARD_CATEGORY_LABELS.published,
+    sourceName: "CMS National Health Expenditure Fact Sheet",
+    sourceUrl:
+      "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/nhe-fact-sheet",
+    method: "published value",
+    formatValue: formatCompactCurrency,
+  },
+  {
+    label: "Estimated annual savings",
+    value: 525288888888.88885,
+    subvalue: "Default scenario",
+    category: DASHBOARD_CATEGORY_LABELS.model,
+    sourceName: "American Health calculated outputs",
+    sourceUrl: "./public/data/calculated.json",
+    method: "browser-side recomputation from local JSON",
+    formatValue: formatCompactCurrency,
+    tone: "accent",
+  },
+];
+
 function createElement(tagName, className, attributes = {}) {
   const node = document.createElement(tagName);
   if (className) {
@@ -200,6 +278,7 @@ function formatSourceLine(label, value, href) {
 }
 
 function buildAttributionBlock({
+  category,
   sourceName,
   sourceUrl,
   lastChecked,
@@ -207,6 +286,9 @@ function buildAttributionBlock({
   extraLines = [],
 }) {
   const block = createElement("div", "source-meta");
+  if (category) {
+    block.appendChild(formatSourceLine("Category", category));
+  }
   block.appendChild(formatSourceLine("Source", sourceName ?? "Local data", sourceUrl));
 
   if (sourceUrl) {
@@ -228,6 +310,59 @@ function buildAttributionBlock({
   }
 
   return block;
+}
+
+function buildDashboardLegend() {
+  const legend = createElement("div", "dashboard-legend", {
+    "aria-label": "Dashboard content labels",
+  });
+
+  for (const [key, label] of Object.entries(DASHBOARD_CATEGORY_LABELS)) {
+    const item = createElement("span", `dashboard-legend__item dashboard-legend__item--${key}`);
+    item.textContent = label;
+    legend.appendChild(item);
+  }
+
+  return legend;
+}
+
+function buildDashboardIntro() {
+  const intro = createElement("div", "dashboard-intro");
+  intro.appendChild(createElement("p", "dashboard-intro__eyebrow")).textContent = "Local data dashboard";
+  intro.appendChild(createElement("p", "dashboard-intro__summary")).textContent = DASHBOARD_SUMMARY_TEXT;
+  intro.appendChild(createElement("p", "dashboard-intro__copy")).textContent =
+    "Published data, model calculations, and policy assumptions are labeled separately below.";
+  intro.appendChild(buildDashboardLegend());
+  return intro;
+}
+
+function buildDashboardFallback() {
+  const wrapper = createElement("div", "dashboard-shell dashboard-shell--fallback");
+  wrapper.appendChild(buildDashboardIntro());
+
+  const metricGrid = createElement("div", "metric-grid");
+  for (const entry of DASHBOARD_STATIC_FALLBACK) {
+    metricGrid.appendChild(
+      createMetricCard({
+        label: entry.label,
+        value: entry.formatValue(entry.value),
+        subvalue: entry.subvalue,
+        attribution: buildAttributionBlock({
+          category: entry.category,
+          sourceName: entry.sourceName,
+          sourceUrl: entry.sourceUrl,
+          method: entry.method,
+        }),
+        tone: entry.tone ?? "default",
+      }),
+    );
+  }
+  wrapper.appendChild(metricGrid);
+  wrapper.appendChild(
+    createElement("p", "dashboard-fallback__note"),
+  ).textContent = "Static snapshot from the local contract. The interactive dashboard will replace it after the browser loads local JSON.";
+
+  return wrapper;
 }
 
 function createMetricCard({ label, value, subvalue, attribution, tone = "default" }) {
@@ -296,8 +431,8 @@ function createCalculatorControl({
   return { control, input, valueNode };
 }
 
-function createCalculatorResultCard({ label, value, subvalue, tone = "default" }) {
-  const card = createMetricCard({ label, value, subvalue, tone });
+function createCalculatorResultCard({ label, value, subvalue, attribution, tone = "default" }) {
+  const card = createMetricCard({ label, value, subvalue, attribution, tone });
   card.classList.add("calculator-result-card");
   return card;
 }
@@ -542,8 +677,9 @@ function buildMetricCards(data) {
     createMetricCard({
       label: "U.S. health spending",
       value: formatCompactCurrency(nhe?.value),
-      subvalue: `Baseline year ${latest?.baseline_year ?? "—"}`,
+      subvalue: `Baseline year ${latest?.baseline_year ?? "-"}`,
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: nhe?.source_name,
         sourceUrl: nhe?.source_url,
         lastChecked: nhe?.last_checked,
@@ -553,8 +689,9 @@ function buildMetricCards(data) {
     createMetricCard({
       label: "U.S. health spending as a share of GDP",
       value: formatPercent(gdpShare?.value),
-      subvalue: `Baseline year ${latest?.baseline_year ?? "—"}`,
+      subvalue: `Baseline year ${latest?.baseline_year ?? "-"}`,
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: gdpShare?.source_name,
         sourceUrl: gdpShare?.source_url,
         lastChecked: gdpShare?.last_checked,
@@ -564,8 +701,9 @@ function buildMetricCards(data) {
     createMetricCard({
       label: "Medicare spending",
       value: formatCompactCurrency(medicare?.value),
-      subvalue: `Baseline year ${latest?.baseline_year ?? "—"}`,
+      subvalue: `Baseline year ${latest?.baseline_year ?? "-"}`,
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: medicare?.source_name,
         sourceUrl: medicare?.source_url,
         lastChecked: medicare?.last_checked,
@@ -575,8 +713,9 @@ function buildMetricCards(data) {
     createMetricCard({
       label: "Medicaid spending",
       value: formatCompactCurrency(medicaid?.value),
-      subvalue: `Baseline year ${latest?.baseline_year ?? "—"}`,
+      subvalue: `Baseline year ${latest?.baseline_year ?? "-"}`,
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: medicaid?.source_name,
         sourceUrl: medicaid?.source_url,
         lastChecked: medicaid?.last_checked,
@@ -586,8 +725,9 @@ function buildMetricCards(data) {
     createMetricCard({
       label: "Out-of-pocket spending",
       value: formatCompactCurrency(outOfPocket?.value),
-      subvalue: `Baseline year ${latest?.baseline_year ?? "—"}`,
+      subvalue: `Baseline year ${latest?.baseline_year ?? "-"}`,
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: outOfPocket?.source_name,
         sourceUrl: outOfPocket?.source_url,
         lastChecked: outOfPocket?.last_checked,
@@ -599,6 +739,7 @@ function buildMetricCards(data) {
       value: formatPercent(federalShare?.value),
       subvalue: "Sponsor share in the CMS seed",
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: federalShare?.source_name,
         sourceUrl: federalShare?.source_url,
         lastChecked: federalShare?.last_checked,
@@ -610,6 +751,7 @@ function buildMetricCards(data) {
       value: formatPercent(stateLocalShare?.value),
       subvalue: "Sponsor share in the CMS seed",
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: stateLocalShare?.source_name,
         sourceUrl: stateLocalShare?.source_url,
         lastChecked: stateLocalShare?.last_checked,
@@ -619,8 +761,9 @@ function buildMetricCards(data) {
     createMetricCard({
       label: "Singapore benchmark",
       value: formatPercent(singapore?.value),
-      subvalue: `Most recent available year ${singapore?.year ?? "—"}`,
+      subvalue: `Most recent available year ${singapore?.year ?? "-"}`,
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: singapore?.source_name,
         sourceUrl: singapore?.source_url,
         lastChecked: singapore?.last_checked,
@@ -656,8 +799,14 @@ function buildCalculatorPanel(data) {
   head.appendChild(createElement("h3", "calculator-panel__title")).textContent =
     "Adjust the model assumptions and recompute the scenario from local data.";
   head.appendChild(createElement("p", "calculator-panel__lede")).textContent =
-    "This is an explanatory model, not a formal budget score. Published CMS values stay separate from the assumption-driven outputs below.";
+    "Published CMS values stay separate from the assumption-driven outputs below.";
   panel.appendChild(head);
+
+  const disclaimer = createElement("aside", "calculator-panel__disclaimer");
+  disclaimer.appendChild(createElement("p", "calculator-panel__disclaimer-label")).textContent = "Disclaimer";
+  disclaimer.appendChild(createElement("p", "calculator-panel__disclaimer-body")).textContent =
+    "This is an explanatory model, not an official budget score. Savings depend on user-selected assumptions.";
+  panel.appendChild(disclaimer);
 
   const layout = createElement("div", "calculator-panel__layout");
   panel.appendChild(layout);
@@ -689,6 +838,7 @@ function buildCalculatorPanel(data) {
   controlsSection.appendChild(scenarioSummary);
   controlsSection.appendChild(
     buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.policy,
       sourceName: "American Health assumptions",
       sourceUrl: "./public/data/assumptions.json",
       lastChecked: assumptions?.generated_at,
@@ -706,11 +856,12 @@ function buildCalculatorPanel(data) {
   const modelGrid = createElement("div", "calculator-result-grid");
   const resultRefs = {};
 
-  function appendResultCard(container, key, label, subvalue, tone = "default") {
+  function appendResultCard(container, key, label, subvalue, tone = "default", attribution = null) {
     const card = createCalculatorResultCard({
       label,
-      value: "â€”",
+      value: "-",
       subvalue,
+      attribution,
       tone,
     });
     resultRefs[key] = {
@@ -725,6 +876,14 @@ function buildCalculatorPanel(data) {
     "Implied GDP",
     "Derived from published CMS health spending and the GDP share input.",
     "accent",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "CMS National Health Expenditure Fact Sheet",
+      sourceUrl: nhe?.source_url,
+      lastChecked: nhe?.last_checked ?? gdpShare?.last_checked,
+      method: "published health spending divided by published GDP share",
+      extraLines: ["GDP share input: U.S. health spending as a share of GDP."],
+    }),
   );
   appendResultCard(
     baselineGrid,
@@ -732,13 +891,99 @@ function buildCalculatorPanel(data) {
     "Current government health spending",
     "Derived from the published federal and state/local sponsor shares.",
     "accent",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "CMS National Health Expenditure Fact Sheet",
+      sourceUrl: federalShare?.source_url,
+      lastChecked: federalShare?.last_checked ?? stateLocalShare?.last_checked,
+      method: "published health spending multiplied by published sponsor shares",
+      extraLines: ["Inputs: federal share and state/local share from the CMS seed."],
+    }),
   );
-  appendResultCard(modelGrid, "targetGovernmentHealthSpending", "Target government health spending", "Model estimate", "accent");
-  appendResultCard(modelGrid, "grossGovernmentSavings", "Gross annual government savings", "Model estimate", "accent");
-  appendResultCard(modelGrid, "transitionCostDeduction", "Transition cost deduction", "Model estimate");
-  appendResultCard(modelGrid, "adjustedGovernmentSavings", "Adjusted annual savings", "Model estimate", "accent");
-  appendResultCard(modelGrid, "nationalSpendingAtTarget", "National spending at target", "Model estimate");
-  appendResultCard(modelGrid, "nationalSavings", "National savings", "Model estimate", "accent");
+  appendResultCard(
+    modelGrid,
+    "targetGovernmentHealthSpending",
+    "Target government health spending",
+    "Model estimate",
+    "accent",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "American Health calculated outputs",
+      sourceUrl: "./public/data/calculated.json",
+      lastChecked: calculated?.generated_at,
+      method: "browser-side recomputation from local JSON",
+    }),
+  );
+  appendResultCard(
+    modelGrid,
+    "grossGovernmentSavings",
+    "Gross annual government savings",
+    "Model estimate",
+    "accent",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "American Health calculated outputs",
+      sourceUrl: "./public/data/calculated.json",
+      lastChecked: calculated?.generated_at,
+      method: "browser-side recomputation from local JSON",
+    }),
+  );
+  appendResultCard(
+    modelGrid,
+    "transitionCostDeduction",
+    "Transition cost deduction",
+    "Model estimate",
+    "default",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "American Health calculated outputs",
+      sourceUrl: "./public/data/calculated.json",
+      lastChecked: calculated?.generated_at,
+      method: "browser-side recomputation from local JSON",
+    }),
+  );
+  appendResultCard(
+    modelGrid,
+    "adjustedGovernmentSavings",
+    "Adjusted annual savings",
+    "Model estimate",
+    "accent",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "American Health calculated outputs",
+      sourceUrl: "./public/data/calculated.json",
+      lastChecked: calculated?.generated_at,
+      method: "browser-side recomputation from local JSON",
+    }),
+  );
+  appendResultCard(
+    modelGrid,
+    "nationalSpendingAtTarget",
+    "National spending at target",
+    "Model estimate",
+    "default",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "American Health calculated outputs",
+      sourceUrl: "./public/data/calculated.json",
+      lastChecked: calculated?.generated_at,
+      method: "browser-side recomputation from local JSON",
+    }),
+  );
+  appendResultCard(
+    modelGrid,
+    "nationalSavings",
+    "National savings",
+    "Model estimate",
+    "accent",
+    buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
+      sourceName: "American Health calculated outputs",
+      sourceUrl: "./public/data/calculated.json",
+      lastChecked: calculated?.generated_at,
+      method: "browser-side recomputation from local JSON",
+    }),
+  );
 
   resultsSection.appendChild(createElement("h5", "calculator-section__subtitle")).textContent = "Derived baseline";
   resultsSection.appendChild(baselineGrid);
@@ -746,6 +991,7 @@ function buildCalculatorPanel(data) {
   resultsSection.appendChild(modelGrid);
   resultsSection.appendChild(
     buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
       sourceName: "American Health calculated outputs",
       sourceUrl: "./public/data/calculated.json",
       lastChecked: calculated?.generated_at,
@@ -899,6 +1145,7 @@ function buildChartCards(data) {
           ? "This chart currently shows a single seeded year. It is not inventing extra trend points."
           : "Annual CMS values loaded from local history.json.",
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: nheSeries?.records?.[0]?.source_name ?? "CMS National Health Expenditure history seed",
         sourceUrl: nheSeries?.records?.[0]?.source_url ?? "https://www.cms.gov/data-research/statistics-trends-and-reports/national-health-expenditure-data/historical",
         lastChecked: nheSeries?.records?.[0]?.last_checked ?? latest?.generated_at,
@@ -923,6 +1170,7 @@ function buildChartCards(data) {
         },
       ]),
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: "CMS NHE history seed and World Bank WDI",
         sourceUrl: "https://data.worldbank.org/indicator/SH.XPD.CHEX.GD.ZS?locations=SG",
         lastChecked: singapore?.last_checked ?? latest?.generated_at,
@@ -949,6 +1197,7 @@ function buildChartCards(data) {
         },
       ]),
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
         sourceName: federalShare?.source_name ?? "CMS National Health Expenditure Fact Sheet",
         sourceUrl: federalShare?.source_url,
         lastChecked: federalShare?.last_checked,
@@ -968,6 +1217,7 @@ function buildChartCards(data) {
         })),
       ),
       attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.policy,
         sourceName: "American Health assumptions",
         sourceUrl: "./public/data/assumptions.json",
         lastChecked: assumptions?.generated_at,
@@ -1048,6 +1298,7 @@ function buildSafeguardsSection(data) {
 function buildSavingsSection(data) {
   const latest = data.latest;
   const assumptions = data.assumptions;
+  const calculated = data.calculated;
   const model = getPolicyModel(data);
   const spending = model.spending;
   const population = getRecordById(latest, "us_population_estimate");
@@ -1065,32 +1316,71 @@ function buildSavingsSection(data) {
       label: "Current total health spending",
       value: formatCompactCurrency(spending.current_total_spending),
       note: "Published CMS 2024 baseline",
+      attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
+        sourceName: latest?.by_id?.national_health_expenditures?.source_name ?? "CMS National Health Expenditure Fact Sheet",
+        sourceUrl: latest?.by_id?.national_health_expenditures?.source_url,
+        lastChecked: latest?.by_id?.national_health_expenditures?.last_checked,
+        method: "published value",
+      }),
     },
     {
       label: "Current per-person spending",
       value: formatCurrency(spending.current_per_person_spending),
       note: `Population base ${formatNumber(population?.value)}`,
+      attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.published,
+        sourceName:
+          "CMS National Health Expenditure Fact Sheet and U.S. Census Bureau QuickFacts V2024",
+        sourceUrl: population?.source_url ?? latest?.by_id?.national_health_expenditures?.source_url,
+        lastChecked: population?.last_checked ?? latest?.by_id?.national_health_expenditures?.last_checked,
+        method: "published value divided by published population estimate",
+      }),
     },
     {
       label: "Half-spending target",
       value: formatCompactCurrency(targetTotalSpending),
       note: "Model target",
+      attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.policy,
+        sourceName: "American Health assumptions",
+        sourceUrl: "./public/data/assumptions.json",
+        lastChecked: assumptions?.generated_at,
+        method: "model target",
+      }),
     },
     {
       label: "Target per-person spending",
       value: formatCurrency(spending.target_per_person_spending),
       note: "Model target",
+      attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.model,
+        sourceName: "American Health calculated outputs",
+        sourceUrl: "./public/data/calculated.json",
+        lastChecked: calculated?.generated_at,
+        method: "browser-side model estimate",
+      }),
     },
     {
       label: "Gross national savings",
       value: formatCompactCurrency(spending.gross_national_savings),
       note: "Model estimate",
+      attribution: buildAttributionBlock({
+        category: DASHBOARD_CATEGORY_LABELS.model,
+        sourceName: "American Health calculated outputs",
+        sourceUrl: "./public/data/calculated.json",
+        lastChecked: calculated?.generated_at,
+        method: "browser-side model estimate",
+      }),
     },
   ].forEach((entry) => {
     const card = createElement("div", "policy-metric-card");
     card.appendChild(createElement("p", "policy-metric-card__label")).textContent = entry.label;
     card.appendChild(createElement("div", "policy-metric-card__value")).textContent = entry.value;
     card.appendChild(createElement("p", "policy-metric-card__note")).textContent = entry.note;
+    if (entry.attribution) {
+      card.appendChild(entry.attribution);
+    }
     metricGrid.appendChild(card);
   });
   section.appendChild(metricGrid);
@@ -1107,6 +1397,7 @@ function buildSavingsSection(data) {
   );
   section.appendChild(
     buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
       sourceName: "CMS 2024 baseline plus Census 2024 population inputs",
       sourceUrl: population?.source_url,
       lastChecked: population?.last_checked,
@@ -1148,6 +1439,7 @@ function buildPopulationGroupsSection(data) {
 
   section.appendChild(
     buildAttributionBlock({
+      category: DASHBOARD_CATEGORY_LABELS.model,
       sourceName: "Census QuickFacts V2024 and 2024 ACS 1-year veterans release",
       sourceUrl: getRecordById(latest, "us_population_estimate")?.source_url,
       lastChecked: getRecordById(latest, "veterans_total")?.last_checked,
@@ -1282,12 +1574,7 @@ function renderDashboardBody(root, data) {
   clearNode(root);
 
   const wrapper = createElement("div", "dashboard-shell");
-
-  const intro = createElement("div", "dashboard-intro");
-  intro.appendChild(createElement("p", "dashboard-intro__eyebrow")).textContent = "Local data dashboard";
-  intro.appendChild(createElement("p", "dashboard-intro__copy")).textContent =
-    "Every figure below is loaded from local JSON files. Published values, benchmark values, policy assumptions, and browser-side model estimates are separated and labeled.";
-  wrapper.appendChild(intro);
+  wrapper.appendChild(buildDashboardIntro());
 
   const metricGrid = createElement("div", "metric-grid");
   for (const card of buildMetricCards(data)) {
@@ -1335,8 +1622,9 @@ export function renderDashboardLoading(root) {
     return;
   }
 
-  clearNode(root);
-  root.appendChild(createEmptyState("Loading local data from public/data/*.json.", "This section will populate after the browser finishes loading the local contract."));
+  if (root.childNodes.length === 0) {
+    root.appendChild(buildDashboardFallback());
+  }
 }
 
 export function renderDashboardMissing(root) {

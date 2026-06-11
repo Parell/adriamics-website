@@ -80,7 +80,6 @@
     </div>
     <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
   </div>
-      <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
@@ -113,11 +112,11 @@
     </nav>
         
         <h1 id="1-what-heat-transfer-is">1. What heat transfer is</h1>
-<p>Heat transfer is the study of energy transport driven by a temperature difference.</p>
+<p><strong>Heat transfer</strong> is the study of energy transport driven by a temperature difference.</p>
 <p>If two regions are at different temperatures, energy moves from the hotter region to the colder one until equilibrium is approached. The subject is usually organized around three mechanisms:</p>
 <ul><li><p>Conduction through a material</p></li><li><p>Convection between a surface and a moving fluid</p></li><li><p>Radiation through electromagnetic emission</p></li></ul>
 <p>Heat transfer problems usually ask for one of four things:</p>
-<ul><li><p>Heat rate, \dot{Q} in watts</p></li><li><p>Temperature distribution, T(x)</p></li><li><p>Surface temperature</p></li><li><p>Required area, thickness, or time</p></li></ul>
+<ul><li><p>Heat rate, $\dot{Q}$ in watts</p></li><li><p>Temperature distribution, $T(x)$</p></li><li><p>Surface temperature</p></li><li><p>Required area, thickness, or time</p></li></ul>
 <p>The key modeling idea is to replace a physical system with a simplified thermal network that preserves the dominant resistance to heat flow.</p>
 <h2 id="basic-quantities">Basic quantities</h2>
 <table><thead><tr><th>Quantity</th><th>Symbol</th><th>Typical unit</th></tr></thead><tbody><tr><td>Heat</td><td>$Q$</td><td>J</td></tr><tr><td>Heat rate</td><td>$\dot{Q}$</td><td>W</td></tr><tr><td>Temperature</td><td>$T$</td><td>K or $^\circ$C</td></tr><tr><td>Thermal conductivity</td><td>$k$</td><td>W/(mÂ·K)</td></tr><tr><td>Convection coefficient</td><td>$h$</td><td>W/(m$^2$Â·K)</td></tr><tr><td>Emissivity</td><td>$\varepsilon$</td><td>dimensionless</td></tr><tr><td>Specific heat</td><td>$c_p$</td><td>J/(kgÂ·K)</td></tr><tr><td>Density</td><td>$\rho$</td><td>kg/m$^3$</td></tr><tr><td>Thermal diffusivity</td><td>$\alpha$</td><td>m$^2$/s</td></tr></tbody></table>
@@ -141,23 +140,23 @@
 <p>In many real systems, more than one mechanism acts at once, so the correct model is often a combination.</p>
 <hr />
 <h1 id="3-conduction">3. Conduction</h1>
-<p>Conduction is governed by Fourier&#39;s law .</p>
+<p>Conduction is governed by <strong>Fourier&#39;s law</strong>.</p>
 <h2 id="fouriers-law">Fourier&#39;s law</h2>
-<p>For one-dimensional heat flow in the x direction:</p>
+<p>For one-dimensional heat flow in the $x$ direction:</p>
 <div class="math-block">$$
 \dot{Q}_x = -kA \frac{dT}{dx}
 $$</div>
 <p>The negative sign means heat flows in the direction of decreasing temperature.</p>
-<p>For a plane wall with constant k and linear temperature profile:</p>
+<p>For a plane wall with constant $k$ and linear temperature profile:</p>
 <div class="math-block">$$
 \dot{Q} = kA \frac{T_1 - T_2}{L}
 $$</div>
 <p>where:</p>
-<ul><li><p>A is area</p></li><li><p>L is thickness</p></li><li><p>T 1 &gt; T 2 gives positive heat flow from hot to cold</p></li></ul>
+<ul><li><p>$A$ is area</p></li><li><p>$L$ is thickness</p></li><li><p>$T_1 &gt; T_2$ gives positive heat flow from hot to cold</p></li></ul>
 <h2 id="thermal-conductivity">Thermal conductivity</h2>
-<p>Thermal conductivity k measures how easily a material conducts heat.</p>
+<p>Thermal conductivity $k$ measures how easily a material conducts heat.</p>
 <p>General trends:</p>
-<ul><li><p>Metals: high k</p></li><li><p>Liquids and gases: low k</p></li><li><p>Insulators: very low k</p></li></ul>
+<ul><li><p>Metals: high $k$</p></li><li><p>Liquids and gases: low $k$</p></li><li><p>Insulators: very low $k$</p></li></ul>
 <p>The conductivity may depend on temperature, especially in gases, polymers, and some solids.</p>
 <h2 id="thermal-resistance-for-conduction">Thermal resistance for conduction</h2>
 <p>For a plane wall:</p>
@@ -192,7 +191,7 @@ $$</div>
 R_{cond,sph} = \frac{1}{4\pi k}\left(\frac{1}{r_1} - \frac{1}{r_2}\right)
 $$</div>
 <h2 id="heat-generation-in-solids">Heat generation in solids</h2>
-<p>If a solid generates heat internally at a volumetric rate \dot{q}&#39;&#39;&#39; :</p>
+<p>If a solid generates heat internally at a volumetric rate $\dot{q}&#39;&#39;&#39;$:</p>
 <div class="math-block">$$
 \dot{Q}_{gen} = \dot{q}&#39;&#39;&#39; V
 $$</div>
@@ -208,31 +207,31 @@ R_{contact} = \frac{\Delta T}{\dot{Q}}
 $$</div>
 <hr />
 <h1 id="4-convection">4. Convection</h1>
-<p>Convection is modeled with Newton&#39;s law of cooling .</p>
+<p>Convection is modeled with <strong>Newton&#39;s law of cooling</strong>.</p>
 <h2 id="newtons-law-of-cooling">Newton&#39;s law of cooling</h2>
 <div class="math-block">$$
 \dot{Q} = hA_s (T_s - T_\infty)
 $$</div>
 <p>where:</p>
-<ul><li><p>h is the convection coefficient</p></li><li><p>A s is the surface area</p></li><li><p>T s is the surface temperature</p></li><li><p>T \infty is the free-stream or bulk fluid temperature</p></li></ul>
-<p>If T s &gt; T \infty , heat leaves the surface.</p>
+<ul><li><p>$h$ is the convection coefficient</p></li><li><p>$A_s$ is the surface area</p></li><li><p>$T_s$ is the surface temperature</p></li><li><p>$T_\infty$ is the free-stream or bulk fluid temperature</p></li></ul>
+<p>If $T_s &gt; T_\infty$, heat leaves the surface.</p>
 <h2 id="convection-resistance">Convection resistance</h2>
 <div class="math-block">$$
 R_{conv} = \frac{1}{hA_s}
 $$</div>
 <h2 id="boundary-layer-idea">Boundary layer idea</h2>
 <p>Convection happens because a thin layer of fluid near the surface is slowed by viscosity. Heat crosses that layer mainly by conduction, then is carried away by bulk fluid motion.</p>
-<p>That is why h is not a material property in the same sense as k ; it depends on:</p>
+<p>That is why $h$ is not a material property in the same sense as $k$; it depends on:</p>
 <ul><li><p>Fluid properties</p></li><li><p>Flow speed</p></li><li><p>Surface geometry</p></li><li><p>Laminar or turbulent regime</p></li><li><p>Surface roughness</p></li></ul>
 <h2 id="natural-vs-forced-convection">Natural vs forced convection</h2>
 <table><thead><tr><th>Type</th><th>Cause of motion</th><th>Typical examples</th></tr></thead><tbody><tr><td>Forced convection</td><td>External fan, pump, wind</td><td>Air over a heat sink, water in a pipe</td></tr><tr><td>Natural convection</td><td>Buoyancy from density differences</td><td>Warm air rising from a radiator</td></tr></tbody></table>
 <h2 id="how-to-use-convection-correlations">How to use convection correlations</h2>
 <p>Convection coefficients are usually obtained from empirical correlations:</p>
-<ol><li><p>Compute dimensionless groups such as Re , Pr , and Nu</p></li><li><p>Select a correlation for the geometry and flow regime</p></li><li><p>Solve for the Nusselt number</p></li><li><p>Recover h from</p></li></ol>
+<ol><li><p>Compute dimensionless groups such as $Re$, $Pr$, and $Nu$</p></li><li><p>Select a correlation for the geometry and flow regime</p></li><li><p>Solve for the Nusselt number</p></li><li><p>Recover $h$ from</p></li></ol>
 <div class="math-block">$$
 Nu = \frac{hL_c}{k}
 $$</div>
-<p>The characteristic length L c depends on the geometry.</p>
+<p>The characteristic length $L_c$ depends on the geometry.</p>
 <hr />
 <h1 id="5-radiation">5. Radiation</h1>
 <p>Radiation is thermal energy exchange by electromagnetic emission.</p>
@@ -246,14 +245,14 @@ $$</div>
 \dot{Q}_{rad} = \varepsilon \sigma A T^4
 $$</div>
 <p>where:</p>
-<ul><li><p>\sigma = 5.670 \times 10^{-8}\ \text{W/(m}^2\text{Â·K}^4)</p></li><li><p>\varepsilon is emissivity, with 0 \le \varepsilon \le 1</p></li></ul>
+<ul><li><p>$\sigma = 5.670 \times 10^{-8}\ \text{W/(m}^2\text{Â·K}^4)$</p></li><li><p>$\varepsilon$ is emissivity, with $0 \le \varepsilon \le 1$</p></li></ul>
 <h2 id="net-radiation-to-a-large-surrounding">Net radiation to a large surrounding</h2>
-<p>If a surface at T s exchanges radiation with a large enclosure at T {sur} :</p>
+<p>If a surface at $T_s$ exchanges radiation with a large enclosure at $T_{sur}$:</p>
 <div class="math-block">$$
 \dot{Q}_{rad} = \varepsilon \sigma A \left(T_s^4 - T_{sur}^4\right)
 $$</div>
 <h2 id="linearized-radiation-resistance">Linearized radiation resistance</h2>
-<p>Radiation is nonlinear because of the T^4 term. For network analysis, it is often linearized as:</p>
+<p>Radiation is nonlinear because of the $T^4$ term. For network analysis, it is often linearized as:</p>
 <div class="math-block">$$
 \dot{Q}_{rad} = h_r A (T_s - T_{sur})
 $$</div>
@@ -266,9 +265,9 @@ $$</div>
 R_{rad} = \frac{1}{h_r A}
 $$</div>
 <h2 id="view-factors">View factors</h2>
-<p>For exchange between finite surfaces, geometry matters. The view factor F {i \to j} is the fraction of radiation leaving surface i that strikes surface j .</p>
+<p>For exchange between finite surfaces, geometry matters. The <strong>view factor</strong> $F_{i \to j}$ is the fraction of radiation leaving surface $i$ that strikes surface $j$.</p>
 <p>Useful properties:</p>
-<ul><li><p>0 \le F {i \to j} \le 1</p></li><li><p>Reciprocity: A i F {i \to j} = A j F {j \to i}</p></li><li><p>Summation rule: \sum j F {i \to j} = 1</p></li></ul>
+<ul><li><p>$0 \le F_{i \to j} \le 1$</p></li><li><p>Reciprocity: $A_i F_{i \to j} = A_j F_{j \to i}$</p></li><li><p>Summation rule: $\sum_j F_{i \to j} = 1$</p></li></ul>
 <p>View factors are essential in furnace, enclosure, and spacecraft thermal problems.</p>
 <hr />
 <h1 id="6-thermal-resistance-networks">6. Thermal resistance networks</h1>
@@ -302,7 +301,7 @@ $$</div>
 $$</div>
 <p>This is the standard approach for walls, pipes, windows, and insulation systems.</p>
 <h2 id="interface-temperatures">Interface temperatures</h2>
-<p>Once \dot{Q} is known, temperatures at internal nodes follow from repeated drops:</p>
+<p>Once $\dot{Q}$ is known, temperatures at internal nodes follow from repeated drops:</p>
 <div class="math-block">$$
 \Delta T_i = \dot{Q} R_i
 $$</div>
@@ -330,7 +329,7 @@ R_i = \frac{\ln(r_{o,i}/r_{i,i})}{2\pi k_i L}
 $$</div>
 <p>Add any convection resistances at the inner and outer surfaces.</p>
 <h2 id="critical-radius-of-insulation">Critical radius of insulation</h2>
-<p>Adding insulation increases conduction resistance but can also increase surface area and reduce convection resistance. For cylinders and spheres there is a critical radius at which heat loss is maximized.</p>
+<p>Adding insulation increases conduction resistance but can also increase surface area and reduce convection resistance. For cylinders and spheres there is a <strong>critical radius</strong> at which heat loss is maximized.</p>
 <p>For a cylinder:</p>
 <div class="math-block">$$
 r_{crit} = \frac{k}{h}
@@ -341,7 +340,7 @@ r_{crit} = \frac{2k}{h}
 $$</div>
 <p>If the outer radius is below the critical value, adding insulation can increase heat loss rather than reduce it.</p>
 <h2 id="typical-workflow-for-composite-systems">Typical workflow for composite systems</h2>
-<ol><li><p>Draw the thermal circuit.</p></li><li><p>Label all known temperatures and areas.</p></li><li><p>Convert each layer into a resistance.</p></li><li><p>Add series and parallel pieces correctly.</p></li><li><p>Solve for \dot{Q} .</p></li><li><p>Recover interface temperatures.</p></li></ol>
+<ol><li><p>Draw the thermal circuit.</p></li><li><p>Label all known temperatures and areas.</p></li><li><p>Convert each layer into a resistance.</p></li><li><p>Add series and parallel pieces correctly.</p></li><li><p>Solve for $\dot{Q}$.</p></li><li><p>Recover interface temperatures.</p></li></ol>
 <hr />
 <h1 id="8-transient-heat-transfer">8. Transient heat transfer</h1>
 <p>Transient problems study how temperature changes with time.</p>
@@ -356,11 +355,11 @@ $$</div>
 <div class="math-block">$$
 T = T(t)
 $$</div>
-<p>This approximation is valid when the Biot number is small:</p>
+<p>This approximation is valid when the <strong>Biot number</strong> is small:</p>
 <div class="math-block">$$
 Bi = \frac{hL_c}{k} \lesssim 0.1
 $$</div>
-<p>where L c is the characteristic length.</p>
+<p>where $L_c$ is the characteristic length.</p>
 <h2 id="lumped-cooling-heating-solution">Lumped cooling/heating solution</h2>
 <p>For a body exchanging heat by convection with a large surrounding:</p>
 <div class="math-block">$$
@@ -385,7 +384,7 @@ $$</div>
 <div class="math-block">$$
 \alpha = \frac{k}{\rho c_p}
 $$</div>
-<p>Large \alpha means temperature disturbances spread quickly.</p>
+<p>Large $\alpha$ means temperature disturbances spread quickly.</p>
 <h2 id="common-transient-methods">Common transient methods</h2>
 <ul><li><p>Lumped capacitance</p></li><li><p>Semi-infinite solid approximation</p></li><li><p>Heisler charts</p></li><li><p>Analytical separation-of-variables solutions</p></li><li><p>Numerical finite difference or finite element methods</p></li></ul>
 <hr />
@@ -410,9 +409,9 @@ $$</div>
 <div class="math-block">$$
 \dot{Q} = UA\Delta T_{lm}
 $$</div>
-<p>where U is the overall heat transfer coefficient.</p>
+<p>where $U$ is the overall heat transfer coefficient.</p>
 <h2 id="overall-heat-transfer-coefficient">Overall heat transfer coefficient</h2>
-<p>U combines all resistances on both sides of the exchanger wall:</p>
+<p>$U$ combines all resistances on both sides of the exchanger wall:</p>
 <div class="math-block">$$
 \frac{1}{UA} = R_{hot} + R_{wall} + R_{cold}
 $$</div>
@@ -450,7 +449,7 @@ Fo = \frac{\alpha t}{L^2}
 $$</div>
 <p>Measures dimensionless time for transient conduction.</p>
 <h2 id="interpretation-shortcuts">Interpretation shortcuts</h2>
-<ul><li><p>Large Re often means turbulence is more likely</p></li><li><p>Large Nu usually means stronger convection</p></li><li><p>Small Bi supports the lumped-capacitance approximation</p></li><li><p>Large Fo means the body has had more time to equilibrate internally</p></li></ul>
+<ul><li><p>Large $Re$ often means turbulence is more likely</p></li><li><p>Large $Nu$ usually means stronger convection</p></li><li><p>Small $Bi$ supports the lumped-capacitance approximation</p></li><li><p>Large $Fo$ means the body has had more time to equilibrate internally</p></li></ul>
 <hr />
 <h1 id="11-problem-solving-workflow">11. Problem-solving workflow</h1>
 <p>Heat transfer problems are easiest when you structure them before calculating.</p>
@@ -460,7 +459,7 @@ $$</div>
 <h2 id="sanity-checks">Sanity checks</h2>
 <ul><li><p>Heat should flow from higher to lower temperature</p></li><li><p>Resistance should be positive</p></li><li><p>A larger area should usually reduce resistance</p></li><li><p>A better conductor should usually reduce temperature drop</p></li><li><p>A stronger convection coefficient should usually increase heat transfer rate</p></li></ul>
 <h2 id="common-mistakes">Common mistakes</h2>
-<ul><li><p>Mixing Celsius and Kelvin in radiation formulas</p></li><li><p>Forgetting area in conduction or convection resistance</p></li><li><p>Using the wrong area for cylindrical or spherical geometry</p></li><li><p>Treating a transient problem as steady</p></li><li><p>Applying a lumped model when Bi is not small</p></li><li><p>Ignoring contact resistance in layered solids</p></li><li><p>Using a heat transfer coefficient outside its intended correlation range</p></li></ul>
+<ul><li><p>Mixing Celsius and Kelvin in radiation formulas</p></li><li><p>Forgetting area in conduction or convection resistance</p></li><li><p>Using the wrong area for cylindrical or spherical geometry</p></li><li><p>Treating a transient problem as steady</p></li><li><p>Applying a lumped model when $Bi$ is not small</p></li><li><p>Ignoring contact resistance in layered solids</p></li><li><p>Using a heat transfer coefficient outside its intended correlation range</p></li></ul>
 <hr />
 <h1 id="12-formula-sheet">12. Formula sheet</h1>
 <h2 id="conduction-2">Conduction</h2>
@@ -509,7 +508,7 @@ Bi = \frac{hL_c}{k},\quad
 Fo = \frac{\alpha t}{L^2}
 $$</div>
 <h2 id="sources">Sources</h2>
-<ul><li><p>Engineering LibreTexts</p></li><li><p>Hibbeler, Engineering Mechanics</p></li><li><p>Nilsson and Riedel, Electric Circuits</p></li><li><p>Sedra and Smith, Microelectronic Circuits</p></li><li><p>Oppenheim and Willsky, Signals and Systems</p></li><li><p>Nise, Control Systems Engineering</p></li><li><p>Incropera et al., Fundamentals of Heat and Mass Transfer</p></li><li><p>Fox, McDonald, and Pritchard, Introduction to Fluid Mechanics</p></li><li><p>Groover, Fundamentals of Modern Manufacturing</p></li><li><p>Callister and Rethwisch, Materials Science and Engineering</p></li><li><p>Montgomery, Introduction to Statistical Quality Control</p></li><li><p>Kerzner, Project Management: A Systems Approach to Planning, Scheduling, and Controlling</p></li><li><p>Law, Simulation Modeling and Analysis</p></li><li><p>Fraden, Handbook of Modern Sensors</p></li><li><p>Leake and Borger, Engineering Design Graphics</p></li><li><p>Parell GitHub repository</p></li></ul>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
         
       </article>
     </section>

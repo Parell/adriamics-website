@@ -13,7 +13,6 @@ const learningPathsPath = path.join(notesRoot, 'source', 'paths.json');
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
-const headerArtworkUrl = encodeURI('/assets/name.gif');
 const notesThemeStorageKey = 'ues-notes:contrast-mode';
 const practiceLevelLabels = new Map([
   [1, 'Direct Practice'],
@@ -62,15 +61,14 @@ function trimMarkdownText(text) {
   return String(text ?? '')
     .replace(/```[\s\S]*?```/g, ' ')
     .replace(/`([^`]+)`/g, ' $1 ')
-    .replace(/!\[([^\]]*)\]\([^)]+\)/g, ' $1 ')
-    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, ' $1 ')
+    .replace(/(?<!\!)\[([^\]]+)\]\(([^)]+)\)/g, ' $1 ')
     .replace(/<[^>]+>/g, ' ')
     .replace(/^\s{0,3}#{1,6}\s+/gm, ' ')
     .replace(/^\s{0,3}>\s?/gm, ' ')
     .replace(/^\s*[-*+]\s+/gm, ' ')
     .replace(/^\s*\d+\.\s+/gm, ' ')
     .replace(/\|/g, ' ')
-    .replace(/[*_~$]/g, ' ')
+    .replace(/[*~$]/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -756,9 +754,9 @@ function renderParagraphBlock(lines, index, sourcePath) {
     nextIndex += 1;
   }
 
-  const summary = trimMarkdownText(paragraphLines.join(' '));
+  const paragraphText = paragraphLines.join(' ');
   return {
-    html: summary ? renderInline(summary, sourcePath) : '',
+    html: paragraphText ? renderInline(paragraphText, sourcePath) : '',
     nextIndex,
   };
 }
@@ -1228,7 +1226,6 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
     <div class="notes-header__inner">
       ${renderSubjectLinks(structures, activeStructureId)}
       ${renderPomodoroControls()}
-      <img class="notes-header__art" src="${headerArtworkUrl}" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>`;
 }
@@ -2571,4 +2568,3 @@ async function main() {
 }
 
 await main();
-

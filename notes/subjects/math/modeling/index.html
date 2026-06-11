@@ -80,7 +80,6 @@
     </div>
     <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
   </div>
-      <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
@@ -131,7 +130,7 @@
 <p>The question determines the variables, level of detail, and output format.</p>
 <h2 id="2-identify-variables-and-assumptions">2. Identify variables and assumptions</h2>
 <p>Classify the quantities involved.</p>
-<ul><li><p>State variables describe the system at a given time.</p></li><li><p>Inputs are external influences or controls.</p></li><li><p>Parameters are fixed or slowly varying quantities.</p></li><li><p>Outputs are the quantities of interest.</p></li></ul>
+<ul><li><p><strong>State variables</strong> describe the system at a given time.</p></li><li><p><strong>Inputs</strong> are external influences or controls.</p></li><li><p><strong>Parameters</strong> are fixed or slowly varying quantities.</p></li><li><p><strong>Outputs</strong> are the quantities of interest.</p></li></ul>
 <p>Assumptions reduce reality to something mathematically manageable.</p>
 <p>Examples of assumptions:</p>
 <ul><li><p>The system is well mixed</p></li><li><p>Growth is proportional to current size</p></li><li><p>Friction is negligible</p></li><li><p>Variables change continuously</p></li><li><p>Effects are independent</p></li></ul>
@@ -216,44 +215,44 @@ $$</div>
 <ul><li><p>Mass balance</p></li><li><p>Energy balance</p></li><li><p>Momentum balance</p></li><li><p>Population balance</p></li></ul>
 <h2 id="functions-and-rates-of-change">Functions and rates of change</h2>
 <p>If a quantity changes over time, its derivative often appears in the model.</p>
-<p>For a state variable x(t) :</p>
+<p>For a state variable $x(t)$:</p>
 <div class="math-block">$$
 \frac{dx}{dt}
 $$</div>
 <p>represents the instantaneous rate of change.</p>
 <p>Common forms:</p>
-<ul><li><p>Proportional growth: \frac{dx}{dt} = kx</p></li><li><p>Logistic growth: \frac{dx}{dt} = rx\left(1 - \frac{x}{K}\right)</p></li><li><p>Relaxation: \frac{dx}{dt} = -k(x - x^ )</p></li></ul>
+<ul><li><p>Proportional growth: $\frac{dx}{dt} = kx$</p></li><li><p>Logistic growth: $\frac{dx}{dt} = rx\left(1 - \frac{x}{K}\right)$</p></li><li><p>Relaxation: $\frac{dx}{dt} = -k(x - x^*)$</p></li></ul>
 <h2 id="systems-of-equations">Systems of equations</h2>
 <p>Real models often involve multiple interacting variables:</p>
 <div class="math-block">$$
 \frac{d\mathbf{x}}{dt} = f(\mathbf{x}, t, \mathbf{p})
 $$</div>
-<p>where \mathbf{x} is the state vector and \mathbf{p} is the parameter vector.</p>
+<p>where $\mathbf{x}$ is the state vector and $\mathbf{p}$ is the parameter vector.</p>
 <hr />
 <h1 id="5-parameter-fitting-and-calibration">5. Parameter fitting and calibration</h1>
 <p>Parameters are numbers chosen so the model matches observed data.</p>
 <h2 id="calibration-workflow">Calibration workflow</h2>
 <ol><li><p>Choose the model structure</p></li><li><p>Collect data</p></li><li><p>Define the error measure</p></li><li><p>Estimate the parameters</p></li><li><p>Check fit quality</p></li><li><p>Test on new data if possible</p></li></ol>
 <h2 id="least-squares">Least squares</h2>
-<p>If observed data are (x i, y i) and the model predicts \hat y i = f(x i; \theta) , a common objective is</p>
+<p>If observed data are $(x_i, y_i)$ and the model predicts $\hat y_i = f(x_i; \theta)$, a common objective is</p>
 <div class="math-block">$$
 S(\theta) = \sum_{i=1}^n \left(y_i - f(x_i; \theta)\right)^2
 $$</div>
-<p>The best-fit parameter vector \theta minimizes S(\theta) .</p>
+<p>The best-fit parameter vector $\theta$ minimizes $S(\theta)$.</p>
 <p>For a linear model</p>
 <div class="math-block">$$
 y = mx + b
 $$</div>
-<p>the least-squares fit chooses m and b to minimize the total squared residuals.</p>
+<p>the least-squares fit chooses $m$ and $b$ to minimize the total squared residuals.</p>
 <h2 id="residuals">Residuals</h2>
-<p>The residual at observation i is</p>
+<p>The residual at observation $i$ is</p>
 <div class="math-block">$$
 r_i = y_i - \hat y_i
 $$</div>
 <p>Residual plots help reveal:</p>
 <ul><li><p>Nonlinearity</p></li><li><p>Heteroscedasticity</p></li><li><p>Outliers</p></li><li><p>Missing variables</p></li></ul>
 <h2 id="overfitting-and-underfitting">Overfitting and underfitting</h2>
-<ul><li><p>Underfitting : model is too simple to capture the pattern</p></li><li><p>Overfitting : model is too flexible and captures noise instead of signal</p></li></ul>
+<ul><li><p><strong>Underfitting</strong>: model is too simple to capture the pattern</p></li><li><p><strong>Overfitting</strong>: model is too flexible and captures noise instead of signal</p></li></ul>
 <p>A model should generalize, not just memorize the calibration data.</p>
 <hr />
 <h1 id="6-validation-and-error-analysis">6. Validation and error analysis</h1>
@@ -291,7 +290,7 @@ $$</div>
 <div class="math-block">$$
 \frac{dN}{dt} = rN
 $$</div>
-<p>This represents exponential growth or decay depending on the sign of r .</p>
+<p>This represents exponential growth or decay depending on the sign of $r$.</p>
 <h2 id="difference-equation-models">Difference equation models</h2>
 <p>Difference equations model stepwise change:</p>
 <div class="math-block">$$
@@ -323,11 +322,11 @@ $$</div>
 <h1 id="8-worked-example-population-growth">8. Worked example: population growth</h1>
 <p>Suppose a population grows at a rate proportional to its current size.</p>
 <h2 id="model">Model</h2>
-<p>Let P(t) be the population. Then</p>
+<p>Let $P(t)$ be the population. Then</p>
 <div class="math-block">$$
 \frac{dP}{dt} = kP
 $$</div>
-<p>where k is a constant growth rate.</p>
+<p>where $k$ is a constant growth rate.</p>
 <h2 id="solution">Solution</h2>
 <p>Separating variables gives</p>
 <div class="math-block">$$
@@ -341,16 +340,16 @@ $$</div>
 <div class="math-block">$$
 P(t) = P_0 e^{kt}
 $$</div>
-<p>where P 0 is the initial population.</p>
+<p>where $P_0$ is the initial population.</p>
 <h2 id="interpretation">Interpretation</h2>
-<ul><li><p>If k &gt; 0 , the population grows exponentially.</p></li><li><p>If k &lt; 0 , the population decays exponentially.</p></li><li><p>If growth saturates in reality, the exponential model eventually becomes inaccurate.</p></li></ul>
+<ul><li><p>If $k &gt; 0$, the population grows exponentially.</p></li><li><p>If $k &lt; 0$, the population decays exponentially.</p></li><li><p>If growth saturates in reality, the exponential model eventually becomes inaccurate.</p></li></ul>
 <h2 id="extension-logistic-growth">Extension: logistic growth</h2>
-<p>A more realistic model with carrying capacity K is</p>
+<p>A more realistic model with carrying capacity $K$ is</p>
 <div class="math-block">$$
 \frac{dP}{dt} = rP\left(1 - \frac{P}{K}\right)
 $$</div>
 <p>This adds self-limiting behavior:</p>
-<ul><li><p>Growth is nearly exponential when P \ll K</p></li><li><p>Growth slows as P approaches K</p></li><li><p>The equilibrium P = K is stable</p></li></ul>
+<ul><li><p>Growth is nearly exponential when $P \ll K$</p></li><li><p>Growth slows as $P$ approaches $K$</p></li><li><p>The equilibrium $P = K$ is stable</p></li></ul>
 <section class="interactive-demo panel" data-math-demo="growth-model" data-math-demo-id="modeling">
   <div class="interactive-demo__head">
     <h2 class="interactive-demo__title">Growth model</h2>
@@ -385,7 +384,7 @@ $$</div>
 <h1 id="9-worked-example-optimization-model">9. Worked example: optimization model</h1>
 <p>Suppose a company wants to minimize cost while meeting a production target.</p>
 <h2 id="decision-variable">Decision variable</h2>
-<p>Let x be the number of units produced by machine A and y the number produced by machine B.</p>
+<p>Let $x$ be the number of units produced by machine A and $y$ the number produced by machine B.</p>
 <h2 id="objective">Objective</h2>
 <p>Minimize cost:</p>
 <div class="math-block">$$
@@ -467,7 +466,7 @@ $$</div>
 <h2 id="key-idea">Key idea</h2>
 <p>Modeling is the art of choosing the right simplification for the question being asked. Good models are not merely correct in principle; they are useful, testable, and honest about their limits.</p>
 <h2 id="sources">Sources</h2>
-<ul><li><p>OpenStax Mathematics</p></li><li><p>Mathematics LibreTexts</p></li><li><p>Stewart, Calculus: Early Transcendentals</p></li><li><p>Lay, Linear Algebra and Its Applications</p></li><li><p>Rosen, Discrete Mathematics and Its Applications</p></li><li><p>Boyce and DiPrima, Elementary Differential Equations and Boundary Value Problems</p></li><li><p>Blitzstein and Hwang, Introduction to Probability</p></li><li><p>Parell GitHub repository</p></li></ul>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
         
       </article>
     </section>

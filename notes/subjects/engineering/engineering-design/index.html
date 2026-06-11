@@ -80,7 +80,6 @@
     </div>
     <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
   </div>
-      <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
@@ -135,12 +134,12 @@ $$</div>
 <p>Even this simple part involves requirements, loads, material selection, CAD, drawings, tolerances, GD&amp;T, fasteners, inspection, failure modes, and revision control.</p>
 <hr />
 <h1 id="2-from-need-to-requirements">2. From need to requirements</h1>
-<p>Big idea: requirements define what success means.</p>
+<p><strong>Big idea:</strong> requirements define what success means.</p>
 <p>A requirement is a clear statement of what the design must do or satisfy. Without requirements, there is no objective way to decide whether the design is correct.</p>
 <p>A weak requirement is vague:</p>
 <blockquote><p>The bracket should be strong.</p></blockquote>
 <p>A better requirement is measurable:</p>
-<blockquote><p>The bracket shall support a static vertical load of 500\ \mathrm{N} with a minimum factor of safety of 2.0 against yield.</p></blockquote>
+<blockquote><p>The bracket shall support a static vertical load of $500\ \mathrm{N}$ with a minimum factor of safety of $2.0$ against yield.</p></blockquote>
 <p>The second version can be analyzed, tested, and accepted or rejected.</p>
 <h2 id="need-requirement-and-acceptance-criterion">Need, requirement, and acceptance criterion</h2>
 <p>These three ideas are related but not the same.</p>
@@ -150,8 +149,8 @@ $$</div>
 <table><thead><tr><th>Type</th><th>What it controls</th><th>Example</th></tr></thead><tbody><tr><td>Functional</td><td>What the design does</td><td>Hold the sensor box in a fixed orientation</td></tr><tr><td>Performance</td><td>How well it does it</td><td>Limit tip deflection to $1.0\ \mathrm{mm}$</td></tr><tr><td>Interface</td><td>How it connects</td><td>Use a $4$-hole wall mounting pattern</td></tr><tr><td>Environmental</td><td>Where it must work</td><td>Operate from $-20^\circ\mathrm{C}$ to $60^\circ\mathrm{C}$</td></tr><tr><td>Manufacturing</td><td>How it may be made</td><td>Use sheet metal bending or machining</td></tr><tr><td>Inspection</td><td>How it is checked</td><td>Verify hole position using a CMM or gauge plate</td></tr><tr><td>Reliability</td><td>How long it must last</td><td>No fatigue cracking over expected service life</td></tr><tr><td>Service</td><td>How it is maintained</td><td>Replaceable with standard hand tools</td></tr><tr><td>Cost or mass</td><td>Resource limits</td><td>Mass below $250\ \mathrm{g}$</td></tr></tbody></table>
 <p>Good requirements are specific, measurable, realistic, traceable, and verifiable.</p>
 <h2 id="verification-and-validation">Verification and validation</h2>
-<p>Verification checks whether the design meets the written requirements.</p>
-<p>Validation checks whether the requirements actually solve the user’s problem.</p>
+<p><strong>Verification</strong> checks whether the design meets the written requirements.</p>
+<p><strong>Validation</strong> checks whether the requirements actually solve the user’s problem.</p>
 <table><thead><tr><th>Question</th><th>Concept</th></tr></thead><tbody><tr><td>Did we build the design right?</td><td>Verification</td></tr><tr><td>Did we build the right design?</td><td>Validation</td></tr></tbody></table>
 <p>A bracket can pass every written load test and still be a bad design if the real sensor cable cannot be installed. That is a validation problem.</p>
 <h2 id="traceability">Traceability</h2>
@@ -166,7 +165,7 @@ $$</div>
 <ul><li><p>Using words like strong, light, cheap, durable, or easy without numbers.</p></li><li><p>Mixing a design solution into a requirement too early.</p></li><li><p>Forgetting environment, service, or inspection requirements.</p></li><li><p>Writing requirements that cannot be tested.</p></li><li><p>Failing to identify which requirements are critical.</p></li></ul>
 <hr />
 <h1 id="3-concept-design-and-architecture">3. Concept design and architecture</h1>
-<p>Big idea: before defining details, engineers decide what kind of solution they are building.</p>
+<p><strong>Big idea:</strong> before defining details, engineers decide what kind of solution they are building.</p>
 <p>A concept is a possible way to satisfy the requirements. At this stage, the design may be sketches, rough CAD, block diagrams, prototypes, or simple calculations.</p>
 <p>The purpose is not to finish the design. The purpose is to choose a direction before spending time on detailed drawings and analysis.</p>
 <h2 id="functional-decomposition">Functional decomposition</h2>
@@ -187,7 +186,7 @@ $$</div>
 <div class="math-block">$$
 S = \sum_{i=1}^{n} w_i s_i
 $$</div>
-<p>where w i is the criterion weight and s i is the concept score.</p>
+<p>where $w_i$ is the criterion weight and $s_i$ is the concept score.</p>
 <p>The score is only useful if the criteria are chosen honestly and the major risks are discussed.</p>
 <h2 id="design-intent">Design intent</h2>
 <p>Design intent is the reason behind the geometry and specifications.</p>
@@ -198,7 +197,7 @@ $$</div>
 <p>This kind of reasoning keeps drawings, CAD constraints, GD&amp;T, and inspection aligned.</p>
 <hr />
 <h1 id="4-interfaces-and-system-boundaries">4. Interfaces and system boundaries</h1>
-<p>Big idea: many design failures happen where parts or teams meet.</p>
+<p><strong>Big idea:</strong> many design failures happen where parts or teams meet.</p>
 <p>An interface is a boundary where one part, subsystem, supplier, or team connects to another. Interfaces must be controlled because a change on one side can break the other side.</p>
 <h2 id="types-of-interfaces">Types of interfaces</h2>
 <table><thead><tr><th>Interface type</th><th>Examples</th></tr></thead><tbody><tr><td>Mechanical</td><td>Bolt pattern, locating pin, shaft, bearing, seal, envelope</td></tr><tr><td>Electrical</td><td>Connector, voltage, current, pinout, grounding</td></tr><tr><td>Fluid</td><td>Pressure, flow rate, fitting size, leak rate</td></tr><tr><td>Thermal</td><td>Heat path, cooling contact, insulation, heat sink</td></tr><tr><td>Software or controls</td><td>signal format, timing, command structure</td></tr><tr><td>Human</td><td>handle, label, access panel, service clearance</td></tr></tbody></table>
@@ -208,11 +207,11 @@ $$</div>
 <p>Typical ICD content:</p>
 <table><thead><tr><th>ICD item</th><th>Example</th></tr></thead><tbody><tr><td>Geometry</td><td>Hole pattern, datum scheme, keep-out zone</td></tr><tr><td>Loads</td><td>Maximum force, torque, vibration input</td></tr><tr><td>Electrical</td><td>Connector model, voltage, pin assignment</td></tr><tr><td>Environment</td><td>temperature, moisture, contamination</td></tr><tr><td>Ownership</td><td>Which team controls each side</td></tr><tr><td>Verification</td><td>Inspection method or interface test</td></tr></tbody></table>
 <h2 id="why-interface-control-matters">Why interface control matters</h2>
-<p>Suppose the wall bracket team moves a mounting hole by 2\ \mathrm{mm} to make the bracket easier to machine. If the sensor box team is not aware of the change, the parts may no longer assemble. Interface control prevents this kind of mismatch.</p>
+<p>Suppose the wall bracket team moves a mounting hole by $2\ \mathrm{mm}$ to make the bracket easier to machine. If the sensor box team is not aware of the change, the parts may no longer assemble. Interface control prevents this kind of mismatch.</p>
 <p>Interfaces should be identified early, controlled clearly, and changed formally.</p>
 <hr />
 <h1 id="5-product-definition-cad-drawings-and-boms">5. Product definition: CAD, drawings, and BOMs</h1>
-<p>Big idea: product definition is the controlled description of what will be built.</p>
+<p><strong>Big idea:</strong> product definition is the controlled description of what will be built.</p>
 <p>Once a concept is selected, the design must become specific enough for manufacturing, inspection, purchasing, assembly, and service.</p>
 <h2 id="cad">CAD</h2>
 <p>Computer-aided design, or CAD, is the digital model of a part or assembly. CAD helps engineers create geometry, check fit, generate drawings, support simulation, and communicate design intent.</p>
@@ -244,7 +243,7 @@ $$</div>
 <p>For the bracket, an assembly drawing might specify bolt type, washer use, installation torque, cable routing, and sensor orientation.</p>
 <hr />
 <h1 id="6-dimensions-tolerances-and-variation">6. Dimensions, tolerances, and variation</h1>
-<p>Big idea: real parts are imperfect, so design must control acceptable imperfection.</p>
+<p><strong>Big idea:</strong> real parts are imperfect, so design must control acceptable imperfection.</p>
 <p>No manufacturing process produces exact geometry. Tolerances define how much variation is allowed while still preserving function.</p>
 <p>A dimension has a nominal value and limits.</p>
 <p>Example:</p>
@@ -262,7 +261,7 @@ $$</div>
 <div class="math-block">$$
 x_{max} = x_{nom} + T_+
 $$</div>
-<p>For a symmetric tolerance \pm T :</p>
+<p>For a symmetric tolerance $\pm T$:</p>
 <div class="math-block">$$
 x_{min} = x_{nom} - T
 $$</div>
@@ -297,7 +296,7 @@ $$</div>
 <table><thead><tr><th>Fit type</th><th>Use</th></tr></thead><tbody><tr><td>Clearance fit</td><td>Sliding, rotating, easy assembly</td></tr><tr><td>Slip fit</td><td>Removable pins, covers, service parts</td></tr><tr><td>Transition fit</td><td>Accurate location with possible light press</td></tr><tr><td>Interference fit</td><td>Pressed bushings, retained bearings, hubs</td></tr></tbody></table>
 <h2 id="tolerance-stack-up">Tolerance stack-up</h2>
 <p>Tolerance stack-up predicts how multiple part variations combine in an assembly.</p>
-<p>Suppose a bracket must leave a clearance gap G between the sensor and a cover. If several dimensions affect that gap, each tolerance can increase or decrease the final clearance.</p>
+<p>Suppose a bracket must leave a clearance gap $G$ between the sensor and a cover. If several dimensions affect that gap, each tolerance can increase or decrease the final clearance.</p>
 <p>Worst-case stack-up assumes every dimension is at its worst possible limit:</p>
 <div class="math-block">$$
 T_{total} = \sum_{i=1}^{n} |T_i|
@@ -316,7 +315,7 @@ $$</div>
 <p>Leave nonfunctional cosmetic or clearance features with general tolerances when possible.</p>
 <hr />
 <h1 id="7-gd-and-t-and-datums">7. GD&amp;T and datums</h1>
-<p>Big idea: GD&amp;T controls geometry using functional references instead of only plus/minus dimensions.</p>
+<p><strong>Big idea:</strong> GD&amp;T controls geometry using functional references instead of only plus/minus dimensions.</p>
 <p>Geometric Dimensioning and Tolerancing, or GD&amp;T, is a symbolic language for controlling form, orientation, location, profile, and runout.</p>
 <p>GD&amp;T is useful when ordinary coordinate dimensions do not clearly describe how the part must function or how it should be inspected.</p>
 <h2 id="datums">Datums</h2>
@@ -339,11 +338,11 @@ $$</div>
 <blockquote><p>The axis of this hole must lie inside a cylindrical tolerance zone relative to datums A, B, and C.</p></blockquote>
 <h2 id="position-tolerance">Position tolerance</h2>
 <p>Position tolerance is often used for holes because it controls the allowable location of a feature relative to datums.</p>
-<p>For a circular position tolerance zone of diameter T , the allowed radial error from true position is:</p>
+<p>For a circular position tolerance zone of diameter $T$, the allowed radial error from true position is:</p>
 <div class="math-block">$$
 r \le \frac{T}{2}
 $$</div>
-<p>This is different from separate x and y coordinate tolerances. A circular tolerance zone better matches how a round hole functions.</p>
+<p>This is different from separate $x$ and $y$ coordinate tolerances. A circular tolerance zone better matches how a round hole functions.</p>
 <h2 id="material-condition-modifiers">Material condition modifiers</h2>
 <table><thead><tr><th>Modifier</th><th>Meaning</th><th>Practical effect</th></tr></thead><tbody><tr><td>RFS</td><td>Regardless of feature size</td><td>Geometric tolerance does not depend on actual feature size</td></tr><tr><td>MMC</td><td>Maximum material condition</td><td>Allows bonus tolerance as feature departs from worst-case material condition</td></tr><tr><td>LMC</td><td>Least material condition</td><td>Protects minimum wall thickness or edge distance</td></tr></tbody></table>
 <p>For a hole, MMC is the smallest allowed hole. For a shaft or pin, MMC is the largest allowed shaft or pin.</p>
@@ -353,7 +352,7 @@ $$</div>
 <ul><li><p>Choosing datums from nonfunctional surfaces.</p></li><li><p>Overusing GD&amp;T where simple dimensions are enough.</p></li><li><p>Creating datum schemes that inspection cannot reproduce.</p></li><li><p>Tightening position tolerances without stack-up justification.</p></li><li><p>Forgetting that datum order matters.</p></li></ul>
 <hr />
 <h1 id="8-materials-surfaces-and-manufacturing-process-selection">8. Materials, surfaces, and manufacturing process selection</h1>
-<p>Big idea: geometry only works if the material, surface, and process are compatible with the job.</p>
+<p><strong>Big idea:</strong> geometry only works if the material, surface, and process are compatible with the job.</p>
 <p>Material selection and manufacturing process selection should happen together. A material that is strong on paper may be expensive, hard to machine, difficult to weld, prone to corrosion, or incompatible with the required surface finish.</p>
 <h2 id="material-selection">Material selection</h2>
 <p>Material selection is the choice of what a part is made from.</p>
@@ -386,11 +385,11 @@ $$</div>
 <div class="math-block">$$
 \Delta L = \alpha L_0 \Delta T
 $$</div>
-<p>where \alpha is the coefficient of thermal expansion, L 0 is original length, and \Delta T is temperature change.</p>
+<p>where $\alpha$ is the coefficient of thermal expansion, $L_0$ is original length, and $\Delta T$ is temperature change.</p>
 <p>Thermal expansion matters for:</p>
 <ul><li><p>Precision fits.</p></li><li><p>Mixed-material assemblies.</p></li><li><p>Electronics housings.</p></li><li><p>Bearings and seals.</p></li><li><p>Long rails or frames.</p></li><li><p>Hot or cold environments.</p></li></ul>
 <h2 id="surface-finish">Surface finish</h2>
-<p>Surface finish describes surface texture, often using roughness R a .</p>
+<p>Surface finish describes surface texture, often using roughness $R_a$.</p>
 <p>Surface finish affects:</p>
 <ul><li><p>Friction.</p></li><li><p>Wear.</p></li><li><p>Sealing.</p></li><li><p>Adhesion.</p></li><li><p>Coating quality.</p></li><li><p>Fatigue strength.</p></li><li><p>Appearance.</p></li><li><p>Cleanability.</p></li></ul>
 <p>Examples:</p>
@@ -405,7 +404,7 @@ $$</div>
 <p>A design is not finished until the chosen geometry can actually be produced by the chosen process.</p>
 <hr />
 <h1 id="9-loads-free-body-diagrams-and-load-paths">9. Loads, free body diagrams, and load paths</h1>
-<p>Big idea: before calculating stress, understand where the forces go.</p>
+<p><strong>Big idea:</strong> before calculating stress, understand where the forces go.</p>
 <p>Mechanical analysis starts by identifying loads and supports. The most important first tool is usually a free body diagram.</p>
 <h2 id="free-body-diagram">Free body diagram</h2>
 <p>A free body diagram, or FBD, isolates one body and shows all external forces and moments acting on it.</p>
@@ -445,7 +444,7 @@ $$</div>
 <p>Analysis should cover the load cases that matter for requirements and credible use.</p>
 <hr />
 <h1 id="10-stress-strain-deflection-and-margin">10. Stress, strain, deflection, and margin</h1>
-<p>Big idea: mechanical analysis checks both failure and motion.</p>
+<p><strong>Big idea:</strong> mechanical analysis checks both failure and motion.</p>
 <p>A design can fail by breaking, yielding, bending too much, wearing out, overheating, buckling, or vibrating. The basic mechanical checks start with stress, strain, deflection, factor of safety, and margin.</p>
 <h2 id="stress">Stress</h2>
 <p>Stress is internal force per area.</p>
@@ -461,7 +460,7 @@ $$</div>
 <div class="math-block">$$
 \sigma = \frac{Mc}{I}
 $$</div>
-<p>where M is bending moment, c is distance from the neutral axis to the outer fiber, and I is the second moment of area.</p>
+<p>where $M$ is bending moment, $c$ is distance from the neutral axis to the outer fiber, and $I$ is the second moment of area.</p>
 <p>Stress predicts whether a material will yield, crack, or fail.</p>
 <h2 id="strain">Strain</h2>
 <p>Strain is deformation compared to original length:</p>
@@ -472,7 +471,7 @@ $$</div>
 <div class="math-block">$$
 \sigma = E\varepsilon
 $$</div>
-<p>where E is elastic modulus.</p>
+<p>where $E$ is elastic modulus.</p>
 <p>Stress describes internal loading. Strain describes deformation.</p>
 <h2 id="deflection">Deflection</h2>
 <p>Deflection is how much a part moves under load.</p>
@@ -496,7 +495,7 @@ $$</div>
 <div class="math-block">$$
 N_y = \frac{\sigma_y}{\sigma_{max}}
 $$</div>
-<p>A factor of safety greater than 1 means estimated capacity exceeds estimated demand.</p>
+<p>A factor of safety greater than $1$ means estimated capacity exceeds estimated demand.</p>
 <p>Required factor of safety depends on:</p>
 <ul><li><p>Uncertainty in load.</p></li><li><p>Material variability.</p></li><li><p>Manufacturing quality.</p></li><li><p>Inspection quality.</p></li><li><p>Consequence of failure.</p></li><li><p>Whether people can be injured.</p></li><li><p>Whether standards specify a value.</p></li></ul>
 <h2 id="design-margin">Design margin</h2>
@@ -518,7 +517,7 @@ $$</div>
 <ol><li><p>Identify the requirement.</p></li><li><p>Identify the load case.</p></li><li><p>Draw the FBD.</p></li><li><p>Find reactions and internal loads.</p></li><li><p>Calculate stress and deflection.</p></li><li><p>Compare to allowable limits.</p></li><li><p>Calculate factor of safety and margin.</p></li><li><p>Check whether assumptions are conservative and realistic.</p></li></ol>
 <hr />
 <h1 id="11-failure-modes-fatigue-buckling-wear-and-details">11. Failure modes: fatigue, buckling, wear, and details</h1>
-<p>Big idea: a design can fail even when the first static calculation looks acceptable.</p>
+<p><strong>Big idea:</strong> a design can fail even when the first static calculation looks acceptable.</p>
 <p>A failure mode is a way the design stops satisfying its requirements.</p>
 <p>Common failure modes:</p>
 <table><thead><tr><th>Failure mode</th><th>Example</th></tr></thead><tbody><tr><td>Yielding</td><td>Bracket permanently bends</td></tr><tr><td>Fracture</td><td>Part cracks suddenly</td></tr><tr><td>Fatigue</td><td>Crack grows after repeated vibration</td></tr><tr><td>Buckling</td><td>Thin column or wall collapses sideways</td></tr><tr><td>Wear</td><td>Hole or bearing surface becomes loose</td></tr><tr><td>Creep</td><td>Part slowly deforms over time at temperature</td></tr><tr><td>Corrosion</td><td>Material loses section or cracks</td></tr><tr><td>Overheating</td><td>Electronics or material degrades</td></tr><tr><td>Loosening</td><td>Fastener preload is lost</td></tr><tr><td>Leakage</td><td>Seal no longer holds pressure</td></tr></tbody></table>
@@ -533,7 +532,7 @@ $$</div>
 <div class="math-block">$$
 \sigma_{max} = K_t \sigma_{nom}
 $$</div>
-<p>where K t is the theoretical stress concentration factor.</p>
+<p>where $K_t$ is the theoretical stress concentration factor.</p>
 <p>Design responses include:</p>
 <ul><li><p>Larger fillets.</p></li><li><p>Smooth transitions.</p></li><li><p>Better surface finish.</p></li><li><p>Lower local load.</p></li><li><p>Moving holes away from high-stress areas.</p></li><li><p>Avoiding abrupt section changes.</p></li></ul>
 <h2 id="buckling">Buckling</h2>
@@ -553,11 +552,11 @@ $$</div>
 <div class="math-block">$$
 T \approx KFd
 $$</div>
-<p>where T is tightening torque, K is a nut factor, F is preload, and d is nominal bolt diameter.</p>
+<p>where $T$ is tightening torque, $K$ is a nut factor, $F$ is preload, and $d$ is nominal bolt diameter.</p>
 <p>This estimate is rough because friction dominates the result.</p>
 <hr />
 <h1 id="12-thermal-vibration-and-electrical-analysis">12. Thermal, vibration, and electrical analysis</h1>
-<p>Big idea: real products heat up, cool down, vibrate, and consume power.</p>
+<p><strong>Big idea:</strong> real products heat up, cool down, vibrate, and consume power.</p>
 <p>Engineering design is not only static strength. A product can fail because it overheats, resonates, loses voltage, expands too much, or draws more power than expected.</p>
 <h2 id="heat-transfer">Heat transfer</h2>
 <p>Heat transfer is the movement of thermal energy.</p>
@@ -574,7 +573,7 @@ $$</div>
 <div class="math-block">$$
 q = \varepsilon \sigma A(T_s^4 - T_{sur}^4)
 $$</div>
-<p>where q is heat transfer rate.</p>
+<p>where $q$ is heat transfer rate.</p>
 <h2 id="thermal-resistance">Thermal resistance</h2>
 <p>Thermal systems can often be modeled like electrical resistance:</p>
 <div class="math-block">$$
@@ -595,7 +594,7 @@ $$</div>
 <div class="math-block">$$
 f_n = \frac{\omega_n}{2\pi}
 $$</div>
-<p>where k is stiffness and m is mass.</p>
+<p>where $k$ is stiffness and $m$ is mass.</p>
 <h2 id="modal-analysis">Modal analysis</h2>
 <p>Modal analysis finds natural frequencies and mode shapes.</p>
 <p>A design is at risk when excitation frequencies are near natural frequencies. This can cause resonance, where vibration amplitude becomes large.</p>
@@ -635,7 +634,7 @@ $$</div>
 <ul><li><p>Continuous loads.</p></li><li><p>Startup loads.</p></li><li><p>Peak loads.</p></li><li><p>Duty cycles.</p></li><li><p>Conversion efficiency.</p></li><li><p>Thermal limits.</p></li><li><p>Reserve margin.</p></li></ul>
 <hr />
 <h1 id="13-cae-fea-and-engineering-judgment">13. CAE, FEA, and engineering judgment</h1>
-<p>Big idea: simulation is useful only when the model represents the real problem well enough.</p>
+<p><strong>Big idea:</strong> simulation is useful only when the model represents the real problem well enough.</p>
 <p>Computer-aided engineering, or CAE, uses software to analyze engineering behavior. Finite element analysis, or FEA, divides geometry into small elements to estimate stress, deflection, temperature, vibration, or other fields.</p>
 <p>FEA is powerful, but it is not automatically correct. The output depends on assumptions.</p>
 <h2 id="what-fea-can-help-with">What FEA can help with</h2>
@@ -652,7 +651,7 @@ $$</div>
 <div class="math-block">$$
 \text{percent change} = \frac{|R_{fine} - R_{coarse}|}{|R_{fine}|}\times 100\%
 $$</div>
-<p>where R is the result being tracked.</p>
+<p>where $R$ is the result being tracked.</p>
 <p>Peak stress at a sharp corner may not converge because ideal sharp corners create singularities. In that case, evaluate a realistic fillet, averaged stress, or a more appropriate failure metric.</p>
 <h2 id="hand-calculations-still-matter">Hand calculations still matter</h2>
 <p>Hand calculations are used to:</p>
@@ -660,7 +659,7 @@ $$</div>
 <p>A simulation result should be questioned if it is not within the same order of magnitude as a simple estimate.</p>
 <hr />
 <h1 id="14-dfma-and-manufacturability">14. DFMA and manufacturability</h1>
-<p>Big idea: a design is not complete unless it can be made and assembled repeatedly.</p>
+<p><strong>Big idea:</strong> a design is not complete unless it can be made and assembled repeatedly.</p>
 <p>Design for Manufacturing and Assembly, or DFMA, means designing parts so they are easy to make, assemble, inspect, and service.</p>
 <h2 id="dfma-goals">DFMA goals</h2>
 <p>DFMA tries to:</p>
@@ -676,7 +675,7 @@ $$</div>
 <p>A common design mistake is to specify precision that function does not require.</p>
 <hr />
 <h1 id="15-quality-inspection-and-metrology">15. Quality, inspection, and metrology</h1>
-<p>Big idea: inspection connects the written design to real manufactured parts.</p>
+<p><strong>Big idea:</strong> inspection connects the written design to real manufactured parts.</p>
 <p>Quality is not created by inspection alone. Quality is designed into requirements, tolerances, materials, processes, assembly methods, supplier controls, and measurement systems.</p>
 <h2 id="metrology">Metrology</h2>
 <p>Metrology is the science of measurement.</p>
@@ -686,7 +685,7 @@ $$</div>
 <div class="math-block">$$
 x = x_{measured} \pm U
 $$</div>
-<p>where U is measurement uncertainty.</p>
+<p>where $U$ is measurement uncertainty.</p>
 <h2 id="inspection-plan">Inspection plan</h2>
 <p>An inspection plan defines what will be measured, how it will be measured, how often it will be measured, and what happens if it fails.</p>
 <p>Typical fields:</p>
@@ -698,7 +697,7 @@ $$</div>
 <p>A poor measurement system can reject good parts or accept bad parts.</p>
 <h2 id="process-capability">Process capability</h2>
 <p>Process capability describes whether a stable manufacturing process can consistently meet tolerance.</p>
-<p>Let USL be the upper specification limit, LSL the lower specification limit, \mu the process mean, and \sigma the process standard deviation.</p>
+<p>Let $USL$ be the upper specification limit, $LSL$ the lower specification limit, $\mu$ the process mean, and $\sigma$ the process standard deviation.</p>
 <p>Potential capability:</p>
 <div class="math-block">$$
 C_p = \frac{USL - LSL}{6\sigma}
@@ -707,7 +706,7 @@ $$</div>
 <div class="math-block">$$
 C_{pk} = \min\left(\frac{USL - \mu}{3\sigma}, \frac{\mu - LSL}{3\sigma}\right)
 $$</div>
-<p>C p measures spread compared to tolerance width. C {pk} also accounts for whether the process is centered.</p>
+<p>$C_p$ measures spread compared to tolerance width. $C_{pk}$ also accounts for whether the process is centered.</p>
 <h2 id="spc">SPC</h2>
 <p>Statistical Process Control, or SPC, tracks process data over time to detect drift, instability, and abnormal variation.</p>
 <p>SPC can reveal problems caused by:</p>
@@ -719,10 +718,10 @@ $$</div>
 <p>Inspection catches problems. Good design and process control prevent them.</p>
 <hr />
 <h1 id="16-reliability-and-risk">16. Reliability and risk</h1>
-<p>Big idea: a design must keep working in real service, not just pass once.</p>
+<p><strong>Big idea:</strong> a design must keep working in real service, not just pass once.</p>
 <p>Reliability is the ability of a product to perform its required function for a specified time under specified conditions.</p>
 <h2 id="reliability-model">Reliability model</h2>
-<p>For a constant failure rate \lambda , a simple reliability model is:</p>
+<p>For a constant failure rate $\lambda$, a simple reliability model is:</p>
 <div class="math-block">$$
 R(t) = e^{-\lambda t}
 $$</div>
@@ -756,7 +755,7 @@ $$</div>
 <div class="math-block">$$
 RPN = S \times O \times D
 $$</div>
-<p>where S is severity, O is occurrence, and D is detection ranking.</p>
+<p>where $S$ is severity, $O$ is occurrence, and $D$ is detection ranking.</p>
 <p>RPN helps sort risks, but engineering judgment is still required. A high-severity failure may deserve action even if the RPN is not the largest.</p>
 <h2 id="fault-tree-analysis">Fault tree analysis</h2>
 <p>Fault tree analysis starts with a top-level failure and maps combinations of lower-level failures that could cause it.</p>
@@ -765,7 +764,7 @@ $$</div>
 <p>Fault trees are useful for safety-critical systems and complex failure logic.</p>
 <hr />
 <h1 id="17-failure-investigation-and-root-cause-analysis">17. Failure investigation and root cause analysis</h1>
-<p>Big idea: solving the visible problem is not enough; the cause must be removed.</p>
+<p><strong>Big idea:</strong> solving the visible problem is not enough; the cause must be removed.</p>
 <p>Root cause analysis finds why a failure happened so the fix prevents recurrence.</p>
 <h2 id="root-cause-workflow">Root cause workflow</h2>
 <ol><li><p>Define the problem clearly.</p></li><li><p>Contain the issue if needed.</p></li><li><p>Collect failed parts, measurements, photos, and process data.</p></li><li><p>Reconstruct what happened.</p></li><li><p>Identify possible causes.</p></li><li><p>Test the most likely causes.</p></li><li><p>Identify the root cause.</p></li><li><p>Choose corrective action.</p></li><li><p>Verify the corrective action works.</p></li><li><p>Update drawings, processes, training, or controls.</p></li></ol>
@@ -786,7 +785,7 @@ $$</div>
 <table><thead><tr><th>Problem</th><th>Corrective action</th><th>Preventive action</th></tr></thead><tbody><tr><td>Hole pattern incorrect</td><td>Revise drawing and scrap bad parts</td><td>Add drawing checklist for datum scheme</td></tr><tr><td>Coating too thick</td><td>Adjust coating process</td><td>Add coating thickness inspection</td></tr><tr><td>Fatigue crack</td><td>Add fillet and lower stress</td><td>Add fatigue review to design checklist</td></tr><tr><td>Wrong revision built</td><td>Rework inventory</td><td>Improve configuration control</td></tr></tbody></table>
 <hr />
 <h1 id="18-maintainability-and-serviceability">18. Maintainability and serviceability</h1>
-<p>Big idea: a product should be designed for the people who must inspect, repair, and replace it.</p>
+<p><strong>Big idea:</strong> a product should be designed for the people who must inspect, repair, and replace it.</p>
 <p>Maintainability is how easily a system can be kept working.</p>
 <p>Serviceability is how easily parts can be accessed, removed, repaired, or replaced.</p>
 <h2 id="maintainability-design-features">Maintainability design features</h2>
@@ -798,7 +797,7 @@ $$</div>
 <p>For the bracket, serviceability might mean the sensor can be removed without removing the wall bracket, and the bracket can be replaced with common tools.</p>
 <hr />
 <h1 id="19-revision-control-ecos-and-configuration-management">19. Revision control, ECOs, and configuration management</h1>
-<p>Big idea: released designs must be controlled so everyone builds the same thing.</p>
+<p><strong>Big idea:</strong> released designs must be controlled so everyone builds the same thing.</p>
 <p>Once a design is released, uncontrolled changes can cause major problems. Manufacturing may build the wrong version, suppliers may use outdated drawings, tests may be performed on unknown hardware, or field units may not match documentation.</p>
 <h2 id="revision-control">Revision control</h2>
 <p>Revision control records released changes.</p>
@@ -821,7 +820,7 @@ $$</div>
 <p>The goal is that manufacturing, inspection, suppliers, and service all use the same controlled definition.</p>
 <hr />
 <h1 id="20-integrated-design-workflow">20. Integrated design workflow</h1>
-<p>Big idea: engineering design works when all the pieces are connected.</p>
+<p><strong>Big idea:</strong> engineering design works when all the pieces are connected.</p>
 <p>A good design process does not treat requirements, CAD, tolerances, analysis, manufacturing, and reliability as separate topics. They feed each other.</p>
 <h2 id="full-workflow">Full workflow</h2>
 <ol><li><p>Define the need.</p></li><li><p>Write measurable requirements.</p></li><li><p>Identify interfaces and constraints.</p></li><li><p>Generate concepts.</p></li><li><p>Compare concepts against requirements, risk, cost, and schedule.</p></li><li><p>Select a design direction.</p></li><li><p>Build preliminary CAD.</p></li><li><p>Identify load paths and failure modes.</p></li><li><p>Select materials and manufacturing processes.</p></li><li><p>Analyze stress, deflection, thermal behavior, vibration, and power as needed.</p></li><li><p>Define datums, tolerances, GD&amp;T, fits, and surface finishes.</p></li><li><p>Perform tolerance stack-ups for critical interfaces.</p></li><li><p>Review manufacturability and assembly.</p></li><li><p>Create drawings, BOM, and inspection plans.</p></li><li><p>Build prototypes or first articles.</p></li><li><p>Test and inspect against requirements.</p></li><li><p>Revise the design based on evidence.</p></li><li><p>Release controlled documentation.</p></li><li><p>Manage changes through ECOs.</p></li><li><p>Monitor field performance and feed lessons back into future designs.</p></li></ol>
@@ -994,7 +993,7 @@ $$</div>
 <p>If those questions are answered clearly, the design is much more likely to survive manufacturing, testing, service, and revision.</p>
 <hr />
 <h2 id="sources">Sources</h2>
-<ul><li><p>Engineering LibreTexts</p></li><li><p>Hibbeler, Engineering Mechanics</p></li><li><p>Shigley et al., Mechanical Engineering Design</p></li><li><p>Leake and Borgerson, Engineering Design Graphics</p></li><li><p>Groover, Fundamentals of Modern Manufacturing</p></li><li><p>Callister and Rethwisch, Materials Science and Engineering</p></li><li><p>Montgomery, Introduction to Statistical Quality Control</p></li><li><p>Oppenheim and Willsky, Signals and Systems</p></li><li><p>Nise, Control Systems Engineering</p></li><li><p>Incropera et al., Fundamentals of Heat and Mass Transfer</p></li><li><p>Nilsson and Riedel, Electric Circuits</p></li><li><p>Kerzner, Project Management: A Systems Approach to Planning, Scheduling, and Controlling</p></li><li><p>Law, Simulation Modeling and Analysis</p></li><li><p>Fraden, Handbook of Modern Sensors</p></li><li><p>Parell GitHub repository</p></li></ul>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Shigley et al., <em>Mechanical Engineering Design</em></p></li><li><p>Leake and Borgerson, <em>Engineering Design Graphics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
         
       </article>
     </section>

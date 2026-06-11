@@ -80,7 +80,6 @@
     </div>
     <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
   </div>
-      <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
@@ -114,7 +113,7 @@
         
         <h1 id="1-signals-systems-and-core-models">1. Signals, systems, and core models</h1>
 <h2 id="signals">Signals</h2>
-<p>A signal is a function that carries information. In engineering, signals usually represent voltage, current, force, pressure, sound, position, or sensor output.</p>
+<p>A <strong>signal</strong> is a function that carries information. In engineering, signals usually represent voltage, current, force, pressure, sound, position, or sensor output.</p>
 <p>Common classifications:</p>
 <table><thead><tr><th>Type</th><th>Example</th><th>Notes</th></tr></thead><tbody><tr><td>Continuous-time</td><td>$x(t)$</td><td>Defined for every real $t$</td></tr><tr><td>Discrete-time</td><td>$x[n]$</td><td>Defined only at integer index $n$</td></tr><tr><td>Analog</td><td>Microphone voltage</td><td>Continuous amplitude</td></tr><tr><td>Digital</td><td>Quantized samples</td><td>Finite resolution and sampled in time</td></tr><tr><td>Deterministic</td><td>$e^{-at}$</td><td>Exactly described by an equation</td></tr><tr><td>Random</td><td>Thermal noise</td><td>Described statistically</td></tr></tbody></table>
 <p>Useful elementary signals:</p>
@@ -143,14 +142,14 @@ u[n] =
 \end{cases}
 $$</div>
 <h2 id="systems">Systems</h2>
-<p>A system transforms an input signal into an output signal.</p>
+<p>A <strong>system</strong> transforms an input signal into an output signal.</p>
 <p>Examples:</p>
 <ul><li><p>Electrical filter</p></li><li><p>Mechanical mass-spring-damper</p></li><li><p>Communication channel</p></li><li><p>Digital controller</p></li></ul>
-<p>The most important system class in this subject is the linear time-invariant system, or LTI system.</p>
+<p>The most important system class in this subject is the <strong>linear time-invariant</strong> system, or LTI system.</p>
 <hr />
 <h1 id="2-basic-signal-operations">2. Basic signal operations</h1>
 <h2 id="time-shifting">Time shifting</h2>
-<p>Delaying a signal by t 0 :</p>
+<p>Delaying a signal by $t_0$:</p>
 <div class="math-block">$$
 x(t - t_0)
 $$</div>
@@ -163,7 +162,7 @@ $$</div>
 <div class="math-block">$$
 x(at)
 $$</div>
-<p>If a &gt; 1 , the signal compresses in time. If 0 &lt; a &lt; 1 , it stretches.</p>
+<p>If $|a| &gt; 1$, the signal compresses in time. If $0 &lt; |a| &lt; 1$, it stretches.</p>
 <h2 id="time-reversal">Time reversal</h2>
 <div class="math-block">$$
 x(-t)
@@ -185,36 +184,36 @@ $$</div>
 <div class="math-block">$$
 x_o(t) = \frac{x(t) - x(-t)}{2}
 $$</div>
-<p>The same formulas hold in discrete time by replacing t with n .</p>
+<p>The same formulas hold in discrete time by replacing $t$ with $n$.</p>
 <hr />
 <h1 id="3-system-properties">3. System properties</h1>
 <h2 id="linearity">Linearity</h2>
-<p>A system is linear if it satisfies superposition:</p>
+<p>A system is <strong>linear</strong> if it satisfies superposition:</p>
 <div class="math-block">$$
 \mathcal{T}\{a x_1 + b x_2\} = a\mathcal{T}\{x_1\} + b\mathcal{T}\{x_2\}
 $$</div>
 <p>Two parts:</p>
-<ul><li><p>Additivity</p></li><li><p>Homogeneity</p></li></ul>
+<ul><li><p><strong>Additivity</strong></p></li><li><p><strong>Homogeneity</strong></p></li></ul>
 <h3 id="quick-test">Quick test</h3>
-<ol><li><p>Send in x 1 and get y 1 .</p></li><li><p>Send in x 2 and get y 2 .</p></li><li><p>Check whether a x 1 + b x 2 produces a y 1 + b y 2 .</p></li></ol>
+<ol><li><p>Send in $x_1$ and get $y_1$.</p></li><li><p>Send in $x_2$ and get $y_2$.</p></li><li><p>Check whether $a x_1 + b x_2$ produces $a y_1 + b y_2$.</p></li></ol>
 <p>Nonlinear examples:</p>
-<ul><li><p>Squaring: y = x^2</p></li><li><p>Saturation and clipping</p></li><li><p>Multiplication of two signals</p></li></ul>
+<ul><li><p>Squaring: $y = x^2$</p></li><li><p>Saturation and clipping</p></li><li><p>Multiplication of two signals</p></li></ul>
 <h2 id="time-invariance">Time invariance</h2>
-<p>A system is time invariant if shifting the input shifts the output by the same amount.</p>
+<p>A system is <strong>time invariant</strong> if shifting the input shifts the output by the same amount.</p>
 <p>If</p>
 <div class="math-block">$$
 x(t) \to y(t)
 $$</div>
-<p>then for any shift t 0 ,</p>
+<p>then for any shift $t_0$,</p>
 <div class="math-block">$$
 x(t - t_0) \to y(t - t_0)
 $$</div>
 <p>If the system changes behavior over time, it is time-varying.</p>
 <h2 id="causality">Causality</h2>
-<p>A system is causal if the output at time t depends only on present and past inputs, not future inputs.</p>
-<p>For discrete time, a causal system can depend on x[n], x[n-1], x[n-2], \dots</p>
+<p>A system is <strong>causal</strong> if the output at time $t$ depends only on present and past inputs, not future inputs.</p>
+<p>For discrete time, a causal system can depend on $x[n], x[n-1], x[n-2], \dots$</p>
 <h2 id="stability">Stability</h2>
-<p>In the bounded-input bounded-output sense, a system is stable if every bounded input produces a bounded output.</p>
+<p>In the bounded-input bounded-output sense, a system is <strong>stable</strong> if every bounded input produces a bounded output.</p>
 <p>If</p>
 <div class="math-block">$$
 |x(t)| \le M_x
@@ -223,13 +222,13 @@ $$</div>
 <div class="math-block">$$
 |y(t)| \le M_y
 $$</div>
-<p>for some finite M y .</p>
+<p>for some finite $M_y$.</p>
 <h2 id="memory">Memory</h2>
-<p>A system is memoryless if output at time t depends only on the input at the same time.</p>
+<p>A system is <strong>memoryless</strong> if output at time $t$ depends only on the input at the same time.</p>
 <p>Examples:</p>
-<ul><li><p>Memoryless: y(t) = 3x(t)</p></li><li><p>Has memory: y(t) = x(t) + x(t-1)</p></li></ul>
+<ul><li><p>Memoryless: $y(t) = 3x(t)$</p></li><li><p>Has memory: $y(t) = x(t) + x(t-1)$</p></li></ul>
 <h2 id="invertibility">Invertibility</h2>
-<p>A system is invertible if the input can be uniquely recovered from the output.</p>
+<p>A system is <strong>invertible</strong> if the input can be uniquely recovered from the output.</p>
 <p>Example:</p>
 <div class="math-block">$$
 y(t) = 2x(t)
@@ -242,7 +241,7 @@ $$</div>
 <h1 id="4-linear-time-invariant-systems">4. Linear time-invariant systems</h1>
 <p>LTI systems are central because they are completely characterized by their response to an impulse.</p>
 <h2 id="impulse-response">Impulse response</h2>
-<p>For a continuous-time LTI system, the impulse response is</p>
+<p>For a continuous-time LTI system, the <strong>impulse response</strong> is</p>
 <div class="math-block">$$
 h(t) = \mathcal{T}\{\delta(t)\}
 $$</div>
@@ -250,7 +249,7 @@ $$</div>
 <div class="math-block">$$
 h[n] = \mathcal{T}\{\delta[n]\}
 $$</div>
-<p>Once h is known, the output for any input is determined by convolution.</p>
+<p>Once $h$ is known, the output for any input is determined by convolution.</p>
 <h2 id="why-lti-systems-matter">Why LTI systems matter</h2>
 <p>LTI systems are useful because:</p>
 <ul><li><p>Superposition applies.</p></li><li><p>Shift invariance simplifies analysis.</p></li><li><p>Frequency-domain methods become available.</p></li><li><p>Differential or difference equations often reduce to algebra.</p></li></ul>
@@ -268,7 +267,7 @@ $$</div>
 <h1 id="5-convolution">5. Convolution</h1>
 <p>Convolution is the main tool for computing the output of an LTI system.</p>
 <h2 id="continuous-time-convolution">Continuous-time convolution</h2>
-<p>For input x(t) and impulse response h(t) :</p>
+<p>For input $x(t)$ and impulse response $h(t)$:</p>
 <div class="math-block">$$
 y(t) = (x * h)(t) = \int_{-\infty}^{\infty} x(\tau) h(t - \tau)\,d\tau
 $$</div>
@@ -281,7 +280,7 @@ $$</div>
 y[n] = (x * h)[n] = \sum_{k=-\infty}^{\infty} x[k] h[n-k]
 $$</div>
 <h2 id="graphical-convolution-workflow">Graphical convolution workflow</h2>
-<ol><li><p>Time-reverse one signal.</p></li><li><p>Shift it by t or n .</p></li><li><p>Multiply pointwise with the other signal.</p></li><li><p>Integrate or sum over overlap.</p></li></ol>
+<ol><li><p>Time-reverse one signal.</p></li><li><p>Shift it by $t$ or $n$.</p></li><li><p>Multiply pointwise with the other signal.</p></li><li><p>Integrate or sum over overlap.</p></li></ol>
 <h2 id="key-properties-of-convolution">Key properties of convolution</h2>
 <div class="math-block">$$
 x * h = h * x
@@ -316,10 +315,10 @@ $$</div>
 <div class="math-block">$$
 x(t) = e^{j\omega t} \quad \Rightarrow \quad y(t) = H(j\omega)e^{j\omega t}
 $$</div>
-<p>where H(j\omega) is the frequency response.</p>
+<p>where $H(j\omega)$ is the frequency response.</p>
 <p>This means the system changes only amplitude and phase, not frequency, for a sinusoidal input.</p>
 <h2 id="frequency-response">Frequency response</h2>
-<p>If the impulse response is h(t) , then</p>
+<p>If the impulse response is $h(t)$, then</p>
 <div class="math-block">$$
 H(j\omega) = \int_{-\infty}^{\infty} h(t)e^{-j\omega t}\,dt
 $$</div>
@@ -354,7 +353,7 @@ $$</div>
 <hr />
 <h1 id="7-fourier-series-and-fourier-transform">7. Fourier series and Fourier transform</h1>
 <h2 id="fourier-series-for-periodic-signals">Fourier series for periodic signals</h2>
-<p>If x(t) is periodic with period T , it can be written as:</p>
+<p>If $x(t)$ is periodic with period $T$, it can be written as:</p>
 <div class="math-block">$$
 x(t) = \sum_{k=-\infty}^{\infty} c_k e^{jk\omega_0 t}
 $$</div>
@@ -368,9 +367,9 @@ c_k = \frac{1}{T}\int_{T} x(t)e^{-jk\omega_0 t}\,dt
 $$</div>
 <p>Fourier series decomposes a periodic signal into harmonics of the fundamental frequency.</p>
 <h2 id="symmetry-shortcuts">Symmetry shortcuts</h2>
-<p>If x(t) is real and even:</p>
+<p>If $x(t)$ is real and even:</p>
 <ul><li><p>Coefficients are real</p></li><li><p>Sine terms vanish</p></li></ul>
-<p>If x(t) is real and odd:</p>
+<p>If $x(t)$ is real and odd:</p>
 <ul><li><p>Cosine terms vanish</p></li></ul>
 <p>Use symmetry whenever possible to reduce algebra.</p>
 <h2 id="fourier-transform-for-aperiodic-signals">Fourier transform for aperiodic signals</h2>
@@ -420,10 +419,10 @@ $$</div>
 <div class="math-block">$$
 H(s) = \frac{N(s)}{D(s)}
 $$</div>
-<p>Poles are roots of D(s) and zeros are roots of N(s) .</p>
+<p>Poles are roots of $D(s)$ and zeros are roots of $N(s)$.</p>
 <h2 id="stability-and-causality-in-the-s-plane">Stability and causality in the $s$-plane</h2>
 <p>For a causal continuous-time LTI system:</p>
-<ul><li><p>Causality generally requires the ROC to be to the right of the rightmost pole.</p></li><li><p>Stability requires the ROC to include the j\omega axis.</p></li></ul>
+<ul><li><p>Causality generally requires the ROC to be to the right of the rightmost pole.</p></li><li><p>Stability requires the ROC to include the $j\omega$ axis.</p></li></ul>
 <p>For rational causal systems, stability typically means all poles lie in the left-half plane.</p>
 <h2 id="solving-differential-equations">Solving differential equations</h2>
 <p>Example:</p>
@@ -440,7 +439,7 @@ H(s) = \frac{Y(s)}{X(s)} = \frac{1}{s+a}
 $$</div>
 <h2 id="partial-fractions-and-inverse-transform">Partial fractions and inverse transform</h2>
 <p>Workflow:</p>
-<ol><li><p>Compute Y(s) = H(s)X(s) .</p></li><li><p>Factor the denominator.</p></li><li><p>Use partial fractions.</p></li><li><p>Match each term to a known inverse transform.</p></li></ol>
+<ol><li><p>Compute $Y(s) = H(s)X(s)$.</p></li><li><p>Factor the denominator.</p></li><li><p>Use partial fractions.</p></li><li><p>Match each term to a known inverse transform.</p></li></ol>
 <p>This is the standard route for transient response problems.</p>
 <hr />
 <h1 id="9-z-transform-and-discrete-time-analysis">9. Z-transform and discrete-time analysis</h1>
@@ -473,7 +472,7 @@ H(z) = \frac{1}{1 - az^{-1}}
 $$</div>
 <h2 id="stability-and-causality-in-the-z-plane">Stability and causality in the $z$-plane</h2>
 <p>For a causal discrete-time LTI system:</p>
-<ul><li><p>The ROC is outside the outermost pole.</p></li><li><p>Stability requires the unit circle z = 1 to lie in the ROC.</p></li></ul>
+<ul><li><p>The ROC is outside the outermost pole.</p></li><li><p>Stability requires the unit circle $|z| = 1$ to lie in the ROC.</p></li></ul>
 <p>For rational causal systems, stability typically means all poles lie inside the unit circle.</p>
 <h2 id="relationship-to-fourier-analysis">Relationship to Fourier analysis</h2>
 <p>If the unit circle is in the ROC, then the frequency response is found by evaluating:</p>
@@ -487,17 +486,17 @@ $$</div>
 <div class="math-block">$$
 x[n] = x(nT_s)
 $$</div>
-<p>where T s is the sampling period and</p>
+<p>where $T_s$ is the sampling period and</p>
 <div class="math-block">$$
 f_s = \frac{1}{T_s}
 $$</div>
 <p>is the sampling frequency.</p>
 <h2 id="nyquist-criterion">Nyquist criterion</h2>
-<p>To avoid aliasing for a band-limited signal with maximum frequency f {max} :</p>
+<p>To avoid aliasing for a band-limited signal with maximum frequency $f_{max}$:</p>
 <div class="math-block">$$
 f_s &gt; 2f_{max}
 $$</div>
-<p>The quantity 2f {max} is the Nyquist rate.</p>
+<p>The quantity $2f_{max}$ is the Nyquist rate.</p>
 <h2 id="aliasing">Aliasing</h2>
 <p>If sampling is too slow, high-frequency components fold into lower frequencies and distort the spectrum.</p>
 <p>Common fixes:</p>
@@ -547,7 +546,7 @@ $$</div>
 <ol><li><p>Identify whether the system is linear and time invariant.</p></li><li><p>Write the model as a differential equation, difference equation, or impulse response.</p></li><li><p>Choose the best domain:</p>
 <ul><li><p>Convolution for direct time-domain output</p></li><li><p>Fourier for steady-state frequency behavior</p></li><li><p>Laplace or Z-transform for transients and initial conditions</p></li></ul></li><li><p>Solve algebraically if possible.</p></li><li><p>Check stability, causality, and physical units.</p></li></ol>
 <h2 id="common-pitfalls">Common pitfalls</h2>
-<ul><li><p>Confusing time shift with time reversal</p></li><li><p>Forgetting that convolution reverses one signal</p></li><li><p>Treating H(s) or H(z) as the same thing as a Fourier transform without checking the ROC</p></li><li><p>Ignoring initial conditions in differential equations</p></li><li><p>Mixing continuous-time frequency \omega with discrete-time frequency \omega without noting units</p></li><li><p>Using the wrong sign convention in the complex exponential</p></li></ul>
+<ul><li><p>Confusing time shift with time reversal</p></li><li><p>Forgetting that convolution reverses one signal</p></li><li><p>Treating $H(s)$ or $H(z)$ as the same thing as a Fourier transform without checking the ROC</p></li><li><p>Ignoring initial conditions in differential equations</p></li><li><p>Mixing continuous-time frequency $\omega$ with discrete-time frequency $\omega$ without noting units</p></li><li><p>Using the wrong sign convention in the complex exponential</p></li></ul>
 <h2 id="sanity-checks">Sanity checks</h2>
 <ul><li><p>Does the answer have the correct units?</p></li><li><p>Does the output remain bounded for a bounded input when the system is stable?</p></li><li><p>Does a shift in the input produce the same shift in the output for an LTI system?</p></li><li><p>Does the result reduce correctly for a simple test case such as a unit impulse or constant input?</p></li></ul>
 <hr />
@@ -595,7 +594,7 @@ $$</div>
 <blockquote><p>An LTI system is fully described by its impulse response, and every other analysis tool is a different way of exploiting that description.</p></blockquote>
 <p>If you can move comfortably between the time domain, frequency domain, and transform domain, most signal-analysis problems become routine.</p>
 <h2 id="sources">Sources</h2>
-<ul><li><p>Engineering LibreTexts</p></li><li><p>Hibbeler, Engineering Mechanics</p></li><li><p>Nilsson and Riedel, Electric Circuits</p></li><li><p>Sedra and Smith, Microelectronic Circuits</p></li><li><p>Oppenheim and Willsky, Signals and Systems</p></li><li><p>Nise, Control Systems Engineering</p></li><li><p>Incropera et al., Fundamentals of Heat and Mass Transfer</p></li><li><p>Fox, McDonald, and Pritchard, Introduction to Fluid Mechanics</p></li><li><p>Groover, Fundamentals of Modern Manufacturing</p></li><li><p>Callister and Rethwisch, Materials Science and Engineering</p></li><li><p>Montgomery, Introduction to Statistical Quality Control</p></li><li><p>Kerzner, Project Management: A Systems Approach to Planning, Scheduling, and Controlling</p></li><li><p>Law, Simulation Modeling and Analysis</p></li><li><p>Fraden, Handbook of Modern Sensors</p></li><li><p>Leake and Borger, Engineering Design Graphics</p></li><li><p>Parell GitHub repository</p></li></ul>
+<ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
         
       </article>
     </section>

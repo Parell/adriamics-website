@@ -80,7 +80,6 @@
     </div>
     <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
   </div>
-      <img class="notes-header__art" src="/assets/name.gif" alt="" aria-hidden="true" decoding="async" />
     </div>
   </header>
 
@@ -113,7 +112,7 @@
     </nav>
         
         <h1 id="1-what-counts-as-a-second-order-ode">1. What counts as a second-order ODE</h1>
-<p>A second-order ordinary differential equation is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:</p>
+<p>A <strong>second-order ordinary differential equation</strong> is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:</p>
 <div class="math-block">$$
 F(x, y, y&#39;, y&#39;&#39;) = 0
 $$</div>
@@ -125,28 +124,28 @@ $$</div>
 <hr />
 <h1 id="2-classification-and-standard-forms">2. Classification and standard forms</h1>
 <h2 id="linear-vs-nonlinear">Linear vs nonlinear</h2>
-<p>A second-order ODE is linear if it can be written as</p>
+<p>A second-order ODE is <strong>linear</strong> if it can be written as</p>
 <div class="math-block">$$
 a_2(x) y&#39;&#39; + a_1(x) y&#39; + a_0(x) y = g(x)
 $$</div>
 <p>where \(y\), \(y&#39;\), and \(y&#39;&#39;\) appear only to the first power and are not multiplied together.</p>
-<p>It is nonlinear if, for example, it contains terms such as:</p>
+<p>It is <strong>nonlinear</strong> if, for example, it contains terms such as:</p>
 <div class="math-block">$$
 y^2,\quad y y&#39;,\quad \sin(y),\quad (y&#39;)^2
 $$</div>
 <h2 id="homogeneous-vs-nonhomogeneous">Homogeneous vs nonhomogeneous</h2>
-<p>The linear equation is homogeneous when</p>
+<p>The linear equation is <strong>homogeneous</strong> when</p>
 <div class="math-block">$$
 g(x) = 0
 $$</div>
-<p>and nonhomogeneous when \(g(x) \neq 0\).</p>
+<p>and <strong>nonhomogeneous</strong> when \(g(x) \neq 0\).</p>
 <h2 id="common-standard-forms">Common standard forms</h2>
 <h3 id="general-linear-form">General linear form</h3>
 <div class="math-block">$$
 a_2(x) y&#39;&#39; + a_1(x) y&#39; + a_0(x) y = g(x)
 $$</div>
 <h3 id="normalized-form">Normalized form</h3>
-<p>If \(a 2(x) \neq 0\), divide through by \(a 2(x)\):</p>
+<p>If \(a_2(x) \neq 0\), divide through by \(a_2(x)\):</p>
 <div class="math-block">$$
 y&#39;&#39; + p(x) y&#39; + q(x) y = r(x)
 $$</div>
@@ -162,7 +161,7 @@ $$</div>
 <div class="math-block">$$
 y&#39;&#39; = f(x, y, y&#39;),\qquad y(x_0) = y_0,\qquad y&#39;(x_0) = v_0
 $$</div>
-<p>the existence and uniqueness theorem says that if \(f\) and its relevant partial derivatives are continuous near \((x 0, y 0, v 0)\), then a unique local solution exists.</p>
+<p>the existence and uniqueness theorem says that if \(f\) and its relevant partial derivatives are continuous near \((x_0, y_0, v_0)\), then a unique local solution exists.</p>
 <p>For linear equations in normal form</p>
 <div class="math-block">$$
 y&#39;&#39; + p(x) y&#39; + q(x) y = r(x),
@@ -180,18 +179,18 @@ $$</div>
 <div class="math-block">$$
 ay&#39;&#39; + by&#39; + cy = 0
 $$</div>
-<p>Try a solution of the form \(y = e^{rx}\). Substitution gives the characteristic equation</p>
+<p>Try a solution of the form \(y = e^{rx}\). Substitution gives the <strong>characteristic equation</strong></p>
 <div class="math-block">$$
 ar^2 + br + c = 0
 $$</div>
 <p>The roots of this quadratic determine the solution form.</p>
 <h2 id="case-1-two-distinct-real-roots">Case 1: two distinct real roots</h2>
-<p>If \(r 1 \neq r 2\), then</p>
+<p>If \(r_1 \neq r_2\), then</p>
 <div class="math-block">$$
 y(x) = C_1 e^{r_1 x} + C_2 e^{r_2 x}
 $$</div>
 <h2 id="case-2-repeated-real-root">Case 2: repeated real root</h2>
-<p>If \(r 1 = r 2 = r\), then</p>
+<p>If \(r_1 = r_2 = r\), then</p>
 <div class="math-block">$$
 y(x) = (C_1 + C_2 x)e^{rx}
 $$</div>
@@ -230,14 +229,14 @@ $$</div>
 y = y_h + y_p
 $$</div>
 <p>where:</p>
-<ul><li><p>\(y h\) solves the homogeneous equation</p></li><li><p>\(y p\) is any one particular solution of the full equation</p></li></ul>
+<ul><li><p>\(y_h\) solves the homogeneous equation</p></li><li><p>\(y_p\) is any one particular solution of the full equation</p></li></ul>
 <p>The structure of \(g(x)\) usually determines the method.</p>
 <h2 id="undetermined-coefficients">Undetermined coefficients</h2>
 <p>Use this when \(g(x)\) is built from exponentials, polynomials, sines, cosines, or products of these.</p>
 <p>Typical guesses:</p>
 <table><thead><tr><th>Forcing \(g(x)\)</th><th>Trial form for \(y_p\)</th></tr></thead><tbody><tr><td>\(e^{ax}\)</td><td>\(Ae^{ax}\)</td></tr><tr><td>\(P_n(x)\)</td><td>polynomial of degree \(n\)</td></tr><tr><td>\(\sin bx\) or \(\cos bx\)</td><td>\(A\cos bx + B\sin bx\)</td></tr><tr><td>\(e^{ax}P_n(x)\)</td><td>\(e^{ax}\) times a polynomial of degree \(n\)</td></tr><tr><td>\(e^{ax}\sin bx\), \(e^{ax}\cos bx\)</td><td>\(e^{ax}(A\cos bx + B\sin bx)\)</td></tr></tbody></table>
 <h3 id="resonance-rule">Resonance rule</h3>
-<p>If your trial solution duplicates part of \(y h\), multiply the trial by \(x\) enough times to make it linearly independent.</p>
+<p>If your trial solution duplicates part of \(y_h\), multiply the trial by \(x\) enough times to make it linearly independent.</p>
 <h4 id="example-of-resonance">Example of resonance</h4>
 <p>Solve</p>
 <div class="math-block">$$
@@ -250,7 +249,7 @@ $$</div>
 <p>because the repeated root forces two powers of \(x\).</p>
 <h2 id="variation-of-parameters">Variation of parameters</h2>
 <p>Use this when undetermined coefficients is not convenient.</p>
-<p>If \(y 1\) and \(y 2\) are independent solutions of the homogeneous equation</p>
+<p>If \(y_1\) and \(y_2\) are independent solutions of the homogeneous equation</p>
 <div class="math-block">$$
 y&#39;&#39; + p(x)y&#39; + q(x)y = r(x),
 $$</div>
@@ -258,7 +257,7 @@ $$</div>
 <div class="math-block">$$
 y_p = u_1(x)y_1(x) + u_2(x)y_2(x)
 $$</div>
-<p>where \(u 1\) and \(u 2\) are determined from a system involving the Wronskian.</p>
+<p>where \(u_1\) and \(u_2\) are determined from a system involving the Wronskian.</p>
 <hr />
 <h1 id="6-variable-coefficient-special-cases">6. Variable-coefficient special cases</h1>
 <h2 id="euler-cauchy-equations">Euler-Cauchy equations</h2>
@@ -284,7 +283,7 @@ $$</div>
 <hr />
 <h1 id="7-reduction-of-order-and-variation-of-parameters">7. Reduction of order and variation of parameters</h1>
 <h2 id="reduction-of-order">Reduction of order</h2>
-<p>If one nonzero solution \(y 1\) of the homogeneous equation is known, try</p>
+<p>If one nonzero solution \(y_1\) of the homogeneous equation is known, try</p>
 <div class="math-block">$$
 y = v(x)y_1(x)
 $$</div>
@@ -292,7 +291,7 @@ $$</div>
 <p>This is especially useful when:</p>
 <ul><li><p>one solution is obvious</p></li><li><p>the equation is linear but not constant-coefficient</p></li><li><p>you are given one solution and asked to find the general solution</p></li></ul>
 <h2 id="wronskian">Wronskian</h2>
-<p>The Wronskian of two functions \(y 1\) and \(y 2\) is</p>
+<p>The Wronskian of two functions \(y_1\) and \(y_2\) is</p>
 <div class="math-block">$$
 W(y_1,y_2) =
 \begin{vmatrix}
@@ -306,7 +305,7 @@ $$</div>
 <div class="math-block">$$
 y&#39;&#39; + p(x)y&#39; + q(x)y = r(x),
 $$</div>
-<p>variation of parameters uses the Wronskian to build \(u 1\) and \(u 2\).</p>
+<p>variation of parameters uses the Wronskian to build \(u_1\) and \(u_2\).</p>
 <hr />
 <h1 id="8-initial-and-boundary-value-problems">8. Initial and boundary value problems</h1>
 <h2 id="initial-value-problems">Initial value problems</h2>
@@ -484,7 +483,7 @@ $$</div>
 \zeta = \frac{c}{2\sqrt{mk}}
 $$</div>
 <h2 id="sources">Sources</h2>
-<ul><li><p>OpenStax Mathematics</p></li><li><p>Mathematics LibreTexts</p></li><li><p>Stewart, Calculus: Early Transcendentals</p></li><li><p>Lay, Linear Algebra and Its Applications</p></li><li><p>Rosen, Discrete Mathematics and Its Applications</p></li><li><p>Boyce and DiPrima, Elementary Differential Equations and Boundary Value Problems</p></li><li><p>Blitzstein and Hwang, Introduction to Probability</p></li><li><p>Parell GitHub repository</p></li></ul>
+<ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
         
       </article>
     </section>

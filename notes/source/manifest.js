@@ -64,6 +64,7 @@ window.UES_GUIDE_MANIFEST = {
         { title: 'Materials Science', path: 'subjects/engineering/materials-science/materials-science.md' },
         { title: 'Electrical Circuit Analysis', path: 'subjects/engineering/electrical-circuit-analysis/electrical-circuit-analysis.md' },
         { title: 'Linear System Signal Analysis', path: 'subjects/engineering/linear-system-signal-analysis/linear-system-signal-analysis.md' },
+        { title: 'Engineering Design', path: 'subjects/engineering/engineering-design/engineering-design.md' },
       ],
     },
   ],

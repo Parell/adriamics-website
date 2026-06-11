@@ -613,6 +613,156 @@ function splitTableRow(row) {
   return trimmed.split(/\|/).map((cell) => cell.trim());
 }
 
+function renderFenceBlock(lines, index) {
+  const fenceMatch = lines[index].match(/^(\s*```+)/);
+  const fence = fenceMatch ? fenceMatch[1].trim() : '```';
+  const fenceChar = fence[0];
+  const fenceLength = fence.length;
+  const fencePattern = new RegExp(`^\\s*${escapeRegExp(fenceChar)}{${fenceLength},}\\s*$`);
+  const codeLines = [];
+  let nextIndex = index + 1;
+
+  while (nextIndex < lines.length && !fencePattern.test(lines[nextIndex])) {
+    codeLines.push(lines[nextIndex]);
+    nextIndex += 1;
+  }
+
+  if (nextIndex < lines.length) {
+    nextIndex += 1;
+  }
+
+  return {
+    html: `<pre><code>${escapeHtml(codeLines.join('\n'))}</code></pre>`,
+    nextIndex,
+  };
+}
+
+function renderMathBlock(lines, index) {
+  const mathLines = [];
+  let nextIndex = index + 1;
+
+  while (nextIndex < lines.length && !isMathFence(lines[nextIndex])) {
+    mathLines.push(lines[nextIndex]);
+    nextIndex += 1;
+  }
+
+  if (nextIndex < lines.length) {
+    nextIndex += 1;
+  }
+
+  return {
+    html: `<div class="math-block">$$\n${escapeHtml(mathLines.join('\n'))}\n$$</div>`,
+    nextIndex,
+  };
+}
+
+function renderTableBlock(lines, index, sourcePath) {
+  const header = splitTableRow(lines[index]);
+  let nextIndex = index + 2;
+  const bodyRows = [];
+
+  while (nextIndex < lines.length && lines[nextIndex].includes('|') && lines[nextIndex].trim()) {
+    bodyRows.push(splitTableRow(lines[nextIndex]));
+    nextIndex += 1;
+  }
+
+  const headerHtml = header.map((cell) => `<th>${renderInline(cell, sourcePath)}</th>`).join('');
+  const bodyHtml = bodyRows.map((row) => {
+    const cells = row.map((cell) => `<td>${renderInline(cell, sourcePath)}</td>`).join('');
+    return `<tr>${cells}</tr>`;
+  }).join('');
+
+  return {
+    html: `<table><thead><tr>${headerHtml}</tr></thead><tbody>${bodyHtml}</tbody></table>`,
+    nextIndex,
+  };
+}
+
+function renderQuoteBlock(lines, index, sourcePath) {
+  const quoteLines = [];
+  let nextIndex = index;
+
+  while (nextIndex < lines.length && lines[nextIndex].trim().startsWith('>')) {
+    quoteLines.push(lines[nextIndex].replace(/^\s{0,3}>\s?/, ''));
+    nextIndex += 1;
+  }
+
+  return {
+    html: `<blockquote>${renderBlocks(quoteLines.join('\n'), sourcePath)}</blockquote>`,
+    nextIndex,
+  };
+}
+
+function renderListBlock(lines, index, sourcePath) {
+  const startIndent = getIndentWidth(lines[index]);
+  const isOrdered = /^\s*\d+\.\s+/.test(lines[index]);
+  const items = [];
+  let nextIndex = index;
+
+  while (nextIndex < lines.length && isListItem(lines[nextIndex]) && getIndentWidth(lines[nextIndex]) === startIndent) {
+    const currentLine = lines[nextIndex];
+    const markerMatch = currentLine.match(/^\s{0,8}(?:[-*+]|(?:\d+\.))\s+(.*)$/);
+    const itemLines = [markerMatch ? markerMatch[1] : currentLine.trim()];
+    nextIndex += 1;
+
+    while (nextIndex < lines.length) {
+      const nextLine = lines[nextIndex];
+
+      if (!nextLine.trim()) {
+        itemLines.push('');
+        nextIndex += 1;
+        continue;
+      }
+
+      const nextIndent = getIndentWidth(nextLine);
+
+      if (nextIndent > startIndent) {
+        itemLines.push(nextLine);
+        nextIndex += 1;
+        continue;
+      }
+
+      break;
+    }
+
+    items.push(`<li>${renderBlocks(itemLines.join('\n').replace(/^\n+|\n+$/g, ''), sourcePath)}</li>`);
+  }
+
+  const listTag = isOrdered ? 'ol' : 'ul';
+  return {
+    html: `<${listTag}>${items.join('')}</${listTag}>`,
+    nextIndex,
+  };
+}
+
+function renderParagraphBlock(lines, index, sourcePath) {
+  const paragraphLines = [lines[index]];
+  let nextIndex = index + 1;
+
+  while (
+    nextIndex < lines.length
+    && lines[nextIndex].trim()
+    && !isFence(lines[nextIndex])
+    && !isMathFence(lines[nextIndex])
+    && !isHeading(lines[nextIndex])
+    && !isHr(lines[nextIndex])
+    && !isStandaloneAnchor(lines[nextIndex])
+    && !isRawHtmlLine(lines[nextIndex])
+    && !isTableStart(lines, nextIndex)
+    && !lines[nextIndex].trim().startsWith('>')
+    && !isListItem(lines[nextIndex])
+  ) {
+    paragraphLines.push(lines[nextIndex]);
+    nextIndex += 1;
+  }
+
+  const summary = trimMarkdownText(paragraphLines.join(' '));
+  return {
+    html: summary ? renderInline(summary, sourcePath) : '',
+    nextIndex,
+  };
+}
+
 function renderBlocks(markdown, sourcePath) {
   const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
   const usedHeadingIds = new Set();
@@ -628,41 +778,16 @@ function renderBlocks(markdown, sourcePath) {
     }
 
     if (isFence(line)) {
-      const fenceMatch = line.match(/^(\s*```+)/);
-      const fence = fenceMatch ? fenceMatch[1].trim() : '```';
-      const fenceChar = fence[0];
-      const fenceLength = fence.length;
-      const fencePattern = new RegExp(`^\\s*${escapeRegExp(fenceChar)}{${fenceLength},}\\s*$`);
-      const codeLines = [];
-      index += 1;
-
-      while (index < lines.length && !fencePattern.test(lines[index])) {
-        codeLines.push(lines[index]);
-        index += 1;
-      }
-
-      if (index < lines.length) {
-        index += 1;
-      }
-
-      blocks.push(`<pre><code>${escapeHtml(codeLines.join('\n'))}</code></pre>`);
+      const block = renderFenceBlock(lines, index);
+      blocks.push(block.html);
+      index = block.nextIndex;
       continue;
     }
 
     if (isMathFence(line)) {
-      const mathLines = [];
-      index += 1;
-
-      while (index < lines.length && !isMathFence(lines[index])) {
-        mathLines.push(lines[index]);
-        index += 1;
-      }
-
-      if (index < lines.length) {
-        index += 1;
-      }
-
-      blocks.push(`<div class="math-block">$$\n${escapeHtml(mathLines.join('\n'))}\n$$</div>`);
+      const block = renderMathBlock(lines, index);
+      blocks.push(block.html);
+      index = block.nextIndex;
       continue;
     }
 
@@ -702,99 +827,29 @@ function renderBlocks(markdown, sourcePath) {
     }
 
     if (isTableStart(lines, index)) {
-      const header = splitTableRow(lines[index]);
-      index += 2;
-      const bodyRows = [];
-
-      while (index < lines.length && lines[index].includes('|') && lines[index].trim()) {
-        bodyRows.push(splitTableRow(lines[index]));
-        index += 1;
-      }
-
-      const headerHtml = header.map((cell) => `<th>${renderInline(cell, sourcePath)}</th>`).join('');
-      const bodyHtml = bodyRows.map((row) => {
-        const cells = row.map((cell) => `<td>${renderInline(cell, sourcePath)}</td>`).join('');
-        return `<tr>${cells}</tr>`;
-      }).join('');
-
-      blocks.push(`<table><thead><tr>${headerHtml}</tr></thead><tbody>${bodyHtml}</tbody></table>`);
+      const block = renderTableBlock(lines, index, sourcePath);
+      blocks.push(block.html);
+      index = block.nextIndex;
       continue;
     }
 
     if (line.trim().startsWith('>')) {
-      const quoteLines = [];
-
-      while (index < lines.length && lines[index].trim().startsWith('>')) {
-        quoteLines.push(lines[index].replace(/^\s{0,3}>\s?/, ''));
-        index += 1;
-      }
-
-      blocks.push(`<blockquote>${renderBlocks(quoteLines.join('\n'), sourcePath)}</blockquote>`);
+      const block = renderQuoteBlock(lines, index, sourcePath);
+      blocks.push(block.html);
+      index = block.nextIndex;
       continue;
     }
 
     if (isListItem(line)) {
-      const startIndent = getIndentWidth(line);
-      const isOrdered = /^\s*\d+\.\s+/.test(line);
-      const items = [];
-
-      while (index < lines.length && isListItem(lines[index]) && getIndentWidth(lines[index]) === startIndent) {
-        const currentLine = lines[index];
-        const markerMatch = currentLine.match(/^\s{0,8}(?:[-*+]|(?:\d+\.))\s+(.*)$/);
-        const itemLines = [markerMatch ? markerMatch[1] : currentLine.trim()];
-        index += 1;
-
-        while (index < lines.length) {
-          const nextLine = lines[index];
-
-          if (!nextLine.trim()) {
-            itemLines.push('');
-            index += 1;
-            continue;
-          }
-
-          const nextIndent = getIndentWidth(nextLine);
-
-          if (nextIndent > startIndent) {
-            itemLines.push(nextLine);
-            index += 1;
-            continue;
-          }
-
-          break;
-        }
-
-        items.push(`<li>${renderBlocks(itemLines.join('\n').replace(/^\n+|\n+$/g, ''), sourcePath)}</li>`);
-      }
-
-      const listTag = isOrdered ? 'ol' : 'ul';
-      blocks.push(`<${listTag}>${items.join('')}</${listTag}>`);
+      const block = renderListBlock(lines, index, sourcePath);
+      blocks.push(block.html);
+      index = block.nextIndex;
       continue;
     }
 
-    const paragraphLines = [line];
-    index += 1;
-
-    while (index < lines.length) {
-      const nextLine = lines[index];
-      if (
-        !nextLine.trim()
-        || isHeading(nextLine)
-        || isFence(nextLine)
-        || isMathFence(nextLine)
-        || isHr(nextLine)
-        || isTableStart(lines, index)
-        || nextLine.trim().startsWith('>')
-        || isListItem(nextLine)
-      ) {
-        break;
-      }
-
-      paragraphLines.push(nextLine);
-      index += 1;
-    }
-
-    blocks.push(`<p>${renderInline(paragraphLines.join(' ').trim(), sourcePath)}</p>`);
+    const block = renderParagraphBlock(lines, index, sourcePath);
+    blocks.push(`<p>${block.html}</p>`);
+    index = block.nextIndex;
   }
 
   return blocks.join('\n');
@@ -975,10 +1030,6 @@ function getNoteUrl(notePath) {
   return `/notes/${getNoteRoutePath(notePath)}/`;
 }
 
-function getNoteSlug(notePath) {
-  return path.basename(notePath, '.md');
-}
-
 function renderSubjectLinks(structures, activeStructureId = null) {
   const structureLinks = structures.map((structure) => {
     const pagePath = getFirstPagePath(structure);
@@ -1004,7 +1055,18 @@ function renderSubjectLinks(structures, activeStructureId = null) {
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
             <p class="notes-header__title">Universal Education System</p>
           </div>
-          <ul class="subject-list"><li><button type="button" data-leave-notes data-notes-nav-item>Leave</button></li>${combinedLinks}<li><button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button></li></ul>
+          <ul class="subject-list">
+            <li>
+              <button type="button" data-leave-notes data-notes-nav-item>Leave</button>
+            </li>
+            ${combinedLinks}
+            <li>
+              <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button>
+            </li>
+            <li>
+              <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
+            </li>
+          </ul>
         </aside>`;
 }
 
@@ -1344,7 +1406,7 @@ function buildNoteHtml({
           ${renderMetadataLine('viewer-meta', sourceUrl)}
         </div>
       <div class="viewer-head__actions">
-          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
           ${practiceUrl ? `<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>` : ''}
         </div>
       </div>
@@ -1664,7 +1726,70 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
     </article>`;
 }
 
-function buildPracticeHtml({
+function renderPracticeSidebarHtml(structure, notePath) {
+  return `
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
+        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], notePath)}</ul>
+      </nav>
+    </aside>`;
+}
+
+function renderPracticeFiltersHtml(totalProblems) {
+  return `
+      <section class="practice-filters panel" data-practice-filters aria-label="Practice filters">
+        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
+          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
+          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
+        </div>
+        <p class="practice-filters__summary" data-practice-filter-summary aria-live="polite">Showing all ${escapeHtml(String(totalProblems))} problems</p>
+      </section>`;
+}
+
+function renderPracticeProgressHtml(totalProblems) {
+  return `
+      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(totalProblems))} problems completed">
+        <div class="practice-progress__head">
+          <p class="section-label">Progress</p>
+          <p class="practice-progress__summary" data-practice-progress-summary>0 of ${escapeHtml(String(totalProblems))} completed</p>
+        </div>
+        <div class="practice-progress__track" aria-hidden="true">
+          <div class="practice-progress__fill" data-practice-progress-fill></div>
+        </div>
+      </section>`;
+}
+
+function renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath) {
+  return problemGroups.map((group) => {
+    const levelProblemHtml = group.items.map(({ problem }) => renderPracticeProblem(problem, practiceSourcePath, notePath)).join('');
+
+    return `<section class="practice-level practice-level--level-${escapeHtml(String(group.level))} panel" data-practice-level="${escapeHtml(String(group.level))}" aria-labelledby="practice-level-${group.level}">
+        <div class="practice-level__head">
+          <div class="practice-level__eyebrow">
+            <p class="section-label">Difficulty</p>
+            <h2 id="practice-level-${escapeHtml(String(group.level))}">${escapeHtml(group.label)}</h2>
+          </div>
+          <div class="practice-level__badge" aria-hidden="true">
+            <span class="practice-level__badge-label">Level</span>
+            <span class="practice-level__badge-value">${escapeHtml(String(group.level))}</span>
+          </div>
+        </div>
+        <div class="practice-problem-list practice-problem-list--grouped">
+          ${levelProblemHtml}
+        </div>
+      </section>`;
+  }).join('');
+}
+
+function renderPracticePageHtml({
   title,
   description,
   canonicalUrl,
@@ -1683,70 +1808,24 @@ function buildPracticeHtml({
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
   const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
-  const problemHtml = problemGroups.map((group) => {
-    const levelProblemHtml = group.items.map(({ problem }) => {
-      return renderPracticeProblem(problem, practiceSourcePath, notePath);
-    }).join('');
-
-    return `<section class="practice-level practice-level--level-${escapeHtml(String(group.level))} panel" data-practice-level="${escapeHtml(String(group.level))}" aria-labelledby="practice-level-${group.level}">
-        <div class="practice-level__head">
-          <div class="practice-level__eyebrow">
-            <p class="section-label">Difficulty</p>
-            <h2 id="practice-level-${escapeHtml(String(group.level))}">${escapeHtml(group.label)}</h2>
-          </div>
-          <div class="practice-level__badge" aria-hidden="true">
-            <span class="practice-level__badge-label">Level</span>
-            <span class="practice-level__badge-value">${escapeHtml(String(group.level))}</span>
-          </div>
-        </div>
-        <div class="practice-problem-list practice-problem-list--grouped">
-          ${levelProblemHtml}
-        </div>
-      </section>`;
-  }).join('');
+  const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
   const quickActionsHtml = renderQuickActions({ backToNoteUrl: noteUrl });
   const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
   const mainHtml = `
-    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
-      <div class="notes-sidebar__head">
-        <p class="section-label">Guides</p>
-      </div>
-      <nav aria-labelledby="guide-tree-title">
-        <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
-        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], notePath)}</ul>
-      </nav>
-    </aside>
+    ${renderPracticeSidebarHtml(structure, notePath)}
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
           ${renderMetadataLine('viewer-meta practice-note-meta-line', sourceUrl)}
         </div>
-      <div class="viewer-head__actions">
+        <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
           <a class="practice-back-link notes-action-chip" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to note</a>
         </div>
       </div>
-      <section class="practice-filters panel" data-practice-filters aria-label="Practice filters">
-        <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
-          <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
-          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
-          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-ii" aria-pressed="false">Exam II</button>
-          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="final" aria-pressed="false">Final</button>
-          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
-          <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
-        </div>
-        <p class="practice-filters__summary" data-practice-filter-summary aria-live="polite">Showing all ${escapeHtml(String(totalProblems))} problems</p>
-      </section>
-      <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(totalProblems))} problems completed">
-        <div class="practice-progress__head">
-          <p class="section-label">Progress</p>
-          <p class="practice-progress__summary" data-practice-progress-summary>0 of ${escapeHtml(String(totalProblems))} completed</p>
-        </div>
-        <div class="practice-progress__track" aria-hidden="true">
-          <div class="practice-progress__fill" data-practice-progress-fill></div>
-        </div>
-      </section>
+      ${renderPracticeFiltersHtml(totalProblems)}
+      ${renderPracticeProgressHtml(totalProblems)}
       <div class="practice-problem-list">
         ${problemHtml}
       </div>
@@ -2373,7 +2452,7 @@ async function buildPracticePage(practice, structures, assetVersions) {
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
   const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
-  const pageHtml = buildPracticeHtml({
+  const pageHtml = renderPracticePageHtml({
     title,
     description,
     canonicalUrl,

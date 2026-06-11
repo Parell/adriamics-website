@@ -3,72 +3,766 @@
 If you want to improve one of these tools or propose a new one, start with [Contribute](../contribute/).
 
 <!-- widget:arithmetic -->
-<section class="interactive-demo panel" data-math-demo="arithmetic" data-math-demo-id="arithmetic"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Number line moves</h2> <p class="interactive-demo__summary">Change a starting value and a step to see addition and subtraction as movement on a number line.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Number line moves controls"> <label class="interactive-demo__control" for="math-demo-arithmetic-start"> <span class="interactive-demo__control-label">Start value <output id="math-demo-arithmetic-start-value">2</output></span> <input id="math-demo-arithmetic-start" type="range" min="-10" max="10" step="1" value="2" /> </label><label class="interactive-demo__control" for="math-demo-arithmetic-step"> <span class="interactive-demo__control-label">Step size <output id="math-demo-arithmetic-step-value">4</output></span> <input id="math-demo-arithmetic-step" type="range" min="-10" max="10" step="1" value="4" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Update</span> <span class="interactive-demo__metric-value" id="math-demo-arithmetic-equation">2 + 4 = 6</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Distance from zero</span> <span class="interactive-demo__metric-value" id="math-demo-arithmetic-distance">6</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="arithmetic" data-math-demo-id="arithmetic">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Number line moves</h2>
+    <p class="interactive-demo__summary">Change a starting value and a step to see addition and subtraction as movement on a number line.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Number line moves controls">
+      <label class="interactive-demo__control" for="math-demo-arithmetic-start">
+        <span class="interactive-demo__control-label">Start value <output id="math-demo-arithmetic-start-value">2</output></span>
+        <input id="math-demo-arithmetic-start" type="range" min="-10" max="10" step="1" value="2" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-arithmetic-step">
+        <span class="interactive-demo__control-label">Step size <output id="math-demo-arithmetic-step-value">4</output></span>
+        <input id="math-demo-arithmetic-step" type="range" min="-10" max="10" step="1" value="4" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Update</span>
+          <span class="interactive-demo__metric-value" id="math-demo-arithmetic-equation">2 + 4 = 6</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Distance from zero</span>
+          <span class="interactive-demo__metric-value" id="math-demo-arithmetic-distance">6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:logic -->
-<section class="interactive-demo panel" data-math-demo="logic" data-math-demo-id="logic"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Truth table explorer</h2> <p class="interactive-demo__summary">Switch the proposition values and connective to see how the truth table changes row by row.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Truth table explorer controls"> <div class="interactive-demo__control"> <span class="interactive-demo__control-label">Connective <output id="math-demo-logic-connective-value">and</output></span> <select id="math-demo-logic-connective"> <option value="and">and</option> <option value="or">or</option> <option value="implies">implies</option> <option value="iff">iff</option> </select> </div><div class="interactive-demo__control"> <span class="interactive-demo__control-label">Inputs</span> <div class="interactive-demo__toggle-row"> <button type="button" class="interactive-demo__toggle is-active" id="math-demo-logic-p" data-toggle-value="true" aria-pressed="true" >P</button> <button type="button" class="interactive-demo__toggle" id="math-demo-logic-q" data-toggle-value="true" aria-pressed="false" >Q</button> </div> </div> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Statement</span> <span class="interactive-demo__metric-value" id="math-demo-logic-statement">P and Q</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Result</span> <span class="interactive-demo__metric-value" id="math-demo-logic-result">false</span> </div></div> <table class="interactive-demo__table" aria-label="Truth table"> <thead> <tr><th>P</th><th>Q</th><th>Value</th><th>Row</th></tr> </thead> <tbody> <tr data-row="tt-ff"><td>F</td><td>F</td><td id="math-demo-logic-row-ff">F</td><td>1</td></tr> <tr data-row="tt-ft"><td>F</td><td>T</td><td id="math-demo-logic-row-ft">F</td><td>2</td></tr> <tr data-row="tt-tf"><td>T</td><td>F</td><td id="math-demo-logic-row-tf">F</td><td>3</td></tr> <tr data-row="tt-tt"><td>T</td><td>T</td><td id="math-demo-logic-row-tt">T</td><td>4</td></tr> </tbody> </table> <p class="interactive-demo__note">The highlighted row shows the current input combination and output.</p> </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="logic" data-math-demo-id="logic">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Truth table explorer</h2>
+    <p class="interactive-demo__summary">Switch the proposition values and connective to see how the truth table changes row by row.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Truth table explorer controls">
+      <div class="interactive-demo__control">
+        <span class="interactive-demo__control-label">Connective <output id="math-demo-logic-connective-value">and</output></span>
+        <select id="math-demo-logic-connective">
+          <option value="and">and</option>
+          <option value="or">or</option>
+          <option value="implies">implies</option>
+          <option value="iff">iff</option>
+        </select>
+      </div>
+      <div class="interactive-demo__control">
+        <span class="interactive-demo__control-label">Inputs</span>
+        <div class="interactive-demo__toggle-row">
+          <button type="button" class="interactive-demo__toggle is-active" id="math-demo-logic-p" data-toggle-value="true" aria-pressed="true">P</button>
+          <button type="button" class="interactive-demo__toggle" id="math-demo-logic-q" data-toggle-value="true" aria-pressed="false">Q</button>
+        </div>
+      </div>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Statement</span>
+          <span class="interactive-demo__metric-value" id="math-demo-logic-statement">P and Q</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Result</span>
+          <span class="interactive-demo__metric-value" id="math-demo-logic-result">false</span>
+        </div>
+      </div>
+      <table class="interactive-demo__table" aria-label="Truth table">
+        <thead>
+          <tr><th>P</th><th>Q</th><th>Value</th><th>Row</th></tr>
+        </thead>
+        <tbody>
+          <tr data-row="tt-ff"><td>F</td><td>F</td><td id="math-demo-logic-row-ff">F</td><td>1</td></tr>
+          <tr data-row="tt-ft"><td>F</td><td>T</td><td id="math-demo-logic-row-ft">F</td><td>2</td></tr>
+          <tr data-row="tt-tf"><td>T</td><td>F</td><td id="math-demo-logic-row-tf">F</td><td>3</td></tr>
+          <tr data-row="tt-tt"><td>T</td><td>T</td><td id="math-demo-logic-row-tt">T</td><td>4</td></tr>
+        </tbody>
+      </table>
+      <p class="interactive-demo__note">The highlighted row shows the current input combination and output.</p>
+    </div>
+  </div>
+</section>
 
 <!-- widget:geometry -->
-<section class="interactive-demo panel" data-math-demo="geometry" data-math-demo-id="geometry"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Triangle angle and area</h2> <p class="interactive-demo__summary">Adjust an included angle and the two side lengths to see how triangle area and the third side respond.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Triangle angle and area controls"> <label class="interactive-demo__control" for="math-demo-geometry-side-a"> <span class="interactive-demo__control-label">Side a <output id="math-demo-geometry-side-a-value">7</output></span> <input id="math-demo-geometry-side-a" type="range" min="2" max="12" step="0.5" value="7" /> </label><label class="interactive-demo__control" for="math-demo-geometry-side-b"> <span class="interactive-demo__control-label">Side b <output id="math-demo-geometry-side-b-value">8</output></span> <input id="math-demo-geometry-side-b" type="range" min="2" max="12" step="0.5" value="8" /> </label><label class="interactive-demo__control" for="math-demo-geometry-angle-c"> <span class="interactive-demo__control-label">Included angle (deg) <output id="math-demo-geometry-angle-c-value">62</output></span> <input id="math-demo-geometry-angle-c" type="range" min="20" max="140" step="1" value="62" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Area</span> <span class="interactive-demo__metric-value" id="math-demo-geometry-area">0</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Third side</span> <span class="interactive-demo__metric-value" id="math-demo-geometry-side-c">0</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="geometry" data-math-demo-id="geometry">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Triangle angle and area</h2>
+    <p class="interactive-demo__summary">Adjust an included angle and the two side lengths to see how triangle area and the third side respond.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Triangle angle and area controls">
+      <label class="interactive-demo__control" for="math-demo-geometry-side-a">
+        <span class="interactive-demo__control-label">Side a <output id="math-demo-geometry-side-a-value">7</output></span>
+        <input id="math-demo-geometry-side-a" type="range" min="2" max="12" step="0.5" value="7" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-geometry-side-b">
+        <span class="interactive-demo__control-label">Side b <output id="math-demo-geometry-side-b-value">8</output></span>
+        <input id="math-demo-geometry-side-b" type="range" min="2" max="12" step="0.5" value="8" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-geometry-angle-c">
+        <span class="interactive-demo__control-label">Included angle (deg) <output id="math-demo-geometry-angle-c-value">62</output></span>
+        <input id="math-demo-geometry-angle-c" type="range" min="20" max="140" step="1" value="62" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Area</span>
+          <span class="interactive-demo__metric-value" id="math-demo-geometry-area">0</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Third side</span>
+          <span class="interactive-demo__metric-value" id="math-demo-geometry-side-c">0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:algebra -->
-<section class="interactive-demo panel" data-math-demo="line-graph" data-math-demo-id="algebra"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Linear equation explorer</h2> <p class="interactive-demo__summary">Change slope and intercept to see how y = mx + b shifts and tilts on the coordinate plane.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Linear equation explorer controls"> <label class="interactive-demo__control" for="math-demo-algebra-slope"> <span class="interactive-demo__control-label">Slope m <output id="math-demo-algebra-slope-value">1.4</output></span> <input id="math-demo-algebra-slope" type="range" min="-4" max="4" step="0.1" value="1.4" /> </label><label class="interactive-demo__control" for="math-demo-algebra-intercept"> <span class="interactive-demo__control-label">Intercept b <output id="math-demo-algebra-intercept-value">-1</output></span> <input id="math-demo-algebra-intercept" type="range" min="-5" max="5" step="0.5" value="-1" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Equation</span> <span class="interactive-demo__metric-value" id="math-demo-algebra-equation">y = 1.4x - 1.0</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Intercepts</span> <span class="interactive-demo__metric-value" id="math-demo-algebra-intercepts">x = 0.7, y = -1.0</span> </div></div> <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-label="Linear equation visual"> <path id="math-demo-algebra-line" fill="none" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /> <circle id="math-demo-algebra-y-intercept" cx="400" cy="160" r="8" fill="var(--pomodoro-short)" /> <circle id="math-demo-algebra-x-intercept" cx="400" cy="160" r="8" fill="var(--pomodoro-long)" /> </svg> </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="line-graph" data-math-demo-id="algebra">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Linear equation explorer</h2>
+    <p class="interactive-demo__summary">Change slope and intercept to see how y = mx + b shifts and tilts on the coordinate plane.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Linear equation explorer controls">
+      <label class="interactive-demo__control" for="math-demo-algebra-slope">
+        <span class="interactive-demo__control-label">Slope m <output id="math-demo-algebra-slope-value">1.4</output></span>
+        <input id="math-demo-algebra-slope" type="range" min="-4" max="4" step="0.1" value="1.4" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-algebra-intercept">
+        <span class="interactive-demo__control-label">Intercept b <output id="math-demo-algebra-intercept-value">-1</output></span>
+        <input id="math-demo-algebra-intercept" type="range" min="-5" max="5" step="0.5" value="-1" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Equation</span>
+          <span class="interactive-demo__metric-value" id="math-demo-algebra-equation">y = 1.4x - 1.0</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Intercepts</span>
+          <span class="interactive-demo__metric-value" id="math-demo-algebra-intercepts">x = 0.7, y = -1.0</span>
+        </div>
+      </div>
+      <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-label="Linear equation visual">
+        <path id="math-demo-algebra-line" fill="none" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+        <circle id="math-demo-algebra-y-intercept" cx="400" cy="160" r="8" fill="var(--pomodoro-short)" />
+        <circle id="math-demo-algebra-x-intercept" cx="400" cy="160" r="8" fill="var(--pomodoro-long)" />
+      </svg>
+    </div>
+  </div>
+</section>
 
 <!-- widget:functions -->
-<section class="interactive-demo panel" data-math-demo="function-family" data-math-demo-id="functions"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Function family transformer</h2> <p class="interactive-demo__summary">Choose a function family and shift, stretch, or lift it to see how the graph changes.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Function family transformer controls"> <label class="interactive-demo__control" for="math-demo-functions-family"> <span class="interactive-demo__control-label">Family <output id="math-demo-functions-family-value">quadratic</output></span> <select id="math-demo-functions-family"> <option value="linear">Linear</option><option value="quadratic" selected>Quadratic</option><option value="absolute">Absolute value</option><option value="rational">Rational</option><option value="exponential">Exponential</option> </select> </label><label class="interactive-demo__control" for="math-demo-functions-stretch"> <span class="interactive-demo__control-label">Vertical scale a <output id="math-demo-functions-stretch-value">1.2</output></span> <input id="math-demo-functions-stretch" type="range" min="-3" max="3" step="0.1" value="1.2" /> </label><label class="interactive-demo__control" for="math-demo-functions-shift-x"> <span class="interactive-demo__control-label">Horizontal shift h <output id="math-demo-functions-shift-x-value">1</output></span> <input id="math-demo-functions-shift-x" type="range" min="-4" max="4" step="0.5" value="1" /> </label><label class="interactive-demo__control" for="math-demo-functions-shift-y"> <span class="interactive-demo__control-label">Vertical shift k <output id="math-demo-functions-shift-y-value">0</output></span> <input id="math-demo-functions-shift-y" type="range" min="-4" max="4" step="0.5" value="0" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Current form</span> <span class="interactive-demo__metric-value" id="math-demo-functions-formula">y = 1.2 f(x - 1.0) + 0.0</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Domain note</span> <span class="interactive-demo__metric-value" id="math-demo-functions-domain">All real numbers</span> </div></div> <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-label="Function family visual"> <g id="math-demo-functions-axes"></g> <path id="math-demo-functions-base-path" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /> <path id="math-demo-functions-active-path" fill="none" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" /> </svg> </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="function-family" data-math-demo-id="functions">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Function family transformer</h2>
+    <p class="interactive-demo__summary">Choose a function family and shift, stretch, or lift it to see how the graph changes.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Function family transformer controls">
+      <label class="interactive-demo__control" for="math-demo-functions-family">
+        <span class="interactive-demo__control-label">Family <output id="math-demo-functions-family-value">quadratic</output></span>
+        <select id="math-demo-functions-family">
+          <option value="linear">Linear</option>
+          <option value="quadratic" selected>Quadratic</option>
+          <option value="absolute">Absolute value</option>
+          <option value="rational">Rational</option>
+          <option value="exponential">Exponential</option>
+        </select>
+      </label>
+      <label class="interactive-demo__control" for="math-demo-functions-stretch">
+        <span class="interactive-demo__control-label">Vertical scale a <output id="math-demo-functions-stretch-value">1.2</output></span>
+        <input id="math-demo-functions-stretch" type="range" min="-3" max="3" step="0.1" value="1.2" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-functions-shift-x">
+        <span class="interactive-demo__control-label">Horizontal shift h <output id="math-demo-functions-shift-x-value">1</output></span>
+        <input id="math-demo-functions-shift-x" type="range" min="-4" max="4" step="0.5" value="1" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-functions-shift-y">
+        <span class="interactive-demo__control-label">Vertical shift k <output id="math-demo-functions-shift-y-value">0</output></span>
+        <input id="math-demo-functions-shift-y" type="range" min="-4" max="4" step="0.5" value="0" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Current form</span>
+          <span class="interactive-demo__metric-value" id="math-demo-functions-formula">y = 1.2 f(x - 1.0) + 0.0</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Domain note</span>
+          <span class="interactive-demo__metric-value" id="math-demo-functions-domain">All real numbers</span>
+        </div>
+      </div>
+      <svg class="interactive-demo__svg" viewBox="0 0 800 320" role="img" aria-label="Function family visual">
+        <g id="math-demo-functions-axes"></g>
+        <path id="math-demo-functions-base-path" fill="none" stroke="rgba(255,255,255,0.42)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+        <path id="math-demo-functions-active-path" fill="none" stroke="var(--accent-strong)" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </div>
+  </div>
+</section>
 
 <!-- widget:probability -->
-<section class="interactive-demo panel" data-math-demo="probability" data-math-demo-id="probability"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Binomial distribution</h2> <p class="interactive-demo__summary">Adjust the success probability and trial count to see how the distribution of outcomes changes.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Binomial distribution controls"> <label class="interactive-demo__control" for="math-demo-probability-probability"> <span class="interactive-demo__control-label">Success probability p <output id="math-demo-probability-probability-value">0.5</output></span> <input id="math-demo-probability-probability" type="range" min="0.1" max="0.9" step="0.05" value="0.5" /> </label><label class="interactive-demo__control" for="math-demo-probability-trials"> <span class="interactive-demo__control-label">Trials n <output id="math-demo-probability-trials-value">6</output></span> <input id="math-demo-probability-trials" type="range" min="1" max="12" step="1" value="6" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Expected value</span> <span class="interactive-demo__metric-value" id="math-demo-probability-expected">3.0</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Variance</span> <span class="interactive-demo__metric-value" id="math-demo-probability-variance">1.5</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="probability" data-math-demo-id="probability">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Binomial distribution</h2>
+    <p class="interactive-demo__summary">Adjust the success probability and trial count to see how the distribution of outcomes changes.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Binomial distribution controls">
+      <label class="interactive-demo__control" for="math-demo-probability-probability">
+        <span class="interactive-demo__control-label">Success probability p <output id="math-demo-probability-probability-value">0.5</output></span>
+        <input id="math-demo-probability-probability" type="range" min="0.1" max="0.9" step="0.05" value="0.5" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-probability-trials">
+        <span class="interactive-demo__control-label">Trials n <output id="math-demo-probability-trials-value">6</output></span>
+        <input id="math-demo-probability-trials" type="range" min="1" max="12" step="1" value="6" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Expected value</span>
+          <span class="interactive-demo__metric-value" id="math-demo-probability-expected">3.0</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Variance</span>
+          <span class="interactive-demo__metric-value" id="math-demo-probability-variance">1.5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:statistics -->
-<section class="interactive-demo panel" data-math-demo="statistics" data-math-demo-id="statistics"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Dot plot and summary</h2> <p class="interactive-demo__summary">Move five sample points to see how the mean, median, and spread respond to the data.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Dot plot and summary controls"> <label class="interactive-demo__control" for="math-demo-statistics-x1"> <span class="interactive-demo__control-label">Data point 1 <output id="math-demo-statistics-x1-value">18</output></span> <input id="math-demo-statistics-x1" type="range" min="0" max="100" step="1" value="18" /> </label><label class="interactive-demo__control" for="math-demo-statistics-x2"> <span class="interactive-demo__control-label">Data point 2 <output id="math-demo-statistics-x2-value">32</output></span> <input id="math-demo-statistics-x2" type="range" min="0" max="100" step="1" value="32" /> </label><label class="interactive-demo__control" for="math-demo-statistics-x3"> <span class="interactive-demo__control-label">Data point 3 <output id="math-demo-statistics-x3-value">54</output></span> <input id="math-demo-statistics-x3" type="range" min="0" max="100" step="1" value="54" /> </label><label class="interactive-demo__control" for="math-demo-statistics-x4"> <span class="interactive-demo__control-label">Data point 4 <output id="math-demo-statistics-x4-value">68</output></span> <input id="math-demo-statistics-x4" type="range" min="0" max="100" step="1" value="68" /> </label><label class="interactive-demo__control" for="math-demo-statistics-x5"> <span class="interactive-demo__control-label">Data point 5 <output id="math-demo-statistics-x5-value">86</output></span> <input id="math-demo-statistics-x5" type="range" min="0" max="100" step="1" value="86" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Mean</span> <span class="interactive-demo__metric-value" id="math-demo-statistics-mean">51.6</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Median</span> <span class="interactive-demo__metric-value" id="math-demo-statistics-median">54</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Range</span> <span class="interactive-demo__metric-value" id="math-demo-statistics-range">68</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="statistics" data-math-demo-id="statistics">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Dot plot and summary</h2>
+    <p class="interactive-demo__summary">Move five sample points to see how the mean, median, and spread respond to the data.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Dot plot and summary controls">
+      <label class="interactive-demo__control" for="math-demo-statistics-x1">
+        <span class="interactive-demo__control-label">Data point 1 <output id="math-demo-statistics-x1-value">18</output></span>
+        <input id="math-demo-statistics-x1" type="range" min="0" max="100" step="1" value="18" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-statistics-x2">
+        <span class="interactive-demo__control-label">Data point 2 <output id="math-demo-statistics-x2-value">32</output></span>
+        <input id="math-demo-statistics-x2" type="range" min="0" max="100" step="1" value="32" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-statistics-x3">
+        <span class="interactive-demo__control-label">Data point 3 <output id="math-demo-statistics-x3-value">54</output></span>
+        <input id="math-demo-statistics-x3" type="range" min="0" max="100" step="1" value="54" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-statistics-x4">
+        <span class="interactive-demo__control-label">Data point 4 <output id="math-demo-statistics-x4-value">68</output></span>
+        <input id="math-demo-statistics-x4" type="range" min="0" max="100" step="1" value="68" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-statistics-x5">
+        <span class="interactive-demo__control-label">Data point 5 <output id="math-demo-statistics-x5-value">86</output></span>
+        <input id="math-demo-statistics-x5" type="range" min="0" max="100" step="1" value="86" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Mean</span>
+          <span class="interactive-demo__metric-value" id="math-demo-statistics-mean">51.6</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Median</span>
+          <span class="interactive-demo__metric-value" id="math-demo-statistics-median">54</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Range</span>
+          <span class="interactive-demo__metric-value" id="math-demo-statistics-range">68</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:trigonometry -->
-<section class="interactive-demo panel" data-math-demo="trig" data-math-demo-id="trigonometry"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Unit circle and wave</h2> <p class="interactive-demo__summary">Move the angle around the unit circle to watch sine and cosine update together.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Unit circle and wave controls"> <label class="interactive-demo__control" for="math-demo-trigonometry-angle"> <span class="interactive-demo__control-label">Angle <output id="math-demo-trigonometry-angle-value">30</output></span> <input id="math-demo-trigonometry-angle" type="range" min="0" max="360" step="1" value="30" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">sin(theta)</span> <span class="interactive-demo__metric-value" id="math-demo-trigonometry-sin">0.500</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">cos(theta)</span> <span class="interactive-demo__metric-value" id="math-demo-trigonometry-cos">0.866</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">tan(theta)</span> <span class="interactive-demo__metric-value" id="math-demo-trigonometry-tan">0.577</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="trig" data-math-demo-id="trigonometry">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Unit circle and wave</h2>
+    <p class="interactive-demo__summary">Move the angle around the unit circle to watch sine and cosine update together.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Unit circle and wave controls">
+      <label class="interactive-demo__control" for="math-demo-trigonometry-angle">
+        <span class="interactive-demo__control-label">Angle <output id="math-demo-trigonometry-angle-value">30</output></span>
+        <input id="math-demo-trigonometry-angle" type="range" min="0" max="360" step="1" value="30" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">sin(theta)</span>
+          <span class="interactive-demo__metric-value" id="math-demo-trigonometry-sin">0.500</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">cos(theta)</span>
+          <span class="interactive-demo__metric-value" id="math-demo-trigonometry-cos">0.866</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">tan(theta)</span>
+          <span class="interactive-demo__metric-value" id="math-demo-trigonometry-tan">0.577</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:limits -->
-<section class="interactive-demo panel" data-math-demo="limit" data-math-demo-id="limits"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Approaching a limit</h2> <p class="interactive-demo__summary">Move the removable discontinuity to see how the function approaches the same value from both sides.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Approaching a limit controls"> <label class="interactive-demo__control" for="math-demo-limits-a"> <span class="interactive-demo__control-label">Hole position a <output id="math-demo-limits-a-value">1</output></span> <input id="math-demo-limits-a" type="range" min="-4" max="4" step="0.5" value="1" /> </label><label class="interactive-demo__control" for="math-demo-limits-probe"> <span class="interactive-demo__control-label">Probe offset <output id="math-demo-limits-probe-value">0.6</output></span> <input id="math-demo-limits-probe" type="range" min="0.1" max="2" step="0.1" value="0.6" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Limit</span> <span class="interactive-demo__metric-value" id="math-demo-limits-limit">2.0</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Left/right values</span> <span class="interactive-demo__metric-value" id="math-demo-limits-left-right">approach the same height</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="limit" data-math-demo-id="limits">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Approaching a limit</h2>
+    <p class="interactive-demo__summary">Move the removable discontinuity to see how the function approaches the same value from both sides.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Approaching a limit controls">
+      <label class="interactive-demo__control" for="math-demo-limits-a">
+        <span class="interactive-demo__control-label">Hole position a <output id="math-demo-limits-a-value">1</output></span>
+        <input id="math-demo-limits-a" type="range" min="-4" max="4" step="0.5" value="1" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-limits-probe">
+        <span class="interactive-demo__control-label">Probe offset <output id="math-demo-limits-probe-value">0.6</output></span>
+        <input id="math-demo-limits-probe" type="range" min="0.1" max="2" step="0.1" value="0.6" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Limit</span>
+          <span class="interactive-demo__metric-value" id="math-demo-limits-limit">2.0</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Left/right values</span>
+          <span class="interactive-demo__metric-value" id="math-demo-limits-left-right">approach the same height</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:derivatives -->
-<section class="interactive-demo panel" data-math-demo="derivative" data-math-demo-id="derivatives"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Tangent line slope</h2> <p class="interactive-demo__summary">Move the tangent point to see the instantaneous slope on a cubic curve.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Tangent line slope controls"> <label class="interactive-demo__control" for="math-demo-derivatives-x0"> <span class="interactive-demo__control-label">Point x0 <output id="math-demo-derivatives-x0-value">0.8</output></span> <input id="math-demo-derivatives-x0" type="range" min="-3" max="3" step="0.1" value="0.8" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Slope</span> <span class="interactive-demo__metric-value" id="math-demo-derivatives-slope">0.92</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Derivative</span> <span class="interactive-demo__metric-value" id="math-demo-derivatives-derivative">f&#39;(x0)</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="derivative" data-math-demo-id="derivatives">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Tangent line slope</h2>
+    <p class="interactive-demo__summary">Move the tangent point to see the instantaneous slope on a cubic curve.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Tangent line slope controls">
+      <label class="interactive-demo__control" for="math-demo-derivatives-x0">
+        <span class="interactive-demo__control-label">Point x0 <output id="math-demo-derivatives-x0-value">0.8</output></span>
+        <input id="math-demo-derivatives-x0" type="range" min="-3" max="3" step="0.1" value="0.8" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Slope</span>
+          <span class="interactive-demo__metric-value" id="math-demo-derivatives-slope">0.92</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Derivative</span>
+          <span class="interactive-demo__metric-value" id="math-demo-derivatives-derivative">f&#39;(x0)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:integrals -->
-<section class="interactive-demo panel" data-math-demo="integral" data-math-demo-id="integrals"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Area under a curve</h2> <p class="interactive-demo__summary">Move the bounds to see how the accumulated area changes between two x-values.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Area under a curve controls"> <label class="interactive-demo__control" for="math-demo-integrals-left"> <span class="interactive-demo__control-label">Left bound a <output id="math-demo-integrals-left-value">-1.2</output></span> <input id="math-demo-integrals-left" type="range" min="-3" max="1" step="0.1" value="-1.2" /> </label><label class="interactive-demo__control" for="math-demo-integrals-right"> <span class="interactive-demo__control-label">Right bound b <output id="math-demo-integrals-right-value">1.8</output></span> <input id="math-demo-integrals-right" type="range" min="-1" max="3" step="0.1" value="1.8" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Area</span> <span class="interactive-demo__metric-value" id="math-demo-integrals-area">0.00</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Riemann estimate</span> <span class="interactive-demo__metric-value" id="math-demo-integrals-estimate">0.00</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="integral" data-math-demo-id="integrals">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Area under a curve</h2>
+    <p class="interactive-demo__summary">Move the bounds to see how the accumulated area changes between two x-values.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Area under a curve controls">
+      <label class="interactive-demo__control" for="math-demo-integrals-left">
+        <span class="interactive-demo__control-label">Left bound a <output id="math-demo-integrals-left-value">-1.2</output></span>
+        <input id="math-demo-integrals-left" type="range" min="-3" max="1" step="0.1" value="-1.2" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-integrals-right">
+        <span class="interactive-demo__control-label">Right bound b <output id="math-demo-integrals-right-value">1.8</output></span>
+        <input id="math-demo-integrals-right" type="range" min="-1" max="3" step="0.1" value="1.8" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Area</span>
+          <span class="interactive-demo__metric-value" id="math-demo-integrals-area">0.00</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Riemann estimate</span>
+          <span class="interactive-demo__metric-value" id="math-demo-integrals-estimate">0.00</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:series -->
-<section class="interactive-demo panel" data-math-demo="series" data-math-demo-id="series"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Geometric partial sums</h2> <p class="interactive-demo__summary">Adjust the ratio and term count to see how a geometric series approaches its limit.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Geometric partial sums controls"> <label class="interactive-demo__control" for="math-demo-series-ratio"> <span class="interactive-demo__control-label">Ratio r <output id="math-demo-series-ratio-value">0.5</output></span> <input id="math-demo-series-ratio" type="range" min="0.1" max="0.9" step="0.05" value="0.5" /> </label><label class="interactive-demo__control" for="math-demo-series-terms"> <span class="interactive-demo__control-label">Terms n <output id="math-demo-series-terms-value">6</output></span> <input id="math-demo-series-terms" type="range" min="1" max="12" step="1" value="6" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Partial sum</span> <span class="interactive-demo__metric-value" id="math-demo-series-partial-sum">1.969</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Limit</span> <span class="interactive-demo__metric-value" id="math-demo-series-limit">2.000</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="series" data-math-demo-id="series">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Geometric partial sums</h2>
+    <p class="interactive-demo__summary">Adjust the ratio and term count to see how a geometric series approaches its limit.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Geometric partial sums controls">
+      <label class="interactive-demo__control" for="math-demo-series-ratio">
+        <span class="interactive-demo__control-label">Ratio r <output id="math-demo-series-ratio-value">0.5</output></span>
+        <input id="math-demo-series-ratio" type="range" min="0.1" max="0.9" step="0.05" value="0.5" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-series-terms">
+        <span class="interactive-demo__control-label">Terms n <output id="math-demo-series-terms-value">6</output></span>
+        <input id="math-demo-series-terms" type="range" min="1" max="12" step="1" value="6" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Partial sum</span>
+          <span class="interactive-demo__metric-value" id="math-demo-series-partial-sum">1.969</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Limit</span>
+          <span class="interactive-demo__metric-value" id="math-demo-series-limit">2.000</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:vectors -->
-<section class="interactive-demo panel" data-math-demo="vectors" data-math-demo-id="vectors"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Vector addition</h2> <p class="interactive-demo__summary">Change the x and y components of two vectors and watch the resultant update in real time.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Vector addition controls"> <label class="interactive-demo__control" for="math-demo-vectors-ax"> <span class="interactive-demo__control-label">Vector A x <output id="math-demo-vectors-ax-value">5</output></span> <input id="math-demo-vectors-ax" type="range" min="-8" max="8" step="1" value="5" /> </label><label class="interactive-demo__control" for="math-demo-vectors-ay"> <span class="interactive-demo__control-label">Vector A y <output id="math-demo-vectors-ay-value">3</output></span> <input id="math-demo-vectors-ay" type="range" min="-8" max="8" step="1" value="3" /> </label><label class="interactive-demo__control" for="math-demo-vectors-bx"> <span class="interactive-demo__control-label">Vector B x <output id="math-demo-vectors-bx-value">-2</output></span> <input id="math-demo-vectors-bx" type="range" min="-8" max="8" step="1" value="-2" /> </label><label class="interactive-demo__control" for="math-demo-vectors-by"> <span class="interactive-demo__control-label">Vector B y <output id="math-demo-vectors-by-value">4</output></span> <input id="math-demo-vectors-by" type="range" min="-8" max="8" step="1" value="4" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Resultant</span> <span class="interactive-demo__metric-value" id="math-demo-vectors-result">(3, 7)</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Magnitude</span> <span class="interactive-demo__metric-value" id="math-demo-vectors-magnitude">7.62</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="vectors" data-math-demo-id="vectors">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Vector addition</h2>
+    <p class="interactive-demo__summary">Change the x and y components of two vectors and watch the resultant update in real time.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Vector addition controls">
+      <label class="interactive-demo__control" for="math-demo-vectors-ax">
+        <span class="interactive-demo__control-label">Vector A x <output id="math-demo-vectors-ax-value">5</output></span>
+        <input id="math-demo-vectors-ax" type="range" min="-8" max="8" step="1" value="5" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-vectors-ay">
+        <span class="interactive-demo__control-label">Vector A y <output id="math-demo-vectors-ay-value">3</output></span>
+        <input id="math-demo-vectors-ay" type="range" min="-8" max="8" step="1" value="3" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-vectors-bx">
+        <span class="interactive-demo__control-label">Vector B x <output id="math-demo-vectors-bx-value">-2</output></span>
+        <input id="math-demo-vectors-bx" type="range" min="-8" max="8" step="1" value="-2" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-vectors-by">
+        <span class="interactive-demo__control-label">Vector B y <output id="math-demo-vectors-by-value">4</output></span>
+        <input id="math-demo-vectors-by" type="range" min="-8" max="8" step="1" value="4" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Resultant</span>
+          <span class="interactive-demo__metric-value" id="math-demo-vectors-result">(3, 7)</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Magnitude</span>
+          <span class="interactive-demo__metric-value" id="math-demo-vectors-magnitude">7.62</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:matrices -->
-<section class="interactive-demo panel" data-math-demo="matrix" data-math-demo-id="matrices"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Linear transformation</h2> <p class="interactive-demo__summary">Change the entries of a 2x2 matrix to see how it stretches and shears a grid.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Linear transformation controls"> <label class="interactive-demo__control" for="math-demo-matrices-a"> <span class="interactive-demo__control-label">a <output id="math-demo-matrices-a-value">1.25</output></span> <input id="math-demo-matrices-a" type="range" min="-2" max="2" step="0.25" value="1.25" /> </label><label class="interactive-demo__control" for="math-demo-matrices-b"> <span class="interactive-demo__control-label">b <output id="math-demo-matrices-b-value">0.5</output></span> <input id="math-demo-matrices-b" type="range" min="-2" max="2" step="0.25" value="0.5" /> </label><label class="interactive-demo__control" for="math-demo-matrices-c"> <span class="interactive-demo__control-label">c <output id="math-demo-matrices-c-value">-0.25</output></span> <input id="math-demo-matrices-c" type="range" min="-2" max="2" step="0.25" value="-0.25" /> </label><label class="interactive-demo__control" for="math-demo-matrices-d"> <span class="interactive-demo__control-label">d <output id="math-demo-matrices-d-value">1</output></span> <input id="math-demo-matrices-d" type="range" min="-2" max="2" step="0.25" value="1" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Determinant</span> <span class="interactive-demo__metric-value" id="math-demo-matrices-det">1.375</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Trace</span> <span class="interactive-demo__metric-value" id="math-demo-matrices-trace">2.25</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="matrix" data-math-demo-id="matrices">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Linear transformation</h2>
+    <p class="interactive-demo__summary">Change the entries of a 2x2 matrix to see how it stretches and shears a grid.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Linear transformation controls">
+      <label class="interactive-demo__control" for="math-demo-matrices-a">
+        <span class="interactive-demo__control-label">a <output id="math-demo-matrices-a-value">1.25</output></span>
+        <input id="math-demo-matrices-a" type="range" min="-2" max="2" step="0.25" value="1.25" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-matrices-b">
+        <span class="interactive-demo__control-label">b <output id="math-demo-matrices-b-value">0.5</output></span>
+        <input id="math-demo-matrices-b" type="range" min="-2" max="2" step="0.25" value="0.5" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-matrices-c">
+        <span class="interactive-demo__control-label">c <output id="math-demo-matrices-c-value">-0.25</output></span>
+        <input id="math-demo-matrices-c" type="range" min="-2" max="2" step="0.25" value="-0.25" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-matrices-d">
+        <span class="interactive-demo__control-label">d <output id="math-demo-matrices-d-value">1</output></span>
+        <input id="math-demo-matrices-d" type="range" min="-2" max="2" step="0.25" value="1" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Determinant</span>
+          <span class="interactive-demo__metric-value" id="math-demo-matrices-det">1.375</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Trace</span>
+          <span class="interactive-demo__metric-value" id="math-demo-matrices-trace">2.25</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:eigenvalues -->
-<section class="interactive-demo panel" data-math-demo="eigenvalues" data-math-demo-id="eigenvalues"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Eigenvector directions</h2> <p class="interactive-demo__summary">Use a symmetric matrix so the real eigenvectors stay visible as the transformation changes.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Eigenvector directions controls"> <label class="interactive-demo__control" for="math-demo-eigenvalues-a"> <span class="interactive-demo__control-label">a <output id="math-demo-eigenvalues-a-value">1.5</output></span> <input id="math-demo-eigenvalues-a" type="range" min="-2" max="2" step="0.25" value="1.5" /> </label><label class="interactive-demo__control" for="math-demo-eigenvalues-b"> <span class="interactive-demo__control-label">b <output id="math-demo-eigenvalues-b-value">0.75</output></span> <input id="math-demo-eigenvalues-b" type="range" min="-2" max="2" step="0.25" value="0.75" /> </label><label class="interactive-demo__control" for="math-demo-eigenvalues-d"> <span class="interactive-demo__control-label">d <output id="math-demo-eigenvalues-d-value">0.25</output></span> <input id="math-demo-eigenvalues-d" type="range" min="-2" max="2" step="0.25" value="0.25" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Eigenvalue 1</span> <span class="interactive-demo__metric-value" id="math-demo-eigenvalues-lambda1">1.87</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Eigenvalue 2</span> <span class="interactive-demo__metric-value" id="math-demo-eigenvalues-lambda2">-0.12</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="eigenvalues" data-math-demo-id="eigenvalues">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Eigenvector directions</h2>
+    <p class="interactive-demo__summary">Use a symmetric matrix so the real eigenvectors stay visible as the transformation changes.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Eigenvector directions controls">
+      <label class="interactive-demo__control" for="math-demo-eigenvalues-a">
+        <span class="interactive-demo__control-label">a <output id="math-demo-eigenvalues-a-value">1.5</output></span>
+        <input id="math-demo-eigenvalues-a" type="range" min="-2" max="2" step="0.25" value="1.5" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-eigenvalues-b">
+        <span class="interactive-demo__control-label">b <output id="math-demo-eigenvalues-b-value">0.75</output></span>
+        <input id="math-demo-eigenvalues-b" type="range" min="-2" max="2" step="0.25" value="0.75" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-eigenvalues-d">
+        <span class="interactive-demo__control-label">d <output id="math-demo-eigenvalues-d-value">0.25</output></span>
+        <input id="math-demo-eigenvalues-d" type="range" min="-2" max="2" step="0.25" value="0.25" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Eigenvalue 1</span>
+          <span class="interactive-demo__metric-value" id="math-demo-eigenvalues-lambda1">1.87</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Eigenvalue 2</span>
+          <span class="interactive-demo__metric-value" id="math-demo-eigenvalues-lambda2">-0.12</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:discrete-math -->
-<section class="interactive-demo panel" data-math-demo="recursion-tree" data-math-demo-id="discrete-math"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Counting paths in a tree</h2> <p class="interactive-demo__summary">Adjust the depth and branching factor to see how recursion and the product rule grow the number of outcomes.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Counting paths in a tree controls"> <label class="interactive-demo__control" for="math-demo-discrete-math-depth"> <span class="interactive-demo__control-label">Depth <output id="math-demo-discrete-math-depth-value">4</output></span> <input id="math-demo-discrete-math-depth" type="range" min="1" max="6" step="1" value="4" /> </label><label class="interactive-demo__control" for="math-demo-discrete-math-branching"> <span class="interactive-demo__control-label">Branches <output id="math-demo-discrete-math-branching-value">2</output></span> <select id="math-demo-discrete-math-branching"> <option value="2" selected>2 branches</option><option value="3">3 branches</option><option value="4">4 branches</option> </select> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Leaves</span> <span class="interactive-demo__metric-value" id="math-demo-discrete-math-leaves">16</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Count</span> <span class="interactive-demo__metric-value" id="math-demo-discrete-math-formula">2^4</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="recursion-tree" data-math-demo-id="discrete-math">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Counting paths in a tree</h2>
+    <p class="interactive-demo__summary">Adjust the depth and branching factor to see how recursion and the product rule grow the number of outcomes.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Counting paths in a tree controls">
+      <label class="interactive-demo__control" for="math-demo-discrete-math-depth">
+        <span class="interactive-demo__control-label">Depth <output id="math-demo-discrete-math-depth-value">4</output></span>
+        <input id="math-demo-discrete-math-depth" type="range" min="1" max="6" step="1" value="4" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-discrete-math-branching">
+        <span class="interactive-demo__control-label">Branches <output id="math-demo-discrete-math-branching-value">2</output></span>
+        <select id="math-demo-discrete-math-branching">
+          <option value="2" selected>2 branches</option>
+          <option value="3">3 branches</option>
+          <option value="4">4 branches</option>
+        </select>
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Leaves</span>
+          <span class="interactive-demo__metric-value" id="math-demo-discrete-math-leaves">16</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Count</span>
+          <span class="interactive-demo__metric-value" id="math-demo-discrete-math-formula">2^4</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:modeling -->
-<section class="interactive-demo panel" data-math-demo="growth-model" data-math-demo-id="modeling"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Growth model</h2> <p class="interactive-demo__summary">Adjust the initial value and growth rate to see how a simple model changes over time.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Growth model controls"> <label class="interactive-demo__control" for="math-demo-modeling-initial"> <span class="interactive-demo__control-label">Initial value <output id="math-demo-modeling-initial-value">5</output></span> <input id="math-demo-modeling-initial" type="range" min="1" max="20" step="1" value="5" /> </label><label class="interactive-demo__control" for="math-demo-modeling-rate"> <span class="interactive-demo__control-label">Growth rate <output id="math-demo-modeling-rate-value">0.08</output></span> <input id="math-demo-modeling-rate" type="range" min="-0.2" max="0.4" step="0.01" value="0.08" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Value at t = 5</span> <span class="interactive-demo__metric-value" id="math-demo-modeling-year-5">7.35</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Trend</span> <span class="interactive-demo__metric-value" id="math-demo-modeling-trend">growth</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="growth-model" data-math-demo-id="modeling">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Growth model</h2>
+    <p class="interactive-demo__summary">Adjust the initial value and growth rate to see how a simple model changes over time.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Growth model controls">
+      <label class="interactive-demo__control" for="math-demo-modeling-initial">
+        <span class="interactive-demo__control-label">Initial value <output id="math-demo-modeling-initial-value">5</output></span>
+        <input id="math-demo-modeling-initial" type="range" min="1" max="20" step="1" value="5" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-modeling-rate">
+        <span class="interactive-demo__control-label">Growth rate <output id="math-demo-modeling-rate-value">0.08</output></span>
+        <input id="math-demo-modeling-rate" type="range" min="-0.2" max="0.4" step="0.01" value="0.08" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Value at t = 5</span>
+          <span class="interactive-demo__metric-value" id="math-demo-modeling-year-5">7.35</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Trend</span>
+          <span class="interactive-demo__metric-value" id="math-demo-modeling-trend">growth</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:first-order-odes -->
-<section class="interactive-demo panel" data-math-demo="slope-field" data-math-demo-id="first-order-odes"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Slope field and solution</h2> <p class="interactive-demo__summary">Move the initial value to see how the solution curve follows the same slope field.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Slope field and solution controls"> <label class="interactive-demo__control" for="math-demo-first-order-odes-equilibrium"> <span class="interactive-demo__control-label">Equilibrium level <output id="math-demo-first-order-odes-equilibrium-value">1</output></span> <input id="math-demo-first-order-odes-equilibrium" type="range" min="-3" max="3" step="0.5" value="1" /> </label><label class="interactive-demo__control" for="math-demo-first-order-odes-initial"> <span class="interactive-demo__control-label">Initial value <output id="math-demo-first-order-odes-initial-value">-1</output></span> <input id="math-demo-first-order-odes-initial" type="range" min="-4" max="4" step="0.5" value="-1" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Solution</span> <span class="interactive-demo__metric-value" id="math-demo-first-order-odes-solution">y(t) = 1 + Ce^-t</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Target level</span> <span class="interactive-demo__metric-value" id="math-demo-first-order-odes-level">1.0</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="slope-field" data-math-demo-id="first-order-odes">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Slope field and solution</h2>
+    <p class="interactive-demo__summary">Move the initial value to see how the solution curve follows the same slope field.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Slope field and solution controls">
+      <label class="interactive-demo__control" for="math-demo-first-order-odes-equilibrium">
+        <span class="interactive-demo__control-label">Equilibrium level <output id="math-demo-first-order-odes-equilibrium-value">1</output></span>
+        <input id="math-demo-first-order-odes-equilibrium" type="range" min="-3" max="3" step="0.5" value="1" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-first-order-odes-initial">
+        <span class="interactive-demo__control-label">Initial value <output id="math-demo-first-order-odes-initial-value">-1</output></span>
+        <input id="math-demo-first-order-odes-initial" type="range" min="-4" max="4" step="0.5" value="-1" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Solution</span>
+          <span class="interactive-demo__metric-value" id="math-demo-first-order-odes-solution">y(t) = 1 + Ce^-t</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Target level</span>
+          <span class="interactive-demo__metric-value" id="math-demo-first-order-odes-level">1.0</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:second-order-odes -->
-<section class="interactive-demo panel" data-math-demo="oscillator" data-math-demo-id="second-order-odes"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Damped oscillator</h2> <p class="interactive-demo__summary">Tweak damping and frequency to see how the oscillation fades and tightens over time.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Damped oscillator controls"> <label class="interactive-demo__control" for="math-demo-second-order-odes-damping"> <span class="interactive-demo__control-label">Damping <output id="math-demo-second-order-odes-damping-value">0.18</output></span> <input id="math-demo-second-order-odes-damping" type="range" min="0" max="1" step="0.05" value="0.18" /> </label><label class="interactive-demo__control" for="math-demo-second-order-odes-frequency"> <span class="interactive-demo__control-label">Frequency <output id="math-demo-second-order-odes-frequency-value">2</output></span> <input id="math-demo-second-order-odes-frequency" type="range" min="0.5" max="4" step="0.1" value="2" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Period</span> <span class="interactive-demo__metric-value" id="math-demo-second-order-odes-period">3.14</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Decay</span> <span class="interactive-demo__metric-value" id="math-demo-second-order-odes-decay">slow</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="oscillator" data-math-demo-id="second-order-odes">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Damped oscillator</h2>
+    <p class="interactive-demo__summary">Tweak damping and frequency to see how the oscillation fades and tightens over time.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Damped oscillator controls">
+      <label class="interactive-demo__control" for="math-demo-second-order-odes-damping">
+        <span class="interactive-demo__control-label">Damping <output id="math-demo-second-order-odes-damping-value">0.18</output></span>
+        <input id="math-demo-second-order-odes-damping" type="range" min="0" max="1" step="0.05" value="0.18" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-second-order-odes-frequency">
+        <span class="interactive-demo__control-label">Frequency <output id="math-demo-second-order-odes-frequency-value">2</output></span>
+        <input id="math-demo-second-order-odes-frequency" type="range" min="0.5" max="4" step="0.1" value="2" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Period</span>
+          <span class="interactive-demo__metric-value" id="math-demo-second-order-odes-period">3.14</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Decay</span>
+          <span class="interactive-demo__metric-value" id="math-demo-second-order-odes-decay">slow</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:systems-of-odes -->
-<section class="interactive-demo panel" data-math-demo="phase-portrait" data-math-demo-id="systems-of-odes"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Phase portrait</h2> <p class="interactive-demo__summary">Adjust the linear system to see trajectories spiral, settle, or diverge in the xy-plane.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Phase portrait controls"> <label class="interactive-demo__control" for="math-demo-systems-of-odes-alpha"> <span class="interactive-demo__control-label">Growth term <output id="math-demo-systems-of-odes-alpha-value">0.2</output></span> <input id="math-demo-systems-of-odes-alpha" type="range" min="-1" max="1" step="0.05" value="0.2" /> </label><label class="interactive-demo__control" for="math-demo-systems-of-odes-beta"> <span class="interactive-demo__control-label">Rotation term <output id="math-demo-systems-of-odes-beta-value">1</output></span> <input id="math-demo-systems-of-odes-beta" type="range" min="-2" max="2" step="0.05" value="1" /> </label> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Stability</span> <span class="interactive-demo__metric-value" id="math-demo-systems-of-odes-stability">spiral source</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Initial point</span> <span class="interactive-demo__metric-value" id="math-demo-systems-of-odes-start">(1, -0.5)</span> </div></div>  </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="phase-portrait" data-math-demo-id="systems-of-odes">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Phase portrait</h2>
+    <p class="interactive-demo__summary">Adjust the linear system to see trajectories spiral, settle, or diverge in the xy-plane.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Phase portrait controls">
+      <label class="interactive-demo__control" for="math-demo-systems-of-odes-alpha">
+        <span class="interactive-demo__control-label">Growth term <output id="math-demo-systems-of-odes-alpha-value">0.2</output></span>
+        <input id="math-demo-systems-of-odes-alpha" type="range" min="-1" max="1" step="0.05" value="0.2" />
+      </label>
+      <label class="interactive-demo__control" for="math-demo-systems-of-odes-beta">
+        <span class="interactive-demo__control-label">Rotation term <output id="math-demo-systems-of-odes-beta-value">1</output></span>
+        <input id="math-demo-systems-of-odes-beta" type="range" min="-2" max="2" step="0.05" value="1" />
+      </label>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Stability</span>
+          <span class="interactive-demo__metric-value" id="math-demo-systems-of-odes-stability">spiral source</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Initial point</span>
+          <span class="interactive-demo__metric-value" id="math-demo-systems-of-odes-start">(1, -0.5)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- widget:proof-writing -->
-<section class="interactive-demo panel" data-math-demo="proof-strategy" data-math-demo-id="proof-writing"> <div class="interactive-demo__head"> <p class="section-label">Interactive visual</p> <h2 class="interactive-demo__title">Proof strategy map</h2> <p class="interactive-demo__summary">Choose a proof strategy and watch the same claim reorganize into a different reasoning path.</p> </div> <div class="interactive-demo__body"> <div class="interactive-demo__controls" role="group" aria-label="Proof strategy map controls"> <div class="interactive-demo__control"> <span class="interactive-demo__control-label">Strategy <output id="math-demo-proof-writing-strategy-value">direct</output></span> <div class="interactive-demo__toggle-row"> <button type="button" class="interactive-demo__toggle is-active" id="math-demo-proof-writing-direct" data-toggle-value="direct" aria-pressed="true" >Direct</button> <button type="button" class="interactive-demo__toggle" id="math-demo-proof-writing-contrapositive" data-toggle-value="contrapositive" aria-pressed="false" >Contrapositive</button> <button type="button" class="interactive-demo__toggle" id="math-demo-proof-writing-contradiction" data-toggle-value="contradiction" aria-pressed="false" >Contradiction</button> <button type="button" class="interactive-demo__toggle" id="math-demo-proof-writing-cases" data-toggle-value="cases" aria-pressed="false" >Cases</button> </div> </div> </div> <div class="interactive-demo__figure"> <div class="interactive-demo__readouts"><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">Claim</span> <span class="interactive-demo__metric-value" id="math-demo-proof-writing-goal">If n is even, then n^2 is even</span> </div><div class="interactive-demo__metric"> <span class="interactive-demo__metric-label">First step</span> <span class="interactive-demo__metric-value" id="math-demo-proof-writing-hint">Write n = 2k</span> </div></div>  <p class="interactive-demo__note">The highlighted path shows the reasoning order that matches the chosen strategy.</p> </div> </div> </section>
+<section class="interactive-demo panel" data-math-demo="proof-strategy" data-math-demo-id="proof-writing">
+  <div class="interactive-demo__head">
+    <h2 class="interactive-demo__title">Proof strategy map</h2>
+    <p class="interactive-demo__summary">Choose a proof strategy and watch the same claim reorganize into a different reasoning path.</p>
+  </div>
+  <div class="interactive-demo__body">
+    <div class="interactive-demo__controls" role="group" aria-label="Proof strategy map controls">
+      <div class="interactive-demo__control">
+        <span class="interactive-demo__control-label">Strategy <output id="math-demo-proof-writing-strategy-value">direct</output></span>
+        <div class="interactive-demo__toggle-row">
+          <button type="button" class="interactive-demo__toggle is-active" id="math-demo-proof-writing-direct" data-toggle-value="direct" aria-pressed="true">Direct</button>
+          <button type="button" class="interactive-demo__toggle" id="math-demo-proof-writing-contrapositive" data-toggle-value="contrapositive" aria-pressed="false">Contrapositive</button>
+          <button type="button" class="interactive-demo__toggle" id="math-demo-proof-writing-contradiction" data-toggle-value="contradiction" aria-pressed="false">Contradiction</button>
+          <button type="button" class="interactive-demo__toggle" id="math-demo-proof-writing-cases" data-toggle-value="cases" aria-pressed="false">Cases</button>
+        </div>
+      </div>
+    </div>
+    <div class="interactive-demo__figure">
+      <div class="interactive-demo__readouts">
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">Claim</span>
+          <span class="interactive-demo__metric-value" id="math-demo-proof-writing-goal">If n is even, then n^2 is even</span>
+        </div>
+        <div class="interactive-demo__metric">
+          <span class="interactive-demo__metric-label">First step</span>
+          <span class="interactive-demo__metric-value" id="math-demo-proof-writing-hint">Write n = 2k</span>
+        </div>
+      </div>
+      <p class="interactive-demo__note">The highlighted path shows the reasoning order that matches the chosen strategy.</p>
+    </div>
+  </div>
+</section>
 
 <!-- widget:free-body-diagrams -->
 <section class="interactive-demo panel" data-math-demo="free-body-diagrams" data-math-demo-id="free-body-diagrams">
   <div class="interactive-demo__head">
-    <p class="section-label">Interactive visual</p>
     <h2 class="interactive-demo__title">Free-body diagram explorer</h2>
     <p class="interactive-demo__summary">Switch between a simply supported beam and a block on an incline to see which external forces belong on the isolated-body sketch.</p>
   </div>
@@ -130,7 +824,6 @@ If you want to improve one of these tools or propose a new one, start with [Cont
 <!-- widget:ts-diagrams -->
 <section class="interactive-demo panel" data-math-demo="ts-diagrams" data-math-demo-id="ts-diagrams">
   <div class="interactive-demo__head">
-    <p class="section-label">Interactive visual</p>
     <h2 class="interactive-demo__title">T-s diagram explorer</h2>
     <p class="interactive-demo__summary">Switch between a process path and a closed cycle to see how temperature and entropy move together on a T-s plane.</p>
   </div>

@@ -1,82 +1,105 @@
-name: Contribute
-description: Open a quick issue to fix a page, add examples, add practice, review, improve a visual, or suggest a topic.
-title: "[Contribute]: "
+name: Contribute to Adriamics
+description: Suggest a fix, example, problem, explanation, or improvement for the notes.
+title: "[Contribution]: "
 labels:
   - feedback
 body:
   - type: markdown
     attributes:
       value: |
-        Keep this short. One page, one request, and one sentence is enough to start.
+        Thanks for helping improve Adriamics.
+
+        Keep it focused: one page, one issue, one clear request.
 
   - type: input
-    id: page_path
+    id: page
     attributes:
-      label: Page path
-      description: Path to the page you were reading, or the closest related page.
-      placeholder: notes/source/math/derivatives/derivatives.md
-    validations:
-      required: true
-
-  - type: dropdown
-    id: role
-    attributes:
-      label: Best-fit role
-      description: Choose the role that best matches how you are helping.
-      options:
-        - Student user
-        - Contributor
-        - Reviewer
-        - Problem writer
-        - Visual builder
-        - Course mapper
+      label: Page or section
+      description: Paste the page link or describe where the issue is.
+      placeholder: "Example: /notes/subjects/physics/mechanics/newtons-laws/"
     validations:
       required: true
 
   - type: dropdown
     id: request_type
     attributes:
-      label: What needs help?
-      description: Pick the closest match so maintainers can triage quickly.
+      label: What kind of contribution is this?
       options:
-        - Needs example
-        - Needs practice problems
-        - Needs review
-        - Citation needed
-        - Bug
-        - Visualization
+        - Typo or grammar fix
+        - Unclear explanation
+        - Incorrect content
+        - Missing example
+        - Missing practice problem
+        - Better visual or diagram
+        - Citation or source needed
+        - Course/path mapping
+        - Accessibility or formatting issue
         - Other
     validations:
       required: true
 
   - type: dropdown
-    id: subject_tag
+    id: subject
     attributes:
-      label: Subject tag
-      description: Choose a subject when the issue clearly belongs to one.
+      label: Subject area
       options:
         - General
+        - Math
         - Calculus
         - Physics
         - Engineering
+        - Programming
+        - Website / navigation
         - Not sure
+        - Other
     validations:
       required: true
 
   - type: textarea
-    id: details
+    id: summary
     attributes:
-      label: Short description
-      description: One or two sentences is enough.
-      placeholder: Tell us what should change and why.
+      label: What should be changed?
+      description: Describe the issue or improvement clearly.
+      placeholder: "The explanation of torque could use a short example with units."
     validations:
       required: true
 
   - type: textarea
-    id: source_reference
+    id: suggestion
+    attributes:
+      label: Suggested replacement or addition
+      description: Optional. Write the exact text, example, problem, or correction you suggest.
+      placeholder: "Suggested text, equation, example, or problem..."
+
+  - type: textarea
+    id: source
     attributes:
       label: Source or reference
-      description: Optional source, screenshot, or syllabus that helps confirm the request.
-      placeholder: Link, title, screenshot note, or class reference.
+      description: Optional. Add a textbook, course note, paper, website, or explanation source.
+      placeholder: "Example: OpenStax University Physics, Ch. 10"
+
+  - type: dropdown
+    id: contributor_role
+    attributes:
+      label: How are you contributing?
+      options:
+        - Student / learner
+        - Subject reviewer
+        - Content contributor
+        - Problem writer
+        - Visual builder
+        - Instructor / course mapper
+        - Not sure
+        - Other
     validations:
       required: false
+
+  - type: checkboxes
+    id: checklist
+    attributes:
+      label: Checklist
+      options:
+        - label: I checked that this is about one focused issue or improvement.
+          required: true
+        - label: I included the page or section where this applies.
+          required: true

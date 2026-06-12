@@ -15,6 +15,10 @@ const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
 const notesThemeStorageKey = 'ues-notes:contrast-mode';
+const homeStructureId = 'home';
+const legacyGeneralStructureId = 'general';
+const homeRoutePrefix = 'subjects/home';
+const legacyGeneralRoutePrefix = 'subjects/general';
 const practiceLevelLabels = new Map([
   [1, 'Direct Practice'],
   [2, 'Integrated Practice'],
@@ -30,7 +34,7 @@ const lastModifiedFormatter = new Intl.DateTimeFormat('en-US', {
 const blameLastModifiedCache = new Map();
 const shortlogContributorsCache = new Map();
 const practiceSkillLinks = {
-  'subjects/math/algebra/algebra.md': {
+  'source/math/algebra/algebra.md': {
     Fractions: '#fractions-in-algebra',
     'Linear Equations': '#one-variable-linear-equations',
     'Inverse Operations': '#one-variable-linear-equations',
@@ -253,11 +257,30 @@ function renderContributorList(contributors) {
 }
 
 function getNoteRoutePath(notePath) {
-  return toPosix(path.dirname(notePath)).replace(/^notes\//, '');
+  const normalizedPath = toPosix(path.dirname(notePath)).replace(/^notes\//, '');
+
+  if (normalizedPath.startsWith('source/')) {
+    return `subjects/${normalizedPath.slice('source/'.length)}`;
+  }
+
+  if (normalizedPath.startsWith('subjects/')) {
+    return normalizedPath;
+  }
+
+  return path.posix.join('subjects', normalizedPath);
 }
 
 function getNoteSourcePath(notePath) {
-  const normalized = toPosix(notePath).replace(/^subjects\//, '');
+  const normalized = toPosix(notePath).replace(/^notes\//, '');
+
+  if (normalized.startsWith('source/')) {
+    return path.join(notesRoot, normalized);
+  }
+
+  if (normalized.startsWith('subjects/')) {
+    return path.join(notesRoot, 'source', normalized.slice('subjects/'.length));
+  }
+
   return path.join(notesRoot, 'source', normalized);
 }
 
@@ -297,7 +320,12 @@ function getBlameLastModifiedDate(relativeSourcePath) {
     const blameOutput = execFileSync(
       'git',
       ['blame', '--line-porcelain', '--', cacheKey],
-      { cwd: repoRoot, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+      {
+        cwd: repoRoot,
+        encoding: 'utf8',
+        maxBuffer: 10 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      },
     );
     lastModifiedDate = getLastModifiedDateFromBlame(blameOutput);
   } catch {
@@ -344,7 +372,12 @@ function getShortlogContributors(relativeSourcePath) {
     const shortlogOutput = execFileSync(
       'git',
       ['shortlog', '-sne', 'HEAD', '--', cacheKey],
-      { cwd: repoRoot, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+      {
+        cwd: repoRoot,
+        encoding: 'utf8',
+        maxBuffer: 10 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      },
     );
     contributors = parseShortlogContributors(shortlogOutput);
   } catch {
@@ -379,10 +412,6 @@ function getLearningPathsIndexOutputDir() {
   return path.join(notesRoot, 'paths');
 }
 
-function getLearningPathsIndexOutputPath() {
-  return path.join(getLearningPathsIndexOutputDir(), 'index.html');
-}
-
 function parsePracticeProblemId(id, sourcePath, problemIndex) {
   const problemId = String(id).trim();
   const match = problemId.match(/^(.*?)-(\d)(\d+)$/);
@@ -408,7 +437,12 @@ function getPracticeLevelLabel(level) {
 
 function resolvePracticeSkillHref(notePath, skillName) {
   const normalizedNotePath = toPosix(notePath).replace(/^notes\//, '');
-  const skillMap = practiceSkillLinks[normalizedNotePath] ?? {};
+  const sourceNotePath = normalizedNotePath.startsWith('source/')
+    ? normalizedNotePath
+    : normalizedNotePath.startsWith('subjects/')
+      ? `source/${normalizedNotePath.slice('subjects/'.length)}`
+      : normalizedNotePath;
+  const skillMap = practiceSkillLinks[sourceNotePath] ?? {};
   const label = String(skillName).trim();
 
   if (skillMap[label]) {
@@ -1160,24 +1194,26 @@ function getNoteUrl(notePath) {
 }
 
 function renderSubjectLinks(structures, activeStructureId = null) {
-  const structureLinks = structures.map((structure) => {
-    const pagePath = getFirstPagePath(structure);
+  const structureLinks = structures
+    .filter((structure) => structure.id !== 'hidden')
+    .map((structure) => {
+      const pagePath = structure.id === homeStructureId ? null : getFirstPagePath(structure);
 
-    if (!pagePath) {
-      return '';
-    }
+      if (!pagePath && structure.id !== homeStructureId) {
+        return '';
+      }
 
-    const isActive = structure.id === activeStructureId;
-    const activeClass = isActive ? ' class="is-active"' : '';
-    const current = isActive ? ' aria-current="true"' : '';
-    const href = getNoteUrl(pagePath);
-    return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
-  });
+      const isActive = structure.id === activeStructureId;
+      const activeClass = isActive ? ' class="is-active"' : '';
+      const current = isActive ? ' aria-current="true"' : '';
+      const href = structure.id === homeStructureId ? getHomeUrl() : getNoteUrl(pagePath);
 
-  const pathsLink = `<li><a${activeStructureId === 'paths' ? ' class="is-active"' : ''}${activeStructureId === 'paths' ? ' aria-current="true"' : ''} href="/notes/paths/" data-notes-nav-item>Paths</a></li>`;
-  const combinedLinks = structureLinks.length
-    ? [structureLinks[0], pathsLink, ...structureLinks.slice(1)].join('')
-    : pathsLink;
+      return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
+    });
+
+  const combinedLinks = structureLinks.join('');
+  const homeActiveClass = activeStructureId === homeStructureId ? ' class="is-active"' : '';
+  const homeCurrent = activeStructureId === homeStructureId ? ' aria-current="true"' : '';
 
   return `<aside class="notes-structures" aria-label="Guide structures">
           <div class="notes-header__brand">
@@ -1185,15 +1221,17 @@ function renderSubjectLinks(structures, activeStructureId = null) {
             <p class="notes-header__title">Universal Education System</p>
           </div>
           <ul class="subject-list">
-            <li>
-              <button type="button" data-leave-notes data-notes-nav-item>Leave</button>
-            </li>
+          <li>
+            <a class="notes-theme-toggle notes-github-link" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>
+              <img class="notes-github-link__icon notes-github-link__icon--invert" src="/assets/GitHub_Invertocat_White_Clearspace.svg" alt="" aria-hidden="true" />
+            </a>
+          </li>
+          <li>
+              <a${homeActiveClass}${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          </li>
             ${combinedLinks}
             <li>
-              <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
-            </li>
-            <li>
-              <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+            <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
             </li>
           </ul>
         </aside>`;
@@ -1256,44 +1294,120 @@ function renderNotesFooter() {
       <a href="/privacy-policy/">Privacy Policy</a>
       <span class="notes-footer__sep" aria-hidden="true">-</span>
       <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
     </div>
   </footer>`;
 }
 
-function buildLandingRedirectHtml() {
-  const redirectUrl = '/notes/subjects/general/introduction/';
-
+function buildRedirectHtml({ title, description, redirectUrl, linkLabel }) {
   return `<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Introduction | Adriamics</title>
-  <meta name="description" content="Redirecting to the Universal Education System introduction page." />
+  <title>${escapeHtml(title)} | Adriamics</title>
+  <meta name="description" content="${escapeHtml(description)}" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   <link rel="canonical" href="${siteOrigin}${redirectUrl}" />
-  <script>
-    (() => {
-      try {
-        const storedTheme = window.localStorage.getItem(${JSON.stringify(notesThemeStorageKey)});
-
-        if (storedTheme === 'sepia' || storedTheme === 'light') {
-          document.documentElement.classList.add('notes-page--sepia');
-        }
-      } catch {
-        // Ignore storage access failures.
-      }
-    })();
-  </script>
   <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
   <script>
     location.replace(${JSON.stringify(redirectUrl)});
   </script>
 </head>
 <body>
-  <p>Redirecting to <a href="${redirectUrl}">Introduction</a>.</p>
+  <p>Redirecting to <a href="${redirectUrl}">${escapeHtml(linkLabel)}</a>.</p>
 </body>
 </html>`;
+}
+
+function getHomeUrl() {
+  return '/notes/';
+}
+
+function buildLandingMarkdown() {
+  return `## Welcome to UES
+
+UES, the Universal Education System, is a growing library of subject notes built to make technical topics easier to study, review, and revisit.
+
+This first release is a practical study workspace, not a full textbook. Each subject is broken into focused pages so you can move quickly to the topic you need and keep your review sessions on track.
+
+If you want to help improve the notes, start with [Contribute](/notes/subjects/hidden/contribute/).
+
+![Diagram of the setup](/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.jpg)
+*By Josef Hejna - My father's reversal film collection, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=156464890*
+
+## Best way to study here
+
+Start with the topic list for the subject you need, open the page that matches your current question, and use the headings to move from the basic ideas to the more detailed material. Put pen to paper, work topic to topic, and let the notes guide you as you solve problems and build confidence.
+
+## How to use these notes
+
+- Choose a subject from the tabs at the top of the page.
+- Use the guide panel on the left to open a specific topic within that subject.
+- Use the table of contents on the right to jump to sections inside the current page.
+- Move between pages as needed when reviewing a class, preparing for an exam, or filling a gap in your understanding.
+- Use [Contribute](/notes/subjects/hidden/contribute/) to report a problem, add an example, or suggest a missing topic.
+
+## What to expect
+
+- Notes are written as concise overviews, not full textbooks.
+- Topics are grouped by subject so related material stays together.
+- Some sections may still be placeholders while the library continues to grow after the first release.
+`;
+}
+
+function getLegacyGeneralRedirectTarget(notePath) {
+  if (getNoteRoutePath(notePath).startsWith(`${homeRoutePrefix}/`)) {
+    return getHomeUrl();
+  }
+
+  return null;
+}
+
+function getGeneratedSourcePathFromOutputDir(outputDir) {
+  const relativeOutputDir = toPosix(path.relative(path.join(notesRoot, 'subjects'), outputDir));
+  const parts = relativeOutputDir.split('/').filter(Boolean);
+
+  if (!parts.length) {
+    return null;
+  }
+
+  if (parts.at(-1) === 'practice') {
+    if (parts.length < 2) {
+      return null;
+    }
+
+    const noteParts = parts.slice(0, -1);
+    return path.join(notesRoot, 'source', ...noteParts, `${noteParts.at(-1)}-problems.md`);
+  }
+
+  return path.join(notesRoot, 'source', ...parts, `${parts.at(-1)}.md`);
+}
+
+async function buildLegacyGeneralRedirectPages() {
+  const redirectTargets = [
+    {
+      outputPath: path.join(notesRoot, legacyGeneralRoutePrefix, 'index.html'),
+      title: 'Introduction',
+      description: 'Redirecting to the notes home page.',
+      linkLabel: 'Introduction',
+      redirectUrl: getHomeUrl(),
+    },
+    {
+      outputPath: path.join(notesRoot, legacyGeneralRoutePrefix, 'introduction', 'index.html'),
+      title: 'Introduction',
+      description: 'Redirecting to the notes home page.',
+      linkLabel: 'Introduction',
+      redirectUrl: getHomeUrl(),
+    },
+  ];
+
+  for (const target of redirectTargets) {
+    const html = buildRedirectHtml(target);
+    await ensureDir(target.outputPath);
+    await fs.writeFile(target.outputPath, html, 'utf8');
+  }
 }
 
 function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
@@ -1579,8 +1693,37 @@ function buildNoteHtml({
   });
 }
 
-function buildLandingHtml() {
-  return buildLandingRedirectHtml();
+function buildLandingHtml(structures, assetVersions, paths) {
+  const learningPathCardsHtml = buildLearningPathsIndexHtml(paths);
+
+  return renderNotesPageDocument({
+    title: 'Home | Adriamics',
+    description: 'Welcome to the Universal Education System.',
+    canonicalUrl: `${siteOrigin}/notes/`,
+    bodyClass: 'notes-landing-page',
+    mainClass: 'shell',
+    mainAriaLabel: 'Home',
+    mainHtml: `<section class="notes-viewer panel">
+      <div class="markdown-body">
+        ${renderBlocks(buildLandingMarkdown(), 'notes/index.html')}
+      </div>
+    </section>
+    <section id="learning-paths" class="learning-paths-layout" aria-label="Learning paths">
+      <section class="learning-path-index-hero panel">
+        <p class="section-label">Learning Paths</p>
+        <h1>Learning Paths</h1>
+        <p class="learning-path-index-hero__lead">Study the existing notes in a guided order. Each path points to the source notes, practice sets, and review material already in the site.</p>
+      </section>
+      <section class="learning-path-grid" data-learning-path-card-list>
+        ${learningPathCardsHtml}
+      </section>
+    </section>`,
+    structures,
+    activeStructureId: homeStructureId,
+    floatingActionsHtml: renderFloatingActions(''),
+    stylesheetHref: `/notes/notes.css?v=${assetVersions.notesCss}`,
+    scriptHref: `/notes/notes.js?v=${assetVersions.notesJs}`,
+  });
 }
 
 function trimBlankLines(lines) {
@@ -2228,7 +2371,7 @@ function buildLearningPathPageHtml(pathEntry, structures, assetVersions, availab
           <h1>${escapeHtml(pathEntry.title)}</h1>
           <p class="learning-path-hero__meta">${escapeHtml(pathEntry.subject)} · ${escapeHtml(pathEntry.level)} · ${escapeHtml(String(pathEntry.estimatedHours))} hours</p>
         </div>
-        <a class="notes-action-chip" href="/notes/paths/" data-notes-nav-item>Back to paths</a>
+        <a class="notes-action-chip" href="/notes/#learning-paths" data-notes-nav-item>Back to learning paths</a>
       </div>
       <p class="learning-path-hero__goal"><strong>Goal:</strong> ${escapeHtml(pathEntry.goal)}</p>
       <div class="learning-path-hero__grid">
@@ -2280,39 +2423,6 @@ function buildLearningPathPageHtml(pathEntry, structures, assetVersions, availab
     stylesheetHref: `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`,
     scriptHref: `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`,
   });
-}
-
-function buildLearningPathsIndexPage(paths, structures, assetVersions) {
-  const cardsHtml = buildLearningPathsIndexHtml(paths);
-  const mainHtml = `
-    <section class="learning-path-index-hero panel">
-      <p class="section-label">Learning Paths</p>
-      <h1>Learning Paths</h1>
-      <p class="learning-path-index-hero__lead">Study the existing notes in a guided order. Each path points to the source notes, practice sets, and review material already in the site.</p>
-    </section>
-    <section class="learning-path-grid" data-learning-path-card-list>
-      ${cardsHtml}
-    </section>`;
-
-  return renderNotesPageDocument({
-    title: 'Learning Paths | Adriamics',
-    description: 'Guided study paths for the notes site.',
-    canonicalUrl: `${siteOrigin}/notes/paths/`,
-    bodyClass: 'learning-paths-index-page',
-    mainClass: 'shell learning-paths-layout',
-    mainAriaLabel: 'Learning paths',
-    mainHtml,
-    structures,
-    activeStructureId: 'paths',
-    floatingActionsHtml: renderFloatingActions(''),
-    stylesheetHref: `${getRelativeNotesAssetHref(getLearningPathsIndexOutputDir(), 'notes.css')}?v=${assetVersions.notesCss}`,
-    scriptHref: `${getRelativeNotesAssetHref(getLearningPathsIndexOutputDir(), 'notes.js')}?v=${assetVersions.notesJs}`,
-  });
-}
-
-async function buildLearningPathsLandingPage(paths, structures, assetVersions) {
-  await ensureDir(getLearningPathsIndexOutputPath());
-  await fs.writeFile(getLearningPathsIndexOutputPath(), buildLearningPathsIndexPage(paths, structures, assetVersions), 'utf8');
 }
 
 async function buildLearningPathPages(paths, structures, assetVersions, availableNoteUrls, availablePracticeUrls) {
@@ -2398,7 +2508,7 @@ async function validateManifestCoverage(notes) {
   }
 
   if (invalidManifestPaths.length) {
-    errors.push(`Manifest note paths must use the folder layout <slug>/<slug>.md:\n${invalidManifestPaths.map((notePath) => `- ${notePath}`).join('\n')}`);
+    errors.push(`Manifest note paths must use the folder layout source/<group>/<slug>/<slug>.md:\n${invalidManifestPaths.map((notePath) => `- ${notePath}`).join('\n')}`);
   }
 
   if (missingFiles.length) {
@@ -2412,26 +2522,6 @@ async function validateManifestCoverage(notes) {
 
 async function ensureDir(filePath) {
   await fs.mkdir(path.dirname(filePath), { recursive: true });
-}
-
-function getGeneratedSourcePathFromOutputDir(outputDir) {
-  const relativeOutputDir = toPosix(path.relative(path.join(notesRoot, 'subjects'), outputDir));
-  const parts = relativeOutputDir.split('/').filter(Boolean);
-
-  if (!parts.length) {
-    return null;
-  }
-
-  if (parts.at(-1) === 'practice') {
-    if (parts.length < 2) {
-      return null;
-    }
-
-    const noteParts = parts.slice(0, -1);
-    return path.join(notesRoot, 'source', ...noteParts, `${noteParts.at(-1)}-problems.md`);
-  }
-
-  return path.join(notesRoot, 'source', ...parts, `${parts.at(-1)}.md`);
 }
 
 async function loadNoteDocuments(notes) {
@@ -2487,8 +2577,14 @@ async function loadPracticeProblems(notes) {
 }
 
 async function removeStaleGeneratedPages(notes, practiceByNotePath) {
+  const legacyGeneralOutputRoot = path.join(notesRoot, legacyGeneralRoutePrefix);
+  const legacyGeneralOutputDirs = new Set([
+    legacyGeneralOutputRoot,
+    path.join(legacyGeneralOutputRoot, 'introduction'),
+  ]);
   const expectedOutputDirs = new Set([
     ...notes.map((note) => getNoteOutputDir(note.path)),
+    ...legacyGeneralOutputDirs,
     ...[...practiceByNotePath.values()].map((practice) => getPracticeOutputDir(practice.note.path)),
   ]);
 
@@ -2497,8 +2593,10 @@ async function removeStaleGeneratedPages(notes, practiceByNotePath) {
     const indexEntry = entries.find((entry) => entry.isFile() && entry.name === 'index.html');
 
     if (indexEntry) {
-      const sourceFile = getGeneratedSourcePathFromOutputDir(dirPath);
-      if (!sourceFile || !expectedOutputDirs.has(dirPath) || !(await exists(sourceFile))) {
+      const isLegacyGeneralDir = legacyGeneralOutputDirs.has(dirPath);
+      const sourceFile = isLegacyGeneralDir ? null : getGeneratedSourcePathFromOutputDir(dirPath);
+
+      if (!expectedOutputDirs.has(dirPath) || (!isLegacyGeneralDir && (!sourceFile || !(await exists(sourceFile))))) {
         await fs.rm(path.join(dirPath, indexEntry.name), { force: true });
       }
     }
@@ -2517,6 +2615,11 @@ async function removeStaleLearningPathPages(paths) {
 
   if (!(await exists(outputRoot))) {
     return;
+  }
+
+  const indexPath = path.join(outputRoot, 'index.html');
+  if (await exists(indexPath)) {
+    await fs.rm(indexPath, { force: true });
   }
 
   const entries = await fs.readdir(outputRoot, { withFileTypes: true });
@@ -2620,8 +2723,8 @@ async function buildPracticePage(practice, structures, assetVersions) {
   };
 }
 
-async function buildLandingPage(structures) {
-  await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures), 'utf8');
+async function buildLandingPage(structures, assetVersions, paths) {
+  await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures, assetVersions, paths), 'utf8');
 }
 
 async function buildRootIndexPage(siteCssVersion) {
@@ -2650,7 +2753,6 @@ async function buildSitemap(noteUrls, practiceUrls, pathUrls) {
     `${siteOrigin}/privacy-policy/`,
     `${siteOrigin}/terms-of-service/`,
     `${siteOrigin}/notes/`,
-    `${siteOrigin}/notes/paths/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...pathUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
@@ -2702,13 +2804,13 @@ async function main() {
 
   await removeStaleGeneratedPages(notes, practiceByNotePath);
   await removeStaleLearningPathPages(learningPaths);
+  await buildLegacyGeneralRedirectPages();
 
   const availablePracticeUrls = new Set(practiceUrls);
   const pathUrls = await buildLearningPathPages(learningPaths, manifest.structures, assetVersions, noteUrlSet, availablePracticeUrls);
 
   await buildRootIndexPage(assetVersions.siteCss);
-  await buildLandingPage(manifest.structures);
-  await buildLearningPathsLandingPage(learningPaths, manifest.structures, assetVersions);
+  await buildLandingPage(manifest.structures, assetVersions, learningPaths);
   await buildSearchIndex(searchEntries);
   await buildSitemap(urls, practiceUrls, pathUrls);
 }

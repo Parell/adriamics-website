@@ -1,4 +1,5 @@
 import fs from 'node:fs/promises';
+import { execFileSync } from 'node:child_process';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import vm from 'node:vm';
@@ -20,6 +21,14 @@ const practiceLevelLabels = new Map([
   [3, 'Applied Problems'],
   [4, 'Challenge / Synthesis'],
 ]);
+const lastModifiedFormatter = new Intl.DateTimeFormat('en-US', {
+  month: 'short',
+  day: 'numeric',
+  year: 'numeric',
+  timeZone: 'UTC',
+});
+const blameLastModifiedCache = new Map();
+const shortlogContributorsCache = new Map();
 const practiceSkillLinks = {
   'subjects/math/algebra/algebra.md': {
     Fractions: '#fractions-in-algebra',
@@ -199,20 +208,48 @@ function buildGithubBlameUrl(sourceUrl) {
   return String(sourceUrl ?? '').replace('/blob/', '/blame/');
 }
 
-function renderSourceLinks(sourceUrl) {
-  if (!sourceUrl) {
+function formatLastModifiedDate(lastModifiedDate) {
+  if (!lastModifiedDate) {
     return '';
   }
 
-  return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Changelog</a>`;
+  return lastModifiedFormatter.format(lastModifiedDate);
 }
 
-function renderMetadataLine(className, sourceUrl = null) {
+function renderSourceLinks(sourceUrl, lastModifiedDate = null) {
   if (!sourceUrl) {
     return '';
   }
 
-  return `<p class="${className}">${renderSourceLinks(sourceUrl)}</p>`;
+  const lastModifiedLabel = formatLastModifiedDate(lastModifiedDate);
+
+  if (!lastModifiedLabel) {
+    return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Changelog</a>`;
+  }
+
+  return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Changelog</a> - <time datetime="${escapeHtml(lastModifiedDate.toISOString())}">Last modified ${escapeHtml(lastModifiedLabel)}</time>`;
+}
+
+function renderMetadataLine(className, sourceUrl = null, lastModifiedDate = null) {
+  if (!sourceUrl) {
+    return '';
+  }
+
+  return `<p class="${className}">${renderSourceLinks(sourceUrl, lastModifiedDate)}</p>`;
+}
+
+function renderContributorList(contributors) {
+  if (!contributors.length) {
+    return '';
+  }
+
+  const contributorItems = contributors.map(({ count, name, email }) => {
+    const copyText = email || name;
+
+    return `<li class="viewer-contributors__item"><span class="viewer-contributors__count">${escapeHtml(String(count))}</span> <button type="button" class="viewer-contributors__name" data-copy-text="${escapeHtml(copyText)}" data-copy-label="${escapeHtml(name)}" aria-label="Copy contributor email ${escapeHtml(copyText)}" title="Copy email">${escapeHtml(name)}</button></li>`;
+  }).join('');
+
+  return `<div class="viewer-contributors-block"><p class="viewer-contributors__label">Contributors</p><ul class="viewer-contributors">${contributorItems}</ul></div>`;
 }
 
 function getNoteRoutePath(notePath) {
@@ -222,6 +259,100 @@ function getNoteRoutePath(notePath) {
 function getNoteSourcePath(notePath) {
   const normalized = toPosix(notePath).replace(/^subjects\//, '');
   return path.join(notesRoot, 'source', normalized);
+}
+
+function getLastModifiedDateFromBlame(blameOutput) {
+  const matches = String(blameOutput ?? '').matchAll(/^author-time\s+(\d+)$/gm);
+  let latestTimestamp = null;
+
+  for (const match of matches) {
+    const timestamp = Number(match[1]);
+
+    if (!Number.isFinite(timestamp)) {
+      continue;
+    }
+
+    if (latestTimestamp === null || timestamp > latestTimestamp) {
+      latestTimestamp = timestamp;
+    }
+  }
+
+  if (latestTimestamp === null) {
+    return null;
+  }
+
+  return new Date(latestTimestamp * 1000);
+}
+
+function getBlameLastModifiedDate(relativeSourcePath) {
+  const cacheKey = toPosix(relativeSourcePath);
+
+  if (blameLastModifiedCache.has(cacheKey)) {
+    return blameLastModifiedCache.get(cacheKey);
+  }
+
+  let lastModifiedDate = null;
+
+  try {
+    const blameOutput = execFileSync(
+      'git',
+      ['blame', '--line-porcelain', '--', cacheKey],
+      { cwd: repoRoot, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+    );
+    lastModifiedDate = getLastModifiedDateFromBlame(blameOutput);
+  } catch {
+    lastModifiedDate = null;
+  }
+
+  blameLastModifiedCache.set(cacheKey, lastModifiedDate);
+  return lastModifiedDate;
+}
+
+function parseShortlogContributors(shortlogOutput) {
+  return String(shortlogOutput ?? '')
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean)
+    .map((line) => {
+      const match = line.match(/^(\d+)\s+(.+?)\s+<([^>]+)>$/) || line.match(/^(\d+)\s+(.+)$/);
+
+      if (!match) {
+        return null;
+      }
+
+      const [, countText, name, email = ''] = match;
+
+      return {
+        count: Number(countText),
+        name: name.trim(),
+        email: email.trim(),
+      };
+    })
+    .filter(Boolean);
+}
+
+function getShortlogContributors(relativeSourcePath) {
+  const cacheKey = toPosix(relativeSourcePath);
+
+  if (shortlogContributorsCache.has(cacheKey)) {
+    return shortlogContributorsCache.get(cacheKey);
+  }
+
+  let contributors = [];
+
+  try {
+    const shortlogOutput = execFileSync(
+      'git',
+      ['shortlog', '-sne', 'HEAD', '--', cacheKey],
+      { cwd: repoRoot, encoding: 'utf8', maxBuffer: 10 * 1024 * 1024 },
+    );
+    contributors = parseShortlogContributors(shortlogOutput);
+  } catch {
+    contributors = [];
+  }
+
+  shortlogContributorsCache.set(cacheKey, contributors);
+  return contributors;
 }
 
 function getNoteOutputDir(notePath) {
@@ -1059,10 +1190,10 @@ function renderSubjectLinks(structures, activeStructureId = null) {
             </li>
             ${combinedLinks}
             <li>
-              <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light Mode</button>
+              <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
             </li>
             <li>
-              <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
+              <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
             </li>
           </ul>
         </aside>`;
@@ -1374,6 +1505,8 @@ function buildNoteHtml({
   canonicalUrl,
   editUrl,
   sourceUrl,
+  lastModifiedDate = null,
+  contributorsHtml = '',
   structures,
   structure,
   notePath,
@@ -1400,7 +1533,8 @@ function buildNoteHtml({
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
-          ${renderMetadataLine('viewer-meta', sourceUrl)}
+          ${renderMetadataLine('viewer-meta', sourceUrl, lastModifiedDate)}
+          ${contributorsHtml}
         </div>
       <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
@@ -1793,6 +1927,8 @@ function renderPracticePageHtml({
   noteUrl,
   editUrl,
   sourceUrl,
+  lastModifiedDate = null,
+  contributorsHtml = '',
   notePath,
   practiceSourcePath,
   structures,
@@ -1814,7 +1950,8 @@ function renderPracticePageHtml({
       <div class="viewer-head">
         <div>
           <h1>${escapeHtml(title)}</h1>
-          ${renderMetadataLine('viewer-meta practice-note-meta-line', sourceUrl)}
+          ${renderMetadataLine('viewer-meta practice-note-meta-line', sourceUrl, lastModifiedDate)}
+          ${contributorsHtml}
         </div>
         <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
@@ -2402,13 +2539,16 @@ async function exists(filePath) {
 
 async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, practice = null, widgetRegistry = []) {
   const sourcePath = noteDocument.sourcePath;
+  const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const title = note.title;
   const bodyForDisplay = noteDocument.bodyForDisplay;
   const summary = getSummary(bodyForDisplay) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
-  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(toPosix(path.relative(repoRoot, sourcePath)))}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
-  const sourceUrl = buildGithubBlobUrl(toPosix(path.relative(repoRoot, sourcePath)));
+  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
+  const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
+  const lastModifiedDate = getBlameLastModifiedDate(relativeSourcePath);
+  const contributorsHtml = renderContributorList(getShortlogContributors(relativeSourcePath));
   const resolvedBodyForDisplay = resolveWidgetIncludeMarkers(bodyForDisplay, widgetRegistry);
   const bodyHtml = renderBlocks(resolvedBodyForDisplay, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({
@@ -2420,6 +2560,8 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     canonicalUrl,
     editUrl,
     sourceUrl,
+    lastModifiedDate,
+    contributorsHtml,
     structures,
     structure: note.structure,
     notePath: note.path,
@@ -2449,6 +2591,8 @@ async function buildPracticePage(practice, structures, assetVersions) {
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
   const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
+  const lastModifiedDate = getBlameLastModifiedDate(relativeSourcePath);
+  const contributorsHtml = renderContributorList(getShortlogContributors(relativeSourcePath));
   const pageHtml = renderPracticePageHtml({
     title,
     description,
@@ -2456,6 +2600,8 @@ async function buildPracticePage(practice, structures, assetVersions) {
     noteUrl: getNoteUrl(note.path),
     editUrl,
     sourceUrl,
+    lastModifiedDate,
+    contributorsHtml,
     notePath: note.path,
     practiceSourcePath: sourcePath,
     structures,

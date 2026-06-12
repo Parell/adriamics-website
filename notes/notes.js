@@ -58,6 +58,7 @@ let pomodoroTimerState = null;
 let pomodoroTimerIntervalId = null;
 let pomodoroTimerCompletionTimeoutId = null;
 let pomodoroTimerStorageWriteFailed = false;
+const contributorCopyResetTimers = new WeakMap();
 
 function getSessionStorage() {
   try {
@@ -110,6 +111,70 @@ function getLocalStorage() {
   }
 }
 
+async function copyTextToClipboard(text) {
+  const value = String(text ?? '');
+
+  if (!value) {
+    return false;
+  }
+
+  if (navigator?.clipboard?.writeText) {
+    try {
+      await navigator.clipboard.writeText(value);
+      return true;
+    } catch {
+      // Fall through to the legacy copy path.
+    }
+  }
+
+  const textarea = document.createElement('textarea');
+  textarea.value = value;
+  textarea.setAttribute('readonly', '');
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  textarea.style.pointerEvents = 'none';
+  document.body.appendChild(textarea);
+  textarea.select();
+
+  let copied = false;
+
+  try {
+    copied = document.execCommand('copy');
+  } catch {
+    copied = false;
+  }
+
+  textarea.remove();
+  return copied;
+}
+
+function showContributorCopiedState(button) {
+  const originalLabel = String(button.dataset.copyLabel ?? button.textContent ?? '').trim();
+
+  if (!originalLabel) {
+    return;
+  }
+
+  const previousTimer = contributorCopyResetTimers.get(button);
+
+  if (previousTimer) {
+    window.clearTimeout(previousTimer);
+  }
+
+  button.textContent = 'Copied';
+  button.setAttribute('aria-label', `Copied contributor email ${button.dataset.copyText ?? ''}`);
+  button.setAttribute('title', 'Copied');
+
+  const resetTimer = window.setTimeout(() => {
+    button.textContent = originalLabel;
+    button.setAttribute('aria-label', `Copy contributor email ${button.dataset.copyText ?? ''}`);
+    button.setAttribute('title', 'Copy email');
+    contributorCopyResetTimers.delete(button);
+  }, 1500);
+
+  contributorCopyResetTimers.set(button, resetTimer);
+}
+
 function readThemePreference() {
   const storage = getLocalStorage();
 
@@ -125,7 +190,7 @@ function readThemePreference() {
 }
 
 function getThemeToggleLabel(isSepia) {
-  return isSepia ? 'Dark Mode' : 'Light Mode';
+  return isSepia ? 'Dark' : 'Light';
 }
 
 function getThemeToggleAriaLabel(isSepia) {
@@ -3659,7 +3724,7 @@ learningPathFilterButtons.forEach((button) => {
   });
 });
 
-document.addEventListener('click', (event) => {
+document.addEventListener('click', async (event) => {
   const themeButton = event.target.closest('[data-theme-toggle]');
 
   if (themeButton) {
@@ -3703,6 +3768,18 @@ document.addEventListener('click', (event) => {
 
   if (leaveButton) {
     window.location.href = '/';
+    return;
+  }
+
+  const copyButton = event.target.closest('[data-copy-text]');
+
+  if (copyButton) {
+    const copied = await copyTextToClipboard(copyButton.dataset.copyText ?? '');
+
+    if (copied) {
+      showContributorCopiedState(copyButton);
+    }
+
     return;
   }
 

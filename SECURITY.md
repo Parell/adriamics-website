@@ -17,6 +17,17 @@ Email `contact@adriamics.com` with:
 We will review reports as soon as we can and reply with next steps if the
 issue looks valid.
 
+## Transport Security
+
+This site enforces HTTPS at the Cloudflare edge. `Strict-Transport-Security`
+is configured outside the repository and should be applied globally to the
+zone with:
+
+`max-age=31536000; includeSubDomains; preload`
+
+That policy applies only to secure responses. HTTP requests should continue to
+redirect to HTTPS.
+
 Please do not:
 
 - Expose user data beyond what is needed to show the problem.

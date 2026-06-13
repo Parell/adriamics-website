@@ -2644,7 +2644,6 @@ async function buildSearchIndex(entries) {
 async function buildSitemap(noteUrls, practiceUrls, pathUrls) {
   const urls = [
     `${siteOrigin}/`,
-    `${siteOrigin}/blog/what-this-site-is-for.html`,
     `${siteOrigin}/energy-housing-policy/`,
     `${siteOrigin}/privacy-policy/`,
     `${siteOrigin}/terms-of-service/`,

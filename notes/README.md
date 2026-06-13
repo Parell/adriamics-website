@@ -57,7 +57,7 @@ That command regenerates the notes pages, practice pages, learning paths, search
 
 ## Contributing
 
-See [Contribute](source/general/contribute/contribute.md) for the preferred way to help.
+See [Contribute](/notes/subjects/hidden/contribute/) for the preferred way to help.
 
 Good contributions are small and specific:
 

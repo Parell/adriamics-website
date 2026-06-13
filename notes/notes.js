@@ -123,7 +123,7 @@ async function copyTextToClipboard(text) {
       await navigator.clipboard.writeText(value);
       return true;
     } catch {
-      // Fall through to the legacy copy path.
+      // Fall back to the textarea copy path.
     }
   }
 

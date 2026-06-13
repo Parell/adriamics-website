@@ -16,9 +16,6 @@ const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
 const notesThemeStorageKey = 'ues-notes:contrast-mode';
 const homeStructureId = 'home';
-const legacyGeneralStructureId = 'general';
-const homeRoutePrefix = 'subjects/home';
-const legacyGeneralRoutePrefix = 'subjects/general';
 const practiceLevelLabels = new Map([
   [1, 'Direct Practice'],
   [2, 'Integrated Practice'],
@@ -1300,69 +1297,8 @@ function renderNotesFooter() {
   </footer>`;
 }
 
-function buildRedirectHtml({ title, description, redirectUrl, linkLabel }) {
-  return `<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>${escapeHtml(title)} | Adriamics</title>
-  <meta name="description" content="${escapeHtml(description)}" />
-  <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  <link rel="canonical" href="${siteOrigin}${redirectUrl}" />
-  <meta http-equiv="refresh" content="0; url=${redirectUrl}" />
-  <script>
-    location.replace(${JSON.stringify(redirectUrl)});
-  </script>
-</head>
-<body>
-  <p>Redirecting to <a href="${redirectUrl}">${escapeHtml(linkLabel)}</a>.</p>
-</body>
-</html>`;
-}
-
 function getHomeUrl() {
   return '/notes/';
-}
-
-function buildLandingMarkdown() {
-  return `## Welcome to UES
-
-UES, the Universal Education System, is a growing library of subject notes built to make technical topics easier to study, review, and revisit.
-
-This first release is a practical study workspace, not a full textbook. Each subject is broken into focused pages so you can move quickly to the topic you need and keep your review sessions on track.
-
-If you want to help improve the notes, start with [Contribute](/notes/subjects/hidden/contribute/).
-
-![Diagram of the setup](/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.jpg)
-*By Josef Hejna - My father's reversal film collection, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=156464890*
-
-## Best way to study here
-
-Start with the topic list for the subject you need, open the page that matches your current question, and use the headings to move from the basic ideas to the more detailed material. Put pen to paper, work topic to topic, and let the notes guide you as you solve problems and build confidence.
-
-## How to use these notes
-
-- Choose a subject from the tabs at the top of the page.
-- Use the guide panel on the left to open a specific topic within that subject.
-- Use the table of contents on the right to jump to sections inside the current page.
-- Move between pages as needed when reviewing a class, preparing for an exam, or filling a gap in your understanding.
-- Use [Contribute](/notes/subjects/hidden/contribute/) to report a problem, add an example, or suggest a missing topic.
-
-## What to expect
-
-- Notes are written as concise overviews, not full textbooks.
-- Topics are grouped by subject so related material stays together.
-- Some sections may still be placeholders while the library continues to grow after the first release.
-`;
-}
-
-function getLegacyGeneralRedirectTarget(notePath) {
-  if (getNoteRoutePath(notePath).startsWith(`${homeRoutePrefix}/`)) {
-    return getHomeUrl();
-  }
-
-  return null;
 }
 
 function getGeneratedSourcePathFromOutputDir(outputDir) {
@@ -1383,31 +1319,6 @@ function getGeneratedSourcePathFromOutputDir(outputDir) {
   }
 
   return path.join(notesRoot, 'source', ...parts, `${parts.at(-1)}.md`);
-}
-
-async function buildLegacyGeneralRedirectPages() {
-  const redirectTargets = [
-    {
-      outputPath: path.join(notesRoot, legacyGeneralRoutePrefix, 'index.html'),
-      title: 'Introduction',
-      description: 'Redirecting to the notes home page.',
-      linkLabel: 'Introduction',
-      redirectUrl: getHomeUrl(),
-    },
-    {
-      outputPath: path.join(notesRoot, legacyGeneralRoutePrefix, 'introduction', 'index.html'),
-      title: 'Introduction',
-      description: 'Redirecting to the notes home page.',
-      linkLabel: 'Introduction',
-      redirectUrl: getHomeUrl(),
-    },
-  ];
-
-  for (const target of redirectTargets) {
-    const html = buildRedirectHtml(target);
-    await ensureDir(target.outputPath);
-    await fs.writeFile(target.outputPath, html, 'utf8');
-  }
 }
 
 function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
@@ -1703,9 +1614,13 @@ function buildLandingHtml(structures, assetVersions, paths) {
     bodyClass: 'notes-landing-page',
     mainClass: 'shell',
     mainAriaLabel: 'Home',
-    mainHtml: `<section class="notes-viewer panel">
-      <div class="markdown-body">
-        ${renderBlocks(buildLandingMarkdown(), 'notes/index.html')}
+    mainHtml: `<section class="landing-hero panel" aria-label="Homepage hero">
+      <div class="landing-hero__media">
+        <img class="landing-hero__image" src="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.jpg" alt="" aria-hidden="true" />
+        <div class="landing-hero__overlay">
+          <h1>One should use common words to say uncommon things.</h1>
+          <p class="landing-hero__credit">By Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=156464890</p>
+        </div>
       </div>
     </section>
     <section id="learning-paths" class="learning-paths-layout" aria-label="Learning paths">
@@ -2317,18 +2232,6 @@ function renderLearningPathStep(step, position, availableNoteUrls, availablePrac
   </li>`;
 }
 
-function getLearningPathProgressSummary(completedCount, totalCount) {
-  if (completedCount <= 0) {
-    return 'Not started';
-  }
-
-  if (completedCount >= totalCount) {
-    return 'Complete';
-  }
-
-  return 'In progress';
-}
-
 function buildLearningPathCard(pathEntry) {
   const prereqs = pathEntry.prerequisites.length ? pathEntry.prerequisites.join(', ') : 'None';
 
@@ -2577,14 +2480,8 @@ async function loadPracticeProblems(notes) {
 }
 
 async function removeStaleGeneratedPages(notes, practiceByNotePath) {
-  const legacyGeneralOutputRoot = path.join(notesRoot, legacyGeneralRoutePrefix);
-  const legacyGeneralOutputDirs = new Set([
-    legacyGeneralOutputRoot,
-    path.join(legacyGeneralOutputRoot, 'introduction'),
-  ]);
   const expectedOutputDirs = new Set([
     ...notes.map((note) => getNoteOutputDir(note.path)),
-    ...legacyGeneralOutputDirs,
     ...[...practiceByNotePath.values()].map((practice) => getPracticeOutputDir(practice.note.path)),
   ]);
 
@@ -2593,10 +2490,9 @@ async function removeStaleGeneratedPages(notes, practiceByNotePath) {
     const indexEntry = entries.find((entry) => entry.isFile() && entry.name === 'index.html');
 
     if (indexEntry) {
-      const isLegacyGeneralDir = legacyGeneralOutputDirs.has(dirPath);
-      const sourceFile = isLegacyGeneralDir ? null : getGeneratedSourcePathFromOutputDir(dirPath);
+      const sourceFile = getGeneratedSourcePathFromOutputDir(dirPath);
 
-      if (!expectedOutputDirs.has(dirPath) || (!isLegacyGeneralDir && (!sourceFile || !(await exists(sourceFile))))) {
+      if (!expectedOutputDirs.has(dirPath) || (!sourceFile || !(await exists(sourceFile)))) {
         await fs.rm(path.join(dirPath, indexEntry.name), { force: true });
       }
     }
@@ -2804,7 +2700,6 @@ async function main() {
 
   await removeStaleGeneratedPages(notes, practiceByNotePath);
   await removeStaleLearningPathPages(learningPaths);
-  await buildLegacyGeneralRedirectPages();
 
   const availablePracticeUrls = new Set(practiceUrls);
   const pathUrls = await buildLearningPathPages(learningPaths, manifest.structures, assetVersions, noteUrlSet, availablePracticeUrls);

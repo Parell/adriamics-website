@@ -1,6 +1,6 @@
 # Interactive Visualizations
 
-If you want to improve one of these tools or propose a new one, start with [Contribute](../contribute/).
+If you want to improve one of these tools or propose a new one, start with [Contribute](/notes/subjects/hidden/contribute/).
 
 <!-- widget:arithmetic -->
 <section class="interactive-demo panel" data-math-demo="arithmetic" data-math-demo-id="arithmetic">

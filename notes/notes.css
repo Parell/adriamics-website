@@ -735,6 +735,96 @@ body.notes-page--sepia .notes-search-match {
   gap: 1rem;
 }
 
+.landing-hero {
+  padding: 0;
+  overflow: hidden;
+}
+
+.landing-hero__media {
+  position: relative;
+  min-height: clamp(22rem, 56vw, 34rem);
+  isolation: isolate;
+}
+
+.landing-hero__image {
+  width: 100%;
+  height: 100%;
+  min-height: inherit;
+  object-fit: cover;
+  filter: blur(10px) brightness(0.72) saturate(0.88);
+  transform: scale(1.08);
+}
+
+.landing-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(8, 8, 8, 0.15), rgba(8, 8, 8, 0.68)),
+    radial-gradient(circle at top left, rgba(255, 255, 255, 0.06), transparent 40%);
+  pointer-events: none;
+}
+
+.landing-hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 0.7rem;
+  padding: clamp(1.2rem, 4vw, 2.5rem);
+  max-width: 68rem;
+}
+
+.landing-hero__overlay h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(2rem, 5vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.landing-hero__tagline,
+.landing-hero__credit {
+  margin: 0;
+  max-width: 60ch;
+  color: var(--text);
+  text-shadow: 0 2px 18px rgba(0, 0, 0, 0.7);
+}
+
+.landing-hero__tagline {
+  font-size: clamp(1rem, 1.8vw, 1.35rem);
+  line-height: 1.4;
+}
+
+.landing-hero__credit {
+  max-width: 44rem;
+  color: color-mix(in srgb, var(--muted) 78%, var(--muted));
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+.text-underline-muted {
+  color: var(--muted);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--muted) 55%, transparent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.16em;
+}
+
+.text-underline-muted:hover,
+.text-underline-muted:focus-visible {
+  color: var(--muted);
+  text-decoration-color: var(--muted);
+}
+
+.landing-hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  margin-top: 0.35rem;
+}
+
 .learning-path-index-hero,
 .learning-path-hero,
 .learning-path-card {
@@ -2236,6 +2326,7 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
   .notes-sidebar,
   .notes-toc,
   .notes-viewer,
+  .landing-card,
   .learning-path-index-hero,
   .learning-path-hero,
   .learning-path-card,
@@ -2267,5 +2358,17 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
     max-width: calc(100vw - 1.5rem);
     right: 0.75rem;
     bottom: 0.75rem;
+  }
+
+  .landing-hero__media {
+    min-height: clamp(20rem, 92vw, 28rem);
+  }
+
+  .landing-hero__overlay {
+    padding: 1rem;
+  }
+
+  .landing-hero__overlay h1 {
+    max-width: 12ch;
   }
 }

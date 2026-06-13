@@ -1215,21 +1215,19 @@ function renderSubjectLinks(structures, activeStructureId = null) {
   return `<aside class="notes-structures" aria-label="Guide structures">
           <div class="notes-header__brand">
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
-            <p class="notes-header__title">Universal Education System</p>
+            <p class="notes-header__title">Universal Education System <a class="notes-header__credit text-underline-muted" href="/">by Adriamics</a></p>
           </div>
           <ul class="subject-list">
           <li>
-            <a class="notes-theme-toggle notes-github-link" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>
-              <img class="notes-github-link__icon notes-github-link__icon--invert" src="/assets/GitHub_Invertocat_White_Clearspace.svg" alt="" aria-hidden="true" />
-            </a>
+          <a${homeActiveClass}${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          </li>
+          ${combinedLinks}
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
           </li>
           <li>
-              <a${homeActiveClass}${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+                <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>GitHub</a>
           </li>
-            ${combinedLinks}
-            <li>
-            <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
-            </li>
           </ul>
         </aside>`;
 }
@@ -1619,7 +1617,7 @@ function buildLandingHtml(structures, assetVersions, paths) {
         <img class="landing-hero__image" src="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.jpg" alt="" aria-hidden="true" />
         <div class="landing-hero__overlay">
           <h1>One should use common words to say uncommon things.</h1>
-          <p class="landing-hero__credit">By Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, https://commons.wikimedia.org/w/index.php?curid=156464890</p>
+          <p class="landing-hero__credit"><a class="text-underline-muted" href="https://commons.wikimedia.org/w/index.php?curid=156464890" target="_blank" rel="noreferrer">By Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, </a></p>
         </div>
       </div>
     </section>

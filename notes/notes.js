@@ -15,14 +15,9 @@ const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
 const practiceLevelSections = Array.from(document.querySelectorAll('[data-practice-level]'));
 const practiceProblemCards = Array.from(document.querySelectorAll('[data-practice-problem]'));
-const learningPathPage = document.querySelector('[data-learning-path-page]');
-const learningPathCardElements = Array.from(document.querySelectorAll('[data-learning-path-card]'));
-const learningPathStepCards = Array.from(document.querySelectorAll('[data-learning-path-step]'));
-const learningPathFilterButtons = Array.from(document.querySelectorAll('[data-learning-path-filter-button]'));
-const learningPathProgressBar = document.querySelector('[data-learning-path-progress]');
-const learningPathProgressSummary = document.querySelector('[data-learning-path-progress-summary]');
-const learningPathStatus = document.querySelector('[data-learning-path-summary]');
-const learningPathFilterSummary = document.querySelector('[data-learning-path-filter-summary]');
+const conceptDagPage = document.querySelector('[data-concept-dag-page]');
+const conceptDagTree = document.querySelector('[data-concept-dag-tree]');
+const conceptDagDataScript = document.querySelector('[data-concept-dag-data]');
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
 const pomodoroPresetButtons = Array.from(document.querySelectorAll('[data-pomodoro-trigger]'));
@@ -33,12 +28,10 @@ const NOTES_SESSION_STORAGE_KEY = 'ues-notes:last-pages-by-subject';
 const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
-const LEARNING_PATH_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:learning-path-completion:';
-const LEARNING_PATH_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:learning-path-filter:';
+const CONCEPT_DAG_SELECTION_STORAGE_KEY = 'ues-notes:concept-dag:selected-subject';
 const POMODORO_TIMER_STORAGE_KEY = 'ues-notes:pomodoro-timer';
 const POMODORO_COMPLETION_FLASH_MS = 2200;
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
-const LEARNING_PATH_FILTER_VALUES = new Set(['all', 'required', 'optional', 'exam-i', 'exam-ii', 'final']);
 const POMODORO_TIMER_MODES = new Map([
   ['focus', { minutes: 25, label: 'Focus' }],
   ['short', { minutes: 5, label: 'Short break' }],
@@ -53,7 +46,8 @@ let activeSearchTrigger = searchTriggers[0] ?? null;
 let activeTimerTrigger = timerTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
-let activeLearningPathFilter = 'all';
+let conceptDagState = null;
+let conceptDagSelectedSubjectId = '';
 let pomodoroTimerState = null;
 let pomodoroTimerIntervalId = null;
 let pomodoroTimerCompletionTimeoutId = null;
@@ -68,14 +62,37 @@ function getSessionStorage() {
   }
 }
 
-function readLastPagesBySubject() {
-  const storage = getSessionStorage();
+function readStoredValue(storageGetter, storageKey, fallbackValue, reader) {
+  const storage = storageGetter();
 
-  if (!storage) {
-    return {};
+  if (!storage || !storageKey) {
+    return fallbackValue;
   }
 
   try {
+    return reader(storage);
+  } catch {
+    return fallbackValue;
+  }
+}
+
+function writeStoredValue(storageGetter, storageKey, writer) {
+  const storage = storageGetter();
+
+  if (!storage || !storageKey) {
+    return false;
+  }
+
+  try {
+    writer(storage);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function readLastPagesBySubject() {
+  return readStoredValue(getSessionStorage, NOTES_SESSION_STORAGE_KEY, {}, (storage) => {
     const raw = storage.getItem(NOTES_SESSION_STORAGE_KEY);
 
     if (!raw) {
@@ -84,23 +101,13 @@ function readLastPagesBySubject() {
 
     const parsed = JSON.parse(raw);
     return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
-  } catch {
-    return {};
-  }
+  });
 }
 
 function writeLastPagesBySubject(state) {
-  const storage = getSessionStorage();
-
-  if (!storage) {
-    return;
-  }
-
-  try {
+  writeStoredValue(getSessionStorage, NOTES_SESSION_STORAGE_KEY, (storage) => {
     storage.setItem(NOTES_SESSION_STORAGE_KEY, JSON.stringify(state));
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
-  }
+  });
 }
 
 function getLocalStorage() {
@@ -109,6 +116,52 @@ function getLocalStorage() {
   } catch {
     return null;
   }
+}
+
+function getScopedStorageKey(prefix, scope) {
+  const normalizedScope = String(scope ?? '').trim();
+  return normalizedScope ? `${prefix}${normalizedScope}` : null;
+}
+
+function readStoredStringSet(storageKey, validate = null) {
+  return readStoredValue(getLocalStorage, storageKey, new Set(), (storage) => {
+    const raw = storage.getItem(storageKey);
+
+    if (!raw) {
+      return new Set();
+    }
+
+    const parsed = JSON.parse(raw);
+
+    if (!Array.isArray(parsed)) {
+      return new Set();
+    }
+
+    const values = parsed
+      .map((value) => (typeof value === 'string' ? value.trim() : ''))
+      .filter(Boolean);
+
+    return new Set(typeof validate === 'function' ? values.filter(validate) : values);
+  });
+}
+
+function writeStoredStringSet(storageKey, values) {
+  writeStoredValue(getLocalStorage, storageKey, (storage) => {
+    storage.setItem(storageKey, JSON.stringify(Array.from(values)));
+  });
+}
+
+function readStoredString(storageKey, fallback = '') {
+  return readStoredValue(getLocalStorage, storageKey, fallback, (storage) => {
+    const value = String(storage.getItem(storageKey) ?? '').trim();
+    return value || fallback;
+  });
+}
+
+function writeStoredString(storageKey, value) {
+  writeStoredValue(getLocalStorage, storageKey, (storage) => {
+    storage.setItem(storageKey, String(value ?? ''));
+  });
 }
 
 async function copyTextToClipboard(text) {
@@ -176,17 +229,7 @@ function showContributorCopiedState(button) {
 }
 
 function readThemePreference() {
-  const storage = getLocalStorage();
-
-  if (!storage) {
-    return false;
-  }
-
-  try {
-    return ['sepia', 'light'].includes(storage.getItem(NOTES_THEME_STORAGE_KEY));
-  } catch {
-    return false;
-  }
+  return ['sepia', 'light'].includes(readStoredString(NOTES_THEME_STORAGE_KEY, ''));
 }
 
 function getThemeToggleLabel(isSepia) {
@@ -198,92 +241,33 @@ function getThemeToggleAriaLabel(isSepia) {
 }
 
 function writeThemePreference(isSepia) {
-  const storage = getLocalStorage();
-
-  if (!storage) {
-    return;
-  }
-
-  try {
+  writeStoredValue(getLocalStorage, NOTES_THEME_STORAGE_KEY, (storage) => {
     storage.setItem(NOTES_THEME_STORAGE_KEY, isSepia ? 'light' : 'default');
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
-  }
+  });
 }
 
-function getPracticeCompletionStorageKey() {
-  if (!practicePage) {
-    return null;
-  }
-
-  return `${PRACTICE_COMPLETION_STORAGE_KEY_PREFIX}${window.location.pathname}`;
+function getPracticeCompletionKey() {
+  return practicePage ? getScopedStorageKey(PRACTICE_COMPLETION_STORAGE_KEY_PREFIX, window.location.pathname) : null;
 }
 
-function readPracticeCompletionIds() {
-  const storage = getLocalStorage();
-  const storageKey = getPracticeCompletionStorageKey();
-
-  if (!storage || !storageKey) {
-    return new Set();
-  }
-
-  try {
-    const raw = storage.getItem(storageKey);
-
-    if (!raw) {
-      return new Set();
-    }
-
-    const parsed = JSON.parse(raw);
-
-    if (!Array.isArray(parsed)) {
-      return new Set();
-    }
-
-    return new Set(parsed.map((value) => (typeof value === 'string' ? value.trim() : '')).filter(Boolean));
-  } catch {
-    return new Set();
-  }
+function loadPracticeCompletionIds() {
+  const storageKey = getPracticeCompletionKey();
+  return readStoredStringSet(storageKey);
 }
 
-function writePracticeCompletionIds(ids) {
-  const storage = getLocalStorage();
-  const storageKey = getPracticeCompletionStorageKey();
-
-  if (!storage || !storageKey) {
-    return;
-  }
-
-  try {
-    storage.setItem(storageKey, JSON.stringify(Array.from(ids)));
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
-  }
+function savePracticeCompletionIds(ids) {
+  writeStoredStringSet(getPracticeCompletionKey(), ids);
 }
 
-function getPracticeFilterStorageKey() {
-  if (!practicePage) {
-    return null;
-  }
-
-  return `${PRACTICE_FILTER_STORAGE_KEY_PREFIX}${window.location.pathname}`;
+function getPracticeFilterKey() {
+  return practicePage ? getScopedStorageKey(PRACTICE_FILTER_STORAGE_KEY_PREFIX, window.location.pathname) : null;
 }
 
-function readPracticeFilterValue() {
-  const storage = getLocalStorage();
-  const storageKey = getPracticeFilterStorageKey();
+function loadPracticeFilter() {
+  const storageKey = getPracticeFilterKey();
 
-  if (!storage || !storageKey) {
-    return 'all';
-  }
-
-  try {
-    const raw = storage.getItem(storageKey);
-    const normalized = String(raw ?? '').trim().toLowerCase();
-    return PRACTICE_FILTER_VALUES.has(normalized) ? normalized : 'all';
-  } catch {
-    return 'all';
-  }
+  const normalized = readStoredString(storageKey, 'all').toLowerCase();
+  return PRACTICE_FILTER_VALUES.has(normalized) ? normalized : 'all';
 }
 
 function getPracticeFilterFromUrl() {
@@ -295,19 +279,8 @@ function getPracticeFilterFromUrl() {
   }
 }
 
-function writePracticeFilterValue(value) {
-  const storage = getLocalStorage();
-  const storageKey = getPracticeFilterStorageKey();
-
-  if (!storage || !storageKey) {
-    return;
-  }
-
-  try {
-    storage.setItem(storageKey, value);
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
-  }
+function savePracticeFilter(value) {
+  writeStoredString(getPracticeFilterKey(), value);
 }
 
 function getPracticeFilterLabel(value) {
@@ -327,20 +300,34 @@ function getPracticeFilterLabel(value) {
   }
 }
 
-function isPracticeCardMarked(card) {
+function getPracticeCompletionToggle(card) {
+  return card.querySelector('[data-practice-complete-toggle]');
+}
+
+function setPracticeCardCompletion(card, isComplete) {
+  const toggle = getPracticeCompletionToggle(card);
+
+  card.classList.toggle('is-complete', isComplete);
+
+  if (toggle) {
+    toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
+  }
+}
+
+function isPracticeCardCompleted(card) {
   return card.classList.contains('is-complete');
 }
 
-function doesPracticeCardMatchFilter(card, value) {
+function isPracticeCardVisible(card, value) {
   switch (value) {
     case 'exam-i':
     case 'exam-ii':
     case 'final':
       return (card.dataset.exam ?? '') === value;
     case 'marked':
-      return isPracticeCardMarked(card);
+      return isPracticeCardCompleted(card);
     case 'missed':
-      return !isPracticeCardMarked(card);
+      return !isPracticeCardCompleted(card);
     case 'all':
     default:
       return true;
@@ -360,7 +347,7 @@ function updatePracticeFilterSummary(visibleCount, totalCount, value) {
   practiceFilterSummary.textContent = `Showing ${visibleCount} of ${totalCount} problems for ${getPracticeFilterLabel(value)}`;
 }
 
-function updatePracticeFilterButtons(value) {
+function syncPracticeFilterButtons(value) {
   practiceFilterButtons.forEach((button) => {
     const isActive = button.dataset.practiceFilter === value;
     button.classList.toggle('is-active', isActive);
@@ -368,17 +355,17 @@ function updatePracticeFilterButtons(value) {
   });
 }
 
-function applyPracticeFilter(value) {
+function renderPracticeFilter(value) {
   if (!practicePage) {
     return;
   }
 
   const normalized = PRACTICE_FILTER_VALUES.has(value) ? value : 'all';
   let visibleCount = 0;
-  const visibleLevels = new Map();
+  const visibleLevelSections = new Set();
 
   practiceProblemCards.forEach((card) => {
-    const isVisible = doesPracticeCardMatchFilter(card, normalized);
+    const isVisible = isPracticeCardVisible(card, normalized);
     card.hidden = !isVisible;
 
     if (isVisible) {
@@ -387,17 +374,17 @@ function applyPracticeFilter(value) {
 
     const levelSection = card.closest('[data-practice-level]');
 
-    if (levelSection) {
-      visibleLevels.set(levelSection, (visibleLevels.get(levelSection) ?? false) || isVisible);
+    if (levelSection && isVisible) {
+      visibleLevelSections.add(levelSection);
     }
   });
 
   practiceLevelSections.forEach((section) => {
-    section.hidden = normalized === 'all' ? false : !(visibleLevels.get(section) ?? false);
+    section.hidden = normalized !== 'all' && !visibleLevelSections.has(section);
   });
 
   activePracticeFilter = normalized;
-  updatePracticeFilterButtons(normalized);
+  syncPracticeFilterButtons(normalized);
   updatePracticeFilterSummary(visibleCount, practiceProblemCards.length, normalized);
 }
 
@@ -414,7 +401,7 @@ function updatePracticeProgressUi(completedCount, totalCount) {
   }
 }
 
-function applyPracticeCompletionState(completedIds) {
+function renderPracticeCompletionState(completedIds) {
   if (!practicePage) {
     return;
   }
@@ -423,14 +410,9 @@ function applyPracticeCompletionState(completedIds) {
   let completedCount = 0;
 
   practiceProblemCards.forEach((card) => {
-    const toggle = card.querySelector('[data-practice-complete-toggle]');
     const isComplete = Boolean(card.id) && completedSet.has(card.id);
 
-    card.classList.toggle('is-complete', isComplete);
-
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
-    }
+    setPracticeCardCompletion(card, isComplete);
 
     if (isComplete) {
       completedCount += 1;
@@ -445,11 +427,11 @@ function syncPracticeCompletionState() {
     return;
   }
 
-  applyPracticeCompletionState(readPracticeCompletionIds());
-  applyPracticeFilter(activePracticeFilter);
+  renderPracticeCompletionState(loadPracticeCompletionIds());
+  renderPracticeFilter(activePracticeFilter);
 }
 
-function persistPracticeCompletionState() {
+function savePracticeCompletionState() {
   if (!practicePage) {
     return;
   }
@@ -458,14 +440,9 @@ function persistPracticeCompletionState() {
   let completedCount = 0;
 
   practiceProblemCards.forEach((card) => {
-    const toggle = card.querySelector('[data-practice-complete-toggle]');
-    const isComplete = toggle?.getAttribute('aria-pressed') === 'true';
+    const isComplete = getPracticeCompletionToggle(card)?.getAttribute('aria-pressed') === 'true';
 
-    card.classList.toggle('is-complete', Boolean(isComplete));
-
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
-    }
+    setPracticeCardCompletion(card, Boolean(isComplete));
 
     if (isComplete && card.id) {
       completedIds.add(card.id);
@@ -473,312 +450,352 @@ function persistPracticeCompletionState() {
     }
   });
 
-  writePracticeCompletionIds(completedIds);
+  savePracticeCompletionIds(completedIds);
   updatePracticeProgressUi(completedCount, practiceProblemCards.length);
-  applyPracticeFilter(activePracticeFilter);
+  renderPracticeFilter(activePracticeFilter);
 }
 
-function getCurrentLearningPathSlug() {
-  return String(learningPathPage?.dataset.learningPathSlug ?? '').trim();
-}
-
-function getLearningPathCompletionStorageKey(slug = getCurrentLearningPathSlug()) {
-  const normalizedSlug = String(slug ?? '').trim();
-
-  if (!normalizedSlug) {
+function loadConceptDagState() {
+  if (!conceptDagPage || !conceptDagDataScript) {
     return null;
   }
 
-  return `${LEARNING_PATH_COMPLETION_STORAGE_KEY_PREFIX}${normalizedSlug}`;
-}
-
-function readLearningPathCompletionIds(slug = getCurrentLearningPathSlug()) {
-  const storage = getLocalStorage();
-  const storageKey = getLearningPathCompletionStorageKey(slug);
-
-  if (!storage || !storageKey) {
-    return new Set();
+  if (conceptDagState) {
+    return conceptDagState;
   }
 
   try {
-    const raw = storage.getItem(storageKey);
+    const parsed = JSON.parse(conceptDagDataScript.textContent ?? 'null');
 
-    if (!raw) {
-      return new Set();
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
+      return null;
     }
 
-    const parsed = JSON.parse(raw);
+    const nodes = Array.isArray(parsed.nodes) ? parsed.nodes : [];
+    const orderedNodeIds = [];
+    const nodesById = new Map();
+    const nodeOrder = new Map();
 
-    if (!Array.isArray(parsed)) {
-      return new Set();
-    }
+    nodes.forEach((node, index) => {
+      if (!node || typeof node !== 'object' || Array.isArray(node)) {
+        return;
+      }
 
-    return new Set(parsed.map((value) => (typeof value === 'string' ? value.trim() : '')).filter(Boolean));
+      const id = String(node.id ?? '').trim();
+
+      if (!id) {
+        return;
+      }
+
+      orderedNodeIds.push(id);
+      nodesById.set(id, {
+        id,
+        title: String(node.title ?? '').trim(),
+        level: String(node.level ?? '').trim(),
+        requires: getConceptDagRequirements(node),
+      });
+      nodeOrder.set(id, index);
+    });
+
+    conceptDagState = {
+      id: String(parsed.id ?? 'concept-dag').trim(),
+      description: String(parsed.description ?? '').trim(),
+      defaultSubjectId: String(parsed.defaultSubjectId ?? orderedNodeIds[0] ?? '').trim(),
+      nodes,
+      orderedNodeIds,
+      nodesById,
+      nodeOrder,
+    };
+
+    return conceptDagState;
   } catch {
-    return new Set();
-  }
-}
-
-function writeLearningPathCompletionIds(ids, slug = getCurrentLearningPathSlug()) {
-  const storage = getLocalStorage();
-  const storageKey = getLearningPathCompletionStorageKey(slug);
-
-  if (!storage || !storageKey) {
-    return;
-  }
-
-  try {
-    storage.setItem(storageKey, JSON.stringify(Array.from(ids)));
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
-  }
-}
-
-function getLearningPathFilterStorageKey() {
-  const slug = getCurrentLearningPathSlug();
-
-  if (!slug) {
     return null;
   }
-
-  return `${LEARNING_PATH_FILTER_STORAGE_KEY_PREFIX}${slug}`;
 }
 
-function readLearningPathFilterValue() {
-  const storage = getLocalStorage();
-  const storageKey = getLearningPathFilterStorageKey();
+function getConceptDagRequirements(node) {
+  const requires = node?.requires && typeof node.requires === 'object' && !Array.isArray(node.requires)
+    ? node.requires
+    : {};
 
-  if (!storage || !storageKey) {
-    return 'all';
-  }
-
-  try {
-    const raw = storage.getItem(storageKey);
-    const normalized = String(raw ?? '').trim().toLowerCase();
-    return LEARNING_PATH_FILTER_VALUES.has(normalized) ? normalized : 'all';
-  } catch {
-    return 'all';
-  }
+  return {
+    hard: Array.isArray(requires.hard) ? requires.hard : [],
+    soft: Array.isArray(requires.soft) ? requires.soft : [],
+  };
 }
 
-function writeLearningPathFilterValue(value) {
-  const storage = getLocalStorage();
-  const storageKey = getLearningPathFilterStorageKey();
+function getConceptDagSelectionScope() {
+  const state = loadConceptDagState();
+  const fallbackScope = String(window.location.pathname ?? '').trim();
+  return String(state?.defaultSubjectId ?? fallbackScope ?? '').trim();
+}
 
-  if (!storage || !storageKey) {
+function getConceptDagSelectionKey() {
+  return getScopedStorageKey(CONCEPT_DAG_SELECTION_STORAGE_KEY + ':', getConceptDagSelectionScope());
+}
+
+function loadConceptDagSelection() {
+  const state = loadConceptDagState();
+
+  if (!state) {
+    return '';
+  }
+
+  const storageKey = getConceptDagSelectionKey();
+  const fallback = state.defaultSubjectId || state.orderedNodeIds[0] || '';
+  const raw = readStoredString(storageKey, fallback);
+  return state.nodesById.has(raw) ? raw : fallback;
+}
+
+function saveConceptDagSelection(subjectId) {
+  writeStoredString(getConceptDagSelectionKey(), subjectId);
+}
+
+function collectConceptDagAncestors(selectedId, nodesById) {
+  const visited = new Set();
+  const stack = [selectedId];
+
+  while (stack.length) {
+    const nodeId = stack.pop();
+
+    if (visited.has(nodeId)) {
+      continue;
+    }
+
+    visited.add(nodeId);
+
+    const node = nodesById.get(nodeId);
+
+    if (!node) {
+      continue;
+    }
+
+    const requirements = [...node.requires.hard, ...node.requires.soft];
+
+    requirements.forEach((dependencyId) => {
+      if (nodesById.has(dependencyId)) {
+        stack.push(dependencyId);
+      }
+    });
+  }
+
+  return visited;
+}
+
+function buildConceptDagChildMap(ancestorIds, nodesById, nodeOrder) {
+  const childMap = new Map();
+
+  ancestorIds.forEach((nodeId) => {
+    childMap.set(nodeId, {
+      hard: [],
+      soft: [],
+    });
+  });
+
+  ancestorIds.forEach((nodeId) => {
+    const node = nodesById.get(nodeId);
+
+    if (!node) {
+      return;
+    }
+
+    const pushChildren = (dependencyIds, type) => {
+      dependencyIds.forEach((dependencyId) => {
+        if (!ancestorIds.has(dependencyId) || !childMap.has(dependencyId)) {
+          return;
+        }
+
+        childMap.get(dependencyId)[type].push(nodeId);
+      });
+    };
+
+    pushChildren(node.requires.hard, 'hard');
+    pushChildren(node.requires.soft, 'soft');
+  });
+
+  childMap.forEach((relations) => {
+    relations.hard.sort((left, right) => (nodeOrder.get(left) ?? 0) - (nodeOrder.get(right) ?? 0));
+    relations.soft.sort((left, right) => (nodeOrder.get(left) ?? 0) - (nodeOrder.get(right) ?? 0));
+  });
+
+  return childMap;
+}
+
+function getConceptNoteUrlFromId(nodeId) {
+  const normalizedId = String(nodeId ?? '').trim();
+  const separatorIndex = normalizedId.indexOf('.');
+
+  if (separatorIndex < 0) {
+    return '';
+  }
+
+  const domain = normalizedId.slice(0, separatorIndex).trim();
+  const slug = normalizedId.slice(separatorIndex + 1).trim();
+
+  if (!domain || !slug) {
+    return '';
+  }
+
+  return `/notes/subjects/${domain}/${slug}/`;
+}
+
+function renderConceptDagNodeLink(node, isSelected = false) {
+  const selectedClass = isSelected ? ' is-selected' : '';
+  const noteUrl = getConceptNoteUrlFromId(node.id);
+
+  return `<a class="concept-dag-tree__node${selectedClass}" href="${escapeHtml(noteUrl)}" data-concept-dag-node-link data-concept-dag-note-url="${escapeHtml(noteUrl)}" data-notes-nav-item>${escapeHtml(node.title)}</a>`;
+}
+
+function collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder) {
+  const rootIds = [];
+
+  ancestorIds.forEach((nodeId) => {
+    const node = nodesById.get(nodeId);
+
+    if (!node) {
+      return;
+    }
+
+    const prerequisites = [...node.requires.hard, ...node.requires.soft]
+      .filter((dependencyId) => ancestorIds.has(dependencyId) && nodesById.has(dependencyId));
+
+    if (!prerequisites.length) {
+      rootIds.push(nodeId);
+    }
+  });
+
+  rootIds.sort((left, right) => (nodeOrder.get(left) ?? 0) - (nodeOrder.get(right) ?? 0));
+  return rootIds;
+}
+
+function walkConceptDagTreeRows(nodeId, context, depth, pathStack, rows) {
+  if (pathStack.has(nodeId)) {
     return;
   }
 
-  try {
-    storage.setItem(storageKey, value);
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
+  const nextPathStack = new Set(pathStack);
+  nextPathStack.add(nodeId);
+  const node = context.nodesById.get(nodeId);
+
+  if (!node) {
+    return;
   }
+
+  if (context.renderedIds.has(nodeId)) {
+    return;
+  }
+
+  context.renderedIds.add(nodeId);
+  if (!rows[depth]) {
+    rows[depth] = [];
+  }
+
+  rows[depth].push(node);
+
+  const children = context.childMap.get(nodeId) ?? { hard: [], soft: [] };
+  const childIds = [...children.hard, ...children.soft].filter((childId) => context.ancestorIds.has(childId));
+  childIds
+    .filter((childId) => !context.renderedIds.has(childId))
+    .forEach((childId) => walkConceptDagTreeRows(childId, context, depth + 1, nextPathStack, rows));
 }
 
-function getLearningPathFilterLabel(value) {
-  switch (value) {
-    case 'required':
-      return 'Required';
-    case 'optional':
-      return 'Optional';
-    case 'exam-i':
-      return 'Exam I';
-    case 'exam-ii':
-      return 'Exam II';
-    case 'final':
-      return 'Final';
-    default:
-      return 'All';
-  }
+function renderConceptDagRows(rows, selectedId) {
+  return rows.map((rowNodes, depth) => {
+    const isLastRow = depth === rows.length - 1;
+    const prefix = `${'│   '.repeat(depth)}${isLastRow ? '└── ' : '├── '}`;
+    const tail = isLastRow && depth > 0
+      ? `└───${'┴───'.repeat(depth - 1)}┴── `
+      : '';
+    const showPrefix = depth > 0;
+    const nodesHtml = rowNodes.map((node, index) => {
+      const separator = index > 0 ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : '';
+
+      return `${separator}${renderConceptDagNodeLink(node, node.id === selectedId)}`;
+    }).join('');
+
+    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${showPrefix ? `<span class="concept-dag-tree__prefix${isLastRow ? ' concept-dag-tree__prefix--hidden' : ''}" aria-hidden="true">${escapeHtml(prefix)}</span>` : ''}${isLastRow ? `<span class="concept-dag-tree__wrap" aria-hidden="true">${escapeHtml(tail)}</span>` : ''}${nodesHtml}</div>`;
+  }).join('');
 }
 
-function getLearningPathProgressSummary(completedCount, totalCount) {
-  if (completedCount <= 0) {
-    return 'Not started';
-  }
-
-  if (completedCount >= totalCount) {
-    return 'Complete';
-  }
-
-  return 'In progress';
-}
-
-function doesLearningPathStepMatchFilter(step, value) {
-  const normalizedType = String(step.dataset.stepType ?? '').trim().toLowerCase();
-  const examTags = String(step.dataset.examTags ?? '').trim().split(/\s+/).filter(Boolean);
-
-  switch (value) {
-    case 'required':
-    case 'optional':
-      return normalizedType === value;
-    case 'exam-i':
-    case 'exam-ii':
-    case 'final':
-      return examTags.includes(value);
-    case 'all':
-    default:
-      return true;
-  }
-}
-
-function updateLearningPathProgressUi(completedCount, totalCount) {
-  const progress = totalCount > 0 ? completedCount / totalCount : 0;
-
-  if (learningPathProgressBar) {
-    learningPathProgressBar.style.setProperty('--practice-progress', String(Math.max(0, Math.min(1, progress))));
-    learningPathProgressBar.setAttribute('aria-valuenow', String(Math.round(Math.max(0, Math.min(100, progress * 100)))));
-    learningPathProgressBar.setAttribute('aria-valuetext', `${completedCount} of ${totalCount} steps completed`);
-  }
-
-  if (learningPathProgressSummary) {
-    learningPathProgressSummary.textContent = `${completedCount} of ${totalCount} steps completed`;
-  }
-
-  if (learningPathStatus) {
-    learningPathStatus.textContent = getLearningPathProgressSummary(completedCount, totalCount);
-  }
-}
-
-function updateLearningPathFilterButtons(value) {
-  learningPathFilterButtons.forEach((button) => {
-    const isActive = button.dataset.learningPathFilter === value;
+function syncConceptDagSubjectButtons(selectedId) {
+  Array.from(document.querySelectorAll('[data-concept-dag-subject]')).forEach((button) => {
+    const isActive = String(button.dataset.conceptDagSubject ?? '').trim() === selectedId;
     button.classList.toggle('is-active', isActive);
     button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
   });
 }
 
-function updateLearningPathFilterSummary(visibleCount, totalCount, value) {
-  if (!learningPathFilterSummary) {
+function renderConceptDagTree() {
+  const state = loadConceptDagState();
+
+  if (!state || !conceptDagTree) {
     return;
   }
 
-  if (value === 'all') {
-    learningPathFilterSummary.textContent = `Showing all ${totalCount} steps`;
+  const selectedId = conceptDagSelectedSubjectId && state.nodesById.has(conceptDagSelectedSubjectId)
+    ? conceptDagSelectedSubjectId
+    : state.defaultSubjectId || state.orderedNodeIds[0] || '';
+
+  if (!selectedId) {
+    conceptDagTree.innerHTML = '<p class="concept-dag-tree__empty">No concept data available.</p>';
     return;
   }
 
-  learningPathFilterSummary.textContent = `Showing ${visibleCount} of ${totalCount} steps for ${getLearningPathFilterLabel(value)}`;
-}
+  const ancestorIds = collectConceptDagAncestors(selectedId, state.nodesById);
+  const rootIds = collectConceptDagRootIds(ancestorIds, state.nodesById, state.nodeOrder);
+  const renderRootIds = rootIds.length ? rootIds : [selectedId];
 
-function applyLearningPathFilter(value) {
-  if (!learningPathPage) {
-    return;
-  }
+  const context = {
+    nodesById: state.nodesById,
+    nodeOrder: state.nodeOrder,
+    ancestorIds,
+    selectedId,
+    childMap: buildConceptDagChildMap(ancestorIds, state.nodesById, state.nodeOrder),
+    renderedIds: new Set(),
+  };
 
-  const normalized = LEARNING_PATH_FILTER_VALUES.has(value) ? value : 'all';
-  let visibleCount = 0;
+  const rows = [];
 
-  learningPathStepCards.forEach((step) => {
-    const isVisible = doesLearningPathStepMatchFilter(step, normalized);
-    const stepItem = step.closest('.learning-path-step-item');
-
-    if (stepItem) {
-      stepItem.hidden = !isVisible;
-    } else {
-      step.hidden = !isVisible;
-    }
-
-    if (isVisible) {
-      visibleCount += 1;
-    }
+  renderRootIds.forEach((nodeId) => {
+    walkConceptDagTreeRows(nodeId, context, 0, new Set(), rows);
   });
 
-  activeLearningPathFilter = normalized;
-  updateLearningPathFilterButtons(normalized);
-  updateLearningPathFilterSummary(visibleCount, learningPathStepCards.length, normalized);
+  conceptDagTree.innerHTML = rows.length
+    ? `<div class="concept-dag-tree__lines">
+        ${renderConceptDagRows(rows, selectedId)}
+      </div>`
+    : '<p class="concept-dag-tree__empty">No prerequisite chain available for this subject.</p>';
+
+  syncConceptDagSubjectButtons(selectedId);
 }
 
-function applyLearningPathCompletionState(completedIds) {
-  if (!learningPathPage) {
+function syncConceptDagSelection() {
+  const state = loadConceptDagState();
+
+  if (!state || !conceptDagPage) {
     return;
   }
 
-  const completedSet = completedIds instanceof Set ? completedIds : new Set(completedIds);
-  let completedCount = 0;
+  conceptDagSelectedSubjectId = loadConceptDagSelection();
 
-  learningPathStepCards.forEach((step) => {
-    const toggle = step.querySelector('[data-learning-path-step-toggle]');
-    const stepId = String(step.dataset.stepId ?? '').trim();
-    const isComplete = Boolean(stepId) && completedSet.has(stepId);
+  if (!state.nodesById.has(conceptDagSelectedSubjectId)) {
+    conceptDagSelectedSubjectId = state.defaultSubjectId || state.orderedNodeIds[0] || '';
+    saveConceptDagSelection(conceptDagSelectedSubjectId);
+  }
 
-    step.classList.toggle('is-complete', isComplete);
-
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
-    }
-
-    if (isComplete) {
-      completedCount += 1;
-    }
-  });
-
-  updateLearningPathProgressUi(completedCount, learningPathStepCards.length);
+  renderConceptDagTree();
 }
 
-function syncLearningPathState() {
-  if (!learningPathPage) {
+function selectConceptDagSubject(subjectId) {
+  const state = loadConceptDagState();
+
+  if (!state || !state.nodesById.has(subjectId)) {
     return;
   }
 
-  const filterValue = readLearningPathFilterValue();
-  activeLearningPathFilter = filterValue;
-  applyLearningPathCompletionState(readLearningPathCompletionIds());
-  applyLearningPathFilter(filterValue);
-}
-
-function persistLearningPathCompletionState() {
-  if (!learningPathPage) {
-    return;
-  }
-
-  const completedIds = new Set();
-  let completedCount = 0;
-
-  learningPathStepCards.forEach((step) => {
-    const toggle = step.querySelector('[data-learning-path-step-toggle]');
-    const stepId = String(step.dataset.stepId ?? '').trim();
-    const isComplete = toggle?.getAttribute('aria-pressed') === 'true';
-
-    step.classList.toggle('is-complete', Boolean(isComplete));
-
-    if (toggle) {
-      toggle.setAttribute('aria-pressed', isComplete ? 'true' : 'false');
-    }
-
-    if (isComplete && stepId) {
-      completedIds.add(stepId);
-      completedCount += 1;
-    }
-  });
-
-  writeLearningPathCompletionIds(completedIds);
-  updateLearningPathProgressUi(completedCount, learningPathStepCards.length);
-  applyLearningPathFilter(activeLearningPathFilter);
-  updateLearningPathLandingCards();
-}
-
-function updateLearningPathLandingCards() {
-  if (!learningPathCardElements.length) {
-    return;
-  }
-
-  learningPathCardElements.forEach((card) => {
-    const slug = String(card.dataset.pathSlug ?? '').trim();
-    const totalSteps = Number(card.dataset.pathTotalSteps ?? '0');
-    const completedCount = readLearningPathCompletionIds(slug).size;
-    const progressStatus = card.querySelector('[data-path-card-status]');
-    const action = card.querySelector('[data-path-card-action]');
-
-    if (progressStatus) {
-      progressStatus.textContent = getLearningPathProgressSummary(completedCount, totalSteps);
-    }
-
-    if (action) {
-      action.textContent = completedCount > 0 ? 'Continue' : 'Start';
-    }
-  });
+  conceptDagSelectedSubjectId = subjectId;
+  saveConceptDagSelection(subjectId);
+  renderConceptDagTree();
 }
 
 function applyThemePreference(isSepia) {
@@ -849,7 +866,23 @@ function normalizePomodoroState(rawState) {
   };
 }
 
-function readPomodoroState() {
+function createIdlePomodoroSnapshot() {
+  return {
+    status: 'idle',
+    mode: null,
+    label: null,
+    minutes: null,
+    startedAt: null,
+    endsAt: null,
+    completedAt: null,
+    remainingMs: 0,
+    progress: 0,
+    valueNow: 0,
+    valueText: 'Pomodoro timer is idle',
+  };
+}
+
+function loadPomodoroState() {
   const storage = getLocalStorage();
 
   if (!storage) {
@@ -875,7 +908,7 @@ function readPomodoroState() {
   }
 }
 
-function writePomodoroState(state) {
+function savePomodoroState(state) {
   const storage = getLocalStorage();
 
   if (!storage) {
@@ -893,7 +926,7 @@ function writePomodoroState(state) {
   }
 }
 
-function clearPomodoroState() {
+function resetPomodoroState() {
   const storage = getLocalStorage();
 
   pomodoroTimerState = null;
@@ -910,23 +943,9 @@ function clearPomodoroState() {
   }
 }
 
-function getPomodoroSnapshot(now = Date.now()) {
-  const state = readPomodoroState();
-
+function buildPomodoroSnapshot(state, now = Date.now()) {
   if (!state) {
-    return {
-      status: 'idle',
-      mode: null,
-      label: null,
-      minutes: null,
-      startedAt: null,
-      endsAt: null,
-      completedAt: null,
-      remainingMs: 0,
-      progress: 0,
-      valueNow: 0,
-      valueText: 'Pomodoro timer is idle',
-    };
+    return createIdlePomodoroSnapshot();
   }
 
   if (state.status === 'completed') {
@@ -934,19 +953,7 @@ function getPomodoroSnapshot(now = Date.now()) {
     const expiresAt = completedAt + POMODORO_COMPLETION_FLASH_MS;
 
     if (now >= expiresAt) {
-      return {
-        status: 'idle',
-        mode: null,
-        label: null,
-        minutes: null,
-        startedAt: null,
-        endsAt: null,
-        completedAt: null,
-        remainingMs: 0,
-        progress: 0,
-        valueNow: 0,
-        valueText: 'Pomodoro timer is idle',
-      };
+      return createIdlePomodoroSnapshot();
     }
 
     return {
@@ -984,7 +991,7 @@ function getPomodoroSnapshot(now = Date.now()) {
   };
 }
 
-function setPomodoroTimerTicker(isActive) {
+function togglePomodoroTicker(isActive) {
   if (isActive) {
     if (pomodoroTimerIntervalId !== null) {
       return;
@@ -1002,7 +1009,7 @@ function setPomodoroTimerTicker(isActive) {
   }
 }
 
-function setPomodoroCompletionTimeout(expiresAt) {
+function schedulePomodoroCompletionSync(expiresAt) {
   if (pomodoroTimerCompletionTimeoutId !== null) {
     window.clearTimeout(pomodoroTimerCompletionTimeoutId);
     pomodoroTimerCompletionTimeoutId = null;
@@ -1016,7 +1023,7 @@ function setPomodoroCompletionTimeout(expiresAt) {
   }, delay);
 }
 
-function clearPomodoroCompletionTimeout() {
+function cancelPomodoroCompletionSync() {
   if (pomodoroTimerCompletionTimeoutId === null) {
     return;
   }
@@ -1025,7 +1032,7 @@ function clearPomodoroCompletionTimeout() {
   pomodoroTimerCompletionTimeoutId = null;
 }
 
-function updatePomodoroUi(snapshot) {
+function renderPomodoroTimer(snapshot) {
   if (pomodoroBar) {
     const mode = snapshot.status === 'idle' ? '' : snapshot.mode ?? '';
 
@@ -1053,7 +1060,7 @@ function updatePomodoroUi(snapshot) {
   }
 }
 
-function startPomodoroTimer(mode) {
+function beginPomodoroTimer(mode) {
   const config = getPomodoroModeConfig(mode);
 
   if (!config) {
@@ -1072,20 +1079,20 @@ function startPomodoroTimer(mode) {
     completedAt: null,
   };
 
-  clearPomodoroCompletionTimeout();
-  writePomodoroState(state);
+  cancelPomodoroCompletionSync();
+  savePomodoroState(state);
   syncPomodoroTimer();
 }
 
 function syncPomodoroTimer() {
   const now = Date.now();
-  let state = readPomodoroState();
+  let state = loadPomodoroState();
 
   if (!state) {
     pomodoroTimerState = null;
-    clearPomodoroCompletionTimeout();
-    setPomodoroTimerTicker(false);
-    updatePomodoroUi(getPomodoroSnapshot(now));
+    cancelPomodoroCompletionSync();
+    togglePomodoroTicker(false);
+    renderPomodoroTimer(createIdlePomodoroSnapshot());
     return;
   }
 
@@ -1095,45 +1102,28 @@ function syncPomodoroTimer() {
       status: 'completed',
       completedAt: state.endsAt,
     };
-    writePomodoroState(state);
+    savePomodoroState(state);
   }
 
-  if (state.status === 'completed') {
-    const completedAt = state.completedAt ?? state.endsAt;
-    const expiresAt = completedAt + POMODORO_COMPLETION_FLASH_MS;
+  const snapshot = buildPomodoroSnapshot(state, now);
 
-    if (now >= expiresAt) {
-      clearPomodoroState();
-      clearPomodoroCompletionTimeout();
-      setPomodoroTimerTicker(false);
-      updatePomodoroUi(getPomodoroSnapshot(now));
-      return;
-    }
-
-    pomodoroTimerState = state;
-    setPomodoroTimerTicker(true);
-    setPomodoroCompletionTimeout(expiresAt);
-    updatePomodoroUi({
-      ...state,
-      completedAt,
-      remainingMs: 0,
-      progress: 1,
-      valueNow: 100,
-      valueText: `${state.label} timer complete`,
-    });
+  if (snapshot.status === 'idle') {
+    resetPomodoroState();
+    cancelPomodoroCompletionSync();
+    togglePomodoroTicker(false);
+    renderPomodoroTimer(snapshot);
     return;
   }
 
   pomodoroTimerState = state;
-  clearPomodoroCompletionTimeout();
-  setPomodoroTimerTicker(true);
-  updatePomodoroUi({
-    ...state,
-    remainingMs: Math.max(0, state.endsAt - now),
-    progress: Math.max(0, Math.min(1, 1 - ((state.endsAt - now) / ((state.endsAt - state.startedAt) || 1)))),
-    valueNow: Math.round(Math.max(0, Math.min(100, (1 - ((state.endsAt - now) / ((state.endsAt - state.startedAt) || 1))) * 100))),
-    valueText: `${state.label} timer, ${formatPomodoroTime(Math.max(0, state.endsAt - now))} remaining`,
-  });
+  togglePomodoroTicker(true);
+  if (snapshot.status === 'completed') {
+    schedulePomodoroCompletionSync((state.completedAt ?? state.endsAt) + POMODORO_COMPLETION_FLASH_MS);
+  } else {
+    cancelPomodoroCompletionSync();
+  }
+
+  renderPomodoroTimer(snapshot);
 }
 
 function getCurrentSubjectPageInfo() {
@@ -1189,6 +1179,10 @@ function syncSubjectNavigation() {
   updateSubjectHeaderLinks();
 }
 
+function normalizeWhitespace(text) {
+  return String(text ?? '').replace(/\s+/g, ' ').trim();
+}
+
 function escapeHtml(text) {
   return String(text ?? '')
     .replace(/&/g, '&amp;')
@@ -1196,14 +1190,6 @@ function escapeHtml(text) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
-}
-
-function escapeRegExp(text) {
-  return String(text ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-}
-
-function normalizeWhitespace(text) {
-  return String(text ?? '').replace(/\s+/g, ' ').trim();
 }
 
 const LATEX_COMMAND_MAP = new Map([
@@ -2150,7 +2136,7 @@ function initMathInteractiveVisuals() {
     }
 
     const kind = root.dataset.mathDemo ?? '';
-    const demo = resolveMathInteractiveDemoConfig(kind);
+    const demo = getMathInteractiveDemoConfig(kind);
 
     if (!demo) {
       return;
@@ -2203,6 +2189,88 @@ function initMathInteractiveVisuals() {
   });
 }
 
+function initLandingHeroParallax() {
+  const heroMedia = document.querySelector('.notes-landing-page .landing-hero__media');
+
+  if (!heroMedia || heroMedia.dataset.parallaxInitialized === 'true') {
+    return;
+  }
+
+  heroMedia.dataset.parallaxInitialized = 'true';
+  heroMedia.style.setProperty('--landing-hero-parallax-x', '0px');
+  heroMedia.style.setProperty('--landing-hero-parallax-y', '0px');
+
+  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  if (reducedMotionQuery.matches) {
+    return;
+  }
+
+  let rafId = 0;
+  let targetX = 0;
+  let targetY = 0;
+  let currentX = 0;
+  let currentY = 0;
+
+  const maxShift = 24;
+  const easing = 0.085;
+
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const updateTransform = () => {
+    rafId = 0;
+    currentX += (targetX - currentX) * easing;
+    currentY += (targetY - currentY) * easing;
+
+    if (Math.abs(targetX - currentX) < 0.05 && Math.abs(targetY - currentY) < 0.05) {
+      currentX = targetX;
+      currentY = targetY;
+    } else {
+      rafId = window.requestAnimationFrame(updateTransform);
+    }
+
+    heroMedia.style.setProperty('--landing-hero-parallax-x', `${currentX.toFixed(2)}px`);
+    heroMedia.style.setProperty('--landing-hero-parallax-y', `${currentY.toFixed(2)}px`);
+  };
+
+  const scheduleUpdate = () => {
+    if (!rafId) {
+      rafId = window.requestAnimationFrame(updateTransform);
+    }
+  };
+
+  const setTargetFromPointer = (clientX, clientY) => {
+    const rect = heroMedia.getBoundingClientRect();
+
+    if (!rect.width || !rect.height) {
+      return;
+    }
+
+    const normalizedX = clamp(((clientX - rect.left) / rect.width) * 2 - 1, -1, 1);
+    const normalizedY = clamp(((clientY - rect.top) / rect.height) * 2 - 1, -1, 1);
+
+    targetX = (-normalizedX * maxShift);
+    targetY = (-normalizedY * (maxShift * 0.7));
+    scheduleUpdate();
+  };
+
+  const resetTarget = () => {
+    targetX = 0;
+    targetY = 0;
+    scheduleUpdate();
+  };
+
+  heroMedia.addEventListener('pointermove', (event) => {
+    setTargetFromPointer(event.clientX, event.clientY);
+  });
+
+  heroMedia.addEventListener('pointerleave', resetTarget);
+  heroMedia.addEventListener('pointercancel', resetTarget);
+  window.addEventListener('resize', resetTarget);
+  window.addEventListener('pageshow', resetTarget);
+  scheduleUpdate();
+}
+
 function renderArithmeticDemo(root) {
   const startInput = root.querySelector('#math-demo-arithmetic-start');
   const stepInput = root.querySelector('#math-demo-arithmetic-step');
@@ -2249,7 +2317,7 @@ function renderArithmeticDemo(root) {
   };
 }
 
-function renderAlgebraDemo(root) {
+function renderLineGraphDemo(root) {
   const slopeInput = root.querySelector('#math-demo-algebra-slope');
   const interceptInput = root.querySelector('#math-demo-algebra-intercept');
   const equation = root.querySelector('#math-demo-algebra-equation');
@@ -2355,8 +2423,28 @@ function renderTrigDemo(root) {
 
 const MATH_INTERACTIVE_RENDERERS = {
   arithmetic: renderArithmeticDemo,
-  algebra: renderAlgebraDemo,
+  'line-graph': renderLineGraphDemo,
+  'function-family': renderFunctionFamilyDemo,
   trig: renderTrigDemo,
+  logic: renderLogicDemo,
+  geometry: renderGeometryDemo,
+  probability: renderProbabilityDemo,
+  statistics: renderStatisticsDemo,
+  limit: renderLimitsDemo,
+  derivative: renderDerivativeDemo,
+  integral: renderIntegralsDemo,
+  series: renderSeriesDemo,
+  vectors: renderVectorsDemo,
+  matrix: renderMatrixDemo,
+  eigenvalues: renderEigenvaluesDemo,
+  'recursion-tree': renderDiscreteMathDemo,
+  'growth-model': renderModelingDemo,
+  'slope-field': renderFirstOrderOdeDemo,
+  oscillator: renderSecondOrderOdeDemo,
+  'phase-portrait': renderSystemsOdeDemo,
+  'proof-strategy': renderProofWritingDemo,
+  'free-body-diagrams': renderFreeBodyDiagramDemo,
+  'ts-diagrams': renderTemperatureEntropyDiagramDemo,
 };
 
 function renderFunctionFamilyDemo(root) {
@@ -3612,39 +3700,6 @@ function renderTemperatureEntropyDiagramDemo(root) {
   };
 }
 
-Object.assign(MATH_INTERACTIVE_RENDERERS, {
-  arithmetic: renderArithmeticDemo,
-  logic: renderLogicDemo,
-  geometry: renderGeometryDemo,
-  'line-graph': renderAlgebraDemo,
-  algebra: renderAlgebraDemo,
-  'function-family': renderFunctionFamilyDemo,
-  functions: renderFunctionFamilyDemo,
-  probability: renderProbabilityDemo,
-  statistics: renderStatisticsDemo,
-  trig: renderTrigDemo,
-  limit: renderLimitsDemo,
-  derivative: renderDerivativeDemo,
-  integral: renderIntegralsDemo,
-  series: renderSeriesDemo,
-  vectors: renderVectorsDemo,
-  matrix: renderMatrixDemo,
-  eigenvalues: renderEigenvaluesDemo,
-  'recursion-tree': renderDiscreteMathDemo,
-  'growth-model': renderModelingDemo,
-  'slope-field': renderFirstOrderOdeDemo,
-  oscillator: renderSecondOrderOdeDemo,
-  'phase-portrait': renderSystemsOdeDemo,
-  'proof-strategy': renderProofWritingDemo,
-  'free-body-diagrams': renderFreeBodyDiagramDemo,
-  'ts-diagrams': renderTemperatureEntropyDiagramDemo,
-});
-
-const MATH_INTERACTIVE_KIND_ALIASES = {
-  algebra: 'line-graph',
-  functions: 'function-family',
-};
-
 const MATH_INTERACTIVE_SENTINELS = {
   arithmetic: '#math-demo-arithmetic-arrow',
   'line-graph': '#math-demo-algebra-line',
@@ -3667,19 +3722,18 @@ const MATH_INTERACTIVE_SENTINELS = {
   'phase-portrait': '#math-demo-systems-of-odes-trajectory',
 };
 
-function resolveMathInteractiveDemoConfig(kind) {
-  const resolvedKind = MATH_INTERACTIVE_KIND_ALIASES[kind] ?? kind;
-  const renderer = MATH_INTERACTIVE_RENDERERS[resolvedKind] ?? null;
+function getMathInteractiveDemoConfig(kind) {
+  const renderer = MATH_INTERACTIVE_RENDERERS[kind] ?? null;
 
   if (!renderer) {
     return null;
   }
 
-  const skeleton = MATH_INTERACTIVE_VISUALS[resolvedKind] ?? null;
-  const sentinelId = MATH_INTERACTIVE_SENTINELS[resolvedKind] ?? null;
+  const skeleton = MATH_INTERACTIVE_VISUALS[kind] ?? null;
+  const sentinelId = MATH_INTERACTIVE_SENTINELS[kind] ?? null;
 
   return {
-    kind: resolvedKind,
+    kind,
     renderer,
     skeleton,
     sentinelId,
@@ -3710,17 +3764,8 @@ practiceFilterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const nextValue = String(button.dataset.practiceFilter ?? 'all').trim().toLowerCase();
     const normalized = PRACTICE_FILTER_VALUES.has(nextValue) ? nextValue : 'all';
-    writePracticeFilterValue(normalized);
-    applyPracticeFilter(normalized);
-  });
-});
-
-learningPathFilterButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    const nextValue = String(button.dataset.learningPathFilter ?? 'all').trim().toLowerCase();
-    const normalized = LEARNING_PATH_FILTER_VALUES.has(nextValue) ? nextValue : 'all';
-    writeLearningPathFilterValue(normalized);
-    applyLearningPathFilter(normalized);
+    savePracticeFilter(normalized);
+    renderPracticeFilter(normalized);
   });
 });
 
@@ -3732,17 +3777,25 @@ document.addEventListener('click', async (event) => {
     return;
   }
 
-  const pathCompletionButton = event.target.closest('[data-learning-path-step-toggle]');
+  const conceptDagSubjectButton = event.target.closest('[data-concept-dag-subject]');
 
-  if (pathCompletionButton) {
-    const pathStep = pathCompletionButton.closest('[data-learning-path-step]');
+  if (conceptDagSubjectButton) {
+    const subjectId = String(conceptDagSubjectButton.dataset.conceptDagSubject ?? '').trim();
 
-    if (pathStep) {
-      pathCompletionButton.setAttribute(
-        'aria-pressed',
-        pathCompletionButton.getAttribute('aria-pressed') === 'true' ? 'false' : 'true',
-      );
-      persistLearningPathCompletionState();
+    if (subjectId) {
+      selectConceptDagSubject(subjectId);
+    }
+
+    return;
+  }
+
+  const conceptDagCard = event.target.closest('[data-concept-dag-node-card]');
+
+  if (conceptDagCard) {
+    const noteUrl = String(conceptDagCard.dataset.conceptDagNoteUrl ?? '').trim();
+
+    if (noteUrl) {
+      window.location.assign(noteUrl);
     }
 
     return;
@@ -3758,7 +3811,7 @@ document.addEventListener('click', async (event) => {
         'aria-pressed',
         completionButton.getAttribute('aria-pressed') === 'true' ? 'false' : 'true',
       );
-      persistPracticeCompletionState();
+      savePracticeCompletionState();
     }
 
     return;
@@ -3829,7 +3882,7 @@ timerPanel?.addEventListener('click', (event) => {
 
 pomodoroPresetButtons.forEach((button) => {
   button.addEventListener('click', () => {
-    startPomodoroTimer(button.dataset.pomodoroMode ?? '');
+    beginPomodoroTimer(button.dataset.pomodoroMode ?? '');
   });
 });
 
@@ -3842,14 +3895,15 @@ renderPlaceholder('Search note titles and note content.');
 revealQueryMatch();
 initFormulaSliderDemo();
 initMathInteractiveVisuals();
+initLandingHeroParallax();
 syncPracticeCompletionState();
-const initialPracticeFilter = getPracticeFilterFromUrl() ?? readPracticeFilterValue();
-if (getPracticeFilterFromUrl()) {
-  writePracticeFilterValue(initialPracticeFilter);
+const practiceFilterFromUrl = getPracticeFilterFromUrl();
+const initialPracticeFilter = practiceFilterFromUrl ?? loadPracticeFilter();
+if (practiceFilterFromUrl) {
+  savePracticeFilter(initialPracticeFilter);
 }
-applyPracticeFilter(initialPracticeFilter);
-syncLearningPathState();
-updateLearningPathLandingCards();
+renderPracticeFilter(initialPracticeFilter);
+syncConceptDagSelection();
 
 syncSubjectNavigation();
 syncPomodoroTimer();
@@ -3859,44 +3913,32 @@ window.addEventListener('storage', (event) => {
     syncThemePreference();
   }
 
-  if (event.key === getPracticeCompletionStorageKey() || event.key === null) {
+  if (event.key === getPracticeCompletionKey() || event.key === null) {
     syncPracticeCompletionState();
   }
 
-  if (event.key === getPracticeFilterStorageKey() || event.key === null) {
-    applyPracticeFilter(readPracticeFilterValue());
-  }
-
-  if (
-    event.key === null
-    || String(event.key ?? '').startsWith(LEARNING_PATH_COMPLETION_STORAGE_KEY_PREFIX)
-    || event.key === getLearningPathCompletionStorageKey()
-  ) {
-    if (learningPathPage) {
-      syncLearningPathState();
-    }
-
-    updateLearningPathLandingCards();
-  }
-
-  if (event.key === getLearningPathFilterStorageKey() || event.key === null) {
-    if (learningPathPage) {
-      syncLearningPathState();
-    }
+  if (event.key === getPracticeFilterKey() || event.key === null) {
+    renderPracticeFilter(loadPracticeFilter());
   }
 
   if (event.key === POMODORO_TIMER_STORAGE_KEY) {
     syncPomodoroTimer();
+  }
+
+  if (event.key === getConceptDagSelectionKey() || event.key === null) {
+    if (conceptDagPage) {
+      syncConceptDagSelection();
+    }
   }
 });
 window.addEventListener('pageshow', syncSubjectNavigation);
 window.addEventListener('pageshow', syncThemePreference);
 window.addEventListener('pageshow', syncPomodoroTimer);
 window.addEventListener('pageshow', syncPracticeCompletionState);
-window.addEventListener('pageshow', syncLearningPathState);
-window.addEventListener('pageshow', updateLearningPathLandingCards);
+window.addEventListener('pageshow', syncConceptDagSelection);
 window.addEventListener('pageshow', initFormulaSliderDemo);
 window.addEventListener('pageshow', initMathInteractiveVisuals);
+window.addEventListener('pageshow', initLandingHeroParallax);
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) {
     syncPomodoroTimer();

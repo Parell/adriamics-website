@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://adriamics.com/notes/">
-    <img src="assets\adriamics-logo.png" alt="Adriamics" width="480" />
+    <img src="assets\adriamics-logo.webp" alt="Adriamics" width="480" />
   </a>
 </p>
 

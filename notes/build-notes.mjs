@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
-const learningPathsPath = path.join(notesRoot, 'source', 'paths.json');
+const conceptDagPath = path.join(notesRoot, 'source', 'paths.json');
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
@@ -61,6 +61,10 @@ function escapeHtml(text) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
+}
+
+function serializeJsonForScript(value) {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
 }
 
 function escapeRegExp(text) {
@@ -205,6 +209,10 @@ function buildGithubBlobUrl(relativePath) {
   return `${githubRepoUrl}/blob/${githubRepoBranch}/${toPosix(relativePath)}`;
 }
 
+function buildContributeIssueUrl(relativeSourcePath, title) {
+  return `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
+}
+
 function buildGithubBlameUrl(sourceUrl) {
   return String(sourceUrl ?? '').replace('/blob/', '/blame/');
 }
@@ -253,7 +261,15 @@ function renderContributorList(contributors) {
   return `<div class="viewer-contributors-block"><p class="viewer-contributors__label">Contributors</p><ul class="viewer-contributors">${contributorItems}</ul></div>`;
 }
 
-function getNoteRoutePath(notePath) {
+function getSourceMetadata(relativeSourcePath) {
+  return {
+    sourceUrl: buildGithubBlobUrl(relativeSourcePath),
+    lastModifiedDate: getBlameLastModifiedDate(relativeSourcePath),
+    contributorsHtml: renderContributorList(getShortlogContributors(relativeSourcePath)),
+  };
+}
+
+function getSubjectRoutePath(notePath) {
   const normalizedPath = toPosix(path.dirname(notePath)).replace(/^notes\//, '');
 
   if (normalizedPath.startsWith('source/')) {
@@ -385,28 +401,112 @@ function getShortlogContributors(relativeSourcePath) {
   return contributors;
 }
 
-function getNoteOutputDir(notePath) {
-  return path.join(notesRoot, getNoteRoutePath(notePath));
+function getSubjectOutputDir(notePath) {
+  return path.join(notesRoot, getSubjectRoutePath(notePath));
 }
 
 function getPracticeOutputDir(notePath) {
-  return path.join(getNoteOutputDir(notePath), 'practice');
+  return path.join(getSubjectOutputDir(notePath), 'practice');
 }
 
 function getPracticeUrl(notePath) {
   return `${getNoteUrl(notePath)}practice/`;
 }
 
-function getLearningPathUrl(slug) {
-  return `/notes/paths/${slug}/`;
+function getConceptNodeAnchorId(nodeId) {
+  const normalized = String(nodeId ?? '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
+  return `concept-${normalized || 'node'}`;
 }
 
-function getLearningPathOutputDir(slug) {
-  return path.join(notesRoot, 'paths', slug);
+function toTitleCase(text) {
+  return String(text ?? '')
+    .replace(/[_-]+/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim()
+    .replace(/\b\w/g, (match) => match.toUpperCase());
 }
 
-function getLearningPathsIndexOutputDir() {
-  return path.join(notesRoot, 'paths');
+function getConceptDomainFromId(nodeId) {
+  const normalizedId = String(nodeId ?? '').trim();
+  const separatorIndex = normalizedId.indexOf('.');
+
+  if (separatorIndex < 0) {
+    return '';
+  }
+
+  return normalizedId.slice(0, separatorIndex).trim();
+}
+
+function getConceptNoteUrlFromId(nodeId) {
+  const normalizedId = String(nodeId ?? '').trim();
+  const separatorIndex = normalizedId.indexOf('.');
+
+  if (separatorIndex < 0) {
+    return '';
+  }
+
+  const domain = normalizedId.slice(0, separatorIndex).trim();
+  const slug = normalizedId.slice(separatorIndex + 1).trim();
+
+  if (!domain || !slug) {
+    return '';
+  }
+
+  return `/notes/subjects/${domain}/${slug}/`;
+}
+
+function loadConceptDagNode(entry, nodeId, index) {
+  if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
+    throw new Error(`Concept DAG node "${nodeId || index + 1}" must be an object.`);
+  }
+
+  const title = String(entry.title ?? '').trim();
+  const requires = entry.requires && typeof entry.requires === 'object' && !Array.isArray(entry.requires)
+    ? entry.requires
+    : {};
+  const hard = Array.isArray(requires.hard) ? requires.hard.map((item) => String(item ?? '').trim()).filter(Boolean) : [];
+  const soft = Array.isArray(requires.soft) ? requires.soft.map((item) => String(item ?? '').trim()).filter(Boolean) : [];
+
+  return {
+    id: nodeId,
+    title,
+    requires: {
+      hard,
+      soft,
+    },
+  };
+}
+
+async function loadConceptDag() {
+  const conceptDagData = JSON.parse(await fs.readFile(conceptDagPath, 'utf8'));
+
+  if (!conceptDagData || typeof conceptDagData !== 'object' || Array.isArray(conceptDagData)) {
+    throw new Error('Could not load concept DAG.');
+  }
+
+  const nodesObject = conceptDagData.nodes;
+
+  if (!nodesObject || typeof nodesObject !== 'object' || Array.isArray(nodesObject)) {
+    throw new Error('Concept DAG must include a nodes object.');
+  }
+
+  const nodes = Object.entries(nodesObject).map(([nodeId, entry], index) => loadConceptDagNode(entry, nodeId, index));
+  const nodeIds = new Set(nodes.map((node) => node.id));
+
+  for (const node of nodes) {
+    for (const dependencyId of [...node.requires.hard, ...node.requires.soft]) {
+      if (!nodeIds.has(dependencyId)) {
+        throw new Error(`Concept DAG node "${node.id}" references missing prerequisite "${dependencyId}".`);
+      }
+    }
+  }
+
+  return {
+    version: conceptDagData.version ?? 1,
+    id: String(conceptDagData.id ?? '').trim(),
+    description: String(conceptDagData.description ?? '').trim(),
+    nodes,
+  };
 }
 
 function parsePracticeProblemId(id, sourcePath, problemIndex) {
@@ -1187,7 +1287,7 @@ function containsPagePath(node, pagePath) {
 }
 
 function getNoteUrl(notePath) {
-  return `/notes/${getNoteRoutePath(notePath)}/`;
+  return `/notes/${getSubjectRoutePath(notePath)}/`;
 }
 
 function renderSubjectLinks(structures, activeStructureId = null) {
@@ -1398,6 +1498,7 @@ function renderNotesPageDocument({
   floatingActionsHtml = '',
   stylesheetHref = '/notes/notes.css',
   scriptHref = '/notes/notes.js',
+  headHtml = '',
   extraHead = '',
 }) {
   const themeBootstrapScript = `<script>
@@ -1424,6 +1525,7 @@ function renderNotesPageDocument({
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  ${headHtml}
   ${themeBootstrapScript}
   <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
   ${extraHead}
@@ -1565,8 +1667,8 @@ function buildNoteHtml({
         </div>
       </div>
       <article class="markdown-body" id="note-content">
-        ${tocHtml}
         ${beforeBodyHtml}
+        ${tocHtml}
         ${bodyHtml}
         ${afterBodyHtml}
       </article>
@@ -1602,8 +1704,151 @@ function buildNoteHtml({
   });
 }
 
-function buildLandingHtml(structures, assetVersions, paths) {
-  const learningPathCardsHtml = buildLearningPathsIndexHtml(paths);
+function buildConceptResourceLink(label, href, className = '') {
+  if (!href) {
+    return '';
+  }
+
+  return `<a class="notes-action-chip${className ? ` ${className}` : ''}" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
+}
+
+function buildConceptDependencyLinks(node, nodesById, dependencyIds, label) {
+  if (!dependencyIds.length) {
+    return '';
+  }
+
+  const links = dependencyIds
+    .map((dependencyId) => nodesById.get(dependencyId))
+    .filter(Boolean)
+    .map((dependencyNode) => buildConceptResourceLink(
+      dependencyNode.title,
+      `#${getConceptNodeAnchorId(dependencyNode.id)}`,
+      'notes-action-chip--practice',
+    ))
+    .join('');
+
+  return `<div class="learning-path-card__prereqs concept-node__links">
+      <strong>${escapeHtml(label)}:</strong> ${links}
+    </div>`;
+}
+
+function buildConceptResourceLinks(node, nodesById, options = {}) {
+  const includeDependencies = options.includeDependencies !== false;
+  const dependencyLinks = includeDependencies ? [
+    buildConceptDependencyLinks(node, nodesById, node.requires.hard, 'Hard requires'),
+    buildConceptDependencyLinks(node, nodesById, node.requires.soft, 'Soft requires'),
+  ].filter(Boolean) : [];
+
+  return dependencyLinks.join('');
+}
+
+function buildConceptCard(node, nodesById) {
+  const prereqCount = node.requires.hard.length + node.requires.soft.length;
+  const anchorId = getConceptNodeAnchorId(node.id);
+  const resourceLinksHtml = buildConceptResourceLinks(node, nodesById);
+  const levelHtml = node.level ? `<span class="learning-path-card__level">${escapeHtml(node.level)}</span>` : '';
+  const domainLabel = getConceptDomainFromId(node.id);
+
+  return `<article class="learning-path-card panel concept-node-card" id="${escapeHtml(anchorId)}" data-concept-node data-concept-node-id="${escapeHtml(node.id)}">
+    <div class="learning-path-card__head">
+      <div>
+        <p class="section-label">${escapeHtml(toTitleCase(domainLabel))}</p>
+        <h2 class="learning-path-card__title">${escapeHtml(node.title)}</h2>
+      </div>
+      ${levelHtml}
+    </div>
+    <p class="learning-path-card__meta">${escapeHtml(node.id)}${prereqCount ? ` · ${escapeHtml(String(prereqCount))} prerequisites` : ''}</p>
+    ${resourceLinksHtml}
+  </article>`;
+}
+
+function groupConceptNodesByDomain(nodes) {
+  const domains = [];
+  const grouped = new Map();
+
+  for (const node of nodes) {
+    const domain = getConceptDomainFromId(node.id);
+
+    if (!grouped.has(domain)) {
+      grouped.set(domain, []);
+      domains.push(domain);
+    }
+
+    grouped.get(domain).push(node);
+  }
+
+  return domains.map((domain) => ({
+    domain,
+    nodes: grouped.get(domain) ?? [],
+  }));
+}
+
+function getConceptDagDefaultSubjectId(nodes) {
+  const preferredIds = ['math.vectors', 'math.limits', 'math.algebra'];
+
+  for (const preferredId of preferredIds) {
+    if (nodes.some((node) => node.id === preferredId)) {
+      return preferredId;
+    }
+  }
+
+  return nodes[0]?.id ?? '';
+}
+
+function getConceptDagSubjectIdFromNotePath(notePath) {
+  const normalizedPath = toPosix(notePath).replace(/^notes\//, '');
+  const subjectMatch = normalizedPath.match(/^subjects\/([^/]+)\/([^/]+)\/\2$/);
+
+  if (subjectMatch) {
+    return `${subjectMatch[1]}.${subjectMatch[2]}`;
+  }
+
+  const sourceMatch = normalizedPath.match(/^source\/([^/]+)\/([^/]+)\/\2\.md$/);
+
+  if (sourceMatch) {
+    return `${sourceMatch[1]}.${sourceMatch[2]}`;
+  }
+
+  return '';
+}
+
+function buildConceptDagLandingHtml(dag) {
+  const groupedNodes = groupConceptNodesByDomain(dag.nodes);
+  const domainSummary = groupedNodes.map((group) => `<li><strong>${escapeHtml(toTitleCase(group.domain))}</strong> ${escapeHtml(String(group.nodes.length))} subjects</li>`).join('');
+  return `<section class="learning-path-index-hero panel concept-dag-hero concept-dag-domains" aria-label="Domains">
+      <h1>Subjects</h1>
+      <ul class="concept-dag-domains__list">
+        ${domainSummary}
+      </ul>
+    </section>`;
+}
+
+function buildConceptDagTreeHtml(dag, selectedSubjectId = '') {
+  const defaultSubjectId = selectedSubjectId || getConceptDagDefaultSubjectId(dag.nodes);
+  const serializedDag = serializeJsonForScript({
+    id: dag.id,
+    description: dag.description,
+    defaultSubjectId,
+    nodes: dag.nodes.map((node) => ({
+      id: node.id,
+      title: node.title,
+      requires: node.requires,
+    })),
+  });
+
+  return `<section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map" data-concept-dag-page data-concept-dag-id="${escapeHtml(dag.id || 'concept-dag')}" data-concept-dag-default-subject="${escapeHtml(defaultSubjectId)}">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree" data-concept-dag-tree></div>
+      <script type="application/json" data-concept-dag-data>${serializedDag}</script>
+    </section>`;
+}
+
+function buildLandingHtml(structures, assetVersions, dag) {
+  const conceptDagHtml = buildConceptDagLandingHtml(dag);
 
   return renderNotesPageDocument({
     title: 'Home | Adriamics',
@@ -1612,24 +1857,37 @@ function buildLandingHtml(structures, assetVersions, paths) {
     bodyClass: 'notes-landing-page',
     mainClass: 'shell',
     mainAriaLabel: 'Home',
+    headHtml: '<link rel="preload" as="image" href="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.webp" fetchpriority="high" />',
+    extraHead: `<style>
+      .notes-landing-page .landing-hero__image {
+        --landing-hero-parallax-x: 0px;
+        --landing-hero-parallax-y: 0px;
+        transform: translate3d(var(--landing-hero-parallax-x, 0px), var(--landing-hero-parallax-y, 0px), 0) scale(1.24);
+      }
+
+      .notes-landing-page .landing-hero__overlay--spaced {
+        word-spacing: 0.14em;
+      }
+
+      .notes-landing-page .landing-hero__tagline--lead {
+        margin-top: 1.75rem;
+      }
+    </style>`,
     mainHtml: `<section class="landing-hero panel" aria-label="Homepage hero">
       <div class="landing-hero__media">
-        <img class="landing-hero__image" src="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.jpg" alt="" aria-hidden="true" />
-        <div class="landing-hero__overlay">
+        <img class="landing-hero__image" src="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.webp" alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" />
+        <div class="landing-hero__overlay landing-hero__overlay--spaced">
           <h1>One should use common words to say uncommon things.</h1>
-          <p class="landing-hero__credit"><a class="text-underline-muted" href="https://commons.wikimedia.org/w/index.php?curid=156464890" target="_blank" rel="noreferrer">By Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, </a></p>
+          <p class="landing-hero__tagline landing-hero__tagline--lead"><strong>This project is <em>not</em> a textbook.</strong></p>
+          <p class="landing-hero__tagline">It is a <strong>structured study system</strong> designed to help you learn concepts in order, review <em>individual topics</em>, practice with <strong>focused problem sets</strong>, and follow guided prerequisite maps.</p>
+          <p class="landing-hero__tagline"><strong>No filler.</strong> <em>No empty history.</em> Just <strong>direct learning</strong>, rigorous reasoning, and <em>proof of understanding</em>.</p>
+          <p class="landing-hero__tagline">If education is truly <strong>universal</strong>, then anyone can become an expert. What matters is not where you start, but whether you can prove what you understand with <em>rigor</em>.</p>
+          <p class="landing-hero__credit"><a class="text-underline-muted" href="https://commons.wikimedia.org/w/index.php?curid=156464890" target="_blank" rel="noreferrer">Image by Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, </a></p>
         </div>
       </div>
     </section>
-    <section id="learning-paths" class="learning-paths-layout" aria-label="Learning paths">
-      <section class="learning-path-index-hero panel">
-        <p class="section-label">Learning Paths</p>
-        <h1>Learning Paths</h1>
-        <p class="learning-path-index-hero__lead">Study the existing notes in a guided order. Each path points to the source notes, practice sets, and review material already in the site.</p>
-      </section>
-      <section class="learning-path-grid" data-learning-path-card-list>
-        ${learningPathCardsHtml}
-      </section>
+    <section id="concept-dag" class="learning-paths-layout" aria-label="Domains">
+      ${conceptDagHtml}
     </section>`,
     structures,
     activeStructureId: homeStructureId,
@@ -2064,102 +2322,6 @@ async function loadManifest() {
   return manifest;
 }
 
-async function loadLearningPaths() {
-  const rawPaths = JSON.parse(await fs.readFile(learningPathsPath, 'utf8'));
-
-  if (!Array.isArray(rawPaths)) {
-    throw new Error('Could not load learning paths.');
-  }
-
-  return rawPaths.map((entry, index) => {
-    if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
-      throw new Error(`Learning path entry ${index + 1} must be an object.`);
-    }
-
-    const title = String(entry.title ?? '').trim();
-    const slug = String(entry.slug ?? '').trim();
-    const subject = String(entry.subject ?? '').trim();
-    const level = String(entry.level ?? '').trim();
-    const estimatedHours = Number(entry.estimated_hours);
-    const description = String(entry.description ?? '').trim();
-    const goal = String(entry.goal ?? '').trim();
-    const prerequisites = Array.isArray(entry.prerequisites)
-      ? entry.prerequisites.map((item) => String(item ?? '').trim()).filter(Boolean)
-      : [];
-    const steps = Array.isArray(entry.steps)
-      ? entry.steps.map((step, stepIndex) => {
-        if (!step || typeof step !== 'object' || Array.isArray(step)) {
-          throw new Error(`Learning path "${slug || title || index + 1}" step ${stepIndex + 1} must be an object.`);
-        }
-
-        return {
-          id: String(step.id ?? '').trim(),
-          title: String(step.title ?? '').trim(),
-          type: String(step.type ?? 'required').trim().toLowerCase() || 'required',
-          note: String(step.note ?? '').trim(),
-          practice: String(step.practice ?? '').trim(),
-          formula: String(step.formula ?? '').trim(),
-          mistakes: String(step.mistakes ?? '').trim(),
-          examTags: Array.isArray(step.exam_tags)
-            ? step.exam_tags.map((tag) => String(tag ?? '').trim()).filter(Boolean)
-            : [],
-        };
-      })
-      : [];
-
-    if (!title || !slug || !subject || !level || !Number.isFinite(estimatedHours) || !description || !goal || !steps.length) {
-      throw new Error(`Learning path entry ${index + 1} is missing required fields.`);
-    }
-
-    return {
-      title,
-      slug,
-      subject,
-      level,
-      estimatedHours,
-      description,
-      goal,
-      prerequisites,
-      steps,
-    };
-  });
-}
-
-function normalizePathFilterTag(tag) {
-  const value = String(tag ?? '').trim().toLowerCase();
-
-  if (['exam i', 'exam 1', 'i', '1'].includes(value)) {
-    return 'exam-i';
-  }
-
-  if (['exam ii', 'exam 2', 'ii', '2'].includes(value)) {
-    return 'exam-ii';
-  }
-
-  if (['final', 'exam final'].includes(value)) {
-    return 'final';
-  }
-
-  return '';
-}
-
-function getLearningPathReviewFilter(step) {
-  const firstTag = Array.isArray(step.examTags) ? step.examTags[0] : '';
-  return normalizePathFilterTag(firstTag);
-}
-
-function stripUrlDecorations(href) {
-  return String(href ?? '').split('#')[0].split('?')[0];
-}
-
-function hasAvailablePathResource(href, availableUrls) {
-  if (!href) {
-    return false;
-  }
-
-  return availableUrls.has(stripUrlDecorations(href));
-}
-
 function renderLearningPathResourceLink(label, href, className = '') {
   return `<a class="notes-action-chip${className ? ` ${className}` : ''}" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
 }
@@ -2479,7 +2641,7 @@ async function loadPracticeProblems(notes) {
 
 async function removeStaleGeneratedPages(notes, practiceByNotePath) {
   const expectedOutputDirs = new Set([
-    ...notes.map((note) => getNoteOutputDir(note.path)),
+    ...notes.map((note) => getSubjectOutputDir(note.path)),
     ...[...practiceByNotePath.values()].map((practice) => getPracticeOutputDir(practice.note.path)),
   ]);
 
@@ -2503,28 +2665,6 @@ async function removeStaleGeneratedPages(notes, practiceByNotePath) {
   await visit(path.join(notesRoot, 'subjects'));
 }
 
-async function removeStaleLearningPathPages(paths) {
-  const expectedSlugs = new Set(paths.map((entry) => entry.slug));
-  const outputRoot = getLearningPathsIndexOutputDir();
-
-  if (!(await exists(outputRoot))) {
-    return;
-  }
-
-  const indexPath = path.join(outputRoot, 'index.html');
-  if (await exists(indexPath)) {
-    await fs.rm(indexPath, { force: true });
-  }
-
-  const entries = await fs.readdir(outputRoot, { withFileTypes: true });
-
-  await Promise.all(entries
-    .filter((entry) => entry.isDirectory() && !expectedSlugs.has(entry.name))
-    .map(async (entry) => {
-      await fs.rm(path.join(outputRoot, entry.name), { recursive: true, force: true });
-    }));
-}
-
 async function exists(filePath) {
   try {
     await fs.access(filePath);
@@ -2534,7 +2674,7 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, practice = null, widgetRegistry = []) {
+async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null, widgetRegistry = []) {
   const sourcePath = noteDocument.sourcePath;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const title = note.title;
@@ -2542,17 +2682,17 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   const summary = getSummary(bodyForDisplay) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
-  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
-  const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
-  const lastModifiedDate = getBlameLastModifiedDate(relativeSourcePath);
-  const contributorsHtml = renderContributorList(getShortlogContributors(relativeSourcePath));
+  const editUrl = buildContributeIssueUrl(relativeSourcePath, title);
+  const { sourceUrl, lastModifiedDate, contributorsHtml } = getSourceMetadata(relativeSourcePath);
+  const conceptDagSubjectId = getConceptDagSubjectIdFromNotePath(note.path);
+  const conceptDagHtml = conceptDag ? buildConceptDagTreeHtml(conceptDag, conceptDagSubjectId) : '';
   const resolvedBodyForDisplay = resolveWidgetIncludeMarkers(bodyForDisplay, widgetRegistry);
   const bodyHtml = renderBlocks(resolvedBodyForDisplay, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({
     title,
     description,
     bodyHtml,
-    beforeBodyHtml: '',
+    beforeBodyHtml: conceptDagHtml,
     afterBodyHtml: '',
     canonicalUrl,
     editUrl,
@@ -2563,10 +2703,10 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     structure: note.structure,
     notePath: note.path,
     practiceUrl: practice ? getPracticeUrl(note.path) : null,
-    outputDir: getNoteOutputDir(note.path),
+    outputDir: getSubjectOutputDir(note.path),
     assetVersions,
   });
-  const outputPath = path.join(getNoteOutputDir(note.path), 'index.html');
+  const outputPath = path.join(getSubjectOutputDir(note.path), 'index.html');
 
   await ensureDir(outputPath);
   await fs.writeFile(outputPath, pageHtml, 'utf8');
@@ -2586,10 +2726,8 @@ async function buildPracticePage(practice, structures, assetVersions) {
   const description = `${practice.problems.length} practice problem${practice.problems.length === 1 ? '' : 's'}`;
   const canonicalUrl = `${siteOrigin}${getPracticeUrl(note.path)}`;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
-  const editUrl = `https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
-  const sourceUrl = buildGithubBlobUrl(relativeSourcePath);
-  const lastModifiedDate = getBlameLastModifiedDate(relativeSourcePath);
-  const contributorsHtml = renderContributorList(getShortlogContributors(relativeSourcePath));
+  const editUrl = buildContributeIssueUrl(relativeSourcePath, title);
+  const { sourceUrl, lastModifiedDate, contributorsHtml } = getSourceMetadata(relativeSourcePath);
   const pageHtml = renderPracticePageHtml({
     title,
     description,
@@ -2639,7 +2777,7 @@ async function buildSearchIndex(entries) {
   await fs.writeFile(path.join(notesRoot, 'search-index.json'), json, 'utf8');
 }
 
-async function buildSitemap(noteUrls, practiceUrls, pathUrls) {
+async function buildSitemap(noteUrls, practiceUrls) {
   const urls = [
     `${siteOrigin}/`,
     `${siteOrigin}/energy-housing-policy/`,
@@ -2648,7 +2786,6 @@ async function buildSitemap(noteUrls, practiceUrls, pathUrls) {
     `${siteOrigin}/notes/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
-    ...pathUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
   ];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
@@ -2662,7 +2799,7 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 
 async function main() {
   const manifest = await loadManifest();
-  const learningPaths = await loadLearningPaths();
+  const conceptDag = await loadConceptDag();
   const notes = flattenNotes(manifest.structures);
   const assetVersions = {
     siteCss: await getAssetVersion(path.join(repoRoot, 'site.css')),
@@ -2673,13 +2810,13 @@ async function main() {
   await validateManifestCoverage(notes);
 
   const urls = notes.map((note) => getNoteUrl(note.path));
-  const noteUrlSet = new Set(urls);
-  const { noteDocuments, widgets: widgetRegistry } = await loadNoteDocuments(notes);
-  const practiceByNotePath = await loadPracticeProblems(notes);
+  const [{ noteDocuments, widgets: widgetRegistry }, practiceByNotePath] = await Promise.all([
+    loadNoteDocuments(notes),
+    loadPracticeProblems(notes),
+  ]);
   const practiceUrls = [];
   const searchEntries = [];
-  for (let index = 0; index < notes.length; index += 1) {
-    const note = notes[index];
+  for (const [index, note] of notes.entries()) {
     const practice = practiceByNotePath.get(note.path);
     const noteDocument = noteDocuments.get(note.path);
 
@@ -2687,7 +2824,7 @@ async function main() {
       throw new Error(`Missing loaded note content for ${note.path}.`);
     }
 
-    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, noteDocument, practice, widgetRegistry));
+    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, noteDocument, conceptDag, practice, widgetRegistry));
 
     if (practice) {
       const practicePage = await buildPracticePage(practice, manifest.structures, assetVersions);
@@ -2696,15 +2833,11 @@ async function main() {
   }
 
   await removeStaleGeneratedPages(notes, practiceByNotePath);
-  await removeStaleLearningPathPages(learningPaths);
-
-  const availablePracticeUrls = new Set(practiceUrls);
-  const pathUrls = await buildLearningPathPages(learningPaths, manifest.structures, assetVersions, noteUrlSet, availablePracticeUrls);
 
   await buildRootIndexPage(assetVersions.siteCss);
-  await buildLandingPage(manifest.structures, assetVersions, learningPaths);
+  await buildLandingPage(manifest.structures, assetVersions, conceptDag);
   await buildSearchIndex(searchEntries);
-  await buildSitemap(urls, practiceUrls, pathUrls);
+  await buildSitemap(urls, practiceUrls);
 }
 
 await main();

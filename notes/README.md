@@ -7,13 +7,13 @@
 <h1 align="center">The <b>Universal Education System</b></h1>
 
 UES Notes is a technical study library for math, physics, engineering and hopfully more.
-It is designed as a practical review workspace, with focused subject notes, practice pages, and guided learning paths.
+It is designed as a practical review workspace, with focused subject notes, practice pages, and prerequisite maps.
 
 ## What This Is
 
 This project is not a textbook.
 
-It is a structured study system designed to help you learn concepts in order, review individual topics, practice with focused problem sets, and follow guided learning paths.
+It is a structured study system designed to help you learn concepts in order, review individual topics, practice with focused problem sets, and follow prerequisite maps.
 
 No filler. No empty history. Just direct learning, rigorous reasoning, and proof of understanding.
 
@@ -27,7 +27,6 @@ The site is organized into four top-level areas:
 ```
 parell.github.io/
 ├── notes/
-│   ├── paths/      
 │   ├── source/     One place to update the structure of notes
 │   ├── subjects/   HTML generated using the power of a build script
 │   ├── index.html  The main site introduction
@@ -52,7 +51,7 @@ From the repository root:
 node build-notes.mjs
 ```
 
-That command regenerates the notes pages, practice pages, learning paths, search index, and sitemap.
+That command regenerates the notes pages, practice pages, concept maps, search index, and sitemap.
 
 ## Contributing
 
@@ -72,3 +71,10 @@ Good contributions are small and specific:
 <!-- - Reddit study/STEM communities, Professors/TAs, Find Student orgs -->
 - Add PhET simulations for gas laws, its under CC and about 175,Worked examples with Full answer key in notes Students trust resources that show process, not just formulas, beter labeling of variables in functions 
     - Do the ideal gas interactive one but have the heat added be changeable visually so that you can make a turbine a rocket engine or a car engine with the same simulator.
+- Offline mode
+- Download notes as PDF
+- Remove interactive wigets
+- Zero vectors need to be explained better
+- Social for twitter
+- Desmos based interactive pages
+- Prerequisite tree has an extra line monospace

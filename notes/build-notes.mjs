@@ -10,7 +10,7 @@ const __dirname = path.dirname(__filename);
 const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
-const conceptDagPath = path.join(notesRoot, 'source', 'paths.json');
+const conceptDagSourcePath = path.join(notesRoot, 'source', 'paths.json');
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
@@ -478,7 +478,7 @@ function loadConceptDagNode(entry, nodeId, index) {
 }
 
 async function loadConceptDag() {
-  const conceptDagData = JSON.parse(await fs.readFile(conceptDagPath, 'utf8'));
+  const conceptDagData = JSON.parse(await fs.readFile(conceptDagSourcePath, 'utf8'));
 
   if (!conceptDagData || typeof conceptDagData !== 'object' || Array.isArray(conceptDagData)) {
     throw new Error('Could not load concept DAG.');
@@ -1860,9 +1860,7 @@ function buildLandingHtml(structures, assetVersions, dag) {
     headHtml: '<link rel="preload" as="image" href="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.webp" fetchpriority="high" />',
     extraHead: `<style>
       .notes-landing-page .landing-hero__image {
-        --landing-hero-parallax-x: 0px;
-        --landing-hero-parallax-y: 0px;
-        transform: translate3d(var(--landing-hero-parallax-x, 0px), var(--landing-hero-parallax-y, 0px), 0) scale(1.24);
+        transform: scale(1.24);
       }
 
       .notes-landing-page .landing-hero__overlay--spaced {
@@ -1893,7 +1891,7 @@ function buildLandingHtml(structures, assetVersions, dag) {
     activeStructureId: homeStructureId,
     floatingActionsHtml: renderFloatingActions(''),
     stylesheetHref: `/notes/notes.css?v=${assetVersions.notesCss}`,
-    scriptHref: `/notes/notes.js?v=${assetVersions.notesJs}`,
+    scriptHref: `/notes/notes-home.js?v=${assetVersions.notesHomeJs}`,
   });
 }
 
@@ -2322,188 +2320,6 @@ async function loadManifest() {
   return manifest;
 }
 
-function renderLearningPathResourceLink(label, href, className = '') {
-  return `<a class="notes-action-chip${className ? ` ${className}` : ''}" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
-}
-
-function renderLearningPathResourceLinks(step, availableNoteUrls, availablePracticeUrls) {
-  const links = [];
-
-  if (hasAvailablePathResource(step.note, availableNoteUrls)) {
-    links.push(renderLearningPathResourceLink('Read notes', step.note));
-  }
-
-  if (hasAvailablePathResource(step.practice, availablePracticeUrls)) {
-    links.push(renderLearningPathResourceLink('Practice', step.practice, 'notes-action-chip--practice'));
-  }
-
-  if (step.formula && hasAvailablePathResource(step.formula, availableNoteUrls)) {
-    links.push(renderLearningPathResourceLink('Formula sheet', step.formula));
-  }
-
-  if (step.mistakes && hasAvailablePathResource(step.mistakes, availableNoteUrls)) {
-    links.push(renderLearningPathResourceLink('Common mistakes', step.mistakes));
-  }
-
-  const reviewFilter = getLearningPathReviewFilter(step);
-  if (reviewFilter && hasAvailablePathResource(step.practice, availablePracticeUrls)) {
-    const reviewHref = `${step.practice}${step.practice.includes('?') ? '&' : '?'}filter=${encodeURIComponent(reviewFilter)}`;
-    links.push(renderLearningPathResourceLink('Exam review', reviewHref, 'notes-action-chip--practice'));
-  }
-
-  return links.join('');
-}
-
-function renderPathStepMeta(step) {
-  const parts = [
-    step.type === 'optional' ? 'Optional' : 'Required',
-    ...(Array.isArray(step.examTags) && step.examTags.length ? [step.examTags.join(' · ')] : []),
-  ];
-
-  return parts.join(' · ');
-}
-
-function renderLearningPathStep(step, position, availableNoteUrls, availablePracticeUrls) {
-  const examTags = Array.isArray(step.examTags) ? step.examTags.map((tag) => normalizePathFilterTag(tag)).filter(Boolean) : [];
-  const dataExamTags = examTags.join(' ');
-  const orderLabel = String(position).padStart(2, '0');
-
-  return `<li class="learning-path-step-item">
-    <article class="practice-problem panel learning-path-step" data-learning-path-step data-step-id="${escapeHtml(step.id)}" data-step-type="${escapeHtml(step.type)}"${dataExamTags ? ` data-exam-tags="${escapeHtml(dataExamTags)}"` : ''}>
-      <div class="practice-problem__head">
-        <div>
-          <h2 class="practice-problem__title"><span class="practice-problem__number">Step ${escapeHtml(orderLabel)}</span><span class="practice-problem__title-text">${escapeHtml(step.title)}</span></h2>
-          <p class="practice-problem__meta">${escapeHtml(renderPathStepMeta(step))}</p>
-        </div>
-        <button type="button" class="practice-problem__complete-toggle" data-learning-path-step-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Done</span>
-        </button>
-      </div>
-      <div class="practice-problem__prompt markdown-body">
-        <p>Open the linked note first, then use the practice set and review links to work the step in sequence.</p>
-      </div>
-      <div class="practice-problem__actions">
-        <div class="practice-problem__action-links" aria-label="${escapeHtml(step.title)} resources">
-          ${renderLearningPathResourceLinks(step, availableNoteUrls, availablePracticeUrls)}
-        </div>
-      </div>
-    </article>
-  </li>`;
-}
-
-function buildLearningPathCard(pathEntry) {
-  const prereqs = pathEntry.prerequisites.length ? pathEntry.prerequisites.join(', ') : 'None';
-
-  return `<article class="learning-path-card panel" data-learning-path-card data-path-slug="${escapeHtml(pathEntry.slug)}" data-path-total-steps="${escapeHtml(String(pathEntry.steps.length))}">
-    <div class="learning-path-card__head">
-      <div>
-        <p class="section-label">${escapeHtml(pathEntry.subject)}</p>
-        <h2 class="learning-path-card__title">${escapeHtml(pathEntry.title)}</h2>
-      </div>
-      <span class="learning-path-card__level">${escapeHtml(pathEntry.level)}</span>
-    </div>
-    <p class="learning-path-card__meta">${escapeHtml(String(pathEntry.estimatedHours))} hours</p>
-    <p class="learning-path-card__description">${escapeHtml(pathEntry.description)}</p>
-    <p class="learning-path-card__prereqs"><strong>Prerequisites:</strong> ${escapeHtml(prereqs)}</p>
-    <div class="learning-path-card__footer">
-      <a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(getLearningPathUrl(pathEntry.slug))}" data-path-card-action data-notes-nav-item>Start</a>
-      <p class="learning-path-card__status" data-path-card-status>Not started</p>
-    </div>
-  </article>`;
-}
-
-function buildLearningPathsIndexHtml(paths) {
-  return paths.map((pathEntry) => buildLearningPathCard(pathEntry)).join('');
-}
-
-function buildLearningPathPageHtml(pathEntry, structures, assetVersions, availableNoteUrls, availablePracticeUrls) {
-  const canonicalUrl = `${siteOrigin}${getLearningPathUrl(pathEntry.slug)}`;
-  const fileTitle = `${pathEntry.title} | Adriamics`;
-  const outputDir = getLearningPathOutputDir(pathEntry.slug);
-  const prereqs = pathEntry.prerequisites.length
-    ? pathEntry.prerequisites.map((prerequisite) => `<li>${escapeHtml(prerequisite)}</li>`).join('')
-    : '<li>None listed</li>';
-  const stepsHtml = pathEntry.steps.map((step, index) => renderLearningPathStep(step, index + 1, availableNoteUrls, availablePracticeUrls)).join('');
-  const firstFilteredCount = pathEntry.steps.length;
-  const mainHtml = `
-    <section class="learning-path-hero panel" data-learning-path-page data-learning-path-slug="${escapeHtml(pathEntry.slug)}" data-learning-path-total-steps="${escapeHtml(String(pathEntry.steps.length))}">
-      <div class="learning-path-hero__head">
-        <div>
-          <p class="section-label">Learning Path</p>
-          <h1>${escapeHtml(pathEntry.title)}</h1>
-          <p class="learning-path-hero__meta">${escapeHtml(pathEntry.subject)} · ${escapeHtml(pathEntry.level)} · ${escapeHtml(String(pathEntry.estimatedHours))} hours</p>
-        </div>
-        <a class="notes-action-chip" href="/notes/#learning-paths" data-notes-nav-item>Back to learning paths</a>
-      </div>
-      <p class="learning-path-hero__goal"><strong>Goal:</strong> ${escapeHtml(pathEntry.goal)}</p>
-      <div class="learning-path-hero__grid">
-        <div>
-          <p class="learning-path-hero__label">Prerequisites</p>
-          <ul class="learning-path-hero__prereqs">${prereqs}</ul>
-        </div>
-        <div class="learning-path-hero__progress">
-          <p class="learning-path-hero__label">Progress</p>
-          <p class="learning-path-hero__status" data-learning-path-summary>Not started</p>
-        </div>
-      </div>
-      <section class="practice-progress" data-learning-path-progress role="progressbar" aria-label="Learning path progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(pathEntry.steps.length))} steps completed">
-        <div class="practice-progress__head">
-          <p class="section-label">Progress</p>
-          <p class="practice-progress__summary" data-learning-path-progress-summary>0 of ${escapeHtml(String(pathEntry.steps.length))} steps completed</p>
-        </div>
-        <div class="practice-progress__track" aria-hidden="true">
-          <div class="practice-progress__fill" data-learning-path-progress-fill></div>
-        </div>
-      </section>
-    </section>
-    <section class="practice-filters panel" data-learning-path-filters aria-label="Learning path filters">
-      <div class="practice-filters__bar" role="toolbar" aria-label="Learning path filters">
-        <button type="button" class="practice-filters__button is-active" data-learning-path-filter-button data-learning-path-filter="all" aria-pressed="true">All</button>
-        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="required" aria-pressed="false">Required</button>
-        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="optional" aria-pressed="false">Optional</button>
-        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="exam-i" aria-pressed="false">Exam I</button>
-        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="exam-ii" aria-pressed="false">Exam II</button>
-        <button type="button" class="practice-filters__button" data-learning-path-filter-button data-learning-path-filter="final" aria-pressed="false">Final</button>
-      </div>
-      <p class="practice-filters__summary" data-learning-path-filter-summary aria-live="polite">Showing all ${escapeHtml(String(firstFilteredCount))} steps</p>
-    </section>
-    <ol class="learning-path-steps" data-learning-path-step-list>
-      ${stepsHtml}
-    </ol>`;
-
-  return renderNotesPageDocument({
-    title: fileTitle,
-    description: pathEntry.description,
-    canonicalUrl,
-    bodyClass: 'learning-path-page',
-    mainClass: 'shell learning-paths-layout',
-    mainAriaLabel: 'Learning path',
-    mainHtml,
-    structures,
-    activeStructureId: 'paths',
-    floatingActionsHtml: renderFloatingActions(''),
-    stylesheetHref: `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`,
-    scriptHref: `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`,
-  });
-}
-
-async function buildLearningPathPages(paths, structures, assetVersions, availableNoteUrls, availablePracticeUrls) {
-  const pathUrls = [];
-
-  for (const pathEntry of paths) {
-    const outputDir = getLearningPathOutputDir(pathEntry.slug);
-    const outputPath = path.join(outputDir, 'index.html');
-    const pageHtml = buildLearningPathPageHtml(pathEntry, structures, assetVersions, availableNoteUrls, availablePracticeUrls);
-
-    await ensureDir(outputPath);
-    await fs.writeFile(outputPath, pageHtml, 'utf8');
-    pathUrls.push(getLearningPathUrl(pathEntry.slug));
-  }
-
-  return pathUrls;
-}
-
 function flattenNotes(structures) {
   const notes = [];
 
@@ -2805,6 +2621,7 @@ async function main() {
     siteCss: await getAssetVersion(path.join(repoRoot, 'site.css')),
     notesCss: await getAssetVersion(path.join(notesRoot, 'notes.css')),
     notesJs: await getAssetVersion(path.join(notesRoot, 'notes.js')),
+    notesHomeJs: await getAssetVersion(path.join(notesRoot, 'notes-home.js')),
   };
 
   await validateManifestCoverage(notes);

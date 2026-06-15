@@ -8,14 +8,14 @@ const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
 const noteContent = document.getElementById('note-content');
-const practicePage = document.querySelector('[data-practice-page]');
+const isPracticePage = document.querySelector('[data-practice-page]');
 const practiceFilterButtons = Array.from(document.querySelectorAll('[data-practice-filter-button]'));
 const practiceFilterSummary = document.querySelector('[data-practice-filter-summary]');
 const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
 const practiceLevelSections = Array.from(document.querySelectorAll('[data-practice-level]'));
 const practiceProblemCards = Array.from(document.querySelectorAll('[data-practice-problem]'));
-const conceptDagPage = document.querySelector('[data-concept-dag-page]');
+const isConceptDagPage = document.querySelector('[data-concept-dag-page]');
 const conceptDagTree = document.querySelector('[data-concept-dag-tree]');
 const conceptDagDataScript = document.querySelector('[data-concept-dag-data]');
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
@@ -46,8 +46,8 @@ let activeSearchTrigger = searchTriggers[0] ?? null;
 let activeTimerTrigger = timerTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
-let conceptDagState = null;
-let conceptDagSelectedSubjectId = '';
+let conceptDagModel = null;
+let selectedConceptDagSubjectId = '';
 let pomodoroTimerState = null;
 let pomodoroTimerIntervalId = null;
 let pomodoroTimerCompletionTimeoutId = null;
@@ -62,7 +62,7 @@ function getSessionStorage() {
   }
 }
 
-function readStoredValue(storageGetter, storageKey, fallbackValue, reader) {
+function readFromStorage(storageGetter, storageKey, fallbackValue, reader) {
   const storage = storageGetter();
 
   if (!storage || !storageKey) {
@@ -76,7 +76,7 @@ function readStoredValue(storageGetter, storageKey, fallbackValue, reader) {
   }
 }
 
-function writeStoredValue(storageGetter, storageKey, writer) {
+function writeToStorage(storageGetter, storageKey, writer) {
   const storage = storageGetter();
 
   if (!storage || !storageKey) {
@@ -92,7 +92,7 @@ function writeStoredValue(storageGetter, storageKey, writer) {
 }
 
 function readLastPagesBySubject() {
-  return readStoredValue(getSessionStorage, NOTES_SESSION_STORAGE_KEY, {}, (storage) => {
+  return readFromStorage(getSessionStorage, NOTES_SESSION_STORAGE_KEY, {}, (storage) => {
     const raw = storage.getItem(NOTES_SESSION_STORAGE_KEY);
 
     if (!raw) {
@@ -105,7 +105,7 @@ function readLastPagesBySubject() {
 }
 
 function writeLastPagesBySubject(state) {
-  writeStoredValue(getSessionStorage, NOTES_SESSION_STORAGE_KEY, (storage) => {
+  writeToStorage(getSessionStorage, NOTES_SESSION_STORAGE_KEY, (storage) => {
     storage.setItem(NOTES_SESSION_STORAGE_KEY, JSON.stringify(state));
   });
 }
@@ -124,7 +124,7 @@ function getScopedStorageKey(prefix, scope) {
 }
 
 function readStoredStringSet(storageKey, validate = null) {
-  return readStoredValue(getLocalStorage, storageKey, new Set(), (storage) => {
+  return readFromStorage(getLocalStorage, storageKey, new Set(), (storage) => {
     const raw = storage.getItem(storageKey);
 
     if (!raw) {
@@ -146,20 +146,20 @@ function readStoredStringSet(storageKey, validate = null) {
 }
 
 function writeStoredStringSet(storageKey, values) {
-  writeStoredValue(getLocalStorage, storageKey, (storage) => {
+  writeToStorage(getLocalStorage, storageKey, (storage) => {
     storage.setItem(storageKey, JSON.stringify(Array.from(values)));
   });
 }
 
 function readStoredString(storageKey, fallback = '') {
-  return readStoredValue(getLocalStorage, storageKey, fallback, (storage) => {
+  return readFromStorage(getLocalStorage, storageKey, fallback, (storage) => {
     const value = String(storage.getItem(storageKey) ?? '').trim();
     return value || fallback;
   });
 }
 
 function writeStoredString(storageKey, value) {
-  writeStoredValue(getLocalStorage, storageKey, (storage) => {
+  writeToStorage(getLocalStorage, storageKey, (storage) => {
     storage.setItem(storageKey, String(value ?? ''));
   });
 }
@@ -241,30 +241,30 @@ function getThemeToggleAriaLabel(isSepia) {
 }
 
 function writeThemePreference(isSepia) {
-  writeStoredValue(getLocalStorage, NOTES_THEME_STORAGE_KEY, (storage) => {
+  writeToStorage(getLocalStorage, NOTES_THEME_STORAGE_KEY, (storage) => {
     storage.setItem(NOTES_THEME_STORAGE_KEY, isSepia ? 'light' : 'default');
   });
 }
 
-function getPracticeCompletionKey() {
-  return practicePage ? getScopedStorageKey(PRACTICE_COMPLETION_STORAGE_KEY_PREFIX, window.location.pathname) : null;
+function getPracticeCompletionStorageKey() {
+  return isPracticePage ? getScopedStorageKey(PRACTICE_COMPLETION_STORAGE_KEY_PREFIX, window.location.pathname) : null;
 }
 
 function loadPracticeCompletionIds() {
-  const storageKey = getPracticeCompletionKey();
+  const storageKey = getPracticeCompletionStorageKey();
   return readStoredStringSet(storageKey);
 }
 
 function savePracticeCompletionIds(ids) {
-  writeStoredStringSet(getPracticeCompletionKey(), ids);
+  writeStoredStringSet(getPracticeCompletionStorageKey(), ids);
 }
 
-function getPracticeFilterKey() {
-  return practicePage ? getScopedStorageKey(PRACTICE_FILTER_STORAGE_KEY_PREFIX, window.location.pathname) : null;
+function getPracticeFilterStorageKey() {
+  return isPracticePage ? getScopedStorageKey(PRACTICE_FILTER_STORAGE_KEY_PREFIX, window.location.pathname) : null;
 }
 
 function loadPracticeFilter() {
-  const storageKey = getPracticeFilterKey();
+  const storageKey = getPracticeFilterStorageKey();
 
   const normalized = readStoredString(storageKey, 'all').toLowerCase();
   return PRACTICE_FILTER_VALUES.has(normalized) ? normalized : 'all';
@@ -280,7 +280,7 @@ function getPracticeFilterFromUrl() {
 }
 
 function savePracticeFilter(value) {
-  writeStoredString(getPracticeFilterKey(), value);
+  writeStoredString(getPracticeFilterStorageKey(), value);
 }
 
 function getPracticeFilterLabel(value) {
@@ -356,7 +356,7 @@ function syncPracticeFilterButtons(value) {
 }
 
 function renderPracticeFilter(value) {
-  if (!practicePage) {
+  if (!isPracticePage) {
     return;
   }
 
@@ -402,7 +402,7 @@ function updatePracticeProgressUi(completedCount, totalCount) {
 }
 
 function renderPracticeCompletionState(completedIds) {
-  if (!practicePage) {
+  if (!isPracticePage) {
     return;
   }
 
@@ -423,7 +423,7 @@ function renderPracticeCompletionState(completedIds) {
 }
 
 function syncPracticeCompletionState() {
-  if (!practicePage) {
+  if (!isPracticePage) {
     return;
   }
 
@@ -432,7 +432,7 @@ function syncPracticeCompletionState() {
 }
 
 function savePracticeCompletionState() {
-  if (!practicePage) {
+  if (!isPracticePage) {
     return;
   }
 
@@ -456,12 +456,12 @@ function savePracticeCompletionState() {
 }
 
 function loadConceptDagState() {
-  if (!conceptDagPage || !conceptDagDataScript) {
+  if (!isConceptDagPage || !conceptDagDataScript) {
     return null;
   }
 
-  if (conceptDagState) {
-    return conceptDagState;
+  if (conceptDagModel) {
+    return conceptDagModel;
   }
 
   try {
@@ -497,7 +497,7 @@ function loadConceptDagState() {
       nodeOrder.set(id, index);
     });
 
-    conceptDagState = {
+    conceptDagModel = {
       id: String(parsed.id ?? 'concept-dag').trim(),
       description: String(parsed.description ?? '').trim(),
       defaultSubjectId: String(parsed.defaultSubjectId ?? orderedNodeIds[0] ?? '').trim(),
@@ -507,7 +507,7 @@ function loadConceptDagState() {
       nodeOrder,
     };
 
-    return conceptDagState;
+    return conceptDagModel;
   } catch {
     return null;
   }
@@ -524,31 +524,31 @@ function getConceptDagRequirements(node) {
   };
 }
 
-function getConceptDagSelectionScope() {
+function getConceptDagStorageScope() {
   const state = loadConceptDagState();
   const fallbackScope = String(window.location.pathname ?? '').trim();
   return String(state?.defaultSubjectId ?? fallbackScope ?? '').trim();
 }
 
-function getConceptDagSelectionKey() {
-  return getScopedStorageKey(CONCEPT_DAG_SELECTION_STORAGE_KEY + ':', getConceptDagSelectionScope());
+function getConceptDagStorageKey() {
+  return getScopedStorageKey(CONCEPT_DAG_SELECTION_STORAGE_KEY + ':', getConceptDagStorageScope());
 }
 
-function loadConceptDagSelection() {
+function getConceptDagSelection() {
   const state = loadConceptDagState();
 
   if (!state) {
     return '';
   }
 
-  const storageKey = getConceptDagSelectionKey();
+  const storageKey = getConceptDagStorageKey();
   const fallback = state.defaultSubjectId || state.orderedNodeIds[0] || '';
   const raw = readStoredString(storageKey, fallback);
   return state.nodesById.has(raw) ? raw : fallback;
 }
 
-function saveConceptDagSelection(subjectId) {
-  writeStoredString(getConceptDagSelectionKey(), subjectId);
+function setConceptDagSelection(subjectId) {
+  writeStoredString(getConceptDagStorageKey(), subjectId);
 }
 
 function collectConceptDagAncestors(selectedId, nodesById) {
@@ -732,8 +732,8 @@ function renderConceptDagTree() {
     return;
   }
 
-  const selectedId = conceptDagSelectedSubjectId && state.nodesById.has(conceptDagSelectedSubjectId)
-    ? conceptDagSelectedSubjectId
+  const selectedId = selectedConceptDagSubjectId && state.nodesById.has(selectedConceptDagSubjectId)
+    ? selectedConceptDagSubjectId
     : state.defaultSubjectId || state.orderedNodeIds[0] || '';
 
   if (!selectedId) {
@@ -772,15 +772,15 @@ function renderConceptDagTree() {
 function syncConceptDagSelection() {
   const state = loadConceptDagState();
 
-  if (!state || !conceptDagPage) {
+  if (!state || !isConceptDagPage) {
     return;
   }
 
-  conceptDagSelectedSubjectId = loadConceptDagSelection();
+  selectedConceptDagSubjectId = getConceptDagSelection();
 
-  if (!state.nodesById.has(conceptDagSelectedSubjectId)) {
-    conceptDagSelectedSubjectId = state.defaultSubjectId || state.orderedNodeIds[0] || '';
-    saveConceptDagSelection(conceptDagSelectedSubjectId);
+  if (!state.nodesById.has(selectedConceptDagSubjectId)) {
+    selectedConceptDagSubjectId = state.defaultSubjectId || state.orderedNodeIds[0] || '';
+    setConceptDagSelection(selectedConceptDagSubjectId);
   }
 
   renderConceptDagTree();
@@ -793,8 +793,8 @@ function selectConceptDagSubject(subjectId) {
     return;
   }
 
-  conceptDagSelectedSubjectId = subjectId;
-  saveConceptDagSelection(subjectId);
+  selectedConceptDagSubjectId = subjectId;
+  setConceptDagSelection(subjectId);
   renderConceptDagTree();
 }
 
@@ -2187,88 +2187,6 @@ function initMathInteractiveVisuals() {
     root.dataset.demoInitialized = 'true';
     rerender();
   });
-}
-
-function initLandingHeroParallax() {
-  const heroMedia = document.querySelector('.notes-landing-page .landing-hero__media');
-
-  if (!heroMedia || heroMedia.dataset.parallaxInitialized === 'true') {
-    return;
-  }
-
-  heroMedia.dataset.parallaxInitialized = 'true';
-  heroMedia.style.setProperty('--landing-hero-parallax-x', '0px');
-  heroMedia.style.setProperty('--landing-hero-parallax-y', '0px');
-
-  const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-
-  if (reducedMotionQuery.matches) {
-    return;
-  }
-
-  let rafId = 0;
-  let targetX = 0;
-  let targetY = 0;
-  let currentX = 0;
-  let currentY = 0;
-
-  const maxShift = 24;
-  const easing = 0.085;
-
-  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
-
-  const updateTransform = () => {
-    rafId = 0;
-    currentX += (targetX - currentX) * easing;
-    currentY += (targetY - currentY) * easing;
-
-    if (Math.abs(targetX - currentX) < 0.05 && Math.abs(targetY - currentY) < 0.05) {
-      currentX = targetX;
-      currentY = targetY;
-    } else {
-      rafId = window.requestAnimationFrame(updateTransform);
-    }
-
-    heroMedia.style.setProperty('--landing-hero-parallax-x', `${currentX.toFixed(2)}px`);
-    heroMedia.style.setProperty('--landing-hero-parallax-y', `${currentY.toFixed(2)}px`);
-  };
-
-  const scheduleUpdate = () => {
-    if (!rafId) {
-      rafId = window.requestAnimationFrame(updateTransform);
-    }
-  };
-
-  const setTargetFromPointer = (clientX, clientY) => {
-    const rect = heroMedia.getBoundingClientRect();
-
-    if (!rect.width || !rect.height) {
-      return;
-    }
-
-    const normalizedX = clamp(((clientX - rect.left) / rect.width) * 2 - 1, -1, 1);
-    const normalizedY = clamp(((clientY - rect.top) / rect.height) * 2 - 1, -1, 1);
-
-    targetX = (-normalizedX * maxShift);
-    targetY = (-normalizedY * (maxShift * 0.7));
-    scheduleUpdate();
-  };
-
-  const resetTarget = () => {
-    targetX = 0;
-    targetY = 0;
-    scheduleUpdate();
-  };
-
-  heroMedia.addEventListener('pointermove', (event) => {
-    setTargetFromPointer(event.clientX, event.clientY);
-  });
-
-  heroMedia.addEventListener('pointerleave', resetTarget);
-  heroMedia.addEventListener('pointercancel', resetTarget);
-  window.addEventListener('resize', resetTarget);
-  window.addEventListener('pageshow', resetTarget);
-  scheduleUpdate();
 }
 
 function renderArithmeticDemo(root) {
@@ -3895,7 +3813,6 @@ renderPlaceholder('Search note titles and note content.');
 revealQueryMatch();
 initFormulaSliderDemo();
 initMathInteractiveVisuals();
-initLandingHeroParallax();
 syncPracticeCompletionState();
 const practiceFilterFromUrl = getPracticeFilterFromUrl();
 const initialPracticeFilter = practiceFilterFromUrl ?? loadPracticeFilter();
@@ -3913,11 +3830,11 @@ window.addEventListener('storage', (event) => {
     syncThemePreference();
   }
 
-  if (event.key === getPracticeCompletionKey() || event.key === null) {
+  if (event.key === getPracticeCompletionStorageKey() || event.key === null) {
     syncPracticeCompletionState();
   }
 
-  if (event.key === getPracticeFilterKey() || event.key === null) {
+  if (event.key === getPracticeFilterStorageKey() || event.key === null) {
     renderPracticeFilter(loadPracticeFilter());
   }
 
@@ -3925,8 +3842,8 @@ window.addEventListener('storage', (event) => {
     syncPomodoroTimer();
   }
 
-  if (event.key === getConceptDagSelectionKey() || event.key === null) {
-    if (conceptDagPage) {
+  if (event.key === getConceptDagStorageKey() || event.key === null) {
+    if (isConceptDagPage) {
       syncConceptDagSelection();
     }
   }
@@ -3938,7 +3855,6 @@ window.addEventListener('pageshow', syncPracticeCompletionState);
 window.addEventListener('pageshow', syncConceptDagSelection);
 window.addEventListener('pageshow', initFormulaSliderDemo);
 window.addEventListener('pageshow', initMathInteractiveVisuals);
-window.addEventListener('pageshow', initLandingHeroParallax);
 document.addEventListener('visibilitychange', () => {
   if (!document.hidden) {
     syncPomodoroTimer();

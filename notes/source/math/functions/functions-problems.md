@@ -906,3 +906,55 @@ $$
 
 because $f$ is even, so the input to $g$ does not change when $x$ is replaced by $-x$. Thus $g \circ f$ is also even.
 :::
+
+<!--
+id: math-functions-51
+note: math-functions
+title: "Choose a Modeling Goal"
+skills: [Modeling goals, Functions]
+-->
+
+A model uses current sales data to estimate next month's demand. What is its main goal?
+
+:::solution
+Prediction: the model estimates future behavior from present information.
+:::
+
+<!--
+id: math-functions-52
+note: math-functions
+title: "Build a Linear Cost Model"
+skills: [Linear Models, Functions]
+-->
+
+A service charges a $25 registration fee plus $18 per lesson. Write the cost function and find the cost of 4 lessons.
+
+:::solution
+Let $n$ be the number of lessons. The model is $C(n)=25+18n$, so $C(4)=25+72=97$.
+:::
+
+<!--
+id: math-functions-53
+note: math-functions
+title: "Compute Model Error"
+skills: [Absolute error, Relative error]
+-->
+
+A model predicts $94$ when the true value is $100$. Find the absolute and relative errors.
+
+:::solution
+The absolute error is $|94-100|=6$. The relative error is $6/100=0.06$, or $6\%$.
+:::
+
+<!--
+id: math-functions-54
+note: math-functions
+title: "Write an Exponential Growth Model"
+skills: [Exponential Functions, Modeling]
+-->
+
+A culture starts with $600$ cells and doubles every hour. Write a function for the number of cells after $t$ hours and find the number after 5 hours.
+
+:::solution
+The model is $N(t)=600\cdot2^t$. Thus $N(5)=600\cdot32=19{,}200$ cells.
+:::

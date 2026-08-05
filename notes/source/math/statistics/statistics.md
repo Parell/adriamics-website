@@ -1,4 +1,16 @@
 # Statistics
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 ## 1. What statistics studies
 
 Statistics is the science of turning data into conclusions under uncertainty.
@@ -135,9 +147,6 @@ Z-scores are useful for comparing values across different scales.
 - Maximum
 
 This summary underlies the boxplot.
-
-<!-- widget:statistics -->
-
 ---
 
 ## 4. Probability essentials
@@ -699,14 +708,3 @@ $$
 - Check whether the method is for a mean, proportion, count, or association.
 - If the data are skewed, consider a transformation or a robust method.
 - If the conclusion depends on a model assumption, state that assumption explicitly.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

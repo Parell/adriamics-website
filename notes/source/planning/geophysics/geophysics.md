@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # Geophysics
 
 Geophysics applies physics to the Earth, from its interior structure to its gravity, magnetism, and surface processes.
@@ -19,14 +30,3 @@ Geophysics applies physics to the Earth, from its interior structure to its grav
 - Which Earth layer or process is being described?
 - What measurement gives the evidence?
 - How does the physics explain the geologic pattern?
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

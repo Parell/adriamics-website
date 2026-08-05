@@ -1,4 +1,4 @@
-<!--
+﻿<!--
 id: series-11
 note: math-series
 title: "Necessary Condition for Convergence"
@@ -234,7 +234,7 @@ Since
 
 $$
 \sum_{n=1}^{\infty}\frac{1}{n^2}
-$
+$$
 converges, the comparison test shows that
 
 $$
@@ -368,7 +368,7 @@ diverges, the given series also diverges.
 id: series-23
 note: math-series
 title: "Apply the Integral Test"
-skills: [Integral test]
+skills: [Advanced convergence test: integral test]
 -->
 
 Determine whether
@@ -539,7 +539,7 @@ $$
 id: series-27
 note: math-series
 title: "Differentiate a Power Series"
-skills: [Differentiation and integration, Power series]
+skills: [Termwise differentiation, Advanced: termwise integration, Power series]
 -->
 
 For $|x|<1$, find a power series for
@@ -753,7 +753,7 @@ $$
 id: series-35
 note: math-series
 title: "Use a Power Series to Sum a Series"
-skills: [Differentiation and integration, Power series]
+skills: [Termwise differentiation, Advanced: termwise integration, Power series]
 -->
 
 Evaluate
@@ -991,3 +991,120 @@ So the alternating series converges, but not absolutely.
 
 Therefore, it is conditionally convergent.
 :::
+
+<!--
+id: series-advanced-11
+note: math-series
+title: "Find a Radius of Convergence"
+skills: [Power series, Ratio test]
+-->
+
+Find the radius of convergence of
+
+$$
+\sum_{n=0}^{\infty}\frac{(x-2)^n}{3^n(n+1)}.
+$$
+
+:::solution
+The ratio test gives $|x-2|/3$, so convergence requires $|x-2|<3$. The radius is $R=3$; test the endpoints separately.
+:::
+
+<!--
+id: series-advanced-12
+note: math-series
+title: "Test Power-Series Endpoints"
+skills: [Endpoint testing, Alternating series]
+-->
+
+For the previous series, test the endpoints.
+
+:::solution
+At $x=5$, the terms become $1/(n+1)$ and diverge. At $x=-1$, they become $(-1)^n/(n+1)$ and converge by the alternating series test. The interval is $[-1,5)$.
+:::
+
+<!--
+id: series-advanced-13
+note: math-series
+title: "Write a Taylor Polynomial"
+skills: [Taylor polynomial, Derivatives]
+-->
+
+Find the degree-two Taylor polynomial for $f(x)=\ln x$ centered at $a=1$.
+
+:::solution
+Since $f(1)=0$, $f'(1)=1$, and $f''(1)=-1$,
+
+$$
+P_2(x)=(x-1)-\frac12(x-1)^2.
+$$
+:::
+
+<!--
+id: series-advanced-14
+note: math-series
+title: "Use a Taylor Approximation"
+skills: [Taylor approximation, Error reasoning]
+-->
+
+Use $1+x+x^2/2$ to approximate $e^{0.2}$ and state the next-term estimate.
+
+:::solution
+The approximation is $1+0.2+0.2^2/2=1.22$. The next term is $0.2^3/6\approx0.00133$, which is a rough local error scale, not an unconditional bound.
+:::
+
+<!--
+id: series-advanced-15
+note: math-series
+title: "Derive a Logarithm Series"
+skills: [Termwise integration, Geometric series]
+-->
+
+Starting with $1/(1-x)=\sum_{n=0}^{\infty}x^n$, derive a series for $\ln(1+x)$.
+
+:::solution
+Replace $x$ by $-x$ and integrate term by term:
+
+$$
+\ln(1+x)=\sum_{n=1}^{\infty}(-1)^{n+1}\frac{x^n}{n},\quad |x|<1.
+$$
+:::
+
+<!--
+id: series-advanced-16
+note: math-series
+title: "Match Power-Series Coefficients"
+skills: [Coefficient matching, Power series]
+-->
+
+If $\sum_{n=0}^{\infty}a_nx^n=e^x$, find $a_0$, $a_1$, and $a_2$.
+
+:::solution
+Comparing with $e^x=1+x+x^2/2!+\cdots$ gives $a_0=1$, $a_1=1$, and $a_2=1/2$.
+:::
+
+<!--
+id: series-advanced-17
+note: math-series
+title: "Identify Conditional Convergence"
+skills: [Absolute convergence, Conditional convergence]
+-->
+
+Classify $\sum_{n=1}^{\infty}(-1)^{n+1}/n$.
+
+:::solution
+It converges by the alternating series test, but its absolute series is harmonic and diverges. The convergence is conditional.
+:::
+
+<!--
+id: series-advanced-18
+note: math-series
+title: "Interpret a Fourier Preview"
+skills: [Fourier series, Modeling assumptions]
+-->
+
+What does the coefficient multiplying $\cos(nx)$ represent qualitatively?
+
+:::solution
+It measures the contribution of the cosine mode with frequency $n$ to the periodic signal. It is an amplitude determined by the function and interval, not itself a frequency or probability.
+:::
+

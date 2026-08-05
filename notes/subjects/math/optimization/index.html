@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Optimization | Adriamics</title>
+  <meta name="description" content="Optimization chooses the best feasible value of a function. It appears whenever a model must balance cost, energy, time, error, mass, risk, or performance. T..." />
+  <link rel="canonical" href="https://adriamics.com/notes/subjects/math/optimization/" />
+  <meta name="color-scheme" content="dark" />
+  <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  
+  <script>
+    (() => {
+      try {
+        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+
+        if (storedTheme === 'sepia' || storedTheme === 'light') {
+          document.documentElement.classList.add('notes-page--sepia');
+        }
+      } catch {
+        // Ignore storage access failures.
+      }
+    })();
+  </script>
+  <link rel="stylesheet" href="../../../notes.css?v=e5d4aa41f137" />
+  
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] },
+        macros: {
+          degree: '{^{\\circ}}',
+          arcsec: '\\operatorname{arcsec}'
+        }
+      },
+      svg: { fontCache: 'global' },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  
+  <script defer src="../../../notes.js?v=083386b534db"></script>
+</head>
+<body class="notes-page note-standalone-page" id="top">
+  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
+    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
+  </div>
+  <a class="skip-link" href="#content">Skip to content</a>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/optimization/practice/" data-notes-nav-item>Practice</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
+
+  <header class="shell notes-header">
+    <div class="notes-header__inner">
+      <aside class="notes-structures" aria-label="Guide structures">
+          <div class="notes-header__brand">
+            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__title">Universal Education <a class="notes-header__credit text-underline-muted" href="/">by Adriamics</a></p>
+          </div>
+          <ul class="subject-list">
+          <li>
+          <a href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          </li>
+          <li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics-i/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li>
+          <li>
+          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
+          </li>
+          <li>
+                <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>GitHub</a>
+          </li>
+          <li>
+                <a class="notes-theme-toggle" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" aria-label="Support" title="Support" data-notes-nav-item>Support</a>
+          </li>
+          </ul>
+        </aside>
+      <div class="notes-header__timer" aria-label="Pomodoro timer">
+    <p class="notes-header__eyebrow">Pomodoro</p>
+    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
+      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
+          <span class="notes-pomodoro__label">Focus</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
+          <span class="notes-pomodoro__label">Short break</span>
+        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
+          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
+          <span class="notes-pomodoro__label">Long break</span>
+        </button>
+    </div>
+    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
+  </div>
+    </div>
+  </header>
+
+  <main id="content" class="shell notes-layout" aria-label="Notes content">
+    
+    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Guides</p>
+      </div>
+      <nav aria-labelledby="guide-tree-title">
+        <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>Partial Differential Equations</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" aria-current="page" data-notes-nav-item>Optimization</a></li></ul>
+      </nav>
+    </aside>
+    <section class="notes-viewer panel">
+      <div class="viewer-head">
+        <div>
+          <h1>Optimization</h1>
+          <p class="viewer-meta"><a class="viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/optimization/optimization.md" target="_blank" rel="noreferrer">GitHub Changelog</a></p>
+          
+      </div>
+      <div class="viewer-head__actions">
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&amp;page_path=notes%2Fsource%2Fmath%2Foptimization%2Foptimization.md&amp;title=%5BContribute%5D%3A%20Optimization" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
+          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/optimization/practice/" data-notes-nav-item>Practice</a>
+        </div>
+      </div>
+      <article class="markdown-body" id="note-content">
+        <section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
+      <div class="concept-dag-tree-panel__head">
+        <div>
+          <p class="section-label">Prerequisites</p>
+        </div>
+      </div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__prefix" aria-hidden="true">│   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   │   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   │   │   │   </span><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/optimization/" data-notes-nav-item>Optimization</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__prefix concept-dag-tree__prefix--hidden" aria-hidden="true">│   │   │   │   │   │   </span><span class="concept-dag-tree__wrap" aria-hidden="true">└───┴───┴───┴───┴───┴───</span><a class="concept-dag-tree__node" href="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></div></div></div>
+    </section>
+        <nav class="notes-toc" aria-label="Table of contents">
+      <h2 class="notes-toc__title">Table of Contents</h2>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-unconstrained-optimization">1. Unconstrained optimization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-convexity">2. Convexity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-gradient-methods">3. Gradient methods</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-newton-and-quasi-newton-methods">4. Newton and quasi-Newton methods</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-constrained-optimization">5. Constrained optimization</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#6-linear-programming">6. Linear programming</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-quadratic-programming">7. Quadratic programming</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-multi-objective-optimization">8. Multi-objective optimization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-practical-workflow">9. Practical workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#checkpoint">Checkpoint</a></li></ol></li></ol></div>
+    </nav>
+        <p>Optimization chooses the best feasible value of a function. It appears whenever a model must balance cost, energy, time, error, mass, risk, or performance. The basic problem is</p>
+<div class="math-block">$$
+\min_{\mathbf{x}\in\mathcal{F}} f(\mathbf{x}),
+$$</div>
+<p>where \(f\) is the objective and \(\mathcal{F}\) is the feasible set defined by constraints. Maximization is minimization of \(-f\). The vector \(\mathbf{x}\) contains the decision variables.</p>
+<p>This module uses <a href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/">Multivariable Differential Calculus</a>, <a href="/notes/subjects/math/matrices/">Matrices</a>, <a href="/notes/subjects/math/eigenvalues/">Eigenvalues</a>, and <a href="/notes/subjects/math/numerical-methods/">Numerical Methods</a>.</p>
+<h2 id="1-unconstrained-optimization">1. Unconstrained optimization</h2>
+<p>For an interior local minimum of a differentiable function,</p>
+<div class="math-block">$$
+\nabla f(\mathbf{x}^*)=\mathbf{0}.
+$$</div>
+<p>This is necessary, not sufficient. The Hessian test classifies a stationary point:</p>
+<table><thead><tr><th>Hessian at \(\mathbf{x}^*\)</th><th>Conclusion</th></tr></thead><tbody><tr><td>\(\nabla^2 f\succ0\)</td><td>strict local minimum</td></tr><tr><td>\(\nabla^2 f\prec0\)</td><td>strict local maximum</td></tr><tr><td>indefinite</td><td>saddle point</td></tr><tr><td>semidefinite</td><td>test may be inconclusive</td></tr></tbody></table>
+<p>In one variable this reduces to \(f&#39;(x^<em>)=0\): if \(f&#39;&#39;(x^</em>)&gt;0\), the point is a local minimum. A global minimum must also be compared with boundary behavior and other candidates. A minimum is guaranteed on a compact feasible set when \(f\) is continuous.</p>
+<h2 id="2-convexity">2. Convexity</h2>
+<p>A set \(\mathcal{F}\) is convex if every line segment between two feasible points remains feasible:</p>
+<div class="math-block">$$
+\mathbf{x},\mathbf{y}\in\mathcal{F},\quad 0\le t\le1
+\implies t\mathbf{x}+(1-t)\mathbf{y}\in\mathcal{F}.
+$$</div>
+<p>A differentiable function is convex when</p>
+<div class="math-block">$$
+f(\mathbf{y})\ge f(\mathbf{x})+\nabla f(\mathbf{x})^{\mathsf T}(\mathbf{y}-\mathbf{x}).
+$$</div>
+<p>If it is twice differentiable, \(\nabla^2f(\mathbf{x})\succeq0\) everywhere is sufficient. Positive definiteness gives strict convexity. For a convex objective over a convex feasible set, every local minimum is global; therefore \(\nabla f(\mathbf{x}^*)=0\) is sufficient for an unconstrained optimum. Strict convexity gives at most one minimizer.</p>
+<p>The eigenvalues of the Hessian reveal curvature: the smallest eigenvalue is a lower curvature bound and the largest is an upper bound. A quadratic</p>
+<div class="math-block">$$
+f(\mathbf{x})=\tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}+\mathbf{c}^{\mathsf T}\mathbf{x}+d
+$$</div>
+<p>is convex exactly when the symmetric matrix \(Q\succeq0\).</p>
+<h2 id="3-gradient-methods">3. Gradient methods</h2>
+<p>The negative gradient is the direction of steepest local decrease. Gradient descent uses</p>
+<div class="math-block">$$
+\mathbf{x}_{k+1}=\mathbf{x}_k-\alpha_k\nabla f(\mathbf{x}_k),
+$$</div>
+<p>where \(\alpha_k&gt;0\) is a step size. A fixed step can be fast or unstable; backtracking line search starts with a trial step and reduces it until the sufficient-decrease condition</p>
+<div class="math-block">$$
+f(\mathbf{x}_k-\alpha\mathbf{g}_k)\le f(\mathbf{x}_k)-c\alpha\|\mathbf{g}_k\|^2
+$$</div>
+<p>holds, with \(0&lt;c&lt;1\). Stop when both \(\|\nabla f\|\) and the change in \(f\) are small. Poor scaling creates long zig-zag paths; preconditioning or rescaling variables helps.</p>
+<h2 id="4-newton-and-quasi-newton-methods">4. Newton and quasi-Newton methods</h2>
+<p>Newton&#39;s method minimizes the local quadratic model. With \(H_k=\nabla^2f(\mathbf{x}_k)\), solve</p>
+<div class="math-block">$$
+H_k\mathbf{p}_k=-\nabla f(\mathbf{x}_k),
+\qquad
+\mathbf{x}_{k+1}=\mathbf{x}_k+\alpha_k\mathbf{p}_k.
+$$</div>
+<p>Near a well-behaved solution, full Newton steps can converge quadratically. Computing and factorizing a Hessian is expensive, and an indefinite Hessian can produce an ascent direction, so line searches or trust regions are common.</p>
+<p>Quasi-Newton methods build an approximation \(B_k\approx(\nabla^2f)^{-1}\) from gradient changes, avoiding explicit second derivatives:</p>
+<div class="math-block">$$
+\mathbf{x}_{k+1}=\mathbf{x}_k-\alpha_kB_k\nabla f(\mathbf{x}_k).
+$$</div>
+<p>The BFGS update is a standard choice; limited-memory BFGS (L-BFGS) stores only a few vectors and works well for large problems. Newton is usually the fastest near a solution when its derivatives are affordable; gradient descent is simpler and cheaper per iteration.</p>
+<h2 id="5-constrained-optimization">5. Constrained optimization</h2>
+<p>Constraints may be equalities \(h_j(\mathbf{x})=0\), inequalities \(g_i(\mathbf{x})\le0\), or bounds such as \(\ell\le\mathbf{x}\le u\). For equality constraints, the Lagrangian is</p>
+<div class="math-block">$$
+\mathcal{L}(\mathbf{x},\boldsymbol\lambda)=f(\mathbf{x})+\boldsymbol\lambda^{\mathsf T}\mathbf{h}(\mathbf{x}).
+$$</div>
+<p>At a regular constrained optimum,</p>
+<div class="math-block">$$
+\nabla f(\mathbf{x}^*)+J_{\mathbf h}(\mathbf{x}^*)^{\mathsf T}\boldsymbol\lambda^*=0,
+\qquad \mathbf h(\mathbf{x}^*)=\mathbf0.
+$$</div>
+<p>For inequalities, the Karush–Kuhn–Tucker conditions add multipliers \(\boldsymbol\mu\ge0\):</p>
+<div class="math-block">$$
+\nabla f+J_{\mathbf h}^{\mathsf T}\boldsymbol\lambda+J_{\mathbf g}^{\mathsf T}\boldsymbol\mu=0,
+\quad \mathbf h=0,\quad \mathbf g\le0,\quad \mu_i g_i=0.
+$$</div>
+<p>The last condition is complementary slackness: an inactive constraint has zero multiplier. For convex problems with suitable constraint qualifications, KKT conditions are necessary and sufficient for global optimality.</p>
+<h2 id="6-linear-programming">6. Linear programming</h2>
+<p>A linear program has linear objective and constraints:</p>
+<div class="math-block">$$
+\min_{\mathbf{x}}\ \mathbf{c}^{\mathsf T}\mathbf{x}
+\quad\text{subject to}\quad A\mathbf{x}\le\mathbf{b},\quad \mathbf{x}\ge\mathbf0.
+$$</div>
+<p>Its feasible region is a polyhedron. If a finite optimum exists, at least one optimum occurs at a vertex, which motivates the simplex method. Interior-point methods move through the interior and are effective for large sparse problems. Linear programming models allocation, blending, routing, scheduling, and diet or portfolio constraints.</p>
+<h2 id="7-quadratic-programming">7. Quadratic programming</h2>
+<p>Quadratic programming uses a quadratic objective with linear constraints:</p>
+<div class="math-block">$$
+\min_{\mathbf{x}}\ \tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}+\mathbf{c}^{\mathsf T}\mathbf{x}
+\quad\text{subject to}\quad A\mathbf{x}\le\mathbf{b},\quad E\mathbf{x}=\mathbf{d}.
+$$</div>
+<p>When \(Q\succeq0\), this is a convex QP and KKT conditions characterize the global solution. Least squares with bounds, mean–variance portfolios, and model predictive control are common examples. If \(Q\) is indefinite, the problem may have multiple local minima and requires a nonconvex solver.</p>
+<h2 id="8-multi-objective-optimization">8. Multi-objective optimization</h2>
+<p>Real designs often optimize several objectives, such as low cost and low mass. Write</p>
+<div class="math-block">$$
+\min_{\mathbf{x}\in\mathcal F}\big(f_1(\mathbf{x}),\ldots,f_m(\mathbf{x})\big).
+$$</div>
+<p>A feasible point is <strong>Pareto optimal</strong> if no objective can be improved without worsening at least one other objective. The set of such solutions is the Pareto front. A practical scalarization is the weighted sum</p>
+<div class="math-block">$$
+\min_{\mathbf{x}\in\mathcal F}\sum_{i=1}^m w_i\,\widetilde f_i(\mathbf{x}),
+\qquad w_i\ge0,
+$$</div>
+<p>where normalized objectives \(\widetilde f_i\) prevent units or scale from silently determining the result. Varying the weights traces supported Pareto points; constraint or goal-programming formulations can recover tradeoffs that weighted sums miss. Always report the chosen weights, normalization, and the resulting tradeoff.</p>
+<h2 id="9-practical-workflow">9. Practical workflow</h2>
+<ol><li><p>Define variables, units, objective, constraints, and whether each quantity is to be minimized or maximized.</p></li><li><p>Check feasibility, scaling, convexity, differentiability, and whether a global solution is expected.</p></li><li><p>Choose a solver: LP/QP for their structured models; gradient, Newton, or quasi-Newton for smooth problems; a constrained method when feasibility must be maintained.</p></li><li><p>Verify the result using objective value, gradient or KKT residuals, constraint violations, bounds, and sensitivity to initial guesses and tolerances.</p></li><li><p>Check the model: an accurately solved optimization problem can still produce a poor decision if the objective, constraints, or data are wrong.</p></li></ol>
+<h3 id="checkpoint">Checkpoint</h3>
+<p>You are ready to apply these methods when you can distinguish local from global optimality, use a Hessian to recognize convexity, derive a KKT system, select a method for an LP or QP, and explain a Pareto tradeoff.</p>
+        
+      </article>
+    </section>
+  
+  </main>
+  <footer class="shell notes-footer">
+    <div class="notes-footer__inner">
+      <a href="/privacy-policy/">Privacy Policy</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/terms-of-service/">Terms of Service</a>
+      <span class="notes-footer__sep" aria-hidden="true">-</span>
+      <a href="/">Adriamics</a>
+    </div>
+  </footer>
+  <aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+    <div class="search-panel__card panel">
+      <div class="search-panel__head">
+        <div>
+          <p class="section-label">Search</p>
+          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
+        </div>
+        <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
+      </div>
+      <label class="search-panel__field">
+        <span class="sr-only">Search all notes</span>
+        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+      </label>
+      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <div class="search-results" id="search-results" role="list"></div>
+    </div>
+  </aside>
+  <aside class="timer-panel" id="timer-panel" role="dialog" aria-modal="true" aria-label="Timer" hidden>
+    <div class="timer-panel__card panel" tabindex="-1"></div>
+  </aside>
+</body>
+</html>

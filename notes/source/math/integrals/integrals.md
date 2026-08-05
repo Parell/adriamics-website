@@ -1,6 +1,10 @@
 ---
 # 1. What are Integrals
 
+> **What this assumes:** Functions, limits and continuity, and derivatives with their basic rules.
+>
+> **What this enables:** Series can use integration for convergence tests and term-by-term constructions. This note focuses on accumulation, antiderivatives, and definite integrals rather than series.
+
 An **integral** measures accumulation. In calculus, that accumulation is usually:
 
 - area under a curve
@@ -15,6 +19,17 @@ There are two main types:
 The central idea is that differentiation and integration are inverse operations.
 
 ---
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
 # 2 Indefinite integrals and antiderivatives
 
@@ -108,9 +123,6 @@ f_{\text{avg}} = \frac{1}{b-a}\int_a^b f(x)\,dx.
 $$
 
 This is a common interpretation: the integral is the total, and dividing by interval length gives the average height.
-
-<!-- widget:integrals -->
-
 ---
 
 # 3. The Fundamental Theorem of Calculus
@@ -784,13 +796,10 @@ If an integral looks:
 
 Integration becomes much easier once you classify the form correctly before doing any algebra.
 
-## Sources
+## What comes next
 
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+Series study infinite sums and their convergence. They build on the limit language from earlier notes and use derivatives and integrals as tools, but are a separate topic from finite-interval accumulation.
+
+## What this enables
+
+You can now model accumulation with antiderivatives, definite integrals, the Fundamental Theorem of Calculus, and numerical methods. Continue to **Series** for infinite sums; convergence tests will reuse limits and sometimes integrals.

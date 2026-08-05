@@ -1,5 +1,23 @@
 # Engineering Design
 
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Shigley et al., *Mechanical Engineering Design*
+- Leake and Borgerson, *Engineering Design Graphics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Nilsson and Riedel, *Electric Circuits*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 Engineering design is the process of turning a need into a product, system, part, or process that can be built, checked, used, maintained, and changed in a controlled way.
 
 A design is not just a CAD model. A complete engineering design explains:
@@ -2138,21 +2156,3 @@ A complete engineering design answers:
 If those questions are answered clearly, the design is much more likely to survive manufacturing, testing, service, and revision.
 
 ---
-
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Engineering Mechanics*
-- Shigley et al., *Mechanical Engineering Design*
-- Leake and Borgerson, *Engineering Design Graphics*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Montgomery, *Introduction to Statistical Quality Control*
-- Oppenheim and Willsky, *Signals and Systems*
-- Nise, *Control Systems Engineering*
-- Incropera et al., *Fundamentals of Heat and Mass Transfer*
-- Nilsson and Riedel, *Electric Circuits*
-- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
-- Law, *Simulation Modeling and Analysis*
-- Fraden, *Handbook of Modern Sensors*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

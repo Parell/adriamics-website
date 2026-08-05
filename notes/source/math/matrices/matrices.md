@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What a matrix is
 
 A **matrix** is a rectangular array of numbers, symbols, or expressions arranged in rows and columns.
@@ -307,9 +318,6 @@ Matrix powers are only defined for square matrices.
 If $A$ is a matrix and $x$ is a vector, then $Ax$ is a linear combination of the columns of $A$ weighted by the components of $x$.
 
 That viewpoint is often the fastest way to interpret $Ax=b$.
-
-<!-- widget:matrices -->
-
 ---
 
 # 6. Transpose and symmetry
@@ -706,110 +714,21 @@ If the null space contains only the zero vector, then $A$ has full column rank.
 
 ---
 
-# 12. Eigenvalues and eigenvectors
+# 12. Where eigenvalues fit
 
-For a square matrix $A$, a nonzero vector $v$ is an **eigenvector** if:
+Matrices are the foundation: dimensions, multiplication, row reduction, determinants,
+inverses, rank, null spaces, and subspaces provide the tools used by eigenvalue methods.
+The focused theory and computation belong in the [Eigenvalues note](../eigenvalues/eigenvalues.md).
 
-$$
-Av = \lambda v
-$$
+Use this compact recap only to connect the topics:
 
-for some scalar $\lambda$ called the **eigenvalue**.
-
-## Characteristic equation
-
-Eigenvalues satisfy:
-
-$$
-\det(A - \lambda I) = 0
-$$
-
-This is called the **characteristic equation**.
-
-## How to find eigenvalues
-
-1. Compute $A - \lambda I$.
-2. Compute $\det(A - \lambda I)$.
-3. Set the result equal to zero.
-4. Solve for $\lambda$.
-
-## How to find eigenvectors
-
-For each eigenvalue $\lambda$:
-
-1. Form $A - \lambda I$.
-2. Solve:
-
-$$
-(A - \lambda I)v = 0
-$$
-
-3. Any nonzero solution is an eigenvector.
-
-## Geometric interpretation
-
-Eigenvectors are directions that are preserved by the linear transformation.
-
-The transformation only scales or reverses them, rather than changing their direction.
-
-## Algebraic and geometric multiplicity
-
-- **Algebraic multiplicity**: multiplicity of an eigenvalue as a root of the characteristic polynomial
-- **Geometric multiplicity**: dimension of the eigenspace
-
-Always:
-
-$$
-1 \le \text{geometric multiplicity} \le \text{algebraic multiplicity}
-$$
-
----
-
-# 13. Diagonalization and matrix powers
-
-A matrix $A$ is **diagonalizable** if:
-
-$$
-A = PDP^{-1}
-$$
-
-where:
-
-- $D$ is diagonal
-- The columns of $P$ are eigenvectors of $A$
-- The diagonal entries of $D$ are the corresponding eigenvalues
-
-## Why diagonalization is useful
-
-Once diagonalized, powers become easy:
-
-$$
-A^k = PD^kP^{-1}
-$$
-
-Since $D$ is diagonal, $D^k$ is easy to compute by raising each diagonal entry to the $k$th power.
-
-## Diagonalization test
-
-A square matrix is diagonalizable if it has enough linearly independent eigenvectors to form a basis.
-
-In practice, this often means finding $n$ independent eigenvectors for an $n \times n$ matrix.
-
-## Symmetric matrices
-
-Real symmetric matrices have especially nice behavior:
-
-- Their eigenvalues are real
-- Eigenvectors corresponding to distinct eigenvalues are orthogonal
-- They are orthogonally diagonalizable
-
-For a symmetric matrix:
-
-$$
-A = QDQ^T
-$$
-
-where $Q$ is orthogonal.
+| Topic | Matrix-level statement | Full treatment |
+| --- | --- | --- |
+| Eigenpair | $Av=\lambda v$, with $v\ne0$ | [Eigenvalues](../eigenvalues/eigenvalues.md) |
+| Candidate eigenvalues | $\det(A-\lambda I)=0$ | [Characteristic equations](../eigenvalues/eigenvalues.md#2-characteristic-equation) |
+| Eigenspace | $\operatorname{Null}(A-\lambda I)$ | [Eigenspaces](../eigenvalues/eigenvalues.md#3-eigenvectors-and-eigenspaces) |
+| Diagonalization | $A=PDP^{-1}$ when there are enough independent eigenvectors | [Diagonalization](../eigenvalues/eigenvalues.md#6-diagonalization) |
+| Symmetric case | $A=QDQ^T$ with $Q$ orthogonal | [Spectral theorem](../eigenvalues/eigenvalues.md#7-special-matrix-classes) |
 
 ---
 
@@ -1024,26 +943,6 @@ $$
 \operatorname{rank}(A) + \operatorname{nullity}(A) = n
 $$
 
-## Eigenvalues
-
-$$
-Av = \lambda v
-$$
-
-$$
-\det(A - \lambda I) = 0
-$$
-
-## Diagonalization
-
-$$
-A = PDP^{-1}
-$$
-
-$$
-A^k = PD^kP^{-1}
-$$
-
 ## Orthogonality
 
 $$
@@ -1064,20 +963,7 @@ $$
 - Confusing row operations with column operations.
 - Dropping the order reversal in $(AB)^T = B^TA^T$.
 - Using $\det(A) \ne 0$ as a shortcut without confirming $A$ is square.
-- Assuming every matrix is diagonalizable.
-- Mixing up eigenvalues and eigenvectors.
 - Forgetting that $Ax=b$ can have zero, one, or infinitely many solutions.
 - Misreading pivots and free variables after row reduction.
 - Treating a singular matrix as invertible.
 - Forgetting to verify solutions by substitution or matrix multiplication.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

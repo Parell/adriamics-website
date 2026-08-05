@@ -1,3 +1,22 @@
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Nilsson and Riedel, *Electric Circuits*
+- Sedra and Smith, *Microelectronic Circuits*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- Leake and Borger, *Engineering Design Graphics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # Control Systems
 
 Control systems use feedback to make a process follow a desired output even when disturbances are present.
@@ -19,22 +38,3 @@ Control systems use feedback to make a process follow a desired output even when
 - Is the closed-loop system stable?
 - How quickly does the output settle?
 - What error remains after the transient response dies out?
-
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Engineering Mechanics*
-- Nilsson and Riedel, *Electric Circuits*
-- Sedra and Smith, *Microelectronic Circuits*
-- Oppenheim and Willsky, *Signals and Systems*
-- Nise, *Control Systems Engineering*
-- Incropera et al., *Fundamentals of Heat and Mass Transfer*
-- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Montgomery, *Introduction to Statistical Quality Control*
-- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
-- Law, *Simulation Modeling and Analysis*
-- Fraden, *Handbook of Modern Sensors*
-- Leake and Borger, *Engineering Design Graphics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

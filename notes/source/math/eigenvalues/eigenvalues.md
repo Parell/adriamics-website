@@ -1,4 +1,20 @@
 # Eigenvalues
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+This note assumes the matrix operations, determinants, row reduction, null spaces, and subspaces
+developed in the [Matrices note](../matrices/matrices.md). It focuses on eigenvalue theory,
+classification, and computation.
+
 # 1. Core idea
 
 An **eigenvector** of a square matrix $A$ is a nonzero vector $v$ whose direction is unchanged by the linear transformation defined by $A$.
@@ -29,9 +45,6 @@ Examples:
 - A stretch in the $x$-direction has eigenvectors on the coordinate axes.
 - A projection matrix has eigenvalue $1$ on the subspace preserved by the projection and eigenvalue $0$ on the directions collapsed.
 - A pure rotation in $\mathbb{R}^2$ usually has no real eigenvectors unless the angle is $0$ or $\pi$.
-
-<!-- widget:eigenvalues -->
-
 ---
 
 # 2. Characteristic equation
@@ -894,14 +907,3 @@ $$
 - Mixing up algebraic multiplicity and geometric multiplicity.
 - Ignoring trace and determinant checks after solving the characteristic equation.
 - Claiming $A = PDP^{-1}$ without putting eigenvectors in the columns of $P$ in the same order as the eigenvalues in $D$.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

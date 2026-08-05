@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # Astrophysics and Cosmology
 
 Astrophysics and cosmology study stars, galaxies, and the large-scale structure and evolution of the universe.
@@ -19,14 +30,3 @@ Astrophysics and cosmology study stars, galaxies, and the large-scale structure 
 - Is the question about an object or the whole universe?
 - What observation gives the evidence?
 - Which physical process explains the behavior?
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

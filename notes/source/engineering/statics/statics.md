@@ -1,3 +1,22 @@
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Nilsson and Riedel, *Electric Circuits*
+- Sedra and Smith, *Microelectronic Circuits*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- Leake and Borger, *Engineering Design Graphics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What statics studies
 
 Statics is the branch of mechanics that deals with bodies in equilibrium, meaning there is no net translation or rotation.
@@ -200,9 +219,6 @@ A free-body diagram, or FBD, is the most important tool in statics.
 Always label unknowns with symbols, not guessed directions.
 
 If the computed value is negative, the actual direction is opposite to the assumed direction.
-
-<!-- widget:free-body-diagrams -->
-
 ---
 
 # 6. Support reactions
@@ -614,22 +630,3 @@ If you are stuck, ask these questions:
 - Am I using the correct sign convention?
 
 Statics is usually not hard algebraically. The main difficulty is building the right model.
-
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Engineering Mechanics*
-- Nilsson and Riedel, *Electric Circuits*
-- Sedra and Smith, *Microelectronic Circuits*
-- Oppenheim and Willsky, *Signals and Systems*
-- Nise, *Control Systems Engineering*
-- Incropera et al., *Fundamentals of Heat and Mass Transfer*
-- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Montgomery, *Introduction to Statistical Quality Control*
-- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
-- Law, *Simulation Modeling and Analysis*
-- Fraden, *Handbook of Modern Sensors*
-- Leake and Borger, *Engineering Design Graphics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,12 +1,9 @@
 const TEXT_STREAM = {
   maxRows: 32,
   minLinesPerRow: 6,
-  minRows: 16,
-  rowHeight: 48,
-  url: "text-stream.txt",
 };
 
-const FALLBACK_TEXT_STREAM_LINES = [
+const TEXT_STREAM_LINES = [
   "systems over slogans",
   "physics informed software",
   "high signal, low ceremony",
@@ -40,25 +37,10 @@ function escapeHtml(value) {
     .replaceAll("'", "&#39;");
 }
 
-function parseStreamText(text) {
-  return text
-    .split(/\r?\n/)
-    .map((line) => line.trim())
-    .filter(Boolean);
-}
-
-let currentTextStreamLines = FALLBACK_TEXT_STREAM_LINES;
-let currentTextStreamRowCount = 0;
-let textStreamResizeFrame = null;
-
-function getTextStreamRowCount() {
-  return Math.min(TEXT_STREAM.maxRows, Math.max(TEXT_STREAM.minRows, Math.round(window.innerHeight / TEXT_STREAM.rowHeight)));
-}
-
 function renderTextStreamRow(rowIndex, linesPerRow) {
   const seed = rowIndex * linesPerRow;
   const items = Array.from({ length: linesPerRow }, (_, lineIndex) => {
-    const line = currentTextStreamLines[(seed + lineIndex) % currentTextStreamLines.length];
+    const line = TEXT_STREAM_LINES[(seed + lineIndex) % TEXT_STREAM_LINES.length];
     return `<span class="text-stream__line">${escapeHtml(line)}</span>`;
   });
 
@@ -75,50 +57,16 @@ function renderTextStreamRow(rowIndex, linesPerRow) {
   `;
 }
 
-function renderTextStream(lines = currentTextStreamLines) {
+function renderTextStream() {
   const container = $("#text-stream");
   if (!container) {
     return;
   }
 
-  const nextLines = lines.length > 0 ? lines : FALLBACK_TEXT_STREAM_LINES;
-  const rows = getTextStreamRowCount();
-  const sourceChanged = nextLines !== currentTextStreamLines;
-
-  currentTextStreamLines = nextLines;
-  if (!sourceChanged && rows === currentTextStreamRowCount) {
-    return;
-  }
-
-  currentTextStreamRowCount = rows;
-  const linesPerRow = Math.max(TEXT_STREAM.minLinesPerRow, Math.ceil(currentTextStreamLines.length / rows));
+  const rows = TEXT_STREAM.maxRows;
+  const linesPerRow = Math.max(TEXT_STREAM.minLinesPerRow, Math.ceil(TEXT_STREAM_LINES.length / rows));
 
   container.innerHTML = Array.from({ length: rows }, (_, rowIndex) => renderTextStreamRow(rowIndex, linesPerRow)).join("");
-}
-
-function scheduleTextStreamRender() {
-  if (textStreamResizeFrame !== null) {
-    return;
-  }
-
-  textStreamResizeFrame = window.requestAnimationFrame(() => {
-    textStreamResizeFrame = null;
-    renderTextStream();
-  });
-}
-
-async function loadTextStream() {
-  try {
-    const response = await fetch(TEXT_STREAM.url);
-    if (!response.ok) {
-      throw new Error(`Failed to load text stream: ${response.status}`);
-    }
-
-    const lines = parseStreamText(await response.text());
-    renderTextStream(lines);
-  } catch {
-    renderTextStream(FALLBACK_TEXT_STREAM_LINES);
-  }
 }
 
 const copyEmailResetTimers = new WeakMap();
@@ -205,6 +153,4 @@ document.addEventListener("click", async (event) => {
   }
 });
 
-window.addEventListener("resize", scheduleTextStreamRender);
-
-void loadTextStream();
+renderTextStream();

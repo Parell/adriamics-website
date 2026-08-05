@@ -1,12 +1,9 @@
 :root {
-  --bg: #030507;
-  --panel: rgba(11, 12, 14, 0.94);
+  --bg: rgba(17, 17, 17, 0.98);
   --line-strong: rgba(255, 255, 255, 0.22);
   --text: #e7e7e4;
   --muted: #b8b8b3;
   --soft: #85857f;
-  --teal-soft: rgba(255, 255, 255, 0.08);
-  --gold-soft: rgba(255, 255, 255, 0.06);
   --footer-link: #dde1e6;
   --footer-sep: rgba(255, 255, 255, 0.3);
   --shadow: 0 30px 80px rgba(0, 0, 0, 0.55);
@@ -92,7 +89,7 @@ button {
   top: 0;
   z-index: 30;
   border-bottom: 1px solid var(--line-strong);
-  background: rgba(4, 5, 6, 0.84);
+  background: rgba(0, 0, 0, 0.98);
   backdrop-filter: blur(8px);
 }
 
@@ -179,7 +176,7 @@ button {
 .tag-list li {
   display: inline-flex;
   align-items: center;
-  min-height: 26px;
+  height: 26px;
   padding: 0.18rem 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--muted);
@@ -251,8 +248,7 @@ button {
 body.home-page {
   --footer-link: #e5e8ec;
   --footer-sep: rgba(255, 255, 255, 0.22);
-  background:
-    linear-gradient(180deg, #0c1116 0%, #050607 50%, #020304 100%);
+  background: #000000;
 }
 
 body.home-page main {
@@ -543,26 +539,8 @@ body.home-page .project-status {
   padding: 0.35rem 0.6rem;
   border: 1px solid transparent;
   white-space: nowrap;
-}
-
-body.home-page .project-status[data-status="open source"] {
-  color: #eff2f5;
-  border-color: rgba(255, 255, 255, 0.28);
-  background: var(--teal-soft);
-}
-
-body.home-page .project-status[data-status="closed source"] {
-  color: #d7dbe0;
-  border-color: rgba(255, 255, 255, 0.22);
-  background: var(--gold-soft);
-}
-
-body.home-page .project-status[data-status="internal"] {
   border-color: rgba(255, 255, 255, 0.18);
   background: rgba(255, 255, 255, 0.06);
-}
-
-body.home-page .project-status[data-status="internal"] {
   color: #d0d5db;
 }
 
@@ -571,27 +549,6 @@ body.home-page .project-media {
   aspect-ratio: 16 / 9;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   overflow: hidden;
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.12), transparent 36%),
-    radial-gradient(circle at 82% 22%, rgba(255, 255, 255, 0.08), transparent 24%),
-    linear-gradient(135deg, rgba(255, 255, 255, 0.03), transparent 45%),
-    #08090b;
-}
-
-body.home-page .project-media:not(.has-image)[data-tone="teal"]::before,
-body.home-page .project-media:not(.has-image)[data-tone="violet"]::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-  background-size: 24px 24px;
-  opacity: 0.42;
-}
-
-body.home-page .project-media.has-image {
-  background: #08090b;
 }
 
 body.home-page .project-media__image {
@@ -600,27 +557,6 @@ body.home-page .project-media__image {
   display: block;
   object-fit: cover;
   object-position: center;
-}
-
-body.home-page .project-media.has-image::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(5, 6, 7, 0.01), rgba(8, 9, 11, 0.12) 55%, rgba(5, 6, 7, 0.58));
-  pointer-events: none;
-}
-
-body.home-page .project-media::after {
-  content: attr(data-caption);
-  position: absolute;
-  left: 1rem;
-  bottom: 0.9rem;
-  right: 1rem;
-  font-size: 0.8rem;
-  color: rgba(232, 238, 245, 0.82);
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.75);
 }
 
 body.home-page .project-card__body {
@@ -686,12 +622,22 @@ body.home-page .btn.primary {
   }
 
   body.home-page .hero-links {
+    width: 100%;
+    gap: 0.65rem;
     justify-content: stretch;
   }
 
   body.home-page .hero-links a,
   body.home-page .hero-links .copy-email {
     width: 100%;
+  }
+
+  body.home-page .hero-links a#hero-linkedin,
+  body.home-page .hero-links a#hero-twitter {
+    width: auto;
+    flex: 1 1 0;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
   }
 
   body.home-page .project-desc {
@@ -714,20 +660,18 @@ body.home-page .btn.primary {
 /* Legal pages */
 body.legal-page {
   color: #1b1f25;
-  background:
-    radial-gradient(circle at top right, rgba(40, 60, 90, 0.08), transparent 24%),
-    linear-gradient(180deg, #f8f7f3 0%, #f1efe8 100%);
-  --footer-link: #0b4b63;
+  background: #ffffff 100%;
+  --footer-link: #000000;
   --footer-sep: rgba(27, 31, 37, 0.24);
 }
 
 body.legal-page a {
-  color: #0b4b63;
+  color: #000000;
 }
 
 body.legal-page a:hover,
 body.legal-page a:focus-visible {
-  color: #08394b;
+  color: #000000;
 }
 
 body.legal-page .site-header {

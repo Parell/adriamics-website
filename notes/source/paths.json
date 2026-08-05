@@ -125,9 +125,7 @@
           "math.functions",
           "math.limits"
         ],
-        "soft": [
-          "math.integrals"
-        ]
+        "soft": []
       }
     },
     "math.vectors": {
@@ -151,6 +149,42 @@
         "soft": [
           "math.vectors"
         ]
+      }
+    },
+    "math.multivariable-calculus": {
+      "title": "Multivariable Calculus",
+      "requires": {
+        "hard": [
+          "math.vectors",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.matrices",
+          "math.functions"
+        ]
+      }
+    },
+    "math.vector-calculus": {
+      "title": "Vector Calculus",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus"
+        ],
+        "soft": [
+          "math.matrices",
+          "math.functions"
+        ]
+      }
+    },
+    "math.multiple-integrals": {
+      "title": "Multiple Integrals",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus",
+          "math.integrals"
+        ],
+        "soft": []
       }
     },
     "math.eigenvalues": {
@@ -181,21 +215,36 @@
         "hard": [
           "math.logic"
         ],
+        "soft": []
+      }
+    },
+    "math.numerical-methods": {
+      "title": "Numerical Methods",
+      "requires": {
+        "hard": [
+          "math.algebra",
+          "math.derivatives",
+          "math.integrals",
+          "math.matrices",
+          "math.first-order-odes"
+        ],
         "soft": [
-          "math.proof-writing"
+          "math.functions",
+          "math.statistics",
+          "math.eigenvalues"
         ]
       }
     },
-    "math.modeling": {
-      "title": "Modeling",
+    "math.optimization": {
+      "title": "Optimization",
       "requires": {
         "hard": [
-          "math.functions",
-          "math.algebra"
+          "math.multivariable-calculus",
+          "math.matrices"
         ],
         "soft": [
-          "math.statistics",
-          "math.derivatives"
+          "math.eigenvalues",
+          "math.numerical-methods"
         ]
       }
     },
@@ -208,7 +257,7 @@
           "math.functions"
         ],
         "soft": [
-          "math.modeling"
+          "math.functions"
         ]
       }
     },
@@ -233,6 +282,21 @@
         ],
         "soft": [
           "math.second-order-odes"
+        ]
+      }
+    },
+    "math.partial-differential-equations": {
+      "title": "Partial Differential Equations",
+      "requires": {
+        "hard": [
+          "math.multivariable-calculus",
+          "math.derivatives",
+          "math.integrals"
+        ],
+        "soft": [
+          "math.matrices",
+          "math.systems-of-odes",
+          "math.functions"
         ]
       }
     },
@@ -367,6 +431,34 @@
         ]
       }
     },
+    "physics.atomic-and-molecular": {
+      "title": "Atomic and Molecular Physics",
+      "requires": {
+        "hard": ["physics.quantum-physics-i"],
+        "soft": ["physics.physics-ii", "physics.general-chemistry"]
+      }
+    },
+    "physics.condensed-matter": {
+      "title": "Condensed Matter Physics",
+      "requires": {
+        "hard": ["physics.quantum-physics-i", "physics.thermodynamics-i"],
+        "soft": ["physics.electricity-and-magnetism"]
+      }
+    },
+    "physics.particle-and-nuclear": {
+      "title": "Particle and Nuclear Physics",
+      "requires": {
+        "hard": ["physics.quantum-physics-i", "physics.relativity"],
+        "soft": ["physics.electricity-and-magnetism"]
+      }
+    },
+    "physics.fluid-and-plasma": {
+      "title": "Fluid and Plasma Physics",
+      "requires": {
+        "hard": ["physics.physics-ii", "physics.thermodynamics-i"],
+        "soft": ["physics.electricity-and-magnetism", "math.partial-differential-equations"]
+      }
+    },
     "engineering.statics": {
       "title": "Statics",
       "requires": {
@@ -473,7 +565,7 @@
       "title": "Engineering Design",
       "requires": {
         "hard": [
-          "math.modeling"
+          "math.functions"
         ],
         "soft": [
           "math.statistics",

@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. Numbers and place value
 
 Arithmetic studies numbers and the basic operations used to combine, compare, and transform them.
@@ -184,21 +195,18 @@ $$
 12.45 + 3.80 = 16.25
 $$
 
-## Adding like terms
+## Adding quantities with the same units
 
-Only quantities with the same units or same type should be added directly.
+Only quantities with the same units should be added directly.
 
-Examples:
+Example:
 
 $$
 3\text{ m} + 5\text{ m} = 8\text{ m}
 $$
 
-$$
-3x + 5x = 8x
-$$
-
-Unlike quantities cannot be combined without conversion or interpretation.
+Combining symbolic terms such as $3x+5x$ belongs to [Like terms in
+Algebra](/notes/subjects/math/algebra/#like-terms).
 
 ---
 
@@ -640,9 +648,6 @@ $$
 $$
 
 because $-2$ is to the right of $-5$.
-
-<!-- widget:arithmetic -->
-
 ## Adding signed numbers
 
 Same signs: add absolute values and keep the sign.
@@ -1328,77 +1333,33 @@ $$
 
 ---
 
-# 13. Exponents, roots, and scientific notation
+# 13. Numerical powers, roots, and scientific notation
+
+This section is the **numerical version**: use powers and roots to calculate
+with known numbers. The **symbolic version**—exponent laws, rational
+exponents, and algebraic radicals—belongs in [Exponents, radicals, and powers
+in Algebra](/notes/subjects/math/algebra/#5-exponents-radicals-and-powers).
 
 ## Exponents
 
-An exponent indicates repeated multiplication.
+An exponent indicates repeated multiplication of a known number.
 
-$$
-a^n = \underbrace{a\cdot a\cdot \ldots \cdot a}_{n\text{ times}}
-$$
-
-where $n$ is a positive integer.
-
-Example:
+For example, five factors of $2$ can be written compactly as:
 
 $$
 2^5 = 2\cdot2\cdot2\cdot2\cdot2 = 32
 $$
 
-## Exponent rules
-
-| Rule                | Formula                                      |
-| ------------------- | -------------------------------------------- |
-| Product of powers   | $a^m a^n = a^{m+n}$                          |
-| Quotient of powers  | $\frac{a^m}{a^n}=a^{m-n}$                    |
-| Power of a power    | $(a^m)^n=a^{mn}$                             |
-| Power of a product  | $(ab)^n=a^n b^n$                             |
-| Power of a quotient | $\left(\frac{a}{b}\right)^n=\frac{a^n}{b^n}$ |
-| Zero exponent       | $a^0=1$                                      |
-| Negative exponent   | $a^{-n}=\frac{1}{a^n}$                       |
-
-Restrictions:
-
-$$
-a \ne 0,\quad b \ne 0
-$$
-
-when a variable appears in a denominator or a zero exponent.
-
 ## Roots
 
-A square root reverses squaring.
-
-$$
-\sqrt{a}=b
-$$
-
-means
-
-$$
-b^2=a
-$$
-
-Example:
+To find a numerical square root, look for the nonnegative number whose square
+is the radicand. For example:
 
 $$
 \sqrt{49}=7
 $$
 
-A cube root reverses cubing.
-
-$$
-\sqrt[3]{a}=b
-$$
-
-means
-
-$$
-b^3=a
-$$
-
-Example:
+A numerical cube root reverses cubing for a perfect cube. For example:
 
 $$
 \sqrt[3]{27}=3
@@ -1425,7 +1386,7 @@ Common perfect squares:
 
 ## Scientific notation
 
-Scientific notation writes numbers in the form:
+Scientific notation writes a number in the form:
 
 $$
 a \times 10^n
@@ -1449,27 +1410,17 @@ $$
 0.0032 = 3.2 \times 10^{-3}
 $$
 
-## Operations with scientific notation
+## Computing with scientific notation
 
-Multiplication:
-
-$$
-(a\times10^m)(b\times10^n) = ab\times10^{m+n}
-$$
-
-Division:
-
-$$
-\frac{a\times10^m}{b\times10^n}
-=
-\frac{a}{b}\times10^{m-n}
-$$
-
-Example:
+For numerical multiplication or division, combine the coefficients and then
+adjust the powers of ten. For example:
 
 $$
 (3\times10^4)(2\times10^5)=6\times10^9
 $$
+
+The general exponent laws used to justify this procedure are developed in
+Algebra.
 
 ---
 
@@ -1914,61 +1865,11 @@ $$
 A=P(1+rt)
 $$
 
-## Exponents and roots
+## Numerical powers and roots
 
-Repeated multiplication:
-
-$$
-a^n = \underbrace{a\cdot a\cdot \ldots \cdot a}_{n\text{ times}}
-$$
-
-Product of powers:
-
-$$
-a^m a^n = a^{m+n}
-$$
-
-Quotient of powers:
-
-$$
-\frac{a^m}{a^n}=a^{m-n}
-$$
-
-Power of a power:
-
-$$
-(a^m)^n=a^{mn}
-$$
-
-Zero exponent:
-
-$$
-a^0=1
-$$
-
-Negative exponent:
-
-$$
-a^{-n}=\frac{1}{a^n}
-$$
-
-Square root:
-
-$$
-\sqrt{a}=b \quad \Rightarrow \quad b^2=a
-$$
-
-Scientific notation:
-
-$$
-a\times10^n
-$$
-
-where
-
-$$
-1\le |a|<10
-$$
+See [Numerical powers, roots, and scientific notation](#13-numerical-powers-roots-and-scientific-notation)
+for computational examples. Symbolic exponent laws and radicals belong to
+[Algebra](/notes/subjects/math/algebra/#5-exponents-radicals-and-powers).
 
 ---
 
@@ -1989,14 +1890,3 @@ $$
 - Rounding too early in a multi-step problem.
 - Forgetting that $1$ is neither prime nor composite.
 - Assuming an estimate must equal the exact answer.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

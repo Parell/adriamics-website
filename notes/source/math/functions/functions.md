@@ -1,4 +1,23 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What a function is
+
+> **What this assumes:** Basic algebra, coordinates, and the idea that an expression can have a domain.
+>
+> **What this enables:** Limits and continuity can examine how a function behaves near an input. Derivatives and integrals come later; this note supplies the function language they use.
+
+> **Label: Concept.** This note is the canonical home for function notation,
+> domain, range, composition, inverses, exponentials, and logarithms. Algebra
+> contains the solution techniques for equations involving these concepts.
 
 A **function** is a rule that assigns each input exactly one output.
 
@@ -173,19 +192,67 @@ Key idea:
 
 ## Exponential and logarithmic functions
 
-Exponential form:
+An exponential function has the form
 
 $$
-f(x) = a^x, \qquad a > 0,\ a \ne 1
+f(x) = A b^x, \qquad A \ne 0,quad b > 0,quad b \ne 1.
 $$
 
-Logarithmic form:
+The initial value is $A$. If $b>1$, the function represents growth; if
+$0<b<1$, it represents decay. Its domain is all real numbers. Its range is
+$(0,\infty)$ when $A>0$ and $(-\infty,0)$ when $A<0$; its horizontal asymptote
+is $y=0$.
+
+Changing the input or output gives the transformed form
 
 $$
-\log_a(x)
+f(x)=A b^{k(x-h)}+d.
 $$
 
-These are inverse functions when the same base is used.
+Here $h$ shifts the graph horizontally, $d$ shifts it vertically, $|A|$ scales
+the outputs, and $k$ changes the horizontal scale. A negative $A$ reflects the
+graph across the $x$-axis.
+
+The logarithmic function is the inverse of the exponential function with the
+same base:
+
+$$
+y=\log_b(x) \quad\Longleftrightarrow\quad b^y=x.
+$$
+
+For $b>1$, $log_b(x)$ increases; for $0<b<1$, it decreases. Its domain is
+$x>0$, its range is all real numbers, and its vertical asymptote is $x=0$.
+The graphs of $y=b^x$ and $y=\log_b x$ are reflections across $y=x$.
+
+The change-of-base identity is
+
+$$
+\log_b x = \frac{\log_c x}{\log_c b},
+$$
+
+where $b,c>0$, $b,c\ne1$, and $x>0$.
+
+### Logarithm laws
+
+For positive $x$ and $y$:
+
+$$
+\log_b(xy)=\log_b x+\log_b y
+$$
+
+$$
+\log_b\left(\frac{x}{y}\right)=\log_b x-\log_b y
+$$
+
+$$
+\log_b(x^r)=r\log_b x.
+$$
+
+These laws do not turn a sum inside a logarithm into a sum of logarithms:
+$\log_b(x+y)\ne\log_b x+\log_b y$.
+
+For symbolic solution methods, see [Algebra's solution technique for exponential
+and logarithmic equations](../algebra/algebra.md#solution-technique-applying-exponential-and-logarithmic-relationships-in-equations).
 
 Important constraints:
 
@@ -251,9 +318,6 @@ $$
 f(bx)
 $$
 scales inputs horizontally by a factor of $1/|b|$.
-
-<!-- widget:functions -->
-
 ## End behavior
 
 End behavior describes what happens as $x \to \infty$ or $x \to -\infty$.
@@ -395,16 +459,6 @@ When evaluating a piecewise function:
 - First determine which condition the input satisfies.
 - Then use the matching formula.
 
-## Continuity at joins
-
-For a piecewise function to be continuous at a breakpoint $x = c$:
-
-$$
-\lim_{x \to c^-} f(x) = \lim_{x \to c^+} f(x) = f(c)
-$$
-
-If the left and right values do not match, the graph has a jump or gap at the join.
-
 ## Modeling with functions
 
 Functions are used to represent:
@@ -424,7 +478,7 @@ Good models should state:
 
 ---
 
-# 8. Rates of change and calculus connections
+# 8. Rates of change preview
 
 ## Average rate of change
 
@@ -436,26 +490,9 @@ $$
 
 This is the slope of the secant line through the two points on the graph.
 
-## Instantaneous rate of change
+## Preview of calculus
 
-In calculus, the instantaneous rate of change is the derivative:
-
-$$
-f'(x)
-$$
-
-Interpreted as:
-
-- Slope of the tangent line
-- Local sensitivity of the output with respect to the input
-
-## Why function behavior matters
-
-Many calculus ideas depend on function properties:
-
-- Domain restrictions affect differentiation and integration.
-- Continuity is needed for many limit-based arguments.
-- Symmetry can simplify analysis.
+An instantaneous rate of change is defined by taking a limit of average rates as the interval shrinks. That construction belongs to **Derivatives**, after **Limits and Continuity**. Continuity itself is developed in the next note, rather than assumed from a graph.
 
 ---
 
@@ -554,15 +591,9 @@ $$
 - Rational: denominator $\ne 0$
 - Even root: radicand $\ge 0$
 - Logarithm: argument $> 0$
+- Exponential: base $>0$ and base $\ne1$ for a nonconstant exponential function
 - Real-valued composition: inner output must lie in the outer domain
 
-## Sources
+## What this enables
 
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+You can now describe domains, ranges, transformations, compositions, and average change. Continue to **Limits and Continuity** to formalize behavior near a point; do not use continuity or derivatives as assumptions from this note.

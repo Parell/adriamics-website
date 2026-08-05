@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # Particle and Nuclear Physics
 
 Particle and nuclear physics study the fundamental constituents of matter, their interactions, and the structure of nuclei.
@@ -19,14 +30,3 @@ Particle and nuclear physics study the fundamental constituents of matter, their
 - Which particles or nuclei are involved?
 - What conservation law constrains the reaction?
 - What measurement would identify the process?
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

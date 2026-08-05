@@ -1,5 +1,16 @@
 # Algebra
 
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.
 # 1. Core ideas and notation
 
@@ -47,6 +58,23 @@ a(b + c) = ab + ac
 $$
 
 This property is one of the most important tools in algebra.
+
+## Arithmetic review: numerical fluency
+
+Algebra reuses arithmetic operations, but applies them to symbols and
+expressions. This short review is the intentional overlap between the two
+subjects:
+
+| Numerical version | Symbolic version in Algebra |
+| --- | --- |
+| $\frac{3}{4}+\frac{1}{4}=1$ | $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$, with denominator restrictions |
+| $2^3\cdot2^4=2^7$ | $a^m\cdot a^n=a^{m+n}$ ([exponent laws](#exponent-laws)) |
+| $\sqrt{49}=7$ | $a^{1/n}=\sqrt[n]{a}$ ([rational exponents and radicals](#rational-exponents-and-radicals)) |
+| $25\%=0.25$ | Solve equations involving a symbolic percent or parameter |
+
+Arithmetic develops reliable calculation with known numbers. Algebra extends
+that fluency to unknowns, expressions, restrictions, and general identities;
+use the linked algebra sections for the full symbolic treatment.
 
 ---
 
@@ -215,9 +243,6 @@ $$
 | $x \ge 3$ | $[3, \infty)$ |
 | $x < 2$ | $(-\infty, 2)$ |
 | $-1 < x \le 4$ | $(-1, 4]$ |
-
-<!-- widget:algebra -->
-
 ---
 
 # 4. Systems of equations
@@ -586,181 +611,39 @@ If $a > 0$, the parabola opens upward. If $a < 0$, it opens downward.
 
 ---
 
-# 9. Functions
+# 9. Solution techniques for function equations
 
-A **function** assigns each input exactly one output.
+> **Label: Solution technique.** Functions is the canonical concept note for
+> notation, domain, range, composition, inverses, exponentials, and logarithms.
+> This section covers only the algebraic methods used to solve equations
+> involving those concepts.
 
-Notation:
+Algebra’s role is symbolic manipulation and equation solving. Before working with a
+function, exponential, or logarithm here, review the relevant concepts in
+[function notation, domain, codomain, and range](../functions/functions.md#2-notation-domain-codomain-and-range),
+[exponential and logarithmic functions](../functions/functions.md#exponential-and-logarithmic-functions),
+and [composition and inverse functions](../functions/functions.md#6-composition-and-inverse-functions).
 
-$$
-f(x)
-$$
+For the algebraic solution methods, see:
 
-is read "f of x."
+- [Solution technique: applying exponential and logarithmic relationships in equations](#solution-technique-applying-exponential-and-logarithmic-relationships-in-equations)
+- [Algebra problem-solving workflow](#11-problem-solving-workflow)
 
-## Domain and range
+## Solution technique: applying exponential and logarithmic relationships in equations
 
-- The **domain** is the set of allowed inputs.
-- The **range** is the set of outputs produced.
+Use a common base for exponential equations when possible. Otherwise, take
+logarithms of both sides. For logarithmic equations, require every argument to
+be positive and check the result in the original equation.
 
-Example:
-
-$$
-f(x) = \frac{1}{x-2}
-$$
-
-Domain:
-
-$$
-x \ne 2
-$$
-
-## Evaluating functions
-
-If
+Examples:
 
 $$
-f(x) = 3x^2 - 1
-$$
-
-then
-
-$$
-f(2) = 3(2)^2 - 1 = 11
-$$
-
-## Common function types
-
-| Type | Example | Key feature |
-| --- | --- | --- |
-| Linear | $f(x)=mx+b$ | constant rate of change |
-| Quadratic | $f(x)=ax^2+bx+c$ | parabolic graph |
-| Rational | $f(x)=\frac{1}{x}$ | asymptotes, restrictions |
-| Exponential | $f(x)=ab^x$ | multiplicative growth or decay |
-| Absolute value | $f(x)=|x|$ | piecewise V-shape |
-
-## Function composition
-
-$$
-(f \circ g)(x) = f(g(x))
-$$
-
-Example:
-
-$$
-f(x) = x+1, \quad g(x) = x^2
-$$
-
-Then
-
-$$
-(f \circ g)(x) = x^2 + 1
-$$
-
-## Inverse idea
-
-An inverse undoes a function when it exists:
-
-$$
-f(f^{-1}(x)) = x
-$$
-
-Not every function has an inverse on its full domain.
-
----
-
-# 10. Exponential and logarithmic relationships
-
-Exponential functions model repeated multiplication:
-
-$$
-f(x) = ab^x
-$$
-
-where $a \ne 0$, $b > 0$, and $b \ne 1$.
-
-## Growth and decay
-
-- If $b > 1$, the function grows.
-- If $0 < b < 1$, the function decays.
-
-## Logarithms
-
-The logarithm is the inverse of exponentiation:
-
-$$
-y = \log_b x \quad \Longleftrightarrow \quad b^y = x
-$$
-
-Domain restriction:
-
-$$
-x > 0
-$$
-
-## Log laws
-
-$$
-\log_b(xy) = \log_b x + \log_b y
+2^{x+1}=16=2^4 \quad\Rightarrow\quad x=3
 $$
 
 $$
-\log_b\left(\frac{x}{y}\right) = \log_b x - \log_b y
+\log_3(x-1)=2 \quad\Longleftrightarrow\quad x-1=3^2 \quad\Rightarrow\quad x=10
 $$
-
-$$
-\log_b(x^r) = r \log_b x
-$$
-
-## Solving an exponential equation
-
-Example:
-
-$$
-2^{x+1} = 16
-$$
-
-Since
-
-$$
-16 = 2^4
-$$
-
-we get
-
-$$
-x+1 = 4
-$$
-
-$$
-x = 3
-$$
-
-## Solving a logarithmic equation
-
-Example:
-
-$$
-\log_3(x-1) = 2
-$$
-
-Convert to exponential form:
-
-$$
-x - 1 = 3^2 = 9
-$$
-
-$$
-x = 10
-$$
-
-Check the domain:
-
-$$
-x - 1 > 0
-$$
-
-so the solution is valid.
 
 ---
 
@@ -899,27 +782,9 @@ $$
 x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}
 $$
 
-## Logarithms
+## Function concepts
 
-$$
-\log_b(xy) = \log_b x + \log_b y
-$$
-
-$$
-\log_b\left(\frac{x}{y}\right) = \log_b x - \log_b y
-$$
-
-$$
-\log_b(x^r) = r\log_b x
-$$
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+See [Functions](../functions/functions.md) for the canonical concepts: [notation,
+domain, codomain, and range](../functions/functions.md#2-notation-domain-codomain-and-range),
+[exponential and logarithmic functions](../functions/functions.md#exponential-and-logarithmic-functions),
+and [composition and inverse functions](../functions/functions.md#6-composition-and-inverse-functions).

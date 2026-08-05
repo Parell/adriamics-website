@@ -1,4 +1,18 @@
 # Proof Writing
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+> **Use this course after:** Start with [Logic](/notes/subjects/math/logic/), then use [Discrete Math](/notes/subjects/math/discrete-math/) before this course. Discrete Math provides the initial proof introduction; this course is the dedicated deeper treatment of constructing, choosing, and presenting proofs.
+
 # 1. What a proof does
 
 A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.
@@ -307,9 +321,6 @@ n^2 = 4k(k+1)+1 \equiv 1 \pmod{4}.
 $$
 
 So the claim holds in both cases.
-
-<!-- widget:proof-writing -->
-
 ## Existence proofs
 
 There are two main types.
@@ -727,14 +738,3 @@ $$
 $$
 \text{To prove } P \Rightarrow Q, \text{ it is enough to show } \neg Q \Rightarrow \neg P.
 $$
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

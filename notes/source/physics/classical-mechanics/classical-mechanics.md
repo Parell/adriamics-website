@@ -1,4 +1,20 @@
 # Classical Mechanics
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+## Prerequisites and outcomes
+
+This note assumes algebra, trigonometry, vectors, and single-variable differentiation and integration. By the end, you should be able to select force, energy, momentum, rotational, or Lagrangian models; state their assumptions; and check a result using units, limits, and conservation laws.
+
 # 1. Scope and core ideas
 
 Classical mechanics describes the motion of bodies under the action of forces, along with the conservation laws that govern that motion.
@@ -950,14 +966,3 @@ Classical mechanics is mostly about choosing the right representation:
 - momentum for impacts and isolated systems
 - torque and angular momentum for rotation
 - generalized coordinates for constrained motion
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,3 +1,18 @@
+# Organic Chemistry
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- [OpenStax Organic Chemistry](https://openstax.org/details/books/organic-chemistry)
+- [Chemistry LibreTexts](https://chem.libretexts.org/Bookshelves/Organic_Chemistry)
+- McMurry, *Organic Chemistry*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+## Prerequisites and outcomes
+
+This note assumes general chemistry, Lewis structures, acid–base language, and basic algebra. By the end, you should be able to identify functional groups, draw electron-flow mechanisms, predict major products with stated conditions, and verify constitutional and stereochemical changes.
+
 # 1. What organic chemistry studies
 
 Organic chemistry is the study of carbon-containing compounds, especially those built around covalent carbon-carbon and carbon-heteroatom bonds. It matters because carbon can form chains, rings, branched frameworks, and multiple bonds, giving rise to an enormous number of molecules with distinct properties.
@@ -589,14 +604,3 @@ When learning a new reaction, always ask:
 5. What controls regioselectivity and stereoselectivity?
 
 If you can answer those five questions, most organic chemistry problems become manageable.
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,0 +1,13 @@
+name: Auto Minify Assets
+on: [push]
+jobs:
+  minify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: nizarmah/auto-minify@v3
+        with:
+          overwrite: true
+      - uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore: minified assets [skip ci]"

@@ -1,4 +1,10 @@
-# 1. What a series is
+﻿# 1. Sequences, series, and convergence
+
+> **Layer 1 â€” after Limits:** This layer develops sequences, series, and convergence without requiring derivatives or integrals.
+>
+> **Layer 2 â€” after Derivatives:** Power and Taylor series use derivatives to represent and approximate functions. Integration appears only in the advanced subsections.
+>
+> **What this enables:** Taylor and power series approximate functions, while convergence tests support numerical analysis and differential equations.
 
 A **series** is the sum of the terms of a sequence.
 
@@ -33,9 +39,6 @@ s_n \to S
 $$
 
 If the partial sums do not approach a finite limit, the series diverges.
-
-<!-- widget:series -->
-
 ## Why series matter
 
 Series are used to:
@@ -215,7 +218,9 @@ with $0 < c < \infty$, then $\sum a_n$ and $\sum b_n$ behave the same way.
 
 This is useful when the terms have the same dominant growth rate.
 
-## Integral test
+## Advanced convergence test: integral test
+
+The integral test is an optional bridge to Integrals, not a prerequisite for the core convergence layer.
 
 If $a_n = f(n)$ where $f$ is positive, continuous, and decreasing on $[N,\infty)$, then
 
@@ -291,391 +296,113 @@ If the absolute series converges, the original series converges absolutely.
 
 ---
 
-# 5. Power series
+## What this enables
 
-A **power series** centered at $c$ has the form
-
-$$
-\sum_{n=0}^{\infty} a_n (x-c)^n
-$$
-
-It behaves like an infinite polynomial within its interval of convergence.
-
-## Radius and interval of convergence
-
-A power series converges:
-
-- Absolutely for $|x-c| < R$
-- Diverges for $|x-c| > R$
-- Must be checked separately at the endpoints $x = c \pm R$
-
-The number $R$ is the **radius of convergence**.
-
-## Finding the radius
-
-The ratio test is the standard tool. Compute
-
-$$
-\lim_{n\to\infty}\left|\frac{a_{n+1}(x-c)^{n+1}}{a_n(x-c)^n}\right|
-$$
-
-and solve for the values of $x$ that make the limit less than $1$.
-
-## Differentiation and integration
-
-Within the interval of convergence, a power series may be differentiated and integrated term by term.
-
-If
-
-$$
-f(x)=\sum_{n=0}^{\infty} a_n(x-c)^n,
-$$
-
-then
-
-$$
-f'(x)=\sum_{n=1}^{\infty} n a_n (x-c)^{n-1}
-$$
-
-and
-
-$$
-\int f(x)\,dx = C + \sum_{n=0}^{\infty} \frac{a_n}{n+1}(x-c)^{n+1}
-$$
-
-as long as $x$ stays within the interval of convergence.
-
-## Why power series are powerful
-
-They convert difficult functions into algebraic objects that can be:
-
-- Differentiated and integrated term by term
-- Used for approximation
-- Compared by coefficients
-- Inserted into differential equations
+Series provides the sequence, convergence, power-series, Taylor-series, and Fourier-series foundation needed for numerical methods and differential equations.
 
 ---
 
-# 6. Taylor and Maclaurin series
+# Power, Taylor, and Fourier series
 
-The Taylor series of a function $f$ centered at $a$ is
+Power and Taylor series extend the convergence ideas above. They assume the derivatives needed to construct Taylor expansions.
 
-$$
-f(x)=\sum_{n=0}^{\infty} \frac{f^{(n)}(a)}{n!}(x-a)^n
-$$
-
-If $a=0$, it is called a **Maclaurin series**.
-
-## Common expansions
-
-### Exponential
-
-$$
-e^x = \sum_{n=0}^{\infty}\frac{x^n}{n!}
-$$
-
-### Sine
-
-$$
-\sin x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n+1}}{(2n+1)!}
-$$
-
-### Cosine
-
-$$
-\cos x = \sum_{n=0}^{\infty} (-1)^n \frac{x^{2n}}{(2n)!}
-$$
-
-### Binomial-type expansion
-
-For $|x|<1$,
-
-$$
-\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n
-$$
-
-and more generally, for real exponent $\alpha$,
-
-$$
-(1+x)^\alpha = \sum_{n=0}^{\infty} \binom{\alpha}{n} x^n
-$$
-
-where
-
-$$
-\binom{\alpha}{n} = \frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}
-$$
-
-## Remainder and approximation
-
-The Taylor polynomial of degree $N$ is
-
-$$
-P_N(x)=\sum_{n=0}^{N} \frac{f^{(n)}(a)}{n!}(x-a)^n
-$$
-
-The remainder is
-
-$$
-R_N(x)=f(x)-P_N(x)
-$$
-
-For many problems, a low-degree Taylor polynomial gives a useful local approximation.
-
-### Error thinking
-
-When approximating with a Taylor polynomial, ask:
-
-1. How many terms are enough?
-2. Is the next omitted term a good error estimate?
-3. Is the point $x$ close enough to the center $a$?
-
----
-
-# 7. Manipulating series
-
-## Index shifting
-
-Series are often easier to compare after rewriting them with the same index.
-
-Example:
-
-$$
-\sum_{n=2}^{\infty} \frac{1}{n-1}
-$$
-
-Let $k=n-1$. Then the series becomes
-
-$$
-\sum_{k=1}^{\infty} \frac{1}{k}
-$$
-
-## Splitting and combining
-
-Linearity holds where the series converge appropriately:
-
-$$
-\sum (a_n + b_n)=\sum a_n + \sum b_n
-$$
-
-$$
-\sum c a_n = c\sum a_n
-$$
-
-Use this carefully. If the series are only conditionally convergent, rearrangement issues can matter.
-
-## Termwise operations on power series
-
-Within their interval of convergence, power series can be:
-
-- Differentiated term by term
-- Integrated term by term
-- Shifted and reindexed
-- Multiplied with care
-
-This is the main route to deriving new series from known ones.
-
-## Matching coefficients
-
-If two power series are equal on an interval, then the coefficients of matching powers must be equal.
-
-This method is useful for:
-
-- Solving identities
-- Deriving recurrence relations
-- Extracting unknown coefficients
+## Power series
 
----
+A power series centered at $c$ has the form
 
-# 8. Common examples to know
-
-## Harmonic series
-
 $$
-\sum_{n=1}^{\infty}\frac{1}{n}
+\sum_{n=0}^{\infty}a_n(x-c)^n.
 $$
-
-diverges.
 
-## Alternating harmonic series
+It converges absolutely for $|x-c|<R$, diverges for $|x-c|>R$, and requires separate endpoint tests at $x=c\pm R$. The number $R$ is the radius of convergence. The ratio test is usually applied by computing
 
 $$
-\sum_{n=1}^{\infty}(-1)^{n+1}\frac{1}{n}
+\lim_{n\to\infty}\left|\frac{a_{n+1}(x-c)^{n+1}}{a_n(x-c)^n}\right|.
 $$
 
-converges conditionally.
+Inside the interval of convergence, differentiation and integration may be performed term by term:
 
-## $p$-series template
-
 $$
-\sum_{n=1}^{\infty}\frac{1}{n^p}
+f(x)=\sum_{n=0}^{\infty}a_n(x-c)^n
+\quad\Longrightarrow\quad
+f'(x)=\sum_{n=1}^{\infty}na_n(x-c)^{n-1}.
 $$
-
-converges if $p>1$.
 
-## Geometric template
-
 $$
-\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}, \quad |r|<1
+\int f(x)\,dx=C+\sum_{n=0}^{\infty}\frac{a_n}{n+1}(x-c)^{n+1}.
 $$
-
-## Exponential, sine, cosine
 
-These three are the most important Maclaurin series to memorize. Many other expansions come from differentiating or integrating them.
+The radius is unchanged by these termwise operations, although endpoint behavior may change.
 
-## Logarithm from geometric series
+## Taylor and Maclaurin series
 
-Starting from
+The Taylor series of $f$ centered at $a$ is
 
 $$
-\frac{1}{1-x} = \sum_{n=0}^{\infty} x^n
+f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n.
 $$
-
-integrating term by term gives
-
-$$
--\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n}, \quad |x|<1
-$$
-
-This is a common derivation pattern.
-
----
-
-# 9. Problem-solving workflow
-
-## For convergence questions
 
-1. Check the term limit: if $a_n \not\to 0$, stop and declare divergence.
-2. Identify the shape:
-   - Geometric
-   - $p$-series
-   - Alternating
-   - Rational comparison
-   - Factorial/exponential
-3. Choose the most natural test.
-4. If alternating, check absolute convergence first if possible.
-5. If a power series is involved, find the interval first, then test endpoints separately.
+When $a=0$ it is a Maclaurin series. Important expansions are
 
-## For Taylor/power series problems
-
-1. Write the known base series.
-2. Shift, differentiate, integrate, or substitute as needed.
-3. Keep track of the center and radius.
-4. Verify the final form by checking the first few terms.
-
-## For approximation questions
-
-1. Choose the center close to the evaluation point.
-2. Use the lowest degree that gives acceptable accuracy.
-3. Estimate the remainder or next term.
-4. State the approximation clearly with its error context.
-
----
-
-# 10. Pitfalls
-
-- Confusing the term test with a convergence test. Terms going to $0$ are necessary, not sufficient.
-- Forgetting to test endpoints of a power series interval.
-- Using a ratio test and stopping at $L=1$ without another plan.
-- Assuming alternating automatically means convergent absolutely.
-- Dropping absolute values inside ratio or root tests.
-- Reindexing incorrectly and changing the first few terms.
-- Treating conditional convergence like absolute convergence when rearranging terms.
-- Forgetting that termwise differentiation and integration are valid only inside the interval of convergence.
-
----
-
-# 11. Formula sheet
-
-## Core definitions
-
 $$
-s_n = \sum_{k=1}^{n} a_k
+e^x=\sum_{n=0}^{\infty}\frac{x^n}{n!},\qquad
+\sin x=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!},
 $$
-
-$$
-\sum_{n=1}^{\infty} a_n \text{ converges } \Longleftrightarrow s_n \text{ converges}
-$$
-
-## Geometric series
 
 $$
-\sum_{n=0}^{\infty} ar^n = \frac{a}{1-r}, \quad |r|<1
+\cos x=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!},\qquad
+\frac1{1-x}=\sum_{n=0}^{\infty}x^n\quad(|x|<1).
 $$
 
-## $p$-series
+For real $\alpha$ and $|x|<1$,
 
 $$
-\sum_{n=1}^{\infty}\frac{1}{n^p}
-\begin{cases}
-\text{converges}, & p>1 \\
-\text{diverges}, & p\le 1
-\end{cases}
+(1+x)^\alpha=\sum_{n=0}^{\infty}\binom{\alpha}{n}x^n,
+\qquad
+\binom{\alpha}{n}=\frac{\alpha(\alpha-1)\cdots(\alpha-n+1)}{n!}.
 $$
 
-## Ratio test
+The degree-$N$ Taylor polynomial and its remainder are
 
 $$
-L = \lim_{n\to\infty}\left|\frac{a_{n+1}}{a_n}\right|
+P_N(x)=\sum_{n=0}^{N}\frac{f^{(n)}(a)}{n!}(x-a)^n,
+\qquad R_N(x)=f(x)-P_N(x).
 $$
 
-## Root test
+Use a center near the evaluation point, choose the lowest useful degree, and state whether a next-term estimate is only heuristic or a justified bound.
 
-$$
-L = \lim_{n\to\infty}\sqrt[n]{|a_n|}
-$$
-
-## Alternating series test
+## Manipulating series
 
-If $b_n \downarrow 0$, then
+Reindexing, splitting, combining, differentiating, integrating, and multiplying power series are useful only when their convergence conditions are respected. For example,
 
 $$
-\sum (-1)^n b_n
+\sum_{n=2}^{\infty}\frac1{n-1}=\sum_{k=1}^{\infty}\frac1k.
 $$
 
-converges.
-
-## Taylor series
-
-$$
-f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n
-$$
+If two power series are equal on an interval, matching powers gives matching coefficients. Rearrangement is always safe for absolutely convergent series, but conditional convergence requires care.
 
-## Maclaurin series
+Useful templates include the divergent harmonic series $\sum 1/n$, the conditionally convergent alternating harmonic series $\sum(-1)^{n+1}/n$, the $p$-series $\sum1/n^p$ for $p>1$, and
 
 $$
-f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(0)}{n!}x^n
+-\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n},\quad |x|<1,
 $$
 
-## Standard Maclaurin series
+which follows by integrating the geometric series term by term.
 
-$$
-e^x=\sum_{n=0}^{\infty}\frac{x^n}{n!}
-$$
+## Fourier series preview
 
-$$
-\sin x=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n+1}}{(2n+1)!}
-$$
+A Fourier series represents a periodic function as
 
 $$
-\cos x=\sum_{n=0}^{\infty}(-1)^n\frac{x^{2n}}{(2n)!}
+f(x)\sim\frac{a_0}{2}+\sum_{n=1}^{\infty}\left(a_n\cos(nx)+b_n\sin(nx)\right).
 $$
 
-$$
-\frac{1}{1-x}=\sum_{n=0}^{\infty}x^n,\quad |x|<1
-$$
+The coefficients measure the contributions of the harmonics. This is a preview; rigorous coefficient calculations and convergence behavior belong in a later Fourier-series treatment.
 
-$$
--\ln(1-x)=\sum_{n=1}^{\infty}\frac{x^n}{n},\quad |x|<1
-$$
+## Power- and Taylor-series workflow
 
-## Sources
+1. Find the radius and then test every endpoint separately.
+2. Start with a known series, then shift, substitute, differentiate, or integrate while tracking the convergence domain.
+3. For approximation, choose a nearby center and report the error context.
+4. Check the first few terms and the assumptions behind any remainder estimate.
 
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

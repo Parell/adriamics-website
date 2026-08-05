@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # Computational Physics
 
 Computational physics uses algorithms and code to solve physical problems that are too difficult to handle by hand.
@@ -19,14 +30,3 @@ Computational physics uses algorithms and code to solve physical problems that a
 - What approximation was made to make the problem computable?
 - Is the method stable for the chosen step size?
 - How large is the numerical error?
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

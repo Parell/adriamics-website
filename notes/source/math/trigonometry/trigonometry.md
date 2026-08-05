@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What trigonometry studies
 
 Trigonometry is the study of relationships between angles and side lengths in triangles, and more generally the study of periodic behavior through the sine, cosine, and tangent functions.
@@ -17,6 +28,14 @@ The subject appears in:
 - Calculus and differential equations
 
 The most important idea is that trigonometric functions are not just triangle ratios. They are functions defined on angles, and the unit circle provides the cleanest definition.
+
+## Recalled from geometry
+
+This note assumes the geometric language of points, angles, similar triangles,
+and right triangles. Geometry owns those definitions and the Pythagorean
+theorem; this note uses them to define functions, evaluate exact values, and
+solve triangles. For a geometric review, see the
+[Geometry note](../geometry/geometry.md).
 
 ---
 
@@ -116,7 +135,10 @@ because the reference angle is $\pi/6$ and sine is positive in Quadrant II.
 
 # 3. Right-triangle ratios
 
-For a right triangle, trig functions can be defined as ratios of side lengths relative to a chosen acute angle $\theta$.
+Using the right-triangle facts recalled from Geometry, trig functions can be
+defined as ratios of side lengths relative to a chosen acute angle $\theta$.
+The ratios belong here because Trigonometry owns angle functions and triangle
+solving; the geometric properties of the triangle do not need to be repeated.
 
 Let:
 
@@ -288,9 +310,6 @@ $$
 $$
 
 These identities are used constantly for simplification and proof.
-
-<!-- widget:trigonometry -->
-
 ---
 
 # 5. Graphs and transformations
@@ -764,7 +783,9 @@ This leads to:
 
 ## Coordinate geometry
 
-Trig helps describe circles and rotations:
+The geometric coordinate formulas themselves belong to the
+[Geometry note](../geometry/geometry.md). Trigonometry recalls only the
+angle-based parametrization used for circles and rotations:
 
 $$
 x = r\cos \theta,\quad y = r\sin \theta
@@ -886,14 +907,3 @@ $$
 $$
 
 ### End of note
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What logic studies
 
 Logic is the study of valid reasoning. In mathematics, it provides the language and rules used to build definitions, state theorems, and prove conclusions from assumptions.
@@ -57,9 +68,6 @@ $$
 Truth tables list the truth value of a compound proposition for every combination of inputs.
 
 They are the most direct way to test equivalence or validity for small propositional formulas.
-
-<!-- widget:logic -->
-
 ---
 
 # 3. Logical connectives
@@ -794,14 +802,3 @@ $$
 - The contrapositive preserves meaning; the converse does not.
 - Nested quantifiers are order-sensitive.
 - Always state the domain when quantifiers are involved.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

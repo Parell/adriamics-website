@@ -11,6 +11,18 @@ const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
 const conceptDagSourcePath = path.join(notesRoot, 'source', 'paths.json');
+
+function repairMojibake(text) {
+  return String(text ?? '')
+    .replace(/â€œ/g, '“')
+    .replace(/â€/g, '”')
+    .replace(/â€”/g, '—')
+    .replace(/â€“/g, '–')
+    .replace(/â€™/g, '’')
+    .replace(/Â°/g, '°')
+    .replace(/Â·/g, '·')
+    .replace(/Ã´/g, 'ô');
+}
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/parell.github.io';
 const githubRepoBranch = 'master';
@@ -452,6 +464,14 @@ function getConceptNoteUrlFromId(nodeId) {
     return '';
   }
 
+  if (domain === 'math' && slug === 'multivariable-calculus') {
+    return '/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/';
+  }
+
+  if (domain === 'math' && slug === 'multiple-integrals') {
+    return '/notes/subjects/math/multivariable-calculus/multiple-integrals/';
+  }
+
   return `/notes/subjects/${domain}/${slug}/`;
 }
 
@@ -727,126 +747,8 @@ function isStandaloneAnchor(line) {
   return /^\s*<a\s+id="[^"]+"><\/a>\s*$/i.test(line);
 }
 
-function parseWidgetMarkerLine(line) {
-  const match = line.match(/^\s*<!--\s*widget:([^>]+?)\s*-->\s*$/i);
-
-  if (!match) {
-    return null;
-  }
-
-  return match[1].trim();
-}
-
-function resolveWidgetIncludeMarkers(markdown, widgetRegistry) {
-  const widgetsById = new Map(widgetRegistry.map((widget) => [widget.id, widget.html]));
-  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
-
-  return lines.map((line) => {
-    const widgetId = parseWidgetMarkerLine(line);
-
-    if (!widgetId) {
-      return line;
-    }
-
-    const widgetHtml = widgetsById.get(widgetId);
-
-    if (!widgetHtml) {
-      throw new Error(`Widget include marker "${widgetId}" does not match any widget definition.`);
-    }
-
-    return widgetHtml;
-  }).join('\n');
-}
-
 function isRawHtmlLine(line) {
   return /^\s*</.test(line) && !/^\s*<!--/.test(line);
-}
-
-function extractWidgetRootId(html) {
-  const firstHtmlLine = String(html ?? '')
-    .replace(/\r\n/g, '\n')
-    .split('\n')
-    .find((line) => line.trim()) ?? '';
-  const match = firstHtmlLine.match(/^\s*<([A-Za-z][A-Za-z0-9:-]*)\b[^>]*\bid\s*=\s*["']([^"']+)["']/i);
-
-  return match ? match[2].trim() : '';
-}
-
-function collectWidgetBlocks(markdown, sourcePath, note) {
-  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
-  const bodyLines = [];
-  const widgets = [];
-  let index = 0;
-
-  while (index < lines.length) {
-    const markerLine = lines[index];
-    const widgetId = parseWidgetMarkerLine(markerLine);
-
-    if (!widgetId) {
-      bodyLines.push(markerLine);
-      index += 1;
-      continue;
-    }
-
-    const markerLineNumber = index + 1;
-    index += 1;
-
-    const widgetLines = [];
-
-    while (index < lines.length) {
-      const currentLine = lines[index];
-
-      if (isRawHtmlLine(currentLine)) {
-        widgetLines.push(currentLine);
-        index += 1;
-        continue;
-      }
-
-      if (!currentLine.trim()) {
-        let nextIndex = index;
-
-        while (nextIndex < lines.length && !lines[nextIndex].trim()) {
-          nextIndex += 1;
-        }
-
-        if (nextIndex < lines.length && isRawHtmlLine(lines[nextIndex])) {
-          widgetLines.push(...lines.slice(index, nextIndex));
-          index = nextIndex;
-          continue;
-        }
-
-        break;
-      }
-
-      break;
-    }
-
-    if (!widgetLines.length) {
-      bodyLines.push(markerLine);
-      continue;
-    }
-
-    const html = widgetLines.join('\n');
-    const rootId = extractWidgetRootId(html);
-
-    widgets.push({
-      id: widgetId,
-      html,
-      rootId,
-      sourcePath,
-      sourceLine: markerLineNumber,
-      notePath: note?.path ?? '',
-      noteTitle: note?.title ?? '',
-      noteUrl: note?.path ? getNoteUrl(note.path) : '',
-    });
-
-    bodyLines.push(...widgetLines);
-  }
-
-  return {
-    body: bodyLines.join('\n'),
-    widgets,
-  };
 }
 
 function isTableStart(lines, index) {
@@ -1315,7 +1217,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
   return `<aside class="notes-structures" aria-label="Guide structures">
           <div class="notes-header__brand">
             <p class="notes-header__eyebrow">Open Sourced Education for all</p>
-            <p class="notes-header__title">Universal Education System <a class="notes-header__credit text-underline-muted" href="/">by Adriamics</a></p>
+            <p class="notes-header__title">Universal Education <a class="notes-header__credit text-underline-muted" href="/">by Adriamics</a></p>
           </div>
           <ul class="subject-list">
           <li>
@@ -1327,6 +1229,9 @@ function renderSubjectLinks(structures, activeStructureId = null) {
           </li>
           <li>
                 <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>GitHub</a>
+          </li>
+          <li>
+                <a class="notes-theme-toggle" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" aria-label="Support" title="Support" data-notes-nav-item>Support</a>
           </li>
           </ul>
         </aside>`;
@@ -1434,7 +1339,7 @@ function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
 }
 
 function renderFloatingActions(quickActionsHtml) {
-  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>`;
+  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>`;
 }
 
 function renderPomodoroBar() {
@@ -1638,6 +1543,7 @@ function buildNoteHtml({
   outputDir,
   assetVersions,
   practiceUrl = null,
+  interactive = null,
 }) {
   const tocHtml = renderTableOfContents(bodyHtml);
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
@@ -1660,7 +1566,7 @@ function buildNoteHtml({
           <h1>${escapeHtml(title)}</h1>
           ${renderMetadataLine('viewer-meta', sourceUrl, lastModifiedDate)}
           ${contributorsHtml}
-        </div>
+      </div>
       <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
           ${practiceUrl ? `<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>` : ''}
@@ -1688,11 +1594,17 @@ function buildNoteHtml({
     floatingActionsHtml,
     stylesheetHref,
     scriptHref,
-    extraHead: `<script>
+    extraHead: `
+  <script>
     window.MathJax = {
       tex: {
         inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
-        displayMath: [['$$', '$$']]
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] },
+        macros: {
+          degree: '{^{\\\\circ}}',
+          arcsec: '\\\\operatorname{arcsec}'
+        }
       },
       svg: { fontCache: 'global' },
       options: {
@@ -1700,7 +1612,8 @@ function buildNoteHtml({
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>`,
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  `,
   });
 }
 
@@ -1797,6 +1710,18 @@ function getConceptDagDefaultSubjectId(nodes) {
 
 function getConceptDagSubjectIdFromNotePath(notePath) {
   const normalizedPath = toPosix(notePath).replace(/^notes\//, '');
+  const nestedSourceMatch = normalizedPath.match(/^source\/([^/]+)\/([^/]+)\/([^/]+)\/\3\.md$/);
+
+  if (nestedSourceMatch) {
+    const [, domain, slug] = nestedSourceMatch;
+
+    if (domain === 'math' && slug === 'multivariable-differential-calculus') {
+      return 'math.multivariable-calculus';
+    }
+
+    return `${domain}.${slug}`;
+  }
+
   const subjectMatch = normalizedPath.match(/^subjects\/([^/]+)\/([^/]+)\/\2$/);
 
   if (subjectMatch) {
@@ -1812,43 +1737,159 @@ function getConceptDagSubjectIdFromNotePath(notePath) {
   return '';
 }
 
-function buildConceptDagLandingHtml(dag) {
-  const groupedNodes = groupConceptNodesByDomain(dag.nodes);
-  const domainSummary = groupedNodes.map((group) => `<li><strong>${escapeHtml(toTitleCase(group.domain))}</strong> ${escapeHtml(String(group.nodes.length))} subjects</li>`).join('');
-  return `<section class="learning-path-index-hero panel concept-dag-hero concept-dag-domains" aria-label="Domains">
-      <h1>Subjects</h1>
-      <ul class="concept-dag-domains__list">
-        ${domainSummary}
-      </ul>
-    </section>`;
+// function buildConceptDagLandingHtml(dag) {
+//   const groupedNodes = groupConceptNodesByDomain(dag.nodes);
+//   const domainSummary = groupedNodes.map((group) => `<li><strong>${escapeHtml(toTitleCase(group.domain))}</strong> ${escapeHtml(String(group.nodes.length))} subjects</li>`).join('');
+//   return `<section class="learning-path-index-hero panel concept-dag-hero concept-dag-domains" aria-label="Domains">
+//       <h1>Subjects</h1>
+//       <ul class="concept-dag-domains__list">
+//         ${domainSummary}
+//       </ul>
+//     </section>`;
+// }
+
+function collectConceptDagAncestors(selectedId, nodesById) {
+  const visited = new Set();
+  const stack = [selectedId];
+
+  while (stack.length) {
+    const nodeId = stack.pop();
+
+    if (visited.has(nodeId)) {
+      continue;
+    }
+
+    visited.add(nodeId);
+    const node = nodesById.get(nodeId);
+
+    if (!node) {
+      continue;
+    }
+
+    stack.push(...node.requires.hard, ...node.requires.soft);
+  }
+
+  return visited;
+}
+
+function buildConceptDagChildMap(ancestorIds, nodesById, nodeOrder) {
+  const childMap = new Map();
+
+  ancestorIds.forEach((nodeId) => childMap.set(nodeId, { hard: [], soft: [] }));
+
+  ancestorIds.forEach((nodeId) => {
+    const node = nodesById.get(nodeId);
+
+    if (!node) {
+      return;
+    }
+
+    for (const type of ['hard', 'soft']) {
+      node.requires[type].forEach((dependencyId) => {
+        if (ancestorIds.has(dependencyId)) {
+          childMap.get(dependencyId)[type].push(nodeId);
+        }
+      });
+    }
+  });
+
+  childMap.forEach((relations) => {
+    relations.hard.sort((left, right) => nodeOrder.get(left) - nodeOrder.get(right));
+    relations.soft.sort((left, right) => nodeOrder.get(left) - nodeOrder.get(right));
+  });
+
+  return childMap;
+}
+
+function collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder) {
+  return [...ancestorIds]
+    .filter((nodeId) => {
+      const node = nodesById.get(nodeId);
+      return node && [...node.requires.hard, ...node.requires.soft].every((dependencyId) => !ancestorIds.has(dependencyId));
+    })
+    .sort((left, right) => nodeOrder.get(left) - nodeOrder.get(right));
+}
+
+function walkConceptDagTreeRows(nodeId, context, depth, pathStack, rows) {
+  if (pathStack.has(nodeId) || context.renderedIds.has(nodeId)) {
+    return;
+  }
+
+  const node = context.nodesById.get(nodeId);
+
+  if (!node) {
+    return;
+  }
+
+  const nextPathStack = new Set(pathStack);
+  nextPathStack.add(nodeId);
+  context.renderedIds.add(nodeId);
+  rows[depth] ??= [];
+  rows[depth].push(node);
+
+  const children = context.childMap.get(nodeId) ?? { hard: [], soft: [] };
+  [...children.hard, ...children.soft].forEach((childId) => walkConceptDagTreeRows(childId, context, depth + 1, nextPathStack, rows));
+}
+
+function renderConceptDagNodeLink(node, selectedId) {
+  const noteUrl = getConceptNoteUrlFromId(node.id);
+  const selectedClass = node.id === selectedId ? ' is-selected' : '';
+
+  return `<a class="concept-dag-tree__node${selectedClass}" href="${escapeHtml(noteUrl)}" data-notes-nav-item>${escapeHtml(node.title)}</a>`;
+}
+
+function renderConceptDagTail(depth) {
+  if (depth <= 0) {
+    return '';
+  }
+
+  const horizontal = String.fromCodePoint(0x2500);
+  const junction = String.fromCodePoint(0x2534);
+  const corner = String.fromCodePoint(0x2514);
+  return `${corner}${horizontal.repeat(3)}${junction}${horizontal.repeat(3)}`.replace(`${junction}${horizontal.repeat(3)}`, `${junction}${horizontal.repeat(3)}`.repeat(depth - 1));
+}
+
+function renderConceptDagRows(rows, selectedId) {
+  return rows.map((rowNodes, depth) => {
+    const isLastRow = depth === rows.length - 1 && depth > 0;
+    const prefix = `${'│   '.repeat(depth)}`;
+    const tail = isLastRow ? `└───${'┴───'.repeat(Math.max(depth - 2, 0))}┴── ` : '';
+    const nodesHtml = rowNodes.map((node, index) => `${index ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : ''}${renderConceptDagNodeLink(node, selectedId)}`).join('');
+
+    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${depth ? `<span class="concept-dag-tree__prefix${isLastRow ? ' concept-dag-tree__prefix--hidden' : ''}" aria-hidden="true">${escapeHtml(prefix)}</span>` : ''}${isLastRow ? `<span class="concept-dag-tree__wrap" aria-hidden="true">${escapeHtml(renderConceptDagTail(depth))}</span>` : ''}${nodesHtml}</div>`;
+  }).join('');
 }
 
 function buildConceptDagTreeHtml(dag, selectedSubjectId = '') {
   const defaultSubjectId = selectedSubjectId || getConceptDagDefaultSubjectId(dag.nodes);
-  const serializedDag = serializeJsonForScript({
-    id: dag.id,
-    description: dag.description,
-    defaultSubjectId,
-    nodes: dag.nodes.map((node) => ({
-      id: node.id,
-      title: node.title,
-      requires: node.requires,
-    })),
-  });
+  const nodesById = new Map(dag.nodes.map((node) => [node.id, node]));
+  const nodeOrder = new Map(dag.nodes.map((node, index) => [node.id, index]));
+  const ancestorIds = collectConceptDagAncestors(defaultSubjectId, nodesById);
+  const rootIds = collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder);
+  const context = {
+    nodesById,
+    childMap: buildConceptDagChildMap(ancestorIds, nodesById, nodeOrder),
+    renderedIds: new Set(),
+  };
+  const rows = [];
 
-  return `<section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map" data-concept-dag-page data-concept-dag-id="${escapeHtml(dag.id || 'concept-dag')}" data-concept-dag-default-subject="${escapeHtml(defaultSubjectId)}">
+  (rootIds.length ? rootIds : [defaultSubjectId]).forEach((nodeId) => walkConceptDagTreeRows(nodeId, context, 0, new Set(), rows));
+  const treeHtml = rows.length
+    ? `<div class="concept-dag-tree__lines">${renderConceptDagRows(rows, defaultSubjectId)}</div>`
+    : '<p class="concept-dag-tree__empty">No prerequisite chain available for this subject.</p>';
+
+  return `<section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
       <div class="concept-dag-tree-panel__head">
         <div>
           <p class="section-label">Prerequisites</p>
         </div>
       </div>
-      <div class="concept-dag-tree" data-concept-dag-tree></div>
-      <script type="application/json" data-concept-dag-data>${serializedDag}</script>
+      <div class="concept-dag-tree">${treeHtml}</div>
     </section>`;
 }
 
 function buildLandingHtml(structures, assetVersions, dag) {
-  const conceptDagHtml = buildConceptDagLandingHtml(dag);
+  // const conceptDagHtml = buildConceptDagLandingHtml(dag);
 
   return renderNotesPageDocument({
     title: 'Home | Adriamics',
@@ -1880,12 +1921,9 @@ function buildLandingHtml(structures, assetVersions, dag) {
           <p class="landing-hero__tagline">It is a <strong>structured study system</strong> designed to help you learn concepts in order, review <em>individual topics</em>, practice with <strong>focused problem sets</strong>, and follow guided prerequisite maps.</p>
           <p class="landing-hero__tagline"><strong>No filler.</strong> <em>No empty history.</em> Just <strong>direct learning</strong>, rigorous reasoning, and <em>proof of understanding</em>.</p>
           <p class="landing-hero__tagline">If education is truly <strong>universal</strong>, then anyone can become an expert. What matters is not where you start, but whether you can prove what you understand with <em>rigor</em>.</p>
-          <p class="landing-hero__credit"><a class="text-underline-muted" href="https://commons.wikimedia.org/w/index.php?curid=156464890" target="_blank" rel="noreferrer">Image by Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, </a></p>
+          <p class="landing-hero__credit landing-hero__credit--fixed"><a class="text-underline-muted" href="https://commons.wikimedia.org/w/index.php?curid=156464890" target="_blank" rel="noreferrer">Image by Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, </a></p>
         </div>
       </div>
-    </section>
-    <section id="concept-dag" class="learning-paths-layout" aria-label="Domains">
-      ${conceptDagHtml}
     </section>`,
     structures,
     activeStructureId: homeStructureId,
@@ -1894,6 +1932,10 @@ function buildLandingHtml(structures, assetVersions, dag) {
     scriptHref: `/notes/notes-home.js?v=${assetVersions.notesHomeJs}`,
   });
 }
+
+// <section id="concept-dag" class="learning-paths-layout" aria-label="Domains">
+//   ${conceptDagHtml}
+// </section>`,
 
 function trimBlankLines(lines) {
   let start = 0;
@@ -2070,10 +2112,6 @@ function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
       solutionMarkdown,
       sourcePath,
     });
-  }
-
-  if (!problems.length) {
-    throw new Error(`No practice problems were found in ${sourcePath}.`);
   }
 
   return problems;
@@ -2294,7 +2332,12 @@ function renderPracticePageHtml({
     window.MathJax = {
       tex: {
         inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
-        displayMath: [['$$', '$$']]
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] },
+        macros: {
+          degree: '{^{\\\\circ}}',
+          arcsec: '\\\\operatorname{arcsec}'
+        }
       },
       svg: { fontCache: 'global' },
       options: {
@@ -2302,7 +2345,7 @@ function renderPracticePageHtml({
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js"></script>`,
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>`,
   });
 }
 
@@ -2405,26 +2448,22 @@ async function ensureDir(filePath) {
 
 async function loadNoteDocuments(notes) {
   const noteDocuments = new Map();
-  const widgets = [];
 
   for (const note of notes) {
     const sourcePath = getNoteSourcePath(note.path);
-    const markdown = await fs.readFile(sourcePath, 'utf8');
-    const { body } = splitFrontmatter(markdown);
+  let markdown = repairMojibake(await fs.readFile(sourcePath, 'utf8'));
+    const { metadata, body } = splitFrontmatter(markdown);
     const bodyWithoutManualToc = stripManualTableOfContents(body);
     const bodyWithoutTitle = stripLeadingTitleHeading(bodyWithoutManualToc, note.title);
-    const widgetResult = collectWidgetBlocks(bodyWithoutTitle, sourcePath, note);
 
     noteDocuments.set(note.path, {
       sourcePath,
-      bodyForDisplay: widgetResult.body,
-      widgets: widgetResult.widgets,
+      metadata: metadata ?? {},
+      bodyForDisplay: bodyWithoutTitle,
     });
-
-    widgets.push(...widgetResult.widgets);
   }
 
-  return { noteDocuments, widgets };
+  return noteDocuments;
 }
 
 async function loadPracticeProblems(notes) {
@@ -2442,8 +2481,12 @@ async function loadPracticeProblems(notes) {
       continue;
     }
 
-    const markdown = await fs.readFile(practiceSourcePath, 'utf8');
+    const markdown = repairMojibake(await fs.readFile(practiceSourcePath, 'utf8'));
     const problems = parsePracticeProblems(markdown, practiceSourcePath, seenProblemIds);
+
+    if (!problems.length) {
+      continue;
+    }
 
     practiceByNotePath.set(note.path, {
       note,
@@ -2490,7 +2533,7 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null, widgetRegistry = []) {
+async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null) {
   const sourcePath = noteDocument.sourcePath;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const title = note.title;
@@ -2502,8 +2545,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   const { sourceUrl, lastModifiedDate, contributorsHtml } = getSourceMetadata(relativeSourcePath);
   const conceptDagSubjectId = getConceptDagSubjectIdFromNotePath(note.path);
   const conceptDagHtml = conceptDag ? buildConceptDagTreeHtml(conceptDag, conceptDagSubjectId) : '';
-  const resolvedBodyForDisplay = resolveWidgetIncludeMarkers(bodyForDisplay, widgetRegistry);
-  const bodyHtml = renderBlocks(resolvedBodyForDisplay, `notes/${note.path}`);
+  const bodyHtml = renderBlocks(bodyForDisplay, `notes/${note.path}`);
   const pageHtml = buildNoteHtml({
     title,
     description,
@@ -2521,6 +2563,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     practiceUrl: practice ? getPracticeUrl(note.path) : null,
     outputDir: getSubjectOutputDir(note.path),
     assetVersions,
+    interactive: noteDocument.metadata.interactive,
   });
   const outputPath = path.join(getSubjectOutputDir(note.path), 'index.html');
 
@@ -2531,7 +2574,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     title,
     subject: note.structureTitle,
     url: urlPath,
-    text: trimMarkdownText(`${title} ${resolvedBodyForDisplay}`),
+    text: trimMarkdownText(`${title} ${bodyForDisplay}`),
   };
 }
 
@@ -2627,7 +2670,7 @@ async function main() {
   await validateManifestCoverage(notes);
 
   const urls = notes.map((note) => getNoteUrl(note.path));
-  const [{ noteDocuments, widgets: widgetRegistry }, practiceByNotePath] = await Promise.all([
+  const [noteDocuments, practiceByNotePath] = await Promise.all([
     loadNoteDocuments(notes),
     loadPracticeProblems(notes),
   ]);
@@ -2641,7 +2684,7 @@ async function main() {
       throw new Error(`Missing loaded note content for ${note.path}.`);
     }
 
-    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, noteDocument, conceptDag, practice, widgetRegistry));
+    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, noteDocument, conceptDag, practice));
 
     if (practice) {
       const practicePage = await buildPracticePage(practice, manifest.structures, assetVersions);

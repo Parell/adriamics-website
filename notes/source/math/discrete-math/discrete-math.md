@@ -1,6 +1,20 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # Discrete Mathematics
 
 Discrete mathematics studies finite or countable structures such as propositions, sets, integers, graphs, and algorithms. It is the language of proofs and the mathematical foundation of computer science.
+
+> **Before you begin:** Use [Logic](/notes/subjects/math/logic/) before this course. Discrete Math introduces the proof techniques used throughout the subject; for a focused, deeper treatment of constructing and presenting proofs, continue to [Proof Writing](/notes/subjects/math/proof-writing/) afterward.
+
 ## 1. Logic and propositions
 
 A **proposition** is a statement that is either true or false.
@@ -210,6 +224,8 @@ Partially ordered sets are often visualized with **Hasse diagrams**.
 
 Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions.
 
+This is a first introduction to proof methods in context. After completing Discrete Math, use [Proof Writing](/notes/subjects/math/proof-writing/) for dedicated practice with proof structure, strategy, and presentation.
+
 ## Direct proof
 
 Use definitions and algebraic manipulation to move from assumptions to conclusion.
@@ -326,9 +342,6 @@ To work with recursive definitions:
 1. Identify base cases.
 2. Identify the recurrence rule.
 3. Check whether the rule determines each later value uniquely.
-
-<!-- widget:discrete-math -->
-
 ---
 
 ## 5. Counting and combinatorics
@@ -942,14 +955,3 @@ $$
 - Forgetting that a relation and a function are different objects.
 - Claiming a graph is a tree without checking both connectedness and acyclicity.
 - Using asymptotic notation as if it were an exact equality.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

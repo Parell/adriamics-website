@@ -1,4 +1,20 @@
 # Optics
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+## Prerequisites and outcomes
+
+This note assumes geometry, trigonometry, wave basics, and introductory electromagnetism. By the end, you should be able to decide when the ray approximation is valid, construct images with sign conventions, and predict interference, diffraction, and polarization outcomes from phase and geometry.
+
 # 1. What optics studies
 
 Optics is the branch of physics that studies the behavior of light and its interactions with matter. In practice, the subject is usually split into:
@@ -539,7 +555,88 @@ Applications:
 
 ---
 
-# 12. Common problem-solving workflow
+# 12. Acoustics
+
+Acoustics is the study of mechanical waves, especially sound. Unlike light, sound requires a material medium: particles oscillate around equilibrium positions while energy and information travel through the medium.
+
+## Sound waves
+
+For a sinusoidal wave,
+
+$$
+v = f\lambda, \qquad \omega = 2\pi f, \qquad k = \frac{2\pi}{\lambda}
+$$
+
+In a fluid, sound is usually a longitudinal pressure wave. In a solid, both longitudinal and transverse elastic waves may occur. The wave speed is set by the medium's stiffness and inertia, not by the frequency alone.
+
+For an ideal gas,
+
+$$
+v = \sqrt{\frac{\gamma P}{\rho}} = \sqrt{\frac{\gamma R T}{M}}
+$$
+
+where $\gamma$ is the heat-capacity ratio and $M$ is molar mass. Increasing temperature generally increases the speed of sound in a gas.
+
+## Intensity and decibels
+
+The intensity is average power per area:
+
+$$
+I = \frac{P_{\text{acoustic}}}{A}
+$$
+
+For a point source radiating uniformly, $I \propto 1/r^2$. Sound level is commonly measured relative to $I_0 = 10^{-12}\ \text{W/m}^2$:
+
+$$
+\beta = 10\log_{10}\left(\frac{I}{I_0}\right)\ \text{dB}
+$$
+
+An increase of $10$ dB corresponds to ten times the intensity, while doubling distance from an ideal point source reduces the level by about $6$ dB.
+
+## Superposition and standing waves
+
+Sound waves obey superposition. Nearby frequencies produce beats with beat frequency
+
+$$
+f_{\text{beat}} = |f_1-f_2|.
+$$
+
+In a pipe, boundary conditions determine the allowed resonances. For an open-open pipe or closed-closed pipe,
+
+$$
+f_n = \frac{nv}{2L}, \qquad n=1,2,3,\ldots
+$$
+
+For an open-closed pipe, only odd harmonics occur:
+
+$$
+f_n = \frac{(2n-1)v}{4L}, \qquad n=1,2,3,\ldots
+$$
+
+The fundamental frequency sets perceived pitch; waveform and harmonic content influence timbre.
+
+## Doppler effect
+
+Relative motion changes the observed frequency. For a stationary medium,
+
+$$
+f' = f\frac{v \pm v_o}{v \mp v_s},
+$$
+
+where $v_o$ is observer speed and $v_s$ is source speed. Choose the signs so that motion toward the other object raises the observed frequency.
+
+## Reflection, absorption, and applications
+
+- Reflection produces echoes and reverberation.
+- Absorption converts acoustic energy into thermal energy and reduces reverberation.
+- Diffraction allows sound to bend around obstacles, especially when obstacle size is comparable to $\lambda$.
+- Ultrasound uses frequencies above human hearing; medical imaging relies on reflection and changes in acoustic impedance.
+
+At an interface, the acoustic impedance is $Z=\rho v$. A large impedance mismatch produces strong reflection; matching layers improve transmission into a tissue or material.
+
+---
+
+# 13. Common problem-solving workflow
 
 Optics problems usually become manageable if you classify them correctly first.
 
@@ -574,7 +671,7 @@ Optics problems usually become manageable if you classify them correctly first.
 
 ---
 
-# 13. Formula summary
+# 14. Formula summary
 
 ## Geometry and rays
 
@@ -654,14 +751,3 @@ Optics links ray behavior, wave behavior, and imaging systems. The most importan
 - Use wave optics for interference, diffraction, and polarization.
 
 When in doubt, start with a diagram, identify the relevant interfaces or apertures, and track signs and phase changes carefully.
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

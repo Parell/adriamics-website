@@ -1,4 +1,19 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What a limit means
+
+> **What this assumes:** Functions, algebraic manipulation, graphs, and domain restrictions.
+>
+> **What this enables:** A precise definition of continuity and the limit-based definition of the derivative. Integrals and series use limits later, but are not developed here.
 
 A **limit** describes the value a function approaches as the input approaches some point.
 
@@ -10,12 +25,7 @@ $$
 
 This reads as: "as $x$ gets close to $a$, $f(x)$ gets close to $L$."
 
-Limits are the foundation of:
-
-- Derivatives
-- Continuity
-- Infinite series
-- Definite integrals
+Limits provide the language for approaching a value without requiring the function to be evaluated at that exact input.
 
 ## Intuition
 
@@ -46,9 +56,6 @@ $$
 $$
 
 even though the original formula is undefined at $x=3$.
-
-<!-- widget:limits -->
-
 ---
 
 # 2. Formal definition
@@ -406,7 +413,7 @@ $$
 
 ## Why these matter
 
-These limits are the building blocks for derivative formulas involving trig, exponential, and logarithmic functions.
+These special limits will support derivative formulas in the next calculus note; here they are treated only as limit evaluations.
 
 ---
 
@@ -514,6 +521,8 @@ So $x=2$ is a vertical asymptote.
 
 If a rational function has numerator degree exactly one higher than the denominator, polynomial division may reveal a slant asymptote.
 
+<!-- Advanced derivative-based limit material is deferred until Derivatives.
+
 ---
 
 # 9. Indeterminate forms and L'HÃ´pital's rule
@@ -578,6 +587,14 @@ $$
 
 ---
 
+-->
+
+## Derivative-based methods (preview)
+
+Some indeterminate forms can be handled by L'Hôpital's rule, which uses derivatives. Learn and apply that rule with the derivative note; here, prefer algebra, standard limits, or the squeeze theorem.
+
+---
+
 # 10. Problem-solving workflow
 
 When you see a limit, use this sequence.
@@ -590,7 +607,12 @@ When you see a limit, use this sequence.
 6. If $x \to \infty$ or $x \to -\infty$, compare leading terms.
 7. If the function is piecewise, compute left and right limits separately.
 8. If the expression is oscillatory or complicated, consider the squeeze theorem.
+<!--
 9. Use L'HÃ´pital's rule only when the hypotheses fit and a simpler approach is not better.
+
+## Common mistakes
+-->
+9. Leave derivative-based methods for the Derivatives note and use them only after checking their hypotheses.
 
 ## Common mistakes
 
@@ -677,7 +699,7 @@ $$
 \lim_{x \to a} f(x)=L
 $$
 
-## L'HÃ´pital's rule
+<!-- L'Hôpital's rule is deferred to Derivatives; this entry is retained only as a pointer.
 
 For $\frac{0}{0}$ or $\frac{\infty}{\infty}$ forms:
 
@@ -686,14 +708,8 @@ $$
 $$
 
 when the rule applies.
+-->
 
-## Sources
+## What this enables
 
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+You can now evaluate limits, classify discontinuities, and test continuity. Continue to **Derivatives** to turn the limiting secant slope into an instantaneous rate of change; integration and series come after those derivative foundations.

@@ -1,4 +1,20 @@
 # Relativity
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+## Prerequisites and outcomes
+
+This note assumes algebra, functions, vectors, and introductory mechanics. Calculus and linear algebra help with the general-relativity overview but are not required for the special-relativity core. By the end, you should be able to choose an inertial frame, use invariant quantities, and distinguish the special- and general-relativistic regimes.
+
 # 1. Why relativity is needed
 
 Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed of light, but it fails for:
@@ -27,6 +43,13 @@ Use relativity when:
 For everyday speeds, classical formulas are usually adequate because relativistic corrections are tiny.
 
 ---
+
+# Special Relativity
+
+Path: `physics/special-relativity`
+
+Special relativity describes physics in flat spacetime. The sections below cover the
+special-relativistic toolkit in the order it is normally used.
 
 # 2. Special relativity: postulates and frames
 
@@ -385,6 +408,161 @@ For particle reactions, use the invariant quantity before and after the event. T
 4. Keep $c$ explicit until the final step.
 5. Check whether the result stays below $c$ for any material particle.
 
+## Four-vectors in special relativity
+
+A four-vector is an object whose components transform by the Lorentz transformation.
+With the $(+---)$ metric convention, the position four-vector is
+
+$$
+X^\mu=(ct,x,y,z),\qquad X_\mu=\eta_{\mu\nu}X^\nu,
+$$
+
+where $\eta_{\mu\nu}=\operatorname{diag}(1,-1,-1,-1)$. Its invariant norm is
+$X_\mu X^\mu=c^2t^2-\mathbf{x}^2$. Important examples are:
+
+- four-velocity: $U^\mu=dX^\mu/d\tau=\gamma(c,\mathbf v)$;
+- four-momentum: $P^\mu=mU^\mu=(E/c,\mathbf p)$;
+- four-current: $J^\mu=(c\rho,\mathbf J)$;
+- four-gradient: $\partial_\mu=(c^{-1}\partial_t,\nabla)$, with index placement set by the metric.
+
+The four-momentum invariant gives
+
+$$
+P_\mu P^\mu=\frac{E^2}{c^2}-p^2=m^2c^2,
+$$
+
+which is equivalent to $E^2=(pc)^2+(mc^2)^2$. Four-vector notation makes conservation
+laws frame-independent: $\sum P^\mu_{\rm in}=\sum P^\mu_{\rm out}$.
+
+## Electromagnetism in covariant form
+
+The scalar and vector potentials combine into the four-potential
+
+$$
+A^\mu=\left(\frac{\phi}{c},\mathbf A\right),
+$$
+
+and the electromagnetic field is represented by the antisymmetric field tensor
+$F^{\mu\nu}=\partial^\mu A^\nu-\partial^\nu A^\mu$. Its components contain $\mathbf E$
+and $\mathbf B$; therefore electric and magnetic fields are frame-dependent parts of
+one electromagnetic field.
+
+Maxwell's equations become
+
+$$
+\partial_\mu F^{\mu\nu}=\mu_0J^\nu,\qquad
+\partial_{[\alpha}F_{\beta\gamma]}=0.
+$$
+
+The first equation contains Gauss's law and the Ampère–Maxwell law; the second contains
+Gauss's law for magnetism and Faraday's law. A gauge transformation
+$A^\mu\mapsto A^\mu+\partial^\mu\Lambda$ leaves $F^{\mu\nu}$ unchanged. The Lorentz
+force law is $dp^\mu/d\tau=qF^{\mu\nu}U_\nu$, and charge conservation is
+$\partial_\mu J^\mu=0$.
+
+---
+
+# General Relativity
+
+Path: `physics/general-relativity`
+
+General relativity describes gravity as geometry: matter determines spacetime
+curvature, and freely falling matter follows geodesics.
+
+## Tensors and manifolds
+
+A smooth four-dimensional manifold is a set of events that locally resembles
+$\mathbb R^4$. Coordinates $x^\mu$ are labels, not physical objects. A tensor is a
+geometric object whose components transform consistently under coordinate changes.
+The metric $g_{\mu\nu}$ defines lengths and inner products,
+
+$$
+ds^2=g_{\mu\nu}dx^\mu dx^\nu,
+$$
+
+and raises or lowers indices: $V_\mu=g_{\mu\nu}V^\nu$. Tensor equations are useful
+because they have the same meaning in every coordinate system.
+
+## Metrics and geodesics
+
+The Levi–Civita connection is
+
+$$
+\Gamma^\rho_{\mu\nu}=\frac12g^{\rho\sigma}
+(\partial_\mu g_{\nu\sigma}+\partial_\nu g_{\mu\sigma}-\partial_\sigma g_{\mu\nu}).
+$$
+
+Free particles follow geodesics,
+
+$$
+\frac{d^2x^\rho}{d\tau^2}+\Gamma^\rho_{\mu\nu}
+\frac{dx^\mu}{d\tau}\frac{dx^\nu}{d\tau}=0.
+$$
+
+Null geodesics describe light rays; timelike geodesics describe massive freely
+falling particles. Gravitational and kinematic time dilation are consequences of the
+metric and the observer's worldline.
+
+## Curvature
+
+Curvature is measured by the Riemann tensor
+
+$$
+R^\rho{}_{\sigma\mu\nu}=\partial_\mu\Gamma^\rho_{\nu\sigma}-\partial_\nu\Gamma^\rho_{\mu\sigma}
++\Gamma^\rho_{\mu\lambda}\Gamma^\lambda_{\nu\sigma}-\Gamma^\rho_{\nu\lambda}\Gamma^\lambda_{\mu\sigma}.
+$$
+
+Contractions give the Ricci tensor $R_{\mu\nu}=R^\rho{}_{\mu\rho\nu}$ and scalar
+$R=g^{\mu\nu}R_{\mu\nu}$. The Einstein tensor
+$G_{\mu\nu}=R_{\mu\nu}-\tfrac12Rg_{\mu\nu}$ is divergence-free, ensuring consistency
+with local stress-energy conservation.
+
+## Einstein field equations
+
+$$
+G_{\mu\nu}+\Lambda g_{\mu\nu}=\frac{8\pi G}{c^4}T_{\mu\nu}.
+$$
+
+Here $T_{\mu\nu}$ contains energy density, momentum density, pressure, and stresses;
+$\Lambda$ is the cosmological constant. In weak, slowly varying fields these equations
+reduce to Newtonian gravity.
+
+## Schwarzschild spacetime
+
+Outside a static, spherically symmetric, uncharged mass $M$,
+
+$$
+ds^2=-\left(1-\frac{2GM}{rc^2}\right)c^2dt^2+
+\left(1-\frac{2GM}{rc^2}\right)^{-1}dr^2+r^2d\Omega^2.
+$$
+
+The Schwarzschild radius is $r_s=2GM/c^2$. The surface $r=r_s$ is an event horizon
+in these coordinates, while $r=0$ is a curvature singularity. Observable effects
+include gravitational redshift, perihelion precession, light deflection, and black-hole
+orbital dynamics.
+
+## Gravitational waves
+
+Small perturbations $h_{\mu\nu}$ about flat spacetime, $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$,
+contain transverse, tensorial ripples that propagate at $c$. In the far field, changing
+quadrupole moments generate waves; an isolated system's changing mass dipole does not.
+The waves carry energy and produce measurable tidal strain, detected by comparing the
+separations of freely falling test masses.
+
+## Cosmological applications
+
+Homogeneity and isotropy lead to the FLRW metric and scale factor $a(t)$. Einstein's
+equations yield the Friedmann equations,
+
+$$
+H^2=\left(\frac{\dot a}{a}\right)^2=\frac{8\pi G}{3}\rho-\frac{kc^2}{a^2}+\frac{\Lambda c^2}{3},
+$$
+
+with matter density $\rho$, spatial-curvature parameter $k$, and cosmological constant
+$\Lambda$. They describe cosmic expansion, redshift, curvature, and the influence of
+matter, radiation, and dark energy. The conservation equation
+$\dot\rho+3H(\rho+p/c^2)=0$ connects expansion to the equation of state.
+
 ---
 
 # 10. General relativity: gravity as geometry
@@ -617,14 +795,3 @@ $$
 - Forgetting that momentum is $\gamma mv$, not just $mv$.
 - Applying special-relativity formulas to strong gravity without checking the model.
 - Confusing gravitational time dilation with Doppler shift, which are related but not the same effect.
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # First-Order ODEs
 
 First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y'$. They are the first serious class of differential equations because many modeling problems reduce to them, and because most core solution techniques appear here in their simplest form.
@@ -99,9 +110,6 @@ What to look for:
 - Where slopes are positive or negative
 - Where slopes become large in magnitude
 - Whether solutions move toward or away from equilibrium values
-
-<!-- widget:first-order-odes -->
-
 ---
 
 # 3. Separable equations
@@ -741,14 +749,3 @@ $$
 - Check for constant solutions.
 - Use the initial condition after the general solution is found.
 - Verify important answers by substitution.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

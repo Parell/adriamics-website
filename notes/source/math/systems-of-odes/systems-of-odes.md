@@ -1,3 +1,14 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What a system of ODEs is
 
 A **system of ordinary differential equations** is a set of coupled equations for two or more unknown functions of one independent variable, usually time $t$.
@@ -133,70 +144,29 @@ If you can find a change of variables that diagonalizes or simplifies $A$, the s
 
 ---
 
-# 4. Eigenvalues and eigenvectors
+# 4. Eigenmodes as an ODE application
 
-For a homogeneous linear system $\mathbf{x}' = A\mathbf{x}$, try solutions of the form
-
-$$
-\mathbf{x}(t) = e^{\lambda t}\mathbf{v}
-$$
-
-Substituting gives
+The eigenvalue definitions, characteristic-equation derivation, eigenspaces, and repeated-root
+cases are developed in the [Eigenvalues note](../eigenvalues/eigenvalues.md). Here we use only
+their consequence for time-dependent solutions: if $A\mathbf{v}=\lambda\mathbf{v}$, then
 
 $$
-\lambda \mathbf{v} = A\mathbf{v}
+\mathbf{x}(t)=e^{\lambda t}\mathbf{v}
 $$
 
-so $\lambda$ must be an eigenvalue of $A$ and $\mathbf{v}$ an associated eigenvector.
+is an eigenmode of $\mathbf{x}'=A\mathbf{x}$. The mode interpretation is:
 
-## General principle
+| Eigenvalue pattern | ODE behavior |
+| --- | --- |
+| Real $\lambda<0$ | Exponential decay |
+| Real $\lambda>0$ | Exponential growth |
+| $\lambda=0$ | Neutral mode |
+| $\alpha\pm\beta i$ | Oscillation with envelope $e^{\alpha t}$ |
+| Repeated/defective eigenvalue | Generalized-eigenvector terms such as $t e^{\lambda t}$ may occur |
 
-Each eigenpair $(\lambda, \mathbf{v})$ gives a solution
-
-$$
-\mathbf{x}(t) = e^{\lambda t}\mathbf{v}
-$$
-
-If the eigenvalues are distinct and the matrix is diagonalizable, the general solution is a linear combination of these mode solutions.
-
-## Real eigenvalues
-
-If $\lambda \in \mathbb{R}$:
-
-- $\lambda < 0$ gives exponential decay
-- $\lambda > 0$ gives exponential growth
-- $\lambda = 0$ gives neutral behavior in that mode
-
-## Complex eigenvalues
-
-If
-
-$$
-\lambda = \alpha \pm \beta i
-$$
-
-then solutions involve oscillation with exponential envelope:
-
-$$
-e^{\alpha t}(\cos \beta t,\ \sin \beta t)
-$$
-
-More precisely, a complex eigenpair produces two real solutions obtained from the real and imaginary parts.
-
-## Repeated eigenvalues
-
-Repeated eigenvalues require extra care:
-
-- if there are enough independent eigenvectors, the matrix is still diagonalizable
-- if not, you need generalized eigenvectors and Jordan form
-
-In a defective $2 \times 2$ system, a second solution often has the form
-
-$$
-e^{\lambda t}(\mathbf{v} + t\mathbf{w})
-$$
-
-where $\mathbf{w}$ is a generalized eigenvector.
+If enough independent eigenvectors exist, the general homogeneous solution is a linear combination
+of these modes. The table is the application recap; see [Eigenvalues](../eigenvalues/eigenvalues.md)
+for how to compute and classify the eigenpairs.
 
 ---
 
@@ -226,13 +196,8 @@ This is analogous to the scalar exponential series.
 
 ## Diagonalizable case
 
-If
-
-$$
-A = PDP^{-1}
-$$
-
-with diagonal $D = \operatorname{diag}(\lambda_1,\dots,\lambda_n)$, then
+Using the diagonalization result from the [Eigenvalues note](../eigenvalues/eigenvalues.md#6-diagonalization),
+with $D = \operatorname{diag}(\lambda_1,\dots,\lambda_n)$, the matrix exponential is
 
 $$
 e^{At} = Pe^{Dt}P^{-1}
@@ -244,7 +209,8 @@ $$
 e^{Dt} = \operatorname{diag}(e^{\lambda_1 t}, \dots, e^{\lambda_n t})
 $$
 
-This is the cleanest computational route.
+This is the cleanest computational route; the construction and validity of $P$ and $D$ belong to
+the [Eigenvalues note](../eigenvalues/eigenvalues.md#6-diagonalization).
 
 ## Practical use
 
@@ -374,9 +340,6 @@ $$
 $$
 
 This quickly tells you whether the eigenvalues are real or complex and whether the origin is stable.
-
-<!-- widget:systems-of-odes -->
-
 ---
 
 # 8. Nonlinear systems and linearization
@@ -508,13 +471,10 @@ if possible.
 
 Set all derivatives to zero and solve the algebraic system.
 
-## 4. Compute eigenvalues
+## 4. Use the eigenvalue results
 
-For linear systems, compute the characteristic polynomial:
-
-$$
-\det(A-\lambda I)=0
-$$
+For linear systems, obtain eigenvalues and eigenvectors using the [Eigenvalues note](../eigenvalues/eigenvalues.md),
+then interpret the resulting modes in time.
 
 ## 5. Build the solution basis
 
@@ -559,19 +519,11 @@ $$
 e^{At}=I+At+\frac{(At)^2}{2!}+\cdots
 $$
 
-## Eigenmode solution
+## Eigenmode interpretation
 
-If $A\mathbf{v}=\lambda\mathbf{v}$, then
-
-$$
-\mathbf{x}(t)=e^{\lambda t}\mathbf{v}
-$$
-
-## Characteristic polynomial for 2x2 systems
-
-$$
-\lambda^2-\operatorname{tr}(A)\lambda+\det(A)=0
-$$
+If $A\mathbf{v}=\lambda\mathbf{v}$, then $\mathbf{x}(t)=e^{\lambda t}\mathbf{v}$; see the
+[eigenmode recap](#4-eigenmodes-as-an-ode-application) and the [Eigenvalues note](../eigenvalues/eigenvalues.md)
+for computation.
 
 ## Linearization near equilibrium
 
@@ -608,14 +560,3 @@ $$
 - Eigenvectors control directions.
 - The matrix exponential packages the whole solution.
 - Nonlinear systems are often best understood locally by linearization.
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

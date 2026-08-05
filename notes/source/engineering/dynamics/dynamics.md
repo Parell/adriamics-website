@@ -1,3 +1,22 @@
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Nilsson and Riedel, *Electric Circuits*
+- Sedra and Smith, *Microelectronic Circuits*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- Leake and Borger, *Engineering Design Graphics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What dynamics studies
 
 Dynamics is the study of motion and the forces that cause or respond to motion. It sits between statics and vibration-heavy advanced mechanics.
@@ -647,22 +666,3 @@ $$
 4. Decide whether force, energy, or impulse methods are best.
 5. Write the governing equations before plugging in numbers.
 6. Check units and limiting cases.
-
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Engineering Mechanics*
-- Nilsson and Riedel, *Electric Circuits*
-- Sedra and Smith, *Microelectronic Circuits*
-- Oppenheim and Willsky, *Signals and Systems*
-- Nise, *Control Systems Engineering*
-- Incropera et al., *Fundamentals of Heat and Mass Transfer*
-- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Montgomery, *Introduction to Statistical Quality Control*
-- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
-- Law, *Simulation Modeling and Analysis*
-- Fraden, *Handbook of Modern Sensors*
-- Leake and Borger, *Engineering Design Graphics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

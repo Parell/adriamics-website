@@ -1,4 +1,19 @@
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What a derivative means
+
+> **What this assumes:** Functions, limits, and continuity, including one-sided limits and domain restrictions.
+>
+> **What this enables:** Integration uses derivatives to define antiderivatives and connect rates to accumulated change. Series later uses derivatives to build Taylor expansions.
 
 The derivative measures how a function changes as its input changes.
 
@@ -21,9 +36,6 @@ If the derivative is:
 - Positive, the function is increasing locally
 - Negative, the function is decreasing locally
 - Zero, the function may have a horizontal tangent
-
-<!-- widget:derivatives -->
-
 ---
 
 # 2. Formal definition
@@ -731,13 +743,6 @@ $$
 - Writing $\frac{d}{dx}[\ln x]=\frac{1}{x}$ without checking that the domain requires $x>0$.
 - Solving an optimization problem algebraically but forgetting to interpret the result in context.
 
-## Sources
+## What this enables
 
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+You can now compute and interpret derivatives, including local linear change and optimization. Continue to **Integrals** to study accumulation and antiderivatives, then to **Series** for infinite sums and Taylor approximations.

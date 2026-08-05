@@ -1,3 +1,20 @@
+# Thermodynamics I
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+## Prerequisites and outcomes
+
+Use algebra, functions, unit conversions, and basic energy ideas from Physics I as prerequisites. This note prepares you to write closed-system and control-volume balances, interpret property data, and distinguish reversible limits from real irreversible processes.
+
 # 1. Thermodynamic systems and properties
 
 Thermodynamics studies energy, matter, and property changes at the macroscopic scale.
@@ -1394,9 +1411,6 @@ Refrigerator COP:
 $$
 COP_R = \frac{q_L}{w_{comp,in}}
 $$
-
-<!-- widget:ts-diagrams -->
-
 ---
 
 # 13. Problem-solving workflow
@@ -1769,14 +1783,3 @@ $$
 - Assuming work is always positive. The sign depends on whether work is done by or on the system.
 - Ignoring entropy generation in irreversible processes.
 - Comparing efficiencies without checking reservoir temperatures or cycle assumptions.
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -1,7 +1,38 @@
 # Vectors
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. What a vector is
 
 A **vector** is an object with both magnitude and direction. In geometry and physics, vectors represent quantities such as displacement, velocity, acceleration, and force.
+
+This note is the single source for vector notation and operations, including
+dot products, cross products, projections, and vector equations of lines and
+planes. The short prerequisite review below supplies the geometric language
+needed to read those topics; for a fuller treatment of elementary geometry,
+see the [Geometry note](../geometry/geometry.md).
+
+## Recalled from geometry
+
+Geometry supplies the basic spatial language used here:
+
+- points and coordinates such as $(x,y)$ and $(x,y,z)$
+- directed segments, lines, planes, parallelism, and perpendicularity
+- the scalar slope, distance, and midpoint formulas in the plane
+- the Pythagorean theorem and basic right-triangle measurement
+
+These are prerequisites, not a second treatment. Their vector forms and
+higher-dimensional extensions are developed below. For the geometric review,
+see the [Geometry note](../geometry/geometry.md).
 
 In algebra, vectors are often treated as ordered lists of numbers in $\mathbb{R}^n$:
 
@@ -177,8 +208,32 @@ $$
 
 It has zero magnitude and no direction.
 
-<!-- widget:vectors -->
+Geometrically, the zero vector represents **no displacement**: the starting
+point and ending point are the same. It is not an arrow pointing in a special
+direction; its length is zero, so there is no orientation to measure. For
+example, if a particle moves from $A$ to $B$ and then returns to $A$, its net
+displacement is $\mathbf{0}$.
 
+The zero vector is the additive identity because adding it changes nothing:
+
+$$
+\mathbf{v} + \mathbf{0} = \mathbf{v}
+$$
+
+It is also the result when a vector is subtracted from itself:
+
+$$
+\mathbf{v} - \mathbf{v} = \mathbf{0}
+$$
+
+Two details are especially important:
+
+- The zero vector is perpendicular to every vector in the algebraic sense that
+  $\mathbf{0} \cdot \mathbf{v} = 0$, but the usual angle formula does not give
+  it an angle because it requires division by $\lVert\mathbf{0}\rVert$.
+- It cannot be normalized. The expression
+  $\mathbf{0}/\lVert\mathbf{0}\rVert$ divides by zero, so the zero vector has
+  no associated unit vector.
 ---
 
 # 5. Dot product
@@ -523,14 +578,3 @@ Before moving on in a vector problem, verify:
 - The dimensions match the operation
 - Units are consistent if the vectors are physical quantities
 - The final answer has the right geometric meaning
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

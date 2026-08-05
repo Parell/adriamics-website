@@ -1,7 +1,29 @@
 # Geometry
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
 # 1. Foundations and notation
 
 Geometry studies shape, size, position, and relationships in the plane and in space.
+
+This note focuses on spatial reasoning, congruence, similarity, coordinate geometry,
+and measurement. Trigonometric functions and angle-side ratios belong in the
+[Trigonometry note](../trigonometry/trigonometry.md).
+
+Geometry supplies the elementary coordinate-geometry prerequisites for vectors:
+points, slope, distance, midpoint, and basic spatial language. The vector forms
+of notation, dot and cross products, projections, and lines and planes belong in
+the [Vectors note](../vectors/vectors.md), which is the authoritative source for
+those topics.
 
 Core undefined terms:
 
@@ -132,9 +154,6 @@ A triangle exists only if the sum of any two side lengths is greater than the th
 Key fact:
 
 - The perpendicular bisector of a segment contains all points equidistant from the segment's endpoints.
-
-<!-- widget:geometry -->
-
 ---
 
 # 4. Congruence and similarity
@@ -185,7 +204,7 @@ and corresponding angles are equal.
 
 ---
 
-# 5. Right triangles and trigonometry
+# 5. Right triangles and measurement
 
 ## Pythagorean theorem
 
@@ -202,6 +221,18 @@ Common triples:
 - $8,15,17$
 - $7,24,25$
 
+## Right triangles as geometric tools
+
+Right triangles connect geometric measurement to the Pythagorean theorem. They
+also appear in congruence proofs, perpendicular constructions, distance
+formulas, and circle problems.
+
+When a problem asks for a sine, cosine, or tangent ratio, an angle of elevation,
+or an unknown angle from side lengths, continue in the
+[Trigonometry note](../trigonometry/trigonometry.md). That note covers the
+unit circle, right-triangle ratios, functions, identities, equations, and
+non-right triangles.
+
 ## Distance and midpoint
 
 For points $(x_1,y_1)$ and $(x_2,y_2)$:
@@ -215,24 +246,6 @@ Midpoint:
 $$
 M=\left(\frac{x_1+x_2}{2},\frac{y_1+y_2}{2}\right)
 $$
-
-## Basic trigonometric ratios
-
-In a right triangle:
-
-$$
-\sin\theta=\frac{\text{opposite}}{\text{hypotenuse}}
-$$
-
-$$
-\cos\theta=\frac{\text{adjacent}}{\text{hypotenuse}}
-$$
-
-$$
-\tan\theta=\frac{\text{opposite}}{\text{adjacent}}
-$$
-
-Use trig when the problem involves an angle and a side length that is not directly reachable with similarity or the Pythagorean theorem.
 
 ---
 
@@ -346,11 +359,20 @@ $$
 
 ---
 
-# 8. Coordinate geometry
+# 8. Coordinate geometry (scalar tools)
 
 Coordinate geometry lets you translate geometric questions into algebra.
 
+The formulas in this section are Geometry's scalar 2D tools: points, lines,
+slopes, distances, and circles. They prepare the language for vectors without
+turning this section into a vector-algebra lesson. Use the
+[Vectors note](../vectors/vectors.md) for vector notation, vector lines and
+planes, and higher-dimensional generalizations.
+
 ## Line formulas
+
+These are previews of line relationships. The authoritative vector line
+equation is developed in the Vectors note.
 
 Slope between two points:
 
@@ -384,6 +406,10 @@ $$
 - Show a midpoint or bisector by using midpoint formula or equal slopes.
 - Show perpendicularity using negative reciprocal slopes.
 - Show parallelism using equal slopes.
+
+For vector tests of perpendicularity, parallelism, and geometric objects,
+continue to the Vectors note rather than treating this preview as a second
+vector reference.
 
 ---
 
@@ -474,6 +500,7 @@ Surface area is the total area of all outer faces. A reliable method is:
    - Similarity for proportions
    - Angle chasing for unknown angles
    - Coordinate formulas for algebraic setups
+   - Trigonometric ratios or laws for angle-side problems (see the [Trigonometry note](../trigonometry/trigonometry.md))
 5. Write equations from the marked relationships.
 6. Solve carefully and verify the result fits the geometry.
 
@@ -517,7 +544,10 @@ $$
 \text{volume scale factor}=k^3
 $$
 
-## Coordinate geometry
+## Coordinate geometry preview
+
+For vector formulas and vector equations of lines and planes, use the
+[Vectors note](../vectors/vectors.md).
 
 $$
 d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
@@ -582,14 +612,3 @@ When you finish a geometry problem, verify:
 - The value is reasonable compared with the diagram
 - Any angle measure lies between $0^\circ$ and $180^\circ$ when expected
 - Any length is nonnegative
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

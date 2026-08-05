@@ -1,3 +1,18 @@
+# General Chemistry
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- [OpenStax Chemistry 2e](https://openstax.org/details/books/chemistry-2e)
+- [Chemistry LibreTexts](https://chem.libretexts.org/)
+- Brown et al., *Chemistry: The Central Science*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+## Prerequisites and outcomes
+
+This note assumes arithmetic, algebra, unit conversions, and proportional reasoning. By the end, you should be able to balance reactions, use moles and concentrations, predict basic molecular structure, and select equilibrium, acid–base, kinetics, thermochemistry, or redox models without confusing an approximation with a definition.
+
 # 1. Scope and core ideas
 
 General chemistry explains how matter is built, how it reacts, and how energy changes during those reactions. It is the language behind biology, physiology, pharmacology, and laboratory science.
@@ -851,14 +866,3 @@ $$
 - Buffers resist pH change but do not make pH immutable.
 - Catalysts speed reactions but do not change equilibrium position.
 - Chemical intuition improves when equations are balanced and units are tracked carefully.
-
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

@@ -15,7 +15,7 @@
 
 This course assumes the mechanics and vector skills of Physics I, plus basic differentiation and integration. It prepares you to analyze fields, circuits, induction, waves, and the model choices used in optics and advanced electromagnetism.
 
-# 1. Core ideas and units
+# Core ideas and units
 
 Physics II is usually the second introductory university physics course and is centered on:
 
@@ -69,7 +69,7 @@ $$
 
 ---
 
-# 2. Electric charge and Coulomb's law
+# Electric charge and Coulomb's law
 
 ## Charge
 
@@ -126,7 +126,7 @@ For continuous charge distributions, replace the sum with an integral.
 
 ---
 
-# 3. Electric field and flux
+# Electric field and flux
 
 ## Electric field
 
@@ -183,7 +183,7 @@ where $\theta$ is the angle between $\mathbf{E}$ and the surface normal.
 
 ---
 
-# 4. Gauss's law
+# Gauss's law
 
 Gauss's law relates electric flux through a closed surface to enclosed charge:
 
@@ -241,7 +241,7 @@ $$
 
 ---
 
-# 5. Electric potential and potential energy
+# Electric potential and potential energy
 
 ## Potential energy
 
@@ -316,7 +316,7 @@ for electrostatic motion with no nonconservative work.
 
 ---
 
-# 6. Capacitance and dielectrics
+# Capacitance and dielectrics
 
 ## Capacitors
 
@@ -382,7 +382,7 @@ Typical effects:
 
 ---
 
-# 7. Current, resistance, and DC circuits
+# Current, resistance, and DC circuits
 
 ## Current
 
@@ -501,7 +501,7 @@ Interpretation:
 
 ---
 
-# 8. Magnetic fields and magnetic force
+# Magnetic fields and magnetic force
 
 ## Magnetic field
 
@@ -559,7 +559,7 @@ $$
 
 ---
 
-# 9. Sources of magnetic fields
+# Sources of magnetic fields
 
 ## Biot-Savart law
 
@@ -611,7 +611,7 @@ At the introductory level, magnetic materials are often treated through the idea
 
 ---
 
-# 10. Electromagnetic induction
+# Electromagnetic induction
 
 ## Magnetic flux
 
@@ -697,7 +697,7 @@ $$
 
 ---
 
-# 11. AC circuits and resonance
+# AC circuits and resonance
 
 ## Sinusoidal voltage and current
 
@@ -768,7 +768,7 @@ At resonance:
 
 ---
 
-# 12. Electromagnetic waves
+# Electromagnetic waves
 
 Changing electric and magnetic fields sustain each other and propagate as electromagnetic waves.
 
@@ -822,7 +822,7 @@ Frequency increases while wavelength decreases across that sequence.
 
 ---
 
-# 13. Optics and light
+# Optics and light
 
 Many Physics II courses end with geometrical optics and basic wave optics.
 
@@ -910,7 +910,7 @@ for slit width $a$ and nonzero integer $m$.
 
 ---
 
-# 14. Problem-solving workflow
+# Problem-solving workflow
 
 1. Identify the topic family: electrostatics, circuits, magnetism, induction, AC, waves, or optics.
 2. Draw the geometry and label all known quantities.
@@ -937,7 +937,7 @@ for slit width $a$ and nonzero integer $m$.
 
 ---
 
-# 15. Formula summary
+# Formula summary
 
 ## Electrostatics
 

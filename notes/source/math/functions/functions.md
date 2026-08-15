@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What a function is
+# What a function is
 
 > **What this assumes:** Basic algebra, coordinates, and the idea that an expression can have a domain.
 >
@@ -48,7 +48,7 @@ This is a fast visual check, but it is not a substitute for reasoning about the 
 
 ---
 
-# 2. Notation, domain, codomain, and range
+# Notation, domain, codomain, and range
 
 ## Standard notation
 
@@ -102,7 +102,7 @@ Do not confuse codomain with range. The codomain is a design choice; the range i
 
 ---
 
-# 3. Reading and evaluating functions
+# Reading and evaluating functions
 
 ## Evaluating at a point
 
@@ -145,7 +145,7 @@ Keep units consistent when substituting values into formulas.
 
 ---
 
-# 4. Common function families
+# Common function families
 
 ## Polynomial functions
 
@@ -195,7 +195,7 @@ Key idea:
 An exponential function has the form
 
 $$
-f(x) = A b^x, \qquad A \ne 0,quad b > 0,quad b \ne 1.
+f(x) = A b^x, \qquad A \ne 0,\quad b > 0,\quad b \ne 1.
 $$
 
 The initial value is $A$. If $b>1$, the function represents growth; if
@@ -220,9 +220,14 @@ $$
 y=\log_b(x) \quad\Longleftrightarrow\quad b^y=x.
 $$
 
-For $b>1$, $log_b(x)$ increases; for $0<b<1$, it decreases. Its domain is
+For $b>1$, $\log_b(x)$ increases; for $0<b<1$, it decreases. Its domain is
 $x>0$, its range is all real numbers, and its vertical asymptote is $x=0$.
 The graphs of $y=b^x$ and $y=\log_b x$ are reflections across $y=x$.
+
+For the transformed exponential $A b^{k(x-h)}+d$, the horizontal asymptote is
+$y=d$, not necessarily $y=0$. Its range is $(d,\infty)$ when $A>0$ and
+$(-\infty,d)$ when $A<0$; the sign of $k$ changes the direction of growth but
+does not change that range.
 
 The change-of-base identity is
 
@@ -271,7 +276,7 @@ They are periodic and appear in waves, rotation, and oscillation models.
 
 ---
 
-# 5. Transformations and graph behavior
+# Transformations and graph behavior
 
 ## Basic transformations
 
@@ -347,7 +352,7 @@ Graphically:
 
 ---
 
-# 6. Composition and inverse functions
+# Composition and inverse functions
 
 ## Composition
 
@@ -438,7 +443,7 @@ Quick checks:
 
 ---
 
-# 7. Piecewise functions and modeling
+# Piecewise functions and modeling
 
 ## Piecewise definitions
 
@@ -478,7 +483,7 @@ Good models should state:
 
 ---
 
-# 8. Rates of change preview
+# Rates of change preview
 
 ## Average rate of change
 
@@ -496,7 +501,7 @@ An instantaneous rate of change is defined by taking a limit of average rates as
 
 ---
 
-# 9. Problem-solving workflow
+# Problem-solving workflow
 
 When working with functions, use a consistent checklist.
 
@@ -526,7 +531,7 @@ When working with functions, use a consistent checklist.
 
 ---
 
-# 10. Formula sheet
+# Formula sheet
 
 ## Definitions
 

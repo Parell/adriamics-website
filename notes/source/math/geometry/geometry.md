@@ -11,7 +11,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. Foundations and notation
+# Foundations and notation
 
 Geometry studies shape, size, position, and relationships in the plane and in space.
 
@@ -56,7 +56,7 @@ Common notation:
 
 ---
 
-# 2. Angles, lines, and parallelism
+# Angles, lines, and parallelism
 
 ## Angle types
 
@@ -98,7 +98,7 @@ when $m \ne 0$.
 
 ---
 
-# 3. Triangles
+# Triangles
 
 Triangles are central because many geometric problems reduce to triangle relationships.
 
@@ -156,7 +156,7 @@ Key fact:
 - The perpendicular bisector of a segment contains all points equidistant from the segment's endpoints.
 ---
 
-# 4. Congruence and similarity
+# Congruence and similarity
 
 ## Congruence
 
@@ -204,7 +204,7 @@ and corresponding angles are equal.
 
 ---
 
-# 5. Right triangles and measurement
+# Right triangles and measurement
 
 ## Pythagorean theorem
 
@@ -249,7 +249,7 @@ $$
 
 ---
 
-# 6. Quadrilaterals and polygons
+# Quadrilaterals and polygons
 
 ## Quadrilateral families
 
@@ -292,7 +292,7 @@ The exterior angles of any polygon sum to $360^\circ$.
 
 ---
 
-# 7. Circles
+# Circles
 
 ## Core definitions
 
@@ -359,7 +359,7 @@ $$
 
 ---
 
-# 8. Coordinate geometry (scalar tools)
+# Coordinate geometry (scalar tools)
 
 Coordinate geometry lets you translate geometric questions into algebra.
 
@@ -413,7 +413,7 @@ vector reference.
 
 ---
 
-# 9. Transformations and symmetry
+# Transformations and symmetry
 
 ## Rigid motions
 
@@ -444,7 +444,7 @@ Symmetry is often a shortcut for finding equal lengths, angles, or missing parts
 
 ---
 
-# 10. Area, perimeter, surface area, and volume
+# Area, perimeter, surface area, and volume
 
 ## Perimeter and area
 
@@ -479,7 +479,7 @@ Surface area is the total area of all outer faces. A reliable method is:
 
 ---
 
-# 11. Proof strategies and problem-solving workflow
+# Proof strategies and problem-solving workflow
 
 ## Common proof tools
 
@@ -514,7 +514,7 @@ Surface area is the total area of all outer faces. A reliable method is:
 
 ---
 
-# 12. Formula sheet
+# Formula sheet
 
 ## Angle and triangle formulas
 

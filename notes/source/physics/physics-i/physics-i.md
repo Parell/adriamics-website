@@ -38,7 +38,11 @@ The subject is not about memorizing a large number of formulas. Most problems re
 
 # Units, vectors, and notation
 
-## SI base quantities
+## Common SI quantities
+
+Length, mass, and time are SI base quantities. Velocity, acceleration, force,
+energy, power, momentum, and torque are derived quantities built from them.
+Keeping that distinction visible makes dimensional checks easier.
 
 | Quantity | Symbol | SI unit |
 | --- | --- | --- |
@@ -183,6 +187,11 @@ $$
 \theta = \tan^{-1}\!\left(\frac{v_y}{v_x}\right)
 $$
 
+For a vector that may lie in any quadrant, use the two-argument inverse
+tangent, $\theta = \operatorname{atan2}(v_y,v_x)$, or adjust the ordinary
+inverse tangent using the signs of both components. The one-argument formula
+alone cannot distinguish opposite quadrants.
+
 ## Projectile motion
 
 For ideal projectile motion, neglect air resistance. The only acceleration is gravity.
@@ -289,7 +298,9 @@ The normal force is the contact force perpendicular to a surface. It is not alwa
 Examples:
 
 - On a horizontal surface with no vertical acceleration, $N = mg$
-- On an incline, $N = mg\cos\theta$ if no other vertical components act
+- On an incline, if the axes are chosen parallel and perpendicular to the
+  surface and no other force has a perpendicular component, $N = mg\cos\theta$
+  for an incline at angle $\theta$.
 
 ## Tension
 
@@ -308,6 +319,12 @@ Static friction:
 $$
 f_s \le \mu_s N
 $$
+
+Static friction is whatever value is needed to prevent slipping, up to the
+maximum $\mu_sN$; it is not automatically equal to $\mu_sN$. Find the friction
+required by the force balance first. If $|f_{s,\mathrm{required}}| \le \mu_sN$,
+the object can remain at rest. If the required value is larger, static friction
+cannot hold it and the surfaces begin to slide; then use kinetic friction.
 
 Kinetic friction:
 
@@ -737,7 +754,7 @@ The center of mass is the effective point where translational motion can be trac
 
 Good mechanics solutions are usually built in the same order.
 
-## 1. Identify the topic
+## Identify the topic
 
 Decide whether the problem is mainly about:
 
@@ -749,7 +766,7 @@ Decide whether the problem is mainly about:
 - Gravity
 - Oscillation
 
-## 2. Draw the model
+## Draw the model
 
 Use a diagram. Label:
 
@@ -759,7 +776,7 @@ Use a diagram. Label:
 - Forces
 - Initial and final states
 
-## 3. Choose the governing principle
+## Choose the governing principle
 
 Examples:
 
@@ -769,11 +786,11 @@ Examples:
 - $\vec p_i = \vec p_f$
 - $\sum \tau = I\alpha$
 
-## 4. Solve symbolically first
+## Solve symbolically first
 
 Keep variables until the end. This reduces algebra mistakes and makes unit checking easier.
 
-## 5. Check the result
+## Check the result
 
 Sanity checks:
 
@@ -782,7 +799,7 @@ Sanity checks:
 - Magnitude is physically plausible
 - Limiting cases make sense
 
-## 6. Interpret
+## Interpret
 
 Translate the answer back into the language of the problem. A correct number is not enough if the meaning is unclear.
 

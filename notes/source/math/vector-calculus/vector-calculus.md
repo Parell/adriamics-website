@@ -1,3 +1,9 @@
+---
+interactive:
+  - vector-calculus-gradient
+  - vector-calculus-vector-field-3d
+---
+
 # Vector Calculus
 
 ## Sources
@@ -27,7 +33,7 @@ Learn these in order: scalar and vector fields; directional derivatives and grad
 
 ---
 
-# 1. Prerequisites and notation
+# Prerequisites and notation
 
 You should be comfortable with:
 
@@ -57,22 +63,60 @@ The operator $\nabla$ is not a vector of numbers. It is a compact instruction fo
 
 ## Geometric picture
 
-```text
- scalar field f(x,y)                 vector field F(x,y)
+<section class="vector-calculus-gradient" data-interactive="vector-calculus-gradient" data-vector-calculus-gradient aria-labelledby="gradient-explorer-title">
+  <p id="gradient-explorer-title">Drag the probe point or choose a direction. The gradient arrow points toward greatest increase, while the tangent line follows the level curve through the point.</p>
+  <div class="vector-calculus-gradient__layout">
+    <div class="vector-calculus-gradient__visual">
+      <div id="vector-calculus-gradient-board" class="vector-calculus-gradient__board" data-gradient-board role="img" aria-label="Interactive level-curve diagram"></div>
+      <p class="vector-calculus-gradient__legend" aria-hidden="true"><span class="gradient-legend gradient-legend--level"></span> level curves <span class="gradient-legend gradient-legend--gradient"></span> gradient <span class="gradient-legend gradient-legend--tangent"></span> tangent <span class="gradient-legend gradient-legend--direction"></span> direction</p>
+    </div>
+    <div class="vector-calculus-gradient__controls">
+      <label for="gradient-field">Scalar field</label>
+      <select id="gradient-field" data-gradient-field>
+        <option value="quadratic">f(x,y) = ½x² + y²</option>
+        <option value="saddle">f(x,y) = xy</option>
+      </select>
+      <label for="gradient-angle">Direction angle: <output data-gradient-angle-value>35°</output></label>
+      <input id="gradient-angle" data-gradient-angle type="range" min="0" max="360" value="35" step="1" />
+      <dl class="vector-calculus-gradient__values" aria-live="polite" aria-atomic="true">
+        <div><dt>Point P</dt><dd data-gradient-value="point">(2.00, 1.00)</dd></div>
+        <div><dt>f(P)</dt><dd data-gradient-value="field">3.00</dd></div>
+        <div><dt>∇f(P)</dt><dd data-gradient-value="gradient">⟨2.00, 2.00⟩</dd></div>
+        <div><dt>|∇f(P)|</dt><dd data-gradient-value="magnitude">2.83</dd></div>
+        <div><dt>Directional derivative</dt><dd data-gradient-value="directional">2.77</dd></div>
+      </dl>
+    </div>
+  </div>
+  <noscript><p class="vector-calculus-gradient__fallback">JavaScript is disabled. For a point P=(x,y), the gradient is ∇f=⟨x,2y⟩ for ½x²+y² and ∇f=⟨y,x⟩ for xy; the directional derivative is ∇f·â.</p></noscript>
+  <p class="vector-calculus-gradient__fallback" data-gradient-fallback hidden>The interactive could not load, but the formulas are still available: ∇f=⟨x,2y⟩ for ½x²+y² and ∇f=⟨y,x⟩ for xy; D<sub>â</sub>f=∇f·â.</p>
+</section>
 
-       high f                                  ↗  →
-      ________                         ↑   •     •   →
-     /  level  \                    •       ↗       •
-    /  curves    \                   ←   •     •     →
-   /______________\                         ↓
-       low f
-```
-
-Level curves or surfaces show where a scalar field has a constant value. Arrows show the local value of a vector field.
+<section class="vector-calculus-vector-field" data-interactive="vector-calculus-vector-field-3d" aria-labelledby="vector-field-explorer-title">
+  <h3 id="vector-field-explorer-title">Explore a vector field in 3D</h3>
+  <p>Rotate the view to see how a vector field changes through space. The arrows show the vector at sampled points; this example uses fields that are easy to evaluate by hand.</p>
+  <div class="vector-calculus-vector-field__layout">
+    <div id="vector-calculus-vector-field-board" class="vector-calculus-vector-field__board" data-vector-field-board role="img" aria-label="Interactive three-dimensional vector-field diagram"></div>
+    <div class="vector-calculus-vector-field__controls">
+      <label for="vector-field-choice">Vector field</label>
+      <select id="vector-field-choice" data-vector-field-choice>
+        <option value="rotation">F(x,y,z) = ⟨−y, x, 0⟩</option>
+        <option value="radial">F(x,y,z) = ⟨x, y, z⟩</option>
+      </select>
+      <label for="vector-field-scale">Vector length</label>
+      <div class="vector-calculus-vector-field__scale-control">
+        <input id="vector-field-scale" data-vector-field-scale type="range" min="0" max="1.2" step="0.05" value="0.4" />
+        <output for="vector-field-scale" data-vector-field-scale-value>0.40</output>
+      </div>
+      <p class="vector-calculus-vector-field__formula" data-vector-field-formula>Horizontal rotation around the z-axis.</p>
+      <p class="vector-calculus-vector-field__fallback" data-vector-field-fallback hidden>JavaScript or JSXGraph is unavailable. The field is F=⟨−y,x,0⟩, or choose the radial field F=⟨x,y,z⟩.</p>
+    </div>
+  </div>
+  <noscript><p class="vector-calculus-vector-field__fallback">JavaScript is disabled. A vector field assigns a vector to each point in space; here F=⟨−y,x,0⟩ rotates around the z-axis.</p></noscript>
+</section>
 
 ---
 
-# 2. Gradient and directional change
+# Gradient and directional change
 
 The gradient tells how a scalar field changes locally. Its components are the rates of change along the coordinate axes:
 
@@ -163,7 +207,7 @@ Moving in that direction initially increases temperature by about $0.24^\circ\ma
 
 ---
 
-# 3. Divergence
+# Divergence
 
 Divergence applies to a vector field and measures its local net outflow per unit volume. Imagine a tiny balloon in a flow: positive divergence means the balloon's contents tend to spread outward; negative divergence means net inflow.
 
@@ -205,7 +249,7 @@ This does not mean every fluid particle moves in a straight line or that the vel
 
 ---
 
-# 4. Curl
+# Curl
 
 Curl measures the local tendency of a vector field to circulate around a point. Place a tiny paddle wheel in a fluid: nonzero curl means the wheel tends to rotate. Curl is a vector because its axis and sense matter.
 
@@ -259,7 +303,7 @@ The vorticity is twice the rigid body's angular velocity. A factor of two is oft
 
 ---
 
-# 5. Laplacian and identities
+# Laplacian and identities
 
 The scalar Laplacian is the divergence of the gradient:
 
@@ -293,7 +337,7 @@ $$
 
 ---
 
-# 6. Line integrals and conservative fields
+# Line integrals and conservative fields
 
 A line integral accumulates a field along a curve. If $C$ is parameterized by $\mathbf{r}(t)$ for $a\le t\le b$, then
 
@@ -358,7 +402,7 @@ Thus $\phi=x^2y+3x+2y^2$ (the constant $C$ is irrelevant).
 
 ---
 
-# 7. Surface integrals and flux
+# Surface integrals and flux
 
 A surface integral adds contributions over a surface. For an oriented surface $S$ with unit normal $\hat{\mathbf{n}}$,
 
@@ -395,7 +439,7 @@ so the flux is zero. The field lies tangent to that plane at $z=0$; a large fiel
 
 ---
 
-# 8. Green's, Stokes', and divergence theorems
+# Green's, Stokes', and divergence theorems
 
 These theorems connect measurements on a boundary with derivatives inside the region. They are not three unrelated tricks; they are dimension-specific forms of the same boundary-versus-interior principle.
 
@@ -468,7 +512,7 @@ Directly, on the sphere $\mathbf{F}=a\hat{\mathbf{n}}$, giving flux $a(4\pi a^2)
 
 ---
 
-# 9. Conservative, incompressible, and harmonic fields
+# Conservative, incompressible, and harmonic fields
 
 These labels describe different properties and should not be conflated.
 
@@ -491,7 +535,7 @@ On a simply connected domain, conservative and irrotational are equivalent for s
 
 ---
 
-# 10. Coordinate systems and units
+# Coordinate systems and units
 
 Cartesian formulas are simplest, but cylindrical and spherical coordinates match pipes, shafts, and spheres. The operator formulas change because basis directions and area/volume elements change.
 
@@ -520,7 +564,7 @@ Dimensional checks are essential:
 
 ---
 
-# 11. Engineering, experiments, and computation
+# Engineering, experiments, and computation
 
 Vector calculus appears wherever a quantity is distributed in space.
 
@@ -550,7 +594,7 @@ Theorems assume smooth fields and correctly oriented, sufficiently regular bound
 
 ---
 
-# 12. Common mistakes and problem-solving workflow
+# Common mistakes and problem-solving workflow
 
 ## Typical mistakes
 
@@ -576,13 +620,13 @@ Theorems assume smooth fields and correctly oriented, sufficiently regular bound
 
 ---
 
-# 13. Summary
+# Summary
 
 The gradient describes scalar-field change and is normal to level sets. Divergence measures net local outflow, curl measures local circulation, and the Laplacian combines second derivatives to describe local curvature or diffusion. Line integrals accumulate tangential work or circulation; surface integrals accumulate flux. Green's, Stokes', and the divergence theorems relate local differential behavior to measurements on boundaries. Domain, orientation, smoothness, and units are part of the mathematics, not afterthoughts.
 
 ---
 
-# 14. Formula sheet
+# Formula sheet
 
 $$
 \nabla=\left\langle\partial_x,\partial_y,\partial_z\right\rangle
@@ -627,7 +671,7 @@ $$
 
 ---
 
-# 15. Glossary
+# Glossary
 
 | Term | Meaning |
 |---|---|
@@ -647,7 +691,7 @@ $$
 
 ---
 
-# 16. Practice problems
+# Practice problems
 
 1. **Easy:** Find $\nabla f$ for $f(x,y,z)=x^2y+3z$ at $(1,2,0)$.
 2. **Easy:** Find the divergence of $\mathbf{F}=\langle x^2,xy,4z\rangle$.
@@ -669,7 +713,7 @@ $$
 
 ---
 
-# 17. Recommended next topics
+# Recommended next topics
 
 - Partial differential equations: Laplace, heat, and wave equations
 - Fluid mechanics and Navier–Stokes equations

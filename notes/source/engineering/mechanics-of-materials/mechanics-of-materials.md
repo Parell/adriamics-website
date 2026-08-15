@@ -17,7 +17,7 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. Scope and core ideas
+# Scope and core ideas
 
 Mechanics of materials studies how solid members deform and fail under load. The central goal is to relate:
 
@@ -55,7 +55,7 @@ If any link is wrong, the final answer is usually wrong even if the algebra is c
 
 ---
 
-# 2. Stress, strain, and constitutive behavior
+# Stress, strain, and constitutive behavior
 
 ## Normal stress
 
@@ -147,7 +147,7 @@ This matters in three-dimensional stress states and constrained members.
 
 ---
 
-# 3. Axial loading of bars
+# Axial loading of bars
 
 ## Deformation of a prismatic bar
 
@@ -209,7 +209,7 @@ $$
 
 ---
 
-# 4. Thermal strain and statically indeterminate axial systems
+# Thermal strain and statically indeterminate axial systems
 
 ## Free thermal expansion
 
@@ -277,7 +277,7 @@ $$
 
 ---
 
-# 5. Torsion of circular shafts
+# Torsion of circular shafts
 
 ## Torsion formula
 
@@ -353,7 +353,7 @@ This relation is often used to determine the design torque for rotating shafts.
 
 ---
 
-# 6. Shear and internal force resultants
+# Shear and internal force resultants
 
 ## Internal resultants
 
@@ -403,7 +403,7 @@ where $w(x)$ is the distributed load.
 
 ---
 
-# 7. Bending stress in beams
+# Bending stress in beams
 
 ## Flexure formula
 
@@ -489,7 +489,7 @@ The key assumptions are:
 
 ---
 
-# 8. Beam shear stress
+# Beam shear stress
 
 ## General shear formula
 
@@ -535,7 +535,7 @@ is rarely sufficient for beam sections because the local distribution is not uni
 
 ---
 
-# 9. Stress and strain transformations
+# Stress and strain transformations
 
 ## Plane stress state
 
@@ -605,7 +605,7 @@ Strains transform similarly, but use engineering shear strain and the appropriat
 
 ---
 
-# 10. Mohr's circle
+# Mohr's circle
 
 Mohr's circle is a graphical method for plane stress or plane strain transformation.
 
@@ -669,7 +669,7 @@ The circle is safer if the geometry of the stress state is easy to mix up.
 
 ---
 
-# 11. Deflection of beams and shafts
+# Deflection of beams and shafts
 
 ## Beam curvature relation
 
@@ -749,7 +749,7 @@ $$
 
 ---
 
-# 12. Columns and buckling
+# Columns and buckling
 
 ## Euler buckling
 
@@ -803,7 +803,7 @@ You must identify which regime applies before choosing the allowable load.
 
 ---
 
-# 13. Combined loading and failure criteria
+# Combined loading and failure criteria
 
 ## Superposition of stress components
 
@@ -878,7 +878,7 @@ Use the failure criterion that matches the material and the type of failure expe
 
 ---
 
-# 14. Fatigue and design checks
+# Fatigue and design checks
 
 ## Fatigue basics
 
@@ -929,7 +929,7 @@ Different courses and texts use slightly different fatigue diagrams. Use the one
 
 ---
 
-# 15. Problem-solving workflow
+# Problem-solving workflow
 
 ## General workflow
 
@@ -971,7 +971,7 @@ Check:
 
 ---
 
-# 16. Formula sheet
+# Formula sheet
 
 ## Axial
 
@@ -1072,7 +1072,7 @@ $$
 
 ---
 
-# 17. Common mistakes
+# Common mistakes
 
 - Using the wrong area moment of inertia for the bending axis.
 - Confusing polar moment of inertia $J$ with second moment of area $I$.

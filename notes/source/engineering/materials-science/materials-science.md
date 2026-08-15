@@ -19,7 +19,7 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-## 1. Core idea
+## Core idea
 
 Materials science studies how **structure**, **processing**, **properties**, and **performance** are linked.
 
@@ -49,7 +49,7 @@ Engineering failures and design tradeoffs usually come from a mismatch among:
 ---
 
 <a id="atomic-structure-and-bonding"></a>
-## 2. Atomic structure and bonding
+## Atomic structure and bonding
 
 ### Bonding types
 
@@ -81,7 +81,7 @@ Key trends:
 ---
 
 <a id="crystal-structures"></a>
-## 3. Crystal structures
+## Crystal structures
 
 ### Common crystal lattices
 
@@ -139,7 +139,7 @@ Grain boundaries strengthen materials by impeding dislocation motion, but they c
 ---
 
 <a id="defects-and-diffusion"></a>
-## 4. Defects and diffusion
+## Defects and diffusion
 
 ### Point defects
 
@@ -221,7 +221,7 @@ Diffusion controls:
 ---
 
 <a id="phase-diagrams-and-phase-transformations"></a>
-## 5. Phase diagrams and phase transformations
+## Phase diagrams and phase transformations
 
 ### Phase concept
 
@@ -296,7 +296,7 @@ General rule:
 ---
 
 <a id="mechanical-behavior"></a>
-## 6. Mechanical behavior
+## Mechanical behavior
 
 ### Stress and strain
 
@@ -421,7 +421,7 @@ Stages:
 ---
 
 <a id="heat-treatment-and-strengthening"></a>
-## 7. Heat treatment and strengthening
+## Heat treatment and strengthening
 
 ### Strengthening mechanisms
 
@@ -481,7 +481,7 @@ The balance between hardness and toughness is usually controlled by temperature,
 ---
 
 <a id="classes-of-engineering-materials"></a>
-## 8. Classes of engineering materials
+## Classes of engineering materials
 
 ### Metals
 
@@ -561,7 +561,7 @@ Materials science and electronic behavior are closely linked in devices and powe
 ---
 
 <a id="characterization-and-testing"></a>
-## 9. Characterization and testing
+## Characterization and testing
 
 ### Microstructure characterization
 
@@ -608,7 +608,7 @@ These tests matter because performance usually depends on service environment, n
 ---
 
 <a id="materials-selection"></a>
-## 10. Materials selection
+## Materials selection
 
 Materials selection is a constrained optimization problem.
 
@@ -659,7 +659,7 @@ Processing constraints include:
 ---
 
 <a id="problem-solving-workflow"></a>
-## 11. Problem-solving workflow
+## Problem-solving workflow
 
 For exam or design problems, use a disciplined sequence.
 
@@ -698,7 +698,7 @@ If the units do not match, the setup is wrong even if the arithmetic is right.
 ---
 
 <a id="formula-summary"></a>
-## 12. Formula summary
+## Formula summary
 
 ### Mechanics
 
@@ -759,7 +759,7 @@ $$
 ---
 
 <a id="common-pitfalls"></a>
-## 13. Common pitfalls
+## Common pitfalls
 
 - Confusing phase composition with overall alloy composition.
 - Using engineering stress after severe necking without checking assumptions.

@@ -13,7 +13,7 @@
 
 This note assumes general chemistry, Lewis structures, acid–base language, and basic algebra. By the end, you should be able to identify functional groups, draw electron-flow mechanisms, predict major products with stated conditions, and verify constitutional and stereochemical changes.
 
-# 1. What organic chemistry studies
+# What organic chemistry studies
 
 Organic chemistry is the study of carbon-containing compounds, especially those built around covalent carbon-carbon and carbon-heteroatom bonds. It matters because carbon can form chains, rings, branched frameworks, and multiple bonds, giving rise to an enormous number of molecules with distinct properties.
 
@@ -37,7 +37,7 @@ Organic chemistry is less about memorizing isolated reactions and more about rec
 
 ---
 
-# 2. Atomic structure and bonding
+# Atomic structure and bonding
 
 ## Carbon bonding
 
@@ -81,7 +81,7 @@ Examples of strong electron-withdrawing groups:
 
 ---
 
-# 3. Functional groups and naming
+# Functional groups and naming
 
 Functional groups determine the identity and reactivity of a molecule. When solving problems, identify the highest-priority functional group first, then build the rest of the analysis around it.
 
@@ -125,7 +125,7 @@ Benzene derivatives are common. If a benzene ring contains a principal functiona
 
 ---
 
-# 4. Isomerism and stereochemistry
+# Isomerism and stereochemistry
 
 ## Constitutional isomers
 
@@ -185,7 +185,7 @@ Important examples:
 
 ---
 
-# 5. Acidity, basicity, and electron flow
+# Acidity, basicity, and electron flow
 
 Organic chemistry problems often begin with a proton transfer or end with one. Acidity and basicity control what species are present and therefore what can react.
 
@@ -229,7 +229,7 @@ In many cases, harder and smaller nucleophiles favor more polar, less polarizabl
 
 ---
 
-# 6. Reaction mechanisms
+# Reaction mechanisms
 
 Mechanisms explain how a reaction happens step by step. A mechanism should conserve atoms, charge, and valence at every stage.
 
@@ -267,7 +267,7 @@ Useful distinction:
 
 ---
 
-# 7. Core reaction families
+# Core reaction families
 
 ## Substitution reactions
 
@@ -344,7 +344,7 @@ tertiary > secondary > primary > methyl, with allylic and benzylic radicals addi
 
 ---
 
-# 8. Carbonyl chemistry
+# Carbonyl chemistry
 
 Carbonyl compounds are central because the C=O bond is polarized and the carbon is electrophilic.
 
@@ -393,7 +393,7 @@ The most important practical step is deciding whether the carbonyl partner can f
 
 ---
 
-# 9. Spectroscopy and structure determination
+# Spectroscopy and structure determination
 
 Structure determination is usually a puzzle with several data sources.
 
@@ -451,7 +451,7 @@ Each ring or pi bond counts as one degree. A triple bond counts as two.
 
 ---
 
-# 10. Organic chemistry in biology
+# Organic chemistry in biology
 
 Organic chemistry is the language of biology at the molecular level.
 
@@ -494,7 +494,7 @@ DNA and RNA are polymers of nucleotides connected by phosphodiester bonds. Base 
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 When a problem looks unfamiliar, use the same sequence every time.
 
@@ -550,7 +550,7 @@ Confirm that:
 
 ---
 
-# 12. Formula summary
+# Formula summary
 
 ## Core relations
 

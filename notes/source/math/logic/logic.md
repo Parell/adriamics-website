@@ -9,9 +9,13 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What logic studies
+# What logic studies
 
 Logic is the study of valid reasoning. In mathematics, it provides the language and rules used to build definitions, state theorems, and prove conclusions from assumptions.
+
+> **What this assumes:** Careful reading of ordinary statements and basic set notation.
+>
+> **What this enables:** Discrete mathematics and proof writing use quantifiers, implications, equivalence, and valid inference explicitly.
 
 At a high level, logic separates three ideas:
 
@@ -37,7 +41,7 @@ Logic is also the foundation for:
 
 ---
 
-# 2. Propositions and truth values
+# Propositions and truth values
 
 A **proposition** is a declarative statement that is either true or false, but not both.
 
@@ -70,7 +74,7 @@ Truth tables list the truth value of a compound proposition for every combinatio
 They are the most direct way to test equivalence or validity for small propositional formulas.
 ---
 
-# 3. Logical connectives
+# Logical connectives
 
 The standard connectives are negation, conjunction, disjunction, implication, and biconditional.
 
@@ -167,7 +171,7 @@ It is true when exactly one of $P$ and $Q$ is true.
 
 ---
 
-# 4. Logical equivalence and algebra of propositions
+# Logical equivalence and algebra of propositions
 
 Two propositions are **logically equivalent** if they have the same truth table.
 
@@ -277,7 +281,7 @@ Only the contrapositive is logically equivalent to the original implication.
 
 ---
 
-# 5. Predicates and quantifiers
+# Predicates and quantifiers
 
 Predicate logic extends propositional logic by allowing statements about objects.
 
@@ -356,7 +360,7 @@ is true over the real numbers, integers, and natural numbers, but not meaningful
 
 ---
 
-# 6. Rules of inference
+# Rules of inference
 
 Rules of inference describe valid argument forms.
 
@@ -441,7 +445,7 @@ To test validity, you can use:
 
 ---
 
-# 7. Proof methods
+# Proof methods
 
 ## Direct proof
 
@@ -503,7 +507,7 @@ To disprove "all even numbers are prime," use $4$.
 
 ---
 
-# 8. Normal forms and simplification
+# Normal forms and simplification
 
 Normal forms standardize formulas so they can be compared or processed systematically.
 
@@ -565,7 +569,7 @@ Equivalently, to test whether $\phi$ is always true, check whether $\neg \phi$ c
 
 ---
 
-# 9. Logic and sets
+# Logic and sets
 
 Set operations mirror logical connectives closely.
 
@@ -603,7 +607,7 @@ This is the set-theoretic version of a universal implication proof.
 
 ---
 
-# 10. Satisfiability and consistency
+# Satisfiability and consistency
 
 A formula is **satisfiable** if there exists at least one assignment of truth values that makes it true.
 
@@ -640,7 +644,7 @@ is satisfiable but not a tautology.
 
 ---
 
-# 11. Common pitfalls
+# Common pitfalls
 
 ## Confusing implication with causation
 
@@ -678,7 +682,7 @@ From $P \to Q$, you cannot conclude $Q \to P$.
 
 ---
 
-# 12. Problem-solving workflow
+# Problem-solving workflow
 
 When solving a logic problem, work in this order:
 
@@ -725,7 +729,7 @@ Apply negation rules mechanically:
 
 ---
 
-# 13. Formula sheet
+# Formula sheet
 
 ## Core equivalences
 

@@ -15,7 +15,7 @@
 
 This note assumes geometry, trigonometry, wave basics, and introductory electromagnetism. By the end, you should be able to decide when the ray approximation is valid, construct images with sign conventions, and predict interference, diffraction, and polarization outcomes from phase and geometry.
 
-# 1. What optics studies
+# What optics studies
 
 Optics is the branch of physics that studies the behavior of light and its interactions with matter. In practice, the subject is usually split into:
 
@@ -46,7 +46,7 @@ where $n$ is the refractive index.
 
 ---
 
-# 2. Light as a wave and a ray
+# Light as a wave and a ray
 
 ## Ray model
 
@@ -106,7 +106,7 @@ The larger the refractive index, the slower light travels in the material.
 
 ---
 
-# 3. Geometric optics
+# Geometric optics
 
 Geometric optics is built on three main principles:
 
@@ -143,7 +143,7 @@ The safest approach is to state the convention being used before solving.
 
 ---
 
-# 4. Reflection and mirrors
+# Reflection and mirrors
 
 ## Law of reflection
 
@@ -221,7 +221,7 @@ Use these principal rays:
 
 ---
 
-# 5. Refraction and Snell's law
+# Refraction and Snell's law
 
 Refraction occurs when light crosses into a medium with a different refractive index. The speed changes, and the direction usually changes too.
 
@@ -265,7 +265,7 @@ This is why prisms spread white light into a spectrum.
 
 ---
 
-# 6. Thin lenses and image formation
+# Thin lenses and image formation
 
 Thin lenses are idealized as lenses with negligible thickness compared to object and image distances.
 
@@ -340,7 +340,7 @@ with $f$ in meters and power in diopters $(\text{D})$.
 
 ---
 
-# 7. Optical instruments
+# Optical instruments
 
 ## Human eye
 
@@ -388,7 +388,7 @@ For imaging systems:
 
 ---
 
-# 8. Wave optics
+# Wave optics
 
 Wave optics becomes essential when the wavelength cannot be neglected relative to the size of the slit, aperture, or obstacle.
 
@@ -421,7 +421,7 @@ $$
 
 ---
 
-# 9. Interference
+# Interference
 
 Interference is the constructive or destructive addition of waves.
 
@@ -469,7 +469,7 @@ Many interference patterns arise from varying film thickness or geometry. The ex
 
 ---
 
-# 10. Diffraction
+# Diffraction
 
 Diffraction is the spreading of waves around obstacles and through apertures.
 
@@ -515,7 +515,7 @@ Implications:
 
 ---
 
-# 11. Polarization
+# Polarization
 
 Polarization describes the orientation of the electric field in a transverse wave.
 
@@ -555,7 +555,7 @@ Applications:
 
 ---
 
-# 12. Acoustics
+# Acoustics
 
 Acoustics is the study of mechanical waves, especially sound. Unlike light, sound requires a material medium: particles oscillate around equilibrium positions while energy and information travel through the medium.
 
@@ -636,7 +636,7 @@ At an interface, the acoustic impedance is $Z=\rho v$. A large impedance mismatc
 
 ---
 
-# 13. Common problem-solving workflow
+# Common problem-solving workflow
 
 Optics problems usually become manageable if you classify them correctly first.
 
@@ -671,7 +671,7 @@ Optics problems usually become manageable if you classify them correctly first.
 
 ---
 
-# 14. Formula summary
+# Formula summary
 
 ## Geometry and rays
 

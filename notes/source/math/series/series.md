@@ -1,4 +1,4 @@
-﻿# 1. Sequences, series, and convergence
+# Sequences, series, and convergence
 
 > **Layer 1 â€” after Limits:** This layer develops sequences, series, and convergence without requiring derivatives or integrals.
 >
@@ -51,7 +51,7 @@ Series are used to:
 
 ---
 
-# 2. Core vocabulary
+# Core vocabulary
 
 ## Convergent and divergent
 
@@ -99,7 +99,7 @@ For conditionally convergent series, rearranging terms can change the sum. This 
 
 ---
 
-# 3. Geometric and telescoping series
+# Geometric and telescoping series
 
 ## Geometric series
 
@@ -158,7 +158,7 @@ so the series converges to $1$.
 
 ---
 
-# 4. Convergence tests
+# Convergence tests
 
 No single test works best in every case. Choose the test that matches the structure of the series.
 
@@ -320,7 +320,7 @@ $$
 \lim_{n\to\infty}\left|\frac{a_{n+1}(x-c)^{n+1}}{a_n(x-c)^n}\right|.
 $$
 
-Inside the interval of convergence, differentiation and integration may be performed term by term:
+On the open interval of convergence, differentiation and integration may be performed term by term:
 
 $$
 f(x)=\sum_{n=0}^{\infty}a_n(x-c)^n
@@ -332,15 +332,22 @@ $$
 \int f(x)\,dx=C+\sum_{n=0}^{\infty}\frac{a_n}{n+1}(x-c)^{n+1}.
 $$
 
-The radius is unchanged by these termwise operations, although endpoint behavior may change.
+The radius is unchanged by these termwise operations, although endpoint behavior
+must be checked separately and may change. At an endpoint, do not differentiate
+or integrate term by term without an additional convergence justification.
 
 ## Taylor and Maclaurin series
 
-The Taylor series of $f$ centered at $a$ is
+The Taylor series constructed from the derivatives of $f$ at $a$ is
 
 $$
-f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n.
+T_f(x)=\sum_{n=0}^{\infty}\frac{f^{(n)}(a)}{n!}(x-a)^n.
 $$
+
+This series represents $f(x)$ only where it converges to the function. For an
+analytic function, that equality holds within its interval of convergence; a
+function can have derivatives of every order and still fail to equal its
+Taylor series away from the center.
 
 When $a=0$ it is a Maclaurin series. Important expansions are
 

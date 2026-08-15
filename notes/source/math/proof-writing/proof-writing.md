@@ -13,7 +13,7 @@
 
 > **Use this course after:** Start with [Logic](/notes/subjects/math/logic/), then use [Discrete Math](/notes/subjects/math/discrete-math/) before this course. Discrete Math provides the initial proof introduction; this course is the dedicated deeper treatment of constructing, choosing, and presenting proofs.
 
-# 1. What a proof does
+# What a proof does
 
 A proof is a finite, logically valid argument that establishes a statement from accepted axioms, definitions, and previously proved results.
 
@@ -56,7 +56,7 @@ Examples, diagrams, and numerical checks can motivate a proof, but they do not r
 
 ---
 
-# 2. Reading mathematical statements
+# Reading mathematical statements
 
 Before proving anything, rewrite the statement carefully.
 
@@ -124,7 +124,7 @@ When stuck, rewrite the claim using definitions and symbols.
 
 ---
 
-# 3. Core proof structures
+# Core proof structures
 
 Most undergraduate proofs fall into a small number of templates.
 
@@ -175,7 +175,7 @@ Do not assume special properties of \(x\) unless the statement gives them.
 
 ---
 
-# 4. Direct proof
+# Direct proof
 
 A direct proof starts from the hypotheses and derives the conclusion by valid deductions.
 
@@ -222,7 +222,7 @@ Use direct proof when:
 
 ---
 
-# 5. Contrapositive and contradiction
+# Contrapositive and contradiction
 
 These are the two main indirect proof methods.
 
@@ -294,7 +294,7 @@ Therefore \(\sqrt{2}\) is irrational.
 
 ---
 
-# 6. Cases, existence, and uniqueness
+# Cases, existence, and uniqueness
 
 Some proofs need branching logic.
 
@@ -355,7 +355,7 @@ This is often paired with an existence proof.
 
 ---
 
-# 7. Induction
+# Induction
 
 Induction proves statements indexed by the natural numbers.
 
@@ -420,7 +420,7 @@ Use strong induction when the next case depends on multiple earlier cases.
 
 ---
 
-# 8. Proofs about sets, functions, and relations
+# Proofs about sets, functions, and relations
 
 These proofs rely heavily on unpacking definitions.
 
@@ -480,7 +480,7 @@ These are usually proved directly from the definition of the relation.
 
 ---
 
-# 9. Common theorem shapes
+# Common theorem shapes
 
 Many theorems repeat the same patterns under different vocabulary.
 
@@ -542,7 +542,7 @@ Typical strategies:
 
 ---
 
-# 10. Writing style and presentation
+# Writing style and presentation
 
 Good proof writing is clear, not decorative.
 
@@ -598,7 +598,7 @@ Finish with a sentence that explicitly links your work back to the statement:
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 When you are unsure how to start, use this sequence.
 
@@ -663,7 +663,7 @@ Ask:
 
 ---
 
-# 12. Checklist and common mistakes
+# Checklist and common mistakes
 
 ## Proof checklist
 

@@ -11,7 +11,7 @@
 
 This note assumes introductory quantum mechanics, thermodynamics, electromagnetism, and vectors. By the end, you should be able to move between lattice, phonon, band, and continuum models, identify the assumptions behind each model, and relate measurable transport or diffraction data to microscopic structure.
 
-# 1. What condensed matter physics studies
+# What condensed matter physics studies
 
 Condensed matter physics explains how large collections of atoms and electrons produce the properties of solids, liquids, and structured materials. The central challenge is connecting microscopic interactions to collective behavior.
 
@@ -22,7 +22,7 @@ Condensed matter physics explains how large collections of atoms and electrons p
 - Band structure explains electrical and optical behavior.
 - Temperature, pressure, disorder, and fields can drive phase transitions.
 
-# 2. Crystal structure
+# Crystal structure
 
 The lattice is an ideal periodic reference; a real crystal also has a basis and defects. Keep those roles separate when interpreting a diffraction or transport problem.
 
@@ -40,7 +40,7 @@ $$
 
 Real crystals contain vacancies, interstitials, substitutional impurities, dislocations, and grain boundaries. Defects can dominate diffusion, strength, conductivity, and optical response.
 
-# 3. Phonons and thermal properties
+# Phonons and thermal properties
 
 Lattice vibrations are quantized as phonons with energy
 
@@ -50,7 +50,7 @@ $$
 
 At long wavelength, acoustic phonons behave like sound waves. Optical phonons occur when a unit cell has multiple atoms moving relative to one another. Heat capacity, thermal conductivity, and expansion depend on the phonon spectrum and scattering from boundaries, defects, and other phonons.
 
-# 4. Electrons in solids
+# Electrons in solids
 
 Periodic potentials split atomic levels into bands. The Fermi–Dirac distribution is
 
@@ -74,7 +74,7 @@ $$
 
 Doping creates donors or acceptors and changes carrier concentration. In a magnetic field, moving charges experience the Lorentz force and can produce a Hall voltage.
 
-# 5. Magnetism and phase transitions
+# Magnetism and phase transitions
 
 Diamagnetism opposes an applied field; paramagnetism comes from unpaired moments; ferromagnetism supports spontaneous alignment. Antiferromagnets and ferrimagnets have ordered but opposing sublattices.
 
@@ -82,7 +82,7 @@ Superconductors exhibit zero DC resistance and magnetic flux expulsion below a c
 
 Near a continuous phase transition, fluctuations become important and macroscopic properties often follow power laws. Order parameters distinguish phases, while symmetry breaking explains why phases have different properties.
 
-# 6. Problem-solving workflow
+# Problem-solving workflow
 
 1. Identify the structure, carriers, or collective mode involved.
 2. Decide whether a microscopic, band, lattice, or continuum model is appropriate.

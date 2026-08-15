@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What a matrix is
+# What a matrix is
 
 A **matrix** is a rectangular array of numbers, symbols, or expressions arranged in rows and columns.
 
@@ -22,6 +22,10 @@ Matrices are used to represent:
 - Recurrence relations and computational models
 
 In linear algebra, matrices are most often studied as algebraic objects that encode linear maps.
+
+> **What this assumes:** Algebraic manipulation and vectors as coordinate lists. Geometry helps with the interpretation, but the computations below are defined by row and column operations.
+>
+> **What this enables:** Eigenvalues, systems of ODEs, numerical methods, and optimization use matrices to represent transformations and coupled equations.
 
 ## Entry notation
 
@@ -49,7 +53,7 @@ $$
 
 ---
 
-# 2. Matrix notation and dimensions
+# Matrix notation and dimensions
 
 The **size** or **dimension** of a matrix is written as:
 
@@ -105,7 +109,7 @@ Two matrices are equal if and only if:
 
 ---
 
-# 3. Types of matrices
+# Types of matrices
 
 | Type | Definition | Example |
 | --- | --- | --- |
@@ -144,7 +148,7 @@ Trace is defined only for square matrices.
 
 ---
 
-# 4. Matrix operations
+# Matrix operations
 
 ## Addition and subtraction
 
@@ -233,7 +237,7 @@ $$
 
 ---
 
-# 5. Matrix multiplication
+# Matrix multiplication
 
 Matrix multiplication is not entrywise. It is defined by row-by-column products.
 
@@ -320,7 +324,7 @@ If $A$ is a matrix and $x$ is a vector, then $Ax$ is a linear combination of the
 That viewpoint is often the fastest way to interpret $Ax=b$.
 ---
 
-# 6. Transpose and symmetry
+# Transpose and symmetry
 
 The **transpose** of a matrix $A$ is denoted $A^T$ and is formed by swapping rows and columns.
 
@@ -387,7 +391,7 @@ Every diagonal entry of a skew-symmetric matrix is zero.
 
 ---
 
-# 7. Row reduction and echelon form
+# Row reduction and echelon form
 
 Row operations are used to solve systems and simplify matrices.
 
@@ -432,7 +436,7 @@ Pivot columns identify which variables are basic in a linear system.
 
 ---
 
-# 8. Determinants
+# Determinants
 
 The determinant is a scalar associated with a square matrix.
 
@@ -525,7 +529,7 @@ This method is conceptually useful, but for large matrices row reduction is ofte
 
 ---
 
-# 9. Inverse matrices
+# Inverse matrices
 
 If $A$ is square, its inverse $A^{-1}$ satisfies:
 
@@ -595,7 +599,7 @@ on one side and, if needed, on both sides.
 
 ---
 
-# 10. Systems of linear equations
+# Systems of linear equations
 
 A linear system can be written as:
 
@@ -668,7 +672,7 @@ where:
 
 ---
 
-# 11. Rank, nullity, and subspaces
+# Rank, nullity, and subspaces
 
 ## Rank
 
@@ -714,7 +718,7 @@ If the null space contains only the zero vector, then $A$ has full column rank.
 
 ---
 
-# 12. Where eigenvalues fit
+# Where eigenvalues fit
 
 Matrices are the foundation: dimensions, multiplication, row reduction, determinants,
 inverses, rank, null spaces, and subspaces provide the tools used by eigenvalue methods.
@@ -732,7 +736,7 @@ Use this compact recap only to connect the topics:
 
 ---
 
-# 14. Special matrices and decompositions
+# Special matrices and decompositions
 
 ## Orthogonal matrices
 
@@ -808,7 +812,7 @@ QR decomposition is central in least-squares problems and numerical algorithms.
 
 ---
 
-# 15. Problem-solving workflow
+# Problem-solving workflow
 
 Use this sequence for most matrix problems.
 
@@ -871,7 +875,7 @@ $$
 
 ---
 
-# 16. Formula sheet
+# Formula sheet
 
 ## Core definitions
 
@@ -955,7 +959,7 @@ $$
 
 ---
 
-# 17. Common mistakes to avoid
+# Common mistakes to avoid
 
 - Treating matrix multiplication as commutative.
 - Adding or multiplying matrices with incompatible dimensions.

@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. Numbers and place value
+# Numbers and place value
 
 Arithmetic studies numbers and the basic operations used to combine, compare, and transform them.
 
@@ -24,14 +24,14 @@ The main arithmetic operations are:
 
 | Number set         | Description                                                    | Examples                            |
 | ------------------ | -------------------------------------------------------------- | ----------------------------------- |
-| Natural numbers    | Counting numbers                                               | $1,\ 2,\ 3,\ 4$                     |
+| Natural numbers    | Counting numbers; some texts also include $0$, so check the convention | $1,\ 2,\ 3,\ 4$                     |
 | Whole numbers      | Natural numbers and zero                                       | $0,\ 1,\ 2,\ 3$                     |
 | Integers           | Positive numbers, negative numbers, and zero                   | $-3,\ -2,\ -1,\ 0,\ 1$              |
-| Rational numbers   | Numbers expressible as a fraction                              | $\frac{1}{2},\ -\frac{5}{3},\ 0.75$ |
-| Irrational numbers | Numbers not expressible as a terminating or repeating fraction | $\sqrt{2},\ \pi$                    |
+| Rational numbers   | Numbers expressible as $p/q$ for integers $p,q$ with $q\ne0$ | $\frac{1}{2},\ -\frac{5}{3},\ 0.75$ |
+| Irrational numbers | Real numbers that cannot be expressed as such a ratio | $\sqrt{2},\ \pi$                    |
 | Real numbers       | Rational and irrational numbers together                       | $-4,\ 0,\ \frac{2}{3},\ \sqrt{5}$   |
 
-Arithmetic usually begins with whole numbers, then extends to integers, fractions, decimals, and real numbers.
+Arithmetic usually begins with whole numbers, then extends to integers, fractions, decimals, and real numbers. A decimal is rational exactly when its decimal expansion terminates or repeats; this is a consequence of the ratio definition, not the definition itself.
 
 ## Place value
 
@@ -45,14 +45,14 @@ $$
 
 the place values are:
 
-| Digit | Place      |  Value |
-| ----- | ---------- | -----: |
-| $4$   | Thousands  | $4000$ |
-| $3$   | Hundreds   |  $300$ |
-| $8$   | Tens       |   $80$ |
-| $2$   | Ones       |    $2$ |
-| $6$   | Tenths     |  $0.6$ |
-| $5$   | Hundredths | $0.05$ |
+| Place      | Digit | Digit's value |
+| ---------- | ----: | ------------: |
+| Thousands  |     4 |         4,000 |
+| Hundreds   |     3 |           300 |
+| Tens       |     8 |            80 |
+| Ones       |     2 |             2 |
+| Tenths     |     6 |           0.6 |
+| Hundredths |     5 |          0.05 |
 
 Expanded form:
 
@@ -111,7 +111,7 @@ $$
 
 ---
 
-# 2. Addition
+# Addition
 
 Addition combines quantities.
 
@@ -151,7 +151,7 @@ $$
 8 + 6 = 14
 $$
 
-Write $4$ and carry $1$.
+Regroup $14$ ones as $1$ ten and $4$ ones. Write $4$ in the ones place and carry $1$ ten to the tens column.
 
 Add tens:
 
@@ -159,7 +159,7 @@ $$
 4 + 7 + 1 = 12
 $$
 
-Write $2$ and carry $1$.
+Regroup $12$ tens as $1$ hundred and $2$ tens. Write $2$ in the tens place and carry $1$ hundred to the hundreds column.
 
 Add hundreds:
 
@@ -210,7 +210,7 @@ Algebra](/notes/subjects/math/algebra/#like-terms).
 
 ---
 
-# 3. Subtraction
+# Subtraction
 
 Subtraction finds the difference between quantities.
 
@@ -332,7 +332,7 @@ $$
 
 ---
 
-# 4. Multiplication
+# Multiplication
 
 Multiplication represents repeated addition, scaling, or area.
 
@@ -416,7 +416,7 @@ $$
 
 ---
 
-# 5. Division
+# Division
 
 Division separates a quantity into equal groups or finds a rate.
 
@@ -538,7 +538,7 @@ $$
 
 ---
 
-# 6. Order of operations
+# Order of operations
 
 Order of operations gives a consistent way to evaluate expressions.
 
@@ -627,7 +627,7 @@ $$
 
 ---
 
-# 7. Integers and signed arithmetic
+# Integers and signed arithmetic
 
 Integers include positive numbers, negative numbers, and zero.
 
@@ -731,7 +731,7 @@ $$
 
 ---
 
-# 8. Factors, multiples, and primes
+# Factors, multiples, and primes
 
 ## Factors
 
@@ -851,7 +851,7 @@ $$
 
 ---
 
-# 9. Fractions
+# Fractions
 
 A fraction represents part of a whole, a ratio, or division.
 
@@ -1005,7 +1005,7 @@ $$
 
 ---
 
-# 10. Decimals
+# Decimals
 
 Decimals are base-ten fractions.
 
@@ -1114,7 +1114,7 @@ $$
 
 ---
 
-# 11. Ratios, rates, and proportions
+# Ratios, rates, and proportions
 
 ## Ratio
 
@@ -1218,7 +1218,7 @@ If $0<k<1$, the figure is reduced.
 
 ---
 
-# 12. Percents
+# Percents
 
 Percent means per hundred.
 
@@ -1333,7 +1333,7 @@ $$
 
 ---
 
-# 13. Numerical powers, roots, and scientific notation
+# Numerical powers, roots, and scientific notation
 
 This section is the **numerical version**: use powers and roots to calculate
 with known numbers. The **symbolic version**—exponent laws, rational
@@ -1424,7 +1424,7 @@ Algebra.
 
 ---
 
-# 14. Estimation, rounding, and error checks
+# Estimation, rounding, and error checks
 
 Estimation gives a quick approximate answer before or after exact calculation.
 
@@ -1526,7 +1526,7 @@ $$
 
 ---
 
-# 15. Problem-solving workflow
+# Problem-solving workflow
 
 Use this checklist for most arithmetic problems.
 
@@ -1615,7 +1615,7 @@ $$
 
 ---
 
-# 16. Formula sheet
+# Formula sheet
 
 ## Place value and comparison
 

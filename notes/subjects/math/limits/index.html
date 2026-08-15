@@ -22,17 +22,19 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=e5d4aa41f137" />
+  <link rel="stylesheet" href="../../../notes.css?v=f3cf2cb8a1e9" />
   
   <script>
     window.MathJax = {
+      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
+        packages: { '[+]': ['ams', 'unicode'] },
         macros: {
           degree: '{^{\\circ}}',
-          arcsec: '\\operatorname{arcsec}'
+          arcsec: '\\operatorname{arcsec}',
+          oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
       svg: { fontCache: 'global' },
@@ -43,7 +45,7 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
   
-  <script defer src="../../../notes.js?v=083386b534db"></script>
+  <script defer src="../../../notes.js?v=6a7338490052"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
@@ -102,7 +104,7 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/limits/" aria-current="page" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>Partial Differential Equations</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" data-notes-nav-item>Optimization</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/limits/" aria-current="page" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" data-notes-nav-item>Optimization</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
@@ -124,15 +126,15 @@
           <p class="section-label">Prerequisites</p>
         </div>
       </div>
-      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__prefix" aria-hidden="true">│   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="3"><span class="concept-dag-tree__prefix concept-dag-tree__prefix--hidden" aria-hidden="true">│   │   │   </span><span class="concept-dag-tree__wrap" aria-hidden="true">└───┴───┴───</span><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></div></div></div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="3"><span class="concept-dag-tree__prefix concept-dag-tree__prefix--hidden" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__wrap" aria-hidden="true"><span class="concept-dag-tree__tail-corner" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></span></div></div></div>
     </section>
         <nav class="notes-toc" aria-label="Table of contents">
       <h2 class="notes-toc__title">Table of Contents</h2>
-      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#sources">Sources</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#1-what-a-limit-means">1. What a limit means</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#intuition">Intuition</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-formal-definition">2. Formal definition</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#how-to-read-it">How to read it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-the-point-is-excluded">Why the point is excluded</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-proof-pattern">Common proof pattern</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-limit-laws">3. Limit laws</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#other-useful-laws">Other useful laws</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#direct-substitution">Direct substitution</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-one-sided-and-infinite-limits">4. One-sided and infinite limits</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#one-sided-limits">One-sided limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#infinite-limits">Infinite limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-a-limit-does-not-exist">When a limit does not exist</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-algebraic-techniques">5. Algebraic techniques</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-factor-and-cancel">1. Factor and cancel</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-rationalize">2. Rationalize</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-combine-fractions">3. Combine fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-use-identities">4. Use identities</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-compare-dominant-terms">5. Compare dominant terms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#6-squeeze-theorem">6. Squeeze theorem</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#6-special-limits-to-know-cold">6. Special limits to know cold</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#trigonometric-limits">Trigonometric limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exponential-and-logarithmic-limits">Exponential and logarithmic limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#compound-interest-limit">Compound interest limit</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-these-matter">Why these matter</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-continuity-and-discontinuities">7. Continuity and discontinuities</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#types-of-discontinuity">Types of discontinuity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#continuity-facts">Continuity facts</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-continuity-helps">Why continuity helps</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-limits-at-infinity-and-asymptotes">8. Limits at infinity and asymptotes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#horizontal-asymptotes">Horizontal asymptotes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rational-functions-at-infinity">Rational functions at infinity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#vertical-asymptotes">Vertical asymptotes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#oblique-asymptotes">Oblique asymptotes</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-indeterminate-forms-and-lh-pitals-rule">9. Indeterminate forms and L&#39;Hôpital&#39;s rule</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#lh-pitals-rule">L&#39;Hôpital&#39;s rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-not-to-overuse-it">When not to overuse it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#derivative-based-methods-preview">Derivative-based methods (preview)</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#10-problem-solving-workflow">10. Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes-2">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#fast-diagnostic-questions">Fast diagnostic questions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#11-formula-sheet">11. Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-notation">Core notation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#limit-laws">Limit laws</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#standard-limits">Standard limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#continuity-test">Continuity test</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#squeeze-theorem">Squeeze theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#what-this-enables">What this enables</a></li></ol></li></ol></div>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#sources">Sources</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#what-a-limit-means">What a limit means</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#intuition">Intuition</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formal-definition">Formal definition</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#how-to-read-it">How to read it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-the-point-is-excluded">Why the point is excluded</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-proof-pattern">Common proof pattern</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#limit-laws">Limit laws</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#other-useful-laws">Other useful laws</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#direct-substitution">Direct substitution</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#one-sided-and-infinite-limits">One-sided and infinite limits</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#one-sided-limits">One-sided limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#infinite-limits">Infinite limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-a-limit-does-not-exist">When a limit does not exist</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#algebraic-techniques">Algebraic techniques</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#factor-and-cancel">Factor and cancel</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rationalize">Rationalize</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#combine-fractions">Combine fractions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#use-identities">Use identities</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#compare-dominant-terms">Compare dominant terms</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#squeeze-theorem">Squeeze theorem</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#special-limits-to-know-cold">Special limits to know cold</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#trigonometric-limits">Trigonometric limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#exponential-and-logarithmic-limits">Exponential and logarithmic limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#compound-interest-limit">Compound interest limit</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-these-matter">Why these matter</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#continuity-and-discontinuities">Continuity and discontinuities</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#types-of-discontinuity">Types of discontinuity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#continuity-facts">Continuity facts</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#why-continuity-helps">Why continuity helps</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#limits-at-infinity-and-asymptotes">Limits at infinity and asymptotes</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#horizontal-asymptotes">Horizontal asymptotes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#rational-functions-at-infinity">Rational functions at infinity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#vertical-asymptotes">Vertical asymptotes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#oblique-asymptotes">Oblique asymptotes</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#indeterminate-forms-and-lh-pitals-rule">Indeterminate forms and L&#39;Hôpital&#39;s rule</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#lh-pitals-rule">L&#39;Hôpital&#39;s rule</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-to-use-it">When to use it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#when-not-to-overuse-it">When not to overuse it</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#example">Example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#derivative-based-methods-preview">Derivative-based methods (preview)</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#problem-solving-workflow">Problem-solving workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-mistakes-2">Common mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#fast-diagnostic-questions">Fast diagnostic questions</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-sheet">Formula sheet</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-notation">Core notation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#limit-laws-2">Limit laws</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#standard-limits">Standard limits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#continuity-test">Continuity test</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#squeeze-theorem-2">Squeeze theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#what-this-enables">What this enables</a></li></ol></li></ol></div>
     </nav>
         <h2 id="sources">Sources</h2>
 <ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
-<h1 id="1-what-a-limit-means">1. What a limit means</h1>
+<h1 id="what-a-limit-means">What a limit means</h1>
 <blockquote><p><strong>What this assumes:</strong> Functions, algebraic manipulation, graphs, and domain restrictions.</p>
 <p><strong>What this enables:</strong> A precise definition of continuity and the limit-based definition of the derivative. Integrals and series use limits later, but are not developed here.</p></blockquote>
 <p>A <strong>limit</strong> describes the value a function approaches as the input approaches some point.</p>
@@ -160,7 +162,7 @@ $$</div>
 $$</div>
 <p>even though the original formula is undefined at $x=3$.</p>
 <hr />
-<h1 id="2-formal-definition">2. Formal definition</h1>
+<h1 id="formal-definition">Formal definition</h1>
 <p>The rigorous definition of a limit uses $\varepsilon$ and $\delta$.</p>
 <div class="math-block">$$
 \lim_{x \to a} f(x) = L
@@ -185,7 +187,7 @@ $$</div>
 <ol><li><p>Start with $|f(x)-L|$</p></li><li><p>Rewrite it in terms of $|x-a|$</p></li><li><p>Bound any extra factors near $x=a$</p></li><li><p>Choose a $\delta$ that makes the inequality work</p></li></ol>
 <p>This is usually easier once the function has been algebraically simplified.</p>
 <hr />
-<h1 id="3-limit-laws">3. Limit laws</h1>
+<h1 id="limit-laws">Limit laws</h1>
 <p>If the individual limits exist, you can combine them algebraically.</p>
 <p>Let</p>
 <div class="math-block">$$
@@ -230,7 +232,7 @@ $$</div>
 $$</div>
 <p>If direct substitution gives an undefined form such as $\frac{0}{0}$, use another technique.</p>
 <hr />
-<h1 id="4-one-sided-and-infinite-limits">4. One-sided and infinite limits</h1>
+<h1 id="one-sided-and-infinite-limits">One-sided and infinite limits</h1>
 <h2 id="one-sided-limits">One-sided limits</h2>
 <p>A <strong>left-hand limit</strong> approaches from values less than $a$:</p>
 <div class="math-block">$$
@@ -284,9 +286,9 @@ $$</div>
 $$</div>
 <p>does not exist because the function keeps oscillating between $-1$ and $1$.</p>
 <hr />
-<h1 id="5-algebraic-techniques">5. Algebraic techniques</h1>
+<h1 id="algebraic-techniques">Algebraic techniques</h1>
 <p>When direct substitution fails, simplify first.</p>
-<h2 id="1-factor-and-cancel">1. Factor and cancel</h2>
+<h2 id="factor-and-cancel">Factor and cancel</h2>
 <p>Use this for removable discontinuities and $\frac{0}{0}$ forms.</p>
 <p>Example:</p>
 <div class="math-block">$$
@@ -300,7 +302,7 @@ $$</div>
 <div class="math-block">$$
 2
 $$</div>
-<h2 id="2-rationalize">2. Rationalize</h2>
+<h2 id="rationalize">Rationalize</h2>
 <p>Useful when square roots create $\frac{0}{0}$.</p>
 <p>Example:</p>
 <div class="math-block">$$
@@ -315,9 +317,9 @@ $$</div>
 <div class="math-block">$$
 \lim_{x \to 4} \frac{\sqrt{x}-2}{x-4} = \frac{1}{4}
 $$</div>
-<h2 id="3-combine-fractions">3. Combine fractions</h2>
+<h2 id="combine-fractions">Combine fractions</h2>
 <p>If a difference of rational expressions produces $\frac{0}{0}$, use a common denominator.</p>
-<h2 id="4-use-identities">4. Use identities</h2>
+<h2 id="use-identities">Use identities</h2>
 <p>Trig identities often reduce expressions to a standard form.</p>
 <p>Examples:</p>
 <div class="math-block">$$
@@ -326,9 +328,9 @@ $$</div>
 <div class="math-block">$$
 1 - \cos x = 2\sin^2\left(\frac{x}{2}\right)
 $$</div>
-<h2 id="5-compare-dominant-terms">5. Compare dominant terms</h2>
+<h2 id="compare-dominant-terms">Compare dominant terms</h2>
 <p>For limits at infinity, divide by the highest power or identify the leading growth rate.</p>
-<h2 id="6-squeeze-theorem">6. Squeeze theorem</h2>
+<h2 id="squeeze-theorem">Squeeze theorem</h2>
 <p>If</p>
 <div class="math-block">$$
 g(x) \le f(x) \le h(x)
@@ -351,7 +353,7 @@ $$</div>
 \lim_{x \to 0} x\sin\left(\frac{1}{x}\right)=0
 $$</div>
 <hr />
-<h1 id="6-special-limits-to-know-cold">6. Special limits to know cold</h1>
+<h1 id="special-limits-to-know-cold">Special limits to know cold</h1>
 <p>These are standard results used constantly in calculus.</p>
 <h2 id="trigonometric-limits">Trigonometric limits</h2>
 <div class="math-block">$$
@@ -382,7 +384,7 @@ $$</div>
 <h2 id="why-these-matter">Why these matter</h2>
 <p>These special limits will support derivative formulas in the next calculus note; here they are treated only as limit evaluations.</p>
 <hr />
-<h1 id="7-continuity-and-discontinuities">7. Continuity and discontinuities</h1>
+<h1 id="continuity-and-discontinuities">Continuity and discontinuities</h1>
 <p>A function is <strong>continuous at $a$</strong> if all three conditions hold:</p>
 <ol><li><p>$f(a)$ is defined</p></li><li><p>$\lim_{x \to a} f(x)$ exists</p></li><li><p>$\lim_{x \to a} f(x) = f(a)$</p></li></ol>
 <p>In symbols:</p>
@@ -404,7 +406,7 @@ $$</div>
 $$</div>
 <p>That is the fastest possible limit evaluation.</p>
 <hr />
-<h1 id="8-limits-at-infinity-and-asymptotes">8. Limits at infinity and asymptotes</h1>
+<h1 id="limits-at-infinity-and-asymptotes">Limits at infinity and asymptotes</h1>
 <p>Limits at infinity describe end behavior.</p>
 <h2 id="horizontal-asymptotes">Horizontal asymptotes</h2>
 <p>If</p>
@@ -436,7 +438,7 @@ $$</div>
 <p>If a rational function has numerator degree exactly one higher than the denominator, polynomial division may reveal a slant asymptote.</p>
 <p>&lt;!-- Advanced derivative-based limit material is deferred until Derivatives.</p>
 <hr />
-<h1 id="9-indeterminate-forms-and-lh-pitals-rule">9. Indeterminate forms and L&#39;Hôpital&#39;s rule</h1>
+<h1 id="indeterminate-forms-and-lh-pitals-rule">Indeterminate forms and L&#39;Hôpital&#39;s rule</h1>
 <p>An <strong>indeterminate form</strong> is an expression that does not determine the limit by itself.</p>
 <p>Common forms:</p>
 <ul><li><p>$\frac{0}{0}$</p></li><li><p>$\frac{\infty}{\infty}$</p></li><li><p>$0\cdot\infty$</p></li><li><p>$\infty-\infty$</p></li><li><p>$0^0$</p></li><li><p>$1^\infty$</p></li><li><p>$\infty^0$</p></li></ul>
@@ -472,7 +474,7 @@ $$</div>
 <h2 id="derivative-based-methods-preview">Derivative-based methods (preview)</h2>
 <p>Some indeterminate forms can be handled by L&#39;Hôpital&#39;s rule, which uses derivatives. Learn and apply that rule with the derivative note; here, prefer algebra, standard limits, or the squeeze theorem.</p>
 <hr />
-<h1 id="10-problem-solving-workflow">10. Problem-solving workflow</h1>
+<h1 id="problem-solving-workflow">Problem-solving workflow</h1>
 <p>When you see a limit, use this sequence.</p>
 <ol><li><p>Try direct substitution.</p></li><li><p>If you get an ordinary number, you are done.</p></li><li><p>If you get $\frac{0}{0}$, simplify algebraically.</p></li><li><p>If radicals appear, rationalize.</p></li><li><p>If trig expressions appear, look for standard identities or special limits.</p></li><li><p>If $x \to \infty$ or $x \to -\infty$, compare leading terms.</p></li><li><p>If the function is piecewise, compute left and right limits separately.</p></li><li><p>If the expression is oscillatory or complicated, consider the squeeze theorem.</p></li></ol>
 <p>&lt;!--</p>
@@ -485,7 +487,7 @@ $$</div>
 <h2 id="fast-diagnostic-questions">Fast diagnostic questions</h2>
 <ul><li><p>Is the function continuous at the point?</p></li><li><p>Does substitution produce a valid value?</p></li><li><p>Is this a removable discontinuity?</p></li><li><p>Are you looking at behavior from one side only?</p></li><li><p>Is the variable heading toward infinity?</p></li></ul>
 <hr />
-<h1 id="11-formula-sheet">11. Formula sheet</h1>
+<h1 id="formula-sheet">Formula sheet</h1>
 <h2 id="core-notation">Core notation</h2>
 <div class="math-block">$$
 \lim_{x \to a} f(x) = L
@@ -493,7 +495,7 @@ $$</div>
 <div class="math-block">$$
 \lim_{x \to a^-} f(x),\qquad \lim_{x \to a^+} f(x)
 $$</div>
-<h2 id="limit-laws">Limit laws</h2>
+<h2 id="limit-laws-2">Limit laws</h2>
 <div class="math-block">$$
 \lim_{x \to a}[f(x)\pm g(x)] = L \pm M
 $$</div>
@@ -523,7 +525,7 @@ $$</div>
 <div class="math-block">$$
 f \text{ is continuous at } a \iff \lim_{x \to a} f(x)=f(a)
 $$</div>
-<h2 id="squeeze-theorem">Squeeze theorem</h2>
+<h2 id="squeeze-theorem-2">Squeeze theorem</h2>
 <div class="math-block">$$
 g(x)\le f(x)\le h(x),\quad \lim_{x \to a} g(x)=\lim_{x \to a} h(x)=L
 $$</div>

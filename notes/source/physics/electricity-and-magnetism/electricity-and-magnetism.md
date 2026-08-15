@@ -15,7 +15,7 @@
 
 This note assumes Physics I mechanics, vectors, algebra, and single- and multivariable calculus. By the end, you should be able to choose between field, potential, circuit, and Maxwell-equation descriptions and track signs, units, symmetry, and boundary assumptions.
 
-# 1. Scope and core ideas
+# Scope and core ideas
 
 Electricity and magnetism describe how charges interact, how fields store and transfer energy, and how changing fields generate each other.
 
@@ -59,7 +59,7 @@ $$
 
 ---
 
-# 2. Charge, force, and electric field
+# Charge, force, and electric field
 
 Electric charge comes in positive and negative signs. Like charges repel, unlike charges attract.
 
@@ -126,7 +126,7 @@ The hardest step is usually choosing the right symmetry. If a distribution has s
 
 ---
 
-# 3. Electric flux and Gauss's law
+# Electric flux and Gauss's law
 
 Electric flux measures how much electric field passes through a surface.
 
@@ -196,7 +196,7 @@ For a long uniformly charged solid cylinder, use Gauss's law separately inside a
 
 ---
 
-# 4. Electric potential and energy
+# Electric potential and energy
 
 Electric potential gives a scalar description of electric energy per unit charge.
 
@@ -269,7 +269,7 @@ Properties:
 
 ---
 
-# 5. Capacitance and dielectrics
+# Capacitance and dielectrics
 
 A capacitor stores separated charge and electric energy.
 
@@ -346,7 +346,7 @@ $$
 
 ---
 
-# 6. Current, resistance, and DC circuits
+# Current, resistance, and DC circuits
 
 Current is the rate at which charge flows:
 
@@ -438,7 +438,7 @@ After one time constant:
 
 ---
 
-# 7. Magnetic fields and magnetic forces
+# Magnetic fields and magnetic forces
 
 Magnetic fields act on moving charges and currents.
 
@@ -499,7 +499,7 @@ If velocity has both parallel and perpendicular components, the path is helical.
 
 ---
 
-# 8. Sources of magnetic fields
+# Sources of magnetic fields
 
 Moving charge creates magnetic fields.
 
@@ -553,7 +553,7 @@ inside the core region.
 
 ---
 
-# 9. Electromagnetic induction
+# Electromagnetic induction
 
 Changing magnetic flux induces an electromotive force.
 
@@ -606,7 +606,7 @@ This is one of the most common places where sign mistakes happen.
 
 ---
 
-# 10. Inductance and RL transients
+# Inductance and RL transients
 
 An inductor resists changes in current because changing current changes magnetic flux.
 
@@ -660,7 +660,7 @@ Changing current in one coil can induce emf in another nearby coil. This is the 
 
 ---
 
-# 11. Maxwell's equations
+# Maxwell's equations
 
 Maxwell's equations unify electricity and magnetism.
 
@@ -719,7 +719,7 @@ which is the speed of light in vacuum.
 
 ---
 
-# 12. Problem-solving workflow
+# Problem-solving workflow
 
 Electromagnetism problems usually become manageable if you classify them correctly before doing algebra.
 
@@ -767,7 +767,7 @@ Ask:
 
 ---
 
-# 13. Formula summary
+# Formula summary
 
 ## Electrostatics
 

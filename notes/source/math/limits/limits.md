@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What a limit means
+# What a limit means
 
 > **What this assumes:** Functions, algebraic manipulation, graphs, and domain restrictions.
 >
@@ -58,7 +58,7 @@ $$
 even though the original formula is undefined at $x=3$.
 ---
 
-# 2. Formal definition
+# Formal definition
 
 The rigorous definition of a limit uses $\varepsilon$ and $\delta$.
 
@@ -107,7 +107,7 @@ This is usually easier once the function has been algebraically simplified.
 
 ---
 
-# 3. Limit laws
+# Limit laws
 
 If the individual limits exist, you can combine them algebraically.
 
@@ -177,7 +177,7 @@ If direct substitution gives an undefined form such as $\frac{0}{0}$, use anothe
 
 ---
 
-# 4. One-sided and infinite limits
+# One-sided and infinite limits
 
 ## One-sided limits
 
@@ -262,11 +262,11 @@ does not exist because the function keeps oscillating between $-1$ and $1$.
 
 ---
 
-# 5. Algebraic techniques
+# Algebraic techniques
 
 When direct substitution fails, simplify first.
 
-## 1. Factor and cancel
+## Factor and cancel
 
 Use this for removable discontinuities and $\frac{0}{0}$ forms.
 
@@ -288,7 +288,7 @@ $$
 2
 $$
 
-## 2. Rationalize
+## Rationalize
 
 Useful when square roots create $\frac{0}{0}$.
 
@@ -311,11 +311,11 @@ $$
 \lim_{x \to 4} \frac{\sqrt{x}-2}{x-4} = \frac{1}{4}
 $$
 
-## 3. Combine fractions
+## Combine fractions
 
 If a difference of rational expressions produces $\frac{0}{0}$, use a common denominator.
 
-## 4. Use identities
+## Use identities
 
 Trig identities often reduce expressions to a standard form.
 
@@ -329,11 +329,11 @@ $$
 1 - \cos x = 2\sin^2\left(\frac{x}{2}\right)
 $$
 
-## 5. Compare dominant terms
+## Compare dominant terms
 
 For limits at infinity, divide by the highest power or identify the leading growth rate.
 
-## 6. Squeeze theorem
+## Squeeze theorem
 
 If
 
@@ -369,7 +369,7 @@ $$
 
 ---
 
-# 6. Special limits to know cold
+# Special limits to know cold
 
 These are standard results used constantly in calculus.
 
@@ -417,7 +417,7 @@ These special limits will support derivative formulas in the next calculus note;
 
 ---
 
-# 7. Continuity and discontinuities
+# Continuity and discontinuities
 
 A function is **continuous at $a$** if all three conditions hold:
 
@@ -467,7 +467,7 @@ That is the fastest possible limit evaluation.
 
 ---
 
-# 8. Limits at infinity and asymptotes
+# Limits at infinity and asymptotes
 
 Limits at infinity describe end behavior.
 
@@ -525,7 +525,7 @@ If a rational function has numerator degree exactly one higher than the denomina
 
 ---
 
-# 9. Indeterminate forms and L'HÃ´pital's rule
+# Indeterminate forms and L'HÃ´pital's rule
 
 An **indeterminate form** is an expression that does not determine the limit by itself.
 
@@ -595,7 +595,7 @@ Some indeterminate forms can be handled by L'Hôpital's rule, which uses derivat
 
 ---
 
-# 10. Problem-solving workflow
+# Problem-solving workflow
 
 When you see a limit, use this sequence.
 
@@ -633,7 +633,7 @@ When you see a limit, use this sequence.
 
 ---
 
-# 11. Formula sheet
+# Formula sheet
 
 ## Core notation
 

@@ -15,7 +15,7 @@
 
 You should know complex numbers, derivatives, integrals, matrices, and eigenvalues; introductory waves and electromagnetism are helpful. By the end, you should be able to translate a one-dimensional quantum model into boundary conditions, operators, eigenvalues, and measurable probabilities.
 
-# 1. What quantum physics studies
+# What quantum physics studies
 
 Quantum physics describes matter and radiation at atomic and subatomic scales, where energy exchange is quantized and measurement outcomes are fundamentally probabilistic.
 
@@ -43,7 +43,7 @@ Quantum mechanics is not just "small-scale classical mechanics." It uses differe
 
 ---
 
-# 2. Classical limits and why quantum theory is needed
+# Classical limits and why quantum theory is needed
 
 Classical physics works well when the action scale is large compared with Planck's constant:
 
@@ -88,7 +88,7 @@ Particles show interference, which cannot be explained by purely classical traje
 
 ---
 
-# 3. Wave functions and probability
+# Wave functions and probability
 
 The state of a one-dimensional particle is often written as $\psi(x,t)$.
 
@@ -141,7 +141,7 @@ Expectation values are weighted averages over measurement outcomes.
 
 ---
 
-# 4. Schrodinger equation
+# Schrodinger equation
 
 The time-dependent Schrodinger equation governs state evolution:
 
@@ -193,7 +193,7 @@ This is the main source of quantization in introductory quantum mechanics.
 
 ---
 
-# 5. Operators, observables, and measurement
+# Operators, observables, and measurement
 
 An observable is represented by a linear operator. For common one-dimensional problems:
 
@@ -247,7 +247,7 @@ This relation underlies the uncertainty principle.
 
 ---
 
-# 6. Uncertainty and superposition
+# Uncertainty and superposition
 
 The Heisenberg uncertainty principle states
 
@@ -279,7 +279,7 @@ Two states with the same probabilities can behave differently if their phases di
 
 ---
 
-# 7. Standard model problems
+# Standard model problems
 
 Introductory courses repeatedly use a small set of solvable systems. Mastering their boundary conditions and eigenstates is the fastest way to build skill.
 
@@ -355,7 +355,7 @@ The hydrogen atom explains the origin of atomic spectra and quantum numbers.
 
 ---
 
-# 8. Spin and two-level systems
+# Spin and two-level systems
 
 Spin is an intrinsic quantum degree of freedom with no classical analog. For an electron, spin-$\tfrac{1}{2}$ means the measured spin projection along an axis takes only two values:
 
@@ -401,7 +401,7 @@ Measurements along one axis project the state into one of the allowed eigenstate
 
 ---
 
-# 9. Approximation methods
+# Approximation methods
 
 Many realistic quantum systems do not have closed-form solutions. Introductory courses usually emphasize a few approximation ideas.
 
@@ -433,7 +433,7 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ---
 
-# 10. Problem-solving workflow
+# Problem-solving workflow
 
 1. Identify the physical system and the relevant potential.
 2. Decide whether the problem is time-dependent or time-independent.
@@ -461,7 +461,7 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ---
 
-# 11. Common pitfalls
+# Common pitfalls
 
 - Confusing the wave function with a literal particle trajectory.
 - Treating $|\psi|^2$ as the wave function itself instead of the probability density.
@@ -481,7 +481,7 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ---
 
-# 12. Formula summary
+# Formula summary
 
 ## Fundamental relations
 

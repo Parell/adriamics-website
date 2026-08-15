@@ -17,7 +17,7 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. Signals, systems, and core models
+# Signals, systems, and core models
 
 ## Signals
 
@@ -79,7 +79,7 @@ The most important system class in this subject is the **linear time-invariant**
 
 ---
 
-# 2. Basic signal operations
+# Basic signal operations
 
 ## Time shifting
 
@@ -141,7 +141,7 @@ The same formulas hold in discrete time by replacing $t$ with $n$.
 
 ---
 
-# 3. System properties
+# System properties
 
 ## Linearity
 
@@ -237,7 +237,7 @@ $$
 
 ---
 
-# 4. Linear time-invariant systems
+# Linear time-invariant systems
 
 LTI systems are central because they are completely characterized by their response to an impulse.
 
@@ -284,7 +284,7 @@ To test whether such a model is LTI, check linearity and whether the coefficient
 
 ---
 
-# 5. Convolution
+# Convolution
 
 Convolution is the main tool for computing the output of an LTI system.
 
@@ -361,7 +361,7 @@ This is a simple smoothing filter.
 
 ---
 
-# 6. Frequency response and steady-state sinusoidal analysis
+# Frequency response and steady-state sinusoidal analysis
 
 ## Sinusoids as test signals
 
@@ -437,7 +437,7 @@ General rule:
 
 ---
 
-# 7. Fourier series and Fourier transform
+# Fourier series and Fourier transform
 
 ## Fourier series for periodic signals
 
@@ -522,7 +522,7 @@ This is useful for energy calculations and spectral interpretation.
 
 ---
 
-# 8. Laplace transform
+# Laplace transform
 
 The Laplace transform is the main tool for continuous-time linear systems with initial conditions.
 
@@ -608,7 +608,7 @@ This is the standard route for transient response problems.
 
 ---
 
-# 9. Z-transform and discrete-time analysis
+# Z-transform and discrete-time analysis
 
 The Z-transform is the discrete-time counterpart of the Laplace transform.
 
@@ -673,7 +673,7 @@ This connects the Z-transform to steady-state sinusoidal behavior.
 
 ---
 
-# 10. Sampling and reconstruction
+# Sampling and reconstruction
 
 Sampling converts a continuous-time signal into a discrete-time signal:
 
@@ -720,7 +720,7 @@ This is idealized but useful for theory.
 
 ---
 
-# 11. State-space viewpoint
+# State-space viewpoint
 
 State-space models represent systems using first-order vector equations.
 
@@ -768,7 +768,7 @@ State-space and transfer-function descriptions are equivalent for linear systems
 
 ---
 
-# 12. Problem-solving workflow
+# Problem-solving workflow
 
 ## Decide the domain first
 
@@ -810,7 +810,7 @@ This decides whether to use convolution, Fourier, Laplace, or Z-transform method
 
 ---
 
-# 13. Formula summary
+# Formula summary
 
 ## Core definitions
 

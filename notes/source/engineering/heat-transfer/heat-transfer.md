@@ -17,7 +17,7 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What heat transfer is
+# What heat transfer is
 
 **Heat transfer** is the study of energy transport driven by a temperature difference.
 
@@ -52,7 +52,7 @@ The key modeling idea is to replace a physical system with a simplified thermal 
 
 ---
 
-# 2. Three modes of heat transfer
+# Three modes of heat transfer
 
 ## Conduction
 
@@ -96,7 +96,7 @@ In many real systems, more than one mechanism acts at once, so the correct model
 
 ---
 
-# 3. Conduction
+# Conduction
 
 Conduction is governed by **Fourier's law**.
 
@@ -217,7 +217,7 @@ $$
 
 ---
 
-# 4. Convection
+# Convection
 
 Convection is modeled with **Newton's law of cooling**.
 
@@ -278,7 +278,7 @@ The characteristic length $L_c$ depends on the geometry.
 
 ---
 
-# 5. Radiation
+# Radiation
 
 Radiation is thermal energy exchange by electromagnetic emission.
 
@@ -343,7 +343,7 @@ View factors are essential in furnace, enclosure, and spacecraft thermal problem
 
 ---
 
-# 6. Thermal resistance networks
+# Thermal resistance networks
 
 Thermal circuits are one of the most useful simplifications in heat transfer.
 
@@ -409,7 +409,7 @@ This is often how surface temperatures are found.
 
 ---
 
-# 7. Steady-state composite walls
+# Steady-state composite walls
 
 Composite systems combine several materials or mechanisms.
 
@@ -472,7 +472,7 @@ If the outer radius is below the critical value, adding insulation can increase 
 
 ---
 
-# 8. Transient heat transfer
+# Transient heat transfer
 
 Transient problems study how temperature changes with time.
 
@@ -550,7 +550,7 @@ Large $\alpha$ means temperature disturbances spread quickly.
 
 ---
 
-# 9. Heat exchangers
+# Heat exchangers
 
 Heat exchangers transfer thermal energy between two fluids without mixing them.
 
@@ -617,7 +617,7 @@ Heat exchanger performance improves by:
 
 ---
 
-# 10. Dimensionless groups
+# Dimensionless groups
 
 Dimensionless numbers help organize heat transfer correlations.
 
@@ -670,7 +670,7 @@ Measures dimensionless time for transient conduction.
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 Heat transfer problems are easiest when you structure them before calculating.
 
@@ -710,7 +710,7 @@ Heat transfer problems are easiest when you structure them before calculating.
 
 ---
 
-# 12. Formula sheet
+# Formula sheet
 
 ## Conduction
 

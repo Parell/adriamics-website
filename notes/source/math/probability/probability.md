@@ -9,13 +9,17 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. Probability language and sample spaces
+# Probability language and sample spaces
 
 Probability is the mathematics of uncertainty. A probability model has three parts:
 
 - A **sample space** $\Omega$ of possible outcomes
 - A **collection of events** built from subsets of $\Omega$
 - A **probability measure** $P$ assigning likelihoods to events
+
+> **What this assumes:** Arithmetic with fractions and basic set operations. Algebra becomes important for conditional probability and random variables.
+>
+> **What this enables:** Statistics uses probability models to describe sampling uncertainty and quantify the strength of evidence.
 
 ## Outcomes, events, and sample spaces
 
@@ -72,7 +76,7 @@ Interpretation:
 
 ---
 
-# 2. Counting methods
+# Counting methods
 
 Counting is often the first step in a probability problem. If you can count outcomes correctly, the probability usually follows.
 
@@ -161,7 +165,7 @@ This is useful for allocation and composition problems.
 
 ---
 
-# 3. Axioms and basic rules
+# Axioms and basic rules
 
 Probability obeys a few core rules. Most other formulas come from these.
 
@@ -224,7 +228,7 @@ The union bound is useful for quick upper bounds.
 
 ---
 
-# 4. Conditional probability and Bayes' theorem
+# Conditional probability and Bayes' theorem
 
 Conditional probability updates probability after new information is observed.
 
@@ -310,7 +314,7 @@ Bayes' theorem converts a test result into an updated belief about the underlyin
 
 ---
 
-# 5. Random variables
+# Random variables
 
 A **random variable** maps outcomes to numbers.
 
@@ -384,7 +388,7 @@ For monotone transformations of continuous variables, the pdf can often be obtai
 
 ---
 
-# 6. Expectation, variance, and moments
+# Expectation, variance, and moments
 
 Expectation is the long-run average value of a random variable.
 
@@ -497,7 +501,7 @@ These moments are useful for characterizing distributions.
 
 ---
 
-# 7. Common discrete distributions
+# Common discrete distributions
 
 Discrete distributions model counts, categories, and repeated trials.
 
@@ -505,7 +509,7 @@ Discrete distributions model counts, categories, and repeated trials.
 
 Used for one success/failure trial.
 
-If $X \sim \mathrm{Bernoulli}(p)$, then
+For $0\le p\le1$, if $X \sim \mathrm{Bernoulli}(p)$, then
 
 $$
 P(X=1)=p,\qquad P(X=0)=1-p
@@ -525,7 +529,7 @@ $$
 
 Counts successes in $n$ independent Bernoulli trials.
 
-If $X \sim \mathrm{Binomial}(n,p)$, then
+For an integer $n\ge0$ and $0\le p\le1$, if $X \sim \mathrm{Binomial}(n,p)$, then
 
 $$
 P(X=k) = {n \choose k} p^k(1-p)^{n-k}
@@ -553,7 +557,7 @@ Use when:
 
 Models the number of trials until the first success.
 
-If $X \sim \mathrm{Geometric}(p)$ on $\{1,2,\dots\}$, then
+For $0<p\le1$, if $X \sim \mathrm{Geometric}(p)$ on $\{1,2,\dots\}$, then
 
 $$
 P(X=k) = (1-p)^{k-1}p
@@ -579,7 +583,7 @@ $$
 
 Counts trials until the $r$th success.
 
-If $X$ is the trial count to obtain $r$ successes:
+For an integer $r\ge1$ and $0<p\le1$, if $X$ is the trial count to obtain $r$ successes:
 
 $$
 P(X=k) = {k-1 \choose r-1} p^r(1-p)^{k-r}
@@ -591,7 +595,7 @@ for $k=r,r+1,\dots$
 
 Models the number of events in a fixed interval when events occur independently at average rate $\lambda$.
 
-If $X \sim \mathrm{Poisson}(\lambda)$, then
+For $\lambda>0$, if $X \sim \mathrm{Poisson}(\lambda)$, then
 
 $$
 P(X=k) = e^{-\lambda}\frac{\lambda^k}{k!}
@@ -615,7 +619,7 @@ Poisson is a common model for counts of rare events.
 
 Used for sampling without replacement from a finite population.
 
-If a population has $N$ items, $K$ successes, and we draw $n$ items without replacement, then
+For integers $0\le K\le N$ and $0\le n\le N$, if a population has $N$ items, $K$ successes, and we draw $n$ items without replacement, then
 
 $$
 P(X=k) = \frac{{K \choose k}{N-K \choose n-k}}{{N \choose n}}
@@ -631,13 +635,13 @@ Use hypergeometric instead of binomial when draws are dependent because the popu
 
 ---
 
-# 8. Common continuous distributions
+# Common continuous distributions
 
 Continuous distributions model measurements and waiting times.
 
 ## Uniform distribution
 
-If $X \sim \mathrm{Uniform}(a,b)$, then
+For $a<b$, if $X \sim \mathrm{Uniform}(a,b)$, then
 
 $$
 f_X(x) = \frac{1}{b-a}, \quad a \le x \le b
@@ -657,7 +661,7 @@ $$
 
 Models waiting time to the first Poisson event.
 
-If $X \sim \mathrm{Exponential}(\lambda)$, then
+For $\lambda>0$, if $X \sim \mathrm{Exponential}(\lambda)$, then
 
 $$
 f_X(x) = \lambda e^{-\lambda x}, \quad x \ge 0
@@ -731,7 +735,7 @@ It is especially useful in Bayesian modeling.
 
 ---
 
-# 9. Joint distributions and dependence
+# Joint distributions and dependence
 
 Many problems involve multiple random variables.
 
@@ -829,7 +833,7 @@ The diagonal entries are variances.
 
 ---
 
-# 10. Law of large numbers and central limit theorem
+# Law of large numbers and central limit theorem
 
 These limit theorems explain why averages become stable and why the normal distribution appears so often.
 
@@ -886,7 +890,7 @@ Use a continuity correction when appropriate.
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 Probability problems are usually easier if you identify the model before doing algebra.
 
@@ -962,7 +966,7 @@ Indicator variables are a powerful way to count expected numbers of events.
 
 ---
 
-# 12. Formula sheet
+# Formula sheet
 
 ## Core rules
 
@@ -1146,7 +1150,7 @@ $$
 
 ---
 
-# 13. Common mistakes to avoid
+# Common mistakes to avoid
 
 - Confusing permutations with combinations.
 - Forgetting whether order matters.

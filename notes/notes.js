@@ -1852,6 +1852,164 @@ function revealQueryMatch() {
   mark.scrollIntoView({ block: 'center' });
 }
 
+let interactiveBoardIdCounter = 0;
+
+function ensureInteractiveBoardId(element, type) {
+  if (element.id) {
+    return element.id;
+  }
+
+  let id;
+  do {
+    interactiveBoardIdCounter += 1;
+    id = `notes-${type}-board-${interactiveBoardIdCounter}`;
+  } while (document.getElementById(id));
+
+  element.id = id;
+  return id;
+}
+
+function initVectorCalculusGradient(root) {
+  if (!root || root.dataset.gradientInitialized === 'true') {
+    return;
+  }
+
+  root.dataset.gradientInitialized = 'true';
+  const fallback = root.querySelector('[data-gradient-fallback]');
+  const boardElement = root.querySelector('[data-gradient-board]');
+
+  if (!window.JXG || !boardElement) {
+    if (fallback) fallback.hidden = false;
+    return;
+  }
+
+  const boardId = ensureInteractiveBoardId(boardElement, 'gradient');
+
+  const fieldSelect = root.querySelector('[data-gradient-field]');
+  const angleInput = root.querySelector('[data-gradient-angle]');
+  const angleOutput = root.querySelector('[data-gradient-angle-value]');
+  const values = Object.fromEntries(Array.from(root.querySelectorAll('[data-gradient-value]')).map((element) => [element.dataset.gradientValue, element]));
+  const fields = {
+    quadratic: { f: (x, y) => 0.5 * x * x + y * y, gradient: (x, y) => [x, 2 * y] },
+    saddle: { f: (x, y) => x * y, gradient: (x, y) => [y, x] },
+  };
+  let fieldKey = fieldSelect?.value in fields ? fieldSelect.value : 'quadratic';
+  let angle = Number(angleInput?.value ?? 35) * Math.PI / 180;
+  const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true });
+  const probe = board.create('point', [2, 1], { name: 'P', size: 4, color: '#f4b942', fixed: false, snapSizeX: 0.05, snapSizeY: 0.05 });
+  const pointCoords = () => [probe.X(), probe.Y()];
+  const levelCurves = [];
+  const addCurve = (x, y, range, extra = {}) => levelCurves.push(board.create('curve', [x, y, ...range], { strokeColor: '#7d8794', strokeWidth: 1, strokeOpacity: 0.55, fixed: true, ...extra }));
+  [1, 2, 3, 4, 6, 8, 10].forEach((level) => addCurve((t) => Math.sqrt(2 * level) * Math.cos(t), (t) => Math.sqrt(level) * Math.sin(t), [0, 2 * Math.PI]));
+  [1, 2, 3, 4].forEach((level) => {
+    [-1, 1].forEach((sign) => addCurve((t) => sign * t, (t) => level / (sign * t), [0.2, 5]));
+    [-1, 1].forEach((sign) => addCurve((t) => sign * t, (t) => -level / (sign * t), [0.2, 5]));
+  });
+  addCurve((t) => t, () => 0, [-5, 5]);
+  addCurve(() => 0, (t) => t, [-5, 5]);
+  const gradientArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + fields[fieldKey].gradient(probe.X(), probe.Y())[0] * 0.55, () => probe.Y() + fields[fieldKey].gradient(probe.X(), probe.Y())[1] * 0.55]], { strokeColor: '#444', fillColor: '#444', strokeWidth: 3 });
+  const directionArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + Math.cos(angle) * 1.5, () => probe.Y() + Math.sin(angle) * 1.5]], { strokeColor: '#777', fillColor: '#777', strokeWidth: 3 });
+  const tangentLine = board.create('line', [[() => probe.X() - Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() + Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5], [() => probe.X() + Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() - Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5]], { strokeColor: '#c084fc', strokeWidth: 2, dash: 2 });
+  const update = () => {
+    const [x, y] = pointCoords();
+    const [gx, gy] = fields[fieldKey].gradient(x, y);
+    const magnitude = Math.hypot(gx, gy);
+    const directional = gx * Math.cos(angle) + gy * Math.sin(angle);
+    if (values.point) values.point.textContent = `(${x.toFixed(2)}, ${y.toFixed(2)})`;
+    if (values.field) values.field.textContent = fields[fieldKey].f(x, y).toFixed(2);
+    if (values.gradient) values.gradient.textContent = `⟨${gx.toFixed(2)}, ${gy.toFixed(2)}⟩`;
+    if (values.magnitude) values.magnitude.textContent = magnitude.toFixed(2);
+    if (values.directional) values.directional.textContent = directional.toFixed(2);
+    if (angleOutput) angleOutput.textContent = `${Math.round(angle * 180 / Math.PI)}°`;
+    board.update();
+  };
+  const updateFieldVisibility = () => levelCurves.forEach((curve, index) => curve.setAttribute({ visible: fieldKey === 'quadratic' ? index < 7 : index >= 7 }));
+  fieldSelect?.addEventListener('change', () => { fieldKey = fields[fieldSelect.value] ? fieldSelect.value : 'quadratic'; updateFieldVisibility(); update(); });
+  angleInput?.addEventListener('input', () => { angle = Number(angleInput.value) * Math.PI / 180; update(); });
+  probe.on('drag', update);
+  updateFieldVisibility();
+  update();
+  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+}
+
+function initVectorField3D(root) {
+  if (!root || root.dataset.vectorFieldInitialized === 'true') {
+    return;
+  }
+
+  root.dataset.vectorFieldInitialized = 'true';
+  const fallback = root.querySelector('[data-vector-field-fallback]');
+  const boardElement = root.querySelector('[data-vector-field-board]');
+
+  if (!window.JXG || !boardElement || !JXG.JSXGraph.initBoard) {
+    if (fallback) fallback.hidden = false;
+    return;
+  }
+
+  const boardId = ensureInteractiveBoardId(boardElement, 'vector-field-3d');
+
+  const choice = root.querySelector('[data-vector-field-choice]');
+  const scaleInput = root.querySelector('[data-vector-field-scale]');
+  const scaleValue = root.querySelector('[data-vector-field-scale-value]');
+  const formula = root.querySelector('[data-vector-field-formula]');
+  const fields = {
+    rotation: { value: (x, y, z) => [-y, x, 0], description: 'Horizontal rotation around the z-axis.' },
+    radial: { value: (x, y, z) => [x, y, z], description: 'Vectors point away from the origin.' },
+  };
+  let fieldKey = fields[choice?.value] ? choice.value : 'rotation';
+  const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-6, 6, 6, -6], axis: true, pan: { enabled: false }, showCopyright: false, showNavigation: false, keepaspectratio: true });
+  let view;
+
+  try {
+    view = board.create('view3d', [[-5, -4], [9, 9], [[-3, 3], [-3, 3], [-3, 3]]], {
+      projection: 'central',
+      trackball: { enabled: true },
+      xPlaneFront: { visible: false },
+      xPlaneRear: { visible: false },
+      yPlaneFront: { visible: false },
+      yPlaneRear: { visible: false },
+      zPlaneFront: { visible: false },
+      zPlaneRear: { visible: false },
+    });
+    // JSXGraph element names are lowercase, including the trailing "3d".
+    let vectorScale = 0.4;
+    const vectorField = view.create('vectorfield3d', [fields[fieldKey].value, [-3, 2, 3], [-3, 2, 3], [-3, 2, 3]], { strokeColor: '#555', strokeWidth: 2.5, scale: () => vectorScale });
+    const updateScale = () => {
+      vectorScale = Number(scaleInput?.value ?? 0.4);
+      vectorField.setAttribute({ scale: () => vectorScale });
+      vectorField.update();
+      if (scaleValue) scaleValue.value = vectorScale.toFixed(2);
+      if (scaleValue) scaleValue.textContent = vectorScale.toFixed(2);
+      board.fullUpdate();
+    };
+    const update = () => {
+      fieldKey = fields[choice?.value] ? choice.value : 'rotation';
+      vectorField.setF(fields[fieldKey].value);
+      if (formula) formula.textContent = fields[fieldKey].description;
+      board.update();
+    };
+    choice?.addEventListener('change', update);
+    scaleInput?.addEventListener('input', updateScale);
+    update();
+    updateScale();
+  } catch {
+    if (fallback) fallback.hidden = false;
+    return;
+  }
+  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+}
+
+const INTERACTIVE_INITIALIZERS = {
+  'vector-calculus-gradient': (root) => initVectorCalculusGradient(root),
+  'vector-calculus-vector-field-3d': (root) => initVectorField3D(root),
+};
+
+function initInteractiveExperiences() {
+  Object.entries(INTERACTIVE_INITIALIZERS).forEach(([type, initializer]) => {
+    document.querySelectorAll(`[data-interactive="${type}"]`).forEach(initializer);
+  });
+}
+
 searchTriggers.forEach((trigger) => {
   trigger.addEventListener('click', () => {
     if (searchPanel?.hidden) {
@@ -1979,6 +2137,7 @@ window.addEventListener('keydown', (event) => {
 });
 
 syncThemePreference();
+initInteractiveExperiences();
 renderPlaceholder('Search note titles and note content.');
 revealQueryMatch();
 syncPracticeCompletionState();

@@ -19,7 +19,7 @@ The main ideas can be learned with calculus, but rigorous existence theory and n
 
 ---
 
-# 1. What a PDE is
+# What a PDE is
 
 An **ordinary differential equation** (ODE) has derivatives with respect to one independent variable. A **partial differential equation** has partial derivatives with respect to at least two independent variables.
 
@@ -81,7 +81,7 @@ is also a solution for constants $c_1,c_2$. This is the basis of Fourier series 
 
 ---
 
-# 2. Derivative language and common operators
+# Derivative language and common operators
 
 The **gradient** collects first spatial derivatives of a scalar field:
 
@@ -115,7 +115,7 @@ Writing $v=dx/dt$ gives $u_t+v u_x$, the one-dimensional **material derivative**
 
 ---
 
-# 3. Classification of second-order PDEs
+# Classification of second-order PDEs
 
 Consider a two-variable linear second-order PDE whose highest-order part is
 
@@ -159,7 +159,7 @@ Thus a disturbance travels right or left at speed $c$; it does not instantly aff
 
 ---
 
-# 4. Conditions needed to define a problem
+# Conditions needed to define a problem
 
 Writing a PDE alone usually does not select one solution. A complete problem includes a domain, the PDE, and data on the boundary and/or at an initial time.
 
@@ -222,7 +222,7 @@ The third condition means small measurement or rounding errors produce only smal
 
 ---
 
-# 5. Conservation laws and the divergence theorem
+# Conservation laws and the divergence theorem
 
 Many physical PDEs begin with a balance law. Let $u(\mathbf{x},t)$ be density per unit volume, $\mathbf{J}$ its flux, and $s$ a source per unit volume. Conservation over a fixed control volume $V$ says
 
@@ -262,7 +262,7 @@ If $D$ is constant, this reduces to $u_t=D\nabla^2u+s$. The minus sign in Fick's
 
 ---
 
-# 6. Separation of variables
+# Separation of variables
 
 Separation of variables assumes a product form, such as
 
@@ -331,7 +331,7 @@ The physical meaning is important: each spatial mode decays exponentially, and h
 
 ---
 
-# 7. The heat equation
+# The heat equation
 
 The heat equation models temperature diffusion in a stationary material with constant properties and no internal heat generation:
 
@@ -371,7 +371,7 @@ The basic equation assumes a continuum, local thermal equilibrium, constant $k$,
 
 ---
 
-# 8. The wave equation
+# The wave equation
 
 The one-dimensional wave equation is
 
@@ -425,7 +425,7 @@ The time factor oscillates rather than decays. In real systems damping, nonlinea
 
 ---
 
-# 9. Laplace's equation
+# Laplace's equation
 
 Laplace's equation is
 
@@ -453,7 +453,7 @@ called Poisson's equation. For electrostatics, sign and constants depend on the 
 
 ---
 
-# 10. A worked separation example
+# A worked separation example
 
 Solve the heat equation on $0<x<1$ m with zero end temperatures and initial profile
 
@@ -479,7 +479,7 @@ The first mode has amplitude about $8.21$, while the third has amplitude about $
 
 ---
 
-# 11. Numerical PDEs and real engineering systems
+# Numerical PDEs and real engineering systems
 
 Closed-form solutions are special. Engineers commonly discretize space and solve a large algebraic system.
 
@@ -532,7 +532,7 @@ Validate assumptions with dimensionless groups, experiments, mesh refinement, an
 
 ---
 
-# 12. Common misconceptions and mistakes
+# Common misconceptions and mistakes
 
 - **“The PDE is the solution.”** The PDE is only the governing relation; domain and data are essential.
 - **“Parabolic means a parabola.”** The classification describes information and smoothing behavior, not graph shape.
@@ -545,13 +545,13 @@ Validate assumptions with dimensionless groups, experiments, mesh refinement, an
 
 ---
 
-# 13. Summary
+# Summary
 
 A PDE relates partial derivatives of a field over space and time. Second-order equations are elliptic, parabolic, or hyperbolic, corresponding broadly to equilibrium, diffusion, and finite-speed propagation. Initial conditions select temporal evolution; boundary conditions control exchanges or constraints at the domain boundary. Conservation laws provide the balance equation, while constitutive laws close the model. Separation of variables converts selected PDEs into spatial eigenvalue problems and temporal ODEs. In engineering, numerical discretization is usually necessary, and verification plus validation are as important as solving the algebra.
 
 ---
 
-# 14. Formula sheet
+# Formula sheet
 
 $$
 \nabla u=(u_x,u_y,u_z),\qquad \nabla\cdot\mathbf{q}=q_{x,x}+q_{y,y}+q_{z,z}
@@ -595,7 +595,7 @@ $$
 
 ---
 
-# 15. Glossary
+# Glossary
 
 | Term | Meaning |
 |---|---|
@@ -614,7 +614,7 @@ $$
 
 ---
 
-# 16. Practice problems
+# Practice problems
 
 1. Classify $u_{xx}+4u_{xy}+3u_{yy}=0$ using the $A u_{xx}+2B u_{xy}+C u_{yy}$ convention.
 2. State whether $u(0,t)=0$ is Dirichlet, Neumann, or Robin data.
@@ -642,6 +642,6 @@ $$
 
 ---
 
-# 17. Recommended next topics
+# Recommended next topics
 
 Study Fourier series and transforms, eigenvalues and Sturm–Liouville problems, weak formulations, FEM, numerical linear algebra, fluid mechanics, elasticity, and control of distributed systems. After those, continue to nonlinear PDEs, shocks, conservation-law entropy conditions, Green's functions, and functional analysis.

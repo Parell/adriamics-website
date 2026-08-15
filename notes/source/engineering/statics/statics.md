@@ -17,7 +17,7 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What statics studies
+# What statics studies
 
 Statics is the branch of mechanics that deals with bodies in equilibrium, meaning there is no net translation or rotation.
 
@@ -41,7 +41,7 @@ Typical statics topics include:
 
 ---
 
-# 2. Modeling assumptions
+# Modeling assumptions
 
 Statics problems usually rely on idealizations. The answer is only as good as the model.
 
@@ -79,7 +79,7 @@ $$
 
 ---
 
-# 3. Forces, moments, and couples
+# Forces, moments, and couples
 
 ## Force vectors
 
@@ -135,7 +135,7 @@ This is useful when breaking a force into components before taking moments.
 
 ---
 
-# 4. Equilibrium equations
+# Equilibrium equations
 
 Equilibrium requires both translational and rotational balance.
 
@@ -187,7 +187,7 @@ These are the only independent equilibrium equations for a rigid body.
 
 ---
 
-# 5. Free-body diagrams
+# Free-body diagrams
 
 A free-body diagram, or FBD, is the most important tool in statics.
 
@@ -221,7 +221,7 @@ Always label unknowns with symbols, not guessed directions.
 If the computed value is negative, the actual direction is opposite to the assumed direction.
 ---
 
-# 6. Support reactions
+# Support reactions
 
 Different supports impose different kinematic constraints and therefore produce different reaction components.
 
@@ -250,7 +250,7 @@ Do not confuse "more unknowns than equations" with "unsolvable." It only means e
 
 ---
 
-# 7. Distributed loads, centroids, and resultants
+# Distributed loads, centroids, and resultants
 
 A distributed load can often be replaced by an equivalent concentrated force.
 
@@ -290,7 +290,7 @@ Equivalent resultants simplify support-reaction calculations, but the equivalent
 
 ---
 
-# 8. Trusses
+# Trusses
 
 A truss is an assembly of slender members connected by pin joints and loaded only at the joints, ideally.
 
@@ -349,7 +349,7 @@ Use these as shortcuts, but verify them when the loading changes.
 
 ---
 
-# 9. Frames and machines
+# Frames and machines
 
 Frames and machines are assemblies with multiple members that are not necessarily two-force members.
 
@@ -382,7 +382,7 @@ This is a third-law pair, but it acts on different bodies, so do not cancel it w
 
 ---
 
-# 10. Friction
+# Friction
 
 Friction resists relative motion between surfaces.
 
@@ -436,7 +436,7 @@ where $\phi$ is the angle between the resultant contact reaction and the normal.
 
 ---
 
-# 11. Internal loads in beams
+# Internal loads in beams
 
 When a beam is cut at some location, internal resultants appear on the cut surface.
 
@@ -486,7 +486,7 @@ These relations are the basis of shear-force and bending-moment diagrams.
 
 ---
 
-# 12. Centroids and centers of gravity
+# Centroids and centers of gravity
 
 The centroid is a purely geometric property. The center of gravity is the point where the resultant weight acts.
 
@@ -519,7 +519,7 @@ For a continuous body, replace sums with integrals.
 
 ---
 
-# 13. Problem-solving workflow
+# Problem-solving workflow
 
 Statics becomes manageable when you follow a fixed process.
 
@@ -543,7 +543,7 @@ Statics becomes manageable when you follow a fixed process.
 
 ---
 
-# 14. Common mistakes
+# Common mistakes
 
 These errors account for most lost points in statics.
 
@@ -562,7 +562,7 @@ When a computed answer is negative, first check whether the magnitude is reasona
 
 ---
 
-# 15. Formula sheet
+# Formula sheet
 
 ## Equilibrium
 

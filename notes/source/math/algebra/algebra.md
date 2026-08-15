@@ -12,7 +12,14 @@
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
 Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.
-# 1. Core ideas and notation
+
+> **What this assumes:** Arithmetic with integers, fractions, decimals, percentages, and signed numbers.
+>
+> **What this enables:** Functions, limits, calculus, probability, statistics, and mathematical modeling all rely on algebraic expressions, equations, and inequalities.
+
+> **Scope note:** This is the canonical note for symbolic manipulation and equation-solving. Use [Functions](/notes/subjects/math/functions/) for domain, codomain, composition, and inverse-function concepts.
+
+# Core ideas and notation
 
 At its core, algebra replaces specific numbers with symbols so that one argument can describe many cases.
 
@@ -78,7 +85,7 @@ use the linked algebra sections for the full symbolic treatment.
 
 ---
 
-# 2. Expressions and algebraic manipulation
+# Expressions and algebraic manipulation
 
 An **expression** is a combination of numbers, variables, and operations, but without an equals sign.
 
@@ -152,7 +159,7 @@ This is not an equation to solve; it is a pattern to use.
 
 ---
 
-# 3. Linear equations and inequalities
+# Linear equations and inequalities
 
 A **linear equation** has variables only to the first power.
 
@@ -245,7 +252,7 @@ $$
 | $-1 < x \le 4$ | $(-1, 4]$ |
 ---
 
-# 4. Systems of equations
+# Systems of equations
 
 A system asks for values that satisfy multiple equations at once.
 
@@ -307,7 +314,7 @@ $$
 
 ---
 
-# 5. Exponents, radicals, and powers
+# Exponents, radicals, and powers
 
 Exponents compress repeated multiplication.
 
@@ -381,7 +388,7 @@ $$
 
 ---
 
-# 6. Polynomials and factoring
+# Polynomials and factoring
 
 A **polynomial** is a sum of terms of the form $ax^n$, where $n$ is a nonnegative integer.
 
@@ -450,7 +457,7 @@ $$
 
 ---
 
-# 7. Rational expressions
+# Rational expressions
 
 A **rational expression** is a quotient of polynomials:
 
@@ -515,7 +522,7 @@ Typical workflow:
 
 ---
 
-# 8. Quadratic equations and parabolas
+# Quadratic equations and parabolas
 
 A quadratic equation has the form
 
@@ -611,7 +618,7 @@ If $a > 0$, the parabola opens upward. If $a < 0$, it opens downward.
 
 ---
 
-# 9. Solution techniques for function equations
+# Solution techniques for function equations
 
 > **Label: Solution technique.** Functions is the canonical concept note for
 > notation, domain, range, composition, inverses, exponentials, and logarithms.
@@ -627,7 +634,7 @@ and [composition and inverse functions](../functions/functions.md#6-composition-
 For the algebraic solution methods, see:
 
 - [Solution technique: applying exponential and logarithmic relationships in equations](#solution-technique-applying-exponential-and-logarithmic-relationships-in-equations)
-- [Algebra problem-solving workflow](#11-problem-solving-workflow)
+- [Algebra problem-solving workflow](#10-problem-solving-workflow)
 
 ## Solution technique: applying exponential and logarithmic relationships in equations
 
@@ -647,7 +654,7 @@ $$
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 When solving an algebra problem, use a disciplined sequence.
 
@@ -705,7 +712,7 @@ Valid.
 
 ---
 
-# 12. Common pitfalls
+# Common pitfalls
 
 - Combining unlike terms, such as treating $x + x^2$ as $2x^2$.
 - Canceling terms across addition, such as
@@ -726,7 +733,7 @@ Valid.
 
 ---
 
-# 13. Formula summary
+# Formula summary
 
 ## Core identities
 

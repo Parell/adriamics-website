@@ -2,7 +2,7 @@
 
 Multiple integrals accumulate quantities over areas and volumes. They are the second module in [Multivariable Calculus](/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/), after differential calculus and before vector calculus.
 
-## 1. Meaning and bounds
+## Meaning and bounds
 
 For a surface density $\rho(x,y)$, mass over a region $R$ is
 
@@ -24,7 +24,7 @@ $$
 
 For a nonrectangular region, sketch first. Describe the same region with the reversed order before changing the bounds.
 
-## 2. Average value and center of mass
+## Average value and center of mass
 
 If $A=\iint_R1\,dA$, the average value is
 
@@ -42,7 +42,7 @@ $$
 
 The same pattern produces moments and rotational inertias when the appropriate distance-squared factor is included.
 
-## 3. Cylindrical and polar coordinates
+## Cylindrical and polar coordinates
 
 For circular geometry,
 
@@ -59,7 +59,7 @@ $$
 
 In three dimensions, cylindrical coordinates add $z$ and use $dV=r\,dr\,d\theta\,dz$.
 
-## 4. Spherical coordinates
+## Spherical coordinates
 
 Using $\phi$ measured from the positive $z$-axis,
 
@@ -75,7 +75,7 @@ $$
 
 For a full sphere, $0\le\rho\le a$, $0\le\phi\le\pi$, and $0\le\theta\le2\pi$. State the angle convention because some texts interchange $\theta$ and $\phi$.
 
-## 5. General change of variables
+## General change of variables
 
 If $(x,y)=(x(u,v),y(u,v))$, then
 

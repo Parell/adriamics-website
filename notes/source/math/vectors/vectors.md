@@ -11,7 +11,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What a vector is
+# What a vector is
 
 A **vector** is an object with both magnitude and direction. In geometry and physics, vectors represent quantities such as displacement, velocity, acceleration, and force.
 
@@ -65,7 +65,7 @@ $$
 
 ---
 
-# 2. Notation and components
+# Notation and components
 
 Vectors may be written in several equivalent forms:
 
@@ -117,7 +117,7 @@ This is one of the most common ways vectors appear in geometry problems.
 
 ---
 
-# 3. Magnitude and unit vectors
+# Magnitude and unit vectors
 
 The **magnitude** or length of $\mathbf{v} = \langle v_1, v_2, \dots, v_n \rangle$ is
 
@@ -168,7 +168,7 @@ with the correct quadrant chosen from the signs of $x$ and $y$.
 
 ---
 
-# 4. Basic vector operations
+# Basic vector operations
 
 ## Addition and subtraction
 
@@ -236,7 +236,7 @@ Two details are especially important:
   no associated unit vector.
 ---
 
-# 5. Dot product
+# Dot product
 
 The **dot product** of two vectors in $\mathbb{R}^n$ is
 
@@ -297,7 +297,7 @@ The vector projection is covered in the next section.
 
 ---
 
-# 6. Cross product
+# Cross product
 
 The **cross product** is defined for vectors in $\mathbb{R}^3$.
 
@@ -356,7 +356,7 @@ Use the right-hand rule to determine direction.
 
 ---
 
-# 7. Vector projections
+# Vector projections
 
 The projection of $\mathbf{v}$ onto $\mathbf{u}$ is the component of $\mathbf{v}$ that points along $\mathbf{u}$.
 
@@ -394,7 +394,7 @@ and $\mathbf{v}_\perp \cdot \mathbf{u} = 0$.
 
 ---
 
-# 8. Lines and planes
+# Lines and planes
 
 Vectors provide compact equations for geometric objects.
 
@@ -448,7 +448,7 @@ $$
 
 ---
 
-# 9. Common workflows
+# Common workflows
 
 ## Find the vector from one point to another
 
@@ -490,7 +490,7 @@ If the problem gives a geometric picture, convert it to vectors first. The algeb
 
 ---
 
-# 10. Formula summary
+# Formula summary
 
 ## Core formulas
 
@@ -534,7 +534,7 @@ $$
 
 ---
 
-# 11. Pitfalls
+# Pitfalls
 
 ## Sign mistakes in components
 

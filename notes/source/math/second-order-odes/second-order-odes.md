@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What counts as a second-order ODE
+# What counts as a second-order ODE
 
 A **second-order ordinary differential equation** is an equation involving an unknown function \(y(x)\) and its derivatives up to order two:
 
@@ -36,7 +36,7 @@ The central tasks are usually:
 
 ---
 
-# 2. Classification and standard forms
+# Classification and standard forms
 
 ## Linear vs nonlinear
 
@@ -92,7 +92,7 @@ with constants \(a \neq 0\), \(b\), and \(c\).
 
 ---
 
-# 3. Existence, uniqueness, and IVPs
+# Existence, uniqueness, and IVPs
 
 For the initial value problem
 
@@ -122,7 +122,7 @@ to pin down one specific solution.
 
 ---
 
-# 4. Homogeneous linear equations with constant coefficients
+# Homogeneous linear equations with constant coefficients
 
 The foundational case is
 
@@ -194,7 +194,7 @@ $$
 
 ---
 
-# 5. Forcing and particular solutions
+# Forcing and particular solutions
 
 For a nonhomogeneous linear equation
 
@@ -269,7 +269,7 @@ where \(u_1\) and \(u_2\) are determined from a system involving the Wronskian.
 
 ---
 
-# 6. Variable-coefficient special cases
+# Variable-coefficient special cases
 
 ## Euler-Cauchy equations
 
@@ -305,7 +305,7 @@ is a common route.
 
 ---
 
-# 7. Reduction of order and variation of parameters
+# Reduction of order and variation of parameters
 
 ## Reduction of order
 
@@ -348,7 +348,7 @@ variation of parameters uses the Wronskian to build \(u_1\) and \(u_2\).
 
 ---
 
-# 8. Initial and boundary value problems
+# Initial and boundary value problems
 
 ## Initial value problems
 
@@ -390,7 +390,7 @@ depending on the forcing and the eigenstructure of the operator.
 
 ---
 
-# 9. Mechanical applications
+# Mechanical applications
 
 Many second-order ODEs come from Newtonâ€™s second law:
 
@@ -459,7 +459,7 @@ If \(F(t)\) is periodic, resonance and near-resonance can produce large response
 
 ---
 
-# 10. Qualitative behavior
+# Qualitative behavior
 
 Even when an exact formula is available, it helps to understand the shape of the solution.
 
@@ -503,7 +503,7 @@ For linear constant-coefficient equations, the real parts of the characteristic 
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 1. Put the equation in standard form.
 2. Determine whether it is linear or nonlinear.
@@ -536,7 +536,7 @@ For linear constant-coefficient equations, the real parts of the characteristic 
 
 ---
 
-# 12. Formula summary
+# Formula summary
 
 ## Standard linear form
 

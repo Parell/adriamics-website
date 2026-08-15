@@ -2,7 +2,7 @@
 
 This module studies local change in functions of several variables. Learn it before multiple integrals: gradients, Jacobians, and Hessians describe the local information that later appears in coordinate changes, optimization, and field models.
 
-## 1. Functions and geometry
+## Functions and geometry
 
 A scalar-valued function of two variables is
 
@@ -16,7 +16,7 @@ $$
 \mathbf{v}(x,y,z)=\langle u(x,y,z),v(x,y,z),w(x,y,z)\rangle.
 $$
 
-## 2. Partial and directional derivatives
+## Partial and directional derivatives
 
 Partial derivatives measure change along coordinate directions:
 
@@ -40,7 +40,7 @@ $$
 
 It points in the direction of steepest increase, with maximum rate $\|\nabla f\|$, and is normal to a level curve or surface.
 
-## 3. Tangent planes, differentials, and linearization
+## Tangent planes, differentials, and linearization
 
 For $z=f(x,y)$, the tangent plane at $(a,b,f(a,b))$ is
 
@@ -66,7 +66,7 @@ $$
 \sigma_f\approx\sqrt{(f_x\sigma_x)^2+(f_y\sigma_y)^2}.
 $$
 
-## 4. Jacobians and the chain rule
+## Jacobians and the chain rule
 
 For $\mathbf{F}:\mathbb{R}^n\to\mathbb{R}^m$, the Jacobian matrix is
 
@@ -93,7 +93,7 @@ $$
 \frac{dy}{dx}=-\frac{F_x}{F_y}.
 $$
 
-## 5. Hessians, curvature, and extrema
+## Hessians, curvature, and extrema
 
 The Hessian collects second derivatives:
 

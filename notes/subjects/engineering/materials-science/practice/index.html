@@ -22,16 +22,18 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.css?v=e5d4aa41f137" />
+  <link rel="stylesheet" href="../../../../notes.css?v=f3cf2cb8a1e9" />
   <script>
     window.MathJax = {
+      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
+        packages: { '[+]': ['ams', 'unicode'] },
         macros: {
           degree: '{^{\\circ}}',
-          arcsec: '\\operatorname{arcsec}'
+          arcsec: '\\operatorname{arcsec}',
+          oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
       svg: { fontCache: 'global' },
@@ -41,7 +43,7 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
-  <script defer src="../../../../notes.js?v=083386b534db"></script>
+  <script defer src="../../../../notes.js?v=6a7338490052"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
@@ -101,7 +103,7 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Engineering</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/statics/" data-notes-nav-item>Statics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/engineering/materials-science/" aria-current="page" data-notes-nav-item>Materials Science</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/statics/" data-notes-nav-item>Statics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/dynamics/" data-notes-nav-item>Dynamics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/engineering/materials-science/" aria-current="page" data-notes-nav-item>Materials Science</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel practice-viewer" data-practice-page>

@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What a system of ODEs is
+# What a system of ODEs is
 
 A **system of ordinary differential equations** is a set of coupled equations for two or more unknown functions of one independent variable, usually time $t$.
 
@@ -55,7 +55,7 @@ An initial condition fixes the particular solution among the family of all solut
 
 ---
 
-# 2. Matrix form and solution structure
+# Matrix form and solution structure
 
 Many systems can be written compactly with vectors and matrices.
 
@@ -96,7 +96,7 @@ For an $n \times n$ first-order linear homogeneous system, the general solution 
 
 ---
 
-# 3. Linear autonomous systems
+# Linear autonomous systems
 
 The canonical form is
 
@@ -144,7 +144,7 @@ If you can find a change of variables that diagonalizes or simplifies $A$, the s
 
 ---
 
-# 4. Eigenmodes as an ODE application
+# Eigenmodes as an ODE application
 
 The eigenvalue definitions, characteristic-equation derivation, eigenspaces, and repeated-root
 cases are developed in the [Eigenvalues note](../eigenvalues/eigenvalues.md). Here we use only
@@ -170,7 +170,7 @@ for how to compute and classify the eigenpairs.
 
 ---
 
-# 5. The matrix exponential
+# The matrix exponential
 
 The exact solution of
 
@@ -223,7 +223,7 @@ You often do not compute the full series. Instead, use:
 
 ---
 
-# 6. Nonhomogeneous linear systems
+# Nonhomogeneous linear systems
 
 The forced system
 
@@ -270,7 +270,7 @@ For constant-coefficient systems, undetermined coefficients can work when the fo
 
 ---
 
-# 7. Phase portraits and stability
+# Phase portraits and stability
 
 For a two-dimensional autonomous system, the **phase plane** is the $(x,y)$ plane of states. A **phase portrait** shows representative trajectories.
 
@@ -342,7 +342,7 @@ $$
 This quickly tells you whether the eigenvalues are real or complex and whether the origin is stable.
 ---
 
-# 8. Nonlinear systems and linearization
+# Nonlinear systems and linearization
 
 A nonlinear system has the form
 
@@ -389,7 +389,7 @@ Linearization is a local tool. It tells you about behavior near an equilibrium, 
 
 ---
 
-# 9. Common modeling patterns
+# Common modeling patterns
 
 ## Coupled growth and decay
 
@@ -444,11 +444,11 @@ In circuits with capacitors and inductors, Kirchhoff's laws often produce system
 
 ---
 
-# 10. Problem-solving workflow
+# Problem-solving workflow
 
 When solving a system of ODEs, use a disciplined sequence.
 
-## 1. Identify the type
+## Identify the type
 
 Decide whether the system is:
 
@@ -457,7 +457,7 @@ Decide whether the system is:
 - homogeneous or forced
 - one-dimensional, two-dimensional, or higher
 
-## 2. Rewrite in matrix form
+## Rewrite in matrix form
 
 Put the system into
 
@@ -467,16 +467,16 @@ $$
 
 if possible.
 
-## 3. Find equilibria
+## Find equilibria
 
 Set all derivatives to zero and solve the algebraic system.
 
-## 4. Use the eigenvalue results
+## Use the eigenvalue results
 
 For linear systems, obtain eigenvalues and eigenvectors using the [Eigenvalues note](../eigenvalues/eigenvalues.md),
 then interpret the resulting modes in time.
 
-## 5. Build the solution basis
+## Build the solution basis
 
 Use:
 
@@ -484,11 +484,11 @@ Use:
 - generalized eigenvectors if not
 - variation of parameters or undetermined coefficients for forcing
 
-## 6. Apply initial conditions
+## Apply initial conditions
 
 Substitute the initial state to determine the constants.
 
-## 7. Interpret the result
+## Interpret the result
 
 Check whether the solution:
 
@@ -499,7 +499,7 @@ Check whether the solution:
 
 ---
 
-# 11. Formula sheet
+# Formula sheet
 
 ## Homogeneous linear system
 

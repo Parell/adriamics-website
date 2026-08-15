@@ -11,7 +11,7 @@
 
 This note assumes introductory quantum mechanics, complex numbers, and basic electromagnetism. By the end, you should be able to connect quantum numbers and energy differences to spectra, distinguish hydrogen-like results from multi-electron approximations, and choose an appropriate atomic or molecular model.
 
-# 1. What atomic and molecular physics studies
+# What atomic and molecular physics studies
 
 Atomic physics explains the structure and behavior of electrons and nuclei in atoms. Molecular physics extends the same ideas to bonded collections of atoms. Quantum mechanics is required because bound particles have discrete energies and wave-like behavior.
 
@@ -22,7 +22,7 @@ Atomic physics explains the structure and behavior of electrons and nuclei in at
 - Spectral lines arise when systems change between energy levels.
 - Molecular rotation, vibration, and electronic motion occur on different energy scales.
 
-# 2. Hydrogen and quantum states
+# Hydrogen and quantum states
 
 For a hydrogen-like ion with nuclear charge $Z$,
 
@@ -38,7 +38,7 @@ $$
 
 The Pauli exclusion principle prevents two electrons in an atom from sharing all four quantum numbers. Electron configurations fill orbitals according to energy, while shielding and penetration modify the simple hydrogen picture.
 
-# 3. Spectra and transitions
+# Spectra and transitions
 
 Absorption or emission of a photon satisfies
 
@@ -54,7 +54,7 @@ $$
 
 Selection rules identify the strongest electric-dipole transitions, commonly $\Delta\ell=\pm1$. Spectral lines broaden because of finite lifetime, collisions, thermal motion, and instrumental resolution.
 
-# 4. Molecules
+# Molecules
 
 Molecular energy is often approximated as
 
@@ -78,7 +78,7 @@ $$
 
 The zero-point energy remains even in the lowest vibrational state. Molecular shape and symmetry determine which transitions are allowed.
 
-# 5. Experimental tools and workflow
+# Experimental tools and workflow
 
 Spectroscopy measures how matter interacts with electromagnetic radiation. Lasers provide coherent, narrow-band light; fluorescence and absorption reveal energy levels; mass spectrometry separates ions by mass-to-charge ratio.
 

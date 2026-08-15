@@ -17,9 +17,18 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What dynamics studies
+# What dynamics studies
 
 Dynamics is the study of motion and the forces that cause or respond to motion. It sits between statics and vibration-heavy advanced mechanics.
+
+> **What this assumes:** Vectors, derivatives, integrals, and the equilibrium
+> workflow from [Statics](../statics/statics.md). You can read the kinematics
+> sections first; the kinetics sections also need force and moment models.
+>
+> **Suggested route:** Read Sections 1–5 for particle motion, then choose
+> Newton–Euler, work–energy, or impulse–momentum in Section 11 based on the
+> quantity the problem gives and asks for. Read Sections 9–10 when rotation
+> or rigid-body inertia matters.
 
 It is usually split into two parts:
 
@@ -43,7 +52,8 @@ $$
 \sum \mathbf{F} = m\mathbf{a}
 $$
 
-For rotation:
+For planar rotation about a fixed axis (or a fixed point with the relevant
+scalar moment of inertia):
 
 $$
 \sum M_O = I_O \alpha
@@ -59,7 +69,7 @@ where \(G\) is the center of mass and \(\mathbf{H}\) is angular momentum.
 
 ---
 
-# 2. Kinematics fundamentals
+# Kinematics fundamentals
 
 Kinematics describes how objects move.
 
@@ -109,7 +119,7 @@ The safest workflow is to write position as a vector first, then differentiate.
 
 ---
 
-# 3. Rectilinear motion
+# Rectilinear motion
 
 Rectilinear motion is motion along a straight line. It is the simplest and most common starting point.
 
@@ -163,7 +173,7 @@ $$
 
 ---
 
-# 4. Curvilinear motion
+# Curvilinear motion
 
 Curvilinear motion occurs along a curved path. Two common coordinate systems are Cartesian and normal-tangential coordinates.
 
@@ -228,7 +238,7 @@ Polar coordinates are useful for motion involving rotation about a point.
 
 ---
 
-# 5. Relative motion
+# Relative motion
 
 Relative motion compares the motion of one body to another moving reference frame.
 
@@ -273,7 +283,7 @@ The \(2\boldsymbol{\omega} \times \mathbf{v}_{rel}\) term is the Coriolis term.
 
 ---
 
-# 6. Particle kinetics
+# Particle kinetics
 
 Particle kinetics links forces to translational acceleration.
 
@@ -329,7 +339,7 @@ The friction force opposes impending or relative motion along the contact surfac
 
 ---
 
-# 7. Work-energy methods
+# Work-energy methods
 
 Work-energy is often faster than force-balance when displacement is easier to track than time.
 
@@ -389,7 +399,7 @@ For a block released on a rough incline, the work-energy method often gives spee
 
 ---
 
-# 8. Impulse-momentum methods
+# Impulse-momentum methods
 
 Impulse-momentum is useful when forces act over a short time, such as impacts or thrust events.
 
@@ -424,7 +434,7 @@ Impulse-momentum is not ideal if the force is unknown and the time interval is l
 
 ---
 
-# 9. Rigid-body kinematics
+# Rigid-body kinematics
 
 Rigid-body motion combines translation and rotation.
 
@@ -474,7 +484,7 @@ In planar motion, a body can often be treated as instantaneously rotating about 
 
 ---
 
-# 10. Rigid-body kinetics
+# Rigid-body kinetics
 
 Rigid-body kinetics extends Newton's laws to bodies with rotation.
 
@@ -535,7 +545,7 @@ This form is useful for rolling, pulleys, and rotating links.
 
 ---
 
-# 11. Choosing the right method
+# Choosing the right method
 
 The best method depends on what the problem gives and what it asks for.
 
@@ -569,7 +579,7 @@ If the problem asks for a force, start with free-body diagrams and Newton's laws
 
 ---
 
-# 12. Common pitfalls
+# Common pitfalls
 
 - Mixing up **kinematics** and **kinetics**
 - Using constant-acceleration formulas when acceleration is not constant
@@ -590,7 +600,7 @@ If the problem asks for a force, start with free-body diagrams and Newton's laws
 
 ---
 
-# 13. Formula sheet
+# Formula sheet
 
 ## Particle motion
 

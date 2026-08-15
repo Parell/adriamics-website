@@ -1,4 +1,4 @@
-## Sources
+# Sources
 
 - [OpenStax Mathematics](https://openstax.org/subjects/math)
 - [Mathematics LibreTexts](https://math.libretexts.org/)
@@ -15,7 +15,7 @@ Discrete mathematics studies finite or countable structures such as propositions
 
 > **Before you begin:** Use [Logic](/notes/subjects/math/logic/) before this course. Discrete Math introduces the proof techniques used throughout the subject; for a focused, deeper treatment of constructing and presenting proofs, continue to [Proof Writing](/notes/subjects/math/proof-writing/) afterward.
 
-## 1. Logic and propositions
+# Logic and propositions
 
 A **proposition** is a statement that is either true or false.
 
@@ -107,7 +107,7 @@ so $n^2$ is even.
 
 ---
 
-## 2. Sets, functions, and relations
+# Sets, functions, and relations
 
 ## Sets
 
@@ -220,7 +220,7 @@ Partially ordered sets are often visualized with **Hasse diagrams**.
 
 ---
 
-## 3. Proof techniques
+# Proof techniques
 
 Discrete math is proof-heavy. Knowing the structure of a proof matters as much as knowing the definitions.
 
@@ -275,7 +275,7 @@ Do not verify a general statement with a few examples. Examples can suggest a pa
 
 ---
 
-## 4. Induction and recursion
+# Induction and recursion
 
 ## Mathematical induction
 
@@ -344,7 +344,7 @@ To work with recursive definitions:
 3. Check whether the rule determines each later value uniquely.
 ---
 
-## 5. Counting and combinatorics
+# Counting and combinatorics
 
 Counting arguments appear everywhere in probability, algorithms, graph theory, and proof.
 
@@ -439,7 +439,7 @@ objects.
 
 ---
 
-## 6. Discrete probability
+# Discrete probability
 
 Probability in discrete math is usually built on counting.
 
@@ -520,7 +520,7 @@ $$
 
 ---
 
-## 7. Number theory and modular arithmetic
+# Number theory and modular arithmetic
 
 ## Divisibility
 
@@ -613,7 +613,7 @@ $$
 
 ---
 
-## 8. Graphs and trees
+# Graphs and trees
 
 A **graph** consists of vertices and edges.
 
@@ -646,7 +646,7 @@ This implies the number of odd-degree vertices is even.
 - Bipartite graph: vertices split into two parts and edges go only across
 - Complete bipartite graph: $K_{m,n}$
 
-A graph is bipartite iff it has no odd cycle.
+For an undirected graph, the graph is bipartite if and only if it has no odd cycle. (The qualification matters: this statement is not the definition for directed graphs.)
 
 ## Trees
 
@@ -679,7 +679,7 @@ Common traversal orders:
 
 ---
 
-## 9. Algorithms, growth, and recurrences
+# Algorithms, growth, and recurrences
 
 Discrete math often studies whether a procedure is correct and how quickly it grows.
 
@@ -772,7 +772,7 @@ Loop invariants are a standard proof tool:
 
 ---
 
-## 10. Problem-solving workflow
+# Problem-solving workflow
 
 Use this checklist for most discrete mathematics problems.
 
@@ -839,7 +839,7 @@ Make sure the proof ends with the right type of claim:
 
 ---
 
-## 11. Formula sheet
+# Formula sheet
 
 ## Logic
 

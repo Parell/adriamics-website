@@ -39,7 +39,7 @@ Each topic in engineering design fits somewhere in that chain.
 
 ---
 
-# 1. The design loop
+# The design loop
 
 Engineering design is iterative. Engineers rarely move straight from problem to finished product. They define the need, propose a solution, test the solution against constraints, revise it, and repeat until the design is good enough to release.
 
@@ -87,7 +87,7 @@ Even this simple part involves requirements, loads, material selection, CAD, dra
 
 ---
 
-# 2. From need to requirements
+# From need to requirements
 
 **Big idea:** requirements define what success means.
 
@@ -174,7 +174,7 @@ Traceability prevents random design features. Every critical feature should exis
 
 ---
 
-# 3. Concept design and architecture
+# Concept design and architecture
 
 **Big idea:** before defining details, engineers decide what kind of solution they are building.
 
@@ -265,7 +265,7 @@ This kind of reasoning keeps drawings, CAD constraints, GD&T, and inspection ali
 
 ---
 
-# 4. Interfaces and system boundaries
+# Interfaces and system boundaries
 
 **Big idea:** many design failures happen where parts or teams meet.
 
@@ -307,7 +307,7 @@ Interfaces should be identified early, controlled clearly, and changed formally.
 
 ---
 
-# 5. Product definition: CAD, drawings, and BOMs
+# Product definition: CAD, drawings, and BOMs
 
 **Big idea:** product definition is the controlled description of what will be built.
 
@@ -415,7 +415,7 @@ For the bracket, an assembly drawing might specify bolt type, washer use, instal
 
 ---
 
-# 6. Dimensions, tolerances, and variation
+# Dimensions, tolerances, and variation
 
 **Big idea:** real parts are imperfect, so design must control acceptable imperfection.
 
@@ -569,7 +569,7 @@ Leave nonfunctional cosmetic or clearance features with general tolerances when 
 
 ---
 
-# 7. GD&T and datums
+# GD&T and datums
 
 **Big idea:** GD&T controls geometry using functional references instead of only plus/minus dimensions.
 
@@ -669,7 +669,7 @@ For a hole, MMC is the smallest allowed hole. For a shaft or pin, MMC is the lar
 
 ---
 
-# 8. Materials, surfaces, and manufacturing process selection
+# Materials, surfaces, and manufacturing process selection
 
 **Big idea:** geometry only works if the material, surface, and process are compatible with the job.
 
@@ -810,7 +810,7 @@ A design is not finished until the chosen geometry can actually be produced by t
 
 ---
 
-# 9. Loads, free body diagrams, and load paths
+# Loads, free body diagrams, and load paths
 
 **Big idea:** before calculating stress, understand where the forces go.
 
@@ -898,7 +898,7 @@ Analysis should cover the load cases that matter for requirements and credible u
 
 ---
 
-# 10. Stress, strain, deflection, and margin
+# Stress, strain, deflection, and margin
 
 **Big idea:** mechanical analysis checks both failure and motion.
 
@@ -1043,7 +1043,7 @@ Interpretation:
 
 ---
 
-# 11. Failure modes: fatigue, buckling, wear, and details
+# Failure modes: fatigue, buckling, wear, and details
 
 **Big idea:** a design can fail even when the first static calculation looks acceptable.
 
@@ -1150,7 +1150,7 @@ This estimate is rough because friction dominates the result.
 
 ---
 
-# 12. Thermal, vibration, and electrical analysis
+# Thermal, vibration, and electrical analysis
 
 **Big idea:** real products heat up, cool down, vibrate, and consume power.
 
@@ -1293,7 +1293,7 @@ Power budgets should include:
 
 ---
 
-# 13. CAE, FEA, and engineering judgment
+# CAE, FEA, and engineering judgment
 
 **Big idea:** simulation is useful only when the model represents the real problem well enough.
 
@@ -1366,7 +1366,7 @@ A simulation result should be questioned if it is not within the same order of m
 
 ---
 
-# 14. DFMA and manufacturability
+# DFMA and manufacturability
 
 **Big idea:** a design is not complete unless it can be made and assembled repeatedly.
 
@@ -1432,7 +1432,7 @@ A common design mistake is to specify precision that function does not require.
 
 ---
 
-# 15. Quality, inspection, and metrology
+# Quality, inspection, and metrology
 
 **Big idea:** inspection connects the written design to real manufactured parts.
 
@@ -1542,7 +1542,7 @@ Inspection catches problems. Good design and process control prevent them.
 
 ---
 
-# 16. Reliability and risk
+# Reliability and risk
 
 **Big idea:** a design must keep working in real service, not just pass once.
 
@@ -1648,7 +1648,7 @@ Fault trees are useful for safety-critical systems and complex failure logic.
 
 ---
 
-# 17. Failure investigation and root cause analysis
+# Failure investigation and root cause analysis
 
 **Big idea:** solving the visible problem is not enough; the cause must be removed.
 
@@ -1713,7 +1713,7 @@ Examples:
 
 ---
 
-# 18. Maintainability and serviceability
+# Maintainability and serviceability
 
 **Big idea:** a product should be designed for the people who must inspect, repair, and replace it.
 
@@ -1750,7 +1750,7 @@ For the bracket, serviceability might mean the sensor can be removed without rem
 
 ---
 
-# 19. Revision control, ECOs, and configuration management
+# Revision control, ECOs, and configuration management
 
 **Big idea:** released designs must be controlled so everyone builds the same thing.
 
@@ -1822,7 +1822,7 @@ The goal is that manufacturing, inspection, suppliers, and service all use the s
 
 ---
 
-# 20. Integrated design workflow
+# Integrated design workflow
 
 **Big idea:** engineering design works when all the pieces are connected.
 
@@ -1929,7 +1929,7 @@ Before release, check:
 
 ---
 
-# 21. Formula summary
+# Formula summary
 
 ## Requirements and scoring
 

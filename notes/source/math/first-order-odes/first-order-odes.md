@@ -12,7 +12,7 @@
 # First-Order ODEs
 
 First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y'$. They are the first serious class of differential equations because many modeling problems reduce to them, and because most core solution techniques appear here in their simplest form.
-# 1. What a first-order ODE is
+# What a first-order ODE is
 
 A **first-order ODE** is any equation of the form
 
@@ -55,7 +55,7 @@ Examples:
 
 ---
 
-# 2. Initial value problems and geometric meaning
+# Initial value problems and geometric meaning
 
 A first-order ODE usually becomes a specific problem once an initial condition is given:
 
@@ -112,7 +112,7 @@ What to look for:
 - Whether solutions move toward or away from equilibrium values
 ---
 
-# 3. Separable equations
+# Separable equations
 
 A first-order ODE is **separable** if it can be written as
 
@@ -202,7 +202,7 @@ for a constant $A$ determined by the initial condition.
 
 ---
 
-# 4. Linear first-order equations
+# Linear first-order equations
 
 A first-order linear ODE has the standard form
 
@@ -296,7 +296,7 @@ $$
 
 ---
 
-# 5. Exact equations
+# Exact equations
 
 An equation of the form
 
@@ -395,7 +395,7 @@ $$
 
 ---
 
-# 6. Homogeneous first-order equations
+# Homogeneous first-order equations
 
 A first-order ODE of the form
 
@@ -464,7 +464,7 @@ $$
 
 ---
 
-# 7. Bernoulli equations
+# Bernoulli equations
 
 A **Bernoulli equation** has the form
 
@@ -496,7 +496,7 @@ Bernoulli equations are one of the cleanest examples of a nonlinear ODE that red
 
 ---
 
-# 8. Autonomous equations and equilibria
+# Autonomous equations and equilibria
 
 An **autonomous** first-order ODE has the form
 
@@ -541,7 +541,7 @@ This gives the long-term behavior without solving explicitly.
 
 ---
 
-# 9. Existence and uniqueness
+# Existence and uniqueness
 
 For an IVP
 
@@ -577,7 +577,7 @@ This is a warning that a differential equation can look harmless and still fail 
 
 ---
 
-# 10. Modeling patterns
+# Modeling patterns
 
 First-order ODEs appear naturally in rate laws where the rate of change depends on the current state.
 
@@ -634,7 +634,7 @@ These often reduce to linear first-order equations after expressing concentratio
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 When facing a first-order ODE, classification is the main step.
 
@@ -664,7 +664,7 @@ Many errors happen because a student starts manipulating symbols before identify
 
 ---
 
-# 12. Common pitfalls
+# Common pitfalls
 
 - Treating a nonlinear equation as if the superposition principle applies. It does not.
 - Forgetting equilibrium solutions when separating variables and dividing by an expression involving $y$.
@@ -677,7 +677,7 @@ Many errors happen because a student starts manipulating symbols before identify
 
 ---
 
-# 13. Formula sheet
+# Formula sheet
 
 ## Core forms
 

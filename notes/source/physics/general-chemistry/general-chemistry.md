@@ -13,7 +13,7 @@
 
 This note assumes arithmetic, algebra, unit conversions, and proportional reasoning. By the end, you should be able to balance reactions, use moles and concentrations, predict basic molecular structure, and select equilibrium, acid–base, kinetics, thermochemistry, or redox models without confusing an approximation with a definition.
 
-# 1. Scope and core ideas
+# Scope and core ideas
 
 General chemistry explains how matter is built, how it reacts, and how energy changes during those reactions. It is the language behind biology, physiology, pharmacology, and laboratory science.
 
@@ -34,7 +34,7 @@ Most introductory problems reduce to one of these tasks:
 
 ---
 
-# 2. Matter, atoms, and the periodic table
+# Matter, atoms, and the periodic table
 
 ## Matter and composition
 
@@ -89,7 +89,7 @@ Key regions:
 
 ---
 
-# 3. Electron structure and periodic trends
+# Electron structure and periodic trends
 
 ## Electron configuration
 
@@ -133,7 +133,7 @@ These trends explain why:
 
 ---
 
-# 4. Bonding and molecular shape
+# Bonding and molecular shape
 
 ## Ionic, covalent, and metallic bonding
 
@@ -197,7 +197,7 @@ Polarity strongly affects:
 
 ---
 
-# 5. Naming, formulas, and reactions
+# Naming, formulas, and reactions
 
 ## Chemical nomenclature
 
@@ -240,7 +240,7 @@ Coefficients change amounts, not formulas.
 
 ---
 
-# 6. Stoichiometry and limiting reagents
+# Stoichiometry and limiting reagents
 
 Stoichiometry converts between substances using balanced equation coefficients.
 
@@ -291,7 +291,7 @@ $$
 
 ---
 
-# 7. States of matter and gases
+# States of matter and gases
 
 ## Phases and phase changes
 
@@ -354,7 +354,7 @@ Gas laws explain:
 
 ---
 
-# 8. Solutions and concentration
+# Solutions and concentration
 
 ## Dissolution
 
@@ -408,7 +408,7 @@ Osmotic pressure is especially important in physiology because it affects water 
 
 ---
 
-# 9. Thermochemistry
+# Thermochemistry
 
 Thermochemistry studies energy transfer as heat in chemical and physical changes.
 
@@ -459,7 +459,7 @@ $$
 
 ---
 
-# 10. Chemical equilibrium
+# Chemical equilibrium
 
 Many reactions are reversible and reach dynamic equilibrium.
 
@@ -509,7 +509,7 @@ where ICE stands for initial, change, equilibrium.
 
 ---
 
-# 11. Acids, bases, and buffers
+# Acids, bases, and buffers
 
 Acid-base chemistry is one of the most important parts of general chemistry for biology and medicine.
 
@@ -597,7 +597,7 @@ This is a key idea for amino acids, drug ionization, and membrane transport.
 
 ---
 
-# 12. Kinetics and reaction rate
+# Kinetics and reaction rate
 
 Thermodynamics tells whether a reaction is favorable; kinetics tells how fast it happens.
 
@@ -643,7 +643,7 @@ They only help the system reach equilibrium faster.
 
 ---
 
-# 13. Redox and electrochemistry
+# Redox and electrochemistry
 
 ## Oxidation and reduction
 
@@ -700,7 +700,7 @@ Redox chemistry underlies:
 
 ---
 
-# 14. General chemistry for biology and medicine
+# General chemistry for biology and medicine
 
 General chemistry becomes more useful when connected to real systems.
 
@@ -768,7 +768,7 @@ These topics often appear in lab courses and clinical measurements.
 
 ---
 
-# 15. Problem-solving workflow
+# Problem-solving workflow
 
 General chemistry problems are easier when you follow a fixed sequence.
 
@@ -802,7 +802,7 @@ General chemistry problems are easier when you follow a fixed sequence.
 
 ---
 
-# 16. Formula summary
+# Formula summary
 
 ## Core formulas
 

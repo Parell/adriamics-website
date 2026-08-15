@@ -1,5 +1,5 @@
 ---
-# 1. What are Integrals
+# What an integral is
 
 > **What this assumes:** Functions, limits and continuity, and derivatives with their basic rules.
 >
@@ -31,7 +31,7 @@ The central idea is that differentiation and integration are inverse operations.
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 2 Indefinite integrals and antiderivatives
+# Indefinite integrals and antiderivatives
 
 An **antiderivative** of $f(x)$ is a function $F(x)$ such that
 
@@ -70,7 +70,7 @@ gives displacement, up to an initial condition.
 
 ---
 
-# 3 Definite integrals and area
+# Definite integrals and area
 
 The definite integral of $f(x)$ from $a$ to $b$ is written
 
@@ -125,19 +125,19 @@ $$
 This is a common interpretation: the integral is the total, and dividing by interval length gives the average height.
 ---
 
-# 3. The Fundamental Theorem of Calculus
+# The Fundamental Theorem of Calculus
 
 The **Fundamental Theorem of Calculus** connects derivatives and integrals.
 
 ## Part 1
 
-If
+If $f$ is continuous on an interval containing $a$ and $x$, define
 
 $$
 G(x) = \int_a^x f(t)\,dt,
 $$
 
-then, under mild conditions,
+then
 
 $$
 G'(x) = f(x).
@@ -165,7 +165,7 @@ Without the FTC, definite integrals would require limit computations every time.
 
 ---
 
-# 4. Core antiderivative rules
+# Core antiderivative rules
 
 These formulas appear constantly.
 
@@ -243,7 +243,7 @@ $$
 
 ---
 
-# 5. Substitution
+# Substitution
 
 **Substitution** reverses the chain rule. Use it when an integrand contains a function and its derivative, or a recognizable composite expression.
 
@@ -307,7 +307,7 @@ If $u=g(x)$, then when $x=a$, use $u=g(a)$, and when $x=b$, use $u=g(b)$.
 
 ---
 
-# 6. Integration by parts
+# Integration by parts
 
 Integration by parts comes from the product rule:
 
@@ -372,7 +372,7 @@ This is a heuristic, not a rule, but it often leads to a useful choice.
 
 ---
 
-# 7. Partial fractions
+# Partial fractions
 
 Partial fraction decomposition is used for rational functions:
 
@@ -436,7 +436,7 @@ $$
 
 ---
 
-# 8. Trigonometric integrals and substitutions
+# Trigonometric integrals and substitutions
 
 ## Trigonometric integrals
 
@@ -507,7 +507,7 @@ $$
 
 ---
 
-# 9. Improper integrals
+# Improper integrals
 
 An **improper integral** has at least one issue:
 
@@ -550,7 +550,7 @@ This is a standard comparison test baseline.
 
 ---
 
-# 10. Applications
+# Applications
 
 Integrals appear anywhere accumulation matters.
 
@@ -630,7 +630,7 @@ $$
 
 ---
 
-# 11. Numerical integration
+# Numerical integration
 
 When an antiderivative is hard or unavailable, approximate the integral numerically.
 
@@ -660,7 +660,7 @@ $$
 
 ---
 
-# 12. Problem-solving workflow
+# Problem-solving workflow
 
 A reliable integration workflow saves time and reduces mistakes.
 
@@ -683,7 +683,7 @@ A reliable integration workflow saves time and reduces mistakes.
 
 ---
 
-# 13. Common mistakes
+# Common mistakes
 
 ## Forgetting the constant of integration
 
@@ -727,7 +727,7 @@ Many integration problems are really algebra problems in disguise:
 
 ---
 
-# 14. Formula sheet
+# Formula sheet
 
 ## Core formulas
 

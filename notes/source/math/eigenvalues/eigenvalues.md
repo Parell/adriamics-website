@@ -15,7 +15,7 @@ This note assumes the matrix operations, determinants, row reduction, null space
 developed in the [Matrices note](../matrices/matrices.md). It focuses on eigenvalue theory,
 classification, and computation.
 
-# 1. Core idea
+# Core idea
 
 An **eigenvector** of a square matrix $A$ is a nonzero vector $v$ whose direction is unchanged by the linear transformation defined by $A$.
 
@@ -47,7 +47,7 @@ Examples:
 - A pure rotation in $\mathbb{R}^2$ usually has no real eigenvectors unless the angle is $0$ or $\pi$.
 ---
 
-# 2. Characteristic equation
+# Characteristic equation
 
 Starting from
 
@@ -131,7 +131,7 @@ $$
 
 ---
 
-# 3. Eigenvectors and eigenspaces
+# Eigenvectors and eigenspaces
 
 Once an eigenvalue $\lambda$ is known, find its eigenvectors by solving
 
@@ -237,7 +237,7 @@ The zero vector is never called an eigenvector. If it were allowed, every scalar
 
 ---
 
-# 4. Multiplicity
+# Multiplicity
 
 Eigenvalues can repeat.
 
@@ -335,7 +335,7 @@ This matrix has too few linearly independent eigenvectors to diagonalize.
 
 ---
 
-# 5. Determinant, trace, and invertibility
+# Determinant, trace, and invertibility
 
 Eigenvalues encode several global properties of a matrix.
 
@@ -381,7 +381,7 @@ This is one of the fastest ways to read off eigenvalues by inspection.
 
 ---
 
-# 6. Diagonalization
+# Diagonalization
 
 A matrix $A$ is **diagonalizable** if there exists an invertible matrix $P$ and a diagonal matrix $D$ such that
 
@@ -493,7 +493,7 @@ $$
 
 ---
 
-# 7. Special matrix classes
+# Special matrix classes
 
 ## Symmetric matrices
 
@@ -595,7 +595,7 @@ $$
 
 ---
 
-# 8. Complex eigenvalues and real matrices
+# Complex eigenvalues and real matrices
 
 Not every real matrix has real eigenvalues.
 
@@ -652,7 +652,7 @@ This happens because the characteristic polynomial has real coefficients.
 
 ---
 
-# 9. How to compute eigenvalues by hand
+# How to compute eigenvalues by hand
 
 ## For a general matrix
 
@@ -704,7 +704,7 @@ For triangular matrices, do not expand a full determinant. Read the eigenvalues 
 
 ---
 
-# 10. Applications
+# Applications
 
 ## Dynamical systems
 
@@ -747,7 +747,7 @@ For a stochastic matrix, $\lambda = 1$ is especially important. The correspondin
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 Use this checklist for most eigenvalue problems.
 
@@ -810,7 +810,7 @@ to catch arithmetic mistakes.
 
 ---
 
-# 12. Formula sheet
+# Formula sheet
 
 ## Definitions
 

@@ -15,7 +15,7 @@
 
 This note assumes algebra, trigonometry, vectors, and single-variable differentiation and integration. By the end, you should be able to select force, energy, momentum, rotational, or Lagrangian models; state their assumptions; and check a result using units, limits, and conservation laws.
 
-# 1. Scope and core ideas
+# Scope and core ideas
 
 Classical mechanics describes the motion of bodies under the action of forces, along with the conservation laws that govern that motion.
 
@@ -50,7 +50,7 @@ Knowing which assumptions are valid is often more important than algebra.
 
 ---
 
-# 2. Kinematics in one and three dimensions
+# Kinematics in one and three dimensions
 
 Kinematics describes motion without explaining its cause.
 
@@ -131,7 +131,7 @@ This is essential in moving-platform and rotating-frame problems.
 
 ---
 
-# 3. Newton's laws and free-body diagrams
+# Newton's laws and free-body diagrams
 
 Newton's laws connect force to motion.
 
@@ -200,7 +200,7 @@ In accelerating or rotating frames, fictitious forces may be needed to preserve 
 
 ---
 
-# 4. Work, energy, and power
+# Work, energy, and power
 
 Energy methods are often simpler than force balance when displacement is the main unknown.
 
@@ -299,7 +299,7 @@ $$
 
 ---
 
-# 5. Momentum, impulse, and collisions
+# Momentum, impulse, and collisions
 
 ## Linear momentum
 
@@ -375,7 +375,7 @@ $$
 
 ---
 
-# 6. Rotation and rigid bodies
+# Rotation and rigid bodies
 
 Rigid-body motion includes translation and rotation.
 
@@ -493,7 +493,7 @@ Rolling problems often combine translation, rotation, and static friction.
 
 ---
 
-# 7. Angular momentum and torque
+# Angular momentum and torque
 
 ## Torque
 
@@ -556,7 +556,7 @@ This is especially useful for:
 
 ---
 
-# 8. Oscillations and simple harmonic motion
+# Oscillations and simple harmonic motion
 
 ## Simple harmonic motion
 
@@ -645,7 +645,7 @@ Important behaviors:
 
 ---
 
-# 9. Gravitation and central forces
+# Gravitation and central forces
 
 ## Newton's law of gravitation
 
@@ -703,7 +703,7 @@ In central-force motion:
 
 ---
 
-# 10. Constraints, equilibrium, and statics
+# Constraints, equilibrium, and statics
 
 Static equilibrium means no translational or rotational acceleration.
 
@@ -748,7 +748,7 @@ Constraint forces often do no work in idealized models, but they still matter in
 
 ---
 
-# 11. Lagrangian and Hamiltonian ideas
+# Lagrangian and Hamiltonian ideas
 
 The Lagrangian formulation is a higher-level way to derive equations of motion.
 
@@ -808,7 +808,7 @@ though this is not universal in all formulations.
 
 ---
 
-# 12. Problem-solving workflow
+# Problem-solving workflow
 
 ## Start with the model
 
@@ -845,7 +845,7 @@ Ask:
 
 ---
 
-# 13. Formula summary
+# Formula summary
 
 ## Kinematics
 

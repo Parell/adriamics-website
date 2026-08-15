@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What trigonometry studies
+# What trigonometry studies
 
 Trigonometry is the study of relationships between angles and side lengths in triangles, and more generally the study of periodic behavior through the sine, cosine, and tangent functions.
 
@@ -39,7 +39,7 @@ solve triangles. For a geometric review, see the
 
 ---
 
-# 2. Angles and the unit circle
+# Angles and the unit circle
 
 ## Angle measure
 
@@ -133,7 +133,7 @@ because the reference angle is $\pi/6$ and sine is positive in Quadrant II.
 
 ---
 
-# 3. Right-triangle ratios
+# Right-triangle ratios
 
 Using the right-triangle facts recalled from Geometry, trig functions can be
 defined as ratios of side lengths relative to a chosen acute angle $\theta$.
@@ -230,7 +230,7 @@ $$
 
 ---
 
-# 4. Core trigonometric functions
+# Core trigonometric functions
 
 ## Definitions
 
@@ -312,7 +312,7 @@ $$
 These identities are used constantly for simplification and proof.
 ---
 
-# 5. Graphs and transformations
+# Graphs and transformations
 
 ## Standard graphs
 
@@ -405,7 +405,7 @@ has:
 
 ---
 
-# 6. Key identities
+# Key identities
 
 ## Cofunction identities
 
@@ -506,7 +506,7 @@ Common mistakes:
 
 ---
 
-# 7. Solving trigonometric equations
+# Solving trigonometric equations
 
 Trig equations usually have infinitely many solutions because trig functions are periodic.
 
@@ -597,7 +597,7 @@ Always check solutions in the original equation.
 
 ---
 
-# 8. Inverse trigonometric functions
+# Inverse trigonometric functions
 
 Inverse trig functions recover angles from trig values.
 
@@ -667,7 +667,7 @@ because $\tan(\pi/6) = \sqrt{3}/3$ and $\pi/6$ lies in the arctan principal rang
 
 ---
 
-# 9. Laws for non-right triangles
+# Laws for non-right triangles
 
 Trigonometry also solves oblique triangles, which do not contain a right angle.
 
@@ -729,7 +729,7 @@ Always check whether the given data actually forms a valid triangle.
 
 ---
 
-# 10. Applications
+# Applications
 
 ## Navigation and surveying
 
@@ -795,7 +795,7 @@ and in 3D, rotations and projections rely on the same ideas.
 
 ---
 
-# 11. Problem-solving workflow
+# Problem-solving workflow
 
 ## Choosing the right tool
 
@@ -828,7 +828,7 @@ Good checks include:
 
 ---
 
-# 12. Formula sheet
+# Formula sheet
 
 ## Definitions
 

@@ -9,7 +9,7 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What a derivative means
+# What a derivative means
 
 > **What this assumes:** Functions, limits, and continuity, including one-sided limits and domain restrictions.
 >
@@ -31,14 +31,17 @@ Examples:
 - If $s(t)$ is position, then $s'(t)$ is velocity.
 - If $C(q)$ is cost, then $C'(q)$ is marginal cost.
 
-If the derivative is:
+At a point, the sign of the derivative describes the tangent slope:
 
-- Positive, the function is increasing locally
-- Negative, the function is decreasing locally
-- Zero, the function may have a horizontal tangent
+- Positive: the tangent slopes upward
+- Negative: the tangent slopes downward
+- Zero: the tangent is horizontal
+
+To conclude that a function is increasing or decreasing on an interval, check
+that the derivative keeps the corresponding sign throughout that interval.
 ---
 
-# 2. Formal definition
+# Formal definition
 
 The derivative of $f$ at $x$ is defined by the limit
 
@@ -82,7 +85,7 @@ is continuous at $x=0$, but not differentiable there because the left-hand and r
 
 ---
 
-# 3. Notation
+# Notation
 
 If $y=f(x)$, common derivative notations include:
 
@@ -106,7 +109,7 @@ Leibniz notation is especially useful when applying the chain rule because it ke
 
 ---
 
-# 4. Core differentiation rules
+# Core differentiation rules
 
 These rules let you differentiate most elementary functions efficiently.
 
@@ -122,7 +125,10 @@ $$
 \frac{d}{dx}[x^n] = nx^{n-1}
 $$
 
-This holds for any real exponent $n$ when the function is defined.
+For a real exponent $n$, this rule applies at points where the real-valued
+power function is defined and differentiable. The domain of $x^n$ alone does
+not guarantee differentiability at an endpoint; for example, $\sqrt{x}$ is
+defined at $x=0$, but its derivative formula is not finite there.
 
 Examples:
 
@@ -188,7 +194,7 @@ $$
 
 ---
 
-# 5. Derivatives of common functions
+# Derivatives of common functions
 
 ## Exponential functions
 
@@ -270,7 +276,7 @@ $$
 
 ---
 
-# 6. Chain rule and composite functions
+# Chain rule and composite functions
 
 The chain rule is essential for differentiating nested functions.
 
@@ -338,7 +344,7 @@ This is where many mistakes happen. Do not differentiate the inside and outside 
 
 ---
 
-# 7. Implicit differentiation
+# Implicit differentiation
 
 Sometimes a relation involving $x$ and $y$ is not solved explicitly for $y$.
 
@@ -406,7 +412,7 @@ $$
 
 ---
 
-# 8. Higher-order derivatives
+# Higher-order derivatives
 
 The second derivative is the derivative of the first derivative:
 
@@ -460,7 +466,7 @@ Since $f''(x)$ changes sign at $x=0$, the graph has an inflection point there.
 
 ---
 
-# 9. Linear approximation and differentials
+# Linear approximation and differentials
 
 Near a point $x=a$, a differentiable function is well approximated by its tangent line.
 
@@ -518,7 +524,7 @@ Differentials are useful in error estimation and applied modeling.
 
 ---
 
-# 10. Applications of derivatives
+# Applications of derivatives
 
 ## Increasing and decreasing behavior
 
@@ -582,7 +588,7 @@ This method works well when the initial guess is reasonable and $f'(x_n)\ne 0$.
 
 ---
 
-# 11. Optimization workflow
+# Optimization workflow
 
 Many applied derivative problems reduce to optimization.
 
@@ -630,7 +636,7 @@ $$
 
 ---
 
-# 12. Formula sheet
+# Formula sheet
 
 ## Definition
 

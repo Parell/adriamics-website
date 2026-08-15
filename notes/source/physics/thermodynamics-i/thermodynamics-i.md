@@ -15,7 +15,7 @@
 
 Use algebra, functions, unit conversions, and basic energy ideas from Physics I as prerequisites. This note prepares you to write closed-system and control-volume balances, interpret property data, and distinguish reversible limits from real irreversible processes.
 
-# 1. Thermodynamic systems and properties
+# Thermodynamic systems and properties
 
 Thermodynamics studies energy, matter, and property changes at the macroscopic scale.
 
@@ -84,7 +84,7 @@ $$
 
 ---
 
-# 2. State, equilibrium, and processes
+# State, equilibrium, and processes
 
 ## State
 
@@ -154,7 +154,7 @@ Path functions such as heat and work do not have to be zero over a cycle.
 
 ---
 
-# 3. Units, dimensions, and sign conventions
+# Units, dimensions, and sign conventions
 
 ## Common SI units
 
@@ -221,7 +221,7 @@ $$
 
 ---
 
-# 4. Pure substances and property data
+# Pure substances and property data
 
 A **pure substance** has a fixed chemical composition throughout.
 
@@ -357,7 +357,7 @@ $$
 
 ---
 
-# 5. Ideal gases and equations of state
+# Ideal gases and equations of state
 
 An **equation of state** relates pressure, temperature, and volume.
 
@@ -491,7 +491,7 @@ $$
 
 ---
 
-# 6. Heat, work, and energy
+# Heat, work, and energy
 
 ## Energy
 
@@ -635,7 +635,7 @@ $$
 
 ---
 
-# 7. First Law for closed systems
+# First Law for closed systems
 
 The First Law is conservation of energy.
 
@@ -743,7 +743,7 @@ $$
 
 ---
 
-# 8. First Law for control volumes
+# First Law for control volumes
 
 A control volume allows mass to cross the boundary.
 
@@ -817,7 +817,7 @@ $$
 
 ---
 
-# 9. Common steady-flow devices
+# Common steady-flow devices
 
 For most steady-flow devices, start with:
 
@@ -984,7 +984,7 @@ $$
 
 ---
 
-# 10. Second Law of Thermodynamics
+# Second Law of Thermodynamics
 
 The First Law gives energy conservation. The Second Law gives direction and limits.
 
@@ -1094,7 +1094,7 @@ Real processes are irreversible due to effects such as:
 
 ---
 
-# 11. Entropy
+# Entropy
 
 Entropy is a thermodynamic property that measures energy dispersal and irreversibility.
 
@@ -1216,7 +1216,7 @@ These apply to simple compressible substances.
 
 ---
 
-# 12. Power and refrigeration cycles
+# Power and refrigeration cycles
 
 A cycle returns the working fluid to its initial state, so property changes over the cycle are zero.
 
@@ -1413,7 +1413,7 @@ COP_R = \frac{q_L}{w_{comp,in}}
 $$
 ---
 
-# 13. Problem-solving workflow
+# Problem-solving workflow
 
 Use this checklist for most Thermodynamics I problems.
 
@@ -1517,7 +1517,7 @@ Ask:
 
 ---
 
-# 14. Formula sheet
+# Formula sheet
 
 ## Basic property relations
 

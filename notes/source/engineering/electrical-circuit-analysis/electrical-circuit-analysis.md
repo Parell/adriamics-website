@@ -17,7 +17,18 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. Core quantities and circuit elements
+> **Suggested route:** Sections 1–4 build the DC vocabulary and reduction
+> skills. Continue to Sections 5–9 for systematic DC analysis and power. Read
+> Section 10 only after reviewing first-order ODEs; read Sections 11–13 after
+> you are comfortable with complex numbers and sinusoidal functions. Section
+> 14 uses the same circuit laws with ideal op-amp assumptions.
+
+The early sections are useful on their own. The later sections form branches:
+transients (Section 10) models time-domain storage, while phasors and
+frequency response (Sections 11–13) model sinusoidal steady state. Do not use a
+steady-state phasor result to answer a startup transient question.
+
+# Core quantities and circuit elements
 
 Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components.
 
@@ -61,7 +72,7 @@ $$
 
 ---
 
-# 2. Reference directions and sign conventions
+# Reference directions and sign conventions
 
 Circuit equations are only consistent when voltage and current references are chosen deliberately.
 
@@ -89,7 +100,7 @@ Do not mix reference directions in the same equation set. Pick one sign conventi
 
 ---
 
-# 3. Ohm's law and Kirchhoff's laws
+# Ohm's law and Kirchhoff's laws
 
 ## Ohm's law
 
@@ -132,7 +143,7 @@ KCL and KVL work cleanly in lumped circuits where physical dimensions are small 
 
 ---
 
-# 4. Series, parallel, and equivalent reduction
+# Series, parallel, and equivalent reduction
 
 ## Resistors in series
 
@@ -185,7 +196,7 @@ The branch with smaller resistance carries more current.
 
 ---
 
-# 5. Node-voltage analysis
+# Node-voltage analysis
 
 Node-voltage analysis is usually the most efficient method for circuits with many current sources or many branches tied to a few nodes.
 
@@ -232,7 +243,7 @@ Do not write KCL separately for nodes connected by an ideal voltage source unles
 
 ---
 
-# 6. Mesh-current analysis
+# Mesh-current analysis
 
 Mesh-current analysis is efficient for planar circuits with many voltage sources.
 
@@ -272,7 +283,7 @@ Mesh analysis only applies directly to planar circuits unless the circuit is re-
 
 ---
 
-# 7. Source transformations and superposition
+# Source transformations and superposition
 
 ## Source transformation
 
@@ -313,7 +324,7 @@ You cannot superpose power directly, because power is not linear in voltage or c
 
 ---
 
-# 8. Thevenin and Norton equivalents
+# Thevenin and Norton equivalents
 
 Any linear two-terminal network can be replaced by an equivalent source-resistance pair.
 
@@ -372,7 +383,7 @@ They simplify repeated load calculations and make maximum power transfer analysi
 
 ---
 
-# 9. Power, energy, and maximum power transfer
+# Power, energy, and maximum power transfer
 
 ## Instantaneous power
 
@@ -416,7 +427,7 @@ Maximum power transfer does not mean maximum efficiency. At $R_L = R_{th}$, half
 
 ---
 
-# 10. First-order transients: RC and RL
+# First-order transients: RC and RL
 
 First-order circuits contain one energy storage element and produce exponential responses.
 
@@ -487,7 +498,7 @@ At $t = \tau$, the response has moved about $63.2\%$ of the way from its initial
 
 ---
 
-# 11. Sinusoidal steady state and phasors
+# Sinusoidal steady state and phasors
 
 Sinusoidal steady-state analysis converts differential equations into algebraic equations at a fixed angular frequency $\omega$.
 
@@ -551,7 +562,7 @@ $$
 
 ---
 
-# 12. Impedance, admittance, and AC power
+# Impedance, admittance, and AC power
 
 ## Admittance
 
@@ -625,7 +636,7 @@ where $\theta$ is the phase angle between voltage and current.
 
 ---
 
-# 13. Resonance and frequency response
+# Resonance and frequency response
 
 ## Series resonance
 
@@ -682,7 +693,7 @@ Typical asymptotic slopes:
 
 ---
 
-# 14. Operational amplifier basics
+# Operational amplifier basics
 
 Ideal op-amp analysis is a standard tool in circuit theory.
 
@@ -739,7 +750,7 @@ Ideal op-amp rules fail if the output saturates or if feedback is not negative.
 
 ---
 
-# 15. Problem-solving workflow
+# Problem-solving workflow
 
 ## Recommended workflow
 
@@ -775,7 +786,7 @@ Ideal op-amp rules fail if the output saturates or if feedback is not negative.
 
 ---
 
-# 16. Formula sheet
+# Formula sheet
 
 ## DC relations
 

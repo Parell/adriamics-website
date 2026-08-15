@@ -1492,9 +1492,32 @@ function renderTocNodes(nodes) {
   }).join('')}</ol>`;
 }
 
+function getTocNodeWeight(node) {
+  return 1 + node.children.reduce((weight, child) => weight + getTocNodeWeight(child), 0);
+}
+
 function splitTocNodes(nodes) {
-  const midpoint = Math.ceil(nodes.length / 2);
-  return [nodes.slice(0, midpoint), nodes.slice(midpoint)];
+  if (nodes.length < 2) {
+    return [nodes];
+  }
+
+  const weights = nodes.map(getTocNodeWeight);
+  const totalWeight = weights.reduce((total, weight) => total + weight, 0);
+  let leftWeight = 0;
+  let splitIndex = 1;
+  let smallestDifference = Number.POSITIVE_INFINITY;
+
+  for (let index = 1; index < nodes.length; index += 1) {
+    leftWeight += weights[index - 1];
+    const difference = Math.abs(totalWeight - (2 * leftWeight));
+
+    if (difference < smallestDifference) {
+      smallestDifference = difference;
+      splitIndex = index;
+    }
+  }
+
+  return [nodes.slice(0, splitIndex), nodes.slice(splitIndex)];
 }
 
 function renderTocColumns(nodes) {
@@ -1548,6 +1571,12 @@ function buildNoteHtml({
   const tocHtml = renderTableOfContents(bodyHtml);
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
+  const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
+  const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-vector-field-3d') ? `
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraph.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraphcore.js"></script>
+  ` : '';
   const quickActionsHtml = renderQuickActions({ practiceUrl });
   const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
   const mainHtml = `
@@ -1594,16 +1623,18 @@ function buildNoteHtml({
     floatingActionsHtml,
     stylesheetHref,
     scriptHref,
-    extraHead: `
+    extraHead: `${interactiveHead}
   <script>
     window.MathJax = {
+      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
+        packages: { '[+]': ['ams', 'unicode'] },
         macros: {
           degree: '{^{\\\\circ}}',
-          arcsec: '\\\\operatorname{arcsec}'
+          arcsec: '\\\\operatorname{arcsec}',
+          oiint: '\\\\mathop{\\\\unicode{x222F}}'
         }
       },
       svg: { fontCache: 'global' },
@@ -1843,20 +1874,24 @@ function renderConceptDagTail(depth) {
     return '';
   }
 
-  const horizontal = String.fromCodePoint(0x2500);
-  const junction = String.fromCodePoint(0x2534);
-  const corner = String.fromCodePoint(0x2514);
-  return `${corner}${horizontal.repeat(3)}${junction}${horizontal.repeat(3)}`.replace(`${junction}${horizontal.repeat(3)}`, `${junction}${horizontal.repeat(3)}`.repeat(depth - 1));
+  const segments = ['corner', 'horizontal'];
+  for (let index = 1; index < depth; index += 1) {
+    segments.push('junction', 'horizontal');
+  }
+
+  return segments.map((segment) => `<span class="concept-dag-tree__tail-${segment}" aria-hidden="true"></span>`).join('');
+}
+
+function renderConceptDagPrefix(depth) {
+  return Array.from({ length: depth }, () => '<span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span>').join('');
 }
 
 function renderConceptDagRows(rows, selectedId) {
   return rows.map((rowNodes, depth) => {
     const isLastRow = depth === rows.length - 1 && depth > 0;
-    const prefix = `${'│   '.repeat(depth)}`;
-    const tail = isLastRow ? `└───${'┴───'.repeat(Math.max(depth - 2, 0))}┴── ` : '';
-    const nodesHtml = rowNodes.map((node, index) => `${index ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : ''}${renderConceptDagNodeLink(node, selectedId)}`).join('');
+    const nodesHtml = `<span class="concept-dag-tree__nodes">${rowNodes.map((node, index) => `${index ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : ''}${renderConceptDagNodeLink(node, selectedId)}`).join('')}</span>`;
 
-    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${depth ? `<span class="concept-dag-tree__prefix${isLastRow ? ' concept-dag-tree__prefix--hidden' : ''}" aria-hidden="true">${escapeHtml(prefix)}</span>` : ''}${isLastRow ? `<span class="concept-dag-tree__wrap" aria-hidden="true">${escapeHtml(renderConceptDagTail(depth))}</span>` : ''}${nodesHtml}</div>`;
+    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${depth ? `<span class="concept-dag-tree__prefix${isLastRow ? ' concept-dag-tree__prefix--hidden' : ''}" aria-hidden="true">${renderConceptDagPrefix(depth)}</span>` : ''}${isLastRow ? `<span class="concept-dag-tree__wrap" aria-hidden="true">${renderConceptDagTail(depth)}</span>` : ''}${nodesHtml}</div>`;
   }).join('');
 }
 
@@ -2330,13 +2365,15 @@ function renderPracticePageHtml({
     scriptHref,
     extraHead: `<script>
     window.MathJax = {
+      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
+        packages: { '[+]': ['ams', 'unicode'] },
         macros: {
           degree: '{^{\\\\circ}}',
-          arcsec: '\\\\operatorname{arcsec}'
+          arcsec: '\\\\operatorname{arcsec}',
+          oiint: '\\\\mathop{\\\\unicode{x222F}}'
         }
       },
       svg: { fontCache: 'global' },

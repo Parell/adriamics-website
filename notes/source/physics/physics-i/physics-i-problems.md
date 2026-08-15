@@ -332,6 +332,44 @@ $$
 :::
 
 <!--
+id: physics-i-45
+note: physics-physics-i
+title: "Test Whether Static Friction Is Sufficient"
+skills: [Static friction, Inclined planes, Newton's laws]
+-->
+
+A $10$ kg block rests on a $30^\circ$ incline. The coefficient of static
+friction is $0.40$. Can static friction keep the block at rest? If not, explain
+why not. Use $g = 9.8\ \text{m/s}^2$.
+
+:::solution
+Choose axes parallel and perpendicular to the incline. The force trying to
+make the block slide down the incline is
+
+$$
+f_{s,\mathrm{required}} = mg\sin 30^\circ
+  = (10)(9.8)(0.5) = 49\ \text{N}.
+$$
+
+The normal force is
+
+$$
+N = mg\cos 30^\circ \approx 84.9\ \text{N},
+$$
+
+so the largest possible static friction is
+
+$$
+f_{s,\max} = \mu_sN = (0.40)(84.9) \approx 34.0\ \text{N}.
+$$
+
+Because $49\ \text{N} > 34.0\ \text{N}$, static friction is not sufficient.
+The block cannot remain at rest and begins to slide down the incline. Notice
+that $f_s$ is not set equal to $\mu_sN$ unless the surfaces are at the
+threshold of slipping.
+:::
+
+<!--
 id: physics-i-24
 note: physics-physics-i
 title: "Find the Final Speed in a Perfectly Inelastic Collision"

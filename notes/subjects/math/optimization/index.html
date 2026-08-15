@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Optimization | Adriamics</title>
-  <meta name="description" content="Optimization chooses the best feasible value of a function. It appears whenever a model must balance cost, energy, time, error, mass, risk, or performance. T..." />
+  <meta name="description" content="Optimization is the mathematics of choosing the best available option. The quantity we care about is the objective : cost, error, time, energy, risk, or perh..." />
   <link rel="canonical" href="https://adriamics.com/notes/subjects/math/optimization/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -22,17 +22,19 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=e5d4aa41f137" />
+  <link rel="stylesheet" href="../../../notes.css?v=f3cf2cb8a1e9" />
   
   <script>
     window.MathJax = {
+      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
+        packages: { '[+]': ['ams', 'unicode'] },
         macros: {
           degree: '{^{\\circ}}',
-          arcsec: '\\operatorname{arcsec}'
+          arcsec: '\\operatorname{arcsec}',
+          oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
       svg: { fontCache: 'global' },
@@ -43,7 +45,7 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
   
-  <script defer src="../../../notes.js?v=083386b534db"></script>
+  <script defer src="../../../notes.js?v=6a7338490052"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
@@ -102,7 +104,7 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>Partial Differential Equations</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" aria-current="page" data-notes-nav-item>Optimization</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" aria-current="page" data-notes-nav-item>Optimization</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
@@ -124,110 +126,195 @@
           <p class="section-label">Prerequisites</p>
         </div>
       </div>
-      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__prefix" aria-hidden="true">│   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   │   │   </span><a class="concept-dag-tree__node" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__prefix" aria-hidden="true">│   │   │   │   │   </span><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/optimization/" data-notes-nav-item>Optimization</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__prefix concept-dag-tree__prefix--hidden" aria-hidden="true">│   │   │   │   │   │   </span><span class="concept-dag-tree__wrap" aria-hidden="true">└───┴───┴───┴───┴───┴───</span><a class="concept-dag-tree__node" href="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></div></div></div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__prefix" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/optimization/" data-notes-nav-item>Optimization</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__prefix concept-dag-tree__prefix--hidden" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__wrap" aria-hidden="true"><span class="concept-dag-tree__tail-corner" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span><span class="concept-dag-tree__tail-junction" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div></div></div>
     </section>
         <nav class="notes-toc" aria-label="Table of contents">
       <h2 class="notes-toc__title">Table of Contents</h2>
-      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#1-unconstrained-optimization">1. Unconstrained optimization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#2-convexity">2. Convexity</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#3-gradient-methods">3. Gradient methods</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#4-newton-and-quasi-newton-methods">4. Newton and quasi-Newton methods</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#5-constrained-optimization">5. Constrained optimization</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#6-linear-programming">6. Linear programming</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#7-quadratic-programming">7. Quadratic programming</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#8-multi-objective-optimization">8. Multi-objective optimization</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#9-practical-workflow">9. Practical workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#checkpoint">Checkpoint</a></li></ol></li></ol></div>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#the-basic-vocabulary">The basic vocabulary</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#unconstrained-and-constrained-optimization">Unconstrained and constrained optimization</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#start-with-a-one-variable-problem">Start with a one-variable problem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#boundaries-matter">Boundaries matter</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#several-variables-slopes-become-a-gradient">Several variables: slopes become a gradient</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#curvature-minimum-maximum-or-saddle">Curvature: minimum, maximum, or saddle?</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#convexity-when-local-means-global">Convexity: when local means global</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#constraints-and-the-boundary">Constraints and the boundary</a></li></ol></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#finding-an-answer-numerically">Finding an answer numerically</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#gradient-newton-and-quasi-newton-methods">Gradient, Newton, and quasi-Newton methods</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#gradient-descent">Gradient descent</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#newton-and-quasi-newton-methods">Newton and quasi-Newton methods</a></li></ol></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#important-problem-families">Important problem families</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-and-quadratic-programming">Linear and quadratic programming</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#linear-programming">Linear programming</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#quadratic-programming">Quadratic programming</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#multi-objective-optimization">Multi-objective optimization</a></li></ol></li><li class="notes-toc__item"><a class="notes-toc__link" href="#a-practical-workflow">A practical workflow</a><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#checkpoint">Checkpoint</a></li></ol></li></ol></div>
     </nav>
-        <p>Optimization chooses the best feasible value of a function. It appears whenever a model must balance cost, energy, time, error, mass, risk, or performance. The basic problem is</p>
+        <p>Optimization is the mathematics of choosing the best available option. The quantity we care about is the <strong>objective</strong>: cost, error, time, energy, risk, or perhaps negative profit. The choices we are allowed to make form the <strong>feasible set</strong>.</p>
+<p>For example, if \(x\) is the amount of material in a design, we might want to</p>
 <div class="math-block">$$
-\min_{\mathbf{x}\in\mathcal{F}} f(\mathbf{x}),
+\text{minimize } f(x) \qquad \text{subject to } x\ge 0.
 $$</div>
-<p>where \(f\) is the objective and \(\mathcal{F}\) is the feasible set defined by constraints. Maximization is minimization of \(-f\). The vector \(\mathbf{x}\) contains the decision variables.</p>
-<p>This module uses <a href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/">Multivariable Differential Calculus</a>, <a href="/notes/subjects/math/matrices/">Matrices</a>, <a href="/notes/subjects/math/eigenvalues/">Eigenvalues</a>, and <a href="/notes/subjects/math/numerical-methods/">Numerical Methods</a>.</p>
-<h2 id="1-unconstrained-optimization">1. Unconstrained optimization</h2>
-<p>For an interior local minimum of a differentiable function,</p>
+<p>More generally, the decision may be a vector \(\mathbf{x}\), and the problem is</p>
 <div class="math-block">$$
-\nabla f(\mathbf{x}^*)=\mathbf{0}.
+\min_{\mathbf{x}\in\mathcal F} f(\mathbf{x}).
 $$</div>
-<p>This is necessary, not sufficient. The Hessian test classifies a stationary point:</p>
-<table><thead><tr><th>Hessian at \(\mathbf{x}^*\)</th><th>Conclusion</th></tr></thead><tbody><tr><td>\(\nabla^2 f\succ0\)</td><td>strict local minimum</td></tr><tr><td>\(\nabla^2 f\prec0\)</td><td>strict local maximum</td></tr><tr><td>indefinite</td><td>saddle point</td></tr><tr><td>semidefinite</td><td>test may be inconclusive</td></tr></tbody></table>
-<p>In one variable this reduces to \(f&#39;(x^<em>)=0\): if \(f&#39;&#39;(x^</em>)&gt;0\), the point is a local minimum. A global minimum must also be compared with boundary behavior and other candidates. A minimum is guaranteed on a compact feasible set when \(f\) is continuous.</p>
-<h2 id="2-convexity">2. Convexity</h2>
-<p>A set \(\mathcal{F}\) is convex if every line segment between two feasible points remains feasible:</p>
+<p>Here \(f\) is the objective and \(\mathcal F\) is the feasible set. A maximization problem can be changed into minimization by minimizing \(-f\).</p>
+<h3 id="the-basic-vocabulary">The basic vocabulary</h3>
+<p>These words describe the pieces of every optimization problem:</p>
+<table><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody><tr><td><strong>decision variable</strong></td><td>A quantity we are allowed to choose, such as \(x\) or \(\mathbf{x}=(x,y)\).</td></tr><tr><td><strong>objective function</strong></td><td>A formula that scores a choice. We minimize it, or maximize it by changing its sign.</td></tr><tr><td><strong>constraint</strong></td><td>A rule that limits which choices are allowed.</td></tr><tr><td><strong>feasible set</strong></td><td>The collection of all choices that satisfy every constraint.</td></tr><tr><td><strong>feasible point</strong></td><td>One particular choice inside the feasible set.</td></tr><tr><td><strong>optimizer</strong></td><td>A feasible point with the best objective value.</td></tr></tbody></table>
+<p>For example, in</p>
 <div class="math-block">$$
-\mathbf{x},\mathbf{y}\in\mathcal{F},\quad 0\le t\le1
-\implies t\mathbf{x}+(1-t)\mathbf{y}\in\mathcal{F}.
+\min_x x^2 \qquad\text{subject to}\qquad x\ge1,
 $$</div>
-<p>A differentiable function is convex when</p>
+<p>\(x\) is the decision variable, \(x^2\) is the objective, and \(x\ge1\) is the constraint. The feasible set is the interval \([1,\infty)\). The optimizer is \(x=1\), because it is the allowed point closest to the unconstrained best point \(x=0\).</p>
+<p>An asterisk marks a point that we think is optimal. Thus \(x^<em>\) means &quot;the candidate value of \(x\),&quot; and \(\mathbf{x}^</em>\) means &quot;the candidate vector.&quot; The phrase &quot;evaluate the Hessian at \(\mathbf{x}^<em>\)&quot; simply means: calculate the Hessian formula, then substitute the coordinates of \(\mathbf{x}^</em>\).</p>
+<p>This note develops the ideas in stages. It uses the derivative rules from <a href="/notes/subjects/math/derivatives/">Derivatives</a>, and the gradient and Hessian from <a href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/">Multivariable Differential Calculus</a>. Matrices, eigenvalues, and numerical methods become useful later, but they are not needed for the opening examples.</p>
+<h2 id="unconstrained-and-constrained-optimization">Unconstrained and constrained optimization</h2>
+<p>Optimization problems may be unconstrained, with the best point sought anywhere in the domain, or constrained, with equality, inequality, or bound conditions restricting the feasible set. The sections below develop both cases, then connect them to convexity and numerical methods.</p>
+<h3 id="start-with-a-one-variable-problem">Start with a one-variable problem</h3>
+<p>Suppose the cost of producing \(x\) items is</p>
 <div class="math-block">$$
-f(\mathbf{y})\ge f(\mathbf{x})+\nabla f(\mathbf{x})^{\mathsf T}(\mathbf{y}-\mathbf{x}).
+C(x)=x^2-6x+13.
 $$</div>
-<p>If it is twice differentiable, \(\nabla^2f(\mathbf{x})\succeq0\) everywhere is sufficient. Positive definiteness gives strict convexity. For a convex objective over a convex feasible set, every local minimum is global; therefore \(\nabla f(\mathbf{x}^*)=0\) is sufficient for an unconstrained optimum. Strict convexity gives at most one minimizer.</p>
-<p>The eigenvalues of the Hessian reveal curvature: the smallest eigenvalue is a lower curvature bound and the largest is an upper bound. A quadratic</p>
+<p>A smooth <strong>interior</strong> minimum—one that is not at an endpoint or boundary—must have zero slope:</p>
 <div class="math-block">$$
-f(\mathbf{x})=\tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}+\mathbf{c}^{\mathsf T}\mathbf{x}+d
+C&#39;(x)=2x-6=0 \quad\Longrightarrow\quad x=3.
 $$</div>
-<p>is convex exactly when the symmetric matrix \(Q\succeq0\).</p>
-<h2 id="3-gradient-methods">3. Gradient methods</h2>
-<p>The negative gradient is the direction of steepest local decrease. Gradient descent uses</p>
+<p>The second derivative is \(C&#39;&#39;(x)=2&gt;0\), so \(x=3\) is a local minimum. Completing the square makes the answer even clearer:</p>
+<div class="math-block">$$
+C(x)=(x-3)^2+4.
+$$</div>
+<p>Since \((x-3)^2\ge0\), the global minimum is \(C(3)=4\). This small example contains the basic workflow:</p>
+<ol><li><p>Write down the quantity to minimize.</p></li><li><p>Find candidates by setting the derivative to zero.</p></li><li><p>Classify candidates with curvature.</p></li><li><p>Check endpoints, constraints, and other candidates.</p></li></ol>
+<p>The word <strong>local</strong> means &quot;best nearby.&quot; The word <strong>global</strong> means &quot;best among every feasible choice.&quot; A stationary point—one where the derivative is zero—may be a minimum, a maximum, or neither.</p>
+<h3 id="boundaries-matter">Boundaries matter</h3>
+<p>If \(0\le x\le4\), the point \(x=3\) is feasible. But if \(0\le x\le2\), there is no interior stationary point in the feasible interval. The minimum must then occur at a boundary; compare \(C(0)\) and \(C(2)\).</p>
+<p>This is why setting the derivative equal to zero is only part of an optimization solution. Constraints can move the best point to an edge.</p>
+<h3 id="several-variables-slopes-become-a-gradient">Several variables: slopes become a gradient</h3>
+<p>Now let the decision be \(\mathbf{x}=(x,y)\). Consider</p>
+<div class="math-block">$$
+f(x,y)=(x-2)^2+2(y+1)^2+5.
+$$</div>
+<p>The objective is smallest when both squared terms are zero, so the answer is \((2,-1)\). Calculus reaches the same answer by collecting the two partial derivatives into the <strong>gradient</strong>:</p>
+<div class="math-block">$$
+\nabla f(x,y)=
+\left\langle\frac{\partial f}{\partial x},\frac{\partial f}{\partial y}\right\rangle
+=\langle2(x-2),4(y+1)\rangle.
+$$</div>
+<p>At an interior optimum there is no downhill direction left. Therefore every component of the gradient is zero:</p>
+<div class="math-block">$$
+\nabla f(x^*,y^*)=\mathbf0.
+$$</div>
+<p>For this example,</p>
+<div class="math-block">$$
+2(x-2)=0,\qquad4(y+1)=0,
+$$</div>
+<p>which gives \((x^<em>,y^</em>)=(2,-1)\). The gradient points in the direction of steepest increase, so \(-\nabla f\) points in the direction of steepest local decrease.</p>
+<h3 id="curvature-minimum-maximum-or-saddle">Curvature: minimum, maximum, or saddle?</h3>
+<p>Setting the gradient to zero finds <strong>stationary points</strong>, but does not classify them. A stationary point is only a location where the first-order slopes vanish; it might still be a minimum, a maximum, or a saddle.</p>
+<p>To study the shape near a point, use second derivatives. In two variables, the second partial derivatives form the <strong>Hessian</strong>:</p>
+<div class="math-block">$$
+\nabla^2f(x,y)=
+\begin{bmatrix}
+f_{xx}&amp;f_{xy}\\
+f_{yx}&amp;f_{yy}
+\end{bmatrix}.
+$$</div>
+<p>For the example \(f(x,y)=(x-2)^2+2(y+1)^2+5\), the stationary point is \((2,-1)\). Its Hessian is</p>
+<div class="math-block">$$
+\nabla^2f(x,y)=
+\begin{bmatrix}2&amp;0\\0&amp;4\end{bmatrix}.
+$$</div>
+<p>The Hessian <strong>at the stationary point</strong> is found by substituting \(x=2\) and \(y=-1\) into the Hessian formula. In this example the matrix happens to be the same everywhere. It says the surface curves upward in both coordinate directions, confirming a minimum.</p>
+<p>For a general stationary point, let</p>
+<div class="math-block">$$
+D=f_{xx}f_{yy}-(f_{xy})^2.
+$$</div>
+<table><thead><tr><th>Test</th><th>Conclusion</th></tr></thead><tbody><tr><td>\(D&gt;0\) and \(f_{xx}&gt;0\)</td><td>local minimum</td></tr><tr><td>\(D&gt;0\) and \(f_{xx}&lt;0\)</td><td>local maximum</td></tr><tr><td>\(D&lt;0\)</td><td>saddle point</td></tr><tr><td>\(D=0\)</td><td>test is inconclusive</td></tr></tbody></table>
+<p>A saddle point rises in some directions and falls in others. For instance, \(f(x,y)=x^2-y^2\) has gradient zero at the origin, but it is not a minimum: moving along the \(x\)-axis increases \(f\), while moving along the \(y\)-axis decreases it.</p>
+<p>For more than two variables, a <strong>positive-definite</strong> Hessian means the objective curves upward in every direction; a <strong>negative-definite</strong> Hessian curves downward; an <strong>indefinite</strong> Hessian curves upward in some directions and downward in others, indicating a saddle. These are names for the behavior of the quadratic expression \(\mathbf v^{\mathsf T}H\mathbf v\), where \(H\) is the Hessian and \(\mathbf v\) is a direction.</p>
+<h2 id="convexity-when-local-means-global">Convexity: when local means global</h2>
+<p>A function is <strong>convex</strong> when its graph has no dents that curve below a chord. In one variable, \(f&#39;&#39;(x)\ge0\) on an interval is a common way to recognize convexity. In several variables, a twice-differentiable function is convex when</p>
+<div class="math-block">$$
+\nabla^2 f(\mathbf{x})\succeq0
+$$</div>
+<p>throughout its domain. This means \(\mathbf{v}^{\mathsf T}\nabla^2f(\mathbf{x})\mathbf{v}\ge0\) for every direction \(\mathbf v\). The symbol \(\succeq0\) is shorthand for “positive semidefinite,” meaning “never curves downward,” though it may be flat in some directions.</p>
+<p>A set is convex if the straight line between any two points in it stays in the set:</p>
+<div class="math-block">$$
+\mathbf{x},\mathbf{y}\in\mathcal F,\quad0\le t\le1
+\implies t\mathbf{x}+(1-t)\mathbf{y}\in\mathcal F.
+$$</div>
+<p>A convex objective on a convex feasible set has no misleading local minima: every local minimum is global. If the objective is strictly convex, it has at most one minimizer.</p>
+<p>For the quadratic</p>
+<div class="math-block">$$
+f(\mathbf{x})=\tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}
++\mathbf c^{\mathsf T}\mathbf{x}+d,
+$$</div>
+<p>convexity is equivalent to \(Q\succeq0\). The eigenvalues of \(Q\) describe curvature in its principal directions.</p>
+<h3 id="constraints-and-the-boundary">Constraints and the boundary</h3>
+<p>Constraints describe choices that are not allowed. Common forms are</p>
+<div class="math-block">$$
+h_j(\mathbf{x})=0 \quad\text{(equality)},\qquad
+g_i(\mathbf{x})\le0 \quad\text{(inequality)},
+$$</div>
+<p>along with bounds such as \(\ell\le\mathbf{x}\le u\).</p>
+<p>Consider minimizing \(x^2+y^2\) subject to \(x+y=1\). The unconstrained minimum is \((0,0)\), but it is not feasible. The constrained minimum lies on the line \(x+y=1\), at the point closest to the origin: \((1/2,1/2)\).</p>
+<p>For a smooth equality constraint \(h(\mathbf{x})=0\), the <strong>Lagrangian</strong> packages the objective and constraint together:</p>
+<div class="math-block">$$
+\mathcal L(\mathbf{x},\lambda)=f(\mathbf{x})+\lambda h(\mathbf{x}).
+$$</div>
+<p>At a regular constrained optimum, solve</p>
+<div class="math-block">$$
+\nabla f(\mathbf{x}^*)+\lambda^*\nabla h(\mathbf{x}^*)=\mathbf0,
+\qquad h(\mathbf{x}^*)=0.
+$$</div>
+<p>Geometrically, the objective cannot decrease while staying on the constraint curve, so its gradient is parallel to the constraint&#39;s gradient.</p>
+<p>For inequalities, the Karush–Kuhn–Tucker (KKT) conditions add multipliers \(\mu_i\ge0\):</p>
+<div class="math-block">$$
+\nabla f+J_{\mathbf h}^{\mathsf T}\boldsymbol\lambda
++J_{\mathbf g}^{\mathsf T}\boldsymbol\mu=\mathbf0,
+\quad \mathbf h=0,\quad \mathbf g\le0,\quad
+\boldsymbol\mu\ge0,\quad \mu_i g_i=0.
+$$</div>
+<p>The final relation is <strong>complementary slackness</strong>. An inactive constraint has \(g_i&lt;0\), so its multiplier is zero. For convex problems with suitable regularity assumptions, KKT conditions are also sufficient for global optimality.</p>
+<h2 id="finding-an-answer-numerically">Finding an answer numerically</h2>
+<p>For simple functions we can solve equations by hand. Real objectives may have thousands or millions of variables, so numerical methods improve a current guess instead.</p>
+<h3 id="gradient-newton-and-quasi-newton-methods">Gradient, Newton, and quasi-Newton methods</h3>
+<p>Gradient descent is the basic first-order optimization method. It uses the gradient to choose a direction and a step size to improve the objective.</p>
+<h4 id="gradient-descent">Gradient descent</h4>
+<p>Starting at \(\mathbf{x}_k\), take a step downhill:</p>
 <div class="math-block">$$
 \mathbf{x}_{k+1}=\mathbf{x}_k-\alpha_k\nabla f(\mathbf{x}_k),
 $$</div>
-<p>where \(\alpha_k&gt;0\) is a step size. A fixed step can be fast or unstable; backtracking line search starts with a trial step and reduces it until the sufficient-decrease condition</p>
+<p>where \(\alpha_k&gt;0\) is the step size. A step that is too small is slow; one that is too large can overshoot or diverge. Backtracking reduces a trial step until</p>
 <div class="math-block">$$
-f(\mathbf{x}_k-\alpha\mathbf{g}_k)\le f(\mathbf{x}_k)-c\alpha\|\mathbf{g}_k\|^2
+f(\mathbf{x}_k-\alpha\mathbf g_k)
+\le f(\mathbf{x}_k)-c\alpha\|\mathbf g_k\|^2,
+\qquad0&lt;c&lt;1.
 $$</div>
-<p>holds, with \(0&lt;c&lt;1\). Stop when both \(\|\nabla f\|\) and the change in \(f\) are small. Poor scaling creates long zig-zag paths; preconditioning or rescaling variables helps.</p>
-<h2 id="4-newton-and-quasi-newton-methods">4. Newton and quasi-Newton methods</h2>
-<p>Newton&#39;s method minimizes the local quadratic model. With \(H_k=\nabla^2f(\mathbf{x}_k)\), solve</p>
+<p>Stop when the gradient and the change in the objective are both small. Poorly scaled variables create long zig-zag paths; rescaling can help.</p>
+<h4 id="newton-and-quasi-newton-methods">Newton and quasi-Newton methods</h4>
+<p>Newton&#39;s method uses curvature to choose a better direction. With \(H_k=\nabla^2f(\mathbf{x}_k)\), solve</p>
 <div class="math-block">$$
-H_k\mathbf{p}_k=-\nabla f(\mathbf{x}_k),
-\qquad
-\mathbf{x}_{k+1}=\mathbf{x}_k+\alpha_k\mathbf{p}_k.
+H_k\mathbf p_k=-\nabla f(\mathbf{x}_k),
+\qquad\mathbf{x}_{k+1}=\mathbf{x}_k+\alpha_k\mathbf p_k.
 $$</div>
-<p>Near a well-behaved solution, full Newton steps can converge quadratically. Computing and factorizing a Hessian is expensive, and an indefinite Hessian can produce an ascent direction, so line searches or trust regions are common.</p>
-<p>Quasi-Newton methods build an approximation \(B_k\approx(\nabla^2f)^{-1}\) from gradient changes, avoiding explicit second derivatives:</p>
+<p>Near a well-behaved solution, Newton&#39;s method can converge very quickly. However, forming a Hessian is expensive, and an indefinite Hessian can point uphill. Line searches or trust regions make the method safer.</p>
+<p>Quasi-Newton methods estimate curvature from gradient changes instead of forming second derivatives. BFGS is a standard choice; L-BFGS stores only a small amount of history and is useful for large problems.</p>
+<h2 id="important-problem-families">Important problem families</h2>
+<p>Once the basic language is familiar, several useful families fit into the same picture.</p>
+<h3 id="linear-and-quadratic-programming">Linear and quadratic programming</h3>
+<p>Linear and quadratic programs are important structured optimization problems. Their objectives and constraints have algebraic forms that allow specialized solvers and stronger optimality guarantees.</p>
+<h4 id="linear-programming">Linear programming</h4>
+<p>In a linear program, both the objective and constraints are linear:</p>
 <div class="math-block">$$
-\mathbf{x}_{k+1}=\mathbf{x}_k-\alpha_kB_k\nabla f(\mathbf{x}_k).
+\min_{\mathbf{x}}\ \mathbf c^{\mathsf T}\mathbf x
+\quad\text{subject to}\quad A\mathbf x\le\mathbf b,\quad\mathbf x\ge\mathbf0.
 $$</div>
-<p>The BFGS update is a standard choice; limited-memory BFGS (L-BFGS) stores only a few vectors and works well for large problems. Newton is usually the fastest near a solution when its derivatives are affordable; gradient descent is simpler and cheaper per iteration.</p>
-<h2 id="5-constrained-optimization">5. Constrained optimization</h2>
-<p>Constraints may be equalities \(h_j(\mathbf{x})=0\), inequalities \(g_i(\mathbf{x})\le0\), or bounds such as \(\ell\le\mathbf{x}\le u\). For equality constraints, the Lagrangian is</p>
+<p>The feasible set is a polyhedron. If a finite optimum exists, at least one optimum occurs at a vertex, which motivates the simplex method. Interior-point methods are often effective for large sparse problems.</p>
+<h4 id="quadratic-programming">Quadratic programming</h4>
+<p>Quadratic programming uses a quadratic objective and linear constraints:</p>
 <div class="math-block">$$
-\mathcal{L}(\mathbf{x},\boldsymbol\lambda)=f(\mathbf{x})+\boldsymbol\lambda^{\mathsf T}\mathbf{h}(\mathbf{x}).
+\min_{\mathbf{x}}\ \tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}
++\mathbf c^{\mathsf T}\mathbf x
+\quad\text{subject to}\quad A\mathbf x\le\mathbf b,\quad E\mathbf x=\mathbf d.
 $$</div>
-<p>At a regular constrained optimum,</p>
+<p>When \(Q\succeq0\), the problem is convex and KKT conditions characterize the global solution. Bounded least squares, portfolios, and model predictive control are examples.</p>
+<h3 id="multi-objective-optimization">Multi-objective optimization</h3>
+<p>Often there is no single &quot;best&quot; choice: a design may trade low cost against low mass or high speed against low risk. A point is <strong>Pareto optimal</strong> if improving one objective would worsen at least one other objective. The set of such choices is the Pareto front.</p>
+<p>A common compromise is a weighted sum:</p>
 <div class="math-block">$$
-\nabla f(\mathbf{x}^*)+J_{\mathbf h}(\mathbf{x}^*)^{\mathsf T}\boldsymbol\lambda^*=0,
-\qquad \mathbf h(\mathbf{x}^*)=\mathbf0.
+\min_{\mathbf{x}\in\mathcal F}\sum_{i=1}^m w_i\widetilde f_i(\mathbf{x}),
+\qquad w_i\ge0.
 $$</div>
-<p>For inequalities, the Karush–Kuhn–Tucker conditions add multipliers \(\boldsymbol\mu\ge0\):</p>
-<div class="math-block">$$
-\nabla f+J_{\mathbf h}^{\mathsf T}\boldsymbol\lambda+J_{\mathbf g}^{\mathsf T}\boldsymbol\mu=0,
-\quad \mathbf h=0,\quad \mathbf g\le0,\quad \mu_i g_i=0.
-$$</div>
-<p>The last condition is complementary slackness: an inactive constraint has zero multiplier. For convex problems with suitable constraint qualifications, KKT conditions are necessary and sufficient for global optimality.</p>
-<h2 id="6-linear-programming">6. Linear programming</h2>
-<p>A linear program has linear objective and constraints:</p>
-<div class="math-block">$$
-\min_{\mathbf{x}}\ \mathbf{c}^{\mathsf T}\mathbf{x}
-\quad\text{subject to}\quad A\mathbf{x}\le\mathbf{b},\quad \mathbf{x}\ge\mathbf0.
-$$</div>
-<p>Its feasible region is a polyhedron. If a finite optimum exists, at least one optimum occurs at a vertex, which motivates the simplex method. Interior-point methods move through the interior and are effective for large sparse problems. Linear programming models allocation, blending, routing, scheduling, and diet or portfolio constraints.</p>
-<h2 id="7-quadratic-programming">7. Quadratic programming</h2>
-<p>Quadratic programming uses a quadratic objective with linear constraints:</p>
-<div class="math-block">$$
-\min_{\mathbf{x}}\ \tfrac12\mathbf{x}^{\mathsf T}Q\mathbf{x}+\mathbf{c}^{\mathsf T}\mathbf{x}
-\quad\text{subject to}\quad A\mathbf{x}\le\mathbf{b},\quad E\mathbf{x}=\mathbf{d}.
-$$</div>
-<p>When \(Q\succeq0\), this is a convex QP and KKT conditions characterize the global solution. Least squares with bounds, mean–variance portfolios, and model predictive control are common examples. If \(Q\) is indefinite, the problem may have multiple local minima and requires a nonconvex solver.</p>
-<h2 id="8-multi-objective-optimization">8. Multi-objective optimization</h2>
-<p>Real designs often optimize several objectives, such as low cost and low mass. Write</p>
-<div class="math-block">$$
-\min_{\mathbf{x}\in\mathcal F}\big(f_1(\mathbf{x}),\ldots,f_m(\mathbf{x})\big).
-$$</div>
-<p>A feasible point is <strong>Pareto optimal</strong> if no objective can be improved without worsening at least one other objective. The set of such solutions is the Pareto front. A practical scalarization is the weighted sum</p>
-<div class="math-block">$$
-\min_{\mathbf{x}\in\mathcal F}\sum_{i=1}^m w_i\,\widetilde f_i(\mathbf{x}),
-\qquad w_i\ge0,
-$$</div>
-<p>where normalized objectives \(\widetilde f_i\) prevent units or scale from silently determining the result. Varying the weights traces supported Pareto points; constraint or goal-programming formulations can recover tradeoffs that weighted sums miss. Always report the chosen weights, normalization, and the resulting tradeoff.</p>
-<h2 id="9-practical-workflow">9. Practical workflow</h2>
-<ol><li><p>Define variables, units, objective, constraints, and whether each quantity is to be minimized or maximized.</p></li><li><p>Check feasibility, scaling, convexity, differentiability, and whether a global solution is expected.</p></li><li><p>Choose a solver: LP/QP for their structured models; gradient, Newton, or quasi-Newton for smooth problems; a constrained method when feasibility must be maintained.</p></li><li><p>Verify the result using objective value, gradient or KKT residuals, constraint violations, bounds, and sensitivity to initial guesses and tolerances.</p></li><li><p>Check the model: an accurately solved optimization problem can still produce a poor decision if the objective, constraints, or data are wrong.</p></li></ol>
+<p>Normalize the objectives first so that units and scale do not silently choose the result. Report the weights and resulting tradeoff.</p>
+<h2 id="a-practical-workflow">A practical workflow</h2>
+<ol><li><p>Define the decision variables, units, objective, and constraints. Decide which quantities are minimized or maximized.</p></li><li><p>Check feasibility and scaling. Ask whether the functions are differentiable and whether convexity makes a global answer likely.</p></li><li><p>Solve simple cases analytically. For larger smooth problems, consider gradient, Newton, or quasi-Newton methods; use LP or QP solvers when the model has that structure.</p></li><li><p>Verify the result: inspect the objective, gradient or KKT residuals, constraint violations, bounds, and sensitivity to the starting point and tolerances.</p></li><li><p>Check the model itself. A solver can accurately optimize an objective that is still a poor representation of the real decision.</p></li></ol>
 <h3 id="checkpoint">Checkpoint</h3>
-<p>You are ready to apply these methods when you can distinguish local from global optimality, use a Hessian to recognize convexity, derive a KKT system, select a method for an LP or QP, and explain a Pareto tradeoff.</p>
+<p>You are ready to use this note when you can explain local versus global minima, find and classify a stationary point, interpret a gradient as a direction, recognize basic convexity, set up a Lagrange-multiplier system, and describe why a numerical solver needs a step-size or stopping rule.</p>
         
       </article>
     </section>

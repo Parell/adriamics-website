@@ -11,9 +11,13 @@
 - Blitzstein and Hwang, *Introduction to Probability*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-## 1. What statistics studies
+## What statistics studies
 
 Statistics is the science of turning data into conclusions under uncertainty.
+
+> **What this assumes:** Arithmetic, basic algebra, and the probability language of events and random variables. Follow [Probability](/notes/subjects/math/probability/) when conditional probability or distributions are unfamiliar.
+>
+> **What this enables:** Data summaries, estimation, hypothesis tests, regression, and evidence-based decisions with explicit uncertainty.
 
 It has two main goals:
 
@@ -36,7 +40,7 @@ Because samples are incomplete, every statistical conclusion carries uncertainty
 
 ---
 
-## 2. Data, variables, and measurement scales
+## Data, variables, and measurement scales
 
 ## Types of variables
 
@@ -60,7 +64,7 @@ Quantitative variables may be:
 | Interval | Yes | Yes | No | Celsius temperature |
 | Ratio | Yes | Yes | Yes | mass, length, income |
 
-The scale determines what computations make sense. For example, averages are meaningful for ratio data but not for nominal categories.
+The scale determines what computations make sense. Means are generally meaningful for interval and ratio measurements, but not for nominal categories; ordinal data require additional assumptions because equal gaps between ranks are not guaranteed.
 
 ## Common data issues
 
@@ -74,7 +78,7 @@ These are not cosmetic issues. They can change the answer.
 
 ---
 
-## 3. Describing a distribution
+## Describing a distribution
 
 A distribution describes how values are spread across a variable.
 
@@ -149,7 +153,7 @@ Z-scores are useful for comparing values across different scales.
 This summary underlies the boxplot.
 ---
 
-## 4. Probability essentials
+## Probability essentials
 
 Probability models uncertainty mathematically.
 
@@ -222,7 +226,7 @@ Bayes' rule reverses conditioning. It is especially important in diagnostics and
 
 ---
 
-## 5. Common distributions
+## Common distributions
 
 ## Bernoulli
 
@@ -310,7 +314,7 @@ $$
 
 ---
 
-## 6. Sampling and the central limit theorem
+## Sampling and the central limit theorem
 
 ## Sampling distributions
 
@@ -358,7 +362,7 @@ If sampling is biased, inference can be precise and wrong at the same time.
 
 ---
 
-## 7. Estimation and confidence intervals
+## Estimation and confidence intervals
 
 ## Point estimates
 
@@ -416,7 +420,7 @@ Margin of error usually decreases when:
 
 ---
 
-## 8. Hypothesis testing
+## Hypothesis testing
 
 Hypothesis testing is a framework for deciding whether observed data are consistent with a null model.
 
@@ -474,7 +478,7 @@ $$
 
 ---
 
-## 9. Correlation and regression
+## Correlation and regression
 
 ## Correlation
 
@@ -545,7 +549,7 @@ is the proportion of variability in the response explained by the model.
 
 ---
 
-## 10. Nonparametric and categorical methods
+## Nonparametric and categorical methods
 
 ## Categorical data
 
@@ -584,7 +588,7 @@ These are useful when data are skewed, ordinal, or have strong outliers.
 
 ---
 
-## 11. Practical workflow and pitfalls
+## Practical workflow and pitfalls
 
 ## A reliable analysis workflow
 
@@ -618,7 +622,7 @@ These are useful when data are skewed, ordinal, or have strong outliers.
 
 ---
 
-## 12. Formula sheet
+## Formula sheet
 
 ## Descriptive statistics
 

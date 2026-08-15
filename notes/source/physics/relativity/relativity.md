@@ -15,7 +15,7 @@
 
 This note assumes algebra, functions, vectors, and introductory mechanics. Calculus and linear algebra help with the general-relativity overview but are not required for the special-relativity core. By the end, you should be able to choose an inertial frame, use invariant quantities, and distinguish the special- and general-relativistic regimes.
 
-# 1. Why relativity is needed
+# Why relativity is needed
 
 Classical mechanics assumes that space and time are absolute and that velocities add linearly. That works well when speeds are small compared with the speed of light, but it fails for:
 
@@ -51,7 +51,7 @@ Path: `physics/special-relativity`
 Special relativity describes physics in flat spacetime. The sections below cover the
 special-relativistic toolkit in the order it is normally used.
 
-# 2. Special relativity: postulates and frames
+# Special relativity: postulates and frames
 
 Special relativity applies to inertial frames, meaning frames moving at constant velocity relative to one another.
 
@@ -87,7 +87,7 @@ or, often, by the spacetime coordinate pair $(ct, x)$ in one dimension.
 
 ---
 
-# 3. Lorentz transformations
+# Lorentz transformations
 
 The Lorentz transformations relate the coordinates of the same event between two inertial frames moving at relative speed $v$ along the $x$-axis.
 
@@ -139,7 +139,7 @@ The transformations mix space and time. That is the mathematical reason that:
 
 ---
 
-# 4. Spacetime interval and causality
+# Spacetime interval and causality
 
 The spacetime interval between two events is invariant under Lorentz transformations.
 
@@ -185,7 +185,7 @@ Proper time is the shortest time elapsed between two timelike-separated events a
 
 ---
 
-# 5. Time dilation and length contraction
+# Time dilation and length contraction
 
 ## Time dilation
 
@@ -228,7 +228,7 @@ These are the natural reference values in relativity problems.
 
 ---
 
-# 6. Relativity of simultaneity
+# Relativity of simultaneity
 
 Events that are simultaneous in one frame need not be simultaneous in another.
 
@@ -256,7 +256,7 @@ If two flashes occur at the same time in one frame, that does not mean they were
 
 ---
 
-# 7. Velocity and acceleration in relativity
+# Velocity and acceleration in relativity
 
 Classical velocity addition fails at high speed.
 
@@ -292,7 +292,7 @@ For force and acceleration problems, the acceleration need not point in the same
 
 ---
 
-# 8. Energy and momentum
+# Energy and momentum
 
 Relativity unifies energy and momentum into a single framework.
 
@@ -368,7 +368,7 @@ Its invariant magnitude is tied to rest mass.
 
 ---
 
-# 9. Relativistic dynamics and collisions
+# Relativistic dynamics and collisions
 
 The relativistic conservation laws look familiar, but the conserved quantities are different from the classical approximations.
 
@@ -565,7 +565,7 @@ $\dot\rho+3H(\rho+p/c^2)=0$ connects expansion to the equation of state.
 
 ---
 
-# 10. General relativity: gravity as geometry
+# General relativity: gravity as geometry
 
 Special relativity handles inertial frames. General relativity extends the framework to accelerated frames and gravity.
 
@@ -600,7 +600,7 @@ General relativity is important for:
 
 ---
 
-# 11. Gravitational time dilation and light bending
+# Gravitational time dilation and light bending
 
 ## Gravitational time dilation
 
@@ -633,7 +633,7 @@ This is one of the classic observational tests of general relativity.
 
 ---
 
-# 12. Common problem-solving workflow
+# Common problem-solving workflow
 
 Use this workflow for most relativity problems.
 
@@ -705,7 +705,7 @@ Verify that your result reduces to the classical answer when $v \ll c$.
 
 ---
 
-# 13. Formula sheet
+# Formula sheet
 
 ## Lorentz factor
 
@@ -783,7 +783,7 @@ $$
 
 ---
 
-# 14. Common mistakes to avoid
+# Common mistakes to avoid
 
 - Using Galilean velocity addition when speeds are relativistic.
 - Treating coordinate time as proper time.

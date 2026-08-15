@@ -19,7 +19,7 @@
 - Leake and Borger, *Engineering Design Graphics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
 
-# 1. What fluid mechanics studies
+# What fluid mechanics studies
 
 Fluid mechanics is the study of how fluids move and how they respond to forces.
 
@@ -43,7 +43,7 @@ The main task is to choose the right control volume, assumptions, and level of d
 
 ---
 
-# 2. Fluid properties and classification
+# Fluid properties and classification
 
 ## Common properties
 
@@ -120,7 +120,7 @@ Common pipe-flow guidance:
 
 ---
 
-# 3. Pressure and hydrostatics
+# Pressure and hydrostatics
 
 ## Pressure
 
@@ -176,7 +176,7 @@ The density used in each segment must match the fluid in that segment. Do not us
 
 ---
 
-# 4. Fluid statics applications
+# Fluid statics applications
 
 ## Hydrostatic force on a plane surface
 
@@ -232,7 +232,7 @@ The pressure at a given depth depends on fluid density and depth, not container 
 
 ---
 
-# 5. Control volume analysis
+# Control volume analysis
 
 Most flow problems are easiest in a **control volume** framework.
 
@@ -292,7 +292,7 @@ $$
 
 ---
 
-# 6. Bernoulli equation and energy form
+# Bernoulli equation and energy form
 
 ## Bernoulli equation
 
@@ -353,7 +353,7 @@ Do not use Bernoulli across a pump, across a significant loss, or through a stro
 
 ---
 
-# 7. Momentum equation
+# Momentum equation
 
 The linear momentum equation is the workhorse for forces on jets, bends, nozzles, and control devices.
 
@@ -399,7 +399,7 @@ Be consistent with inlet and outlet velocity directions. Most errors in momentum
 
 ---
 
-# 8. Dimensional analysis and similitude
+# Dimensional analysis and similitude
 
 Dimensional analysis reduces variables and identifies key nondimensional groups.
 
@@ -453,7 +453,7 @@ In many problems, exact similarity is impossible. Then the dominant nondimension
 
 ---
 
-# 9. Internal flows and losses
+# Internal flows and losses
 
 Internal flow refers to flow in pipes, ducts, and channels.
 
@@ -538,7 +538,7 @@ $$
 
 ---
 
-# 10. External flow and boundary layers
+# External flow and boundary layers
 
 When a fluid flows over a surface, viscosity creates a thin region near the wall called the **boundary layer**.
 
@@ -585,7 +585,7 @@ These coefficients are often determined experimentally or from correlations.
 
 ---
 
-# 11. Compressible flow basics
+# Compressible flow basics
 
 Compressibility matters when density changes are not negligible, especially for gases at high speed.
 
@@ -632,7 +632,7 @@ At that point, mass flow rate reaches a maximum for the given upstream condition
 
 ---
 
-# 12. Problem-solving workflow
+# Problem-solving workflow
 
 ## General workflow
 
@@ -669,7 +669,7 @@ At that point, mass flow rate reaches a maximum for the given upstream condition
 
 ---
 
-# 13. Formula summary
+# Formula summary
 
 ## Fluid properties
 

@@ -1416,9 +1416,9 @@ function renderNotesPageDocument({
   activeStructureId = null,
   includeIntro = false,
   quickActionsHtml = '',
-  stylesheetHref = '/notes/notes.css',
-  scriptHref = '/notes/notes.js',
-  runtimeHref = '/notes/notes-runtime.js',
+  stylesheetHref = '/notes/notes.min.css',
+  scriptHref = '/notes/notes.min.js',
+  runtimeHref = '/notes/notes-runtime.min.js',
   headHtml = '',
   extraHead = '',
 }) {
@@ -1590,9 +1590,9 @@ function buildNoteHtml({
   interactive = null,
 }) {
   const tocHtml = renderTableOfContents(bodyHtml);
-  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
-  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.js')}?v=${assetVersions.notesRuntimeJs}`;
+  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
+  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.min.js')}?v=${assetVersions.notesRuntimeJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
   const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
   const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-vector-field-3d') ? `
@@ -1980,9 +1980,9 @@ function buildLandingHtml(structures, assetVersions, dag) {
     structures,
     activeStructureId: homeStructureId,
     quickActionsHtml: '',
-    stylesheetHref: `notes.css?v=${assetVersions.notesCss}`,
-    scriptHref: `notes.js?v=${assetVersions.notesJs}`,
-    runtimeHref: `notes-runtime.js?v=${assetVersions.notesRuntimeJs}`,
+    stylesheetHref: `notes.min.css?v=${assetVersions.notesCss}`,
+    scriptHref: `notes.min.js?v=${assetVersions.notesJs}`,
+    runtimeHref: `notes-runtime.min.js?v=${assetVersions.notesRuntimeJs}`,
   });
 }
 
@@ -2339,9 +2339,9 @@ function renderPracticePageHtml({
   assetVersions,
   problems,
 }) {
-  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
-  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.js')}?v=${assetVersions.notesRuntimeJs}`;
+  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
+  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.min.js')}?v=${assetVersions.notesRuntimeJs}`;
   const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
   const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
@@ -2674,17 +2674,23 @@ async function buildLandingPage(structures, assetVersions, paths) {
   await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures, assetVersions, paths), 'utf8');
 }
 
-async function buildRootIndexPage(siteCssVersion) {
+async function buildRootIndexPage(siteCssVersion, siteJsVersion) {
   const indexPath = path.join(repoRoot, 'index.html');
   const html = await fs.readFile(indexPath, 'utf8');
-  const versionPattern = /site\.css\?v=[^"]+/;
+  const versionPattern = /site(?:\.min)?\.css\?v=[^"]+/;
 
   if (!versionPattern.test(html)) {
     throw new Error('Could not update the root stylesheet version in index.html.');
   }
 
-  const updatedHtml = html.replace(versionPattern, `site.css?v=${siteCssVersion}`);
-  await fs.writeFile(indexPath, updatedHtml, 'utf8');
+  const scriptPattern = /site(?:\.min)?\.js\?v=[^"]+/;
+  if (!scriptPattern.test(html)) {
+    throw new Error('Could not update the root script version in index.html.');
+  }
+
+  const withStylesheet = html.replace(versionPattern, `site.min.css?v=${siteCssVersion}`);
+  const updatedRoot = withStylesheet.replace(scriptPattern, `site.min.js?v=${siteJsVersion}`);
+  await fs.writeFile(indexPath, updatedRoot, 'utf8');
 }
 
 async function buildSearchIndex(entries) {
@@ -2725,21 +2731,22 @@ async function main() {
     conceptDag,
   );
   await removeStaleGeneratedPages(notes, practiceByNotePath);
-  await buildRootIndexPage(assetVersions.siteCss);
+  await buildRootIndexPage(assetVersions.siteCss, assetVersions.siteJs);
   await buildLandingPage(manifest.structures, assetVersions, conceptDag);
   await buildSearchIndex(searchEntries);
   await buildSitemap(urls, practiceUrls);
 }
 
 async function loadAssetVersions() {
-  const [siteCss, notesCss, notesRuntimeJs, notesJs] = await Promise.all([
-    getAssetVersion(path.join(repoRoot, 'site.css')),
-    getAssetVersion(path.join(notesRoot, 'notes.css')),
-    getAssetVersion(path.join(notesRoot, 'notes-runtime.js')),
-    getAssetVersion(path.join(notesRoot, 'notes.js')),
+  const [siteCss, siteJs, notesCss, notesRuntimeJs, notesJs] = await Promise.all([
+    getAssetVersion(path.join(repoRoot, 'site.min.css')),
+    getAssetVersion(path.join(repoRoot, 'site.min.js')),
+    getAssetVersion(path.join(notesRoot, 'notes.min.css')),
+    getAssetVersion(path.join(notesRoot, 'notes-runtime.min.js')),
+    getAssetVersion(path.join(notesRoot, 'notes.min.js')),
   ]);
 
-  return { siteCss, notesCss, notesRuntimeJs, notesJs };
+  return { siteCss, siteJs, notesCss, notesRuntimeJs, notesJs };
 }
 
 async function buildNotePages(notes, structures, assetVersions, conceptDag) {

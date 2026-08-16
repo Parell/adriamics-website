@@ -1858,7 +1858,7 @@ function initVectorCalculusGradient(root) {
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true });
   const probe = board.create('point', [2, 1], { name: 'P', size: 4, color: '#f4b942', fixed: false, snapSizeX: 0.05, snapSizeY: 0.05 });
   const pointCoords = () => [probe.X(), probe.Y()];
-  const addCurve = (x, y, range, extra = {}) => levelCurves.push(board.create('curve', [x, y, ...range], { strokeColor: '#7d8794', strokeWidth: 1, strokeOpacity: 0.55, fixed: true, ...extra }));
+  const addCurve = (x, y, range, extra = {}) => board.create('curve', [x, y, ...range], { strokeColor: '#7d8794', strokeWidth: 1, strokeOpacity: 0.55, fixed: true, ...extra });
   const levelCurves = createGradientLevelCurves(addCurve);
   const gradientArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + fields[fieldKey].gradient(probe.X(), probe.Y())[0] * 0.55, () => probe.Y() + fields[fieldKey].gradient(probe.X(), probe.Y())[1] * 0.55]], { strokeColor: '#444', fillColor: '#444', strokeWidth: 3 });
   const directionArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + Math.cos(angle) * 1.5, () => probe.Y() + Math.sin(angle) * 1.5]], { strokeColor: '#777', fillColor: '#777', strokeWidth: 3 });

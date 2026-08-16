@@ -40,10 +40,10 @@ window.UES_GUIDE_MANIFEST = {
       id: 'physics',
       title: 'Physics',
       children: [
-        { title: 'Thermodynamics I', path: 'source/physics/thermodynamics-i/thermodynamics-i.md' },
+        { title: 'Thermodynamics', path: 'source/physics/thermodynamics/thermodynamics.md' },
         { title: 'Physics I', path: 'source/physics/physics-i/physics-i.md' },
         { title: 'Physics II', path: 'source/physics/physics-ii/physics-ii.md' },
-        { title: 'Quantum Physics I', path: 'source/physics/quantum-physics-i/quantum-physics-i.md' },
+        { title: 'Quantum Physics', path: 'source/physics/quantum-physics/quantum-physics.md' },
         { title: 'Classical Mechanics', path: 'source/physics/classical-mechanics/classical-mechanics.md' },
         { title: 'Mathematical Mechanics', path: 'source/physics/mathematical-mechanics/mathematical-mechanics.md' },
         { title: 'Electricity and Magnetism', path: 'source/physics/electricity-and-magnetism/electricity-and-magnetism.md' },

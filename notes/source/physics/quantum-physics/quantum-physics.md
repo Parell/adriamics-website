@@ -1,4 +1,4 @@
-# Quantum Physics I
+# Quantum Physics
 
 ## Sources
 

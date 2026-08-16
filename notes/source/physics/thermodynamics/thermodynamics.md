@@ -1,4 +1,4 @@
-# Thermodynamics I
+# Thermodynamics
 
 ## Sources
 
@@ -1415,7 +1415,7 @@ $$
 
 # Problem-solving workflow
 
-Use this checklist for most Thermodynamics I problems.
+Use this checklist for most Thermodynamics problems.
 
 ## Step 1: Define the system
 

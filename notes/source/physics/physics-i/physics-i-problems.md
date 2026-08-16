@@ -2,6 +2,7 @@
 id: physics-i-11
 note: physics-physics-i
 title: "Identify the SI Unit of Torque"
+exam: exam-i
 skills: [Units]
 -->
 
@@ -21,6 +22,7 @@ This is equivalent to newton-meter.
 id: physics-i-12
 note: physics-physics-i
 title: "Classify Acceleration as a Scalar or Vector"
+exam: exam-i
 skills: [Scalars and vectors]
 -->
 
@@ -36,6 +38,7 @@ So the correct classification is **vector**.
 id: physics-i-13
 note: physics-physics-i
 title: "Compute Average Velocity"
+exam: exam-i
 skills: [Kinematics]
 -->
 
@@ -65,6 +68,7 @@ $$
 id: physics-i-14
 note: physics-physics-i
 title: "Find Final Velocity with Constant Acceleration"
+exam: exam-i
 skills: [Kinematics]
 -->
 
@@ -88,6 +92,7 @@ $$
 id: physics-i-15
 note: physics-physics-i
 title: "Find Position Under Constant Acceleration"
+exam: exam-i
 skills: [Kinematics]
 -->
 
@@ -115,6 +120,7 @@ $$
 id: physics-i-16
 note: physics-physics-i
 title: "Resolve a Vector into Components"
+exam: exam-i
 skills: [Vectors, Two-dimensional motion]
 -->
 
@@ -144,6 +150,7 @@ $$
 id: physics-i-17
 note: physics-physics-i
 title: "State the Acceleration of Free Fall"
+exam: exam-i
 skills: [Free fall]
 -->
 
@@ -163,6 +170,7 @@ The negative sign appears because the acceleration points downward.
 id: physics-i-18
 note: physics-physics-i
 title: "Use Newton's Second Law"
+exam: exam-i
 skills: [Newton's laws]
 -->
 
@@ -186,6 +194,7 @@ $$
 id: physics-i-19
 note: physics-physics-i
 title: "Find the Weight of an Object"
+exam: exam-i
 skills: [Weight, Common forces]
 -->
 
@@ -211,6 +220,7 @@ The force points downward.
 id: physics-i-110
 note: physics-physics-i
 title: "Compute Average Power"
+exam: exam-i
 skills: [Power, Work and energy]
 -->
 
@@ -234,6 +244,7 @@ $$
 id: physics-i-21
 note: physics-physics-i
 title: "Find the Time of Flight for a Projectile"
+exam: exam-ii
 skills: [Projectile motion, Kinematics]
 -->
 
@@ -263,6 +274,7 @@ $$
 id: physics-i-22
 note: physics-physics-i
 title: "Find Acceleration with Kinetic Friction"
+exam: exam-ii
 skills: [Friction, Newton's laws]
 -->
 
@@ -298,6 +310,7 @@ $$
 id: physics-i-23
 note: physics-physics-i
 title: "Use Energy to Find a Spring Speed"
+exam: exam-ii
 skills: [Work and energy, Springs]
 -->
 
@@ -335,6 +348,7 @@ $$
 id: physics-i-45
 note: physics-physics-i
 title: "Test Whether Static Friction Is Sufficient"
+exam: final
 skills: [Static friction, Inclined planes, Newton's laws]
 -->
 
@@ -373,6 +387,7 @@ threshold of slipping.
 id: physics-i-24
 note: physics-physics-i
 title: "Find the Final Speed in a Perfectly Inelastic Collision"
+exam: exam-ii
 skills: [Momentum, Collisions]
 -->
 
@@ -406,6 +421,7 @@ The direction is east.
 id: physics-i-25
 note: physics-physics-i
 title: "Find Angular Acceleration from Torque"
+exam: exam-ii
 skills: [Torque, Rotational dynamics]
 -->
 
@@ -435,6 +451,7 @@ $$
 id: physics-i-26
 note: physics-physics-i
 title: "Find the Centripetal Force"
+exam: exam-ii
 skills: [Circular motion, Centripetal force]
 -->
 
@@ -464,6 +481,7 @@ The force must point inward, toward the center of the circle.
 id: physics-i-27
 note: physics-physics-i
 title: "Find the Period of a Mass-Spring System"
+exam: exam-ii
 skills: [Simple harmonic motion, Springs]
 -->
 
@@ -491,6 +509,7 @@ $$
 id: physics-i-28
 note: physics-physics-i
 title: "Find the Center of Mass on a Line"
+exam: exam-ii
 skills: [Center of mass, Statics]
 -->
 
@@ -518,6 +537,7 @@ $$
 id: physics-i-31
 note: physics-physics-i
 title: "Find How Far a Horizontal Projectile Travels"
+exam: final
 skills: [Projectile motion, Kinematics]
 -->
 
@@ -547,6 +567,7 @@ $$
 id: physics-i-32
 note: physics-physics-i
 title: "Find Acceleration for a Pulled Block on a Rough Surface"
+exam: final
 skills: [Free-body diagrams, Friction, Newton's laws]
 -->
 
@@ -592,6 +613,7 @@ $$
 id: physics-i-33
 note: physics-physics-i
 title: "Find the Final Velocity After a Collision"
+exam: final
 skills: [Momentum, Collisions]
 -->
 
@@ -623,6 +645,7 @@ The direction is east.
 id: physics-i-34
 note: physics-physics-i
 title: "Find the Support Force on a Beam"
+exam: final
 skills: [Statics, Torque]
 -->
 
@@ -664,6 +687,7 @@ $$
 id: physics-i-35
 note: physics-physics-i
 title: "Use Rolling Without Slipping"
+exam: final
 skills: [Rolling motion, Rotation]
 -->
 
@@ -693,6 +717,7 @@ $$
 id: physics-i-41
 note: physics-physics-i
 title: "Relate Spring Energy to Gravitational Height"
+exam: final
 skills: [Energy, Gravity, Springs]
 -->
 
@@ -728,6 +753,7 @@ $$
 id: physics-i-42
 note: physics-physics-i
 title: "Find the Friction Force on a Leaning Ladder"
+exam: final
 skills: [Statics, Torque, Friction]
 -->
 
@@ -773,6 +799,7 @@ $$
 id: physics-i-43
 note: physics-physics-i
 title: "Show That Orbital Speed Does Not Depend on Satellite Mass"
+exam: final
 skills: [Gravity, Circular motion]
 -->
 
@@ -810,6 +837,7 @@ The orbital speed does not depend on the satellite mass.
 id: physics-i-44
 note: physics-physics-i
 title: "Find the Speed at Equilibrium in Simple Harmonic Motion"
+exam: final
 skills: [Simple harmonic motion, Energy]
 -->
 

@@ -2,6 +2,7 @@
 id: electrical-circuit-analysis-11
 note: engineering-electrical-circuit-analysis
 title: "Differentiate a Charge Function"
+exam: exam-i
 skills: [Current, Derivatives]
 -->
 
@@ -33,6 +34,7 @@ So the current is $19$ A.
 id: electrical-circuit-analysis-12
 note: engineering-electrical-circuit-analysis
 title: "Compute Power with Passive Sign Convention"
+exam: exam-i
 skills: [Passive Sign Convention, Power]
 -->
 
@@ -60,6 +62,7 @@ The device absorbs $18$ W.
 id: electrical-circuit-analysis-13
 note: engineering-electrical-circuit-analysis
 title: "Find Current from Ohm's Law"
+exam: exam-i
 skills: [Ohm's Law, Resistors]
 -->
 
@@ -87,6 +90,7 @@ So the current is $4$ A.
 id: electrical-circuit-analysis-14
 note: engineering-electrical-circuit-analysis
 title: "Add Series Resistors"
+exam: exam-i
 skills: [Series Resistance]
 -->
 
@@ -110,6 +114,7 @@ So the equivalent resistance is $15~\Omega$.
 id: electrical-circuit-analysis-15
 note: engineering-electrical-circuit-analysis
 title: "Combine Two Parallel Resistors"
+exam: exam-i
 skills: [Parallel Resistance]
 -->
 
@@ -135,6 +140,7 @@ The equivalent resistance is $3~\Omega$.
 id: electrical-circuit-analysis-16
 note: engineering-electrical-circuit-analysis
 title: "Use a Voltage Divider"
+exam: exam-i
 skills: [Voltage Divider, Series Resistance]
 -->
 
@@ -162,6 +168,7 @@ So $V_{out} = 8$ V.
 id: electrical-circuit-analysis-17
 note: engineering-electrical-circuit-analysis
 title: "Use a Current Divider"
+exam: exam-i
 skills: [Current Divider, Parallel Resistance]
 -->
 
@@ -189,6 +196,7 @@ So the $3~\Omega$ branch carries $4$ A.
 id: electrical-circuit-analysis-18
 note: engineering-electrical-circuit-analysis
 title: "Energy in a Capacitor"
+exam: exam-i
 skills: [Energy Storage, Capacitors]
 -->
 
@@ -220,6 +228,7 @@ So the stored energy is $1.0\times 10^{-4}$ J.
 id: electrical-circuit-analysis-19
 note: engineering-electrical-circuit-analysis
 title: "Write an Element Impedance"
+exam: exam-i
 skills: [Phasors, Impedance]
 -->
 
@@ -249,6 +258,7 @@ So the impedance is $-j500~\Omega$.
 id: electrical-circuit-analysis-110
 note: engineering-electrical-circuit-analysis
 title: "Balance Currents at a Node"
+exam: exam-i
 skills: [KCL]
 -->
 
@@ -280,6 +290,7 @@ The other branch must carry $4$ A leaving the node.
 id: electrical-circuit-analysis-21
 note: engineering-electrical-circuit-analysis
 title: "Write a Branch Current from Node Voltages"
+exam: exam-ii
 skills: [Node Voltage, Ohm's Law]
 -->
 
@@ -307,6 +318,7 @@ The current from $a$ to $b$ is $1$ A.
 id: electrical-circuit-analysis-22
 note: engineering-electrical-circuit-analysis
 title: "Solve a Simple Supernode"
+exam: exam-ii
 skills: [Supernodes, KCL, Ohm's Law]
 -->
 
@@ -362,6 +374,7 @@ So $V_a = 12$ V.
 id: electrical-circuit-analysis-23
 note: engineering-electrical-circuit-analysis
 title: "Solve Two Mesh Currents"
+exam: exam-ii
 skills: [Mesh Analysis, KVL, Shared Resistor]
 -->
 
@@ -431,6 +444,7 @@ So $i_1 = 8$ A and $i_2 = 4$ A.
 id: electrical-circuit-analysis-24
 note: engineering-electrical-circuit-analysis
 title: "Use a Supermesh"
+exam: exam-ii
 skills: [Supermesh, Mesh Analysis, KVL]
 -->
 
@@ -496,6 +510,7 @@ So $i_1 = 2$ A and $i_2 = 3$ A.
 id: electrical-circuit-analysis-25
 note: engineering-electrical-circuit-analysis
 title: "Apply Superposition to a Node"
+exam: exam-ii
 skills: [Superposition, Node Voltage, Voltage Divider]
 -->
 
@@ -539,6 +554,7 @@ So the node voltage is $15$ V.
 id: electrical-circuit-analysis-26
 note: engineering-electrical-circuit-analysis
 title: "Find a Thevenin Equivalent"
+exam: exam-ii
 skills: [Thevenin Equivalent, Resistance Reduction, Voltage Divider]
 -->
 
@@ -568,6 +584,7 @@ So the Thevenin equivalent is $V_{th} = 8$ V in series with $R_{th} = \frac{4}{3
 id: electrical-circuit-analysis-27
 note: engineering-electrical-circuit-analysis
 title: "Find an RC Step Response"
+exam: exam-ii
 skills: [RC Circuits, Time Constant, Capacitors]
 -->
 
@@ -615,6 +632,7 @@ which is about $7.6$ V.
 id: electrical-circuit-analysis-28
 note: engineering-electrical-circuit-analysis
 title: "Find a Series AC Current"
+exam: exam-ii
 skills: [Phasors, Impedance, Ohm's Law]
 -->
 
@@ -667,6 +685,7 @@ $$
 id: electrical-circuit-analysis-31
 note: engineering-electrical-circuit-analysis
 title: "Transform a Source to Simplify a Load"
+exam: final
 skills: [Source Transformation, Current Divider, Norton Equivalent]
 -->
 
@@ -696,6 +715,7 @@ So the load current is $1$ A.
 id: electrical-circuit-analysis-32
 note: engineering-electrical-circuit-analysis
 title: "Compute Load Power from a Thevenin Model"
+exam: final
 skills: [Thevenin Equivalent, Power]
 -->
 
@@ -729,6 +749,7 @@ So the load absorbs $24$ W.
 id: electrical-circuit-analysis-33
 note: engineering-electrical-circuit-analysis
 title: "Estimate an RL Current After a Switch Closes"
+exam: final
 skills: [RL Circuits, Time Constant, Inductors]
 -->
 
@@ -770,6 +791,7 @@ which is about $1.73$ A.
 id: electrical-circuit-analysis-34
 note: engineering-electrical-circuit-analysis
 title: "Find Real Power and Power Factor"
+exam: final
 skills: [AC Power, Power Factor, Phasors]
 -->
 
@@ -801,6 +823,7 @@ So the load has real power about $416$ W and power factor $0.866$ lagging.
 id: electrical-circuit-analysis-35
 note: engineering-electrical-circuit-analysis
 title: "Evaluate an Inverting Amplifier"
+exam: final
 skills: [Operational Amplifiers, Inverting Amplifier, Negative Feedback]
 -->
 
@@ -832,6 +855,7 @@ So the output is $-2$ V.
 id: electrical-circuit-analysis-41
 note: engineering-electrical-circuit-analysis
 title: "Maximize Power to a Load"
+exam: final
 skills: [Thevenin Equivalent, Maximum Power Transfer, Power]
 -->
 
@@ -869,6 +893,7 @@ So $R_L = 5~\Omega$ and the maximum load power is $20$ W.
 id: electrical-circuit-analysis-42
 note: engineering-electrical-circuit-analysis
 title: "Use Continuity in an RC Transient"
+exam: final
 skills: [RC Circuits, Time Constant, Energy Storage]
 -->
 
@@ -934,6 +959,7 @@ So the capacitor reaches $12$ V after $0.2\ln 2 \approx 0.139$ s.
 id: electrical-circuit-analysis-43
 note: engineering-electrical-circuit-analysis
 title: "Find the Resonant Frequency of a Series RLC Circuit"
+exam: final
 skills: [Resonance, Series RLC, Frequency Response]
 -->
 
@@ -971,6 +997,7 @@ So the resonant frequency is about $50.3$ Hz.
 id: electrical-circuit-analysis-44
 note: engineering-electrical-circuit-analysis
 title: "Evaluate an Inverting Summing Amplifier"
+exam: final
 skills: [Operational Amplifiers, Summing Amplifier, Negative Feedback]
 -->
 

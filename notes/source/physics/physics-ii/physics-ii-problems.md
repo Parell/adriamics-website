@@ -2,6 +2,7 @@
 id: physics-ii-11
 note: physics-physics-ii
 title: "Compute Force from an Electric Field"
+exam: exam-i
 skills: [Electric field, Electric force]
 -->
 
@@ -27,6 +28,7 @@ The force magnitude is $7.5 \times 10^{-4}\ \text{N}$.
 id: physics-ii-12
 note: physics-physics-ii
 title: "Find the Force Between Two Point Charges"
+exam: exam-i
 skills: [Coulomb's law, Charge]
 -->
 
@@ -56,6 +58,7 @@ Because the charges have opposite signs, the force is attractive.
 id: physics-ii-13
 note: physics-physics-ii
 title: "Electric Field of a Point Charge"
+exam: exam-i
 skills: [Electric field]
 -->
 
@@ -85,6 +88,7 @@ The field points away from the positive charge.
 id: physics-ii-14
 note: physics-physics-ii
 title: "Calculate Electric Flux"
+exam: exam-i
 skills: [Electric flux]
 -->
 
@@ -112,6 +116,7 @@ $$
 id: physics-ii-15
 note: physics-physics-ii
 title: "Use Gauss's Law to Find Enclosed Charge"
+exam: exam-i
 skills: [Gauss's law]
 -->
 
@@ -147,6 +152,7 @@ The enclosed charge is positive because the flux is positive.
 id: physics-ii-16
 note: physics-physics-ii
 title: "Potential of a Point Charge"
+exam: exam-i
 skills: [Electric potential]
 -->
 
@@ -174,6 +180,7 @@ $$
 id: physics-ii-17
 note: physics-physics-ii
 title: "Find a Capacitor's Capacitance"
+exam: exam-i
 skills: [Capacitance]
 -->
 
@@ -203,6 +210,7 @@ $$
 id: physics-ii-18
 note: physics-physics-ii
 title: "Current and Power in a Resistor"
+exam: exam-i
 skills: [Ohm's law, Power]
 -->
 
@@ -228,6 +236,7 @@ The current is $2\ \text{A}$ and the power is $24\ \text{W}$.
 id: physics-ii-19
 note: physics-physics-ii
 title: "Magnetic Force on a Moving Charge"
+exam: exam-i
 skills: [Magnetic force]
 -->
 
@@ -255,6 +264,7 @@ $$
 id: physics-ii-110
 note: physics-physics-ii
 title: "Electric Field Amplitude of an EM Wave"
+exam: exam-i
 skills: [EM waves]
 -->
 
@@ -282,6 +292,7 @@ $$
 id: physics-ii-21
 note: physics-physics-ii
 title: "Equivalent Resistance in Series and Parallel"
+exam: exam-ii
 skills: [Series and parallel resistors, Ohm's law]
 -->
 
@@ -317,6 +328,7 @@ $$
 id: physics-ii-22
 note: physics-physics-ii
 title: "RC Time Constant and Charging Charge"
+exam: exam-ii
 skills: [RC circuits, Capacitors]
 -->
 
@@ -352,6 +364,7 @@ $$
 id: physics-ii-23
 note: physics-physics-ii
 title: "Currents in Parallel Branches"
+exam: exam-ii
 skills: [Parallel circuits, Ohm's law]
 -->
 
@@ -383,6 +396,7 @@ $$
 id: physics-ii-24
 note: physics-physics-ii
 title: "Field from a Long Straight Wire"
+exam: exam-ii
 skills: [Magnetic field of a wire]
 -->
 
@@ -410,6 +424,7 @@ $$
 id: physics-ii-25
 note: physics-physics-ii
 title: "Force on a Current-Carrying Wire"
+exam: exam-ii
 skills: [Magnetic force on a wire]
 -->
 
@@ -433,6 +448,7 @@ $$
 id: physics-ii-26
 note: physics-physics-ii
 title: "Induced emf in a Coil"
+exam: exam-ii
 skills: [Faraday's law, Lenz's law]
 -->
 
@@ -468,6 +484,7 @@ $$
 id: physics-ii-27
 note: physics-physics-ii
 title: "Current Growth in an RL Circuit"
+exam: exam-ii
 skills: [RL circuits]
 -->
 
@@ -497,6 +514,7 @@ $$
 id: physics-ii-28
 note: physics-physics-ii
 title: "Resonance in a Series RLC Circuit"
+exam: exam-ii
 skills: [Resonance, AC circuits]
 -->
 
@@ -532,6 +550,7 @@ $$
 id: physics-ii-31
 note: physics-physics-ii
 title: "Field from an Infinite Line Charge"
+exam: final
 skills: [Cylindrical symmetry, Gauss's law]
 -->
 
@@ -567,6 +586,7 @@ The field points outward from the line if the charge density is positive.
 id: physics-ii-32
 note: physics-physics-ii
 title: "Infer Resistivity from Geometry"
+exam: final
 skills: [Resistivity]
 -->
 
@@ -600,6 +620,7 @@ $$
 id: physics-ii-33
 note: physics-physics-ii
 title: "Radius of Circular Motion in a Magnetic Field"
+exam: final
 skills: [Circular motion, Magnetic force]
 -->
 
@@ -627,6 +648,7 @@ $$
 id: physics-ii-34
 note: physics-physics-ii
 title: "Image Formation with a Thin Lens"
+exam: final
 skills: [Thin lenses]
 -->
 
@@ -670,6 +692,7 @@ The image is real, inverted, and the same size as the object.
 id: physics-ii-35
 note: physics-physics-ii
 title: "Double-Slit Fringe Position"
+exam: final
 skills: [Interference]
 -->
 
@@ -699,6 +722,7 @@ So the second bright fringe is $1.0\ \text{cm}$ from the center.
 id: physics-ii-41
 note: physics-physics-ii
 title: "Induction with Lenz's Law"
+exam: final
 skills: [Faraday's law, Lenz's law]
 -->
 
@@ -742,6 +766,7 @@ Because the out-of-page flux is increasing, the induced field must point into th
 id: physics-ii-42
 note: physics-physics-ii
 title: "Exponential Charging in an RC Circuit"
+exam: final
 skills: [RC circuits, Time constant]
 -->
 
@@ -791,6 +816,7 @@ That is about $81\ \mu\text{A}$.
 id: physics-ii-43
 note: physics-physics-ii
 title: "Series RLC Behavior Away from Resonance"
+exam: final
 skills: [AC circuits, Reactance]
 -->
 
@@ -836,6 +862,7 @@ Because $X_L > X_C$, the circuit is net inductive, so the current lags the sourc
 id: physics-ii-44
 note: physics-physics-ii
 title: "Total Internal Reflection"
+exam: final
 skills: [Total internal reflection, Refraction]
 -->
 

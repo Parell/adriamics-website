@@ -2,6 +2,7 @@
 id: particle-and-nuclear-11
 note: physics-particle-and-nuclear
 title: "Use the Relativistic Energy Relation"
+exam: exam-i
 skills: [Relativistic kinematics, Energy]
 -->
 
@@ -15,6 +16,7 @@ Set $p=0$ in $E^2=p^2c^2+m^2c^4$. The positive-energy solution is $E=mc^2$.
 id: particle-and-nuclear-12
 note: physics-particle-and-nuclear
 title: "Check a Reaction Charge"
+exam: exam-i
 skills: [Conservation laws, Electric charge]
 -->
 
@@ -28,6 +30,7 @@ No. Electric charge is conserved, so the final total must also be $+1e$.
 id: particle-and-nuclear-13
 note: physics-particle-and-nuclear
 title: "Interpret a Half-Life"
+exam: exam-i
 skills: [Radioactive decay, Half-life]
 -->
 
@@ -41,6 +44,7 @@ Each half-life halves the amount, so the remaining fraction is $(1/2)^3=1/8$.
 id: particle-and-nuclear-14
 note: physics-particle-and-nuclear
 title: "Compute Nuclear Binding Energy"
+exam: exam-i
 skills: [Nuclear physics, Binding energy]
 -->
 
@@ -58,6 +62,7 @@ $$
 id: particle-and-nuclear-15
 note: physics-particle-and-nuclear
 title: "Check Beta-minus Bookkeeping"
+exam: exam-i
 skills: [Radioactive decay, Conservation laws]
 -->
 

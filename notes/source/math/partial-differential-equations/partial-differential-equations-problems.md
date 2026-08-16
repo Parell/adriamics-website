@@ -2,6 +2,7 @@
 id: pde-11
 note: math-partial-differential-equations
 title: "Classify a PDE"
+exam: exam-i
 skills: [Classification]
 -->
 
@@ -15,6 +16,7 @@ $A=1$, $B=0$, and $C=-1$, so $B^2-AC=1>0$. The equation is hyperbolic.
 id: pde-12
 note: math-partial-differential-equations
 title: "Identify Boundary Data"
+exam: exam-i
 skills: [Boundary Conditions]
 -->
 
@@ -28,6 +30,7 @@ It is a Neumann condition because it prescribes a derivative normal to the bound
 id: pde-13
 note: math-partial-differential-equations
 title: "Compute a Diffusivity"
+exam: exam-i
 skills: [Heat Equation, Units]
 -->
 
@@ -43,6 +46,7 @@ $$
 id: pde-14
 note: math-partial-differential-equations
 title: "Use a Conservation Law"
+exam: exam-i
 skills: [Conservation Laws]
 -->
 
@@ -60,6 +64,7 @@ For constant $D$, this is $u_t=D u_{xx}$. If $D$ varies with $x$, retain the con
 id: pde-15
 note: math-partial-differential-equations
 title: "Separate the Heat Equation"
+exam: exam-i
 skills: [Separation of Variables]
 -->
 
@@ -76,6 +81,7 @@ Therefore $G'+\alpha\lambda G=0$ and $X''+\lambda X=0$.
 id: pde-16
 note: math-partial-differential-equations
 title: "Compute a Wave Speed"
+exam: exam-i
 skills: [Wave Equation]
 -->
 
@@ -91,6 +97,7 @@ $$
 id: pde-17
 note: math-partial-differential-equations
 title: "Heat-Equation Mode Decay"
+exam: exam-i
 skills: [Fourier Modes, Heat Equation]
 -->
 
@@ -107,6 +114,7 @@ $$
 id: pde-18
 note: math-partial-differential-equations
 title: "Check Explicit Stability"
+exam: exam-i
 skills: [Finite Differences, Stability]
 -->
 

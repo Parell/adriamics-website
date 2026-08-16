@@ -2,6 +2,7 @@
 id: atomic-and-molecular-11
 note: physics-atomic-and-molecular
 title: "Use the Hydrogen Energy Levels"
+exam: exam-i
 skills: [Hydrogen, Energy levels]
 -->
 
@@ -19,6 +20,7 @@ $$
 id: atomic-and-molecular-12
 note: physics-atomic-and-molecular
 title: "Find a Photon Energy"
+exam: exam-i
 skills: [Spectra, Conservation of energy]
 -->
 
@@ -36,6 +38,7 @@ $$
 id: atomic-and-molecular-13
 note: physics-atomic-and-molecular
 title: "Apply a Dipole Selection Rule"
+exam: exam-i
 skills: [Selection rules, Angular momentum]
 -->
 
@@ -49,6 +52,7 @@ No. The electric-dipole rule is $\Delta\ell=\pm1$, so $\Delta\ell=0$ is forbidde
 id: atomic-and-molecular-14
 note: physics-atomic-and-molecular
 title: "Scale a Hydrogen-like Level"
+exam: exam-i
 skills: [Hydrogen-like ions, Energy levels]
 -->
 
@@ -66,6 +70,7 @@ $$
 id: atomic-and-molecular-15
 note: physics-atomic-and-molecular
 title: "Choose an Atomic Model"
+exam: exam-i
 skills: [Model choice, Multi-electron atoms]
 -->
 

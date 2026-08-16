@@ -2,6 +2,7 @@
 id: first-order-odes-11
 note: math-first-order-odes
 title: "Classify a Basic First-Order Equation"
+exam: exam-i
 skills: [Order, Linear vs. Nonlinear]
 -->
 
@@ -35,6 +36,7 @@ with $p(x) = -x^2$ and $q(x)=0$. So the equation is linear.
 id: first-order-odes-12
 note: math-first-order-odes
 title: "Read a Slope from the Differential Equation"
+exam: exam-i
 skills: [Direction Fields, Slope]
 -->
 
@@ -60,6 +62,7 @@ So the slope at $(3,1)$ is $2$.
 id: first-order-odes-13
 note: math-first-order-odes
 title: "Solve a Simple Separable Equation"
+exam: exam-i
 skills: [Separable Equations]
 -->
 
@@ -87,6 +90,7 @@ $$
 id: first-order-odes-14
 note: math-first-order-odes
 title: "Apply an Initial Condition"
+exam: exam-i
 skills: [Initial Value Problems]
 -->
 
@@ -126,6 +130,7 @@ $$
 id: first-order-odes-15
 note: math-first-order-odes
 title: "Find Equilibrium Solutions"
+exam: exam-i
 skills: [Autonomous Equations, Equilibria]
 -->
 
@@ -157,6 +162,7 @@ The equilibrium solutions are $y(t)=0$ and $y(t)=4$.
 id: first-order-odes-16
 note: math-first-order-odes
 title: "Test for Exactness"
+exam: exam-i
 skills: [Exact Equations]
 -->
 
@@ -188,6 +194,7 @@ Since these are equal, the equation is exact.
 id: first-order-odes-17
 note: math-first-order-odes
 title: "Recognize a Homogeneous Equation"
+exam: exam-i
 skills: [Homogeneous Equations]
 -->
 
@@ -219,6 +226,7 @@ So the equation is homogeneous.
 id: first-order-odes-18
 note: math-first-order-odes
 title: "Solve a Linear Homogeneous Equation"
+exam: exam-i
 skills: [Linear First-Order Equations]
 -->
 
@@ -266,6 +274,7 @@ $$
 id: first-order-odes-19
 note: math-first-order-odes
 title: "Identify a Bernoulli Equation"
+exam: exam-i
 skills: [Bernoulli Equations, Classification]
 -->
 
@@ -299,6 +308,7 @@ So the equation is Bernoulli with $n=2$.
 id: first-order-odes-110
 note: math-first-order-odes
 title: "Interpret a Logistic Growth Model"
+exam: exam-i
 skills: [Logistic Equation, Equilibria]
 -->
 
@@ -336,6 +346,7 @@ That means the population increases when it is between $0$ and $K$.
 id: first-order-odes-21
 note: math-first-order-odes
 title: "Solve a Separable IVP"
+exam: exam-ii
 skills: [Separable Equations, Initial Value Problems]
 -->
 
@@ -387,6 +398,7 @@ $$
 id: first-order-odes-22
 note: math-first-order-odes
 title: "Use an Integrating Factor"
+exam: exam-ii
 skills: [Linear First-Order Equations, Integrating Factors]
 -->
 
@@ -432,6 +444,7 @@ $$
 id: first-order-odes-23
 note: math-first-order-odes
 title: "Solve an Exact Equation"
+exam: exam-ii
 skills: [Exact Equations]
 -->
 
@@ -497,6 +510,7 @@ $$
 id: first-order-odes-24
 note: math-first-order-odes
 title: "Solve a Homogeneous Equation"
+exam: exam-ii
 skills: [Homogeneous Equations, Substitution]
 -->
 
@@ -560,6 +574,7 @@ $$
 id: first-order-odes-25
 note: math-first-order-odes
 title: "Solve a Bernoulli Equation"
+exam: exam-ii
 skills: [Bernoulli Equations, Linear First-Order Equations]
 -->
 
@@ -639,6 +654,7 @@ Also, $y=0$ is a constant solution of the original equation.
 id: first-order-odes-26
 note: math-first-order-odes
 title: "Analyze an Autonomous Equation"
+exam: exam-ii
 skills: [Autonomous Equations, Phase Lines]
 -->
 
@@ -690,6 +706,7 @@ Thus $y=0$ is unstable and $y=2$ is stable.
 id: first-order-odes-27
 note: math-first-order-odes
 title: "Apply the Existence-Uniqueness Theorem"
+exam: exam-ii
 skills: [Existence and Uniqueness]
 -->
 
@@ -717,6 +734,7 @@ So the theorem applies in a rectangle around $(0,0)$, and it guarantees a unique
 id: first-order-odes-28
 note: math-first-order-odes
 title: "Interpret a Cooling Model"
+exam: exam-ii
 skills: [Newton's Law of Cooling, Autonomous Equations]
 -->
 
@@ -762,6 +780,7 @@ The object warms toward $18$.
 id: first-order-odes-31
 note: math-first-order-odes
 title: "Build an Exponential Growth Model"
+exam: final
 skills: [Modeling Patterns, Exponential Growth]
 -->
 
@@ -815,6 +834,7 @@ $$
 id: first-order-odes-32
 note: math-first-order-odes
 title: "Solve a Newton Cooling Problem"
+exam: final
 skills: [Newton's Law of Cooling, Initial Value Problems]
 -->
 
@@ -886,6 +906,7 @@ $$
 id: first-order-odes-33
 note: math-first-order-odes
 title: "Write a Mixing Equation"
+exam: final
 skills: [Mixing Problems, Linear First-Order Equations]
 -->
 
@@ -937,6 +958,7 @@ $$
 id: first-order-odes-34
 note: math-first-order-odes
 title: "Interpret a Logistic Model with Initial Data"
+exam: final
 skills: [Logistic Equation, Modeling Patterns]
 -->
 
@@ -990,6 +1012,7 @@ $$
 id: first-order-odes-35
 note: math-first-order-odes
 title: "Spot a Lost Constant Solution"
+exam: final
 skills: [Common Pitfalls, Separable Equations]
 -->
 
@@ -1029,6 +1052,7 @@ It must be checked separately because it is lost when the equation is divided by
 id: first-order-odes-41
 note: math-first-order-odes
 title: "Solve a Bernoulli Initial Value Problem"
+exam: final
 skills: [Bernoulli Equations, Initial Value Problems]
 -->
 
@@ -1126,6 +1150,7 @@ $$
 id: first-order-odes-42
 note: math-first-order-odes
 title: "Solve an Exact IVP"
+exam: final
 skills: [Exact Equations, Initial Value Problems]
 -->
 
@@ -1203,6 +1228,7 @@ $$
 id: first-order-odes-43
 note: math-first-order-odes
 title: "Classify Stability on a Phase Line"
+exam: final
 skills: [Autonomous Equations, Phase Lines, Stability]
 -->
 
@@ -1264,6 +1290,7 @@ $$
 id: first-order-odes-44
 note: math-first-order-odes
 title: "Compare Two Existence Questions"
+exam: final
 skills: [Existence and Uniqueness, Common Pitfalls]
 -->
 

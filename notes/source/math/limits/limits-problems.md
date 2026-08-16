@@ -2,6 +2,7 @@
 id: limits-11
 note: math-limits
 title: "Evaluate a Polynomial Limit"
+exam: exam-i
 skills: [What a Limit Means, Direct Substitution]
 -->
 
@@ -25,6 +26,7 @@ So the limit is $21$.
 id: limits-12
 note: math-limits
 title: "Factor a Removable Discontinuity"
+exam: exam-i
 skills: [Algebraic Techniques, Removable Discontinuity]
 -->
 
@@ -60,6 +62,7 @@ So the limit is $2$.
 id: limits-13
 note: math-limits
 title: "Read a Left-Hand Limit from a Piecewise Function"
+exam: exam-i
 skills: [One-Sided Limits, Piecewise Functions]
 -->
 
@@ -89,6 +92,7 @@ $$
 id: limits-14
 note: math-limits
 title: "Use the Sine Standard Limit"
+exam: exam-i
 skills: [Special Limits, Trigonometric Limits]
 -->
 
@@ -110,6 +114,7 @@ $$
 id: limits-15
 note: math-limits
 title: "Identify an Oscillating Limit"
+exam: exam-i
 skills: [Oscillation, Limits That Do Not Exist]
 -->
 
@@ -129,6 +134,7 @@ Since it does not approach a single value, the limit does not exist.
 id: limits-16
 note: math-limits
 title: "Evaluate a Rational Limit at Infinity"
+exam: exam-i
 skills: [Limits at Infinity, Rational Functions]
 -->
 
@@ -152,6 +158,7 @@ So the limit is $\frac{5}{2}$.
 id: limits-17
 note: math-limits
 title: "Recognize an Infinite Limit"
+exam: exam-i
 skills: [Infinite Limits, Vertical Asymptotes]
 -->
 
@@ -177,6 +184,7 @@ This means $x=2$ is a vertical asymptote.
 id: limits-18
 note: math-limits
 title: "Use Continuity of a Polynomial"
+exam: exam-i
 skills: [Continuity, Direct Substitution]
 -->
 
@@ -200,6 +208,7 @@ So the limit is $1$.
 id: limits-19
 note: math-limits
 title: "Evaluate an Exponential Standard Limit"
+exam: exam-i
 skills: [Special Limits, Exponential Limits]
 -->
 
@@ -221,6 +230,7 @@ $$
 id: limits-110
 note: math-limits
 title: "Rationalize a Root Limit"
+exam: exam-i
 skills: [Algebraic Techniques, Rationalizing]
 -->
 
@@ -251,6 +261,7 @@ So the limit is $\frac{1}{6}$.
 id: limits-21
 note: math-limits
 title: "Make a Removable Discontinuity Continuous"
+exam: exam-ii
 skills: [Continuity, Factoring, Removable Discontinuity]
 -->
 
@@ -296,6 +307,7 @@ $$
 id: limits-22
 note: math-limits
 title: "Determine Whether a Piecewise Limit Exists"
+exam: exam-ii
 skills: [One-Sided Limits, Piecewise Functions, Algebraic Techniques]
 -->
 
@@ -339,6 +351,7 @@ Since the one-sided limits are different, the two-sided limit does not exist.
 id: limits-23
 note: math-limits
 title: "Combine a Factored Limit with a Simple Substitution"
+exam: exam-ii
 skills: [Limit Laws, Factoring, Direct Substitution]
 -->
 
@@ -374,6 +387,7 @@ So the limit is $6$.
 id: limits-24
 note: math-limits
 title: "Use a Standard Trig Limit with a Constant"
+exam: exam-ii
 skills: [Special Limits, Trigonometric Limits, Limit Laws]
 -->
 
@@ -403,6 +417,7 @@ So the limit is $3$.
 id: limits-25
 note: math-limits
 title: "Apply the Squeeze Theorem"
+exam: exam-ii
 skills: [Squeeze Theorem, Oscillation, Limits at a Point]
 -->
 
@@ -436,6 +451,7 @@ $$
 id: limits-26
 note: math-limits
 title: "Find the Horizontal Asymptote"
+exam: exam-ii
 skills: [Limits at Infinity, Horizontal Asymptotes, Rational Functions]
 -->
 
@@ -465,6 +481,7 @@ $$
 id: limits-27
 note: math-limits
 title: "Use the Logarithmic Standard Limit"
+exam: exam-ii
 skills: [Special Limits, Logarithmic Limits, Limit Laws]
 -->
 
@@ -499,6 +516,7 @@ $$
 id: limits-28
 note: math-limits
 title: "Choose the Value that Makes a Piecewise Function Continuous"
+exam: exam-ii
 skills: [Continuity, Piecewise Functions]
 -->
 
@@ -537,6 +555,7 @@ The one-sided limits are different, so no value of $k$ can make the function con
 id: limits-31
 note: math-limits
 title: "Model a Vertical Asymptote"
+exam: final
 skills: [Infinite Limits, Vertical Asymptotes, Modeling]
 -->
 
@@ -564,6 +583,7 @@ This means $x=5$ is a vertical asymptote.
 id: limits-32
 note: math-limits
 title: "Interpret a Long-Run Ratio"
+exam: final
 skills: [Limits at Infinity, Horizontal Asymptotes, Rational Functions]
 -->
 
@@ -589,6 +609,7 @@ So the model approaches $\frac{7}{2}$ in the long run.
 id: limits-33
 note: math-limits
 title: "Use L'Hopital's Rule Once"
+exam: final
 skills: ["L'Hopital's Rule", Exponential Limits]
 -->
 
@@ -620,6 +641,7 @@ So the limit is $2$.
 id: limits-34
 note: math-limits
 title: "Classify a Jump at a Pricing Threshold"
+exam: final
 skills: [One-Sided Limits, Piecewise Functions, Continuity]
 -->
 
@@ -658,6 +680,7 @@ This is a jump discontinuity.
 id: limits-35
 note: math-limits
 title: "Spot a Hole and Its Fill-In Value"
+exam: final
 skills: [Removable Discontinuity, Algebraic Techniques, Continuity]
 -->
 
@@ -699,6 +722,7 @@ To remove it, define $g(3)=6$.
 id: limits-41
 note: math-limits
 title: "Use the Epsilon-Delta Definition"
+exam: final
 skills: [Formal Definition, Epsilon-Delta]
 -->
 
@@ -742,6 +766,7 @@ which proves the limit.
 id: limits-42
 note: math-limits
 title: "Solve for a Continuous Piecewise Rule"
+exam: final
 skills: [Continuity, Piecewise Functions, Algebraic Techniques]
 -->
 
@@ -805,6 +830,7 @@ $$
 id: limits-43
 note: math-limits
 title: "Combine Squeeze and a Standard Limit"
+exam: final
 skills: [Squeeze Theorem, Oscillation, Limit Laws]
 -->
 
@@ -846,6 +872,7 @@ So the limit is $0$.
 id: limits-44
 note: math-limits
 title: "Continuity and End Behavior Together"
+exam: final
 skills: [Continuity, Removable Discontinuity, Limits at Infinity]
 -->
 

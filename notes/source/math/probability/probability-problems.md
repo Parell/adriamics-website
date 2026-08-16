@@ -2,6 +2,7 @@
 id: probability-11
 note: math-probability
 title: "Count a Simple Sample Space"
+exam: exam-i
 skills: [Sample Spaces, Equally Likely Outcomes]
 -->
 
@@ -27,6 +28,7 @@ $$
 id: probability-12
 note: math-probability
 title: "Choose a Committee"
+exam: exam-i
 skills: [Combinations, Counting Methods]
 -->
 
@@ -44,6 +46,7 @@ $$
 id: probability-13
 note: math-probability
 title: "Arrange Runners"
+exam: exam-i
 skills: [Permutations, Counting Methods]
 -->
 
@@ -61,6 +64,7 @@ $$
 id: probability-14
 note: math-probability
 title: "Count Distinct Arrangements"
+exam: exam-i
 skills: [Repeated Objects, Counting Methods]
 -->
 
@@ -78,6 +82,7 @@ $$
 id: probability-15
 note: math-probability
 title: "Use the Complement Rule"
+exam: exam-i
 skills: [Complement Rule]
 -->
 
@@ -101,6 +106,7 @@ $$
 id: probability-16
 note: math-probability
 title: "Apply the Addition Rule"
+exam: exam-i
 skills: [Addition Rule, Events]
 -->
 
@@ -130,6 +136,7 @@ $$
 id: probability-17
 note: math-probability
 title: "Find a Conditional Probability"
+exam: exam-i
 skills: [Conditional Probability]
 -->
 
@@ -159,6 +166,7 @@ $$
 id: probability-18
 note: math-probability
 title: "Evaluate a Bernoulli Mean and Variance"
+exam: exam-i
 skills: [Bernoulli Distribution, Expectation, Variance]
 -->
 
@@ -188,6 +196,7 @@ $$
 id: probability-19
 note: math-probability
 title: "Compute a Binomial Probability"
+exam: exam-i
 skills: [Binomial Distribution]
 -->
 
@@ -217,6 +226,7 @@ $$
 id: probability-110
 note: math-probability
 title: "Standardize a Normal Random Variable"
+exam: exam-i
 skills: [Normal Distribution, Standardization]
 -->
 
@@ -240,6 +250,7 @@ $$
 id: probability-21
 note: math-probability
 title: "Count Draws Without Replacement"
+exam: exam-ii
 skills: [Hypergeometric Distribution, Sampling Without Replacement]
 -->
 
@@ -263,6 +274,7 @@ $$
 id: probability-22
 note: math-probability
 title: "Update a Belief with Bayes' Theorem"
+exam: exam-ii
 skills: [Bayes Theorem, Conditional Probability]
 -->
 
@@ -300,6 +312,7 @@ So the probability is about $0.162$.
 id: probability-23
 note: math-probability
 title: "Use the Geometric Memoryless Property"
+exam: exam-ii
 skills: [Geometric Distribution, Memoryless Property]
 -->
 
@@ -331,6 +344,7 @@ So the probability is about $0.316$.
 id: probability-24
 note: math-probability
 title: "Solve a Negative Binomial Count"
+exam: exam-ii
 skills: [Negative Binomial Distribution]
 -->
 
@@ -358,6 +372,7 @@ $$
 id: probability-25
 note: math-probability
 title: "Compute a Poisson Count Probability"
+exam: exam-ii
 skills: [Poisson Distribution]
 -->
 
@@ -389,6 +404,7 @@ which is about $0.271$.
 id: probability-26
 note: math-probability
 title: "Compute an Exponential Waiting-Time Probability"
+exam: exam-ii
 skills: [Exponential Distribution]
 -->
 
@@ -420,6 +436,7 @@ This is about $0.368$.
 id: probability-27
 note: math-probability
 title: "Use Inclusion-Exclusion for Three Events"
+exam: exam-ii
 skills: [Inclusion-Exclusion]
 -->
 
@@ -456,6 +473,7 @@ $$
 id: probability-28
 note: math-probability
 title: "Check Independence from a Joint Table"
+exam: exam-ii
 skills: [Joint Distribution, Marginal Distributions, Independence]
 -->
 
@@ -510,6 +528,7 @@ Therefore, $X$ and $Y$ are independent.
 id: probability-31
 note: math-probability
 title: "Find an Expected Value from a Discrete Distribution"
+exam: final
 skills: [Expectation, Functions of Random Variables]
 -->
 
@@ -539,6 +558,7 @@ The expected payoff is $7$.
 id: probability-32
 note: math-probability
 title: "Model an Expected Count with Indicators"
+exam: final
 skills: [Indicator Variables, Linearity of Expectation]
 -->
 
@@ -570,6 +590,7 @@ $$
 id: probability-33
 note: math-probability
 title: "Model a Sampling Situation"
+exam: final
 skills: [Hypergeometric Distribution, Sampling Without Replacement]
 -->
 
@@ -601,6 +622,7 @@ $$
 id: probability-34
 note: math-probability
 title: "Waiting Time to the Third Event"
+exam: final
 skills: [Gamma Distribution, Poisson Process]
 -->
 
@@ -628,6 +650,7 @@ The mean waiting time is $1.5$ hours.
 id: probability-35
 note: math-probability
 title: "Infer a Beta Model for a Proportion"
+exam: final
 skills: [Beta Distribution, Proportions]
 -->
 
@@ -643,6 +666,7 @@ Therefore, the appropriate choice is the beta distribution.
 id: probability-41
 note: math-probability
 title: "Combine Total Probability and Bayes"
+exam: final
 skills: [Law of Total Probability, Bayes Theorem]
 -->
 
@@ -678,6 +702,7 @@ So the probability is about $0.273$.
 id: probability-42
 note: math-probability
 title: "Approximate a Binomial Count with a Normal Model"
+exam: final
 skills: [Normal Approximation, Binomial Distribution, Continuity Correction]
 -->
 
@@ -725,6 +750,7 @@ $$
 id: probability-43
 note: math-probability
 title: "Compare Sample Sizes with Standard Error"
+exam: final
 skills: [Law of Large Numbers, Standard Error]
 -->
 
@@ -756,6 +782,7 @@ The sample mean from 144 observations has the smaller standard error, so it shou
 id: probability-44
 note: math-probability
 title: "Use the Union Bound"
+exam: final
 skills: [Union Bound, Events]
 -->
 

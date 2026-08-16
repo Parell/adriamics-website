@@ -2,6 +2,7 @@
 id: electricity-and-magnetism-11
 note: physics-electricity-and-magnetism
 title: "Force Between Two Point Charges"
+exam: exam-i
 skills: [Coulomb's law, Point charges]
 -->
 
@@ -33,6 +34,7 @@ Because the charges have opposite signs, the force is attractive.
 id: electricity-and-magnetism-12
 note: physics-electricity-and-magnetism
 title: "Electric Field of a Point Charge"
+exam: exam-i
 skills: [Electric field, Point charges]
 -->
 
@@ -64,6 +66,7 @@ Since the charge is positive, the field points away from the charge.
 id: electricity-and-magnetism-13
 note: physics-electricity-and-magnetism
 title: "Linear Charge Density"
+exam: exam-i
 skills: [Charge densities, Continuous charge distributions]
 -->
 
@@ -95,6 +98,7 @@ $$
 id: electricity-and-magnetism-14
 note: physics-electricity-and-magnetism
 title: "Electric Flux Through a Flat Surface"
+exam: exam-i
 skills: [Electric flux]
 -->
 
@@ -126,6 +130,7 @@ $$
 id: electricity-and-magnetism-15
 note: physics-electricity-and-magnetism
 title: "Charge Enclosed by a Gaussian Surface"
+exam: exam-i
 skills: [Gauss's law, Electric flux]
 -->
 
@@ -165,6 +170,7 @@ $$
 id: electricity-and-magnetism-16
 note: physics-electricity-and-magnetism
 title: "Potential from Two Point Charges"
+exam: exam-i
 skills: [Electric potential, Superposition]
 -->
 
@@ -200,6 +206,7 @@ $$
 id: electricity-and-magnetism-17
 note: physics-electricity-and-magnetism
 title: "Change in Potential Energy"
+exam: exam-i
 skills: [Electric potential, Potential energy]
 -->
 
@@ -237,6 +244,7 @@ The potential energy decreases.
 id: electricity-and-magnetism-18
 note: physics-electricity-and-magnetism
 title: "Dielectric Constant from Capacitance"
+exam: exam-i
 skills: [Capacitance, Dielectrics]
 -->
 
@@ -262,6 +270,7 @@ $$
 id: electricity-and-magnetism-19
 note: physics-electricity-and-magnetism
 title: "Resistance of a Uniform Wire"
+exam: exam-i
 skills: [Resistance, Ohm's law]
 -->
 
@@ -299,6 +308,7 @@ $$
 id: electricity-and-magnetism-110
 note: physics-electricity-and-magnetism
 title: "Magnetic Force on a Current-Carrying Wire"
+exam: exam-i
 skills: [Magnetic force, Current]
 -->
 
@@ -329,6 +339,7 @@ $$
 id: electricity-and-magnetism-21
 note: physics-electricity-and-magnetism
 title: "Net Field from Two Point Charges on a Line"
+exam: exam-ii
 skills: [Superposition, Electric field]
 -->
 
@@ -364,6 +375,7 @@ The direction is to the right, from the positive charge toward the negative char
 id: electricity-and-magnetism-22
 note: physics-electricity-and-magnetism
 title: "Gauss's Law for an Infinite Sheet"
+exam: exam-ii
 skills: [Gauss's law, Electric field]
 -->
 
@@ -399,6 +411,7 @@ Because the sheet is positively charged, the field points away from the sheet on
 id: electricity-and-magnetism-23
 note: physics-electricity-and-magnetism
 title: "Work from a Potential Difference"
+exam: exam-ii
 skills: [Electric potential, Potential energy]
 -->
 
@@ -434,6 +447,7 @@ $$
 id: electricity-and-magnetism-24
 note: physics-electricity-and-magnetism
 title: "Capacitors in Series"
+exam: exam-ii
 skills: [Capacitor combinations, Capacitance]
 -->
 
@@ -467,6 +481,7 @@ In series, each capacitor has the same charge, so each one stores $24\ \mu\text{
 id: electricity-and-magnetism-25
 note: physics-electricity-and-magnetism
 title: "Kirchhoff Loop with Power"
+exam: exam-ii
 skills: [Kirchhoff's rules, Power]
 -->
 
@@ -498,6 +513,7 @@ $$
 id: electricity-and-magnetism-26
 note: physics-electricity-and-magnetism
 title: "RC Charging After One Time Constant"
+exam: exam-ii
 skills: [RC circuits, Time constant]
 -->
 
@@ -533,6 +549,7 @@ $$
 id: electricity-and-magnetism-27
 note: physics-electricity-and-magnetism
 title: "Magnetic Field of a Long Straight Wire"
+exam: exam-ii
 skills: [Ampere's law, Magnetic field]
 -->
 
@@ -562,6 +579,7 @@ $$
 id: electricity-and-magnetism-28
 note: physics-electricity-and-magnetism
 title: "Motion in a Uniform Magnetic Field"
+exam: exam-ii
 skills: [Magnetic force, Circular motion]
 -->
 
@@ -591,6 +609,7 @@ $$
 id: electricity-and-magnetism-31
 note: physics-electricity-and-magnetism
 title: "Field from an Infinite Line Charge"
+exam: final
 skills: [Gauss's law, Electric field]
 -->
 
@@ -626,6 +645,7 @@ Since the line charge is positive, the field points away from the line.
 id: electricity-and-magnetism-32
 note: physics-electricity-and-magnetism
 title: "Magnetic Field Inside a Solenoid"
+exam: final
 skills: [Ampere's law, Magnetic field]
 -->
 
@@ -661,6 +681,7 @@ $$
 id: electricity-and-magnetism-33
 note: physics-electricity-and-magnetism
 title: "Direction of an Induced Current"
+exam: final
 skills: [Faraday's law, Lenz's law]
 -->
 
@@ -680,6 +701,7 @@ So the induced current is counterclockwise.
 id: electricity-and-magnetism-34
 note: physics-electricity-and-magnetism
 title: "Motional EMF in a Sliding Bar"
+exam: final
 skills: [Motional emf, Current]
 -->
 
@@ -713,6 +735,7 @@ $$
 id: electricity-and-magnetism-35
 note: physics-electricity-and-magnetism
 title: "Current Growth in an RL Circuit"
+exam: final
 skills: [RL circuits, Time constant]
 -->
 
@@ -748,6 +771,7 @@ $$
 id: electricity-and-magnetism-41
 note: physics-electricity-and-magnetism
 title: "Charging Capacitor and the Displacement Current"
+exam: final
 skills: [Maxwell's equations, Current circuits]
 -->
 
@@ -778,6 +802,7 @@ in magnitude.
 id: electricity-and-magnetism-42
 note: physics-electricity-and-magnetism
 title: "Zero Potential, Nonzero Field"
+exam: final
 skills: [Electric potential, Electric field]
 -->
 
@@ -813,6 +838,7 @@ The field points toward the negative charge.
 id: electricity-and-magnetism-43
 note: physics-electricity-and-magnetism
 title: "Electric and Magnetic Flux Through a Closed Surface"
+exam: final
 skills: [Gauss's law, Maxwell's equations]
 -->
 
@@ -847,6 +873,7 @@ So the surface has nonzero electric flux, but zero net magnetic flux.
 id: electricity-and-magnetism-44
 note: physics-electricity-and-magnetism
 title: "Faraday Sign Convention"
+exam: final
 skills: [Faraday's law, Lenz's law]
 -->
 

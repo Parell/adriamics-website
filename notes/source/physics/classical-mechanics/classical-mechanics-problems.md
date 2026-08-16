@@ -2,6 +2,7 @@
 id: classical-mechanics-11
 note: physics-classical-mechanics
 title: "Model a Body as a Particle"
+exam: exam-i
 skills: [Modeling assumptions, Scope and core ideas]
 -->
 
@@ -17,6 +18,7 @@ That means we ignore its size and rotation and focus only on its translational m
 id: classical-mechanics-12
 note: physics-classical-mechanics
 title: "Differentiate a Position Function"
+exam: exam-i
 skills: [Position, velocity, and acceleration, Kinematics]
 -->
 
@@ -58,6 +60,7 @@ $$
 id: classical-mechanics-13
 note: physics-classical-mechanics
 title: "Find the Net Force"
+exam: exam-i
 skills: [Newton's second law]
 -->
 
@@ -83,6 +86,7 @@ to the east.
 id: classical-mechanics-14
 note: physics-classical-mechanics
 title: "Compute Work from a Constant Force"
+exam: exam-i
 skills: [Work]
 -->
 
@@ -112,6 +116,7 @@ $$
 id: classical-mechanics-15
 note: physics-classical-mechanics
 title: "Compute Linear Momentum"
+exam: exam-i
 skills: [Linear momentum]
 -->
 
@@ -137,6 +142,7 @@ The momentum points in the same direction as the velocity.
 id: classical-mechanics-16
 note: physics-classical-mechanics
 title: "Compute Average Power"
+exam: exam-i
 skills: [Power]
 -->
 
@@ -160,6 +166,7 @@ $$
 id: classical-mechanics-17
 note: physics-classical-mechanics
 title: "Use Rotational Kinematics"
+exam: exam-i
 skills: [Rotational kinematics]
 -->
 
@@ -183,6 +190,7 @@ $$
 id: classical-mechanics-18
 note: physics-classical-mechanics
 title: "Find a Torque"
+exam: exam-i
 skills: [Torque]
 -->
 
@@ -206,6 +214,7 @@ $$
 id: classical-mechanics-19
 note: physics-classical-mechanics
 title: "Find the Period of SHM"
+exam: exam-i
 skills: [Simple harmonic motion, Period and frequency]
 -->
 
@@ -229,6 +238,7 @@ $$
 id: classical-mechanics-110
 note: physics-classical-mechanics
 title: "Write a Lagrangian"
+exam: exam-i
 skills: [Lagrangian]
 -->
 
@@ -264,6 +274,7 @@ $$
 id: classical-mechanics-21
 note: physics-classical-mechanics
 title: "Projectile Motion to the Peak"
+exam: exam-ii
 skills: [Projectile motion, Kinematics]
 -->
 
@@ -301,6 +312,7 @@ $$
 id: classical-mechanics-22
 note: physics-classical-mechanics
 title: "Relative Motion on a River"
+exam: exam-ii
 skills: [Relative motion, Vectors]
 -->
 
@@ -334,6 +346,7 @@ north of east.
 id: classical-mechanics-23
 note: physics-classical-mechanics
 title: "Work-Energy with Friction"
+exam: exam-ii
 skills: [Work-energy theorem, Friction]
 -->
 
@@ -371,6 +384,7 @@ $$
 id: classical-mechanics-24
 note: physics-classical-mechanics
 title: "Impulse Changes Momentum"
+exam: exam-ii
 skills: [Impulse, Linear momentum]
 -->
 
@@ -410,6 +424,7 @@ to the right.
 id: classical-mechanics-25
 note: physics-classical-mechanics
 title: "Center of Mass of Two Masses"
+exam: exam-ii
 skills: [Center of mass]
 -->
 
@@ -433,6 +448,7 @@ $$
 id: classical-mechanics-26
 note: physics-classical-mechanics
 title: "Rolling Without Slipping"
+exam: exam-ii
 skills: [Rolling without slipping, Rotational kinetic energy]
 -->
 
@@ -482,6 +498,7 @@ $$
 id: classical-mechanics-27
 note: physics-classical-mechanics
 title: "Static Support Forces"
+exam: exam-ii
 skills: [Equilibrium conditions, Statics]
 -->
 
@@ -521,6 +538,7 @@ $$
 id: classical-mechanics-28
 note: physics-classical-mechanics
 title: "Derive a Simple Equation of Motion"
+exam: exam-ii
 skills: [Lagrangian, Euler-Lagrange equation]
 -->
 
@@ -574,6 +592,7 @@ $$
 id: classical-mechanics-31
 note: physics-classical-mechanics
 title: "Two-Body Pulley System"
+exam: final
 skills: [Newton's second law, Constraints]
 -->
 
@@ -619,6 +638,7 @@ $$
 id: classical-mechanics-32
 note: physics-classical-mechanics
 title: "Perfectly Inelastic Collision"
+exam: final
 skills: [Conservation of linear momentum, Collisions]
 -->
 
@@ -664,6 +684,7 @@ $$
 id: classical-mechanics-33
 note: physics-classical-mechanics
 title: "Torque, Angular Acceleration, and Rotation"
+exam: final
 skills: [Torque, Rotational kinematics, Moment of inertia]
 -->
 
@@ -705,6 +726,7 @@ $$
 id: classical-mechanics-34
 note: physics-classical-mechanics
 title: "Compare Two Circular Orbits"
+exam: final
 skills: [Circular orbits, Central-force intuition]
 -->
 
@@ -734,6 +756,7 @@ $$
 id: classical-mechanics-35
 note: physics-classical-mechanics
 title: "Choose the Best Mechanics Tool"
+exam: final
 skills: [Problem-solving workflow]
 -->
 
@@ -757,6 +780,7 @@ Use the tool that matches the situation:
 id: classical-mechanics-41
 note: physics-classical-mechanics
 title: "Rolling Disk Dropping Through a Height"
+exam: final
 skills: [Rolling without slipping, Rotational kinetic energy, Work and energy]
 -->
 
@@ -802,6 +826,7 @@ $$
 id: classical-mechanics-42
 note: physics-classical-mechanics
 title: "Spin-Up from Conservation of Angular Momentum"
+exam: final
 skills: [Conservation of angular momentum, Rotational kinetic energy]
 -->
 
@@ -847,6 +872,7 @@ $$
 id: classical-mechanics-43
 note: physics-classical-mechanics
 title: "Beam Balance with Multiple Loads"
+exam: final
 skills: [Equilibrium conditions, Statics]
 -->
 
@@ -886,6 +912,7 @@ $$
 id: classical-mechanics-44
 note: physics-classical-mechanics
 title: "Lagrangian with Two Springs"
+exam: final
 skills: [Lagrangian, Euler-Lagrange equation]
 -->
 

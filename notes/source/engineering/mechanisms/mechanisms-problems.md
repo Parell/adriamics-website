@@ -2,6 +2,7 @@
 id: mechanisms-11
 note: engineering-mechanisms
 title: "Convert Power and Speed to Torque"
+exam: exam-i
 skills: [Power transmission, Torque]
 -->
 
@@ -19,6 +20,7 @@ $$
 id: mechanisms-12
 note: engineering-mechanisms
 title: "Find a Gear Ratio"
+exam: exam-i
 skills: [Gears, Speed ratio]
 -->
 
@@ -38,6 +40,7 @@ The output turns one-third as fast, with ideal torque multiplied by three.
 id: mechanisms-13
 note: engineering-mechanisms
 title: "Compute Gear Tooth Force"
+exam: exam-i
 skills: [Gears, Interface loads]
 -->
 
@@ -54,6 +57,7 @@ $$
 id: mechanisms-14
 note: engineering-mechanisms
 title: "Estimate Bearing Life"
+exam: exam-i
 skills: [Bearings, Rating life]
 -->
 
@@ -73,6 +77,7 @@ million revolutions.
 id: mechanisms-15
 note: engineering-mechanisms
 title: "Combine Springs in Parallel"
+exam: exam-i
 skills: [Springs, Stiffness]
 -->
 
@@ -90,6 +95,7 @@ $$
 id: mechanisms-16
 note: engineering-mechanisms
 title: "Separate Mean and Alternating Stress"
+exam: exam-i
 skills: [Fatigue, Stress components]
 -->
 
@@ -108,6 +114,7 @@ $$
 id: mechanisms-17
 note: engineering-mechanisms
 title: "Count Planar Mechanism Mobility"
+exam: exam-i
 skills: [Mobility, Kutzbach equation]
 -->
 
@@ -126,6 +133,7 @@ It has one independent input, as expected for a conventional four-bar linkage.
 id: mechanisms-18
 note: engineering-mechanisms
 title: "Compute Screw Lead Angle"
+exam: exam-i
 skills: [Power screws, Lead]
 -->
 

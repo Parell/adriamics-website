@@ -2,6 +2,7 @@
 id: trigonometry-11
 note: math-trigonometry
 title: "Convert 150 Degrees to Radians"
+exam: exam-i
 skills: [Angle Measure, Radians]
 -->
 
@@ -19,6 +20,7 @@ $$
 id: trigonometry-12
 note: math-trigonometry
 title: "Convert 7 Pi Over 6 to Degrees"
+exam: exam-i
 skills: [Angle Measure, Radians]
 -->
 
@@ -36,6 +38,7 @@ $$
 id: trigonometry-13
 note: math-trigonometry
 title: "Read a Unit Circle Coordinate"
+exam: exam-i
 skills: [Unit Circle, Coordinates]
 -->
 
@@ -65,6 +68,7 @@ $$
 id: trigonometry-14
 note: math-trigonometry
 title: "Evaluate Sine Using a Reference Angle"
+exam: exam-i
 skills: [Reference Angles, Quadrants]
 -->
 
@@ -84,6 +88,7 @@ $$
 id: trigonometry-15
 note: math-trigonometry
 title: "Find a Trig Ratio from a Right Triangle"
+exam: exam-i
 skills: [Right Triangle Ratios]
 -->
 
@@ -103,6 +108,7 @@ $$
 id: trigonometry-16
 note: math-trigonometry
 title: "Evaluate a Reciprocal Trig Function"
+exam: exam-i
 skills: [Reciprocal Identities]
 -->
 
@@ -120,6 +126,7 @@ $$
 id: trigonometry-17
 note: math-trigonometry
 title: "Evaluate a Special Angle Tangent"
+exam: exam-i
 skills: [Special Angles]
 -->
 
@@ -137,6 +144,7 @@ $$
 id: trigonometry-18
 note: math-trigonometry
 title: "Use Periodicity to Simplify an Expression"
+exam: exam-i
 skills: [Periodicity]
 -->
 
@@ -154,6 +162,7 @@ $$
 id: trigonometry-19
 note: math-trigonometry
 title: "Identify Where Tangent Is Undefined"
+exam: exam-i
 skills: [Domain, Periodicity]
 -->
 
@@ -175,6 +184,7 @@ for any integer $k$.
 id: trigonometry-110
 note: math-trigonometry
 title: "Use the Pythagorean Identity to Find Cosine"
+exam: exam-i
 skills: [Pythagorean Identity, Quadrants]
 -->
 
@@ -212,6 +222,7 @@ $$
 id: trigonometry-21
 note: math-trigonometry
 title: "Evaluate Cosine in Quadrant III"
+exam: exam-ii
 skills: [Reference Angles, Quadrants]
 -->
 
@@ -231,6 +242,7 @@ $$
 id: trigonometry-22
 note: math-trigonometry
 title: "Find a Trig Ratio After Using the Triangle"
+exam: exam-ii
 skills: [Right Triangle Ratios, Special Triangles]
 -->
 
@@ -268,6 +280,7 @@ $$
 id: trigonometry-23
 note: math-trigonometry
 title: "Identify Amplitude, Period, and Midline"
+exam: exam-ii
 skills: [Graph Transformations, Period]
 -->
 
@@ -299,6 +312,7 @@ $$
 id: trigonometry-24
 note: math-trigonometry
 title: "Find a Phase Shift from Standard Form"
+exam: exam-ii
 skills: [Graph Transformations, Phase Shift]
 -->
 
@@ -332,6 +346,7 @@ or, equivalently, $\frac{\pi}{3}$ to the left.
 id: trigonometry-25
 note: math-trigonometry
 title: "Evaluate an Exact Value with a Sum Identity"
+exam: exam-ii
 skills: [Sum Identities, Special Angles]
 -->
 
@@ -373,6 +388,7 @@ $$
 id: trigonometry-26
 note: math-trigonometry
 title: "Interpret an Inverse Trig Expression"
+exam: exam-ii
 skills: [Inverse Trig, Principal Range]
 -->
 
@@ -396,6 +412,7 @@ $$
 id: trigonometry-27
 note: math-trigonometry
 title: "Solve a Sine Equation on an Interval"
+exam: exam-ii
 skills: [Trig Equations, Periodicity]
 -->
 
@@ -427,6 +444,7 @@ $$
 id: trigonometry-28
 note: math-trigonometry
 title: "Solve a Tangent Equation"
+exam: exam-ii
 skills: [Trig Equations, Periodicity]
 -->
 
@@ -456,6 +474,7 @@ for any integer $k$.
 id: trigonometry-31
 note: math-trigonometry
 title: "Find a Height from an Angle of Elevation"
+exam: final
 skills: [Angles of Elevation, Tangent]
 -->
 
@@ -489,6 +508,7 @@ $$
 id: trigonometry-32
 note: math-trigonometry
 title: "Use the Law of Sines"
+exam: final
 skills: [Law of Sines]
 -->
 
@@ -524,6 +544,7 @@ $$
 id: trigonometry-33
 note: math-trigonometry
 title: "Use the Law of Cosines"
+exam: final
 skills: [Law of Cosines]
 -->
 
@@ -563,6 +584,7 @@ $$
 id: trigonometry-34
 note: math-trigonometry
 title: "Interpret a Sinusoidal Model"
+exam: final
 skills: [Sinusoidal Models, Graph Transformations]
 -->
 
@@ -596,6 +618,7 @@ So the maximum height is $11$ and the period is $12$ hours.
 id: trigonometry-35
 note: math-trigonometry
 title: "Find the Area of an Oblique Triangle"
+exam: final
 skills: [Triangle Area, Trig Area Formula]
 -->
 
@@ -625,6 +648,7 @@ $$
 id: trigonometry-41
 note: math-trigonometry
 title: "Use a Double-Angle Identity with a Given Sine Value"
+exam: final
 skills: [Double-Angle Identities, Pythagorean Identity]
 -->
 
@@ -658,6 +682,7 @@ $$
 id: trigonometry-42
 note: math-trigonometry
 title: "Rewrite a Product as a Sum"
+exam: final
 skills: [Product-to-Sum]
 -->
 
@@ -681,6 +706,7 @@ $$
 id: trigonometry-43
 note: math-trigonometry
 title: "Determine the Number of Triangles in an SSA Case"
+exam: final
 skills: [Law of Sines, SSA Ambiguity]
 -->
 
@@ -716,6 +742,7 @@ there are two possible triangles.
 id: trigonometry-44
 note: math-trigonometry
 title: "Evaluate a Half-Angle Exactly"
+exam: final
 skills: [Half-Angle Formulas, Special Angles]
 -->
 

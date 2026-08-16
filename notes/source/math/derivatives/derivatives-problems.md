@@ -2,6 +2,7 @@
 id: derivatives-11
 note: math-derivatives
 title: "State the Meaning of a Derivative"
+exam: exam-i
 skills: [Derivative Meaning]
 -->
 
@@ -17,6 +18,7 @@ It also describes the function's instantaneous rate of change at that point.
 id: derivatives-12
 note: math-derivatives
 title: "Differentiate by the Definition"
+exam: exam-i
 skills: [Formal Definition]
 -->
 
@@ -65,6 +67,7 @@ $$
 id: derivatives-13
 note: math-derivatives
 title: "Write the Derivative in Leibniz Notation"
+exam: exam-i
 skills: [Notation]
 -->
 
@@ -84,6 +87,7 @@ This is equivalent to $f'(x)$ when $y=f(x)$.
 id: derivatives-14
 note: math-derivatives
 title: "Differentiate a Power"
+exam: exam-i
 skills: [Power Rule]
 -->
 
@@ -111,6 +115,7 @@ $$
 id: derivatives-15
 note: math-derivatives
 title: "Differentiate a Polynomial"
+exam: exam-i
 skills: [Power Rule, Sum and Difference]
 -->
 
@@ -146,6 +151,7 @@ $$
 id: derivatives-16
 note: math-derivatives
 title: "Differentiate an Exponential Function"
+exam: exam-i
 skills: [Exponential Functions]
 -->
 
@@ -173,6 +179,7 @@ $$
 id: derivatives-17
 note: math-derivatives
 title: "Differentiate a Trigonometric Sum"
+exam: exam-i
 skills: [Trigonometric Functions, Sum and Difference]
 -->
 
@@ -206,6 +213,7 @@ $$
 id: derivatives-18
 note: math-derivatives
 title: "Differentiate a Natural Logarithm"
+exam: exam-i
 skills: [Logarithmic Functions]
 -->
 
@@ -228,6 +236,7 @@ $$
 id: derivatives-19
 note: math-derivatives
 title: "Use the Product Rule"
+exam: exam-i
 skills: [Product Rule, Exponential Functions]
 -->
 
@@ -257,6 +266,7 @@ $$
 id: derivatives-110
 note: math-derivatives
 title: "Use the Quotient Rule"
+exam: exam-i
 skills: [Quotient Rule]
 -->
 
@@ -298,6 +308,7 @@ $$
 id: derivatives-21
 note: math-derivatives
 title: "Apply the Chain Rule to a Power"
+exam: exam-ii
 skills: [Chain Rule, Power Rule]
 -->
 
@@ -326,6 +337,7 @@ $$
 id: derivatives-22
 note: math-derivatives
 title: "Apply the Chain Rule to a Trigonometric Function"
+exam: exam-ii
 skills: [Chain Rule, Trigonometric Functions]
 -->
 
@@ -356,6 +368,7 @@ $$
 id: derivatives-23
 note: math-derivatives
 title: "Differentiate a Logarithm of a Composite Function"
+exam: exam-ii
 skills: [Chain Rule, Logarithmic Functions]
 -->
 
@@ -388,6 +401,7 @@ $$
 id: derivatives-24
 note: math-derivatives
 title: "Differentiate an Inverse Trig Function"
+exam: exam-ii
 skills: [Chain Rule, Inverse Trigonometric Functions]
 -->
 
@@ -419,6 +433,7 @@ $$
 id: derivatives-25
 note: math-derivatives
 title: "Implicit Differentiation with Mixed Terms"
+exam: exam-ii
 skills: [Implicit Differentiation, Product Rule]
 -->
 
@@ -458,6 +473,7 @@ $$
 id: derivatives-26
 note: math-derivatives
 title: "Find Velocity and Acceleration"
+exam: exam-ii
 skills: [Higher-Order Derivatives, Motion]
 -->
 
@@ -493,6 +509,7 @@ $$
 id: derivatives-27
 note: math-derivatives
 title: "Estimate a Square Root with Linearization"
+exam: exam-ii
 skills: [Linear Approximation]
 -->
 
@@ -540,6 +557,7 @@ $$
 id: derivatives-28
 note: math-derivatives
 title: "Find Where a Function Increases"
+exam: exam-ii
 skills: [Increasing and Decreasing, Critical Points]
 -->
 
@@ -583,6 +601,7 @@ $$
 id: derivatives-31
 note: math-derivatives
 title: "Related Rates for the Area of a Circle"
+exam: final
 skills: [Related Rates]
 -->
 
@@ -618,6 +637,7 @@ $$
 id: derivatives-32
 note: math-derivatives
 title: "Tangent Line from an Implicit Curve"
+exam: final
 skills: [Implicit Differentiation, Tangent Lines]
 -->
 
@@ -659,6 +679,7 @@ $$
 id: derivatives-33
 note: math-derivatives
 title: "Maximize the Area of a Rectangle"
+exam: final
 skills: [Optimization]
 -->
 
@@ -712,6 +733,7 @@ So the rectangle with maximum area is a $10$ m by $10$ m square.
 id: derivatives-34
 note: math-derivatives
 title: "Estimate Measurement Error with Differentials"
+exam: final
 skills: [Differentials, Error Estimation]
 -->
 
@@ -748,6 +770,7 @@ which is approximately $3.14\text{ cm}^2$.
 id: derivatives-35
 note: math-derivatives
 title: "Take One Newton Step"
+exam: final
 skills: [Newton's Method]
 -->
 
@@ -799,6 +822,7 @@ $$
 id: derivatives-41
 note: math-derivatives
 title: "Show an Absolute Value Function Is Not Differentiable"
+exam: final
 skills: [Continuity and Differentiability, Formal Definition]
 -->
 
@@ -840,6 +864,7 @@ The one-sided derivatives are not equal, so $f'(0)$ does not exist.
 id: derivatives-42
 note: math-derivatives
 title: "Classify a Cubic Using Derivatives"
+exam: final
 skills: [Critical Points, Concavity, Higher-Order Derivatives]
 -->
 
@@ -899,6 +924,7 @@ changes sign at $x=0$, there is an inflection point at $x=0$.
 id: derivatives-43
 note: math-derivatives
 title: "Maximize Area with a Fence and a Wall"
+exam: final
 skills: [Optimization]
 -->
 
@@ -952,6 +978,7 @@ So the maximum area occurs for dimensions $6$ m by $6$ m by $12$ m, with the $12
 id: derivatives-44
 note: math-derivatives
 title: "Find a Tangent Line on a Mixed Implicit Curve"
+exam: final
 skills: [Implicit Differentiation, Product Rule, Tangent Lines]
 -->
 

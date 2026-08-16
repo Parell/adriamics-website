@@ -2,6 +2,7 @@
 id: general-chemistry-11
 note: medical-biology-general-chemistry
 title: "Classify Common Forms of Matter"
+exam: exam-i
 skills: [Matter, Mixtures]
 -->
 
@@ -23,6 +24,7 @@ Granite is a heterogeneous mixture because its different minerals remain visible
 id: general-chemistry-12
 note: medical-biology-general-chemistry
 title: "Count Particles in an Atom"
+exam: exam-i
 skills: [Atomic Structure, Isotopes, Ions]
 -->
 
@@ -54,6 +56,7 @@ Because the atom is neutral, it also has $12$ electrons.
 id: general-chemistry-13
 note: medical-biology-general-chemistry
 title: "Use Group Trends in the Periodic Table"
+exam: exam-i
 skills: [Periodic Table, Groups]
 -->
 
@@ -71,6 +74,7 @@ Group 18 elements are especially stable because their outer electron shells are 
 id: general-chemistry-14
 note: medical-biology-general-chemistry
 title: "Read Subshell Capacities"
+exam: exam-i
 skills: [Electron Configuration, Orbitals]
 -->
 
@@ -86,6 +90,7 @@ A $d$ subshell holds $10$ electrons.
 id: general-chemistry-15
 note: medical-biology-general-chemistry
 title: "Use Periodic Trends"
+exam: exam-i
 skills: [Periodic Trends]
 -->
 
@@ -101,6 +106,7 @@ Across a period, electronegativity generally increases.
 id: general-chemistry-16
 note: medical-biology-general-chemistry
 title: "Find Formal Charge in a Lewis Structure"
+exam: exam-i
 skills: [Lewis Structures, Formal Charge]
 -->
 
@@ -124,6 +130,7 @@ So every atom in the preferred structure has formal charge $0$.
 id: general-chemistry-17
 note: medical-biology-general-chemistry
 title: "Predict Shape and Polarity"
+exam: exam-i
 skills: [VSEPR, Polarity]
 -->
 
@@ -141,6 +148,7 @@ Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.
 id: general-chemistry-18
 note: medical-biology-general-chemistry
 title: "Name Common Compounds"
+exam: exam-i
 skills: [Nomenclature, Acids]
 -->
 
@@ -164,6 +172,7 @@ $\mathrm{CaCO_3}$ is calcium carbonate.
 id: general-chemistry-19
 note: medical-biology-general-chemistry
 title: "Balance a Combustion Reaction"
+exam: exam-i
 skills: [Balancing Equations, Reaction Types]
 -->
 
@@ -195,6 +204,7 @@ This is a combustion reaction because a hydrocarbon reacts with oxygen to form c
 id: general-chemistry-110
 note: medical-biology-general-chemistry
 title: "Use the Mole Concept"
+exam: exam-i
 skills: [Mole Concept, Avogadro's Number]
 -->
 
@@ -222,6 +232,7 @@ $$
 id: general-chemistry-21
 note: medical-biology-general-chemistry
 title: "Convert Mass to Particles"
+exam: exam-ii
 skills: [Mole Concept, Unit Conversion]
 -->
 
@@ -248,6 +259,7 @@ $$
 id: general-chemistry-22
 note: medical-biology-general-chemistry
 title: "Find the Limiting Reagent"
+exam: exam-ii
 skills: [Stoichiometry, Limiting Reagent]
 -->
 
@@ -283,6 +295,7 @@ $$
 id: general-chemistry-23
 note: medical-biology-general-chemistry
 title: "Solve an Ideal Gas Problem"
+exam: exam-ii
 skills: [Gas Laws, Kelvin]
 -->
 
@@ -324,6 +337,7 @@ $$
 id: general-chemistry-24
 note: medical-biology-general-chemistry
 title: "Use Molarity and Dilution"
+exam: exam-ii
 skills: [Solutions, Dilution]
 -->
 
@@ -351,6 +365,7 @@ $$
 id: general-chemistry-25
 note: medical-biology-general-chemistry
 title: "Compute Heat Flow"
+exam: exam-ii
 skills: [Thermochemistry, Specific Heat]
 -->
 
@@ -382,6 +397,7 @@ Because the temperature increases, the heat is positive.
 id: general-chemistry-26
 note: medical-biology-general-chemistry
 title: "Predict a Shift in Equilibrium"
+exam: exam-ii
 skills: [Equilibrium, Le Chatelier's Principle]
 -->
 
@@ -413,6 +429,7 @@ The reaction shifts to the right, toward ammonia, to increase $Q$ until equilibr
 id: general-chemistry-27
 note: medical-biology-general-chemistry
 title: "Calculate pH from a Buffer"
+exam: exam-ii
 skills: [Buffers, pH, Henderson-Hasselbalch]
 -->
 
@@ -442,6 +459,7 @@ $$
 id: general-chemistry-28
 note: medical-biology-general-chemistry
 title: "Use a Rate Law"
+exam: exam-ii
 skills: [Kinetics, Rate Laws]
 -->
 
@@ -467,6 +485,7 @@ So the rate increases by a factor of $4.5$.
 id: general-chemistry-31
 note: medical-biology-general-chemistry
 title: "Choose the Tonicity"
+exam: final
 skills: [Solutions, Osmosis]
 -->
 
@@ -486,6 +505,7 @@ The cell swells and may burst if the concentration difference is large enough.
 id: general-chemistry-32
 note: medical-biology-general-chemistry
 title: "Read a Gas Mixture"
+exam: final
 skills: [Gas Laws, Partial Pressure]
 -->
 
@@ -521,6 +541,7 @@ $$
 id: general-chemistry-33
 note: medical-biology-general-chemistry
 title: "Find Percent Yield"
+exam: final
 skills: [Stoichiometry, Percent Yield]
 -->
 
@@ -546,6 +567,7 @@ $$
 id: general-chemistry-34
 note: medical-biology-general-chemistry
 title: "Decide Protonation from pH and pKa"
+exam: final
 skills: [Acids, Bases, pKa]
 -->
 
@@ -569,6 +591,7 @@ That is the key pH-to-pKa rule for weak acids.
 id: general-chemistry-35
 note: medical-biology-general-chemistry
 title: "Identify the Anode and Cathode"
+exam: final
 skills: [Redox, Electrochemistry]
 -->
 
@@ -588,6 +611,7 @@ The electrons flow away from the anode and toward the cathode.
 id: general-chemistry-41
 note: medical-biology-general-chemistry
 title: "Match Shape, Polarity, and Solubility"
+exam: final
 skills: [Bonding, Polarity, Solubility]
 -->
 
@@ -617,6 +641,7 @@ $$
 id: general-chemistry-42
 note: medical-biology-general-chemistry
 title: "Use Q and K After a Disturbance"
+exam: final
 skills: [Equilibrium, Le Chatelier's Principle]
 -->
 
@@ -634,6 +659,7 @@ To restore equilibrium, the reaction shifts to the right and makes more product.
 id: general-chemistry-43
 note: medical-biology-general-chemistry
 title: "Update a Buffer After Adding Acid"
+exam: final
 skills: [Buffers, pH, Le Chatelier's Principle]
 -->
 
@@ -679,6 +705,7 @@ $$
 id: general-chemistry-44
 note: medical-biology-general-chemistry
 title: "Combine Stoichiometry and the Ideal Gas Law"
+exam: final
 skills: [Stoichiometry, Gas Laws, Unit Conversion]
 -->
 

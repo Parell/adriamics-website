@@ -2,6 +2,7 @@
 id: math-functions-11
 note: math-functions
 title: "Decide Whether a Relation Is a Function"
+exam: exam-i
 skills: [Function Definition, Ordered Pairs]
 -->
 
@@ -21,6 +22,7 @@ Here the input $3$ is paired with two different outputs, $7$ and $9$, so the rel
 id: math-functions-12
 note: math-functions
 title: "Find a Domain Restriction"
+exam: exam-i
 skills: [Domain, Rational Functions]
 -->
 
@@ -52,6 +54,7 @@ So the domain excludes $x = 3$.
 id: math-functions-13
 note: math-functions
 title: "Evaluate a Polynomial Function"
+exam: exam-i
 skills: [Evaluating functions]
 -->
 
@@ -81,6 +84,7 @@ $$
 id: math-functions-14
 note: math-functions
 title: "Read a Function Value from a Table"
+exam: exam-i
 skills: [Evaluating functions, Tables]
 -->
 
@@ -108,6 +112,7 @@ $$
 id: math-functions-15
 note: math-functions
 title: "Check an Even-Root Domain"
+exam: exam-i
 skills: [Domain, Radical Functions]
 -->
 
@@ -139,6 +144,7 @@ So the domain is all real numbers less than or equal to $8$.
 id: math-functions-16
 note: math-functions
 title: "Evaluate an Exponential at Zero"
+exam: exam-i
 skills: [Exponential Functions]
 -->
 
@@ -168,6 +174,7 @@ $$
 id: math-functions-17
 note: math-functions
 title: "Check Whether a Function Has an Inverse"
+exam: exam-i
 skills: [One-to-one, Inverse functions]
 -->
 
@@ -189,6 +196,7 @@ Here two different inputs, $1$ and $2$, produce the same output, $4$, so the fun
 id: math-functions-18
 note: math-functions
 title: "Evaluate a Piecewise Function"
+exam: exam-i
 skills: [Piecewise functions, Evaluating functions]
 -->
 
@@ -216,6 +224,7 @@ $$
 id: math-functions-19
 note: math-functions
 title: "Find the Range of a Square Function"
+exam: exam-i
 skills: [Range, Square Functions]
 -->
 
@@ -245,6 +254,7 @@ $$
 id: math-functions-110
 note: math-functions
 title: "Find the Domain of a Logarithmic Function"
+exam: exam-i
 skills: [Logarithms, Domain]
 -->
 
@@ -274,6 +284,7 @@ $$
 id: math-functions-21
 note: math-functions
 title: "Compose Two Functions"
+exam: exam-ii
 skills: [Composition, Evaluating functions]
 -->
 
@@ -315,6 +326,7 @@ $$
 id: math-functions-22
 note: math-functions
 title: "Find the Inverse of a Linear Function"
+exam: exam-ii
 skills: [Inverse functions, Linear Functions]
 -->
 
@@ -360,6 +372,7 @@ $$
 id: math-functions-23
 note: math-functions
 title: "Find the Range of a Shifted Square"
+exam: exam-ii
 skills: [Range, Transformations]
 -->
 
@@ -387,6 +400,7 @@ $$
 id: math-functions-24
 note: math-functions
 title: "Simplify a Rational Function and Evaluate It"
+exam: exam-ii
 skills: [Rational Functions, Distributing and factoring]
 -->
 
@@ -422,6 +436,7 @@ $$
 id: math-functions-25
 note: math-functions
 title: "Find an Average Rate of Change"
+exam: exam-ii
 skills: [Average rate of change, Evaluating functions]
 -->
 
@@ -457,6 +472,7 @@ $$
 id: math-functions-26
 note: math-functions
 title: "Make a Piecewise Function Continuous"
+exam: exam-ii
 skills: [Piecewise functions, Continuity]
 -->
 
@@ -498,6 +514,7 @@ $$
 id: math-functions-27
 note: math-functions
 title: "Determine the End Behavior of a Polynomial"
+exam: exam-ii
 skills: [End behavior, Polynomials]
 -->
 
@@ -527,6 +544,7 @@ $$
 id: math-functions-28
 note: math-functions
 title: "Describe Multiple Transformations"
+exam: exam-ii
 skills: [Transformations, Symmetry]
 -->
 
@@ -569,6 +587,7 @@ So the transformations are:
 id: math-functions-31
 note: math-functions
 title: "Model a Membership Fee"
+exam: final
 skills: [Linear Models, Functions]
 -->
 
@@ -600,6 +619,7 @@ $$
 id: math-functions-32
 note: math-functions
 title: "Interpret an Average Rate of Change"
+exam: final
 skills: [Average rate of change, Units]
 -->
 
@@ -643,6 +663,7 @@ The average rate of change is $10$ centimeters per week.
 id: math-functions-33
 note: math-functions
 title: "Write an Exponential Growth Model"
+exam: final
 skills: [Exponential Functions, Modeling]
 -->
 
@@ -668,6 +689,7 @@ $$
 id: math-functions-34
 note: math-functions
 title: "Use a Piecewise Pricing Rule"
+exam: final
 skills: [Piecewise functions, Modeling]
 -->
 
@@ -691,6 +713,7 @@ So the cost is $\$16$.
 id: math-functions-35
 note: math-functions
 title: "Use a Conversion Function"
+exam: final
 skills: [Inverse functions, Modeling]
 -->
 
@@ -730,6 +753,7 @@ So the temperature is $68^\circ\text{F}$.
 id: math-functions-41
 note: math-functions
 title: "Find the Inverse of a Restricted Quadratic"
+exam: final
 skills: [Inverse functions, Quadratics]
 -->
 
@@ -775,6 +799,7 @@ The domain of the inverse is $x \ge 0$.
 id: math-functions-42
 note: math-functions
 title: "Find the Domain of a Composite Function"
+exam: final
 skills: [Composition, Domain]
 -->
 
@@ -821,6 +846,7 @@ $$
 id: math-functions-43
 note: math-functions
 title: "Find the Inverse of a Rational Function with a Hole"
+exam: final
 skills: [Rational Functions, Inverse functions]
 -->
 
@@ -880,6 +906,7 @@ Since the original range excludes $6$, the domain of the inverse is $x \ne 6$.
 id: math-functions-44
 note: math-functions
 title: "Classify Compositions Using Symmetry"
+exam: final
 skills: [Composition, Symmetry]
 -->
 
@@ -911,6 +938,7 @@ because $f$ is even, so the input to $g$ does not change when $x$ is replaced by
 id: math-functions-51
 note: math-functions
 title: "Choose a Modeling Goal"
+exam: final
 skills: [Modeling goals, Functions]
 -->
 
@@ -924,6 +952,7 @@ Prediction: the model estimates future behavior from present information.
 id: math-functions-52
 note: math-functions
 title: "Build a Linear Cost Model"
+exam: final
 skills: [Linear Models, Functions]
 -->
 
@@ -937,6 +966,7 @@ Let $n$ be the number of lessons. The model is $C(n)=25+18n$, so $C(4)=25+72=97$
 id: math-functions-53
 note: math-functions
 title: "Compute Model Error"
+exam: final
 skills: [Absolute error, Relative error]
 -->
 
@@ -950,6 +980,7 @@ The absolute error is $|94-100|=6$. The relative error is $6/100=0.06$, or $6\%$
 id: math-functions-54
 note: math-functions
 title: "Write an Exponential Growth Model"
+exam: final
 skills: [Exponential Functions, Modeling]
 -->
 

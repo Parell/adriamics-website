@@ -2,6 +2,7 @@
 id: solid-mechanics-11
 note: engineering-solid-mechanics
 title: "Compute a Principal Stress"
+exam: exam-i
 skills: [Stress Tensor, Principal Stresses]
 -->
 
@@ -31,6 +32,7 @@ $$
 id: solid-mechanics-12
 note: engineering-solid-mechanics
 title: "Find Shear Modulus from Young's Modulus"
+exam: exam-i
 skills: [Elasticity, Material Properties]
 -->
 
@@ -48,6 +50,7 @@ $$
 id: solid-mechanics-13
 note: engineering-solid-mechanics
 title: "Compute a Traction Vector"
+exam: exam-i
 skills: [Stress Tensor, Traction]
 -->
 
@@ -76,6 +79,7 @@ The normal component is $60\ \text{MPa}$ and the in-plane shear component is $20
 id: solid-mechanics-14
 note: engineering-solid-mechanics
 title: "Convert Tensor Shear Strain"
+exam: exam-i
 skills: [Strain Tensor, Engineering Shear Strain]
 -->
 
@@ -93,6 +97,7 @@ $$
 id: solid-mechanics-15
 note: engineering-solid-mechanics
 title: "Check a von Mises Stress"
+exam: exam-i
 skills: [Yield Criteria, von Mises Stress]
 -->
 

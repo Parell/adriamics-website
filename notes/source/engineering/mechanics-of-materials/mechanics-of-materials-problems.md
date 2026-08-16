@@ -2,6 +2,7 @@
 id: mechanics-of-materials-11
 note: engineering-mechanics-of-materials
 title: "Compute the Normal Stress in a Tension Member"
+exam: exam-i
 skills: [Normal Stress, Axial Loading]
 -->
 
@@ -33,6 +34,7 @@ $$
 id: mechanics-of-materials-12
 note: engineering-mechanics-of-materials
 title: "Find Engineering Strain from Elongation"
+exam: exam-i
 skills: [Strain, Deformation]
 -->
 
@@ -64,6 +66,7 @@ $$
 id: mechanics-of-materials-13
 note: engineering-mechanics-of-materials
 title: "Use Hooke's Law for a Linear Elastic Material"
+exam: exam-i
 skills: [Hooke's Law, Stress-Strain]
 -->
 
@@ -100,6 +103,7 @@ $$
 id: mechanics-of-materials-14
 note: engineering-mechanics-of-materials
 title: "Compute Free Thermal Expansion"
+exam: exam-i
 skills: [Thermal Strain, Expansion]
 -->
 
@@ -139,6 +143,7 @@ $$
 id: mechanics-of-materials-15
 note: engineering-mechanics-of-materials
 title: "Find the Maximum Shear Stress in a Circular Shaft"
+exam: exam-i
 skills: [Torsion, Shear Stress]
 -->
 
@@ -174,6 +179,7 @@ $$
 id: mechanics-of-materials-16
 note: engineering-mechanics-of-materials
 title: "Compute the Angle of Twist"
+exam: exam-i
 skills: [Angle of Twist, Torsion]
 -->
 
@@ -221,6 +227,7 @@ $$
 id: mechanics-of-materials-17
 note: engineering-mechanics-of-materials
 title: "Find the Maximum Bending Stress in a Rectangle"
+exam: exam-i
 skills: [Bending Stress, Section Properties]
 -->
 
@@ -271,6 +278,7 @@ $$
 id: mechanics-of-materials-18
 note: engineering-mechanics-of-materials
 title: "Compute Maximum Beam Shear Stress in a Rectangle"
+exam: exam-i
 skills: [Beam Shear Stress, Shear Force]
 -->
 
@@ -309,6 +317,7 @@ $$
 id: mechanics-of-materials-19
 note: engineering-mechanics-of-materials
 title: "Interpret a Concentrated Load in a Shear Diagram"
+exam: exam-i
 skills: [Internal Force Resultants, Shear Diagrams]
 -->
 
@@ -333,6 +342,7 @@ at that point.
 id: mechanics-of-materials-110
 note: engineering-mechanics-of-materials
 title: "Find the Euler Buckling Load"
+exam: exam-i
 skills: [Euler Buckling, Columns]
 -->
 
@@ -372,6 +382,7 @@ $$
 id: mechanics-of-materials-21
 note: engineering-mechanics-of-materials
 title: "Sum the Elongation of a Two-Segment Bar"
+exam: exam-ii
 skills: [Axial Deformation, Piecewise Segments]
 -->
 
@@ -410,6 +421,7 @@ $$
 id: mechanics-of-materials-22
 note: engineering-mechanics-of-materials
 title: "Analyze a Stepped Bar with Constant Axial Force"
+exam: exam-ii
 skills: [Axial Stress, Piecewise Segments, Deformation]
 -->
 
@@ -471,6 +483,7 @@ $$
 id: mechanics-of-materials-23
 note: engineering-mechanics-of-materials
 title: "Find the Stress from a Fully Restrained Temperature Rise"
+exam: exam-ii
 skills: [Thermal Stress, Constrained Expansion]
 -->
 
@@ -508,6 +521,7 @@ Because the bar is prevented from expanding, the stress is compressive.
 id: mechanics-of-materials-24
 note: engineering-mechanics-of-materials
 title: "Share Load Between Parallel Bars"
+exam: exam-ii
 skills: [Parallel Members, Compatibility, Stiffness]
 -->
 
@@ -556,6 +570,7 @@ $$
 id: mechanics-of-materials-25
 note: engineering-mechanics-of-materials
 title: "Find Principal Stresses from a Plane Stress State"
+exam: exam-ii
 skills: [Stress Transformation, Principal Stress, Mohr's Circle]
 -->
 
@@ -607,6 +622,7 @@ $$
 id: mechanics-of-materials-26
 note: engineering-mechanics-of-materials
 title: "Transform Stress to a Rotated Plane"
+exam: exam-ii
 skills: [Stress Transformation, Rotated Planes]
 -->
 
@@ -657,6 +673,7 @@ The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress
 id: mechanics-of-materials-27
 note: engineering-mechanics-of-materials
 title: "Use the Beam Shear Formula on a Rectangular Section"
+exam: exam-ii
 skills: [Beam Shear Stress, Shear Formula]
 -->
 
@@ -713,6 +730,7 @@ $$
 id: mechanics-of-materials-31
 note: engineering-mechanics-of-materials
 title: "Integrate the Deflection of a Cantilever"
+exam: final
 skills: [Beam Deflection, Integration]
 -->
 
@@ -775,6 +793,7 @@ So the tip deflection is about $6.7\ \text{mm}$ downward.
 id: mechanics-of-materials-32
 note: engineering-mechanics-of-materials
 title: "Convert Power to Shaft Diameter"
+exam: final
 skills: [Power Transmission, Torsion, Shaft Design]
 -->
 
@@ -829,6 +848,7 @@ $$
 id: mechanics-of-materials-33
 note: engineering-mechanics-of-materials
 title: "Combine Axial Load and Bending"
+exam: final
 skills: [Combined Loading, Axial Stress, Bending Stress]
 -->
 
@@ -893,6 +913,7 @@ So the top fiber is more highly compressed, and the bottom fiber is in tension.
 id: mechanics-of-materials-34
 note: engineering-mechanics-of-materials
 title: "Decide Which Column Failure Mode Governs"
+exam: final
 skills: [Euler Buckling, Yielding, Design Check]
 -->
 
@@ -943,6 +964,7 @@ Since $27.6\ \text{kN} < 314\ \text{kN}$, Euler buckling governs.
 id: mechanics-of-materials-35
 note: engineering-mechanics-of-materials
 title: "Check a Plane Stress State with von Mises"
+exam: final
 skills: [von Mises, Failure Criterion, Plane Stress]
 -->
 
@@ -983,6 +1005,7 @@ The part is just barely safe.
 id: mechanics-of-materials-41
 note: engineering-mechanics-of-materials
 title: "Include a Stress Concentration in a Torsion Design Check"
+exam: final
 skills: [Stress Concentration, Torsion, Design Check]
 -->
 
@@ -1031,6 +1054,7 @@ $$
 id: mechanics-of-materials-42
 note: engineering-mechanics-of-materials
 title: "Solve a Thermal-Indeterminate Parallel-Bar System"
+exam: final
 skills: [Thermal Stress, Parallel Members, Compatibility]
 -->
 
@@ -1112,6 +1136,7 @@ So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries ab
 id: mechanics-of-materials-43
 note: engineering-mechanics-of-materials
 title: "Check a Shaft in Combined Bending and Torsion"
+exam: final
 skills: [Combined Loading, Torsion, Failure Criterion]
 -->
 
@@ -1170,6 +1195,7 @@ Since $24.8\ \text{MPa} < 40\ \text{MPa}$, the shaft is safe by the von Mises cr
 id: mechanics-of-materials-44
 note: engineering-mechanics-of-materials
 title: "Apply Goodman Fatigue Design"
+exam: final
 skills: [Fatigue, Goodman Diagram, Design Check]
 -->
 
@@ -1213,6 +1239,7 @@ $$
 id: mechanics-of-materials-45
 note: engineering-mechanics-of-materials
 title: "Check an Eccentrically Loaded Column"
+exam: final
 skills: [Combined Loading, Euler Buckling, Design Check]
 -->
 

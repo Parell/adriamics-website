@@ -2,6 +2,7 @@
 id: heat-transfer-11
 note: engineering-heat-transfer
 title: "Identify the Dominant Heat-Transfer Mode"
+exam: exam-i
 skills: [Three Modes, Heat Transfer Basics]
 -->
 
@@ -23,6 +24,7 @@ The dominant modes are:
 id: heat-transfer-12
 note: engineering-heat-transfer
 title: "Compute Heat Flow Through a Plane Wall"
+exam: exam-i
 skills: [Conduction, Fourier's Law]
 -->
 
@@ -52,6 +54,7 @@ $$
 id: heat-transfer-13
 note: engineering-heat-transfer
 title: "Find a Conduction Resistance"
+exam: exam-i
 skills: [Conduction, Thermal Resistance]
 -->
 
@@ -83,6 +86,7 @@ $$
 id: heat-transfer-14
 note: engineering-heat-transfer
 title: "Use Newton's Law of Cooling"
+exam: exam-i
 skills: [Convection, Newton's Law of Cooling]
 -->
 
@@ -112,6 +116,7 @@ $$
 id: heat-transfer-15
 note: engineering-heat-transfer
 title: "Find a Convection Resistance"
+exam: exam-i
 skills: [Convection, Thermal Resistance]
 -->
 
@@ -143,6 +148,7 @@ $$
 id: heat-transfer-16
 note: engineering-heat-transfer
 title: "Evaluate Linearized Radiation Loss"
+exam: exam-i
 skills: [Radiation, Linearized Radiation]
 -->
 
@@ -172,6 +178,7 @@ $$
 id: heat-transfer-17
 note: engineering-heat-transfer
 title: "Compute Heat Generated in a Solid"
+exam: exam-i
 skills: [Heat Generation, Volume]
 -->
 
@@ -197,6 +204,7 @@ $$
 id: heat-transfer-18
 note: engineering-heat-transfer
 title: "Add Resistances in Series"
+exam: exam-i
 skills: [Thermal Resistance, Series Networks]
 -->
 
@@ -226,6 +234,7 @@ $$
 id: heat-transfer-19
 note: engineering-heat-transfer
 title: "Use Reciprocity for a View Factor"
+exam: exam-i
 skills: [Radiation, View Factors]
 -->
 
@@ -255,6 +264,7 @@ $$
 id: heat-transfer-110
 note: engineering-heat-transfer
 title: "Compute a Biot Number"
+exam: exam-i
 skills: [Biot Number, Lumped Capacitance]
 -->
 
@@ -282,6 +292,7 @@ Since $Bi \ll 0.1$, the lumped-capacitance approximation is reasonable.
 id: heat-transfer-21
 note: engineering-heat-transfer
 title: "Steady Heat Loss Through a Composite Wall"
+exam: exam-ii
 skills: [Composite Walls, Convection, Thermal Resistance]
 -->
 
@@ -325,6 +336,7 @@ $$
 id: heat-transfer-22
 note: engineering-heat-transfer
 title: "Heat Flow Through Cylindrical Insulation"
+exam: exam-ii
 skills: [Cylindrical Conduction, Thermal Resistance]
 -->
 
@@ -356,6 +368,7 @@ $$
 id: heat-transfer-23
 note: engineering-heat-transfer
 title: "Track Interface Temperatures in a Resistance Network"
+exam: exam-ii
 skills: [Contact Resistance, Thermal Resistance]
 -->
 
@@ -403,6 +416,7 @@ $$
 id: heat-transfer-24
 note: engineering-heat-transfer
 title: "Lumped Cooling After a Fixed Time"
+exam: exam-ii
 skills: [Transient Heat Transfer, Lumped Capacitance]
 -->
 
@@ -448,6 +462,7 @@ $$
 id: heat-transfer-25
 note: engineering-heat-transfer
 title: "Cold-Stream Outlet Temperature in a Heat Exchanger"
+exam: exam-ii
 skills: [Heat Exchangers, Energy Balance]
 -->
 
@@ -493,6 +508,7 @@ $$
 id: heat-transfer-26
 note: engineering-heat-transfer
 title: "Required Area from LMTD"
+exam: exam-ii
 skills: [Heat Exchangers, LMTD]
 -->
 
@@ -558,6 +574,7 @@ $$
 id: heat-transfer-27
 note: engineering-heat-transfer
 title: "Recover a Heat Transfer Coefficient from Nusselt Number"
+exam: exam-ii
 skills: [Nusselt Number, Convection]
 -->
 
@@ -589,6 +606,7 @@ $$
 id: heat-transfer-28
 note: engineering-heat-transfer
 title: "Compute Reynolds and Prandtl Numbers"
+exam: exam-ii
 skills: [Reynolds Number, Prandtl Number]
 -->
 
@@ -628,6 +646,7 @@ A large Reynolds number suggests inertia effects are strong and turbulence is mo
 id: heat-transfer-31
 note: engineering-heat-transfer
 title: "Heat Loss Through a Layered Wall in a Room"
+exam: final
 skills: [Composite Walls, Convection, Thermal Resistance]
 -->
 
@@ -665,6 +684,7 @@ $$
 id: heat-transfer-32
 note: engineering-heat-transfer
 title: "Decide Whether Added Pipe Insulation Helps"
+exam: final
 skills: [Critical Radius, Cylindrical Conduction]
 -->
 
@@ -692,6 +712,7 @@ Because the current radius $0.015\ \text{m}$ is smaller than the critical radius
 id: heat-transfer-33
 note: engineering-heat-transfer
 title: "Combine Convection and Radiation"
+exam: final
 skills: [Radiation, Convection, Thermal Resistance]
 -->
 
@@ -721,6 +742,7 @@ $$
 id: heat-transfer-34
 note: engineering-heat-transfer
 title: "Time to Reach a Target Temperature"
+exam: final
 skills: [Transient Heat Transfer, Lumped Capacitance]
 -->
 
@@ -764,6 +786,7 @@ $$
 id: heat-transfer-35
 note: engineering-heat-transfer
 title: "Heat Flow Through a Bolted Joint with Contact Resistance"
+exam: final
 skills: [Contact Resistance, Thermal Resistance, Composite Systems]
 -->
 
@@ -797,6 +820,7 @@ $$
 id: heat-transfer-41
 note: engineering-heat-transfer
 title: "Reduce a Network with Parallel Paths"
+exam: final
 skills: [Parallel Networks, Thermal Resistance]
 -->
 
@@ -838,6 +862,7 @@ $$
 id: heat-transfer-42
 note: engineering-heat-transfer
 title: "Check Lumped Validity and Predict Cooling"
+exam: final
 skills: [Biot Number, Lumped Capacitance, Transient Heat Transfer]
 -->
 
@@ -879,6 +904,7 @@ $$
 id: heat-transfer-43
 note: engineering-heat-transfer
 title: "Design a Counterflow Exchanger Area"
+exam: final
 skills: [Heat Exchangers, LMTD, Energy Balance]
 -->
 
@@ -924,6 +950,7 @@ $$
 id: heat-transfer-44
 note: engineering-heat-transfer
 title: "Write the Governing Model for Radiation Cooling"
+exam: final
 skills: [Radiation, Lumped Capacitance, Problem-Solving Workflow]
 -->
 

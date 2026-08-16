@@ -2,6 +2,7 @@
 id: second-order-odes-11
 note: math-second-order-odes
 title: "Classify a Second-Order ODE"
+exam: exam-i
 skills: [Classification, Standard Form]
 -->
 
@@ -25,6 +26,7 @@ It has constant coefficients because \(1\), \(3\), and \(-4\) are constants.
 id: second-order-odes-12
 note: math-second-order-odes
 title: "Write in Normalized Form"
+exam: exam-i
 skills: [Standard Form, Linear Equations]
 -->
 
@@ -52,6 +54,7 @@ $$
 id: second-order-odes-13
 note: math-second-order-odes
 title: "Check Existence and Uniqueness"
+exam: exam-i
 skills: [Existence and Uniqueness, Initial Conditions]
 -->
 
@@ -77,6 +80,7 @@ Therefore the theorem guarantees a unique local solution near \(x=0\).
 id: second-order-odes-14
 note: math-second-order-odes
 title: "Solve a Distinct-Root Homogeneous Equation"
+exam: exam-i
 skills: [Characteristic Equation, Distinct Roots]
 -->
 
@@ -110,6 +114,7 @@ $$
 id: second-order-odes-15
 note: math-second-order-odes
 title: "Solve a Repeated-Root Equation"
+exam: exam-i
 skills: [Characteristic Equation, Repeated Roots]
 -->
 
@@ -137,6 +142,7 @@ $$
 id: second-order-odes-16
 note: math-second-order-odes
 title: "Solve a Complex-Root Equation"
+exam: exam-i
 skills: [Characteristic Equation, Complex Roots]
 -->
 
@@ -170,6 +176,7 @@ $$
 id: second-order-odes-17
 note: math-second-order-odes
 title: "Choose a Resonant Trial"
+exam: exam-i
 skills: [Undetermined Coefficients, Resonance]
 -->
 
@@ -199,6 +206,7 @@ $$
 id: second-order-odes-18
 note: math-second-order-odes
 title: "Solve an Euler-Cauchy Equation"
+exam: exam-i
 skills: [Euler-Cauchy Equations, Power Trial]
 -->
 
@@ -244,6 +252,7 @@ $$
 id: second-order-odes-19
 note: math-second-order-odes
 title: "Compute a Wronskian"
+exam: exam-i
 skills: [Wronskian, Linear Independence]
 -->
 
@@ -284,6 +293,7 @@ On any interval that does not include \(0\), the functions are linearly independ
 id: second-order-odes-110
 note: math-second-order-odes
 title: "Find the Natural Frequency and Damping Ratio"
+exam: exam-i
 skills: [Mechanical Models, Damping Ratio]
 -->
 
@@ -315,6 +325,7 @@ Since \(\zeta=1\), the system is critically damped.
 id: second-order-odes-21
 note: math-second-order-odes
 title: "Solve an Initial Value Problem"
+exam: exam-ii
 skills: [Characteristic Equation, Initial Value Problems]
 -->
 
@@ -372,6 +383,7 @@ $$
 id: second-order-odes-22
 note: math-second-order-odes
 title: "Solve a Resonant Forced Equation"
+exam: exam-ii
 skills: [Undetermined Coefficients, Resonance]
 -->
 
@@ -441,6 +453,7 @@ $$
 id: second-order-odes-23
 note: math-second-order-odes
 title: "Solve an Euler-Cauchy Initial Value Problem"
+exam: exam-ii
 skills: [Euler-Cauchy Equations, Initial Value Problems]
 -->
 
@@ -498,6 +511,7 @@ $$
 id: second-order-odes-24
 note: math-second-order-odes
 title: "Use a Known Solution to Finish the General Solution"
+exam: exam-ii
 skills: [Reduction of Order, Euler-Cauchy Equations]
 -->
 
@@ -521,6 +535,7 @@ $$
 id: second-order-odes-25
 note: math-second-order-odes
 title: "Analyze a Boundary Value Problem"
+exam: exam-ii
 skills: [Boundary Value Problems, Complex Roots]
 -->
 
@@ -574,6 +589,7 @@ $$
 id: second-order-odes-26
 note: math-second-order-odes
 title: "Solve a Critically Damped Motion Problem"
+exam: exam-ii
 skills: [Mechanical Models, Critical Damping]
 -->
 
@@ -635,6 +651,7 @@ Because the root is repeated, the motion is critically damped.
 id: second-order-odes-27
 note: math-second-order-odes
 title: "Find the Steady-State Response"
+exam: exam-ii
 skills: [Forced Vibration, Undetermined Coefficients]
 -->
 
@@ -680,6 +697,7 @@ $$
 id: second-order-odes-28
 note: math-second-order-odes
 title: "Find the Interval of Guaranteed Uniqueness"
+exam: exam-ii
 skills: [Existence and Uniqueness, Standard Form]
 -->
 
@@ -711,6 +729,7 @@ That is the largest open interval containing \(x=2\) on which a unique local sol
 id: second-order-odes-31
 note: math-second-order-odes
 title: "Model a Simple Mass-Spring Motion"
+exam: final
 skills: [Mechanical Models, Harmonic Motion]
 -->
 
@@ -780,6 +799,7 @@ $$
 id: second-order-odes-32
 note: math-second-order-odes
 title: "Solve a Critically Damped IVP"
+exam: final
 skills: [Mechanical Models, Critical Damping]
 -->
 
@@ -833,6 +853,7 @@ $$
 id: second-order-odes-33
 note: math-second-order-odes
 title: "Find a Particular Solution for Forced Oscillation"
+exam: final
 skills: [Forced Vibration, Undetermined Coefficients]
 -->
 
@@ -872,6 +893,7 @@ $$
 id: second-order-odes-34
 note: math-second-order-odes
 title: "A Boundary Value Problem with a Unique Solution"
+exam: final
 skills: [Boundary Value Problems, Linear Independence]
 -->
 
@@ -917,6 +939,7 @@ $$
 id: second-order-odes-35
 note: math-second-order-odes
 title: "Predict Long-Term Behavior from Roots"
+exam: final
 skills: [Characteristic Roots, Long-Term Behavior]
 -->
 
@@ -948,6 +971,7 @@ So a generic solution grows without bound, and the equilibrium is unstable unles
 id: second-order-odes-41
 note: math-second-order-odes
 title: "Solve a Resonant Forced Problem"
+exam: final
 skills: [Undetermined Coefficients, Resonance]
 -->
 
@@ -1011,6 +1035,7 @@ $$
 id: second-order-odes-42
 note: math-second-order-odes
 title: "Solve a Damped Forced Oscillator"
+exam: final
 skills: [Damped Vibration, Forced Vibration]
 -->
 
@@ -1110,6 +1135,7 @@ $$
 id: second-order-odes-43
 note: math-second-order-odes
 title: "Solve an Euler-Cauchy Boundary Value Problem"
+exam: final
 skills: [Euler-Cauchy Equations, Boundary Value Problems]
 -->
 
@@ -1167,6 +1193,7 @@ $$
 id: second-order-odes-44
 note: math-second-order-odes
 title: "Use Variation of Parameters"
+exam: final
 skills: [Variation of Parameters, Wronskian]
 -->
 

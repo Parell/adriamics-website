@@ -2,6 +2,7 @@
 id: multiple-integrals-11
 note: math-multiple-integrals
 title: "Evaluate a Rectangle Integral"
+exam: exam-i
 skills: [Iterated Integrals]
 -->
 
@@ -15,6 +16,7 @@ Integrating in $y$ gives $2x+2$. Integrating from $0$ to $1$ gives $3$.
 id: multiple-integrals-12
 note: math-multiple-integrals
 title: "Compute an Average Value"
+exam: exam-i
 skills: [Average Value, Double Integrals]
 -->
 
@@ -28,6 +30,7 @@ $\iint_{[0,1]^2}(x+y)\,dA=1$, and the area is $1$, so the average is $1$.
 id: multiple-integrals-21
 note: math-multiple-integrals
 title: "Use a Polar Jacobian"
+exam: exam-ii
 skills: [Polar Coordinates, Jacobian]
 -->
 
@@ -41,6 +44,7 @@ The bounds are $0\le r\le2$ and $0\le\theta\le2\pi$, so the area is $\int_0^{2\p
 id: multiple-integrals-22
 note: math-multiple-integrals
 title: "Set Up a Mass Integral"
+exam: exam-ii
 skills: [Density, Double Integrals]
 -->
 
@@ -54,6 +58,7 @@ $m=\int_0^2\int_0^1(x+y)\,dy\,dx$.
 id: multiple-integrals-31
 note: math-multiple-integrals
 title: "Choose Spherical Bounds"
+exam: final
 skills: [Spherical Coordinates, Volume Integrals]
 -->
 
@@ -67,6 +72,7 @@ $\int_0^{2\pi}\int_0^\pi\int_0^a \rho^2\sin\phi\,d\rho\,d\phi\,d\theta$.
 id: multiple-integrals-41
 note: math-multiple-integrals
 title: "Reverse an Iterated Integral"
+exam: final
 skills: [Changing Order, Region Bounds]
 -->
 

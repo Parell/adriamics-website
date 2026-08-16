@@ -2,6 +2,7 @@
 id: statistics-11
 note: math-statistics
 title: "Identify the Population and Sample"
+exam: exam-i
 skills: [Population, Sample]
 -->
 
@@ -17,6 +18,7 @@ The **sample** is the subset actually observed: the 120 first-year students who 
 id: statistics-12
 note: math-statistics
 title: "Classify the Variable"
+exam: exam-i
 skills: [Variable Types, Discrete and Continuous]
 -->
 
@@ -38,6 +40,7 @@ Classify each variable as categorical, ordinal, or quantitative. If it is quanti
 id: statistics-13
 note: math-statistics
 title: "Match the Measurement Scale"
+exam: exam-i
 skills: [Measurement Scales]
 -->
 
@@ -59,6 +62,7 @@ State the measurement scale for each variable: nominal, ordinal, interval, or ra
 id: statistics-14
 note: math-statistics
 title: "Choose Mean or Median"
+exam: exam-i
 skills: [Mean, Median, Outliers]
 -->
 
@@ -90,6 +94,7 @@ The value $40$ is an outlier compared with the rest of the data, so the **median
 id: statistics-15
 note: math-statistics
 title: "Find the Interquartile Range"
+exam: exam-i
 skills: [Quartiles, Interquartile Range]
 -->
 
@@ -119,6 +124,7 @@ $$
 id: statistics-16
 note: math-statistics
 title: "Compute a Z-Score"
+exam: exam-i
 skills: [Z-scores, Standard Deviation]
 -->
 
@@ -144,6 +150,7 @@ The score is 2 standard deviations above the mean.
 id: statistics-17
 note: math-statistics
 title: "Use the Complement Rule"
+exam: exam-i
 skills: [Complement Rule, Probability]
 -->
 
@@ -167,6 +174,7 @@ $$
 id: statistics-18
 note: math-statistics
 title: "Apply Conditional Probability"
+exam: exam-i
 skills: [Conditional Probability, Probability]
 -->
 
@@ -192,6 +200,7 @@ So the probability is $0.25$.
 id: statistics-19
 note: math-statistics
 title: "Check Independence"
+exam: exam-i
 skills: [Independence, Probability]
 -->
 
@@ -217,6 +226,7 @@ This matches $P(A \cap B)$, so the events are **independent**.
 id: statistics-110
 note: math-statistics
 title: "Standardize a Normal Value"
+exam: exam-i
 skills: [Normal Distribution, Standardization]
 -->
 
@@ -242,6 +252,7 @@ So the z-score is $2$.
 id: statistics-21
 note: math-statistics
 title: "Find the Mean and Median"
+exam: exam-ii
 skills: [Mean, Median, Outliers]
 -->
 
@@ -273,6 +284,7 @@ The value $10$ pulls the mean upward, so the **median** is more resistant to the
 id: statistics-22
 note: math-statistics
 title: "Compute the Sample Standard Deviation"
+exam: exam-ii
 skills: [Variance, Standard Deviation]
 -->
 
@@ -316,6 +328,7 @@ So the sample standard deviation is $\sqrt{20/3}$, about $2.58$.
 id: statistics-23
 note: math-statistics
 title: "Find an Exact Binomial Probability"
+exam: exam-ii
 skills: [Binomial Distribution, Probability]
 -->
 
@@ -341,6 +354,7 @@ So the probability is about $0.360$.
 id: statistics-24
 note: math-statistics
 title: "Compare Two Standardized Scores"
+exam: exam-ii
 skills: [Normal Distribution, Standardization, Z-scores]
 -->
 
@@ -373,6 +387,7 @@ The two values have the same z-score, so they are **equally unusual** relative t
 id: statistics-25
 note: math-statistics
 title: "Use Standard Error and the CLT"
+exam: exam-ii
 skills: [Sampling Distributions, Standard Error, Central Limit Theorem]
 -->
 
@@ -404,6 +419,7 @@ So the standard error gets smaller as the sample size increases. This matches th
 id: statistics-26
 note: math-statistics
 title: "Construct a Confidence Interval"
+exam: exam-ii
 skills: [Confidence Intervals, Interpretation]
 -->
 
@@ -435,6 +451,7 @@ This means the method produces intervals that would capture the true parameter a
 id: statistics-27
 note: math-statistics
 title: "Compute a One-Sample t Statistic"
+exam: exam-ii
 skills: [Hypothesis Testing, Test Statistic]
 -->
 
@@ -460,6 +477,7 @@ Since the p-value is about $0.11$, and $0.11 > 0.05$, you **fail to reject** $H_
 id: statistics-28
 note: math-statistics
 title: "Interpret a Linear Regression Model"
+exam: exam-ii
 skills: [Simple Linear Regression, Residuals]
 -->
 
@@ -491,6 +509,7 @@ The slope is $3$, so each 1-unit increase in $x$ is associated with an increase 
 id: statistics-31
 note: math-statistics
 title: "Choose a Summary for Skewed Data"
+exam: final
 skills: [Median, IQR, Outliers]
 -->
 
@@ -506,6 +525,7 @@ The data are skewed by a few large orders, so the mean would be pulled upward an
 id: statistics-32
 note: math-statistics
 title: "Model a Count with Poisson"
+exam: final
 skills: [Poisson Distribution, Applied Probability]
 -->
 
@@ -531,6 +551,7 @@ $$
 id: statistics-33
 note: math-statistics
 title: "Use the CLT for a Sample Mean"
+exam: final
 skills: [Central Limit Theorem, Sampling Distributions]
 -->
 
@@ -558,6 +579,7 @@ So the sampling distribution is approximately normal with mean $50$ and standard
 id: statistics-34
 note: math-statistics
 title: "Test a Population Proportion"
+exam: final
 skills: [Hypothesis Testing, One-Sample Proportion]
 -->
 
@@ -601,6 +623,7 @@ That is enough evidence to reject the null at the $5\%$ level, so the sample sug
 id: statistics-35
 note: math-statistics
 title: "Compute a Chi-Square Goodness-of-Fit Statistic"
+exam: final
 skills: [Chi-Square, Categorical Data]
 -->
 
@@ -640,6 +663,7 @@ So the chi-square statistic is $0.4$.
 id: statistics-41
 note: math-statistics
 title: "Plan a Simple Statistical Workflow"
+exam: final
 skills: [Workflow, Bias, Outliers]
 -->
 
@@ -662,6 +686,7 @@ Because of these issues, the hospital should be cautious about generalizing the 
 id: statistics-42
 note: math-statistics
 title: "Choose a Nonparametric Method"
+exam: final
 skills: [Nonparametric Methods, Ordinal Data]
 -->
 
@@ -677,6 +702,7 @@ The data are paired and ordinal, but the differences are skewed and include an o
 id: statistics-43
 note: math-statistics
 title: "Interpret Correlation and Regression Together"
+exam: final
 skills: [Correlation, Regression, Residuals]
 -->
 
@@ -714,6 +740,7 @@ One important caution is that correlation does not imply causation, so the model
 id: statistics-44
 note: math-statistics
 title: "Spot Confounding and Correlation Pitfalls"
+exam: final
 skills: [Confounding, Correlation, Bias]
 -->
 

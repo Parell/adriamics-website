@@ -2,6 +2,7 @@
 id: embedded-systems-11
 note: engineering-embedded-systems
 title: "Compute an ADC Step"
+exam: exam-i
 skills: [ADC, Quantization]
 -->
 
@@ -17,6 +18,7 @@ $$
 id: embedded-systems-12
 note: engineering-embedded-systems
 title: "Choose a Sampling Rate"
+exam: exam-i
 skills: [Sampling, Nyquist]
 -->
 
@@ -34,6 +36,7 @@ Practical designs usually sample faster to allow an anti-alias filter transition
 id: embedded-systems-13
 note: engineering-embedded-systems
 title: "Calculate PWM Average"
+exam: exam-i
 skills: [PWM, Duty cycle]
 -->
 
@@ -49,6 +52,7 @@ $$
 id: embedded-systems-14
 note: engineering-embedded-systems
 title: "Find a Timer Period"
+exam: exam-i
 skills: [Timers, Clocking]
 -->
 
@@ -64,6 +68,7 @@ $$
 id: embedded-systems-15
 note: engineering-embedded-systems
 title: "Estimate Task Utilization"
+exam: exam-i
 skills: [Real-time systems, Scheduling]
 -->
 
@@ -81,6 +86,7 @@ The task uses an estimated $10\%$ of the processor before accounting for interru
 id: embedded-systems-16
 note: engineering-embedded-systems
 title: "Distinguish Volatile from Atomic"
+exam: exam-i
 skills: [Interrupts, Concurrency]
 -->
 
@@ -94,6 +100,7 @@ Why is declaring a shared variable `volatile` not enough to make an increment sa
 id: embedded-systems-17
 note: engineering-embedded-systems
 title: "Select a Protocol Property"
+exam: exam-i
 skills: [Communication protocols, UART]
 -->
 
@@ -107,6 +114,7 @@ No. UART defines electrical signaling and an asynchronous character frame, but a
 id: embedded-systems-18
 note: engineering-embedded-systems
 title: "Identify a Useful Test"
+exam: exam-i
 skills: [Embedded testing, Fault injection]
 -->
 

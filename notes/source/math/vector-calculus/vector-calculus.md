@@ -87,8 +87,6 @@ The operator $\nabla$ is not a vector of numbers. It is a compact instruction fo
       </dl>
     </div>
   </div>
-  <noscript><p class="vector-calculus-gradient__fallback">JavaScript is disabled. For a point P=(x,y), the gradient is ∇f=⟨x,2y⟩ for ½x²+y² and ∇f=⟨y,x⟩ for xy; the directional derivative is ∇f·â.</p></noscript>
-  <p class="vector-calculus-gradient__fallback" data-gradient-fallback hidden>The interactive could not load, but the formulas are still available: ∇f=⟨x,2y⟩ for ½x²+y² and ∇f=⟨y,x⟩ for xy; D<sub>â</sub>f=∇f·â.</p>
 </section>
 
 <section class="vector-calculus-vector-field" data-interactive="vector-calculus-vector-field-3d" aria-labelledby="vector-field-explorer-title">
@@ -108,10 +106,8 @@ The operator $\nabla$ is not a vector of numbers. It is a compact instruction fo
         <output for="vector-field-scale" data-vector-field-scale-value>0.40</output>
       </div>
       <p class="vector-calculus-vector-field__formula" data-vector-field-formula>Horizontal rotation around the z-axis.</p>
-      <p class="vector-calculus-vector-field__fallback" data-vector-field-fallback hidden>JavaScript or JSXGraph is unavailable. The field is F=⟨−y,x,0⟩, or choose the radial field F=⟨x,y,z⟩.</p>
     </div>
   </div>
-  <noscript><p class="vector-calculus-vector-field__fallback">JavaScript is disabled. A vector field assigns a vector to each point in space; here F=⟨−y,x,0⟩ rotates around the z-axis.</p></noscript>
 </section>
 
 ---

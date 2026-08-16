@@ -2,6 +2,7 @@
 id: eigenvalues-11
 note: math-eigenvalues
 title: "Check an Eigenvector"
+exam: exam-i
 skills: [Eigenvectors, Core Idea]
 -->
 
@@ -69,6 +70,7 @@ $v$ is an eigenvector and the eigenvalue is $2$.
 id: eigenvalues-12
 note: math-eigenvalues
 title: "Read Eigenvalues from a Triangular Matrix"
+exam: exam-i
 skills: [Triangular Matrices, Eigenvalues]
 -->
 
@@ -97,6 +99,7 @@ $$
 id: eigenvalues-13
 note: math-eigenvalues
 title: "Solve a Characteristic Equation"
+exam: exam-i
 skills: [Characteristic Equation, Factoring]
 -->
 
@@ -153,6 +156,7 @@ $$
 id: eigenvalues-14
 note: math-eigenvalues
 title: "Find an Eigenspace"
+exam: exam-i
 skills: [Eigenspaces, Null Space]
 -->
 
@@ -221,6 +225,7 @@ $$
 id: eigenvalues-15
 note: math-eigenvalues
 title: "Use Trace to Find the Missing Eigenvalue"
+exam: exam-i
 skills: [Trace, Eigenvalues]
 -->
 
@@ -246,6 +251,7 @@ $$
 id: eigenvalues-16
 note: math-eigenvalues
 title: "Decide Whether a Matrix Is Invertible"
+exam: exam-i
 skills: [Invertibility, Eigenvalues]
 -->
 
@@ -263,6 +269,7 @@ Since $0$ is one of the eigenvalues here, the matrix is not invertible.
 id: eigenvalues-17
 note: math-eigenvalues
 title: "Identify Algebraic Multiplicity"
+exam: exam-i
 skills: [Multiplicity, Characteristic Polynomial]
 -->
 
@@ -284,6 +291,7 @@ Since $(\lambda - 2)$ appears three times, the algebraic multiplicity of $2$ is 
 id: eigenvalues-18
 note: math-eigenvalues
 title: "Use a Projection Matrix"
+exam: exam-i
 skills: [Projection Matrices, Special Matrices]
 -->
 
@@ -329,6 +337,7 @@ $$
 id: eigenvalues-19
 note: math-eigenvalues
 title: "Find the Eigenvalues of a Rotation Matrix"
+exam: exam-i
 skills: [Complex Eigenvalues, Real Matrices]
 -->
 
@@ -375,6 +384,7 @@ $$
 id: eigenvalues-110
 note: math-eigenvalues
 title: "Compute Eigenvalues of a 2x2 Matrix"
+exam: exam-i
 skills: [Characteristic Equation, 2x2 Formula]
 -->
 
@@ -425,6 +435,7 @@ $$
 id: eigenvalues-21
 note: math-eigenvalues
 title: "Find Eigenvectors for Both Eigenvalues"
+exam: exam-ii
 skills: [Eigenvectors, Eigenspaces, Characteristic Equation]
 -->
 
@@ -490,6 +501,7 @@ $$
 id: eigenvalues-22
 note: math-eigenvalues
 title: "Compare Multiplicities"
+exam: exam-ii
 skills: [Multiplicity, Eigenspaces]
 -->
 
@@ -565,6 +577,7 @@ Therefore the geometric multiplicity is $1$.
 id: eigenvalues-23
 note: math-eigenvalues
 title: "Decide Whether a Matrix Is Diagonalizable"
+exam: exam-ii
 skills: [Diagonalization, Multiplicity]
 -->
 
@@ -610,6 +623,7 @@ That is not enough independent eigenvectors. The matrix is not diagonalizable.
 id: eigenvalues-24
 note: math-eigenvalues
 title: "Build P and D from Eigenpairs"
+exam: exam-ii
 skills: [Diagonalization, Eigenvectors]
 -->
 
@@ -674,6 +688,7 @@ $$
 id: eigenvalues-25
 note: math-eigenvalues
 title: "Use Trace and Determinant to Check Your Work"
+exam: exam-ii
 skills: [Trace, Determinant, Eigenvalues]
 -->
 
@@ -723,6 +738,7 @@ Since the product does not match the determinant, the proposed eigenvalues are n
 id: eigenvalues-26
 note: math-eigenvalues
 title: "Use a Symmetric Matrix"
+exam: exam-ii
 skills: [Symmetric Matrices, Orthogonal Eigenvectors]
 -->
 
@@ -814,6 +830,7 @@ so the eigenvectors are orthogonal.
 id: eigenvalues-27
 note: math-eigenvalues
 title: "Use a Nilpotent Matrix"
+exam: exam-ii
 skills: [Nilpotent Matrices, Eigenvalues]
 -->
 
@@ -853,6 +870,7 @@ $$
 id: eigenvalues-28
 note: math-eigenvalues
 title: "Find Complex Eigenvalues from a Real Matrix"
+exam: exam-ii
 skills: [Complex Eigenvalues, Trace and Determinant, Characteristic Equation]
 -->
 
@@ -914,6 +932,7 @@ $$
 id: eigenvalues-31
 note: math-eigenvalues
 title: "Predict Long-Term Behavior from Eigenvalues"
+exam: final
 skills: [Applications, Dynamical Systems]
 -->
 
@@ -955,6 +974,7 @@ So the component in the $\frac{1}{4}$-direction dies out, while the component in
 id: eigenvalues-32
 note: math-eigenvalues
 title: "Analyze a Differential Equation"
+exam: final
 skills: [Applications, Differential Equations]
 -->
 
@@ -994,6 +1014,7 @@ Thus one mode decays and the other remains neutral.
 id: eigenvalues-33
 note: math-eigenvalues
 title: "Find a Steady-State Eigenvector"
+exam: final
 skills: [Applications, Markov Chains]
 -->
 
@@ -1066,6 +1087,7 @@ $$
 id: eigenvalues-34
 note: math-eigenvalues
 title: "Use Diagonalization to Track Repeated Action"
+exam: final
 skills: [Diagonalization, Applications]
 -->
 
@@ -1109,6 +1131,7 @@ $$
 id: eigenvalues-35
 note: math-eigenvalues
 title: "Identify Principal Directions"
+exam: final
 skills: [Symmetric Matrices, Applications]
 -->
 
@@ -1172,6 +1195,7 @@ $$
 id: eigenvalues-41
 note: math-eigenvalues
 title: "When Is a Triangular Matrix Diagonalizable?"
+exam: final
 skills: [Diagonalization, Multiplicity, Triangular Matrices]
 -->
 
@@ -1219,6 +1243,7 @@ $$
 id: eigenvalues-42
 note: math-eigenvalues
 title: "A Repeated Eigenvalue in Three Dimensions"
+exam: final
 skills: [Multiplicity, Diagonalization, Eigenspaces]
 -->
 
@@ -1266,6 +1291,7 @@ Therefore $B$ is not diagonalizable.
 id: eigenvalues-43
 note: math-eigenvalues
 title: "Use Orthogonality and the Characteristic Equation"
+exam: final
 skills: [Orthogonal Matrices, Complex Eigenvalues, Trace and Determinant]
 -->
 
@@ -1307,6 +1333,7 @@ $$
 id: eigenvalues-44
 note: math-eigenvalues
 title: "Complex Eigenvalues from Trace and Determinant"
+exam: final
 skills: [Complex Eigenvalues, Characteristic Equation, Trace and Determinant]
 -->
 

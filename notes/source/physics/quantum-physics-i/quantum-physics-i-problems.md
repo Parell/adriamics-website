@@ -2,6 +2,7 @@
 id: quantum-physics-i-11
 note: physics-quantum-physics-i
 title: "Find Probability in a Subinterval"
+exam: exam-i
 skills: [Probability Density, Integration]
 -->
 
@@ -33,6 +34,7 @@ So the probability is $\frac{1}{2}$.
 id: quantum-physics-i-12
 note: physics-quantum-physics-i
 title: "Normalize a Uniform Wave Function"
+exam: exam-i
 skills: [Normalization, Wave Functions]
 -->
 
@@ -76,6 +78,7 @@ up to an overall phase.
 id: quantum-physics-i-13
 note: physics-quantum-physics-i
 title: "Energy of the Second Level in an Infinite Well"
+exam: exam-i
 skills: [Infinite Square Well, Quantized Energies]
 -->
 
@@ -105,6 +108,7 @@ $$
 id: quantum-physics-i-14
 note: physics-quantum-physics-i
 title: "Identify the Momentum Operator"
+exam: exam-i
 skills: [Momentum Operator, Observables]
 -->
 
@@ -124,6 +128,7 @@ This is the operator used for momentum measurements in the position representati
 id: quantum-physics-i-15
 note: physics-quantum-physics-i
 title: "Use the de Broglie Relation"
+exam: exam-i
 skills: [de Broglie Wavelength, Momentum]
 -->
 
@@ -149,6 +154,7 @@ $$
 id: quantum-physics-i-16
 note: physics-quantum-physics-i
 title: "Photoelectric Maximum Kinetic Energy"
+exam: exam-i
 skills: [Photoelectric Effect, Energy Quanta]
 -->
 
@@ -178,6 +184,7 @@ So the maximum kinetic energy is $2\ \text{eV}$.
 id: quantum-physics-i-17
 note: physics-quantum-physics-i
 title: "Spin-1/2 Outcomes"
+exam: exam-i
 skills: [Spin-1/2, Measurement]
 -->
 
@@ -197,6 +204,7 @@ along the chosen axis.
 id: quantum-physics-i-18
 note: physics-quantum-physics-i
 title: "Write the Uncertainty Bound"
+exam: exam-i
 skills: [Uncertainty Principle, Measurement]
 -->
 
@@ -220,6 +228,7 @@ $$
 id: quantum-physics-i-19
 note: physics-quantum-physics-i
 title: "Write the One-Dimensional Hamiltonian"
+exam: exam-i
 skills: [Hamiltonian, Schrodinger Equation]
 -->
 
@@ -239,6 +248,7 @@ This is the energy operator used in the one-dimensional Schrodinger equation.
 id: quantum-physics-i-110
 note: physics-quantum-physics-i
 title: "Check a Two-Level State"
+exam: exam-i
 skills: [Bra-Ket Notation, Normalization]
 -->
 
@@ -267,6 +277,7 @@ So the state is normalized.
 id: quantum-physics-i-21
 note: physics-quantum-physics-i
 title: "Normalize and Use the Density"
+exam: exam-ii
 skills: [Normalization, Probability Density]
 -->
 
@@ -318,6 +329,7 @@ $$
 id: quantum-physics-i-22
 note: physics-quantum-physics-i
 title: "Expectation Value on a Finite Interval"
+exam: exam-ii
 skills: [Expectation Values, Probability Density]
 -->
 
@@ -348,6 +360,7 @@ $$
 id: quantum-physics-i-23
 note: physics-quantum-physics-i
 title: "Scale the Box Width"
+exam: exam-ii
 skills: [Infinite Square Well, Scaling Laws]
 -->
 
@@ -373,6 +386,7 @@ So each energy level becomes one-fourth as large.
 id: quantum-physics-i-24
 note: physics-quantum-physics-i
 title: "Why Position and Momentum Cannot Both Be Sharp"
+exam: exam-ii
 skills: [Commutators, Uncertainty Principle]
 -->
 
@@ -396,6 +410,7 @@ $$
 id: quantum-physics-i-25
 note: physics-quantum-physics-i
 title: "Compare Barrier Widths"
+exam: exam-ii
 skills: [Tunneling, Exponential Decay]
 -->
 
@@ -435,6 +450,7 @@ $$
 id: quantum-physics-i-26
 note: physics-quantum-physics-i
 title: "Separate Time and Space"
+exam: exam-ii
 skills: [Separation of Variables, Schrodinger Equation, Eigenvalue Equation]
 -->
 
@@ -460,6 +476,7 @@ So the spatial part is an eigenfunction of the Hamiltonian, and $E$ is the corre
 id: quantum-physics-i-27
 note: physics-quantum-physics-i
 title: "Hydrogen Energy Scaling"
+exam: exam-ii
 skills: [Hydrogen Atom, Energy Levels]
 -->
 
@@ -485,6 +502,7 @@ Because the hydrogen energies are negative, $E_4$ is still negative but closer t
 id: quantum-physics-i-28
 note: physics-quantum-physics-i
 title: "Ground State and Level Spacing of the Harmonic Oscillator"
+exam: exam-ii
 skills: [Harmonic Oscillator, Quantized Energies]
 -->
 
@@ -522,6 +540,7 @@ So the ground state has nonzero energy, and the levels are evenly spaced.
 id: quantum-physics-i-31
 note: physics-quantum-physics-i
 title: "Photoelectric Threshold"
+exam: final
 skills: [Photoelectric Effect, Energy Quanta]
 -->
 
@@ -557,6 +576,7 @@ $$
 id: quantum-physics-i-32
 note: physics-quantum-physics-i
 title: "Why Electron Diffraction Is Quantum"
+exam: final
 skills: [Electron Diffraction, de Broglie Wavelength]
 -->
 
@@ -578,6 +598,7 @@ The effect becomes noticeable when the wavelength is comparable to the size of t
 id: quantum-physics-i-33
 note: physics-quantum-physics-i
 title: "Choose the Right Semiclassical Approximation"
+exam: final
 skills: [WKB, Approximation Methods]
 -->
 
@@ -595,6 +616,7 @@ Its intuition is semiclassical: connect classical motion with quantum phase accu
 id: quantum-physics-i-34
 note: physics-quantum-physics-i
 title: "Stern-Gerlach Measurements on Different Axes"
+exam: final
 skills: [Spin, Noncommuting Observables]
 -->
 
@@ -614,6 +636,7 @@ Measurements along different axes generally do not commute, so the first measure
 id: quantum-physics-i-35
 note: physics-quantum-physics-i
 title: "Recognize Perturbation Theory"
+exam: final
 skills: [Perturbation Theory, Approximation Methods]
 -->
 
@@ -637,6 +660,7 @@ The idea is to start from the known eigenstates and energies of $\hat{H}_0$ and 
 id: quantum-physics-i-41
 note: physics-quantum-physics-i
 title: "Same Probabilities, Different Phase"
+exam: final
 skills: [Superposition, Phase, Probability]
 -->
 
@@ -664,6 +688,7 @@ However, the relative phase is different. That phase matters when states interfe
 id: quantum-physics-i-42
 note: physics-quantum-physics-i
 title: "Normalize an Even Wave Function and Find Its Mean Position"
+exam: final
 skills: [Normalization, Expectation Values]
 -->
 
@@ -727,6 +752,7 @@ $$
 id: quantum-physics-i-43
 note: physics-quantum-physics-i
 title: "Use a Trial Wave Function"
+exam: final
 skills: [Variational Method, Approximation Methods]
 -->
 
@@ -748,6 +774,7 @@ That is the variational method. The minimized value is an estimate of the ground
 id: quantum-physics-i-44
 note: physics-quantum-physics-i
 title: "Why the Harmonic Oscillator Cannot Have Zero Energy"
+exam: final
 skills: [Uncertainty Principle, Harmonic Oscillator, Zero-Point Energy]
 -->
 

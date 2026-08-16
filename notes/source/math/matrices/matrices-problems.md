@@ -2,6 +2,7 @@
 id: matrices-11
 note: math-matrices
 title: "Identify a Matrix Entry"
+exam: exam-i
 skills: [Matrix Entries]
 -->
 
@@ -32,6 +33,7 @@ $$
 id: matrices-12
 note: math-matrices
 title: "Determine a Matrix's Dimensions"
+exam: exam-i
 skills: [Dimensions]
 -->
 
@@ -56,6 +58,7 @@ $$
 id: matrices-13
 note: math-matrices
 title: "Classify a Matrix"
+exam: exam-i
 skills: [Matrix Types]
 -->
 
@@ -89,6 +92,7 @@ Each off-diagonal entry is $0$, and each diagonal entry is $1$.
 id: matrices-14
 note: math-matrices
 title: "Add Two Matrices"
+exam: exam-i
 skills: [Matrix Addition]
 -->
 
@@ -126,6 +130,7 @@ $$
 id: matrices-15
 note: math-matrices
 title: "Scale a Matrix"
+exam: exam-i
 skills: [Scalar Multiplication]
 -->
 
@@ -155,6 +160,7 @@ $$
 id: matrices-16
 note: math-matrices
 title: "Check Matrix Multiplication Compatibility"
+exam: exam-i
 skills: [Matrix Multiplication, Dimensions]
 -->
 
@@ -175,6 +181,7 @@ $$
 id: matrices-17
 note: math-matrices
 title: "Transpose a Matrix"
+exam: exam-i
 skills: [Transpose]
 -->
 
@@ -208,6 +215,7 @@ $$
 id: matrices-18
 note: math-matrices
 title: "Compute a 2 by 2 Determinant"
+exam: exam-i
 skills: [Determinants]
 -->
 
@@ -248,6 +256,7 @@ $$
 id: matrices-19
 note: math-matrices
 title: "Find the Inverse of a 2 by 2 Matrix"
+exam: exam-i
 skills: [Inverse Matrices, Determinants]
 -->
 
@@ -288,6 +297,7 @@ $$
 id: matrices-110
 note: math-matrices
 title: "Compute the Trace of a Matrix"
+exam: exam-i
 skills: [Trace]
 -->
 
@@ -313,6 +323,7 @@ $$
 id: matrices-21
 note: math-matrices
 title: "Multiply Two Matrices"
+exam: exam-ii
 skills: [Matrix Multiplication]
 -->
 
@@ -349,6 +360,7 @@ $$
 id: matrices-22
 note: math-matrices
 title: "Use Matrix-Vector Multiplication"
+exam: exam-ii
 skills: [Matrix Multiplication, Columns]
 -->
 
@@ -394,6 +406,7 @@ You can also view this as a linear combination of the columns of $A$ weighted by
 id: matrices-23
 note: math-matrices
 title: "Solve a System by Row Reduction"
+exam: exam-ii
 skills: [Row Reduction, Systems of Equations]
 -->
 
@@ -454,6 +467,7 @@ $$
 id: matrices-24
 note: math-matrices
 title: "Find Rank and Nullity from a Row-Reduced Matrix"
+exam: exam-ii
 skills: [Rank, Nullity]
 -->
 
@@ -499,6 +513,7 @@ $$
 id: matrices-25
 note: math-matrices
 title: "Find the Eigenvalues of a Matrix"
+exam: exam-ii
 skills: [Eigenvalues, Characteristic Equation]
 -->
 
@@ -552,6 +567,7 @@ $$
 id: matrices-26
 note: math-matrices
 title: "Use Diagonalization to Compute a Power"
+exam: exam-ii
 skills: [Diagonalization, Matrix Powers]
 -->
 
@@ -615,6 +631,7 @@ $$
 id: matrices-27
 note: math-matrices
 title: "Complete a Symmetric Matrix"
+exam: exam-ii
 skills: [Transpose, Symmetric Matrices]
 -->
 
@@ -654,6 +671,7 @@ $$
 id: matrices-28
 note: math-matrices
 title: "Use Determinant Properties"
+exam: exam-ii
 skills: [Determinants, Transpose]
 -->
 
@@ -693,6 +711,7 @@ Because the determinant is nonzero, $B^T A$ is not singular.
 id: matrices-31
 note: math-matrices
 title: "Model a Purchase with a System"
+exam: final
 skills: [Systems of Equations, Matrix Equations]
 -->
 
@@ -744,6 +763,7 @@ $$
 id: matrices-32
 note: math-matrices
 title: "Interpret a Row-Reduced System"
+exam: final
 skills: [Row Reduction, Systems of Equations]
 -->
 
@@ -769,6 +789,7 @@ Because there is no inconsistent row and at least one free variable, the system 
 id: matrices-33
 note: math-matrices
 title: "Apply Rank-Nullity"
+exam: final
 skills: [Rank-Nullity, Nullity]
 -->
 
@@ -802,6 +823,7 @@ That means there are $2$ free variables.
 id: matrices-34
 note: math-matrices
 title: "Recognize an Eigenvector"
+exam: final
 skills: [Eigenvalues, Eigenvectors]
 -->
 
@@ -831,6 +853,7 @@ $$
 id: matrices-35
 note: math-matrices
 title: "Use an LU Factorization"
+exam: final
 skills: [LU Decomposition, Determinants, Triangular Matrices]
 -->
 
@@ -886,6 +909,7 @@ Since the determinant is nonzero, $A$ is invertible.
 id: matrices-41
 note: math-matrices
 title: "Use a Determinant Identity"
+exam: final
 skills: [Determinants, Transpose]
 -->
 
@@ -923,6 +947,7 @@ Because the determinant is nonzero, $A^T A$ is invertible.
 id: matrices-42
 note: math-matrices
 title: "A Matrix That Is Symmetric and Skew-Symmetric"
+exam: final
 skills: [Symmetric Matrices, Skew-Symmetric Matrices]
 -->
 
@@ -966,6 +991,7 @@ So the matrix must be the zero matrix.
 id: matrices-43
 note: math-matrices
 title: "An Invertible Projection Matrix"
+exam: final
 skills: [Projection Matrices, Inverse Matrices]
 -->
 
@@ -997,6 +1023,7 @@ So an invertible projection matrix must be the identity matrix.
 id: matrices-44
 note: math-matrices
 title: "Reason About a QR Factorization"
+exam: final
 skills: [QR Decomposition, Orthogonal Matrices, Triangular Matrices]
 -->
 

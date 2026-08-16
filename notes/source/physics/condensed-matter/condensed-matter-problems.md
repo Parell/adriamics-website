@@ -2,6 +2,7 @@
 id: condensed-matter-11
 note: physics-condensed-matter
 title: "Identify a Crystal Translation"
+exam: exam-i
 skills: [Lattices, Crystal structure]
 -->
 
@@ -15,6 +16,7 @@ It is a lattice translation: integer combinations of primitive vectors locate eq
 id: condensed-matter-12
 note: physics-condensed-matter
 title: "Classify a Band Gap"
+exam: exam-i
 skills: [Band structure, Conductivity]
 -->
 
@@ -28,6 +30,7 @@ An insulator. A large gap prevents ordinary thermal energies from moving many el
 id: condensed-matter-13
 note: physics-condensed-matter
 title: "Choose a Model"
+exam: exam-i
 skills: [Model choice, Phonons]
 -->
 
@@ -41,6 +44,7 @@ Coupled oscillators, because atoms interact with neighboring atoms and collectiv
 id: condensed-matter-14
 note: physics-condensed-matter
 title: "Use Bragg's Law"
+exam: exam-i
 skills: [Diffraction, Crystal structure]
 -->
 
@@ -59,6 +63,7 @@ $$
 id: condensed-matter-15
 note: physics-condensed-matter
 title: "Reason About Conductivity"
+exam: exam-i
 skills: [Charge transport, Semiconductors]
 -->
 

@@ -2,6 +2,7 @@
 id: optics-11
 note: physics-optics
 title: "Choose the Right Optics Model"
+exam: exam-i
 skills: [Wave Optics, Model Choice]
 -->
 
@@ -19,6 +20,7 @@ Geometric optics treats light as rays, but it does not explain the fringe patter
 id: optics-12
 note: physics-optics
 title: "Find a Wavelength in Vacuum"
+exam: exam-i
 skills: [Wave Speed, Frequency-Wavelength Relation]
 -->
 
@@ -56,6 +58,7 @@ $$
 id: optics-13
 note: physics-optics
 title: "Find Light Speed in Glass"
+exam: exam-i
 skills: [Refractive Index, Wave Speed]
 -->
 
@@ -85,6 +88,7 @@ $$
 id: optics-14
 note: physics-optics
 title: "Refraction Direction at an Interface"
+exam: exam-i
 skills: [Snell's Law, Refraction]
 -->
 
@@ -102,6 +106,7 @@ That means the ray bends **toward the normal**.
 id: optics-15
 note: physics-optics
 title: "Plane Mirror Image Location"
+exam: exam-i
 skills: [Plane Mirrors, Image Type]
 -->
 
@@ -124,6 +129,7 @@ behind the mirror.
 id: optics-16
 note: physics-optics
 title: "Find a Mirror Focal Length"
+exam: exam-i
 skills: [Spherical Mirrors, Focal Length]
 -->
 
@@ -153,6 +159,7 @@ $$
 id: optics-17
 note: physics-optics
 title: "Solve a Thin Lens Image Distance"
+exam: exam-i
 skills: [Thin Lens Equation]
 -->
 
@@ -202,6 +209,7 @@ $$
 id: optics-18
 note: physics-optics
 title: "Find the Magnification"
+exam: exam-i
 skills: [Magnification, Thin Lenses]
 -->
 
@@ -227,6 +235,7 @@ The negative sign means the image is inverted, and the magnitude shows it is hal
 id: optics-19
 note: physics-optics
 title: "Compute a Critical Angle"
+exam: exam-i
 skills: [Critical Angle, Total Internal Reflection]
 -->
 
@@ -268,6 +277,7 @@ $$
 id: optics-110
 note: physics-optics
 title: "Intensity Through a Polarizer"
+exam: exam-i
 skills: [Malus Law, Polarizers]
 -->
 
@@ -299,6 +309,7 @@ $$
 id: optics-21
 note: physics-optics
 title: "A Converging Lens with Object Inside the Focal Length"
+exam: exam-ii
 skills: [Thin Lenses, Magnification, Image Type]
 -->
 
@@ -353,6 +364,7 @@ id: optics-22
 note: physics-optics
 tolerance: 0.2
 title: "Refraction and Speed Change in Water"
+exam: exam-ii
 skills: [Snell's Law, Refractive Index, Wave Speed]
 -->
 
@@ -402,6 +414,7 @@ $$
 id: optics-23
 note: physics-optics
 title: "Two Lenses in Series"
+exam: exam-ii
 skills: [Thin Lenses, Multiple Optical Elements, Magnification]
 -->
 
@@ -495,6 +508,7 @@ The final image is virtual, inverted relative to the original object, and slight
 id: optics-24
 note: physics-optics
 title: "Correct a Nearsighted Eye"
+exam: exam-ii
 skills: [Human Eye, Vision Defects, Corrective Lenses]
 -->
 
@@ -512,6 +526,7 @@ It is corrected with a **diverging lens**, which spreads incoming rays slightly 
 id: optics-25
 note: physics-optics
 title: "Bright or Dark in a Thin Film?"
+exam: exam-ii
 skills: [Thin-Film Interference, Phase Shift]
 -->
 
@@ -545,6 +560,7 @@ So the reflected light is **bright**.
 id: optics-26
 note: physics-optics
 title: "Angle of a Diffraction Grating Maximum"
+exam: exam-ii
 skills: [Diffraction Grating, Interference]
 -->
 
@@ -594,6 +610,7 @@ $$
 id: optics-27
 note: physics-optics
 title: "Two Polarizers in Sequence"
+exam: exam-ii
 skills: [Polarizers, Malus Law]
 -->
 
@@ -637,6 +654,7 @@ $$
 id: optics-28
 note: physics-optics
 title: "Choose the Better Resolving Aperture"
+exam: exam-ii
 skills: [Diffraction, Resolution]
 -->
 
@@ -662,6 +680,7 @@ So **telescope B** has the better resolution, by a factor of **2**.
 id: optics-31
 note: physics-optics
 title: "Choose the Correct Vision Aid"
+exam: final
 skills: [Human Eye, Vision Defects, Corrective Lenses]
 -->
 
@@ -679,6 +698,7 @@ A **diverging lens** is used because it reduces the convergence of incoming para
 id: optics-32
 note: physics-optics
 title: "Check Total Internal Reflection in a Fiber"
+exam: final
 skills: [Critical Angle, Total Internal Reflection, Fiber Optics]
 -->
 
@@ -720,6 +740,7 @@ Therefore the ray undergoes **total internal reflection** and stays confined in 
 id: optics-33
 note: physics-optics
 title: "Which Instrument Fits the Job?"
+exam: final
 skills: [Telescopes, Angular Magnification]
 -->
 
@@ -737,6 +758,7 @@ Microscopes are for very small nearby objects, while telescopes are designed to 
 id: optics-34
 note: physics-optics
 title: "Compare Two Apertures"
+exam: final
 skills: [Diffraction, Resolution]
 -->
 
@@ -768,6 +790,7 @@ $$
 id: optics-35
 note: physics-optics
 title: "Which Color Bends More in a Prism?"
+exam: final
 skills: [Dispersion, Refraction]
 -->
 
@@ -787,6 +810,7 @@ Therefore, **blue** bends more than red.
 id: optics-41
 note: physics-optics
 title: "Two-Lens System With a Final Virtual Image"
+exam: final
 skills: [Multiple Optical Elements, Thin Lenses, Magnification]
 -->
 
@@ -880,6 +904,7 @@ The final image is **virtual, inverted, and enlarged**.
 id: optics-42
 note: physics-optics
 title: "Constructive Thin-Film Reflection"
+exam: final
 skills: [Thin-Film Interference, Phase Shift]
 -->
 
@@ -931,6 +956,7 @@ $$
 id: optics-43
 note: physics-optics
 title: "Compare Two Resolving Powers"
+exam: final
 skills: [Diffraction, Resolution]
 -->
 
@@ -978,6 +1004,7 @@ $$
 id: optics-44
 note: physics-optics
 title: "Three Polarizers With a Fixed Output"
+exam: final
 skills: [Polarizers, Malus Law, Inverse Reasoning]
 -->
 

@@ -2,6 +2,7 @@
 id: arithmetic-11
 note: math-arithmetic
 title: "Write 8,405.72 in Expanded Form"
+exam: exam-i
 skills: [Place Value, Expanded Form]
 -->
 
@@ -21,6 +22,7 @@ This matches the thousands, hundreds, ones, tenths, and hundredths places.
 id: arithmetic-12
 note: math-arithmetic
 title: "Compare Two Integers"
+exam: exam-i
 skills: [Comparing Numbers, Integers]
 -->
 
@@ -42,6 +44,7 @@ $$
 id: arithmetic-13
 note: math-arithmetic
 title: "Find an Absolute Value"
+exam: exam-i
 skills: [Absolute Value]
 -->
 
@@ -63,6 +66,7 @@ $$
 id: arithmetic-14
 note: math-arithmetic
 title: "Add Whole Numbers"
+exam: exam-i
 skills: [Addition, Place Value]
 -->
 
@@ -102,6 +106,7 @@ $$
 id: arithmetic-15
 note: math-arithmetic
 title: "Add Decimals"
+exam: exam-i
 skills: [Decimals, Addition]
 -->
 
@@ -129,6 +134,7 @@ $$
 id: arithmetic-16
 note: math-arithmetic
 title: "Subtract Whole Numbers"
+exam: exam-i
 skills: [Subtraction, Place Value]
 -->
 
@@ -170,6 +176,7 @@ $$
 id: arithmetic-17
 note: math-arithmetic
 title: "Multiply by a One-Digit Number"
+exam: exam-i
 skills: [Multiplication, Repeated Addition]
 -->
 
@@ -191,6 +198,7 @@ $$
 id: arithmetic-18
 note: math-arithmetic
 title: "Divide Evenly"
+exam: exam-i
 skills: [Division, Quotients]
 -->
 
@@ -218,6 +226,7 @@ $$
 id: arithmetic-19
 note: math-arithmetic
 title: "Evaluate a Basic Expression"
+exam: exam-i
 skills: [Order of Operations]
 -->
 
@@ -253,6 +262,7 @@ $$
 id: arithmetic-110
 note: math-arithmetic
 title: "Decide Whether 29 Is Prime or Composite"
+exam: exam-i
 skills: [Prime and Composite Numbers]
 -->
 
@@ -268,6 +278,7 @@ Therefore, $29$ is prime.
 id: arithmetic-21
 note: math-arithmetic
 title: "Use Signed Addition and Subtraction"
+exam: exam-ii
 skills: [Signed Numbers, Addition]
 -->
 
@@ -297,6 +308,7 @@ So the value is $1$.
 id: arithmetic-22
 note: math-arithmetic
 title: "Find the Greatest Common Factor"
+exam: exam-ii
 skills: [Factors, GCF]
 -->
 
@@ -326,6 +338,7 @@ $$
 id: arithmetic-23
 note: math-arithmetic
 title: "Convert a Fraction to a Decimal and Add"
+exam: exam-ii
 skills: [Fractions, Decimals, Addition]
 -->
 
@@ -353,6 +366,7 @@ $$
 id: arithmetic-24
 note: math-arithmetic
 title: "Multiply Fractions"
+exam: exam-ii
 skills: [Fractions, Multiplication]
 -->
 
@@ -380,6 +394,7 @@ $$
 id: arithmetic-25
 note: math-arithmetic
 title: "Find a Unit Rate"
+exam: exam-ii
 skills: [Rates, Unit Rate]
 -->
 
@@ -399,6 +414,7 @@ So the unit rate is $60$ miles per hour.
 id: arithmetic-26
 note: math-arithmetic
 title: "Solve a Proportion"
+exam: exam-ii
 skills: [Ratios, Proportions]
 -->
 
@@ -430,6 +446,7 @@ $$
 id: arithmetic-27
 note: math-arithmetic
 title: "Estimate and Then Multiply"
+exam: exam-ii
 skills: [Estimation, Multiplication]
 -->
 
@@ -461,6 +478,7 @@ The estimate is close to the exact value.
 id: arithmetic-28
 note: math-arithmetic
 title: "Use Square and Cube Roots"
+exam: exam-ii
 skills: [Roots, Exponents]
 -->
 
@@ -494,6 +512,7 @@ $$
 id: arithmetic-31
 note: math-arithmetic
 title: "Apply a Scale Factor"
+exam: final
 skills: [Ratios, Scale Factor]
 -->
 
@@ -515,6 +534,7 @@ So the new length is $12$ cm.
 id: arithmetic-32
 note: math-arithmetic
 title: "Compute Simple Interest"
+exam: final
 skills: [Percents, Simple Interest]
 -->
 
@@ -544,6 +564,7 @@ So the total is $\$504$.
 id: arithmetic-33
 note: math-arithmetic
 title: "Find a Percent Increase"
+exam: final
 skills: [Percents, Percent Increase]
 -->
 
@@ -571,6 +592,7 @@ The new price is $\$92$.
 id: arithmetic-34
 note: math-arithmetic
 title: "Write a Large Number in Standard Form"
+exam: final
 skills: [Scientific Notation]
 -->
 
@@ -588,6 +610,7 @@ $$
 id: arithmetic-35
 note: math-arithmetic
 title: "Use Division with a Remainder"
+exam: final
 skills: [Division, Remainders, Problem-Solving Workflow]
 -->
 
@@ -609,6 +632,7 @@ This means there are $11$ full packs and $7$ pencils left over.
 id: arithmetic-41
 note: math-arithmetic
 title: "Mix Exponents, Roots, and Order of Operations"
+exam: final
 skills: [Order of Operations, Exponents, Roots]
 -->
 
@@ -660,6 +684,7 @@ $$
 id: arithmetic-42
 note: math-arithmetic
 title: "Apply Two Percent Changes in a Row"
+exam: final
 skills: [Percents, Problem-Solving Workflow]
 -->
 
@@ -699,6 +724,7 @@ The final price is $\$54$.
 id: arithmetic-43
 note: math-arithmetic
 title: "Combine Fractions and Decimals"
+exam: final
 skills: [Fractions, Decimals, Addition, Subtraction]
 -->
 
@@ -740,6 +766,7 @@ $$
 id: arithmetic-44
 note: math-arithmetic
 title: "Estimate and Compute a Scientific-Notation Product"
+exam: final
 skills: [Scientific Notation, Estimation, Exponents]
 -->
 

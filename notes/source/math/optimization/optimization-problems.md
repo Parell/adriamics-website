@@ -2,6 +2,7 @@
 id: optimization-11
 note: math-optimization
 title: "Find a Stationary Point"
+exam: exam-i
 skills: [Gradient, Stationary Points]
 -->
 
@@ -15,6 +16,7 @@ $\nabla f=\langle2x-4,4y+8\rangle=0$, so $(x,y)=(2,-2)$.
 id: optimization-12
 note: math-optimization
 title: "Classify a Quadratic"
+exam: exam-i
 skills: [Hessian, Convexity]
 -->
 
@@ -28,6 +30,7 @@ The Hessian is $\begin{bmatrix}6&2\\2&6\end{bmatrix}$, with eigenvalues $4$ and 
 id: optimization-21
 note: math-optimization
 title: "Write a KKT System"
+exam: exam-ii
 skills: [KKT Conditions, Inequality Constraints]
 -->
 
@@ -41,6 +44,7 @@ $\nabla f(x)+\mu\nabla g(x)=0$, $g(x)\le0$, $\mu\ge0$, and $\mu g(x)=0$.
 id: optimization-22
 note: math-optimization
 title: "Recognize a Convex Program"
+exam: exam-ii
 skills: [Convexity, Global Optimality]
 -->
 
@@ -54,6 +58,7 @@ Convexity prevents a feasible point from lying below a local minimum along any f
 id: optimization-31
 note: math-optimization
 title: "Choose a Method"
+exam: final
 skills: [Optimization Methods, Modeling]
 -->
 

@@ -2,6 +2,7 @@
 id: thermodynamics-i-11
 note: physics-thermodynamics-i
 title: "Identify a Closed System"
+exam: exam-i
 skills: [System type, Boundaries]
 -->
 
@@ -19,6 +20,7 @@ Mass does not cross the boundary, but energy can cross as heat or work.
 id: thermodynamics-i-12
 note: physics-thermodynamics-i
 title: "Classify Properties by Size Dependence"
+exam: exam-i
 skills: [Extensive properties, Intensive properties]
 -->
 
@@ -44,6 +46,7 @@ Pressure $P$ and temperature $T$ are intensive properties.
 id: thermodynamics-i-13
 note: physics-thermodynamics-i
 title: "Convert Gauge Pressure to Absolute Pressure"
+exam: exam-i
 skills: [Pressure, Units]
 -->
 
@@ -69,6 +72,7 @@ $$
 id: thermodynamics-i-14
 note: physics-thermodynamics-i
 title: "Convert Celsius to Kelvin"
+exam: exam-i
 skills: [Temperature, Units]
 -->
 
@@ -92,6 +96,7 @@ $$
 id: thermodynamics-i-15
 note: physics-thermodynamics-i
 title: "Choose the Phase Region"
+exam: exam-i
 skills: [Pure substances, Phase regions]
 -->
 
@@ -107,6 +112,7 @@ If the temperature is below the saturation temperature at the given pressure, th
 id: thermodynamics-i-16
 note: physics-thermodynamics-i
 title: "Compute Quality from Masses"
+exam: exam-i
 skills: [Quality, Saturated mixtures]
 -->
 
@@ -132,6 +138,7 @@ $$
 id: thermodynamics-i-17
 note: physics-thermodynamics-i
 title: "Use the Ideal Gas Law"
+exam: exam-i
 skills: [Ideal gas, Equation of state]
 -->
 
@@ -161,6 +168,7 @@ $$
 id: thermodynamics-i-18
 note: physics-thermodynamics-i
 title: "Find Constant-Pressure Boundary Work"
+exam: exam-i
 skills: [Boundary work, Sign conventions]
 -->
 
@@ -188,6 +196,7 @@ The work is positive because the system does work on the surroundings.
 id: thermodynamics-i-19
 note: physics-thermodynamics-i
 title: "Apply the Closed-System First Law"
+exam: exam-i
 skills: [First Law, Closed systems]
 -->
 
@@ -213,6 +222,7 @@ $$
 id: thermodynamics-i-110
 note: physics-thermodynamics-i
 title: "Compute Mass Flow Rate"
+exam: exam-i
 skills: [Mass flow rate, Control volumes]
 -->
 
@@ -238,6 +248,7 @@ $$
 id: thermodynamics-i-21
 note: physics-thermodynamics-i
 title: "Find a Saturated Mixture Property"
+exam: exam-ii
 skills: [Saturated mixtures, Quality]
 -->
 
@@ -267,6 +278,7 @@ $$
 id: thermodynamics-i-22
 note: physics-thermodynamics-i
 title: "Approximate a Compressed-Liquid Enthalpy"
+exam: exam-ii
 skills: [Compressed liquid approximation, Property data]
 -->
 
@@ -308,6 +320,7 @@ $$
 id: thermodynamics-i-23
 note: physics-thermodynamics-i
 title: "Use an Isentropic Ideal-Gas Relation"
+exam: exam-ii
 skills: [Isentropic ideal gas relations, Ideal gas]
 -->
 
@@ -337,6 +350,7 @@ $$
 id: thermodynamics-i-24
 note: physics-thermodynamics-i
 title: "Evaluate Polytropic Boundary Work"
+exam: exam-ii
 skills: [Polytropic work, Boundary work, Ideal gas]
 -->
 
@@ -372,6 +386,7 @@ $$
 id: thermodynamics-i-25
 note: physics-thermodynamics-i
 title: "Solve a Spring-Loaded Energy Balance"
+exam: exam-ii
 skills: [Spring work, First Law, Closed systems]
 -->
 
@@ -409,6 +424,7 @@ $$
 id: thermodynamics-i-26
 note: physics-thermodynamics-i
 title: "Analyze a Turbine"
+exam: exam-ii
 skills: [Turbine, Steady-flow energy]
 -->
 
@@ -434,6 +450,7 @@ $$
 id: thermodynamics-i-27
 note: physics-thermodynamics-i
 title: "Analyze a Throttling Valve"
+exam: exam-ii
 skills: [Throttling valve, Enthalpy]
 -->
 
@@ -459,6 +476,7 @@ $$
 id: thermodynamics-i-28
 note: physics-thermodynamics-i
 title: "Compute Ideal-Gas Entropy Change"
+exam: exam-ii
 skills: [Entropy, Ideal gas entropy changes]
 -->
 
@@ -498,6 +516,7 @@ $$
 id: thermodynamics-i-31
 note: physics-thermodynamics-i
 title: "Mix Two Streams"
+exam: final
 skills: [Mixing chamber, Control volumes, First Law]
 -->
 
@@ -547,6 +566,7 @@ $$
 id: thermodynamics-i-32
 note: physics-thermodynamics-i
 title: "Analyze a Heat Exchanger"
+exam: final
 skills: [Heat exchanger, Control volumes, Energy balance]
 -->
 
@@ -594,6 +614,7 @@ $$
 id: thermodynamics-i-33
 note: physics-thermodynamics-i
 title: "Evaluate a Heat Engine"
+exam: final
 skills: [Heat engine, Efficiency, Second Law]
 -->
 
@@ -633,6 +654,7 @@ So the efficiency is $40\%$.
 id: thermodynamics-i-34
 note: physics-thermodynamics-i
 title: "Evaluate a Refrigerator"
+exam: final
 skills: [Refrigerator, COP, Second Law]
 -->
 
@@ -670,6 +692,7 @@ $$
 id: thermodynamics-i-35
 note: physics-thermodynamics-i
 title: "Check Entropy Generation"
+exam: final
 skills: [Entropy principle, Second Law]
 -->
 
@@ -703,6 +726,7 @@ Because $\Delta S_{universe} > 0$, the process satisfies the Second Law.
 id: thermodynamics-i-41
 note: physics-thermodynamics-i
 title: "Evaluate an Otto Cycle"
+exam: final
 skills: [Otto cycle, Efficiency]
 -->
 
@@ -742,6 +766,7 @@ So the efficiency is about $56.5\%$.
 id: thermodynamics-i-42
 note: physics-thermodynamics-i
 title: "Evaluate a Brayton Cycle"
+exam: final
 skills: [Brayton cycle, Efficiency]
 -->
 
@@ -781,6 +806,7 @@ So the efficiency is about $40\%$.
 id: thermodynamics-i-43
 note: physics-thermodynamics-i
 title: "Compute Rankine Cycle Efficiency"
+exam: final
 skills: [Rankine cycle, First Law, Cycles]
 -->
 
@@ -830,6 +856,7 @@ So the efficiency is about $33.1\%$.
 id: thermodynamics-i-44
 note: physics-thermodynamics-i
 title: "Apply the Workflow to a Sealed Tank"
+exam: final
 skills: [Problem-solving workflow, Closed systems, Sign conventions]
 -->
 

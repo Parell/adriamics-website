@@ -2,6 +2,7 @@
 id: logic-11
 note: math-logic
 title: "Identify Propositions"
+exam: exam-i
 skills: [Propositions, Truth Values]
 -->
 
@@ -23,6 +24,7 @@ Which of the following are propositions?
 id: logic-12
 note: math-logic
 title: "Evaluate a Compound Statement"
+exam: exam-i
 skills: [Logical Connectives, Truth Tables]
 -->
 
@@ -56,6 +58,7 @@ $$
 id: logic-13
 note: math-logic
 title: "Read an Implication Correctly"
+exam: exam-i
 skills: [Implication, Biconditional]
 -->
 
@@ -79,6 +82,7 @@ $$
 id: logic-14
 note: math-logic
 title: "Find the Contrapositive"
+exam: exam-i
 skills: [Implication, Contrapositive]
 -->
 
@@ -104,6 +108,7 @@ If a number is not divisible by $3$, then it is not divisible by $6$.
 id: logic-15
 note: math-logic
 title: "Negate a Conjunction with a Disjunction"
+exam: exam-i
 skills: [De Morgan's Laws, Negation]
 -->
 
@@ -137,6 +142,7 @@ $$
 id: logic-16
 note: math-logic
 title: "Expand a Biconditional"
+exam: exam-i
 skills: [Biconditional, Logical Equivalence]
 -->
 
@@ -156,6 +162,7 @@ This matches the definition of "if and only if."
 id: logic-17
 note: math-logic
 title: "Negate a Universal Statement"
+exam: exam-i
 skills: [Quantifiers, Negating Quantifiers]
 -->
 
@@ -179,6 +186,7 @@ In words: there exists at least one $x$ for which $P(x)$ is false.
 id: logic-18
 note: math-logic
 title: "Negate an Existential Statement"
+exam: exam-i
 skills: [Quantifiers, Negating Quantifiers]
 -->
 
@@ -206,6 +214,7 @@ $$
 id: logic-19
 note: math-logic
 title: "Compare Quantifier Order"
+exam: exam-i
 skills: [Quantifiers, Order Matters]
 -->
 
@@ -237,6 +246,7 @@ These are different claims, so they are not logically equivalent.
 id: logic-110
 note: math-logic
 title: "Tautology or Contradiction"
+exam: exam-i
 skills: [Tautology, Contradiction]
 -->
 
@@ -254,6 +264,7 @@ Classify each formula:
 id: logic-21
 note: math-logic
 title: "Simplify an Expression with an Implication"
+exam: exam-ii
 skills: [Implication, De Morgan's Laws, Logical Equivalence]
 -->
 
@@ -293,6 +304,7 @@ $$
 id: logic-22
 note: math-logic
 title: "Negate a Universal Conditional"
+exam: exam-ii
 skills: [Quantifiers, Implication, Negating Quantifiers]
 -->
 
@@ -332,6 +344,7 @@ $$
 id: logic-23
 note: math-logic
 title: "Chain Two Implications"
+exam: exam-ii
 skills: [Rules of Inference, Hypothetical Syllogism]
 -->
 
@@ -367,6 +380,7 @@ $$
 id: logic-24
 note: math-logic
 title: "Use Disjunctive Syllogism"
+exam: exam-ii
 skills: [Rules of Inference, Disjunctive Syllogism]
 -->
 
@@ -402,6 +416,7 @@ $$
 id: logic-25
 note: math-logic
 title: "Prove by Cases"
+exam: exam-ii
 skills: [Proof Methods, Proof by Cases]
 -->
 
@@ -430,6 +445,7 @@ is a valid conclusion.
 id: logic-26
 note: math-logic
 title: "Put a Formula into CNF"
+exam: exam-ii
 skills: [Normal Forms, Distributive Laws]
 -->
 
@@ -455,6 +471,7 @@ This is in conjunctive normal form because it is an AND of OR-clauses.
 id: logic-27
 note: math-logic
 title: "Prove a Simple Subset Relation"
+exam: exam-ii
 skills: [Logic and Sets, Subset Proof]
 -->
 
@@ -482,6 +499,7 @@ $$
 id: logic-28
 note: math-logic
 title: "Apply Resolution"
+exam: exam-ii
 skills: [Rules of Inference, Resolution]
 -->
 
@@ -517,6 +535,7 @@ $$
 id: logic-31
 note: math-logic
 title: "Find a Counterexample"
+exam: final
 skills: [Counterexample, Proof Methods]
 -->
 
@@ -534,6 +553,7 @@ Thus a single counterexample disproof is sufficient.
 id: logic-32
 note: math-logic
 title: "Spot a Common Invalid Argument"
+exam: final
 skills: [Pitfalls, Rules of Inference]
 -->
 
@@ -555,6 +575,7 @@ In this example, many shapes are rectangles without being squares, so the conclu
 id: logic-33
 note: math-logic
 title: "Translate Necessary and Sufficient"
+exam: final
 skills: [Implication, Common Pitfalls]
 -->
 
@@ -583,6 +604,7 @@ $$
 id: logic-34
 note: math-logic
 title: "Find a Satisfying Assignment"
+exam: final
 skills: [Satisfiability, Truth Tables]
 -->
 
@@ -614,6 +636,7 @@ One satisfying assignment is $P = F$ and $Q = T$.
 id: logic-35
 note: math-logic
 title: "Classify a Formula"
+exam: final
 skills: [Tautology, Contradiction, Contingency]
 -->
 
@@ -637,6 +660,7 @@ So the formula cannot be true under any assignment. It is a contradiction.
 id: logic-41
 note: math-logic
 title: "Simplify a Nested Formula"
+exam: final
 skills: [Logical Equivalence, De Morgan's Laws, Implication]
 -->
 
@@ -680,6 +704,7 @@ This is an equivalent formula using only $\neg$, $\land$, and $\lor$.
 id: logic-42
 note: math-logic
 title: "Compare Nested Quantifiers on a Finite Domain"
+exam: final
 skills: [Quantifiers, Order Matters, Domain of Discourse]
 -->
 
@@ -709,6 +734,7 @@ Thus the first statement is true and the second is false.
 id: logic-43
 note: math-logic
 title: "Prove a Set Identity"
+exam: final
 skills: [Logic and Sets, De Morgan's Laws]
 -->
 
@@ -756,6 +782,7 @@ Since the two sides contain exactly the same elements, the sets are equal.
 id: logic-44
 note: math-logic
 title: "Check a Mixed Consistency Claim"
+exam: final
 skills: [Satisfiability, Quantifiers, Rules of Inference]
 -->
 

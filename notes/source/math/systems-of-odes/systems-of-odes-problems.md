@@ -2,6 +2,7 @@
 id: systems-of-odes-11
 note: math-systems-of-odes
 title: "Write a System in Matrix Form"
+exam: exam-i
 skills: [Matrix Form, Systems of ODEs]
 -->
 
@@ -41,6 +42,7 @@ $$
 id: systems-of-odes-12
 note: math-systems-of-odes
 title: "Classify a Linear System"
+exam: exam-i
 skills: [Linear Systems, Homogeneous vs. Nonhomogeneous]
 -->
 
@@ -76,6 +78,7 @@ It is **nonhomogeneous** because $\mathbf{g}(t) \neq \mathbf{0}$.
 id: systems-of-odes-13
 note: math-systems-of-odes
 title: "Count the Constants in a 4x4 System"
+exam: exam-i
 skills: [Solution Space, Linear Systems]
 -->
 
@@ -99,6 +102,7 @@ arbitrary constants.
 id: systems-of-odes-14
 note: math-systems-of-odes
 title: "Find All Equilibria of a Nonlinear System"
+exam: exam-i
 skills: [Equilibria, Nonlinear Systems]
 -->
 
@@ -137,6 +141,7 @@ $$
 id: systems-of-odes-15
 note: math-systems-of-odes
 title: "Use an Eigenpair to Write a Solution"
+exam: exam-i
 skills: [Eigenvalues, Eigenvectors]
 -->
 
@@ -162,6 +167,7 @@ $$
 id: systems-of-odes-16
 note: math-systems-of-odes
 title: "Interpret a Negative Eigenvalue"
+exam: exam-i
 skills: [Eigenvalues, Stability]
 -->
 
@@ -183,6 +189,7 @@ As $t$ increases, $e^{-5t} \to 0$, so that mode decays exponentially.
 id: systems-of-odes-17
 note: math-systems-of-odes
 title: "Interpret Complex Eigenvalues"
+exam: exam-i
 skills: [Complex Eigenvalues, Oscillation]
 -->
 
@@ -206,6 +213,7 @@ That means the motion oscillates while growing in size, so trajectories spiral o
 id: systems-of-odes-18
 note: math-systems-of-odes
 title: "Compute Trace and Determinant"
+exam: exam-i
 skills: [Trace-Determinant Test, 2x2 Systems]
 -->
 
@@ -239,6 +247,7 @@ $$
 id: systems-of-odes-19
 note: math-systems-of-odes
 title: "Classify Stability from Eigenvalues"
+exam: exam-i
 skills: [Stability, Eigenvalues]
 -->
 
@@ -256,6 +265,7 @@ That makes the origin an **asymptotically stable node**.
 id: systems-of-odes-110
 note: math-systems-of-odes
 title: "State the Linearization Formula"
+exam: exam-i
 skills: [Linearization, Jacobian]
 -->
 
@@ -275,6 +285,7 @@ where $J(\mathbf{x}^*)$ is the Jacobian matrix evaluated at the equilibrium.
 id: systems-of-odes-21
 note: math-systems-of-odes
 title: "Find a Characteristic Polynomial"
+exam: exam-ii
 skills: [Characteristic Polynomial, Eigenvalues]
 -->
 
@@ -320,6 +331,7 @@ $$
 id: systems-of-odes-22
 note: math-systems-of-odes
 title: "Solve a Diagonal System"
+exam: exam-ii
 skills: [Matrix Exponential, Initial Value Problems]
 -->
 
@@ -382,6 +394,7 @@ $$
 id: systems-of-odes-23
 note: math-systems-of-odes
 title: "Build a General Solution from Eigenpairs"
+exam: exam-ii
 skills: [Eigenvalues, Eigenvectors, General Solution]
 -->
 
@@ -420,6 +433,7 @@ $$
 id: systems-of-odes-24
 note: math-systems-of-odes
 title: "Classify from Trace and Determinant"
+exam: exam-ii
 skills: [Trace-Determinant Test, Stability]
 -->
 
@@ -457,6 +471,7 @@ Because the real part is negative, the equilibrium is a **stable spiral**.
 id: systems-of-odes-25
 note: math-systems-of-odes
 title: "Convert a Mass-Spring Equation"
+exam: exam-ii
 skills: [Modeling Patterns, First-Order Systems]
 -->
 
@@ -495,6 +510,7 @@ $$
 id: systems-of-odes-26
 note: math-systems-of-odes
 title: "Find the Jacobian Matrix"
+exam: exam-ii
 skills: [Linearization, Jacobian]
 -->
 
@@ -536,6 +552,7 @@ $$
 id: systems-of-odes-27
 note: math-systems-of-odes
 title: "Write the Variation-of-Parameters Formula"
+exam: exam-ii
 skills: [Nonhomogeneous Systems, Variation of Parameters]
 -->
 
@@ -563,6 +580,7 @@ The full solution is then the sum of the homogeneous and particular parts.
 id: systems-of-odes-28
 note: math-systems-of-odes
 title: "Handle a Repeated Eigenvalue"
+exam: exam-ii
 skills: [Generalized Eigenvectors, Jordan Form]
 -->
 
@@ -582,6 +600,7 @@ where $\mathbf{w}$ is a generalized eigenvector.
 id: systems-of-odes-31
 note: math-systems-of-odes
 title: "Find Equilibria in a Predator-Prey Model"
+exam: final
 skills: [Predator-Prey Models, Equilibria]
 -->
 
@@ -626,6 +645,7 @@ These are the equilibria.
 id: systems-of-odes-32
 note: math-systems-of-odes
 title: "Convert a Damped Oscillator"
+exam: final
 skills: [Modeling Patterns, First-Order Systems]
 -->
 
@@ -672,6 +692,7 @@ $$
 id: systems-of-odes-33
 note: math-systems-of-odes
 title: "Find the Steady State of a Forced System"
+exam: final
 skills: [Nonhomogeneous Systems, Equilibria]
 -->
 
@@ -744,6 +765,7 @@ $$
 id: systems-of-odes-34
 note: math-systems-of-odes
 title: "Classify a Circuit Model"
+exam: final
 skills: [Phase Portraits, Stability, 2x2 Systems]
 -->
 
@@ -794,6 +816,7 @@ Because the trace is negative, the real part is negative, so the origin is a **s
 id: systems-of-odes-35
 note: math-systems-of-odes
 title: "Linearize a Nonlinear System at the Origin"
+exam: final
 skills: [Linearization, Jacobian, Stability]
 -->
 
@@ -838,6 +861,7 @@ So the origin is an **unstable node** for the linearized system, and the nonline
 id: systems-of-odes-41
 note: math-systems-of-odes
 title: "Solve a Defective Linear System"
+exam: final
 skills: [Generalized Eigenvectors, Jordan Form]
 -->
 
@@ -900,6 +924,7 @@ $$
 id: systems-of-odes-42
 note: math-systems-of-odes
 title: "Shift a Forced System and Classify It"
+exam: final
 skills: [Nonhomogeneous Systems, Stability, Eigenvalues]
 -->
 
@@ -968,6 +993,7 @@ The real part is positive, so the equilibrium is an **unstable spiral**.
 id: systems-of-odes-43
 note: math-systems-of-odes
 title: "Analyze a Nonlinear System with Linearization"
+exam: final
 skills: [Nonlinear Systems, Equilibria, Linearization]
 -->
 
@@ -1048,6 +1074,7 @@ Only $(0,0)$ can be classified directly from the linearization.
 id: systems-of-odes-44
 note: math-systems-of-odes
 title: "Classify a Damped Oscillator from Its System"
+exam: final
 skills: [Modeling Patterns, Characteristic Polynomial, Stability]
 -->
 

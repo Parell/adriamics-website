@@ -2,6 +2,7 @@
 id: mathematical-mechanics-11
 note: physics-mathematical-mechanics
 title: "Derive a Lagrange equation"
+exam: exam-i
 skills: [Euler–Lagrange equations, Lagrangian mechanics]
 -->
 
@@ -21,6 +22,7 @@ so Euler–Lagrange gives $m\ddot x=-V'(x)$.
 id: mathematical-mechanics-12
 note: physics-mathematical-mechanics
 title: "Identify a cyclic coordinate"
+exam: exam-i
 skills: [Cyclic coordinates, Conservation laws]
 -->
 
@@ -35,6 +37,7 @@ $p_\theta=\partial L/\partial\dot\theta$ is conserved because $d p_\theta/dt=\pa
 id: mathematical-mechanics-13
 note: physics-mathematical-mechanics
 title: "Use canonical equations"
+exam: exam-i
 skills: [Hamiltonian mechanics, Canonical equations]
 -->
 
@@ -52,6 +55,7 @@ $$
 id: mathematical-mechanics-14
 note: physics-mathematical-mechanics
 title: "Compute a Poisson bracket"
+exam: exam-i
 skills: [Poisson brackets, Time evolution]
 -->
 
@@ -67,6 +71,7 @@ $$
 <!--
 id: mathematical-mechanics-15
 note: physics-mathematical-mechanics
+exam: exam-i
 title: "Separate a Hamilton–Jacobi equation"
 skills: [Hamilton–Jacobi theory, Separation of variables]
 -->

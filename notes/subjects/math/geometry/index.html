@@ -11,18 +11,20 @@
   
   <script>
     (() => {
-      try {
-        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+      let storedTheme = null;
 
-        if (storedTheme === 'sepia' || storedTheme === 'light') {
-          document.documentElement.classList.add('notes-page--sepia');
-        }
+      try {
+        storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
       } catch {
-        // Ignore storage access failures.
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.css?v=f3cf2cb8a1e9" />
+  <link rel="stylesheet" href="../../../notes.css?v=52ae2c1ade36" />
   
   <script>
     window.MathJax = {
@@ -45,14 +47,15 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
   
-  <script defer src="../../../notes.js?v=6a7338490052"></script>
+  <script defer src="../../../notes-runtime.js?v=6b3d78a8ee1b"></script>
+  <script defer src="../../../notes.js?v=0aa6e10949f9"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
     <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
   </div>
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/geometry/practice/" data-notes-nav-item>Practice</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/geometry/practice/" data-notes-nav-item>Practice</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>
 
   <header class="shell notes-header">
     <div class="notes-header__inner">
@@ -111,12 +114,11 @@
       <div class="viewer-head">
         <div>
           <h1>Geometry</h1>
-          <p class="viewer-meta"><a class="viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/geometry/geometry.md" target="_blank" rel="noreferrer">GitHub Changelog</a></p>
-          
+          <p class="viewer-meta"><a class="viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/geometry/geometry.md" target="_blank" rel="noreferrer">GitHub Changelog</a> - <time datetime="2026-08-15T15:30:54.000Z">Last modified Aug 15, 2026</time></p>
+          <div class="viewer-contributors-block"><p class="viewer-contributors__label">Contributors</p><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">6</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
       </div>
       <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&amp;page_path=notes%2Fsource%2Fmath%2Fgeometry%2Fgeometry.md&amp;title=%5BContribute%5D%3A%20Geometry" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
-          <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/geometry/practice/" data-notes-nav-item>Practice</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -126,7 +128,7 @@
           <p class="section-label">Prerequisites</p>
         </div>
       </div>
-      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="1"><span class="concept-dag-tree__prefix concept-dag-tree__prefix--hidden" aria-hidden="true"><span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span></span><span class="concept-dag-tree__wrap" aria-hidden="true"><span class="concept-dag-tree__tail-corner" aria-hidden="true"></span><span class="concept-dag-tree__tail-horizontal" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></span></div></div></div>
+      <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="1"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></span></div></div></div>
     </section>
         <nav class="notes-toc" aria-label="Table of contents">
       <h2 class="notes-toc__title">Table of Contents</h2>
@@ -136,8 +138,8 @@
 <ul><li><p><a href="https://openstax.org/subjects/math">OpenStax Mathematics</a></p></li><li><p><a href="https://math.libretexts.org/">Mathematics LibreTexts</a></p></li><li><p>Stewart, <em>Calculus: Early Transcendentals</em></p></li><li><p>Lay, <em>Linear Algebra and Its Applications</em></p></li><li><p>Rosen, <em>Discrete Mathematics and Its Applications</em></p></li><li><p>Boyce and DiPrima, <em>Elementary Differential Equations and Boundary Value Problems</em></p></li><li><p>Blitzstein and Hwang, <em>Introduction to Probability</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
 <h1 id="foundations-and-notation">Foundations and notation</h1>
 <p>Geometry studies shape, size, position, and relationships in the plane and in space.</p>
-<p>This note focuses on spatial reasoning, congruence, similarity, coordinate geometry, and measurement. Trigonometric functions and angle-side ratios belong in the <a href="/notes/source/math/trigonometry/trigonometry/">Trigonometry note</a>.</p>
-<p>Geometry supplies the elementary coordinate-geometry prerequisites for vectors: points, slope, distance, midpoint, and basic spatial language. The vector forms of notation, dot and cross products, projections, and lines and planes belong in the <a href="/notes/source/math/vectors/vectors/">Vectors note</a>, which is the authoritative source for those topics.</p>
+<p>This note focuses on spatial reasoning, congruence, similarity, coordinate geometry, and measurement. Trigonometric functions and angle-side ratios belong in the <a href="/notes/subjects/math/trigonometry/">Trigonometry note</a>.</p>
+<p>Geometry supplies the elementary coordinate-geometry prerequisites for vectors: points, slope, distance, midpoint, and basic spatial language. The vector forms of notation, dot and cross products, projections, and lines and planes belong in the <a href="/notes/subjects/math/vectors/">Vectors note</a>, which is the authoritative source for those topics.</p>
 <p>Core undefined terms:</p>
 <ul><li><p>Point: location with no size</p></li><li><p>Line: infinite straight path</p></li><li><p>Plane: flat two-dimensional surface</p></li></ul>
 <p>Common notation:</p>
@@ -222,7 +224,7 @@ $$</div>
 <ul><li><p>$3,4,5$</p></li><li><p>$5,12,13$</p></li><li><p>$8,15,17$</p></li><li><p>$7,24,25$</p></li></ul>
 <h2 id="right-triangles-as-geometric-tools">Right triangles as geometric tools</h2>
 <p>Right triangles connect geometric measurement to the Pythagorean theorem. They also appear in congruence proofs, perpendicular constructions, distance formulas, and circle problems.</p>
-<p>When a problem asks for a sine, cosine, or tangent ratio, an angle of elevation, or an unknown angle from side lengths, continue in the <a href="/notes/source/math/trigonometry/trigonometry/">Trigonometry note</a>. That note covers the unit circle, right-triangle ratios, functions, identities, equations, and non-right triangles.</p>
+<p>When a problem asks for a sine, cosine, or tangent ratio, an angle of elevation, or an unknown angle from side lengths, continue in the <a href="/notes/subjects/math/trigonometry/">Trigonometry note</a>. That note covers the unit circle, right-triangle ratios, functions, identities, equations, and non-right triangles.</p>
 <h2 id="distance-and-midpoint">Distance and midpoint</h2>
 <p>For points $(x_1,y_1)$ and $(x_2,y_2)$:</p>
 <div class="math-block">$$
@@ -290,7 +292,7 @@ $$</div>
 <hr />
 <h1 id="coordinate-geometry-scalar-tools">Coordinate geometry (scalar tools)</h1>
 <p>Coordinate geometry lets you translate geometric questions into algebra.</p>
-<p>The formulas in this section are Geometry&#39;s scalar 2D tools: points, lines, slopes, distances, and circles. They prepare the language for vectors without turning this section into a vector-algebra lesson. Use the <a href="/notes/source/math/vectors/vectors/">Vectors note</a> for vector notation, vector lines and planes, and higher-dimensional generalizations.</p>
+<p>The formulas in this section are Geometry&#39;s scalar 2D tools: points, lines, slopes, distances, and circles. They prepare the language for vectors without turning this section into a vector-algebra lesson. Use the <a href="/notes/subjects/math/vectors/">Vectors note</a> for vector notation, vector lines and planes, and higher-dimensional generalizations.</p>
 <h2 id="line-formulas">Line formulas</h2>
 <p>These are previews of line relationships. The authoritative vector line equation is developed in the Vectors note.</p>
 <p>Slope between two points:</p>
@@ -341,7 +343,7 @@ $$</div>
 <ul><li><p>Definitions: use the meaning of congruent, midpoint, bisector, tangent, and so on.</p></li><li><p>Algebra: substitute known equalities and solve equations.</p></li><li><p>CPCTC: corresponding parts of congruent triangles are congruent.</p></li><li><p>Similar triangles: use proportional sides and equal angles.</p></li><li><p>Circle theorems: use radii, tangents, arcs, and inscribed angles.</p></li><li><p>Coordinate methods: use slopes, distances, and equations.</p></li></ul>
 <h2 id="clean-problem-solving-workflow">Clean problem-solving workflow</h2>
 <ol><li><p>Sketch the figure and label all givens.</p></li><li><p>Identify the topic: triangles, circles, similarity, coordinates, or transformations.</p></li><li><p>Mark equal angles, equal lengths, parallel lines, or right angles.</p></li><li><p>Choose the shortest path:</p>
-<ul><li><p>Pythagorean theorem for right triangles</p></li><li><p>Similarity for proportions</p></li><li><p>Angle chasing for unknown angles</p></li><li><p>Coordinate formulas for algebraic setups</p></li><li><p>Trigonometric ratios or laws for angle-side problems (see the <a href="/notes/source/math/trigonometry/trigonometry/">Trigonometry note</a>)</p></li></ul></li><li><p>Write equations from the marked relationships.</p></li><li><p>Solve carefully and verify the result fits the geometry.</p></li></ol>
+<ul><li><p>Pythagorean theorem for right triangles</p></li><li><p>Similarity for proportions</p></li><li><p>Angle chasing for unknown angles</p></li><li><p>Coordinate formulas for algebraic setups</p></li><li><p>Trigonometric ratios or laws for angle-side problems (see the <a href="/notes/subjects/math/trigonometry/">Trigonometry note</a>)</p></li></ul></li><li><p>Write equations from the marked relationships.</p></li><li><p>Solve carefully and verify the result fits the geometry.</p></li></ol>
 <h2 id="common-pitfalls">Common pitfalls</h2>
 <ul><li><p>Mixing up diameter and radius</p></li><li><p>Using the Pythagorean theorem on a non-right triangle</p></li><li><p>Forgetting that similar figures have area scale factor $k^2$, not $k$</p></li><li><p>Assuming lines are parallel or perpendicular without evidence</p></li><li><p>Using degrees and radians inconsistently in circle work</p></li></ul>
 <hr />
@@ -367,7 +369,7 @@ $$</div>
 \text{volume scale factor}=k^3
 $$</div>
 <h2 id="coordinate-geometry-preview">Coordinate geometry preview</h2>
-<p>For vector formulas and vector equations of lines and planes, use the <a href="/notes/source/math/vectors/vectors/">Vectors note</a>.</p>
+<p>For vector formulas and vector equations of lines and planes, use the <a href="/notes/subjects/math/vectors/">Vectors note</a>.</p>
 <div class="math-block">$$
 d=\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}
 $$</div>

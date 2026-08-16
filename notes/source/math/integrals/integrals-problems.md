@@ -2,6 +2,7 @@
 id: integrals-11
 note: math-integrals
 title: "Use the Power Rule and Linearity"
+exam: exam-i
 skills: [Power Rule, Linearity]
 -->
 
@@ -37,6 +38,7 @@ $$
 id: integrals-12
 note: math-integrals
 title: "Differentiate an Accumulation Function"
+exam: exam-i
 skills: [Fundamental Theorem of Calculus, Accumulation Functions]
 -->
 
@@ -60,6 +62,7 @@ $$
 id: integrals-13
 note: math-integrals
 title: "Evaluate a Definite Integral with the FTC"
+exam: exam-i
 skills: [Fundamental Theorem of Calculus, Definite Integrals]
 -->
 
@@ -92,6 +95,7 @@ $$
 id: integrals-14
 note: math-integrals
 title: "Find an Average Value"
+exam: exam-i
 skills: [Average Value, Definite Integrals]
 -->
 
@@ -127,6 +131,7 @@ $$
 id: integrals-15
 note: math-integrals
 title: "Use Substitution on a Composite Function"
+exam: exam-i
 skills: [Substitution, Antiderivatives]
 -->
 
@@ -160,6 +165,7 @@ $$
 id: integrals-16
 note: math-integrals
 title: "Use Integration by Parts on a Product"
+exam: exam-i
 skills: [Integration by Parts, Exponential Functions]
 -->
 
@@ -193,6 +199,7 @@ $$
 id: integrals-17
 note: math-integrals
 title: "Decompose a Simple Rational Integral"
+exam: exam-i
 skills: [Partial Fractions, Rational Functions]
 -->
 
@@ -236,6 +243,7 @@ $$
 id: integrals-18
 note: math-integrals
 title: "Use a Trig Identity Before Integrating"
+exam: exam-i
 skills: [Trig Identities, Definite Integrals]
 -->
 
@@ -272,6 +280,7 @@ $$
 id: integrals-19
 note: math-integrals
 title: "Test an Improper Integral"
+exam: exam-i
 skills: [Improper Integrals, Convergence]
 -->
 
@@ -310,6 +319,7 @@ The integral converges to $\frac12$.
 id: integrals-110
 note: math-integrals
 title: "Estimate an Integral with the Trapezoidal Rule"
+exam: exam-i
 skills: [Trapezoidal Rule, Numerical Integration]
 -->
 
@@ -351,6 +361,7 @@ $$
 id: integrals-21
 note: math-integrals
 title: "Substitute and Change the Bounds"
+exam: exam-ii
 skills: [Substitution, Definite Integrals]
 -->
 
@@ -387,6 +398,7 @@ $$
 id: integrals-22
 note: math-integrals
 title: "Integrate a Logarithm by Parts"
+exam: exam-ii
 skills: [Integration by Parts, Logarithms]
 -->
 
@@ -443,6 +455,7 @@ $$
 id: integrals-23
 note: math-integrals
 title: "Decompose a Rational Function with a Repeated Factor"
+exam: exam-ii
 skills: [Partial Fractions, Repeated Factors]
 -->
 
@@ -501,6 +514,7 @@ $$
 id: integrals-24
 note: math-integrals
 title: "Use Trig Substitution on a Radical"
+exam: exam-ii
 skills: [Trig Substitution, Definite Integrals]
 -->
 
@@ -542,6 +556,7 @@ $$
 id: integrals-25
 note: math-integrals
 title: "Find the Area Between Two Curves"
+exam: exam-ii
 skills: [Area Between Curves, Definite Integrals]
 -->
 
@@ -578,6 +593,7 @@ $$
 id: integrals-26
 note: math-integrals
 title: "Find Volume with the Washer Method"
+exam: exam-ii
 skills: [Washer Method, Volumes of Revolution]
 -->
 
@@ -606,6 +622,7 @@ $$
 id: integrals-27
 note: math-integrals
 title: "Find Mass from a Density Function"
+exam: exam-ii
 skills: [Mass, Density]
 -->
 
@@ -637,6 +654,7 @@ $$
 id: integrals-28
 note: math-integrals
 title: "Estimate an Integral with Simpson's Rule"
+exam: exam-ii
 skills: [Simpson's Rule, Numerical Integration]
 -->
 
@@ -678,6 +696,7 @@ $$
 id: integrals-31
 note: math-integrals
 title: "Find Displacement from a Velocity Function"
+exam: final
 skills: [Applications, Velocity]
 -->
 
@@ -717,6 +736,7 @@ So the displacement is $4$.
 id: integrals-32
 note: math-integrals
 title: "Find Volume with the Shell Method"
+exam: final
 skills: [Shell Method, Volumes of Revolution]
 -->
 
@@ -758,6 +778,7 @@ $$
 id: integrals-33
 note: math-integrals
 title: "Find a Probability from a Density Function"
+exam: final
 skills: [Probability Density Functions, Definite Integrals]
 -->
 
@@ -794,6 +815,7 @@ $$
 id: integrals-34
 note: math-integrals
 title: "Evaluate an Improper Integral with a Vertical Asymptote"
+exam: final
 skills: [Improper Integrals, Convergence]
 -->
 
@@ -830,6 +852,7 @@ $$
 id: integrals-35
 note: math-integrals
 title: "Find Geometric Area When the Sign Changes"
+exam: final
 skills: [Geometric Area, Sign Changes]
 -->
 
@@ -889,6 +912,7 @@ $$
 id: integrals-41
 note: math-integrals
 title: "Handle an Endpoint Singularity with Parts"
+exam: final
 skills: [Improper Integrals, Integration by Parts]
 -->
 
@@ -946,6 +970,7 @@ $$
 id: integrals-42
 note: math-integrals
 title: "Evaluate an Improper Integral After Substitution"
+exam: final
 skills: [Improper Integrals, Substitution]
 -->
 
@@ -996,6 +1021,7 @@ So the integral converges to $\frac12$.
 id: integrals-43
 note: math-integrals
 title: "Use Shells on a Region Between Curves"
+exam: final
 skills: [Shell Method, Area Between Curves]
 -->
 
@@ -1045,6 +1071,7 @@ $$
 id: integrals-44
 note: math-integrals
 title: "Combine Trig Substitution with a Trig Identity"
+exam: final
 skills: [Trig Substitution, Trig Identities]
 -->
 

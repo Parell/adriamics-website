@@ -2,6 +2,7 @@
 id: statics-11
 note: engineering-statics
 title: "State the Plane Equilibrium Equations"
+exam: exam-i
 skills: [Equilibrium Equations]
 -->
 
@@ -21,6 +22,7 @@ The moment may be taken about any convenient point $O$.
 id: statics-12
 note: engineering-statics
 title: "Identify a Particle Model"
+exam: exam-i
 skills: [Modeling Assumptions]
 -->
 
@@ -36,6 +38,7 @@ A particle has mass but no dimensions, so rotation is ignored and only force bal
 id: statics-13
 note: engineering-statics
 title: "Compute a Force Moment"
+exam: exam-i
 skills: [Moments]
 -->
 
@@ -59,6 +62,7 @@ $$
 id: statics-14
 note: engineering-statics
 title: "Compute a Couple Moment"
+exam: exam-i
 skills: [Couples, Moments]
 -->
 
@@ -88,6 +92,7 @@ $$
 id: statics-15
 note: engineering-statics
 title: "Identify Pin Reactions"
+exam: exam-i
 skills: [Support Reactions]
 -->
 
@@ -107,6 +112,7 @@ It does not supply a reaction moment.
 id: statics-16
 note: engineering-statics
 title: "Identify Roller Reactions"
+exam: exam-i
 skills: [Support Reactions]
 -->
 
@@ -122,6 +128,7 @@ It allows horizontal motion and does not resist a moment.
 id: statics-17
 note: engineering-statics
 title: "Replace a Uniform Load"
+exam: exam-i
 skills: [Distributed Loads, Resultants]
 -->
 
@@ -147,6 +154,7 @@ It acts at the midpoint of the loaded region, so the line of action is 2 m from 
 id: statics-18
 note: engineering-statics
 title: "Replace a Triangular Load"
+exam: exam-i
 skills: [Distributed Loads, Resultants]
 -->
 
@@ -172,6 +180,7 @@ from the zero-load end.
 id: statics-19
 note: engineering-statics
 title: "Find Maximum Static Friction"
+exam: exam-i
 skills: [Friction]
 -->
 
@@ -201,6 +210,7 @@ $$
 id: statics-110
 note: engineering-statics
 title: "Locate the Centroid of a Rectangle"
+exam: exam-i
 skills: [Centroids, Symmetry]
 -->
 
@@ -226,6 +236,7 @@ $$
 id: statics-21
 note: engineering-statics
 title: "Find Beam Reactions for a Center Load"
+exam: exam-ii
 skills: [Equilibrium Equations, Support Reactions]
 -->
 
@@ -267,6 +278,7 @@ $$
 id: statics-22
 note: engineering-statics
 title: "Find Reactions Under a Uniform Load"
+exam: exam-ii
 skills: [Distributed Loads, Support Reactions]
 -->
 
@@ -296,6 +308,7 @@ $$
 id: statics-23
 note: engineering-statics
 title: "Use the Zero-Force Member Rule"
+exam: exam-ii
 skills: [Trusses, Zero-Force Members]
 -->
 
@@ -311,6 +324,7 @@ This follows directly from joint equilibrium.
 id: statics-24
 note: engineering-statics
 title: "Solve a Two-Force Joint"
+exam: exam-ii
 skills: [Trusses, Method of Joints, Equilibrium Equations]
 -->
 
@@ -352,6 +366,7 @@ $$
 id: statics-25
 note: engineering-statics
 title: "Find the Friction Force at Impending Slip"
+exam: exam-ii
 skills: [Friction, Equilibrium Equations]
 -->
 
@@ -383,6 +398,7 @@ It acts opposite the push.
 id: statics-26
 note: engineering-statics
 title: "Find Internal Forces at a Cut"
+exam: exam-ii
 skills: [Internal Loads, Free-Body Diagrams, Equilibrium Equations]
 -->
 
@@ -428,6 +444,7 @@ $$
 id: statics-27
 note: engineering-statics
 title: "Find the Centroid of a Composite Area"
+exam: exam-ii
 skills: [Centroids, Composite Areas]
 -->
 
@@ -475,6 +492,7 @@ $$
 id: statics-28
 note: engineering-statics
 title: "Check Static Determinacy"
+exam: exam-ii
 skills: [Support Reactions, Statical Determinacy]
 -->
 
@@ -502,6 +520,7 @@ Additional compatibility or geometry information would be needed.
 id: statics-31
 note: engineering-statics
 title: "Balance a Mixed Beam Load"
+exam: final
 skills: [Distributed Loads, Support Reactions, Equilibrium Equations]
 -->
 
@@ -553,6 +572,7 @@ $$
 id: statics-32
 note: engineering-statics
 title: "Required Coefficient of Static Friction"
+exam: final
 skills: [Friction]
 -->
 
@@ -588,6 +608,7 @@ $$
 id: statics-33
 note: engineering-statics
 title: "Combine a Force and a Couple"
+exam: final
 skills: [Moments, Couples]
 -->
 
@@ -625,6 +646,7 @@ clockwise.
 id: statics-34
 note: engineering-statics
 title: "Find the Center of Gravity of Discrete Masses"
+exam: final
 skills: [Centroids, Center of Gravity]
 -->
 
@@ -658,6 +680,7 @@ $$
 id: statics-35
 note: engineering-statics
 title: "Find Shear and Moment at a Section"
+exam: final
 skills: [Internal Loads, Equilibrium Equations]
 -->
 
@@ -715,6 +738,7 @@ $$
 id: statics-41
 note: engineering-statics
 title: "Load a Beam with Multiple Actions"
+exam: final
 skills: [Distributed Loads, Support Reactions, Equilibrium Equations]
 -->
 
@@ -766,6 +790,7 @@ $$
 id: statics-42
 note: engineering-statics
 title: "Find the Centroid of an L-Section"
+exam: final
 skills: [Centroids, Composite Areas]
 -->
 
@@ -813,6 +838,7 @@ $$
 id: statics-43
 note: engineering-statics
 title: "Decide Whether Equilibrium Alone Is Enough"
+exam: final
 skills: [Statical Determinacy, Support Reactions]
 -->
 
@@ -840,6 +866,7 @@ In 2D, a rigid body has only 3 independent equilibrium equations, so equilibrium
 id: statics-44
 note: engineering-statics
 title: "Recover Internal Forces from a Cut Segment"
+exam: final
 skills: [Internal Loads, Free-Body Diagrams, Equilibrium Equations]
 -->
 

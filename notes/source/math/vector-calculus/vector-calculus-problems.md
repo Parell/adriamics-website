@@ -2,6 +2,7 @@
 id: vector-calculus-11
 note: math-vector-calculus
 title: "Gradient and Directional Derivative"
+exam: exam-i
 skills: [Gradient, Directional Derivative]
 -->
 
@@ -19,6 +20,7 @@ $$
 id: vector-calculus-12
 note: math-vector-calculus
 title: "Divergence and Curl"
+exam: exam-i
 skills: [Divergence, Curl]
 -->
 
@@ -41,6 +43,7 @@ $$
 id: vector-calculus-23
 note: math-vector-calculus
 title: "Conservative Field"
+exam: exam-ii
 skills: [Conservative Fields, Potential]
 -->
 
@@ -58,6 +61,7 @@ $$
 id: vector-calculus-34
 note: math-vector-calculus
 title: "Divergence Theorem"
+exam: final
 skills: [Divergence Theorem, Flux]
 -->
 

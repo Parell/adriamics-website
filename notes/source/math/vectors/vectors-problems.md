@@ -2,6 +2,7 @@
 id: vectors-11
 note: math-vectors
 title: "Find a Position Vector"
+exam: exam-i
 skills: [Position Vectors]
 -->
 
@@ -21,6 +22,7 @@ $$
 id: vectors-12
 note: math-vectors
 title: "Convert to Component Form"
+exam: exam-i
 skills: [Notation, Component Form]
 -->
 
@@ -47,6 +49,7 @@ $$
 id: vectors-13
 note: math-vectors
 title: "Find a Vector from Two Points"
+exam: exam-i
 skills: [Two Points, Component Form]
 -->
 
@@ -68,6 +71,7 @@ $$
 id: vectors-14
 note: math-vectors
 title: "Find a Magnitude"
+exam: exam-i
 skills: [Magnitude]
 -->
 
@@ -95,6 +99,7 @@ $$
 id: vectors-15
 note: math-vectors
 title: "Find a Unit Vector"
+exam: exam-i
 skills: [Unit Vectors, Magnitude]
 -->
 
@@ -119,6 +124,7 @@ $$
 id: vectors-16
 note: math-vectors
 title: "Add Two Vectors"
+exam: exam-i
 skills: [Vector Addition]
 -->
 
@@ -140,6 +146,7 @@ $$
 id: vectors-17
 note: math-vectors
 title: "Subtract Two Vectors"
+exam: exam-i
 skills: [Vector Subtraction]
 -->
 
@@ -162,6 +169,7 @@ $$
 id: vectors-18
 note: math-vectors
 title: "Multiply by a Scalar"
+exam: exam-i
 skills: [Scalar Multiplication]
 -->
 
@@ -184,6 +192,7 @@ $$
 id: vectors-19
 note: math-vectors
 title: "Compute a Dot Product"
+exam: exam-i
 skills: [Dot Product]
 -->
 
@@ -209,6 +218,7 @@ $$
 id: vectors-110
 note: math-vectors
 title: "Compute a Cross Product"
+exam: exam-i
 skills: [Cross Product]
 -->
 
@@ -242,6 +252,7 @@ $$
 id: vectors-21
 note: math-vectors
 title: "Find a Direction Angle"
+exam: exam-ii
 skills: [Direction Angle, Trigonometry]
 -->
 
@@ -271,6 +282,7 @@ $$
 id: vectors-22
 note: math-vectors
 title: "Find a Vector and Its Length"
+exam: exam-ii
 skills: [Two Points, Magnitude]
 -->
 
@@ -301,6 +313,7 @@ $$
 id: vectors-23
 note: math-vectors
 title: "Find the Angle Between Two Vectors"
+exam: exam-ii
 skills: [Dot Product, Angle Between Vectors]
 -->
 
@@ -349,6 +362,7 @@ $$
 id: vectors-24
 note: math-vectors
 title: "Project One Vector Onto Another"
+exam: exam-ii
 skills: [Projection, Dot Product]
 -->
 
@@ -385,6 +399,7 @@ $$
 id: vectors-25
 note: math-vectors
 title: "Split a Vector into Parallel and Perpendicular Parts"
+exam: exam-ii
 skills: [Projection, Orthogonal Decomposition]
 -->
 
@@ -435,6 +450,7 @@ $$
 id: vectors-26
 note: math-vectors
 title: "Find the Area of a Parallelogram"
+exam: exam-ii
 skills: [Cross Product, Area]
 -->
 
@@ -483,6 +499,7 @@ $$
 id: vectors-27
 note: math-vectors
 title: "Write an Equation of a Plane"
+exam: exam-ii
 skills: [Planes, Normal Vector]
 -->
 
@@ -516,6 +533,7 @@ $$
 id: vectors-28
 note: math-vectors
 title: "Find the Distance from a Point to a Plane"
+exam: exam-ii
 skills: [Planes, Distance Formula]
 -->
 
@@ -550,6 +568,7 @@ $$
 id: vectors-31
 note: math-vectors
 title: "Model a Displacement"
+exam: final
 skills: [Displacement, Magnitude]
 -->
 
@@ -582,6 +601,7 @@ So the drone is $13$ km from the starting point.
 id: vectors-32
 note: math-vectors
 title: "Write a Line Through Two Points"
+exam: final
 skills: [Lines, Two Points]
 -->
 
@@ -614,6 +634,7 @@ $$
 id: vectors-33
 note: math-vectors
 title: "Find a Plane Through Three Points"
+exam: final
 skills: [Planes, Cross Product, Two Points]
 -->
 
@@ -653,6 +674,7 @@ $$
 id: vectors-34
 note: math-vectors
 title: "Find the Area of a Triangle from Coordinates"
+exam: final
 skills: [Cross Product, Area, Two Points]
 -->
 
@@ -694,6 +716,7 @@ $$
 id: vectors-35
 note: math-vectors
 title: "Decide the Relationship Between a Line and a Plane"
+exam: final
 skills: [Lines, Planes, Dot Product]
 -->
 
@@ -739,6 +762,7 @@ Since the direction vector is orthogonal to the plane's normal vector, the line 
 id: vectors-41
 note: math-vectors
 title: "Find the Intersection of a Line and a Plane"
+exam: final
 skills: [Lines, Planes, Substitution]
 -->
 
@@ -798,6 +822,7 @@ $$
 id: vectors-42
 note: math-vectors
 title: "Find the Closest Point on a Line"
+exam: final
 skills: [Projection, Lines, Orthogonal Decomposition]
 -->
 
@@ -846,6 +871,7 @@ $$
 id: vectors-43
 note: math-vectors
 title: "Decompose a Vector and Measure the Perpendicular Part"
+exam: final
 skills: [Projection, Orthogonal Decomposition, Magnitude]
 -->
 
@@ -897,6 +923,7 @@ $$
 id: vectors-44
 note: math-vectors
 title: "Use Dot and Cross Products Together"
+exam: final
 skills: [Dot Product, Cross Product, Angle Between Vectors]
 -->
 

@@ -2,6 +2,7 @@
 id: relativity-11
 note: physics-relativity
 title: "State the Two Postulates"
+exam: exam-i
 skills: [Postulates, Inertial Frames]
 -->
 
@@ -20,6 +21,7 @@ These are the starting point for special relativity.
 id: relativity-12
 note: physics-relativity
 title: "Compute a Lorentz Factor"
+exam: exam-i
 skills: [Lorentz Factor]
 -->
 
@@ -43,6 +45,7 @@ $$
 id: relativity-13
 note: physics-relativity
 title: "Classify an Interval"
+exam: exam-i
 skills: [Spacetime Interval, Causality]
 -->
 
@@ -68,6 +71,7 @@ the interval is timelike.
 id: relativity-14
 note: physics-relativity
 title: "Time Dilation from Proper Time"
+exam: exam-i
 skills: [Time Dilation, Lorentz Factor]
 -->
 
@@ -91,6 +95,7 @@ $$
 id: relativity-15
 note: physics-relativity
 title: "Length Contraction of a Rod"
+exam: exam-i
 skills: [Length Contraction, Proper Length]
 -->
 
@@ -114,6 +119,7 @@ $$
 id: relativity-16
 note: physics-relativity
 title: "Relativity of Simultaneity"
+exam: exam-i
 skills: [Relativity of Simultaneity, Lorentz Transformations]
 -->
 
@@ -144,6 +150,7 @@ $$
 id: relativity-17
 note: physics-relativity
 title: "Add Two Velocities"
+exam: exam-i
 skills: [Velocity Addition]
 -->
 
@@ -167,6 +174,7 @@ $$
 id: relativity-18
 note: physics-relativity
 title: "Find the Rest Energy"
+exam: exam-i
 skills: [Rest Energy, Mass-Energy Equivalence]
 -->
 
@@ -190,6 +198,7 @@ $$
 id: relativity-19
 note: physics-relativity
 title: "Name the Proper Time"
+exam: exam-i
 skills: [Proper Time]
 -->
 
@@ -205,6 +214,7 @@ It is the time measured in the rest frame of the clock.
 id: relativity-110
 note: physics-relativity
 title: "Use the Photon Momentum Relation"
+exam: exam-i
 skills: [Photon Relations]
 -->
 
@@ -228,6 +238,7 @@ $$
 id: relativity-21
 note: physics-relativity
 title: "Transform One Event"
+exam: exam-ii
 skills: [Lorentz Transformations, Lorentz Factor]
 -->
 
@@ -279,6 +290,7 @@ $$
 id: relativity-22
 note: physics-relativity
 title: "Use Proper Time and Distance"
+exam: exam-ii
 skills: [Time Dilation, Proper Time]
 -->
 
@@ -310,6 +322,7 @@ So the ship experiences $6\ \mu\text{s}$, and it travels $2400\ \text{m}$ in Ear
 id: relativity-23
 note: physics-relativity
 title: "Interval to Causality"
+exam: exam-ii
 skills: [Spacetime Interval, Causality]
 -->
 
@@ -335,6 +348,7 @@ the interval is spacelike. A light signal cannot connect the events, so there is
 id: relativity-24
 note: physics-relativity
 title: "Relativistic Kinetic Energy"
+exam: exam-ii
 skills: [Kinetic Energy, Lorentz Factor]
 -->
 
@@ -370,6 +384,7 @@ $$
 id: relativity-25
 note: physics-relativity
 title: "Energy from Momentum"
+exam: exam-ii
 skills: [Energy-Momentum Relation, Momentum]
 -->
 
@@ -406,6 +421,7 @@ $$
 id: relativity-26
 note: physics-relativity
 title: "Particle Reaches the Detector"
+exam: exam-ii
 skills: [Time Dilation, Applied Problem]
 -->
 
@@ -437,6 +453,7 @@ Since $880\ \text{m} > 500\ \text{m}$, the particle reaches the detector before 
 id: relativity-27
 note: physics-relativity
 title: "Simultaneous Flashes in Another Frame"
+exam: exam-ii
 skills: [Relativity of Simultaneity, Frame Dependence]
 -->
 
@@ -469,6 +486,7 @@ So the flashes are not simultaneous in the train frame.
 id: relativity-28
 note: physics-relativity
 title: "Photon Energy Loss from Redshift"
+exam: exam-ii
 skills: [Gravitational Redshift, Photon Relations]
 -->
 
@@ -496,6 +514,7 @@ So the energy dropped to $90\%$ of its original value, a decrease of $10\%$.
 id: relativity-31
 note: physics-relativity
 title: "Decide Between SR and GR"
+exam: final
 skills: [General Relativity, Special Relativity, Inertial Frames]
 -->
 
@@ -511,6 +530,7 @@ Special relativity handles motion in inertial frames, but it does not account fo
 id: relativity-32
 note: physics-relativity
 title: "Muon Reaches the Ground"
+exam: final
 skills: [Time Dilation, Applied Problem]
 -->
 
@@ -542,6 +562,7 @@ So the muon travels about $495\ \text{m}$, which is just short of $500\ \text{m}
 id: relativity-33
 note: physics-relativity
 title: "Why Simultaneity Can Change"
+exam: final
 skills: [Relativity of Simultaneity, Frame Dependence]
 -->
 
@@ -563,6 +584,7 @@ So simultaneity depends on the frame.
 id: relativity-34
 note: physics-relativity
 title: "Final Mass After a Head-On Collision"
+exam: final
 skills: [Energy-Momentum Relation, Conservation Laws]
 -->
 
@@ -598,6 +620,7 @@ $$
 id: relativity-35
 note: physics-relativity
 title: "What Happens to a Photon Climbing Out of Gravity"
+exam: final
 skills: [Gravitational Redshift, Photon Relations]
 -->
 
@@ -619,6 +642,7 @@ If the frequency drops by $12\%$, the energy also drops by $12\%$.
 id: relativity-41
 note: physics-relativity
 title: "Solve for the Relative Speed"
+exam: final
 skills: [Relativity of Simultaneity, Lorentz Transformations]
 -->
 
@@ -688,6 +712,7 @@ $$
 id: relativity-42
 note: physics-relativity
 title: "Find the Interval and Proper Time"
+exam: final
 skills: [Spacetime Interval, Proper Time]
 -->
 
@@ -721,6 +746,7 @@ So the proper time is $8\ \text{ns}$.
 id: relativity-43
 note: physics-relativity
 title: "Why the Final Object Is Heavier"
+exam: final
 skills: [Energy-Momentum Relation, Conservation Laws]
 -->
 
@@ -758,6 +784,7 @@ That is larger than $2m$ because some kinetic energy has been converted into res
 id: relativity-44
 note: physics-relativity
 title: "Explain Why Light Bends Near a Star"
+exam: final
 skills: [Equivalence Principle, Light Bending, General Relativity]
 -->
 

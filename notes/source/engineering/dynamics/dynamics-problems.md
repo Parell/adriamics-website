@@ -2,6 +2,7 @@
 id: dynamics-11
 note: engineering-dynamics
 title: "Classify the Study of Motion"
+exam: exam-i
 skills: [Kinematics, Kinetics]
 -->
 
@@ -17,6 +18,7 @@ Kinematics describes motion itself, while kinetics connects motion to the forces
 id: dynamics-12
 note: engineering-dynamics
 title: "Differentiate a Position Function"
+exam: exam-i
 skills: [Position, Velocity, Acceleration]
 -->
 
@@ -56,6 +58,7 @@ $$
 id: dynamics-13
 note: engineering-dynamics
 title: "Use Constant Acceleration to Find Speed"
+exam: exam-i
 skills: [Rectilinear Motion, Constant Acceleration]
 -->
 
@@ -79,6 +82,7 @@ $$
 id: dynamics-14
 note: engineering-dynamics
 title: "Find Displacement Under Constant Acceleration"
+exam: exam-i
 skills: [Rectilinear Motion, Constant Acceleration]
 -->
 
@@ -106,6 +110,7 @@ $$
 id: dynamics-15
 note: engineering-dynamics
 title: "Read Velocity and Acceleration from Cartesian Components"
+exam: exam-i
 skills: [Cartesian Components, Curvilinear Motion]
 -->
 
@@ -145,6 +150,7 @@ $$
 id: dynamics-16
 note: engineering-dynamics
 title: "Compute Normal Acceleration"
+exam: exam-i
 skills: [Normal-Tangential Motion, Curvilinear Motion]
 -->
 
@@ -168,6 +174,7 @@ $$
 id: dynamics-17
 note: engineering-dynamics
 title: "Add Velocities in Relative Motion"
+exam: exam-i
 skills: [Relative Motion]
 -->
 
@@ -187,6 +194,7 @@ So the person's ground speed is $2.3 \, \text{m/s}$ east.
 id: dynamics-18
 note: engineering-dynamics
 title: "Apply Newton's Second Law"
+exam: exam-i
 skills: [Particle Kinetics, Newton's Second Law]
 -->
 
@@ -212,6 +220,7 @@ The acceleration is $4 \, \text{m/s}^2$ to the right.
 id: dynamics-19
 note: engineering-dynamics
 title: "Use Friction at a Contact Surface"
+exam: exam-i
 skills: [Particle Kinetics, Friction]
 -->
 
@@ -235,6 +244,7 @@ $$
 id: dynamics-110
 note: engineering-dynamics
 title: "Find Tangential Speed in Pure Rotation"
+exam: exam-i
 skills: [Rigid-Body Kinematics, Pure Rotation]
 -->
 
@@ -258,6 +268,7 @@ $$
 id: dynamics-21
 note: engineering-dynamics
 title: "Use Work-Energy with a Constant Force"
+exam: exam-ii
 skills: [Work-Energy Methods, Kinetic Energy]
 -->
 
@@ -301,6 +312,7 @@ $$
 id: dynamics-22
 note: engineering-dynamics
 title: "Track Energy with a Spring"
+exam: exam-ii
 skills: [Work-Energy Methods, Springs]
 -->
 
@@ -334,6 +346,7 @@ $$
 id: dynamics-23
 note: engineering-dynamics
 title: "Use Impulse to Find Final Velocity"
+exam: exam-ii
 skills: [Impulse-Momentum Methods, Linear Momentum]
 -->
 
@@ -367,6 +380,7 @@ $$
 id: dynamics-24
 note: engineering-dynamics
 title: "Solve a Friction Problem with Force Balance"
+exam: exam-ii
 skills: [Particle Kinetics, Friction, Newton's Second Law]
 -->
 
@@ -402,6 +416,7 @@ $$
 id: dynamics-25
 note: engineering-dynamics
 title: "Combine Translation and Rotation"
+exam: exam-ii
 skills: [Rigid-Body Kinematics, Relative Motion]
 -->
 
@@ -437,6 +452,7 @@ Point $B$ moves left at $0.3 \, \text{m/s}$.
 id: dynamics-26
 note: engineering-dynamics
 title: "Find Angular Acceleration from a Moment"
+exam: exam-ii
 skills: [Rigid-Body Kinetics, Parallel-Axis Theorem]
 -->
 
@@ -472,6 +488,7 @@ $$
 id: dynamics-27
 note: engineering-dynamics
 title: "Choose the Best Method"
+exam: exam-ii
 skills: [Choosing the Right Method]
 -->
 
@@ -487,6 +504,7 @@ The distance is known, so it is often faster to write the work done by gravity, 
 id: dynamics-28
 note: engineering-dynamics
 title: "Spot a Common Pitfall"
+exam: exam-ii
 skills: [Common Pitfalls, Rectilinear Motion]
 -->
 
@@ -514,6 +532,7 @@ to find velocity.
 id: dynamics-31
 note: engineering-dynamics
 title: "Recognize Variable Acceleration by Position"
+exam: final
 skills: [Rectilinear Motion, Variable Acceleration]
 -->
 
@@ -561,6 +580,7 @@ $$
 id: dynamics-32
 note: engineering-dynamics
 title: "Use Work-Energy on an Incline"
+exam: final
 skills: [Work-Energy Methods, Gravity]
 -->
 
@@ -600,6 +620,7 @@ $$
 id: dynamics-33
 note: engineering-dynamics
 title: "Use Impulse-Momentum in an Impact"
+exam: final
 skills: [Impulse-Momentum Methods, Linear Momentum]
 -->
 
@@ -639,6 +660,7 @@ The puck ends with speed $4 \, \text{m/s}$ to the west.
 id: dynamics-34
 note: engineering-dynamics
 title: "Find a Point's Velocity and Acceleration on a Rotating Bar"
+exam: final
 skills: [Rigid-Body Kinematics, Rigid-Body Kinetics]
 -->
 
@@ -704,6 +726,7 @@ So point $B$ is instantaneously at rest, and its acceleration is $8 \, \text{m/s
 id: dynamics-35
 note: engineering-dynamics
 title: "Choose the Right Impact Method"
+exam: final
 skills: [Choosing the Right Method, Impulse-Momentum Methods]
 -->
 
@@ -731,6 +754,7 @@ So the average impact force is $80$ N opposite the cart's motion.
 id: dynamics-41
 note: engineering-dynamics
 title: "Analyze Planar Motion from Position Functions"
+exam: final
 skills: [Cartesian Components, Curvilinear Motion]
 -->
 
@@ -786,6 +810,7 @@ Since the acceleration points generally in the same direction as the velocity, t
 id: dynamics-42
 note: engineering-dynamics
 title: "Velocity and Acceleration of a Rotating Point"
+exam: final
 skills: [Rigid-Body Kinematics, Normal-Tangential Motion]
 -->
 
@@ -825,6 +850,7 @@ $$
 id: dynamics-43
 note: engineering-dynamics
 title: "Use Rotational Work-Energy"
+exam: final
 skills: [Work-Energy Methods, Rigid-Body Kinetics]
 -->
 
@@ -878,6 +904,7 @@ $$
 id: dynamics-44
 note: engineering-dynamics
 title: "Handle a Rotating Frame with Coriolis Acceleration"
+exam: final
 skills: [Relative Motion, Rotating Frames]
 -->
 

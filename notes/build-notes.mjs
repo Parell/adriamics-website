@@ -34,6 +34,14 @@ const practiceLevelLabels = new Map([
   [3, 'Applied Problems'],
   [4, 'Challenge / Synthesis'],
 ]);
+const practiceExamDefinitions = Object.freeze({
+  'exam-i': { key: 'exam-i', label: 'Exam I', aliases: ['i', '1', 'exam i', 'exam 1', 'exam-i'] },
+  'exam-ii': { key: 'exam-ii', label: 'Exam II', aliases: ['ii', '2', 'exam ii', 'exam 2', 'exam-ii'] },
+  final: { key: 'final', label: 'Final', aliases: ['final', 'exam final'] },
+});
+const practiceExamByAlias = new Map(
+  Object.values(practiceExamDefinitions).flatMap((definition) => definition.aliases.map((alias) => [alias, definition])),
+);
 const lastModifiedFormatter = new Intl.DateTimeFormat('en-US', {
   month: 'short',
   day: 'numeric',
@@ -651,7 +659,16 @@ function rewriteInternalHref(href, sourcePath) {
 
     if (pathname.endsWith('.md')) {
       pathname = `${pathname.slice(0, -3)}/`;
-      return `/notes/${pathname}${resolved.search}${resolved.hash}`;
+      let outputPath = pathname.startsWith('source/')
+        ? `subjects/${pathname.slice('source/'.length)}`
+        : pathname;
+      const outputSegments = outputPath.split('/').filter(Boolean);
+      if (outputSegments.length >= 2
+        && outputSegments.at(-1) === outputSegments.at(-2)) {
+        outputSegments.pop();
+        outputPath = `${outputSegments.join('/')}/`;
+      }
+      return `/notes/${outputPath}${resolved.search}${resolved.hash}`;
     }
 
     return trimmed;
@@ -925,10 +942,49 @@ function renderParagraphBlock(lines, index, sourcePath) {
   };
 }
 
+function renderRawHtmlBlock(lines, index) {
+  const htmlLines = [lines[index]];
+  let nextIndex = index + 1;
+
+  while (nextIndex < lines.length && lines[nextIndex].trim() && isRawHtmlLine(lines[nextIndex])) {
+    htmlLines.push(lines[nextIndex]);
+    nextIndex += 1;
+  }
+
+  return { html: htmlLines.join('\n'), nextIndex };
+}
+
+function renderHeadingBlock(lines, index, sourcePath, usedHeadingIds) {
+  const headingMatch = lines[index].match(/^\s{0,3}(#{1,6})\s+(.*)$/);
+  const level = headingMatch[1].length;
+  const headingText = headingMatch[2].trim();
+  const id = uniqueHeadingId(slugifyHeading(headingText), usedHeadingIds);
+  return {
+    html: `<h${level} id="${id}">${renderInline(headingText, sourcePath)}</h${level}>`,
+    nextIndex: index + 1,
+  };
+}
+
+function getMarkdownBlockHandlers(sourcePath, usedHeadingIds) {
+  return [
+    { matches: (lines, index) => isFence(lines[index]), render: renderFenceBlock },
+    { matches: (lines, index) => isMathFence(lines[index]), render: renderMathBlock },
+    { matches: (lines, index) => isHeading(lines[index]), render: (lines, index) => renderHeadingBlock(lines, index, sourcePath, usedHeadingIds) },
+    { matches: (lines, index) => isHr(lines[index]), render: (_lines, index) => ({ html: '<hr />', nextIndex: index + 1 }) },
+    { matches: (lines, index) => isStandaloneAnchor(lines[index]), render: (lines, index) => ({ html: lines[index].trim(), nextIndex: index + 1 }) },
+    { matches: (lines, index) => isRawHtmlLine(lines[index]), render: renderRawHtmlBlock },
+    { matches: (lines, index) => isTableStart(lines, index), render: (lines, index) => renderTableBlock(lines, index, sourcePath) },
+    { matches: (lines, index) => lines[index].trim().startsWith('>'), render: (lines, index) => renderQuoteBlock(lines, index, sourcePath) },
+    { matches: (lines, index) => isListItem(lines[index]), render: (lines, index) => renderListBlock(lines, index, sourcePath) },
+    { matches: () => true, wrap: true, render: (lines, index) => renderParagraphBlock(lines, index, sourcePath) },
+  ];
+}
+
 function renderBlocks(markdown, sourcePath) {
   const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
   const usedHeadingIds = new Set();
   const blocks = [];
+  const handlers = getMarkdownBlockHandlers(sourcePath, usedHeadingIds);
   let index = 0;
 
   while (index < lines.length) {
@@ -939,78 +995,9 @@ function renderBlocks(markdown, sourcePath) {
       continue;
     }
 
-    if (isFence(line)) {
-      const block = renderFenceBlock(lines, index);
-      blocks.push(block.html);
-      index = block.nextIndex;
-      continue;
-    }
-
-    if (isMathFence(line)) {
-      const block = renderMathBlock(lines, index);
-      blocks.push(block.html);
-      index = block.nextIndex;
-      continue;
-    }
-
-    if (isHeading(line)) {
-      const headingMatch = line.match(/^\s{0,3}(#{1,6})\s+(.*)$/);
-      const level = headingMatch[1].length;
-      const headingText = headingMatch[2].trim();
-      const id = uniqueHeadingId(slugifyHeading(headingText), usedHeadingIds);
-      blocks.push(`<h${level} id="${id}">${renderInline(headingText, sourcePath)}</h${level}>`);
-      index += 1;
-      continue;
-    }
-
-    if (isHr(line)) {
-      blocks.push('<hr />');
-      index += 1;
-      continue;
-    }
-
-    if (isStandaloneAnchor(line)) {
-      blocks.push(line.trim());
-      index += 1;
-      continue;
-    }
-
-    if (isRawHtmlLine(line)) {
-      const htmlLines = [line];
-      index += 1;
-
-      while (index < lines.length && lines[index].trim() && isRawHtmlLine(lines[index])) {
-        htmlLines.push(lines[index]);
-        index += 1;
-      }
-
-      blocks.push(htmlLines.join('\n'));
-      continue;
-    }
-
-    if (isTableStart(lines, index)) {
-      const block = renderTableBlock(lines, index, sourcePath);
-      blocks.push(block.html);
-      index = block.nextIndex;
-      continue;
-    }
-
-    if (line.trim().startsWith('>')) {
-      const block = renderQuoteBlock(lines, index, sourcePath);
-      blocks.push(block.html);
-      index = block.nextIndex;
-      continue;
-    }
-
-    if (isListItem(line)) {
-      const block = renderListBlock(lines, index, sourcePath);
-      blocks.push(block.html);
-      index = block.nextIndex;
-      continue;
-    }
-
-    const block = renderParagraphBlock(lines, index, sourcePath);
-    blocks.push(`<p>${block.html}</p>`);
+    const handler = handlers.find((candidate) => candidate.matches(lines, index));
+    const block = handler.render(lines, index);
+    blocks.push(handler.wrap ? `<p>${block.html}</p>` : block.html);
     index = block.nextIndex;
   }
 
@@ -1338,8 +1325,36 @@ function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
   return actions.join('');
 }
 
-function renderFloatingActions(quickActionsHtml) {
-  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>`;
+function stripSearchOnlySections(markdown) {
+  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
+  const output = [];
+  let index = 0;
+
+  while (index < lines.length) {
+    const headingMatch = lines[index].match(/^\s{0,3}(#{1,6})\s+(.*)$/);
+    const headingText = headingMatch ? trimMarkdownText(headingMatch[2]) : '';
+
+    if (!headingMatch || !/^sources$/i.test(headingText)) {
+      output.push(lines[index]);
+      index += 1;
+      continue;
+    }
+
+    const sectionLevel = headingMatch[1].length;
+    index += 1;
+
+    while (index < lines.length) {
+      const nextHeading = lines[index].match(/^\s{0,3}(#{1,6})\s+/);
+      if (nextHeading && nextHeading[1].length <= sectionLevel) break;
+      index += 1;
+    }
+  }
+
+  return output.join('\n').replace(/^\s*\n+/, '');
+}
+
+function renderFloatingActions(quickActionsHtml = '') {
+  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>`;
 }
 
 function renderPomodoroBar() {
@@ -1400,25 +1415,30 @@ function renderNotesPageDocument({
   structures,
   activeStructureId = null,
   includeIntro = false,
-  floatingActionsHtml = '',
+  quickActionsHtml = '',
   stylesheetHref = '/notes/notes.css',
   scriptHref = '/notes/notes.js',
+  runtimeHref = '/notes/notes-runtime.js',
   headHtml = '',
   extraHead = '',
 }) {
   const themeBootstrapScript = `<script>
     (() => {
-      try {
-        const storedTheme = window.localStorage.getItem(${JSON.stringify(notesThemeStorageKey)});
+      let storedTheme = null;
 
-        if (storedTheme === 'sepia' || storedTheme === 'light') {
-          document.documentElement.classList.add('notes-page--sepia');
-        }
+      try {
+        storedTheme = window.localStorage.getItem(${JSON.stringify(notesThemeStorageKey)});
       } catch {
-        // Ignore storage access failures.
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
       }
     })();
   </script>`;
+
+  const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
 
   return `<!doctype html>
 <html lang="en">
@@ -1434,6 +1454,7 @@ function renderNotesPageDocument({
   ${themeBootstrapScript}
   <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
   ${extraHead}
+  <script defer src="${escapeHtml(runtimeHref)}"></script>
   <script defer src="${escapeHtml(scriptHref)}"></script>
 </head>
 <body class="notes-page ${escapeHtml(bodyClass)}" id="top">
@@ -1571,6 +1592,7 @@ function buildNoteHtml({
   const tocHtml = renderTableOfContents(bodyHtml);
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.js')}?v=${assetVersions.notesRuntimeJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
   const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
   const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-vector-field-3d') ? `
@@ -1578,7 +1600,6 @@ function buildNoteHtml({
   <script defer src="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraphcore.js"></script>
   ` : '';
   const quickActionsHtml = renderQuickActions({ practiceUrl });
-  const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
   const mainHtml = `
     <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
       <div class="notes-sidebar__head">
@@ -1598,7 +1619,6 @@ function buildNoteHtml({
       </div>
       <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
-          ${practiceUrl ? `<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>` : ''}
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -1620,9 +1640,10 @@ function buildNoteHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
-    floatingActionsHtml,
+    quickActionsHtml,
     stylesheetHref,
     scriptHref,
+    runtimeHref,
     extraHead: `${interactiveHead}
   <script>
     window.MathJax = {
@@ -1866,24 +1887,20 @@ function renderConceptDagNodeLink(node, selectedId) {
   const noteUrl = getConceptNoteUrlFromId(node.id);
   const selectedClass = node.id === selectedId ? ' is-selected' : '';
 
-  return `<a class="concept-dag-tree__node${selectedClass}" href="${escapeHtml(noteUrl)}" data-notes-nav-item>${escapeHtml(node.title)}</a>`;
+  return `<a class="concept-dag-tree__node${selectedClass}" href="${escapeHtml(noteUrl)}" data-concept-dag-node-link data-concept-dag-note-url="${escapeHtml(noteUrl)}" data-notes-nav-item>${escapeHtml(node.title)}</a>`;
 }
 
-function renderConceptDagTail(depth) {
-  if (depth <= 0) {
+function renderConceptDagConnector(depth, isTail) {
+  if (!depth) {
     return '';
   }
 
-  const segments = ['corner', 'horizontal'];
-  for (let index = 1; index < depth; index += 1) {
-    segments.push('junction', 'horizontal');
-  }
+  const cells = Array.from({ length: depth }, (_, index) => {
+    const type = isTail ? (index === 0 ? 'corner' : 'junction') : 'vertical';
+    return `<span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--${type}" aria-hidden="true"></span>`;
+  }).join('');
 
-  return segments.map((segment) => `<span class="concept-dag-tree__tail-${segment}" aria-hidden="true"></span>`).join('');
-}
-
-function renderConceptDagPrefix(depth) {
-  return Array.from({ length: depth }, () => '<span class="concept-dag-tree__prefix-vertical" aria-hidden="true"></span><span class="concept-dag-tree__prefix-space" aria-hidden="true"></span>').join('');
+  return `<span class="concept-dag-tree__connector${isTail ? ' concept-dag-tree__connector--tail' : ''}" aria-hidden="true">${cells}</span>`;
 }
 
 function renderConceptDagRows(rows, selectedId) {
@@ -1891,7 +1908,7 @@ function renderConceptDagRows(rows, selectedId) {
     const isLastRow = depth === rows.length - 1 && depth > 0;
     const nodesHtml = `<span class="concept-dag-tree__nodes">${rowNodes.map((node, index) => `${index ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : ''}${renderConceptDagNodeLink(node, selectedId)}`).join('')}</span>`;
 
-    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${depth ? `<span class="concept-dag-tree__prefix${isLastRow ? ' concept-dag-tree__prefix--hidden' : ''}" aria-hidden="true">${renderConceptDagPrefix(depth)}</span>` : ''}${isLastRow ? `<span class="concept-dag-tree__wrap" aria-hidden="true">${renderConceptDagTail(depth)}</span>` : ''}${nodesHtml}</div>`;
+    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${renderConceptDagConnector(depth, isLastRow)}${nodesHtml}</div>`;
   }).join('');
 }
 
@@ -1962,9 +1979,10 @@ function buildLandingHtml(structures, assetVersions, dag) {
     </section>`,
     structures,
     activeStructureId: homeStructureId,
-    floatingActionsHtml: renderFloatingActions(''),
-    stylesheetHref: `/notes/notes.css?v=${assetVersions.notesCss}`,
-    scriptHref: `/notes/notes-home.js?v=${assetVersions.notesHomeJs}`,
+    quickActionsHtml: '',
+    stylesheetHref: `notes.css?v=${assetVersions.notesCss}`,
+    scriptHref: `notes.js?v=${assetVersions.notesJs}`,
+    runtimeHref: `notes-runtime.js?v=${assetVersions.notesRuntimeJs}`,
   });
 }
 
@@ -2031,56 +2049,17 @@ function parsePracticeSolutionBlock(markdown, sourcePath, problemId) {
 }
 
 function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, seenProblemIds, solutionMarkdown) {
-  const requiredFields = ['id', 'note', 'title', 'skills'];
-
-  for (const field of requiredFields) {
-    const value = metadata?.[field];
-    const isMissing = Array.isArray(value)
-      ? !value.length
-      : value === undefined || value === null || String(value).trim() === '';
-
-    if (isMissing) {
-      throw new Error(`Missing required field "${field}" in ${sourcePath} (problem ${problemIndex + 1})`);
-    }
-  }
-
-  if (!Array.isArray(metadata.skills)) {
-    throw new Error(`Field "skills" must be an array in ${sourcePath} (problem ${problemIndex + 1})`);
-  }
-
+  assertRequiredPracticeFields(metadata, sourcePath, problemIndex);
   const id = String(metadata.id).trim();
-
-  if (seenProblemIds.has(id)) {
-    throw new Error(`Duplicate problem id "${id}" in ${sourcePath}; already used in ${seenProblemIds.get(id)}`);
-  }
-
-  seenProblemIds.set(id, sourcePath);
-
+  assertUniquePracticeProblemId(id, sourcePath, seenProblemIds);
   const { level, position } = parsePracticeProblemId(id, sourcePath, problemIndex);
-
   const type = metadata.type === undefined || metadata.type === null || String(metadata.type).trim() === ''
     ? ''
     : String(metadata.type).trim().toLowerCase();
   const derivedAnswer = String(metadata.answer ?? solutionMarkdown ?? '').trim();
 
   if (type === 'numeric') {
-    if (!derivedAnswer) {
-      throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a numeric answer.`);
-    }
-
-    const numericAnswer = Number(derivedAnswer);
-
-    if (!Number.isFinite(numericAnswer)) {
-      throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a numeric answer.`);
-    }
-
-    if (metadata.tolerance !== undefined && metadata.tolerance !== null && String(metadata.tolerance).trim() !== '') {
-      const tolerance = Number(String(metadata.tolerance).trim());
-
-      if (!Number.isFinite(tolerance) || tolerance < 0) {
-        throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a valid non-negative tolerance.`);
-      }
-    }
+    validateNumericPracticeAnswer(id, sourcePath, derivedAnswer, metadata.tolerance);
   }
 
   return {
@@ -2096,6 +2075,45 @@ function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, see
     unit: metadata.unit,
     skills: metadata.skills,
   };
+}
+
+function assertRequiredPracticeFields(metadata, sourcePath, problemIndex) {
+  for (const field of ['id', 'note', 'title', 'skills']) {
+    const value = metadata?.[field];
+    const isMissing = Array.isArray(value)
+      ? !value.length
+      : value === undefined || value === null || String(value).trim() === '';
+
+    if (isMissing) {
+      throw new Error(`Missing required field "${field}" in ${sourcePath} (problem ${problemIndex + 1})`);
+    }
+  }
+
+  if (!Array.isArray(metadata.skills)) {
+    throw new Error(`Field "skills" must be an array in ${sourcePath} (problem ${problemIndex + 1})`);
+  }
+}
+
+function assertUniquePracticeProblemId(id, sourcePath, seenProblemIds) {
+  if (seenProblemIds.has(id)) {
+    throw new Error(`Duplicate problem id "${id}" in ${sourcePath}; already used in ${seenProblemIds.get(id)}`);
+  }
+
+  seenProblemIds.set(id, sourcePath);
+}
+
+function validateNumericPracticeAnswer(id, sourcePath, answer, toleranceValue) {
+  if (!answer || !Number.isFinite(Number(answer))) {
+    throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a numeric answer.`);
+  }
+
+  if (toleranceValue !== undefined && toleranceValue !== null && String(toleranceValue).trim() !== '') {
+    const tolerance = Number(String(toleranceValue).trim());
+
+    if (!Number.isFinite(tolerance) || tolerance < 0) {
+      throw new Error(`Numeric problem "${id}" in ${sourcePath} must use a valid non-negative tolerance.`);
+    }
+  }
 }
 
 function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
@@ -2116,29 +2134,14 @@ function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
       throw new Error(`Unexpected content before a problem block in ${sourcePath} on line ${index + 1}.`);
     }
 
-    const metadataLines = [];
-    index += 1;
+    const metadataBlock = readPracticeMetadataBlock(lines, index, sourcePath);
+    const metadata = parseFrontmatter(metadataBlock.text);
+    index = metadataBlock.nextIndex;
 
-    while (index < lines.length && lines[index].trim() !== '-->') {
-      metadataLines.push(lines[index]);
-      index += 1;
-    }
+    const bodyBlock = readPracticeBodyBlock(lines, index);
+    index = bodyBlock.nextIndex;
 
-    if (index >= lines.length) {
-      throw new Error(`Missing closing metadata delimiter in ${sourcePath}.`);
-    }
-
-    const metadata = parseFrontmatter(metadataLines.join('\n'));
-    index += 1;
-
-    const bodyLines = [];
-
-    while (index < lines.length && !isPracticeMetadataStart(lines, index)) {
-      bodyLines.push(lines[index]);
-      index += 1;
-    }
-
-    const { promptMarkdown, solutionMarkdown } = parsePracticeSolutionBlock(bodyLines.join('\n'), sourcePath, metadata.id);
+    const { promptMarkdown, solutionMarkdown } = parsePracticeSolutionBlock(bodyBlock.text, sourcePath, metadata.id);
     const problem = validatePracticeProblemMetadata(metadata, sourcePath, problems.length, seenProblemIds, solutionMarkdown);
 
     problems.push({
@@ -2152,32 +2155,46 @@ function parsePracticeProblems(markdown, sourcePath, seenProblemIds) {
   return problems;
 }
 
+function readPracticeMetadataBlock(lines, startIndex, sourcePath) {
+  const metadataLines = [];
+  let index = startIndex + 1;
+
+  while (index < lines.length && lines[index].trim() !== '-->') {
+    metadataLines.push(lines[index]);
+    index += 1;
+  }
+
+  if (index >= lines.length) {
+    throw new Error(`Missing closing metadata delimiter in ${sourcePath}.`);
+  }
+
+  return { text: metadataLines.join('\n'), nextIndex: index + 1 };
+}
+
+function readPracticeBodyBlock(lines, startIndex) {
+  const bodyLines = [];
+  let index = startIndex;
+
+  while (index < lines.length && !isPracticeMetadataStart(lines, index)) {
+    bodyLines.push(lines[index]);
+    index += 1;
+  }
+
+  return { text: bodyLines.join('\n'), nextIndex: index };
+}
+
 function normalizePracticeExam(problem) {
   const explicitExam = String(problem.exam ?? '').trim().toLowerCase();
 
   if (explicitExam) {
-    if (['i', '1', 'exam i', 'exam 1'].includes(explicitExam)) {
-      return { key: 'exam-i', label: 'Exam I' };
-    }
+    const definition = practiceExamByAlias.get(explicitExam);
 
-    if (['ii', '2', 'exam ii', 'exam 2'].includes(explicitExam)) {
-      return { key: 'exam-ii', label: 'Exam II' };
-    }
-
-    if (['final', 'exam final'].includes(explicitExam)) {
-      return { key: 'final', label: 'Final' };
+    if (definition) {
+      return { key: definition.key, label: definition.label };
     }
   }
 
-  if (problem.level <= 1) {
-    return { key: 'exam-i', label: 'Exam I' };
-  }
-
-  if (problem.level === 2) {
-    return { key: 'exam-ii', label: 'Exam II' };
-  }
-
-  return { key: 'final', label: 'Final' };
+  throw new Error(`Practice problem ${problem.level}.${problem.position} (${problem.sourcePath}) is missing a valid exam: ${JSON.stringify(problem.exam)}`);
 }
 
 function renderPracticeProblem(problem, practiceSourcePath, notePath) {
@@ -2324,11 +2341,11 @@ function renderPracticePageHtml({
 }) {
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.js')}?v=${assetVersions.notesRuntimeJs}`;
   const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
   const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
   const quickActionsHtml = renderQuickActions({ backToNoteUrl: noteUrl });
-  const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
   const mainHtml = `
     ${renderPracticeSidebarHtml(structure, notePath)}
     <section class="notes-viewer panel practice-viewer" data-practice-page>
@@ -2360,9 +2377,10 @@ function renderPracticePageHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
-    floatingActionsHtml,
+    quickActionsHtml,
     stylesheetHref,
     scriptHref,
+    runtimeHref,
     extraHead: `<script>
     window.MathJax = {
       loader: { load: ['[tex]/unicode'] },
@@ -2488,7 +2506,7 @@ async function loadNoteDocuments(notes) {
 
   for (const note of notes) {
     const sourcePath = getNoteSourcePath(note.path);
-  let markdown = repairMojibake(await fs.readFile(sourcePath, 'utf8'));
+    let markdown = repairMojibake(await fs.readFile(sourcePath, 'utf8'));
     const { metadata, body } = splitFrontmatter(markdown);
     const bodyWithoutManualToc = stripManualTableOfContents(body);
     const bodyWithoutTitle = stripLeadingTitleHeading(bodyWithoutManualToc, note.title);
@@ -2611,7 +2629,8 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     title,
     subject: note.structureTitle,
     url: urlPath,
-    text: trimMarkdownText(`${title} ${bodyForDisplay}`),
+    summary,
+    text: trimMarkdownText(`${title} ${stripSearchOnlySections(bodyForDisplay)}`),
   };
 }
 
@@ -2697,15 +2716,33 @@ async function main() {
   const manifest = await loadManifest();
   const conceptDag = await loadConceptDag();
   const notes = flattenNotes(manifest.structures);
-  const assetVersions = {
-    siteCss: await getAssetVersion(path.join(repoRoot, 'site.css')),
-    notesCss: await getAssetVersion(path.join(notesRoot, 'notes.css')),
-    notesJs: await getAssetVersion(path.join(notesRoot, 'notes.js')),
-    notesHomeJs: await getAssetVersion(path.join(notesRoot, 'notes-home.js')),
-  };
-
+  const assetVersions = await loadAssetVersions();
   await validateManifestCoverage(notes);
+  const { urls, practiceUrls, searchEntries, practiceByNotePath } = await buildNotePages(
+    notes,
+    manifest.structures,
+    assetVersions,
+    conceptDag,
+  );
+  await removeStaleGeneratedPages(notes, practiceByNotePath);
+  await buildRootIndexPage(assetVersions.siteCss);
+  await buildLandingPage(manifest.structures, assetVersions, conceptDag);
+  await buildSearchIndex(searchEntries);
+  await buildSitemap(urls, practiceUrls);
+}
 
+async function loadAssetVersions() {
+  const [siteCss, notesCss, notesRuntimeJs, notesJs] = await Promise.all([
+    getAssetVersion(path.join(repoRoot, 'site.css')),
+    getAssetVersion(path.join(notesRoot, 'notes.css')),
+    getAssetVersion(path.join(notesRoot, 'notes-runtime.js')),
+    getAssetVersion(path.join(notesRoot, 'notes.js')),
+  ]);
+
+  return { siteCss, notesCss, notesRuntimeJs, notesJs };
+}
+
+async function buildNotePages(notes, structures, assetVersions, conceptDag) {
   const urls = notes.map((note) => getNoteUrl(note.path));
   const [noteDocuments, practiceByNotePath] = await Promise.all([
     loadNoteDocuments(notes),
@@ -2713,6 +2750,7 @@ async function main() {
   ]);
   const practiceUrls = [];
   const searchEntries = [];
+
   for (const [index, note] of notes.entries()) {
     const practice = practiceByNotePath.get(note.path);
     const noteDocument = noteDocuments.get(note.path);
@@ -2721,20 +2759,31 @@ async function main() {
       throw new Error(`Missing loaded note content for ${note.path}.`);
     }
 
-    searchEntries.push(await buildNotePage(note, urls[index], manifest.structures, assetVersions, noteDocument, conceptDag, practice));
+    searchEntries.push(await buildNotePage(note, urls[index], structures, assetVersions, noteDocument, conceptDag, practice));
 
     if (practice) {
-      const practicePage = await buildPracticePage(practice, manifest.structures, assetVersions);
+      const practicePage = await buildPracticePage(practice, structures, assetVersions);
       practiceUrls.push(practicePage.url);
     }
   }
 
-  await removeStaleGeneratedPages(notes, practiceByNotePath);
-
-  await buildRootIndexPage(assetVersions.siteCss);
-  await buildLandingPage(manifest.structures, assetVersions, conceptDag);
-  await buildSearchIndex(searchEntries);
-  await buildSitemap(urls, practiceUrls);
+  return { urls, practiceUrls, searchEntries, practiceByNotePath };
 }
 
-await main();
+if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
+  await main();
+}
+
+export {
+  collectConceptDagAncestors,
+  collectConceptDagRootIds,
+  getSummary,
+  normalizePracticeExam,
+  parseFrontmatter,
+  parsePracticeProblems,
+  renderBlocks,
+  renderFloatingActions,
+  rewriteInternalHref,
+  slugifyHeading,
+  stripSearchOnlySections,
+};

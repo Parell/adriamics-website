@@ -80,46 +80,10 @@ Good contributions are small and specific:
 - Thermodynamic tables and plots
 - Do the ideal gas interactive one but have the heat added be changeable visually so that you can make a turbine a rocket engine or a car engine with the same simulator.
 - Professors/TAs, Find Student orgs
-
-1. Instrumented cantilever beam
-    - Mechanics of materials
-    - Strain gauges
-    - Circuits
-    - Data acquisition
-    - Uncertainty
-    - Fatigue and reliability
-
-2. Temperature-controlled system
-    - Heat transfer
-    - Sensors
-    - Embedded systems
-    - Digital control
-    - Parameter estimation
-
-3. Two-wheeled robot
-    - Dynamics
-    - Kinematics
-    - Motors and encoders
-    - State-space control
-    - Embedded systems
-
-4. Wind-tunnel or pipe-flow study
-    - Fluid mechanics
-    - Dimensional analysis
-    - CFD
-    - Experimental design
-    - Metrology
-
-5. Satellite attitude-control model
-    - Rigid-body dynamics
-    - Euler angles and quaternions
-    - Sensors and actuators
-    - State estimation
-    - Digital control
-
-6. Failure-analysis case study
-    - Materials science
-    - Manufacturing
-    - Fracture mechanics
-    - Reliability
-    - Safety engineering
+  
+- Instrument cantilever beam: strain gauges, circuits, DAQ, uncertainty, fatigue.
+- Build temperature control system: heat transfer, sensors, embedded control, parameter estimation.
+- Build two-wheel robot: dynamics, kinematics, motors, encoders, state-space control.
+- Run wind-tunnel/pipe-flow study: fluids, dimensional analysis, CFD, experiment design, metrology.
+- Model satellite attitude control: rigid-body dynamics, quaternions, sensors, estimation, digital control.
+- Analyze component failure: materials, manufacturing, fracture, reliability, safety.

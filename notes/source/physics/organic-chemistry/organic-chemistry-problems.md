@@ -2,6 +2,7 @@
 id: organic-chemistry-11
 note: medical-biology-organic-chemistry
 title: "Identify an sp2 Carbon"
+exam: exam-i
 skills: [Hybridization, Carbonyls]
 -->
 
@@ -17,6 +18,7 @@ Its geometry is trigonal planar, with bond angles of about 120 degrees.
 id: organic-chemistry-12
 note: medical-biology-organic-chemistry
 title: "Count Sigma and Pi Bonds"
+exam: exam-i
 skills: [Sigma and Pi Bonds]
 -->
 
@@ -36,6 +38,7 @@ So the molecule has $11$ sigma bonds and $1$ pi bond.
 id: organic-chemistry-13
 note: medical-biology-organic-chemistry
 title: "Choose the Principal Functional Group"
+exam: exam-i
 skills: [Functional Groups, Naming]
 -->
 
@@ -51,6 +54,7 @@ The suffix is $-al$, and the hydroxyl group is named as a hydroxy substituent.
 id: organic-chemistry-14
 note: medical-biology-organic-chemistry
 title: "Distinguish Constitutional Isomers"
+exam: exam-i
 skills: [Constitutional Isomers]
 -->
 
@@ -68,6 +72,7 @@ The molecular formula is the same, but the connectivity is not.
 id: organic-chemistry-15
 note: medical-biology-organic-chemistry
 title: "Assign an R Configuration"
+exam: exam-i
 skills: [R/S Assignment]
 -->
 
@@ -85,6 +90,7 @@ So the configuration is $R$.
 id: organic-chemistry-16
 note: medical-biology-organic-chemistry
 title: "Identify E or Z"
+exam: exam-i
 skills: [E/Z Isomers]
 -->
 
@@ -102,6 +108,7 @@ If they were on the same side, it would be $Z$.
 id: organic-chemistry-17
 note: medical-biology-organic-chemistry
 title: "Compare Acid Strength in a Simple Pair"
+exam: exam-i
 skills: [Acidity and Basicity, Resonance]
 -->
 
@@ -117,6 +124,7 @@ Its conjugate base, the carboxylate ion, is resonance-stabilized, so it is much 
 id: organic-chemistry-18
 note: medical-biology-organic-chemistry
 title: "Name the Nucleophile and Electrophile"
+exam: exam-i
 skills: [Nucleophiles and Electrophiles]
 -->
 
@@ -132,6 +140,7 @@ The electrophile is the methyl carbon attached to bromine, because that carbon i
 id: organic-chemistry-19
 note: medical-biology-organic-chemistry
 title: "Predict SN1 or SN2"
+exam: exam-i
 skills: [SN1 and SN2, Reaction Mechanisms]
 -->
 
@@ -149,6 +158,7 @@ The tertiary substrate can form a relatively stable carbocation, and methanol is
 id: organic-chemistry-110
 note: medical-biology-organic-chemistry
 title: "Compute Degrees of Unsaturation"
+exam: exam-i
 skills: [Degree of Unsaturation]
 -->
 
@@ -174,6 +184,7 @@ So the degree of unsaturation is $2$.
 id: organic-chemistry-21
 note: medical-biology-organic-chemistry
 title: "Number a Chain with Competing Functional Groups"
+exam: exam-ii
 skills: [Naming, Functional Groups]
 -->
 
@@ -193,6 +204,7 @@ The alcohol is then named as a hydroxy substituent.
 id: organic-chemistry-22
 note: medical-biology-organic-chemistry
 title: "Explain Amide Basicity"
+exam: exam-ii
 skills: [Resonance, Basicity]
 -->
 
@@ -208,6 +220,7 @@ Because that lone pair is less available to accept a proton, amides are much les
 id: organic-chemistry-23
 note: medical-biology-organic-chemistry
 title: "Order Hydrocarbon Acidity"
+exam: exam-ii
 skills: [Acidity and Basicity, Hybridization]
 -->
 
@@ -229,6 +242,7 @@ An sp carbon has more s-character, so its conjugate base is more stable.
 id: organic-chemistry-24
 note: medical-biology-organic-chemistry
 title: "Predict Hydroboration-Oxidation Product"
+exam: exam-ii
 skills: [Alkene Addition, Regiochemistry]
 -->
 
@@ -246,6 +260,7 @@ So the OH group ends up on the less substituted carbon, and the product is 1-pro
 id: organic-chemistry-25
 note: medical-biology-organic-chemistry
 title: "Identify the E2 Requirement"
+exam: exam-ii
 skills: [Elimination, Reaction Mechanisms]
 -->
 
@@ -263,6 +278,7 @@ For E2, the leaving group and the beta hydrogen must be anti-periplanar.
 id: organic-chemistry-26
 note: medical-biology-organic-chemistry
 title: "Compare Cyclohexane Conformations"
+exam: exam-ii
 skills: [Conformations]
 -->
 
@@ -278,6 +294,7 @@ An axial methyl group experiences 1,3-diaxial strain, so it is less favorable.
 id: organic-chemistry-27
 note: medical-biology-organic-chemistry
 title: "Read an IR Spectrum"
+exam: exam-ii
 skills: [IR Spectroscopy, Functional Groups]
 -->
 
@@ -295,6 +312,7 @@ Carboxylic acids show both a carbonyl stretch and a very broad O-H stretch.
 id: organic-chemistry-28
 note: medical-biology-organic-chemistry
 title: "Interpret an M+2 Pattern"
+exam: exam-ii
 skills: [Mass Spectrometry, Isotopes]
 -->
 
@@ -312,6 +330,7 @@ A 3:1 M to M+2 pattern is characteristic of chlorine, while a roughly 1:1 patter
 id: organic-chemistry-31
 note: medical-biology-organic-chemistry
 title: "Predict a Grignard Addition Product"
+exam: final
 skills: [Carbonyl Addition, Grignard Reactions]
 -->
 
@@ -329,6 +348,7 @@ The product is tert-butanol, also called 2-methyl-2-propanol.
 id: organic-chemistry-32
 note: medical-biology-organic-chemistry
 title: "Form an Ester by Acyl Substitution"
+exam: final
 skills: [Acyl Substitution, Carboxylic Acid Derivatives]
 -->
 
@@ -344,6 +364,7 @@ The product is methyl acetate.
 id: organic-chemistry-33
 note: medical-biology-organic-chemistry
 title: "Recognize an Aldol Product"
+exam: final
 skills: [Aldol Reactions, Enolates]
 -->
 
@@ -361,6 +382,7 @@ The addition product is 3-hydroxybutanal, a beta-hydroxy aldehyde.
 id: organic-chemistry-34
 note: medical-biology-organic-chemistry
 title: "Identify a Cyclic Hemiacetal"
+exam: final
 skills: [Carbohydrates, Hemiacetals]
 -->
 
@@ -376,6 +398,7 @@ The former carbonyl carbon becomes the anomeric carbon.
 id: organic-chemistry-35
 note: medical-biology-organic-chemistry
 title: "Identify an Unknown from Spectral Clues"
+exam: final
 skills: [IR Spectroscopy, NMR Spectroscopy, Degree of Unsaturation]
 -->
 
@@ -393,6 +416,7 @@ The 9-10 ppm proton is characteristic of an aldehyde hydrogen, so the functional
 id: organic-chemistry-41
 note: medical-biology-organic-chemistry
 title: "Predict a Carbocation Rearrangement"
+exam: final
 skills: [Carbocations, Reaction Mechanisms, SN1 and SN2]
 -->
 
@@ -410,6 +434,7 @@ Carbocations rearrange when a shift gives a more stable intermediate before the 
 id: organic-chemistry-42
 note: medical-biology-organic-chemistry
 title: "Choose Kinetic or Thermodynamic Control"
+exam: final
 skills: [Kinetic and Thermodynamic Control, Elimination]
 -->
 
@@ -427,6 +452,7 @@ When the reaction can equilibrate, the more stable product dominates, so the mor
 id: organic-chemistry-43
 note: medical-biology-organic-chemistry
 title: "Classify Ring Aromaticity"
+exam: final
 skills: [Aromaticity, Conjugation]
 -->
 
@@ -444,6 +470,7 @@ Classify each ring:
 id: organic-chemistry-44
 note: medical-biology-organic-chemistry
 title: "Explain Peptide Bond Stability"
+exam: final
 skills: [Amino Acids, Amides, Resonance]
 -->
 

@@ -2,6 +2,7 @@
 id: series-11
 note: math-series
 title: "Necessary Condition for Convergence"
+exam: exam-i
 skills: [Necessary condition for convergence]
 -->
 
@@ -35,6 +36,7 @@ This condition is necessary, but not sufficient.
 id: series-12
 note: math-series
 title: "Sum a Geometric Series"
+exam: exam-i
 skills: [Geometric series]
 -->
 
@@ -61,6 +63,7 @@ $$
 id: series-13
 note: math-series
 title: "Compute a Finite Geometric Sum"
+exam: exam-i
 skills: [Finite geometric sum]
 -->
 
@@ -91,6 +94,7 @@ $$
 id: series-14
 note: math-series
 title: "Evaluate a Telescoping Sum"
+exam: exam-i
 skills: [Telescoping series]
 -->
 
@@ -126,6 +130,7 @@ $$
 id: series-15
 note: math-series
 title: "Decide a p-Series"
+exam: exam-i
 skills: [p-series]
 -->
 
@@ -151,6 +156,7 @@ Since $p>1$, the series converges.
 id: series-16
 note: math-series
 title: "Classify an Alternating p-Series"
+exam: exam-i
 skills: [Alternating series test, Absolute convergence check]
 -->
 
@@ -187,6 +193,7 @@ Therefore, the series is conditionally convergent.
 id: series-17
 note: math-series
 title: "Spot Divergence from the Terms"
+exam: exam-i
 skills: [Divergence test]
 -->
 
@@ -212,6 +219,7 @@ Since the terms do not go to $0$, the series diverges.
 id: series-18
 note: math-series
 title: "Compare to a Known Convergent Series"
+exam: exam-i
 skills: [Comparison test]
 -->
 
@@ -248,6 +256,7 @@ also converges.
 id: series-19
 note: math-series
 title: "Geometric Series with a Negative Ratio"
+exam: exam-i
 skills: [Geometric series]
 -->
 
@@ -274,6 +283,7 @@ $$
 id: series-110
 note: math-series
 title: "Check Absolute Convergence"
+exam: exam-i
 skills: [Absolute convergence check]
 -->
 
@@ -302,6 +312,7 @@ Therefore, the original series converges absolutely.
 id: series-21
 note: math-series
 title: "Use Direct Comparison"
+exam: exam-ii
 skills: [Comparison test]
 -->
 
@@ -327,6 +338,7 @@ Since $\sum \frac{1}{n^2}$ converges, the comparison test gives convergence of t
 id: series-22
 note: math-series
 title: "Use Limit Comparison"
+exam: exam-ii
 skills: [Limit comparison test]
 -->
 
@@ -368,6 +380,7 @@ diverges, the given series also diverges.
 id: series-23
 note: math-series
 title: "Apply the Integral Test"
+exam: exam-ii
 skills: [Advanced convergence test: integral test]
 -->
 
@@ -403,6 +416,7 @@ This is finite, so the series converges.
 id: series-24
 note: math-series
 title: "Apply the Ratio Test"
+exam: exam-ii
 skills: [Ratio test]
 -->
 
@@ -442,6 +456,7 @@ So the ratio test gives divergence.
 id: series-25
 note: math-series
 title: "Apply the Root Test"
+exam: exam-ii
 skills: [Root test]
 -->
 
@@ -469,6 +484,7 @@ Since $L<1$, the series converges absolutely.
 id: series-26
 note: math-series
 title: "Find an Interval of Convergence"
+exam: exam-ii
 skills: [Power series, Radius and interval of convergence]
 -->
 
@@ -539,6 +555,7 @@ $$
 id: series-27
 note: math-series
 title: "Differentiate a Power Series"
+exam: exam-ii
 skills: [Termwise differentiation, Advanced: termwise integration, Power series]
 -->
 
@@ -572,6 +589,7 @@ $$
 id: series-28
 note: math-series
 title: "Expand a Rational Function by Substitution"
+exam: exam-ii
 skills: [Geometric series, Power series]
 -->
 
@@ -613,6 +631,7 @@ $$
 id: series-31
 note: math-series
 title: "Reindex a Series"
+exam: final
 skills: [Index shifting]
 -->
 
@@ -638,6 +657,7 @@ This is a $p$-series with $p=2$, so it converges.
 id: series-32
 note: math-series
 title: "Choose the Right Comparison"
+exam: final
 skills: [Limit comparison test]
 -->
 
@@ -673,6 +693,7 @@ Because the harmonic series diverges, the given series diverges as well.
 id: series-33
 note: math-series
 title: "Evaluate a Telescoping Series"
+exam: final
 skills: [Telescoping series]
 -->
 
@@ -712,6 +733,7 @@ $$
 id: series-34
 note: math-series
 title: "Build a Logarithm Series"
+exam: final
 skills: [Geometric series, Integration]
 -->
 
@@ -753,6 +775,7 @@ $$
 id: series-35
 note: math-series
 title: "Use a Power Series to Sum a Series"
+exam: final
 skills: [Termwise differentiation, Advanced: termwise integration, Power series]
 -->
 
@@ -794,6 +817,7 @@ $$
 id: series-41
 note: math-series
 title: "Approximate with a Taylor Polynomial"
+exam: final
 skills: [Taylor and Maclaurin series, Error thinking]
 -->
 
@@ -833,6 +857,7 @@ The next omitted term is very small, so this is a good local approximation.
 id: series-42
 note: math-series
 title: "Find a Binomial Coefficient"
+exam: final
 skills: [Binomial-type expansion]
 -->
 
@@ -864,6 +889,7 @@ $$
 id: series-43
 note: math-series
 title: "Match Coefficients"
+exam: final
 skills: [Matching coefficients]
 -->
 
@@ -940,6 +966,7 @@ $$
 id: series-44
 note: math-series
 title: "Classify a Mixed-Sign Series"
+exam: final
 skills: [Alternating series test, Absolute convergence check]
 -->
 
@@ -996,6 +1023,7 @@ Therefore, it is conditionally convergent.
 id: series-advanced-11
 note: math-series
 title: "Find a Radius of Convergence"
+exam: exam-i
 skills: [Power series, Ratio test]
 -->
 
@@ -1013,6 +1041,7 @@ The ratio test gives $|x-2|/3$, so convergence requires $|x-2|<3$. The radius is
 id: series-advanced-12
 note: math-series
 title: "Test Power-Series Endpoints"
+exam: exam-i
 skills: [Endpoint testing, Alternating series]
 -->
 
@@ -1026,6 +1055,7 @@ At $x=5$, the terms become $1/(n+1)$ and diverge. At $x=-1$, they become $(-1)^n
 id: series-advanced-13
 note: math-series
 title: "Write a Taylor Polynomial"
+exam: exam-i
 skills: [Taylor polynomial, Derivatives]
 -->
 
@@ -1043,6 +1073,7 @@ $$
 id: series-advanced-14
 note: math-series
 title: "Use a Taylor Approximation"
+exam: exam-i
 skills: [Taylor approximation, Error reasoning]
 -->
 
@@ -1056,6 +1087,7 @@ The approximation is $1+0.2+0.2^2/2=1.22$. The next term is $0.2^3/6\approx0.001
 id: series-advanced-15
 note: math-series
 title: "Derive a Logarithm Series"
+exam: exam-i
 skills: [Termwise integration, Geometric series]
 -->
 
@@ -1073,6 +1105,7 @@ $$
 id: series-advanced-16
 note: math-series
 title: "Match Power-Series Coefficients"
+exam: exam-i
 skills: [Coefficient matching, Power series]
 -->
 
@@ -1086,6 +1119,7 @@ Comparing with $e^x=1+x+x^2/2!+\cdots$ gives $a_0=1$, $a_1=1$, and $a_2=1/2$.
 id: series-advanced-17
 note: math-series
 title: "Identify Conditional Convergence"
+exam: exam-i
 skills: [Absolute convergence, Conditional convergence]
 -->
 
@@ -1099,6 +1133,7 @@ It converges by the alternating series test, but its absolute series is harmonic
 id: series-advanced-18
 note: math-series
 title: "Interpret a Fourier Preview"
+exam: exam-i
 skills: [Fourier series, Modeling assumptions]
 -->
 

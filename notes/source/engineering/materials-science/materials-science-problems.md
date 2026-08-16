@@ -2,6 +2,7 @@
 id: materials-science-11
 note: engineering-materials-science
 title: "State the Processing Chain"
+exam: exam-i
 skills: [Processing-structure-properties]
 -->
 
@@ -21,6 +22,7 @@ So processing affects structure, structure affects properties, and properties af
 id: materials-science-12
 note: engineering-materials-science
 title: "Identify a Metallic Bond Effect"
+exam: exam-i
 skills: [Bonding, Metals]
 -->
 
@@ -36,6 +38,7 @@ The delocalized electrons explain why metals conduct electricity and why they ca
 id: materials-science-13
 note: engineering-materials-science
 title: "Count Atoms in an FCC Cell"
+exam: exam-i
 skills: [Crystal structures]
 -->
 
@@ -55,6 +58,7 @@ atoms.
 id: materials-science-14
 note: engineering-materials-science
 title: "Name a Vacancy Defect"
+exam: exam-i
 skills: [Point defects]
 -->
 
@@ -70,6 +74,7 @@ It is one of the common point defects listed in the note.
 id: materials-science-15
 note: engineering-materials-science
 title: "State What Miller Indices Describe"
+exam: exam-i
 skills: [Miller indices, Crystallography]
 -->
 
@@ -85,6 +90,7 @@ They are used to identify things like slip systems, cleavage planes, and anisotr
 id: materials-science-16
 note: engineering-materials-science
 title: "Compute Engineering Stress"
+exam: exam-i
 skills: [Stress, Units]
 -->
 
@@ -116,6 +122,7 @@ $$
 id: materials-science-17
 note: engineering-materials-science
 title: "Choose the Right Heat Treatment"
+exam: exam-i
 skills: [Heat treatment]
 -->
 
@@ -131,6 +138,7 @@ Rapid cooling can suppress diffusion and produce a harder microstructure.
 id: materials-science-18
 note: engineering-materials-science
 title: "Match a Material Class to Its Traits"
+exam: exam-i
 skills: [Polymers, Material classes]
 -->
 
@@ -146,6 +154,7 @@ The note lists them as low density, low stiffness, and strongly affected by temp
 id: materials-science-19
 note: engineering-materials-science
 title: "Identify the Best Characterization Tool"
+exam: exam-i
 skills: [XRD, Characterization]
 -->
 
@@ -161,6 +170,7 @@ The note says XRD is used for crystal structure and phase identification.
 id: materials-science-110
 note: engineering-materials-science
 title: "Pick the First Selection Step"
+exam: exam-i
 skills: [Materials selection]
 -->
 
@@ -176,6 +186,7 @@ From there, you can identify the loading, environment, temperature, lifetime, an
 id: materials-science-21
 note: engineering-materials-science
 title: "Find the Unit-Cell Edge Length"
+exam: exam-ii
 skills: [Crystal structures, FCC]
 -->
 
@@ -207,6 +218,7 @@ $$
 id: materials-science-22
 note: engineering-materials-science
 title: "Compare Two Grain Sizes"
+exam: exam-ii
 skills: [Hall-Petch, Grain-size strengthening]
 -->
 
@@ -238,6 +250,7 @@ Therefore, **material B** should have the higher yield strength.
 id: materials-science-23
 note: engineering-materials-science
 title: "Use the Lever Rule for Phase Fractions"
+exam: exam-ii
 skills: [Lever rule, Phase diagrams]
 -->
 
@@ -279,6 +292,7 @@ So the two phases are present in equal amounts.
 id: materials-science-24
 note: engineering-materials-science
 title: "Interpret the Effect of Temperature on Diffusivity"
+exam: exam-ii
 skills: [Diffusion, Arrhenius relation]
 -->
 
@@ -300,6 +314,7 @@ Therefore, **diffusivity increases** with temperature, and it usually increases 
 id: materials-science-25
 note: engineering-materials-science
 title: "Read a Tensile Curve Milestone"
+exam: exam-ii
 skills: [Tensile test, Plastic deformation]
 -->
 
@@ -315,6 +330,7 @@ After that point, necking usually begins.
 id: materials-science-26
 note: engineering-materials-science
 title: "Order a Precipitation-Hardening Sequence"
+exam: exam-ii
 skills: [Precipitation hardening, Heat treatment]
 -->
 
@@ -334,6 +350,7 @@ Quenching is used to retain a **supersaturated solid solution** so that fine pre
 id: materials-science-27
 note: engineering-materials-science
 title: "Convert Strain to True Strain"
+exam: exam-ii
 skills: [True strain, Deformation]
 -->
 
@@ -361,6 +378,7 @@ That is the exact true strain.
 id: materials-science-28
 note: engineering-materials-science
 title: "Identify a Crystal Structure from Geometry"
+exam: exam-ii
 skills: [Crystal structures, Coordination number]
 -->
 
@@ -378,6 +396,7 @@ The note lists FCC as having 4 atoms per unit cell, coordination number 12, and 
 id: materials-science-31
 note: engineering-materials-science
 title: "Choose a Material for a Lightweight Stiff Panel"
+exam: final
 skills: [Composites, Materials selection]
 -->
 
@@ -395,6 +414,7 @@ Composites are used for high specific stiffness, directional reinforcement, and 
 id: materials-science-32
 note: engineering-materials-science
 title: "Predict the Phase Fraction from Composition"
+exam: final
 skills: [Lever rule, Phase diagrams]
 -->
 
@@ -430,6 +450,7 @@ So $\alpha$ is more abundant, with a mass fraction of $0.6$ versus $0.4$ for $\b
 id: materials-science-33
 note: engineering-materials-science
 title: "Estimate Crack Safety"
+exam: final
 skills: [Fracture toughness, Stress intensity]
 -->
 
@@ -467,6 +488,7 @@ the component is **safe by this criterion**.
 id: materials-science-34
 note: engineering-materials-science
 title: "Pick a Heat Treatment for Toughness"
+exam: final
 skills: [Tempering, Heat treatment]
 -->
 
@@ -484,6 +506,7 @@ The note says tempering reduces brittleness after a quench while helping keep us
 id: materials-science-35
 note: engineering-materials-science
 title: "Choose a Strengthening Mechanism for Aluminum"
+exam: final
 skills: [Precipitation hardening, Alloys]
 -->
 
@@ -501,6 +524,7 @@ The fine precipitates impede dislocation motion and raise strength.
 id: materials-science-41
 note: engineering-materials-science
 title: "Predict the Effect of Fine Grains and Cold Work"
+exam: final
 skills: [Hall-Petch, Strain hardening]
 -->
 
@@ -518,6 +542,7 @@ Fine grains strengthen the metal by impeding dislocation motion, and cold work i
 id: materials-science-42
 note: engineering-materials-science
 title: "Select a High-Temperature Insulating Material"
+exam: final
 skills: [Ceramics, Materials selection]
 -->
 
@@ -535,6 +560,7 @@ The main tradeoff is that ceramics are typically **brittle** and have low ductil
 id: materials-science-43
 note: engineering-materials-science
 title: "Explain Why Quenching Changes Properties"
+exam: final
 skills: [Martensite, Processing-structure-properties]
 -->
 
@@ -554,6 +580,7 @@ So the processing change leads to a structure change, which then changes propert
 id: materials-science-44
 note: engineering-materials-science
 title: "Choose a Hard-But-Not-Brittle Heat Treatment"
+exam: final
 skills: [Heat treatment, Toughness]
 -->
 

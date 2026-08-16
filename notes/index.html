@@ -11,18 +11,20 @@
   <link rel="preload" as="image" href="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.webp" fetchpriority="high" />
   <script>
     (() => {
-      try {
-        const storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
+      let storedTheme = null;
 
-        if (storedTheme === 'sepia' || storedTheme === 'light') {
-          document.documentElement.classList.add('notes-page--sepia');
-        }
+      try {
+        storedTheme = window.localStorage.getItem("ues-notes:contrast-mode");
       } catch {
-        // Ignore storage access failures.
+        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
+      }
+
+      if (storedTheme === 'sepia' || storedTheme === 'light') {
+        document.documentElement.classList.add('notes-page--sepia');
       }
     })();
   </script>
-  <link rel="stylesheet" href="/notes/notes.css?v=f3cf2cb8a1e9" />
+  <link rel="stylesheet" href="notes.css?v=52ae2c1ade36" />
   <style>
       .notes-landing-page .landing-hero__image {
         transform: scale(1.24);
@@ -36,14 +38,15 @@
         margin-top: 1.75rem;
       }
     </style>
-  <script defer src="/notes/notes-home.js?v=dcb54cd41959"></script>
+  <script defer src="notes-runtime.js?v=6b3d78a8ee1b"></script>
+  <script defer src="notes.js?v=0aa6e10949f9"></script>
 </head>
 <body class="notes-page notes-landing-page" id="top">
   <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
     <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
   </div>
   <a class="skip-link" href="#content">Skip to content</a>
-  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back-to-top" href="#top" aria-label="Back to top" data-notes-nav-item>Back to top</a></div>
+  <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>
 
   <header class="shell notes-header">
     <div class="notes-header__inner">

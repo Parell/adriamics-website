@@ -2,6 +2,7 @@
 id: proof-writing-11
 note: math-proof-writing
 title: "Rewrite a Universal Conditional Statement"
+exam: exam-i
 skills: [Quantifiers, Implication]
 -->
 
@@ -27,6 +28,7 @@ $$
 id: proof-writing-12
 note: math-proof-writing
 title: "Negate a Quantified Statement"
+exam: exam-i
 skills: [Quantifiers, Negation]
 -->
 
@@ -52,6 +54,7 @@ In words, there is a real number that is greater than or equal to every real num
 id: proof-writing-13
 note: math-proof-writing
 title: "Split an 'If and Only If'"
+exam: exam-i
 skills: [Logical Form, Equivalence]
 -->
 
@@ -73,6 +76,7 @@ Proving both directions is exactly what makes the statement an equivalence.
 id: proof-writing-14
 note: math-proof-writing
 title: "Add Two Even Integers"
+exam: exam-i
 skills: [Direct Proof, Even/Odd]
 -->
 
@@ -98,6 +102,7 @@ Because $a+b$ is an integer, $m+n$ is even.
 id: proof-writing-15
 note: math-proof-writing
 title: "Multiply Two Odd Integers"
+exam: exam-i
 skills: [Direct Proof, Even/Odd]
 -->
 
@@ -129,6 +134,7 @@ This has the form $2k+1$, so $mn$ is odd.
 id: proof-writing-16
 note: math-proof-writing
 title: "Add Divisible Numbers"
+exam: exam-i
 skills: [Direct Proof, Divisibility]
 -->
 
@@ -152,6 +158,7 @@ Because $k+\ell$ is an integer, $a \mid (b+c)$.
 id: proof-writing-17
 note: math-proof-writing
 title: "A Basic Set Inclusion"
+exam: exam-i
 skills: [Set Inclusion]
 -->
 
@@ -171,6 +178,7 @@ $$
 id: proof-writing-18
 note: math-proof-writing
 title: "Check Injectivity"
+exam: exam-i
 skills: [Injective, Functions]
 -->
 
@@ -202,6 +210,7 @@ Therefore $f$ is injective.
 id: proof-writing-19
 note: math-proof-writing
 title: "Check Surjectivity"
+exam: exam-i
 skills: [Surjective, Functions]
 -->
 
@@ -227,6 +236,7 @@ So every real number has a preimage under $g$, and $g$ is surjective.
 id: proof-writing-20
 note: math-proof-writing
 title: "Give a Witness"
+exam: exam-ii
 skills: [Existence, Rational Numbers]
 -->
 
@@ -252,6 +262,7 @@ So a rational number between $1$ and $2$ exists.
 id: proof-writing-21
 note: math-proof-writing
 title: "Distribute a Set Intersection"
+exam: exam-ii
 skills: [Set Equality, Set Inclusion]
 -->
 
@@ -285,6 +296,7 @@ Thus the two sets are equal.
 id: proof-writing-22
 note: math-proof-writing
 title: "An Even-Difference Relation"
+exam: exam-ii
 skills: [Relations, Direct Proof]
 -->
 
@@ -326,6 +338,7 @@ so $a-c$ is even. Hence $aRc$.
 id: proof-writing-23
 note: math-proof-writing
 title: "Use the Contrapositive"
+exam: exam-ii
 skills: [Contrapositive, Even/Odd]
 -->
 
@@ -349,6 +362,7 @@ Therefore the contrapositive is true, and so the original statement is true.
 id: proof-writing-24
 note: math-proof-writing
 title: "A Contradiction Argument"
+exam: exam-ii
 skills: [Contradiction, Irrationality]
 -->
 
@@ -388,6 +402,7 @@ Therefore $\sqrt{2}$ is irrational.
 id: proof-writing-25
 note: math-proof-writing
 title: "Split Into Cases"
+exam: exam-ii
 skills: [Cases, Modulo]
 -->
 
@@ -415,6 +430,7 @@ In either case, $n^2 \equiv 0$ or $1 \pmod{4}$.
 id: proof-writing-26
 note: math-proof-writing
 title: "Induction on a Sum"
+exam: exam-ii
 skills: [Induction, Sums]
 -->
 
@@ -460,6 +476,7 @@ This is exactly the desired formula with $n = k+1$. Therefore the statement hold
 id: proof-writing-27
 note: math-proof-writing
 title: "Existence and Uniqueness"
+exam: exam-ii
 skills: [Existence, Uniqueness]
 -->
 
@@ -489,6 +506,7 @@ If $x_1$ and $x_2$ both satisfy $3x - 7 = 11$, then each must equal $6$, so $x_1
 id: proof-writing-28
 note: math-proof-writing
 title: "A Cubic Function Is Bijective"
+exam: exam-ii
 skills: [Functions, Injective, Surjective]
 -->
 
@@ -529,6 +547,7 @@ Therefore $f$ is bijective.
 id: proof-writing-31
 note: math-proof-writing
 title: "Prove a Linear Map Is Bijective"
+exam: final
 skills: [Functions, Injective, Surjective]
 -->
 
@@ -570,6 +589,7 @@ Therefore $f$ is bijective.
 id: proof-writing-32
 note: math-proof-writing
 title: "Recover a Set Inclusion"
+exam: final
 skills: [Set Inclusion, Set Equality]
 -->
 
@@ -591,6 +611,7 @@ $$
 id: proof-writing-33
 note: math-proof-writing
 title: "Exactly One of Two Consecutive Integers Is Even"
+exam: final
 skills: [Cases, Even/Odd]
 -->
 
@@ -622,6 +643,7 @@ So in either case, exactly one of $n$ and $n+1$ is even.
 id: proof-writing-34
 note: math-proof-writing
 title: "Sum of the First Odd Numbers"
+exam: final
 skills: [Induction, Sums]
 -->
 
@@ -665,6 +687,7 @@ So the formula holds for $k+1$. Therefore it holds for all $n \ge 1$.
 id: proof-writing-35
 note: math-proof-writing
 title: "No Integer Squares to Two"
+exam: final
 skills: [Contradiction, Integers]
 -->
 
@@ -696,6 +719,7 @@ Therefore no integer $n$ satisfies $n^2=2$.
 id: proof-writing-41
 note: math-proof-writing
 title: "Quantifier Order Matters"
+exam: final
 skills: [Quantifiers, Logic]
 -->
 
@@ -731,6 +755,7 @@ This shows that the order of the quantifiers matters.
 id: proof-writing-42
 note: math-proof-writing
 title: "A Set Characterization"
+exam: final
 skills: [Set Equality, Set Inclusion]
 -->
 
@@ -758,6 +783,7 @@ Thus every element of $A$ is an element of $B$, which means $A \subseteq B$.
 id: proof-writing-43
 note: math-proof-writing
 title: "A Bijection Gives Exactly One Solution"
+exam: final
 skills: [Functions, Existence, Uniqueness]
 -->
 
@@ -793,6 +819,7 @@ Therefore the equation $f(x)=y$ has exactly one solution.
 id: proof-writing-44
 note: math-proof-writing
 title: "Irrationality of Root Two"
+exam: final
 skills: [Contradiction, Irrationality]
 -->
 

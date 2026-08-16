@@ -2,6 +2,7 @@
 id: vibrations-11
 note: engineering-vibrations
 title: "Compute a Natural Frequency"
+exam: exam-i
 skills: [Single-degree-of-freedom systems, Natural frequency]
 -->
 
@@ -15,6 +16,7 @@ $$\omega_n=\sqrt{800/2}=20\ \mathrm{rad/s},\qquad f_n=\frac{20}{2\pi}=3.18\ \mat
 id: vibrations-12
 note: engineering-vibrations
 title: "Classify Damping"
+exam: exam-i
 skills: [Damping, Damping ratio]
 -->
 
@@ -30,6 +32,7 @@ Since $0<\zeta<1$, the system is underdamped.
 id: vibrations-13
 note: engineering-vibrations
 title: "Estimate Damping from Peaks"
+exam: exam-i
 skills: [Damping, Logarithmic decrement]
 -->
 
@@ -43,6 +46,7 @@ $$\delta=\ln(12/9)=0.2877,\qquad \zeta\approx\frac{\delta}{2\pi}=0.0458.$$
 id: vibrations-14
 note: engineering-vibrations
 title: "Find a Harmonic Response"
+exam: exam-i
 skills: [Forced response, Phase]
 -->
 
@@ -58,6 +62,7 @@ $$\phi=\operatorname{atan2}(0.16,0.36)=24.0^\circ.$$
 id: vibrations-15
 note: engineering-vibrations
 title: "Solve a Two-Mode Eigenproblem"
+exam: exam-i
 skills: [Modal analysis, Multiple-degree-of-freedom systems]
 -->
 
@@ -73,6 +78,7 @@ The first mode moves both masses together; the second moves them oppositely.
 id: vibrations-16
 note: engineering-vibrations
 title: "Interpret an FRF"
+exam: exam-i
 skills: [Frequency-response functions, Poles and zeros]
 -->
 

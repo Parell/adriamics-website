@@ -2,6 +2,7 @@
 id: discrete-math-11
 note: math-discrete-math
 title: "Negate a Universal Implication"
+exam: exam-i
 skills: [Quantifiers, Implication]
 -->
 
@@ -39,6 +40,7 @@ Equivalently, there exists an integer $n$ that is prime and even.
 id: discrete-math-12
 note: math-discrete-math
 title: "Write the Contrapositive"
+exam: exam-i
 skills: [Implication, Contrapositive]
 -->
 
@@ -73,6 +75,7 @@ $$
 id: discrete-math-13
 note: math-discrete-math
 title: "Use De Morgan's Law"
+exam: exam-i
 skills: [Negation, De Morgan's Laws]
 -->
 
@@ -100,6 +103,7 @@ $$
 id: discrete-math-14
 note: math-discrete-math
 title: "Compute a Set Union and Intersection"
+exam: exam-i
 skills: [Sets, Union and Intersection]
 -->
 
@@ -131,6 +135,7 @@ $$
 id: discrete-math-15
 note: math-discrete-math
 title: "Count the Subsets of a Set"
+exam: exam-i
 skills: [Power Sets, Counting]
 -->
 
@@ -150,6 +155,7 @@ $$
 id: discrete-math-16
 note: math-discrete-math
 title: "Classify a Function"
+exam: exam-i
 skills: [Functions, Injective and Surjective]
 -->
 
@@ -181,6 +187,7 @@ So $f$ is surjective but not injective.
 id: discrete-math-17
 note: math-discrete-math
 title: "Find the Size of a Cartesian Product"
+exam: exam-i
 skills: [Cartesian Products, Counting]
 -->
 
@@ -204,6 +211,7 @@ $$
 id: discrete-math-18
 note: math-discrete-math
 title: "Check a Partial Order"
+exam: exam-i
 skills: [Relations, Partial Orders]
 -->
 
@@ -229,6 +237,7 @@ So $R$ is a partial order.
 id: discrete-math-19
 note: math-discrete-math
 title: "Solve a Congruence Modulo 5"
+exam: exam-i
 skills: [Modular Arithmetic, Inverses]
 -->
 
@@ -258,6 +267,7 @@ $$
 id: discrete-math-110
 note: math-discrete-math
 title: "Count the Edges in a Tree"
+exam: exam-i
 skills: [Trees, Graphs]
 -->
 
@@ -281,6 +291,7 @@ $$
 id: discrete-math-21
 note: math-discrete-math
 title: "Negate a Quantified Statement"
+exam: exam-ii
 skills: [Quantifiers, Implication]
 -->
 
@@ -306,6 +317,7 @@ $$
 id: discrete-math-22
 note: math-discrete-math
 title: "Use Congruence Modulo 4"
+exam: exam-ii
 skills: [Equivalence Relations, Modular Arithmetic]
 -->
 
@@ -337,6 +349,7 @@ $$
 id: discrete-math-23
 note: math-discrete-math
 title: "Prove a Divisibility Claim by Contrapositive"
+exam: exam-ii
 skills: [Contrapositive, Divisibility]
 -->
 
@@ -360,6 +373,7 @@ So the contrapositive is true, and therefore the original statement is true.
 id: discrete-math-24
 note: math-discrete-math
 title: "Prove a Summation Formula by Induction"
+exam: exam-ii
 skills: [Induction, Summation]
 -->
 
@@ -408,6 +422,7 @@ This is exactly the formula with $n=k+1$. Therefore the statement holds for all 
 id: discrete-math-25
 note: math-discrete-math
 title: "Count Committees with a Required Member"
+exam: exam-ii
 skills: [Combinations, Counting]
 -->
 
@@ -427,6 +442,7 @@ $$
 id: discrete-math-26
 note: math-discrete-math
 title: "Compute a Conditional Probability"
+exam: exam-ii
 skills: [Conditional Probability, Counting]
 -->
 
@@ -454,6 +470,7 @@ So the probability is $\frac{4}{7}$.
 id: discrete-math-27
 note: math-discrete-math
 title: "Apply the Euclidean Algorithm"
+exam: exam-ii
 skills: [Greatest Common Divisor, Euclidean Algorithm]
 -->
 
@@ -495,6 +512,7 @@ $$
 id: discrete-math-28
 note: math-discrete-math
 title: "Compare Two Growth Rates"
+exam: exam-ii
 skills: [Asymptotic Notation, Growth Rates]
 -->
 
@@ -522,6 +540,7 @@ but $n^2$ is not $O(n \log n)$.
 id: discrete-math-31
 note: math-discrete-math
 title: "Count Committees with a Restriction"
+exam: final
 skills: [Combinations, Inclusion-Exclusion]
 -->
 
@@ -555,6 +574,7 @@ $$
 id: discrete-math-32
 note: math-discrete-math
 title: "Apply the Pigeonhole Principle"
+exam: final
 skills: [Pigeonhole Principle, Counting]
 -->
 
@@ -582,6 +602,7 @@ $$
 id: discrete-math-33
 note: math-discrete-math
 title: "Find the Expected Value of a Simple Game"
+exam: final
 skills: [Expected Value, Probability]
 -->
 
@@ -607,6 +628,7 @@ So the expected value is \$1.50.
 id: discrete-math-34
 note: math-discrete-math
 title: "Use Modular Arithmetic on a Calendar"
+exam: final
 skills: [Modular Arithmetic, Congruence]
 -->
 
@@ -628,6 +650,7 @@ Thursday.
 id: discrete-math-35
 note: math-discrete-math
 title: "Solve a Geometric Recurrence"
+exam: final
 skills: [Recurrences, Exponential Growth]
 -->
 
@@ -659,6 +682,7 @@ $$
 id: discrete-math-41
 note: math-discrete-math
 title: "Prove Prime Factorization by Strong Induction"
+exam: final
 skills: [Strong Induction, Prime Factorization]
 -->
 
@@ -693,6 +717,7 @@ Therefore every integer $n \ge 2$ can be written as a product of primes.
 id: discrete-math-42
 note: math-discrete-math
 title: "Count Multiples with Inclusion-Exclusion"
+exam: final
 skills: [Inclusion-Exclusion, Counting]
 -->
 
@@ -734,6 +759,7 @@ $$
 id: discrete-math-43
 note: math-discrete-math
 title: "Use Degrees to Test a Tree"
+exam: final
 skills: [Handshaking Lemma, Trees, Graphs]
 -->
 
@@ -777,6 +803,7 @@ edges. Since this graph has $6$ edges, it cannot be a tree.
 id: discrete-math-44
 note: math-discrete-math
 title: "Verify a Loop Invariant"
+exam: final
 skills: [Loop Invariants, Algorithm Correctness]
 -->
 

@@ -2,6 +2,7 @@
 id: fluid-mechanics-11
 note: engineering-fluid-mechanics
 title: "Relate Density, Specific Weight, and Viscosity"
+exam: exam-i
 skills: [Fluid Properties, Newtonian Fluids]
 -->
 
@@ -37,6 +38,7 @@ This fluid is commonly modeled as incompressible and Newtonian in ordinary pipe 
 id: fluid-mechanics-12
 note: engineering-fluid-mechanics
 title: "Classify Flow by Reynolds Number"
+exam: exam-i
 skills: [Reynolds Number, Flow Regime]
 -->
 
@@ -64,6 +66,7 @@ Since $\mathrm{Re} \ll 2300$, the flow is laminar.
 id: fluid-mechanics-13
 note: engineering-fluid-mechanics
 title: "Find Pressure at a Depth"
+exam: exam-i
 skills: [Hydrostatics, Pressure]
 -->
 
@@ -93,6 +96,7 @@ $$
 id: fluid-mechanics-14
 note: engineering-fluid-mechanics
 title: "Convert Gauge Pressure to Pressure Head"
+exam: exam-i
 skills: [Pressure Head]
 -->
 
@@ -122,6 +126,7 @@ So the pressure head is about $15.3$ m of water.
 id: fluid-mechanics-15
 note: engineering-fluid-mechanics
 title: "Compute Buoyant Force from Displaced Volume"
+exam: exam-i
 skills: [Buoyancy, Hydrostatics]
 -->
 
@@ -147,6 +152,7 @@ $$
 id: fluid-mechanics-16
 note: engineering-fluid-mechanics
 title: "Use Continuity in a Converging Pipe"
+exam: exam-i
 skills: [Continuity, Volumetric Flow Rate]
 -->
 
@@ -180,6 +186,7 @@ $$
 id: fluid-mechanics-17
 note: engineering-fluid-mechanics
 title: "Apply Bernoulli at the Same Elevation"
+exam: exam-i
 skills: [Bernoulli Equation, Pressure]
 -->
 
@@ -219,6 +226,7 @@ So the pressure drops by $16\ \text{kPa}$.
 id: fluid-mechanics-18
 note: engineering-fluid-mechanics
 title: "Find the Darcy Friction Factor for Laminar Flow"
+exam: exam-i
 skills: [Friction Factor, Reynolds Number]
 -->
 
@@ -244,6 +252,7 @@ $$
 id: fluid-mechanics-19
 note: engineering-fluid-mechanics
 title: "Compute Stagnation Pressure"
+exam: exam-i
 skills: [Stagnation Pressure, Bernoulli Equation]
 -->
 
@@ -279,6 +288,7 @@ $$
 id: fluid-mechanics-110
 note: engineering-fluid-mechanics
 title: "Check for Compressibility from Mach Number"
+exam: exam-i
 skills: [Mach Number, Compressible Flow]
 -->
 
@@ -300,6 +310,7 @@ Since this is greater than about $0.3$, compressibility effects may matter.
 id: fluid-mechanics-21
 note: engineering-fluid-mechanics
 title: "Read a Two-Fluid Manometer"
+exam: exam-ii
 skills: [Hydrostatics, Manometers, Pressure]
 -->
 
@@ -343,6 +354,7 @@ $$
 id: fluid-mechanics-22
 note: engineering-fluid-mechanics
 title: "Resultant Force on a Submerged Gate"
+exam: exam-ii
 skills: [Hydrostatic Force, Center of Pressure]
 -->
 
@@ -396,6 +408,7 @@ $$
 id: fluid-mechanics-23
 note: engineering-fluid-mechanics
 title: "Match Mass Flow Rates Across a Nozzle"
+exam: exam-ii
 skills: [Continuity, Mass Flow Rate]
 -->
 
@@ -439,6 +452,7 @@ $$
 id: fluid-mechanics-24
 note: engineering-fluid-mechanics
 title: "Find Pump Head in an Extended Bernoulli Balance"
+exam: exam-ii
 skills: [Bernoulli Equation, Head Loss, Pumps]
 -->
 
@@ -460,6 +474,7 @@ $$
 id: fluid-mechanics-25
 note: engineering-fluid-mechanics
 title: "Compute the Force on a 90-Degree Elbow"
+exam: exam-ii
 skills: [Momentum Equation, Control Volume]
 -->
 
@@ -501,6 +516,7 @@ So the fluid exerts a force of about $178\ \text{N}$ on the elbow.
 id: fluid-mechanics-26
 note: engineering-fluid-mechanics
 title: "Scale a Free-Surface Model"
+exam: exam-ii
 skills: [Froude Number, Similitude]
 -->
 
@@ -534,6 +550,7 @@ Exact Reynolds similarity is not possible at this scale with the same fluid, so 
 id: fluid-mechanics-27
 note: engineering-fluid-mechanics
 title: "Combine Major and Minor Losses"
+exam: exam-ii
 skills: [Darcy-Weisbach, Minor Losses, Head Loss]
 -->
 
@@ -586,6 +603,7 @@ So the pressure drop is about $52\ \text{kPa}$.
 id: fluid-mechanics-28
 note: engineering-fluid-mechanics
 title: "Calculate Drag from a Coefficient"
+exam: exam-ii
 skills: [Drag Coefficient, External Flow]
 -->
 
@@ -623,6 +641,7 @@ $$
 id: fluid-mechanics-31
 note: engineering-fluid-mechanics
 title: "Size the Inlet Pressure for a Rising Pipe"
+exam: final
 skills: [Continuity, Bernoulli Equation, Head Loss]
 -->
 
@@ -679,6 +698,7 @@ So the required inlet gauge pressure is about $78.2\ \text{kPa}$.
 id: fluid-mechanics-32
 note: engineering-fluid-mechanics
 title: "Find the Force of a Jet on a Flat Plate"
+exam: final
 skills: [Momentum Equation, Jets]
 -->
 
@@ -713,6 +733,7 @@ So the jet exerts about $785\ \text{N}$ on the plate.
 id: fluid-mechanics-33
 note: engineering-fluid-mechanics
 title: "Choose the Right Similarity Condition for a Spillway Model"
+exam: final
 skills: [Froude Number, Similitude, Free-Surface Flow]
 -->
 
@@ -744,6 +765,7 @@ Reynolds similarity is not matched exactly at this scale, but Froude similarity 
 id: fluid-mechanics-34
 note: engineering-fluid-mechanics
 title: "Check Whether a Converging Nozzle Chokes"
+exam: final
 skills: [Mach Number, Choked Flow, Isentropic Relations]
 -->
 
@@ -798,6 +820,7 @@ $$
 id: fluid-mechanics-35
 note: engineering-fluid-mechanics
 title: "Estimate the Minimum Flight Speed for Level Lift"
+exam: final
 skills: [Lift Coefficient, External Flow, Force Balance]
 -->
 
@@ -835,6 +858,7 @@ $$
 id: fluid-mechanics-41
 note: engineering-fluid-mechanics
 title: "Balance a Multi-Fluid Manometer"
+exam: final
 skills: [Hydrostatics, Manometers, Pressure]
 -->
 
@@ -864,6 +888,7 @@ $$
 id: fluid-mechanics-42
 note: engineering-fluid-mechanics
 title: "Size the Pump for a Reservoir-to-Reservoir Line"
+exam: final
 skills: [Continuity, Bernoulli Equation, Head Loss, Pumps]
 -->
 
@@ -919,6 +944,7 @@ $$
 id: fluid-mechanics-43
 note: engineering-fluid-mechanics
 title: "Match Reynolds Number in a Wind-Tunnel Model"
+exam: final
 skills: [Reynolds Number, Similitude, External Flow]
 -->
 
@@ -954,6 +980,7 @@ That speed is often impractical, which is why exact dynamic similarity is not al
 id: fluid-mechanics-44
 note: engineering-fluid-mechanics
 title: "Use Critical Pressure Ratio to Test for Choking"
+exam: final
 skills: [Mach Number, Choked Flow, Isentropic Relations]
 -->
 

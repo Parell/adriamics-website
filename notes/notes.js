@@ -20,7 +20,11 @@ const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-tog
 const pomodoroPresetButtons = Array.from(document.querySelectorAll('[data-pomodoro-trigger]'));
 const pomodoroBar = document.querySelector('[data-pomodoro-bar]');
 const pomodoroStatus = document.querySelector('[data-pomodoro-status]');
-const SEARCH_INDEX_URL = '/notes/search-index.json';
+const notesScriptUrl = document.currentScript?.src
+  || Array.from(document.scripts).find((script) => /\/notes\.js(?:\?|$)/.test(script.src))?.src
+  || window.location.href;
+const NOTES_BASE_URL = new URL('.', notesScriptUrl);
+const SEARCH_INDEX_URL = new URL('search-index.json', NOTES_BASE_URL).href;
 const NOTES_SESSION_STORAGE_KEY = 'ues-notes:last-pages-by-subject';
 const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
@@ -28,11 +32,7 @@ const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
 const POMODORO_TIMER_STORAGE_KEY = 'ues-notes:pomodoro-timer';
 const POMODORO_COMPLETION_FLASH_MS = 2200;
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
-const POMODORO_TIMER_MODES = new Map([
-  ['focus', { minutes: 25, label: 'Focus' }],
-  ['short', { minutes: 5, label: 'Short break' }],
-  ['long', { minutes: 15, label: 'Long break' }],
-]);
+const POMODORO_TIMER_MODES = new Map(Object.entries(window.NotesRuntime?.pomodoroModes ?? {}));
 
 let searchIndex = [];
 let searchIndexPromise = null;
@@ -45,7 +45,6 @@ let activePracticeFilter = 'all';
 let pomodoroTimerState = null;
 let pomodoroTimerIntervalId = null;
 let pomodoroTimerCompletionTimeoutId = null;
-let pomodoroTimerStorageWriteFailed = false;
 const contributorCopyResetTimers = new WeakMap();
 
 function getSessionStorage() {
@@ -56,28 +55,20 @@ function getSessionStorage() {
   }
 }
 
-function readFromStorage(storageGetter, storageKey, fallbackValue, reader) {
-  const storage = storageGetter();
-
-  if (!storage || !storageKey) {
-    return fallbackValue;
-  }
-
+function readFromStorage(storageGetter, storageKey, reader, fallback = null) {
   try {
+    const storage = storageGetter();
+    if (!storage || !storageKey) return fallback;
     return reader(storage);
   } catch {
-    return fallbackValue;
+    return fallback;
   }
 }
 
 function writeToStorage(storageGetter, storageKey, writer) {
-  const storage = storageGetter();
-
-  if (!storage || !storageKey) {
-    return false;
-  }
-
   try {
+    const storage = storageGetter();
+    if (!storage || !storageKey) return false;
     writer(storage);
     return true;
   } catch {
@@ -86,7 +77,7 @@ function writeToStorage(storageGetter, storageKey, writer) {
 }
 
 function readLastPagesBySubject() {
-  return readFromStorage(getSessionStorage, NOTES_SESSION_STORAGE_KEY, {}, (storage) => {
+  return readFromStorage(getSessionStorage, NOTES_SESSION_STORAGE_KEY, (storage) => {
     const raw = storage.getItem(NOTES_SESSION_STORAGE_KEY);
 
     if (!raw) {
@@ -118,7 +109,7 @@ function getScopedStorageKey(prefix, scope) {
 }
 
 function readStoredStringSet(storageKey, validate = null) {
-  return readFromStorage(getLocalStorage, storageKey, new Set(), (storage) => {
+  return readFromStorage(getLocalStorage, storageKey, (storage) => {
     const raw = storage.getItem(storageKey);
 
     if (!raw) {
@@ -136,7 +127,7 @@ function readStoredStringSet(storageKey, validate = null) {
       .filter(Boolean);
 
     return new Set(typeof validate === 'function' ? values.filter(validate) : values);
-  });
+  }, new Set());
 }
 
 function writeStoredStringSet(storageKey, values) {
@@ -145,11 +136,10 @@ function writeStoredStringSet(storageKey, values) {
   });
 }
 
-function readStoredString(storageKey, fallback = '') {
-  return readFromStorage(getLocalStorage, storageKey, fallback, (storage) => {
-    const value = String(storage.getItem(storageKey) ?? '').trim();
-    return value || fallback;
-  });
+function readStoredString(storageKey) {
+  return readFromStorage(getLocalStorage, storageKey, (storage) => {
+    return String(storage.getItem(storageKey) ?? '').trim();
+  }, '');
 }
 
 function writeStoredString(storageKey, value) {
@@ -165,34 +155,8 @@ async function copyTextToClipboard(text) {
     return false;
   }
 
-  if (navigator?.clipboard?.writeText) {
-    try {
-      await navigator.clipboard.writeText(value);
-      return true;
-    } catch {
-      // Fall back to the textarea copy path.
-    }
-  }
-
-  const textarea = document.createElement('textarea');
-  textarea.value = value;
-  textarea.setAttribute('readonly', '');
-  textarea.style.position = 'fixed';
-  textarea.style.opacity = '0';
-  textarea.style.pointerEvents = 'none';
-  document.body.appendChild(textarea);
-  textarea.select();
-
-  let copied = false;
-
-  try {
-    copied = document.execCommand('copy');
-  } catch {
-    copied = false;
-  }
-
-  textarea.remove();
-  return copied;
+  await navigator.clipboard.writeText(value);
+  return true;
 }
 
 function showContributorCopiedState(button) {
@@ -223,7 +187,7 @@ function showContributorCopiedState(button) {
 }
 
 function readThemePreference() {
-  return ['sepia', 'light'].includes(readStoredString(NOTES_THEME_STORAGE_KEY, ''));
+  return ['sepia', 'light'].includes(readStoredString(NOTES_THEME_STORAGE_KEY));
 }
 
 function getThemeToggleLabel(isSepia) {
@@ -260,17 +224,13 @@ function getPracticeFilterStorageKey() {
 function loadPracticeFilter() {
   const storageKey = getPracticeFilterStorageKey();
 
-  const normalized = readStoredString(storageKey, 'all').toLowerCase();
+  const normalized = readStoredString(storageKey).toLowerCase();
   return PRACTICE_FILTER_VALUES.has(normalized) ? normalized : 'all';
 }
 
 function getPracticeFilterFromUrl() {
-  try {
-    const value = String(new URL(window.location.href).searchParams.get('filter') ?? '').trim().toLowerCase();
-    return PRACTICE_FILTER_VALUES.has(value) ? value : null;
-  } catch {
-    return null;
-  }
+  const value = String(new URL(window.location.href).searchParams.get('filter') ?? '').trim().toLowerCase();
+  return PRACTICE_FILTER_VALUES.has(value) ? value : null;
 }
 
 function savePracticeFilter(value) {
@@ -452,7 +412,7 @@ function savePracticeCompletionState() {
 /*
 function loadConceptDagState() {
   if (!isConceptDagPage || !conceptDagDataScript) {
-    return null;
+    throw new Error('Invalid concept DAG data.');
   }
 
   if (conceptDagModel) {
@@ -503,9 +463,6 @@ function loadConceptDagState() {
     };
 
     return conceptDagModel;
-  } catch {
-    return null;
-  }
 }
 
 function getConceptDagRequirements(node) {
@@ -538,7 +495,7 @@ function getConceptDagSelection() {
 
   const storageKey = getConceptDagStorageKey();
   const fallback = state.defaultSubjectId || state.orderedNodeIds[0] || '';
-  const raw = readStoredString(storageKey, fallback);
+  const raw = readStoredString(storageKey);
   return state.nodesById.has(raw) ? raw : fallback;
 }
 
@@ -696,18 +653,20 @@ function walkConceptDagTreeRows(nodeId, context, depth, pathStack, rows) {
 
 function renderConceptDagRows(rows, selectedId) {
   return rows.map((rowNodes, depth) => {
-    const isLastRow = depth === rows.length - 1;
-    const prefix = `${'│   '.repeat(depth)}`;
-    const tail = isLastRow && (depth + 1) > 0
-      ? `└───${'┴───'.repeat(depth-2)}┴── ` : '';
-    const showPrefix = depth > 0;
+    const isLastRow = depth === rows.length - 1 && depth > 0;
+    const connectorCells = depth
+      ? Array.from({ length: depth }, (_, index) => {
+        const type = isLastRow ? (index === 0 ? 'corner' : 'junction') : 'vertical';
+        return `<span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--${type}" aria-hidden="true"></span>`;
+      }).join('')
+      : '';
     const nodesHtml = rowNodes.map((node, index) => {
       const separator = index > 0 ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : '';
 
       return `${separator}${renderConceptDagNodeLink(node, node.id === selectedId)}`;
     }).join('');
 
-    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${showPrefix ? `<span class="concept-dag-tree__prefix${isLastRow ? ' concept-dag-tree__prefix--hidden' : ''}" aria-hidden="true">${escapeHtml(prefix)}</span>` : ''}${isLastRow ? `<span class="concept-dag-tree__wrap" aria-hidden="true">${escapeHtml(tail)}</span>` : ''}${nodesHtml}</div>`;
+    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${depth ? `<span class="concept-dag-tree__connector${isLastRow ? ' concept-dag-tree__connector--tail' : ''}" aria-hidden="true">${connectorCells}</span>` : ''}<span class="concept-dag-tree__nodes">${nodesHtml}</span></div>`;
   }).join('');
 }
 
@@ -821,17 +780,17 @@ function toggleThemePreference() {
 }
 
 function getPomodoroModeConfig(mode) {
-  return POMODORO_TIMER_MODES.get(mode) ?? null;
+  return window.NotesRuntime?.getPomodoroMode(mode) ?? POMODORO_TIMER_MODES.get(mode) ?? null;
 }
 
 function formatPomodoroTime(milliseconds) {
-  const totalSeconds = Math.max(0, Math.ceil(milliseconds / 1000));
-  const minutes = Math.floor(totalSeconds / 60);
-  const seconds = totalSeconds % 60;
-  return `${minutes}:${String(seconds).padStart(2, '0')}`;
+  return window.NotesRuntime?.formatPomodoroTime(milliseconds) ?? '0:00';
 }
 
 function normalizePomodoroState(rawState) {
+  if (window.NotesRuntime?.normalizePomodoroState) {
+    return window.NotesRuntime.normalizePomodoroState(rawState);
+  }
   if (!rawState || typeof rawState !== 'object' || Array.isArray(rawState)) {
     return null;
   }
@@ -879,17 +838,11 @@ function createIdlePomodoroSnapshot() {
 }
 
 function loadPomodoroState() {
-  const storage = getLocalStorage();
-
-  if (!storage) {
-    return pomodoroTimerState;
-  }
-
-  try {
+  return readFromStorage(getLocalStorage, POMODORO_TIMER_STORAGE_KEY, (storage) => {
     const raw = storage.getItem(POMODORO_TIMER_STORAGE_KEY);
 
     if (!raw) {
-      return pomodoroTimerStorageWriteFailed ? pomodoroTimerState : null;
+      return null;
     }
 
     const state = normalizePomodoroState(JSON.parse(raw));
@@ -898,45 +851,23 @@ function loadPomodoroState() {
       storage.removeItem(POMODORO_TIMER_STORAGE_KEY);
     }
 
-    return state ?? (pomodoroTimerStorageWriteFailed ? pomodoroTimerState : null);
-  } catch {
-    return pomodoroTimerStorageWriteFailed ? pomodoroTimerState : null;
-  }
+    return state;
+  });
 }
 
 function savePomodoroState(state) {
-  const storage = getLocalStorage();
-
-  if (!storage) {
-    pomodoroTimerState = state;
-    return;
-  }
-
-  try {
+  if (writeToStorage(getLocalStorage, POMODORO_TIMER_STORAGE_KEY, (storage) => {
     storage.setItem(POMODORO_TIMER_STORAGE_KEY, JSON.stringify(state));
+  })) {
     pomodoroTimerState = state;
-    pomodoroTimerStorageWriteFailed = false;
-  } catch {
-    pomodoroTimerState = state;
-    pomodoroTimerStorageWriteFailed = true;
   }
 }
 
 function resetPomodoroState() {
-  const storage = getLocalStorage();
-
   pomodoroTimerState = null;
-
-  if (!storage) {
-    return;
-  }
-
-  try {
+  writeToStorage(getLocalStorage, POMODORO_TIMER_STORAGE_KEY, (storage) => {
     storage.removeItem(POMODORO_TIMER_STORAGE_KEY);
-    pomodoroTimerStorageWriteFailed = false;
-  } catch {
-    // Ignore storage quota or privacy-mode failures.
-  }
+  });
 }
 
 function buildPomodoroSnapshot(state, now = Date.now()) {
@@ -1188,6 +1119,10 @@ function escapeHtml(text) {
     .replace(/'/g, '&#39;');
 }
 
+function escapeRegExp(text) {
+  return String(text ?? '').replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 const LATEX_COMMAND_MAP = new Map([
   ['frac', 'fraction'],
   ['dfrac', 'fraction'],
@@ -1260,9 +1195,16 @@ const LATEX_SET_MAP = new Map([
 ]);
 
 function normalizeLatexSearchText(text) {
-  return normalizeWhitespace(String(text ?? '')
+  const normalized = String(text ?? '')
     .replace(/\\(?:left|right|bigl|bigr|Bigl|Bigr|biggl|biggr|lvert|rvert|langle|rangle|lceil|rceil|lfloor|rfloor|quad|qquad)\b/g, ' ')
     .replace(/\\[,;:!]/g, ' ')
+    ;
+
+  return normalizeWhitespace(expandLatexSearchStructures(normalized));
+}
+
+function expandLatexSearchStructures(text) {
+  return translateLatexSearchCommands(String(text ?? '')
     .replace(/\\(?:d)?frac\s*\{([^{}]+)\}\s*\{([^{}]+)\}/g, '$1 over $2')
     .replace(/\\sqrt(?:\[(.*?)\])?\s*\{([^{}]+)\}/g, (_, degree, radicand) => {
       return degree ? `root ${degree} ${radicand}` : `square root ${radicand}`;
@@ -1300,6 +1242,12 @@ function normalizeLatexSearchText(text) {
     .replace(/&/g, ' ')
     .replace(/\\/g, ' ')
     .replace(/[{}]/g, ' '));
+}
+
+function translateLatexSearchCommands(text) {
+  return String(text ?? '').replace(/\\([A-Za-z]+)\b/g, (_, command) => {
+    return LATEX_COMMAND_MAP.get(command) ?? command;
+  }, {});
 }
 
 function tokenize(query) {
@@ -1548,7 +1496,7 @@ function buildSnippet(text, index, matchLength) {
     return '';
   }
 
-  const radius = 70;
+  const radius = 72;
   const start = Math.max(0, index - radius);
   const end = Math.min(normalizedText.length, index + Math.max(matchLength, 1) + radius);
   return `${start ? '...' : ''}${normalizedText.slice(start, end).trim()}${end < normalizedText.length ? '...' : ''}`;
@@ -1568,26 +1516,40 @@ function highlightText(text, terms) {
 
 function resultForEntry(entry, terms) {
   const title = String(entry.title ?? '');
+  const summary = String(entry.summary ?? '');
   const text = String(entry.text ?? '');
   const titleLower = normalizeLatexSearchText(title).toLowerCase();
+  const summaryNormalized = normalizeLatexSearchText(summary);
+  const summaryLower = summaryNormalized.toLowerCase();
   const textLower = normalizeLatexSearchText(text).toLowerCase();
-  const searchable = `${titleLower} ${textLower}`;
+  const searchable = `${titleLower} ${summaryLower} ${textLower}`;
 
   if (!terms.every((term) => searchable.includes(term))) {
     return null;
   }
 
   const titleHits = terms.filter((term) => titleLower.includes(term)).length;
+  const summaryHits = terms.filter((term) => summaryLower.includes(term)).length;
   const firstTextPosition = terms
     .map((term) => textLower.indexOf(term))
     .filter((position) => position >= 0)
     .sort((left, right) => left - right)[0] ?? 0;
+  const snippet = (titleHits || summaryHits === terms.length) && summaryNormalized
+    ? buildSnippet(summaryNormalized, 0, 0)
+    : buildSnippet(normalizeLatexSearchText(text || summary || title), firstTextPosition, terms[0]?.length ?? 0);
 
   return {
     ...entry,
-    snippet: buildSnippet(normalizeLatexSearchText(text || title), firstTextPosition, terms[0]?.length ?? 0),
-    score: (titleHits * 1000) - firstTextPosition,
+    snippet,
+    score: (titleHits * 1000) + (summaryHits * 100) - firstTextPosition,
   };
+}
+
+function getSearchResultHref(url, query) {
+  const relativePath = String(url ?? '').replace(/^\/notes\//, '');
+  const href = new URL(relativePath, NOTES_BASE_URL);
+  href.searchParams.set('q', query);
+  return href.href;
 }
 
 function searchNotes(query) {
@@ -1634,11 +1596,14 @@ function searchNotes(query) {
 
   updateStatus(`${results.length} result${results.length === 1 ? '' : 's'}`);
   searchResults.innerHTML = results.map((result) => {
-    const href = `${result.url}?q=${encodeURIComponent(normalizedQuery)}`;
-    return `<a class="search-result" href="${escapeHtml(href)}" data-search-result>
-      <p class="search-result__title">${escapeHtml(result.title)} <span class="search-result__subject">${escapeHtml(result.subject)}</span></p>
-      <p class="search-result__snippet">${highlightText(result.snippet, terms)}</p>
-    </a>`;
+    const href = getSearchResultHref(result.url, normalizedQuery);
+    return `<div class="search-result__item" role="listitem">
+      <a class="search-result" href="${escapeHtml(href)}" data-search-result aria-label="Open ${escapeHtml(result.title)}">
+        <span class="search-result__subject">${escapeHtml(result.subject)}</span>
+        <span class="search-result__title">${escapeHtml(result.title)}</span>
+        <span class="search-result__snippet">${highlightText(result.snippet, terms)}</span>
+      </a>
+    </div>`;
   }).join('');
 
   updateSearchResultState(results.length ? 0 : -1);
@@ -1649,21 +1614,21 @@ async function loadSearchIndex() {
     return searchIndexPromise;
   }
 
-  searchIndexPromise = fetch(SEARCH_INDEX_URL)
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error(`Search index returned ${response.status}`);
-      }
-
+  const requestSearchIndex = window.NotesRuntime?.loadSearchIndex
+    ?? ((url) => fetch(url).then((response) => {
+      if (!response.ok) throw new Error(`Search index returned ${response.status}`);
       return response.json();
-    })
+    }));
+
+  searchIndexPromise = requestSearchIndex(SEARCH_INDEX_URL)
     .then((entries) => {
       searchIndex = Array.isArray(entries) ? entries : [];
       searchIndexReady = true;
       searchNotes(searchInput?.value ?? '');
       return searchIndex;
     })
-    .catch(() => {
+    .catch((error) => {
+      console.error('[notes] Search index failed to load.', error);
       searchIndexFailed = true;
       searchNotes(searchInput?.value ?? '');
       return [];
@@ -1875,12 +1840,10 @@ function initVectorCalculusGradient(root) {
   }
 
   root.dataset.gradientInitialized = 'true';
-  const fallback = root.querySelector('[data-gradient-fallback]');
   const boardElement = root.querySelector('[data-gradient-board]');
 
   if (!window.JXG || !boardElement) {
-    if (fallback) fallback.hidden = false;
-    return;
+    throw new Error('Gradient interactive failed to initialize.');
   }
 
   const boardId = ensureInteractiveBoardId(boardElement, 'gradient');
@@ -1889,24 +1852,14 @@ function initVectorCalculusGradient(root) {
   const angleInput = root.querySelector('[data-gradient-angle]');
   const angleOutput = root.querySelector('[data-gradient-angle-value]');
   const values = Object.fromEntries(Array.from(root.querySelectorAll('[data-gradient-value]')).map((element) => [element.dataset.gradientValue, element]));
-  const fields = {
-    quadratic: { f: (x, y) => 0.5 * x * x + y * y, gradient: (x, y) => [x, 2 * y] },
-    saddle: { f: (x, y) => x * y, gradient: (x, y) => [y, x] },
-  };
+  const fields = createGradientFields();
   let fieldKey = fieldSelect?.value in fields ? fieldSelect.value : 'quadratic';
   let angle = Number(angleInput?.value ?? 35) * Math.PI / 180;
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true });
   const probe = board.create('point', [2, 1], { name: 'P', size: 4, color: '#f4b942', fixed: false, snapSizeX: 0.05, snapSizeY: 0.05 });
   const pointCoords = () => [probe.X(), probe.Y()];
-  const levelCurves = [];
   const addCurve = (x, y, range, extra = {}) => levelCurves.push(board.create('curve', [x, y, ...range], { strokeColor: '#7d8794', strokeWidth: 1, strokeOpacity: 0.55, fixed: true, ...extra }));
-  [1, 2, 3, 4, 6, 8, 10].forEach((level) => addCurve((t) => Math.sqrt(2 * level) * Math.cos(t), (t) => Math.sqrt(level) * Math.sin(t), [0, 2 * Math.PI]));
-  [1, 2, 3, 4].forEach((level) => {
-    [-1, 1].forEach((sign) => addCurve((t) => sign * t, (t) => level / (sign * t), [0.2, 5]));
-    [-1, 1].forEach((sign) => addCurve((t) => sign * t, (t) => -level / (sign * t), [0.2, 5]));
-  });
-  addCurve((t) => t, () => 0, [-5, 5]);
-  addCurve(() => 0, (t) => t, [-5, 5]);
+  const levelCurves = createGradientLevelCurves(addCurve);
   const gradientArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + fields[fieldKey].gradient(probe.X(), probe.Y())[0] * 0.55, () => probe.Y() + fields[fieldKey].gradient(probe.X(), probe.Y())[1] * 0.55]], { strokeColor: '#444', fillColor: '#444', strokeWidth: 3 });
   const directionArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + Math.cos(angle) * 1.5, () => probe.Y() + Math.sin(angle) * 1.5]], { strokeColor: '#777', fillColor: '#777', strokeWidth: 3 });
   const tangentLine = board.create('line', [[() => probe.X() - Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() + Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5], [() => probe.X() + Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() - Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5]], { strokeColor: '#c084fc', strokeWidth: 2, dash: 2 });
@@ -1932,18 +1885,46 @@ function initVectorCalculusGradient(root) {
   if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
 }
 
+function createGradientFields() {
+  return {
+    quadratic: { f: (x, y) => 0.5 * x * x + y * y, gradient: (x, y) => [x, 2 * y] },
+    saddle: { f: (x, y) => x * y, gradient: (x, y) => [y, x] },
+  };
+}
+
+function createGradientLevelCurves(addCurve) {
+  const curves = [];
+
+  [1, 2, 3, 4, 6, 8, 10].forEach((level) => {
+    curves.push(addCurve(
+      (t) => Math.sqrt(2 * level) * Math.cos(t),
+      (t) => Math.sqrt(level) * Math.sin(t),
+      [0, 2 * Math.PI],
+    ));
+  });
+
+  [1, 2, 3, 4].forEach((level) => {
+    [-1, 1].forEach((sign) => {
+      curves.push(addCurve((t) => sign * t, (t) => level / (sign * t), [0.2, 5]));
+      curves.push(addCurve((t) => sign * t, (t) => -level / (sign * t), [0.2, 5]));
+    });
+  });
+
+  curves.push(addCurve((t) => t, () => 0, [-5, 5]));
+  curves.push(addCurve(() => 0, (t) => t, [-5, 5]));
+  return curves;
+}
+
 function initVectorField3D(root) {
   if (!root || root.dataset.vectorFieldInitialized === 'true') {
     return;
   }
 
   root.dataset.vectorFieldInitialized = 'true';
-  const fallback = root.querySelector('[data-vector-field-fallback]');
   const boardElement = root.querySelector('[data-vector-field-board]');
 
   if (!window.JXG || !boardElement || !JXG.JSXGraph.initBoard) {
-    if (fallback) fallback.hidden = false;
-    return;
+    throw new Error('Vector field interactive failed to initialize.');
   }
 
   const boardId = ensureInteractiveBoardId(boardElement, 'vector-field-3d');
@@ -1960,8 +1941,7 @@ function initVectorField3D(root) {
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-6, 6, 6, -6], axis: true, pan: { enabled: false }, showCopyright: false, showNavigation: false, keepaspectratio: true });
   let view;
 
-  try {
-    view = board.create('view3d', [[-5, -4], [9, 9], [[-3, 3], [-3, 3], [-3, 3]]], {
+  view = board.create('view3d', [[-5, -4], [9, 9], [[-3, 3], [-3, 3], [-3, 3]]], {
       projection: 'central',
       trackball: { enabled: true },
       xPlaneFront: { visible: false },
@@ -1970,7 +1950,7 @@ function initVectorField3D(root) {
       yPlaneRear: { visible: false },
       zPlaneFront: { visible: false },
       zPlaneRear: { visible: false },
-    });
+  });
     // JSXGraph element names are lowercase, including the trailing "3d".
     let vectorScale = 0.4;
     const vectorField = view.create('vectorfield3d', [fields[fieldKey].value, [-3, 2, 3], [-3, 2, 3], [-3, 2, 3]], { strokeColor: '#555', strokeWidth: 2.5, scale: () => vectorScale });
@@ -1992,10 +1972,6 @@ function initVectorField3D(root) {
     scaleInput?.addEventListener('input', updateScale);
     update();
     updateScale();
-  } catch {
-    if (fallback) fallback.hidden = false;
-    return;
-  }
   if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
 }
 

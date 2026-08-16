@@ -2,6 +2,7 @@
 id: linear-system-signal-analysis-11
 note: engineering-linear-system-signal-analysis
 title: "Classify a Signal"
+exam: exam-i
 skills: [Signals, Signal Types]
 -->
 
@@ -21,6 +22,7 @@ It is **deterministic** because it is given by an explicit formula, not a statis
 id: linear-system-signal-analysis-12
 note: engineering-linear-system-signal-analysis
 title: "Shift a Step Signal"
+exam: exam-i
 skills: [Time Shifting]
 -->
 
@@ -46,6 +48,7 @@ This is the original step delayed by $3$ units.
 id: linear-system-signal-analysis-13
 note: engineering-linear-system-signal-analysis
 title: "Find Even and Odd Parts"
+exam: exam-i
 skills: [Even and Odd Parts]
 -->
 
@@ -91,6 +94,7 @@ $$
 id: linear-system-signal-analysis-14
 note: engineering-linear-system-signal-analysis
 title: "Test Linearity"
+exam: exam-i
 skills: [Linearity]
 -->
 
@@ -124,6 +128,7 @@ These are not the same, so the system is not linear.
 id: linear-system-signal-analysis-15
 note: engineering-linear-system-signal-analysis
 title: "Check Memory and Causality"
+exam: exam-i
 skills: [Memory, Causality]
 -->
 
@@ -145,6 +150,7 @@ It is **causal** because it depends only on the present value $x(t)$ and the pas
 id: linear-system-signal-analysis-16
 note: engineering-linear-system-signal-analysis
 title: "Use the Impulse Shift Property"
+exam: exam-i
 skills: [Impulse Response, Convolution]
 -->
 
@@ -168,6 +174,7 @@ This follows from the shift property of convolution.
 id: linear-system-signal-analysis-17
 note: engineering-linear-system-signal-analysis
 title: "Convolve with a Delayed Impulse"
+exam: exam-i
 skills: [Convolution, Discrete Time]
 -->
 
@@ -203,6 +210,7 @@ $$
 id: linear-system-signal-analysis-18
 note: engineering-linear-system-signal-analysis
 title: "Find the Fundamental Angular Frequency"
+exam: exam-i
 skills: [Fourier Series, Period]
 -->
 
@@ -238,6 +246,7 @@ $$
 id: linear-system-signal-analysis-19
 note: engineering-linear-system-signal-analysis
 title: "Read a Pole from a Transfer Function"
+exam: exam-i
 skills: [Transfer Function, Poles and Zeros]
 -->
 
@@ -263,6 +272,7 @@ Since $-5$ has negative real part, the pole lies in the **left-half plane**.
 id: linear-system-signal-analysis-110
 note: engineering-linear-system-signal-analysis
 title: "Read a Scalar State-Space Model"
+exam: exam-i
 skills: [State-Space, Continuous Time]
 -->
 
@@ -298,6 +308,7 @@ $$
 id: linear-system-signal-analysis-21
 note: engineering-linear-system-signal-analysis
 title: "Classify a Differential-Equation Model"
+exam: exam-ii
 skills: [LTI Systems, Differential Equations]
 -->
 
@@ -321,6 +332,7 @@ So the system is **LTI**.
 id: linear-system-signal-analysis-22
 note: engineering-linear-system-signal-analysis
 title: "Split a Polynomial Signal"
+exam: exam-ii
 skills: [Even and Odd Parts]
 -->
 
@@ -368,6 +380,7 @@ $$
 id: linear-system-signal-analysis-23
 note: engineering-linear-system-signal-analysis
 title: "Output of a Moving-Average Filter"
+exam: exam-ii
 skills: [Convolution, Impulse Response]
 -->
 
@@ -411,6 +424,7 @@ $$
 id: linear-system-signal-analysis-24
 note: engineering-linear-system-signal-analysis
 title: "Compute a Sinusoidal Steady-State Output"
+exam: exam-ii
 skills: [Frequency Response, Sinusoids]
 -->
 
@@ -442,6 +456,7 @@ $$
 id: linear-system-signal-analysis-25
 note: engineering-linear-system-signal-analysis
 title: "Shift a Known Fourier Transform"
+exam: exam-ii
 skills: [Fourier Transform, Time Shift]
 -->
 
@@ -483,6 +498,7 @@ $$
 id: linear-system-signal-analysis-26
 note: engineering-linear-system-signal-analysis
 title: "Solve a First-Order System with Laplace Transforms"
+exam: exam-ii
 skills: [Laplace Transform, Initial Conditions]
 -->
 
@@ -522,6 +538,7 @@ $$
 id: linear-system-signal-analysis-27
 note: engineering-linear-system-signal-analysis
 title: "Find the Transfer Function of a Difference Equation"
+exam: exam-ii
 skills: [Z-Transform, Difference Equations]
 -->
 
@@ -563,6 +580,7 @@ $$
 id: linear-system-signal-analysis-28
 note: engineering-linear-system-signal-analysis
 title: "Apply the Nyquist Criterion"
+exam: exam-ii
 skills: [Sampling, Aliasing]
 -->
 
@@ -584,6 +602,7 @@ Since $1.5$ kHz $= 1500$ Hz is below $1800$ Hz, it is **not sufficient**.
 id: linear-system-signal-analysis-31
 note: engineering-linear-system-signal-analysis
 title: "Impulse Input as a Weighted Sum"
+exam: final
 skills: [Convolution, Impulse Response]
 -->
 
@@ -619,6 +638,7 @@ $$
 id: linear-system-signal-analysis-32
 note: engineering-linear-system-signal-analysis
 title: "Attenuation of a Sinusoid"
+exam: final
 skills: [Frequency Response, Sinusoids]
 -->
 
@@ -672,6 +692,7 @@ $$
 id: linear-system-signal-analysis-33
 note: engineering-linear-system-signal-analysis
 title: "Aliased Tone"
+exam: final
 skills: [Sampling, Aliasing]
 -->
 
@@ -699,6 +720,7 @@ in the baseband interval $[0, f_s/2]$.
 id: linear-system-signal-analysis-34
 note: engineering-linear-system-signal-analysis
 title: "State-Space to Transfer Function"
+exam: final
 skills: [State-Space, Transfer Function]
 -->
 
@@ -740,6 +762,7 @@ $$
 id: linear-system-signal-analysis-35
 note: engineering-linear-system-signal-analysis
 title: "Interpret a Symmetric Periodic Waveform"
+exam: final
 skills: [Fourier Series, Symmetry]
 -->
 
@@ -773,6 +796,7 @@ So the harmonics occur at integer multiples of $100$ Hz.
 id: linear-system-signal-analysis-41
 note: engineering-linear-system-signal-analysis
 title: "Convolution of Two Rectangular Pulses"
+exam: final
 skills: [Convolution, Piecewise Signals]
 -->
 
@@ -817,6 +841,7 @@ So the output is a trapezoid made of two ramps and a flat middle section.
 id: linear-system-signal-analysis-42
 note: engineering-linear-system-signal-analysis
 title: "Solve a Forced First-Order System"
+exam: final
 skills: [Laplace Transform, Partial Fractions]
 -->
 
@@ -856,6 +881,7 @@ $$
 id: linear-system-signal-analysis-43
 note: engineering-linear-system-signal-analysis
 title: "Stability and Causality from Poles"
+exam: final
 skills: [Poles and Zeros, Stability]
 -->
 
@@ -889,6 +915,7 @@ Therefore, a **causal stable realization is not possible**.
 id: linear-system-signal-analysis-44
 note: engineering-linear-system-signal-analysis
 title: "Frequency Response from an Exponential Impulse Response"
+exam: final
 skills: [Frequency Response, Fourier Transform]
 -->
 

@@ -2,6 +2,7 @@
 id: geometry-11
 note: math-geometry
 title: "Write the Notation for a Segment"
+exam: exam-i
 skills: [Notation, Segments]
 -->
 
@@ -21,6 +22,7 @@ A segment has two endpoints and finite length.
 id: geometry-12
 note: math-geometry
 title: "Find a Complementary Angle"
+exam: exam-i
 skills: [Angle Relationships]
 -->
 
@@ -40,6 +42,7 @@ $$
 id: geometry-13
 note: math-geometry
 title: "Use Vertical Angles"
+exam: exam-i
 skills: [Vertical Angles, Angle Relationships]
 -->
 
@@ -57,6 +60,7 @@ $$
 id: geometry-14
 note: math-geometry
 title: "Complete a Triangle Angle Sum"
+exam: exam-i
 skills: [Triangle Angle Sum]
 -->
 
@@ -76,6 +80,7 @@ $$
 id: geometry-15
 note: math-geometry
 title: "Find the Base Angles of an Isosceles Triangle"
+exam: exam-i
 skills: [Isosceles Triangles, Triangle Angle Sum]
 -->
 
@@ -103,6 +108,7 @@ Each base angle measures $67^\circ$.
 id: geometry-16
 note: math-geometry
 title: "Check the Triangle Inequality"
+exam: exam-i
 skills: [Triangle Inequality]
 -->
 
@@ -126,6 +132,7 @@ So these side lengths do not form a triangle.
 id: geometry-17
 note: math-geometry
 title: "Identify a Triangle Congruence Criterion"
+exam: exam-i
 skills: [Congruence, Triangle Congruence Criteria]
 -->
 
@@ -145,6 +152,7 @@ The angle must be included between the two sides.
 id: geometry-18
 note: math-geometry
 title: "Scale a Similar Triangle"
+exam: exam-i
 skills: [Similarity, Scale Factor]
 -->
 
@@ -164,6 +172,7 @@ The corresponding side is $24$ cm.
 id: geometry-19
 note: math-geometry
 title: "Use the Pythagorean Theorem"
+exam: exam-i
 skills: [Right Triangles, Pythagorean Theorem]
 -->
 
@@ -199,6 +208,7 @@ $$
 id: geometry-110
 note: math-geometry
 title: "Find an Inscribed Angle"
+exam: exam-i
 skills: [Circles, Inscribed Angles]
 -->
 
@@ -220,6 +230,7 @@ The inscribed angle measures $62^\circ$.
 id: geometry-21
 note: math-geometry
 title: "Solve with Parallel Lines"
+exam: exam-ii
 skills: [Parallel Lines, Corresponding Angles, Linear Equations]
 -->
 
@@ -255,6 +266,7 @@ $$
 id: geometry-22
 note: math-geometry
 title: "Exterior Angle in an Isosceles Triangle"
+exam: exam-ii
 skills: [Isosceles Triangles, Triangle Angle Sum, Supplementary Angles]
 -->
 
@@ -286,6 +298,7 @@ The exterior angle measures $107^\circ$.
 id: geometry-23
 note: math-geometry
 title: "Use Similarity with Perimeter"
+exam: exam-ii
 skills: [Similarity, Perimeter, Scale Factor]
 -->
 
@@ -307,6 +320,7 @@ The larger perimeter is $30$ cm.
 id: geometry-24
 note: math-geometry
 title: "Apply a Dilation and a Reflection"
+exam: exam-ii
 skills: [Dilations, Reflections, Coordinate Geometry]
 -->
 
@@ -332,6 +346,7 @@ The image is $(8,12)$.
 id: geometry-25
 note: math-geometry
 title: "Use Parallelogram Angle Properties"
+exam: exam-ii
 skills: [Parallelograms, Angle Relationships]
 -->
 
@@ -359,6 +374,7 @@ So the angles are $112^\circ$ and $68^\circ$.
 id: geometry-26
 note: math-geometry
 title: "Find the Number of Sides of a Polygon"
+exam: exam-ii
 skills: [Polygons, Interior Angle Sum]
 -->
 
@@ -390,6 +406,7 @@ The polygon has $9$ sides.
 id: geometry-27
 note: math-geometry
 title: "Find the Radius from Coordinates"
+exam: exam-ii
 skills: [Circles, Distance Formula, Coordinate Geometry]
 -->
 
@@ -417,6 +434,7 @@ The radius is $5$.
 id: geometry-28
 note: math-geometry
 title: "Use a Radius and a Tangent"
+exam: exam-ii
 skills: [Circles, Tangents, Triangle Angle Sum]
 -->
 
@@ -438,6 +456,7 @@ The angle at the center is $63^\circ$.
 id: geometry-31
 note: math-geometry
 title: "Use Similar Triangles in a Shadow Problem"
+exam: final
 skills: [Similarity, Proportional Reasoning]
 -->
 
@@ -467,6 +486,7 @@ The tree is $15$ feet tall.
 id: geometry-32
 note: math-geometry
 title: "Solve a Ladder Problem"
+exam: final
 skills: [Right Triangles, Pythagorean Theorem]
 -->
 
@@ -498,6 +518,7 @@ The base of the ladder is $5$ feet from the wall.
 id: geometry-33
 note: math-geometry
 title: "Find the Area of a Sector"
+exam: final
 skills: [Circles, Sector Area, Area]
 -->
 
@@ -531,6 +552,7 @@ The area is $20\pi$ square meters.
 id: geometry-34
 note: math-geometry
 title: "Find the Surface Area of a Rectangular Prism"
+exam: final
 skills: [Surface Area, Rectangular Prisms]
 -->
 
@@ -564,6 +586,7 @@ The surface area is $158$ cm$^2$.
 id: geometry-35
 note: math-geometry
 title: "Show a Rectangle with Coordinates"
+exam: final
 skills: [Coordinate Geometry, Proof Strategies, Rectangles]
 -->
 
@@ -591,6 +614,7 @@ Since the quadrilateral has four right angles, it is a rectangle.
 id: geometry-41
 note: math-geometry
 title: "Use the Power of a Point"
+exam: final
 skills: [Circles, Power of a Point, Tangents]
 -->
 
@@ -624,6 +648,7 @@ The whole secant length is $16$ cm.
 id: geometry-42
 note: math-geometry
 title: "Classify a Square by Coordinates"
+exam: final
 skills: [Coordinate Geometry, Quadrilaterals, Slopes, Distance Formula]
 -->
 
@@ -661,6 +686,7 @@ Since the figure has four equal sides and a right angle, it is a square.
 id: geometry-43
 note: math-geometry
 title: "Scale Area and Volume Under a Dilation"
+exam: final
 skills: [Dilations, Area Scale Factor, Volume Scale Factor]
 -->
 
@@ -693,6 +719,7 @@ The new area is $126\text{ cm}^2$ and the new volume is $378\text{ cm}^3$.
 id: geometry-44
 note: math-geometry
 title: "Find a Chord Length from the Center"
+exam: final
 skills: [Circles, Right Triangles, Perpendicular Bisectors]
 -->
 

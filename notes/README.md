@@ -87,3 +87,4 @@ Good contributions are small and specific:
 - Run wind-tunnel/pipe-flow study: fluids, dimensional analysis, CFD, experiment design, metrology.
 - Model satellite attitude control: rigid-body dynamics, quaternions, sensors, estimation, digital control.
 - Analyze component failure: materials, manufacturing, fracture, reliability, safety.
+- Add teacher landing page, lesson wrappers, PhET embeds/links, shareable practice sets, printable/downloadable assignments.

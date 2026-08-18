@@ -24,7 +24,10 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.min.css?v=e3e6467ca1ee" />
+  <link rel="stylesheet" href="../../../notes.min.css?v=2ca90ebd3c64" />
+  <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
+  <script defer src="/notes/webmeji/config.js"></script>
+  <script defer src="/notes/webmeji/webmeji.js"></script>
   
   <script>
     window.MathJax = {
@@ -47,13 +50,10 @@
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
   
-  <script defer src="../../../notes-runtime.min.js?v=e5ec3aeb1224"></script>
-  <script defer src="../../../notes.min.js?v=a3e7a5966176"></script>
+  <script defer src="../../../notes-runtime.min.js?v=5a184243e12c"></script>
+  <script defer src="../../../notes.min.js?v=9db2d3dc8f07"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
-  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
-    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
-  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/engineering/dynamics/practice/" data-notes-nav-item>Practice</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>
 
@@ -66,36 +66,17 @@
           </div>
           <ul class="subject-list">
           <li>
-          <a href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          <a class="notes-inline-link" href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
           </li>
-          <li><a href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics/" data-notes-nav-item>Physics</a></li><li><a class="is-active" aria-current="true" href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li>
+          <li><a class="notes-inline-link" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="notes-inline-link" href="/notes/subjects/physics/physics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics</a></li><li><a class="notes-inline-link" class="is-active" aria-current="true" href="/notes/subjects/engineering/engineering-design/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering</a></li>
           <li>
           <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
           </li>
           <li>
-                <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>GitHub</a>
-          </li>
-          <li>
-                <a class="notes-theme-toggle" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" aria-label="Support" title="Support" data-notes-nav-item>Support</a>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
           </li>
           </ul>
         </aside>
-      <div class="notes-header__timer" aria-label="Pomodoro timer">
-    <p class="notes-header__eyebrow">Pomodoro</p>
-    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
-      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
-          <span class="notes-pomodoro__label">Focus</span>
-        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
-          <span class="notes-pomodoro__label">Short break</span>
-        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
-          <span class="notes-pomodoro__label">Long break</span>
-        </button>
-    </div>
-    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
-  </div>
     </div>
   </header>
 
@@ -107,18 +88,18 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Engineering</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/statics/" data-notes-nav-item>Statics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/engineering/dynamics/" aria-current="page" data-notes-nav-item>Dynamics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/statics/" data-notes-nav-item>Statics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/engineering/dynamics/" aria-current="page" data-notes-nav-item>Dynamics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/materials-science/" data-notes-nav-item>Materials Science</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanics-of-materials/beam-deflection/" data-notes-nav-item>Beam Deflection</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/structural-analysis/" data-notes-nav-item>Structural Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/solid-mechanics/" data-notes-nav-item>Solid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/vibrations/" data-notes-nav-item>Vibrations</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/fluid-mechanics/" data-notes-nav-item>Fluid Mechanics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/heat-transfer/" data-notes-nav-item>Heat Transfer</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electrical-circuit-analysis/" data-notes-nav-item>Electrical Circuit Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/linear-system-signal-analysis/" data-notes-nav-item>Linear System Signal Analysis</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/electronics/" data-notes-nav-item>Electronics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/embedded-systems/" data-notes-nav-item>Embedded Systems</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/digital-control-and-robotics/" data-notes-nav-item>Digital Control and Robotics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/mechanisms/" data-notes-nav-item>Mechanisms</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/tribology/" data-notes-nav-item>Tribology</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
           <h1>Dynamics</h1>
-          <p class="viewer-meta"><a class="viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/engineering/dynamics/dynamics.md" target="_blank" rel="noreferrer">GitHub Changelog</a> - <time datetime="2026-08-15T15:30:54.000Z">Last modified Aug 15, 2026</time></p>
-          <div class="viewer-contributors-block"><p class="viewer-contributors__label">Contributors</p><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">5</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/engineering/dynamics/dynamics.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="2026-08-15T15:30:54.000Z">Last modified Aug 15, 2026</time></p>
+          <div class="viewer-contributors-block"><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">5</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
       </div>
       <div class="viewer-head__actions">
-          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&amp;page_path=notes%2Fsource%2Fengineering%2Fdynamics%2Fdynamics.md&amp;title=%5BContribute%5D%3A%20Dynamics" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
+          <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&amp;page_path=notes%2Fsource%2Fengineering%2Fdynamics%2Fdynamics.md&amp;title=%5BContribute%5D%3A%20Dynamics" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -536,9 +517,6 @@ $$</div>
       <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
       <div class="search-results" id="search-results" role="list"></div>
     </div>
-  </aside>
-  <aside class="timer-panel" id="timer-panel" role="dialog" aria-modal="true" aria-label="Timer" hidden>
-    <div class="timer-panel__card panel" tabindex="-1"></div>
   </aside>
 </body>
 </html>

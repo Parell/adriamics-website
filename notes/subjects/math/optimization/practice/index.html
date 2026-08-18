@@ -24,7 +24,10 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=e3e6467ca1ee" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2ca90ebd3c64" />
+  <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
+  <script defer src="/notes/webmeji/config.js"></script>
+  <script defer src="/notes/webmeji/webmeji.js"></script>
   <script>
     window.MathJax = {
       loader: { load: ['[tex]/unicode'] },
@@ -45,13 +48,10 @@
     };
   </script>
   <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
-  <script defer src="../../../../notes-runtime.min.js?v=e5ec3aeb1224"></script>
-  <script defer src="../../../../notes.min.js?v=a3e7a5966176"></script>
+  <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
+  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
 </head>
 <body class="notes-page practice-page" id="top">
-  <div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
-    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
-  </div>
   <a class="skip-link" href="#content">Skip to content</a>
   <div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions"><a class="notes-action-chip" href="/notes/subjects/math/optimization/" data-notes-nav-item>Back to note</a><button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>
 
@@ -64,36 +64,17 @@
           </div>
           <ul class="subject-list">
           <li>
-          <a href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          <a class="notes-inline-link" href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
           </li>
-          <li><a class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a href="/notes/subjects/physics/thermodynamics/" data-subject-id="physics" data-default-href="/notes/subjects/physics/thermodynamics/" data-notes-nav-item>Physics</a></li><li><a href="/notes/subjects/engineering/statics/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/statics/" data-notes-nav-item>Engineering</a></li>
+          <li><a class="notes-inline-link" class="is-active" aria-current="true" href="/notes/subjects/math/arithmetic/" data-subject-id="math" data-default-href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Math</a></li><li><a class="notes-inline-link" href="/notes/subjects/physics/physics-i/" data-subject-id="physics" data-default-href="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics</a></li><li><a class="notes-inline-link" href="/notes/subjects/engineering/engineering-design/" data-subject-id="engineering" data-default-href="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering</a></li>
           <li>
           <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
           </li>
           <li>
-                <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>GitHub</a>
-          </li>
-          <li>
-                <a class="notes-theme-toggle" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" aria-label="Support" title="Support" data-notes-nav-item>Support</a>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
           </li>
           </ul>
         </aside>
-      <div class="notes-header__timer" aria-label="Pomodoro timer">
-    <p class="notes-header__eyebrow">Pomodoro</p>
-    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
-      <button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="focus" data-pomodoro-minutes="25" aria-label="Start 25 minute focus timer" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">25</span>
-          <span class="notes-pomodoro__label">Focus</span>
-        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="short" data-pomodoro-minutes="5" aria-label="Start 5 minute short break timer" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">5</span>
-          <span class="notes-pomodoro__label">Short break</span>
-        </button><button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="long" data-pomodoro-minutes="15" aria-label="Start 15 minute long break timer" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">15</span>
-          <span class="notes-pomodoro__label">Long break</span>
-        </button>
-    </div>
-    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
-  </div>
     </div>
   </header>
 
@@ -106,23 +87,23 @@
       </div>
       <nav aria-labelledby="guide-tree-title">
         <h2 class="notes-sidebar__title" id="guide-tree-title">Math</h2>
-        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" aria-current="page" data-notes-nav-item>Optimization</a></li></ul>
+        <ul class="guide-tree"><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/series/" data-notes-nav-item>Series</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/second-order-odes/" data-notes-nav-item>Second Order ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/systems-of-odes/" data-notes-nav-item>Systems of ODEs</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/multivariable-calculus/multiple-integrals/" data-notes-nav-item>Multiple Integrals</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/vector-calculus/" data-notes-nav-item>Vector Calculus</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page is-active" style="--guide-depth: 0" href="/notes/subjects/math/optimization/" aria-current="page" data-notes-nav-item>Optimization</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/discrete-math/" data-notes-nav-item>Discrete Math</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/proof-writing/" data-notes-nav-item>Proof Writing</a></li><li class="guide-tree__item"><a class="guide-tree__button guide-tree__button--page" style="--guide-depth: 0" href="/notes/subjects/math/partial-differential-equations/" data-notes-nav-item>PDEs</a></li></ul>
       </nav>
     </aside>
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
           <h1>Optimization Practice</h1>
-          <p class="viewer-meta practice-note-meta-line"><a class="viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/optimization/optimization-problems.md" target="_blank" rel="noreferrer">GitHub Changelog</a> - <time datetime="2026-08-16T17:59:28.000Z">Last modified Aug 16, 2026</time></p>
-          <div class="viewer-contributors-block"><p class="viewer-contributors__label">Contributors</p><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">2</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
+          <p class="viewer-meta practice-note-meta-line"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/optimization/optimization-problems.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="2026-08-16T17:59:28.000Z">Last modified Aug 16, 2026</time></p>
+          <div class="viewer-contributors-block"><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">2</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
         </div>
         <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&amp;page_path=notes%2Fsource%2Fmath%2Foptimization%2Foptimization-problems.md&amp;title=%5BContribute%5D%3A%20Optimization%20Practice" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
-          <a class="practice-back-link notes-action-chip" href="/notes/subjects/math/optimization/" data-notes-nav-item>Back to note</a>
         </div>
       </div>
-      
-      <section class="practice-filters panel" data-practice-filters aria-label="Practice filters">
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
         <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
           <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
           <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
@@ -131,24 +112,23 @@
           <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
           <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
         </div>
-        <p class="practice-filters__summary" data-practice-filter-summary aria-live="polite">Showing all 5 problems</p>
       </section>
-      
+        
       <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of 5 problems completed">
         <div class="practice-progress__head">
-          <p class="section-label">Progress</p>
           <p class="practice-progress__summary" data-practice-progress-summary>0 of 5 completed</p>
         </div>
         <div class="practice-progress__track" aria-hidden="true">
           <div class="practice-progress__fill" data-practice-progress-fill></div>
         </div>
       </section>
+      </section>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
           <div class="practice-level__eyebrow">
             <p class="section-label">Difficulty</p>
-            <h2 id="practice-level-1">Direct Practice</h2>
+            <h2 id="practice-level-1">Direct</h2>
           </div>
           <div class="practice-level__badge" aria-hidden="true">
             <span class="practice-level__badge-label">Level</span>
@@ -160,7 +140,7 @@
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Find a Stationary Point</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/optimization/#gradient">Gradient</a> &middot; <a class="practice-problem__skill" href="/notes/subjects/math/optimization/#stationary-points">Stationary Points</a></span></span></p>
+          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#gradient" data-notes-nav-item>Gradient</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#stationary-points" data-notes-nav-item>Stationary Points</a></span></span></p>
         </div>
         <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
           <span class="practice-problem__complete-mark" aria-hidden="true"></span>
@@ -197,7 +177,7 @@
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Classify a Quadratic</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/optimization/#hessian">Hessian</a> &middot; <a class="practice-problem__skill" href="/notes/subjects/math/optimization/#convexity">Convexity</a></span></span></p>
+          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#hessian" data-notes-nav-item>Hessian</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#convexity" data-notes-nav-item>Convexity</a></span></span></p>
         </div>
         <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
           <span class="practice-problem__complete-mark" aria-hidden="true"></span>
@@ -236,7 +216,7 @@
         <div class="practice-level__head">
           <div class="practice-level__eyebrow">
             <p class="section-label">Difficulty</p>
-            <h2 id="practice-level-2">Integrated Practice</h2>
+            <h2 id="practice-level-2">Integrated</h2>
           </div>
           <div class="practice-level__badge" aria-hidden="true">
             <span class="practice-level__badge-label">Level</span>
@@ -248,7 +228,7 @@
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Write a KKT System</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/optimization/#kkt-conditions">KKT Conditions</a> &middot; <a class="practice-problem__skill" href="/notes/subjects/math/optimization/#inequality-constraints">Inequality Constraints</a></span></span></p>
+          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#kkt-conditions" data-notes-nav-item>KKT Conditions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#inequality-constraints" data-notes-nav-item>Inequality Constraints</a></span></span></p>
         </div>
         <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
           <span class="practice-problem__complete-mark" aria-hidden="true"></span>
@@ -285,7 +265,7 @@
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Recognize a Convex Program</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/optimization/#convexity">Convexity</a> &middot; <a class="practice-problem__skill" href="/notes/subjects/math/optimization/#global-optimality">Global Optimality</a></span></span></p>
+          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#convexity" data-notes-nav-item>Convexity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#global-optimality" data-notes-nav-item>Global Optimality</a></span></span></p>
         </div>
         <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
           <span class="practice-problem__complete-mark" aria-hidden="true"></span>
@@ -324,7 +304,7 @@
         <div class="practice-level__head">
           <div class="practice-level__eyebrow">
             <p class="section-label">Difficulty</p>
-            <h2 id="practice-level-3">Applied Problems</h2>
+            <h2 id="practice-level-3">Applied</h2>
           </div>
           <div class="practice-level__badge" aria-hidden="true">
             <span class="practice-level__badge-label">Level</span>
@@ -336,7 +316,7 @@
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Choose a Method</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="practice-problem__skill" href="/notes/subjects/math/optimization/#optimization-methods">Optimization Methods</a> &middot; <a class="practice-problem__skill" href="/notes/subjects/math/optimization/#modeling">Modeling</a></span></span></p>
+          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#optimization-methods" data-notes-nav-item>Optimization Methods</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/optimization/#modeling" data-notes-nav-item>Modeling</a></span></span></p>
         </div>
         <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
           <span class="practice-problem__complete-mark" aria-hidden="true"></span>
@@ -400,9 +380,6 @@
       <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
       <div class="search-results" id="search-results" role="list"></div>
     </div>
-  </aside>
-  <aside class="timer-panel" id="timer-panel" role="dialog" aria-modal="true" aria-label="Timer" hidden>
-    <div class="timer-panel__card panel" tabindex="-1"></div>
   </aside>
 </body>
 </html>

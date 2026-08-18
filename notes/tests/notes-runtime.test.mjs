@@ -27,27 +27,3 @@ test('theme preference accepts only the supported persisted values', () => {
   assert.equal(runtimeWith({ 'ues-notes:contrast-mode': 'light' }).readThemePreference(), true);
   assert.equal(runtimeWith({ 'ues-notes:contrast-mode': 'default' }).readThemePreference(), false);
 });
-
-test('pomodoro state normalization and snapshots are deterministic', () => {
-  const runtime = runtimeWith();
-  const state = runtime.normalizePomodoroState({ mode: 'focus', durationMs: 60000, startedAt: 1000, endsAt: 61000 }, 1000);
-  assert.equal(state.status, 'running');
-  assert.equal(runtime.normalizePomodoroState({ mode: 'unknown', durationMs: 1 }, 1000), null);
-  assert.equal(runtime.formatPomodoroTime(61000), '1:01');
-  assert.equal(runtime.getPomodoroSnapshot(state, 31000).valueNow, 50);
-  assert.equal(runtime.getPomodoroSnapshot({ ...state, status: 'completed' }, 31000).valueText, 'Focus timer complete');
-});
-
-test('pomodoro normalization keeps records written by the page scripts', () => {
-  const runtime = runtimeWith();
-  const state = runtime.normalizePomodoroState({
-    mode: 'short',
-    startedAt: 1000,
-    endsAt: 301000,
-    status: 'running',
-  }, 1000);
-
-  assert.equal(state.durationMs, 300000);
-  assert.equal(state.label, 'Short break');
-  assert.equal(state.minutes, 5);
-});

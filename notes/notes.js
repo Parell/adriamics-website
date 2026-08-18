@@ -1,8 +1,5 @@
 const searchTriggers = Array.from(document.querySelectorAll('[data-search-trigger]'));
-const timerTriggers = Array.from(document.querySelectorAll('[data-timer-trigger]'));
 const searchPanel = document.getElementById('search-panel');
-const timerPanel = document.getElementById('timer-panel');
-const timerCard = timerPanel?.querySelector('.timer-panel__card');
 const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
@@ -10,16 +7,12 @@ const searchResults = document.getElementById('search-results');
 const noteContent = document.getElementById('note-content');
 const isPracticePage = document.querySelector('[data-practice-page]');
 const practiceFilterButtons = Array.from(document.querySelectorAll('[data-practice-filter-button]'));
-const practiceFilterSummary = document.querySelector('[data-practice-filter-summary]');
 const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
 const practiceLevelSections = Array.from(document.querySelectorAll('[data-practice-level]'));
 const practiceProblemCards = Array.from(document.querySelectorAll('[data-practice-problem]'));
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
-const pomodoroPresetButtons = Array.from(document.querySelectorAll('[data-pomodoro-trigger]'));
-const pomodoroBar = document.querySelector('[data-pomodoro-bar]');
-const pomodoroStatus = document.querySelector('[data-pomodoro-status]');
 const notesScriptUrl = document.currentScript?.src
   || Array.from(document.scripts).find((script) => /\/notes\.js(?:\?|$)/.test(script.src))?.src
   || window.location.href;
@@ -29,22 +22,15 @@ const NOTES_SESSION_STORAGE_KEY = 'ues-notes:last-pages-by-subject';
 const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
-const POMODORO_TIMER_STORAGE_KEY = 'ues-notes:pomodoro-timer';
-const POMODORO_COMPLETION_FLASH_MS = 2200;
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
-const POMODORO_TIMER_MODES = new Map(Object.entries(window.NotesRuntime?.pomodoroModes ?? {}));
 
 let searchIndex = [];
 let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexFailed = false;
 let activeSearchTrigger = searchTriggers[0] ?? null;
-let activeTimerTrigger = timerTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
-let pomodoroTimerState = null;
-let pomodoroTimerIntervalId = null;
-let pomodoroTimerCompletionTimeoutId = null;
 const contributorCopyResetTimers = new WeakMap();
 
 function getSessionStorage() {
@@ -187,6 +173,10 @@ function showContributorCopiedState(button) {
 }
 
 function readThemePreference() {
+  if (window.NotesRuntime?.readThemePreference) {
+    return window.NotesRuntime.readThemePreference();
+  }
+
   return ['sepia', 'light'].includes(readStoredString(NOTES_THEME_STORAGE_KEY));
 }
 
@@ -199,6 +189,11 @@ function getThemeToggleAriaLabel(isSepia) {
 }
 
 function writeThemePreference(isSepia) {
+  if (window.NotesRuntime?.writeThemePreference) {
+    window.NotesRuntime.writeThemePreference(isSepia);
+    return;
+  }
+
   writeToStorage(getLocalStorage, NOTES_THEME_STORAGE_KEY, (storage) => {
     storage.setItem(NOTES_THEME_STORAGE_KEY, isSepia ? 'light' : 'default');
   });
@@ -237,23 +232,6 @@ function savePracticeFilter(value) {
   writeStoredString(getPracticeFilterStorageKey(), value);
 }
 
-function getPracticeFilterLabel(value) {
-  switch (value) {
-    case 'exam-i':
-      return 'Exam I';
-    case 'exam-ii':
-      return 'Exam II';
-    case 'final':
-      return 'Final';
-    case 'marked':
-      return 'Marked';
-    case 'missed':
-      return 'Missed';
-    default:
-      return 'All';
-  }
-}
-
 function getPracticeCompletionToggle(card) {
   return card.querySelector('[data-practice-complete-toggle]');
 }
@@ -288,19 +266,6 @@ function isPracticeCardVisible(card, value) {
   }
 }
 
-function updatePracticeFilterSummary(visibleCount, totalCount, value) {
-  if (!practiceFilterSummary) {
-    return;
-  }
-
-  if (value === 'all') {
-    practiceFilterSummary.textContent = `Showing all ${totalCount} problems`;
-    return;
-  }
-
-  practiceFilterSummary.textContent = `Showing ${visibleCount} of ${totalCount} problems for ${getPracticeFilterLabel(value)}`;
-}
-
 function syncPracticeFilterButtons(value) {
   practiceFilterButtons.forEach((button) => {
     const isActive = button.dataset.practiceFilter === value;
@@ -315,16 +280,11 @@ function renderPracticeFilter(value) {
   }
 
   const normalized = PRACTICE_FILTER_VALUES.has(value) ? value : 'all';
-  let visibleCount = 0;
   const visibleLevelSections = new Set();
 
   practiceProblemCards.forEach((card) => {
     const isVisible = isPracticeCardVisible(card, normalized);
     card.hidden = !isVisible;
-
-    if (isVisible) {
-      visibleCount += 1;
-    }
 
     const levelSection = card.closest('[data-practice-level]');
 
@@ -334,12 +294,11 @@ function renderPracticeFilter(value) {
   });
 
   practiceLevelSections.forEach((section) => {
-    section.hidden = normalized !== 'all' && !visibleLevelSections.has(section);
+    section.hidden = !visibleLevelSections.has(section);
   });
 
   activePracticeFilter = normalized;
   syncPracticeFilterButtons(normalized);
-  updatePracticeFilterSummary(visibleCount, practiceProblemCards.length, normalized);
 }
 
 function updatePracticeProgressUi(completedCount, totalCount) {
@@ -779,280 +738,6 @@ function toggleThemePreference() {
   writeThemePreference(nextValue);
 }
 
-function getPomodoroModeConfig(mode) {
-  return window.NotesRuntime?.getPomodoroMode(mode) ?? POMODORO_TIMER_MODES.get(mode) ?? null;
-}
-
-function formatPomodoroTime(milliseconds) {
-  return window.NotesRuntime?.formatPomodoroTime(milliseconds) ?? '0:00';
-}
-
-function normalizePomodoroState(rawState) {
-  if (window.NotesRuntime?.normalizePomodoroState) {
-    return window.NotesRuntime.normalizePomodoroState(rawState);
-  }
-  if (!rawState || typeof rawState !== 'object' || Array.isArray(rawState)) {
-    return null;
-  }
-
-  const mode = typeof rawState.mode === 'string' ? rawState.mode : '';
-  const config = getPomodoroModeConfig(mode);
-  const startedAt = Number(rawState.startedAt);
-  const endsAt = Number(rawState.endsAt);
-  const completedAt = Number(rawState.completedAt);
-  const status = rawState.status === 'completed' ? 'completed' : 'running';
-
-  if (!config || !Number.isFinite(startedAt) || !Number.isFinite(endsAt) || endsAt <= startedAt) {
-    return null;
-  }
-
-  if (status === 'completed' && !Number.isFinite(completedAt)) {
-    return null;
-  }
-
-  return {
-    mode,
-    label: config.label,
-    minutes: config.minutes,
-    startedAt,
-    endsAt,
-    status,
-    completedAt: Number.isFinite(completedAt) ? completedAt : null,
-  };
-}
-
-function createIdlePomodoroSnapshot() {
-  return {
-    status: 'idle',
-    mode: null,
-    label: null,
-    minutes: null,
-    startedAt: null,
-    endsAt: null,
-    completedAt: null,
-    remainingMs: 0,
-    progress: 0,
-    valueNow: 0,
-    valueText: 'Pomodoro timer is idle',
-  };
-}
-
-function loadPomodoroState() {
-  return readFromStorage(getLocalStorage, POMODORO_TIMER_STORAGE_KEY, (storage) => {
-    const raw = storage.getItem(POMODORO_TIMER_STORAGE_KEY);
-
-    if (!raw) {
-      return null;
-    }
-
-    const state = normalizePomodoroState(JSON.parse(raw));
-
-    if (!state) {
-      storage.removeItem(POMODORO_TIMER_STORAGE_KEY);
-    }
-
-    return state;
-  });
-}
-
-function savePomodoroState(state) {
-  if (writeToStorage(getLocalStorage, POMODORO_TIMER_STORAGE_KEY, (storage) => {
-    storage.setItem(POMODORO_TIMER_STORAGE_KEY, JSON.stringify(state));
-  })) {
-    pomodoroTimerState = state;
-  }
-}
-
-function resetPomodoroState() {
-  pomodoroTimerState = null;
-  writeToStorage(getLocalStorage, POMODORO_TIMER_STORAGE_KEY, (storage) => {
-    storage.removeItem(POMODORO_TIMER_STORAGE_KEY);
-  });
-}
-
-function buildPomodoroSnapshot(state, now = Date.now()) {
-  if (!state) {
-    return createIdlePomodoroSnapshot();
-  }
-
-  if (state.status === 'completed') {
-    const completedAt = state.completedAt ?? state.endsAt;
-    const expiresAt = completedAt + POMODORO_COMPLETION_FLASH_MS;
-
-    if (now >= expiresAt) {
-      return createIdlePomodoroSnapshot();
-    }
-
-    return {
-      ...state,
-      completedAt,
-      remainingMs: 0,
-      progress: 1,
-      valueNow: 100,
-      valueText: `${state.label} timer complete`,
-    };
-  }
-
-  const remainingMs = Math.max(0, state.endsAt - now);
-
-  if (remainingMs <= 0) {
-    return {
-      ...state,
-      status: 'completed',
-      completedAt: state.endsAt,
-      remainingMs: 0,
-      progress: 1,
-      valueNow: 100,
-      valueText: `${state.label} timer complete`,
-    };
-  }
-
-  const progress = 1 - (remainingMs / ((state.endsAt - state.startedAt) || 1));
-
-  return {
-    ...state,
-    remainingMs,
-    progress: Math.max(0, Math.min(1, progress)),
-    valueNow: Math.round(Math.max(0, Math.min(100, progress * 100))),
-    valueText: `${state.label} timer, ${formatPomodoroTime(remainingMs)} remaining`,
-  };
-}
-
-function togglePomodoroTicker(isActive) {
-  if (isActive) {
-    if (pomodoroTimerIntervalId !== null) {
-      return;
-    }
-
-    pomodoroTimerIntervalId = window.setInterval(() => {
-      syncPomodoroTimer();
-    }, 250);
-    return;
-  }
-
-  if (pomodoroTimerIntervalId !== null) {
-    window.clearInterval(pomodoroTimerIntervalId);
-    pomodoroTimerIntervalId = null;
-  }
-}
-
-function schedulePomodoroCompletionSync(expiresAt) {
-  if (pomodoroTimerCompletionTimeoutId !== null) {
-    window.clearTimeout(pomodoroTimerCompletionTimeoutId);
-    pomodoroTimerCompletionTimeoutId = null;
-  }
-
-  const delay = Math.max(0, expiresAt - Date.now() + 25);
-
-  pomodoroTimerCompletionTimeoutId = window.setTimeout(() => {
-    pomodoroTimerCompletionTimeoutId = null;
-    syncPomodoroTimer();
-  }, delay);
-}
-
-function cancelPomodoroCompletionSync() {
-  if (pomodoroTimerCompletionTimeoutId === null) {
-    return;
-  }
-
-  window.clearTimeout(pomodoroTimerCompletionTimeoutId);
-  pomodoroTimerCompletionTimeoutId = null;
-}
-
-function renderPomodoroTimer(snapshot) {
-  if (pomodoroBar) {
-    const mode = snapshot.status === 'idle' ? '' : snapshot.mode ?? '';
-
-    if (mode) {
-      pomodoroBar.dataset.mode = mode;
-    } else {
-      delete pomodoroBar.dataset.mode;
-    }
-
-    pomodoroBar.classList.toggle('is-running', snapshot.status === 'running');
-    pomodoroBar.classList.toggle('is-complete', snapshot.status === 'completed');
-    pomodoroBar.style.setProperty('--pomodoro-progress', String(snapshot.progress ?? 0));
-    pomodoroBar.setAttribute('aria-valuenow', String(snapshot.valueNow ?? 0));
-    pomodoroBar.setAttribute('aria-valuetext', snapshot.valueText ?? 'Pomodoro timer is idle');
-  }
-
-  pomodoroPresetButtons.forEach((button) => {
-    const isActive = snapshot.status !== 'idle' && button.dataset.pomodoroMode === snapshot.mode;
-    button.classList.toggle('is-active', isActive);
-    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  });
-
-  if (pomodoroStatus) {
-    pomodoroStatus.textContent = snapshot.valueText ?? 'Pomodoro timer is idle';
-  }
-}
-
-function beginPomodoroTimer(mode) {
-  const config = getPomodoroModeConfig(mode);
-
-  if (!config) {
-    return;
-  }
-
-  const now = Date.now();
-  const durationMs = config.minutes * 60 * 1000;
-  const state = {
-    mode,
-    label: config.label,
-    minutes: config.minutes,
-    startedAt: now,
-    endsAt: now + durationMs,
-    status: 'running',
-    completedAt: null,
-  };
-
-  cancelPomodoroCompletionSync();
-  savePomodoroState(state);
-  syncPomodoroTimer();
-}
-
-function syncPomodoroTimer() {
-  const now = Date.now();
-  let state = loadPomodoroState();
-
-  if (!state) {
-    pomodoroTimerState = null;
-    cancelPomodoroCompletionSync();
-    togglePomodoroTicker(false);
-    renderPomodoroTimer(createIdlePomodoroSnapshot());
-    return;
-  }
-
-  if (state.status === 'running' && now >= state.endsAt) {
-    state = {
-      ...state,
-      status: 'completed',
-      completedAt: state.endsAt,
-    };
-    savePomodoroState(state);
-  }
-
-  const snapshot = buildPomodoroSnapshot(state, now);
-
-  if (snapshot.status === 'idle') {
-    resetPomodoroState();
-    cancelPomodoroCompletionSync();
-    togglePomodoroTicker(false);
-    renderPomodoroTimer(snapshot);
-    return;
-  }
-
-  pomodoroTimerState = state;
-  togglePomodoroTicker(true);
-  if (snapshot.status === 'completed') {
-    schedulePomodoroCompletionSync((state.completedAt ?? state.endsAt) + POMODORO_COMPLETION_FLASH_MS);
-  } else {
-    cancelPomodoroCompletionSync();
-  }
-
-  renderPomodoroTimer(snapshot);
-}
-
 function getCurrentSubjectPageInfo() {
   const match = window.location.pathname.match(/^\/notes\/subjects\/([^/]+)\/([^/]+)\/(?:practice\/)?$/);
 
@@ -1266,13 +951,11 @@ function setSearchTriggerState(isExpanded) {
   });
 }
 
-function setTimerTriggerState(isExpanded) {
-  timerTriggers.forEach((trigger) => {
-    trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-  });
-}
-
 function isVisibleElement(element) {
+  if (window.NotesRuntime?.isVisibleElement) {
+    return window.NotesRuntime.isVisibleElement(element);
+  }
+
   return element instanceof HTMLElement
     && !element.hidden
     && element.getClientRects().length > 0
@@ -1281,10 +964,6 @@ function isVisibleElement(element) {
 
 function getVisibleSearchTrigger() {
   return searchTriggers.find(isVisibleElement) ?? null;
-}
-
-function getVisibleTimerTrigger() {
-  return timerTriggers.find(isVisibleElement) ?? null;
 }
 
 function getPageNavItems() {
@@ -1412,23 +1091,6 @@ function handleSearchPanelKeydown(event) {
   }
 }
 
-function handleTimerPanelKeydown(event) {
-  if (!timerPanel || timerPanel.hidden || !(event.target instanceof HTMLElement)) {
-    return;
-  }
-
-  if (event.key === 'Escape') {
-    event.preventDefault();
-    closeTimer();
-    return;
-  }
-
-  if (event.key === 'Tab') {
-    event.preventDefault();
-    timerCard?.focus();
-  }
-}
-
 function handlePageNavKeydown(event) {
   if (searchPanel && !searchPanel.hidden) {
     return;
@@ -1467,11 +1129,6 @@ function handleGlobalKeyboardShortcuts(event) {
     } else {
       openSearch();
     }
-    return;
-  }
-
-  if (timerPanel && !timerPanel.hidden) {
-    handleTimerPanelKeydown(event);
     return;
   }
 
@@ -1642,10 +1299,6 @@ function openSearch(trigger = activeSearchTrigger) {
     return;
   }
 
-  if (timerPanel && !timerPanel.hidden) {
-    closeTimer({ restoreFocus: false });
-  }
-
   activeSearchTrigger = (trigger && isVisibleElement(trigger))
     ? trigger
     : getVisibleSearchTrigger()
@@ -1673,43 +1326,6 @@ function closeSearch({ restoreFocus = true } = {}) {
   const returnTrigger = isVisibleElement(activeSearchTrigger)
     ? activeSearchTrigger
     : getVisibleSearchTrigger();
-
-  returnTrigger?.focus();
-}
-
-function openTimer(trigger = activeTimerTrigger) {
-  if (!timerPanel) {
-    return;
-  }
-
-  if (searchPanel && !searchPanel.hidden) {
-    closeSearch({ restoreFocus: false });
-  }
-
-  activeTimerTrigger = (trigger && isVisibleElement(trigger))
-    ? trigger
-    : getVisibleTimerTrigger()
-    ?? activeTimerTrigger;
-  timerPanel.hidden = false;
-  setTimerTriggerState(true);
-  timerCard?.focus();
-}
-
-function closeTimer({ restoreFocus = true } = {}) {
-  if (!timerPanel) {
-    return;
-  }
-
-  timerPanel.hidden = true;
-  setTimerTriggerState(false);
-
-  if (!restoreFocus) {
-    return;
-  }
-
-  const returnTrigger = isVisibleElement(activeTimerTrigger)
-    ? activeTimerTrigger
-    : getVisibleTimerTrigger();
 
   returnTrigger?.focus();
 }
@@ -1996,16 +1612,6 @@ searchTriggers.forEach((trigger) => {
   });
 });
 
-timerTriggers.forEach((trigger) => {
-  trigger.addEventListener('click', () => {
-    if (timerPanel?.hidden) {
-      openTimer(trigger);
-    } else {
-      closeTimer();
-    }
-  });
-});
-
 practiceFilterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const nextValue = String(button.dataset.practiceFilter ?? 'all').trim().toLowerCase();
@@ -2096,18 +1702,6 @@ searchPanel?.addEventListener('click', (event) => {
   }
 });
 
-timerPanel?.addEventListener('click', (event) => {
-  if (event.target === timerPanel) {
-    closeTimer();
-  }
-});
-
-pomodoroPresetButtons.forEach((button) => {
-  button.addEventListener('click', () => {
-    beginPomodoroTimer(button.dataset.pomodoroMode ?? '');
-  });
-});
-
 window.addEventListener('keydown', (event) => {
   handleGlobalKeyboardShortcuts(event);
 });
@@ -2125,8 +1719,6 @@ if (practiceFilterFromUrl) {
 renderPracticeFilter(initialPracticeFilter);
 
 syncSubjectNavigation();
-syncPomodoroTimer();
-
 window.addEventListener('storage', (event) => {
   if (event.key === NOTES_THEME_STORAGE_KEY) {
     syncThemePreference();
@@ -2140,17 +1732,7 @@ window.addEventListener('storage', (event) => {
     renderPracticeFilter(loadPracticeFilter());
   }
 
-  if (event.key === POMODORO_TIMER_STORAGE_KEY) {
-    syncPomodoroTimer();
-  }
-
 });
 window.addEventListener('pageshow', syncSubjectNavigation);
 window.addEventListener('pageshow', syncThemePreference);
-window.addEventListener('pageshow', syncPomodoroTimer);
 window.addEventListener('pageshow', syncPracticeCompletionState);
-document.addEventListener('visibilitychange', () => {
-  if (!document.hidden) {
-    syncPomodoroTimer();
-  }
-});

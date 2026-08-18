@@ -58,7 +58,9 @@ To install the build dependency:
 
 ```bash
 npm install
+npm run build
 npm run build:notes
+npm run build:assets
 ```
 
 ## Contributing

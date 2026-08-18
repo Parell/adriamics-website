@@ -29,10 +29,10 @@ const githubRepoBranch = 'master';
 const notesThemeStorageKey = 'ues-notes:contrast-mode';
 const homeStructureId = 'home';
 const practiceLevelLabels = new Map([
-  [1, 'Direct Practice'],
-  [2, 'Integrated Practice'],
-  [3, 'Applied Problems'],
-  [4, 'Challenge / Synthesis'],
+  [1, 'Direct'],
+  [2, 'Integrated'],
+  [3, 'Applied'],
+  [4, 'Challenge'],
 ]);
 const practiceExamDefinitions = Object.freeze({
   'exam-i': { key: 'exam-i', label: 'Exam I', aliases: ['i', '1', 'exam i', 'exam 1', 'exam-i'] },
@@ -253,10 +253,10 @@ function renderSourceLinks(sourceUrl, lastModifiedDate = null) {
   const lastModifiedLabel = formatLastModifiedDate(lastModifiedDate);
 
   if (!lastModifiedLabel) {
-    return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Changelog</a>`;
+    return `<a class="notes-inline-link viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a>`;
   }
 
-  return `<a class="viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer">GitHub Changelog</a> - <time datetime="${escapeHtml(lastModifiedDate.toISOString())}">Last modified ${escapeHtml(lastModifiedLabel)}</time>`;
+  return `<a class="notes-inline-link viewer-source-jump" href="${escapeHtml(buildGithubBlameUrl(sourceUrl))}" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="${escapeHtml(lastModifiedDate.toISOString())}">Last modified ${escapeHtml(lastModifiedLabel)}</time>`;
 }
 
 function renderMetadataLine(className, sourceUrl = null, lastModifiedDate = null) {
@@ -278,7 +278,7 @@ function renderContributorList(contributors) {
     return `<li class="viewer-contributors__item"><span class="viewer-contributors__count">${escapeHtml(String(count))}</span> <button type="button" class="viewer-contributors__name" data-copy-text="${escapeHtml(copyText)}" data-copy-label="${escapeHtml(name)}" aria-label="Copy contributor email ${escapeHtml(copyText)}" title="Copy email">${escapeHtml(name)}</button></li>`;
   }).join('');
 
-  return `<div class="viewer-contributors-block"><p class="viewer-contributors__label">Contributors</p><ul class="viewer-contributors">${contributorItems}</ul></div>`;
+  return `<div class="viewer-contributors-block"><ul class="viewer-contributors">${contributorItems}</ul></div>`;
 }
 
 function getSourceMetadata(relativeSourcePath) {
@@ -581,7 +581,7 @@ function renderPracticeSkills(notePath, skills) {
   return skills.map((skill) => {
     const label = String(skill).trim();
     const href = resolvePracticeSkillHref(notePath, label);
-    return `<a class="practice-problem__skill" href="${escapeHtml(href)}">${escapeHtml(label)}</a>`;
+    return `<a class="notes-inline-link practice-problem__skill" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
   }).join(' &middot; ');
 }
 
@@ -1194,7 +1194,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
       const current = isActive ? ' aria-current="true"' : '';
       const href = structure.id === homeStructureId ? getHomeUrl() : getNoteUrl(pagePath);
 
-      return `<li><a${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
+      return `<li><a class="notes-inline-link"${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
     });
 
   const combinedLinks = structureLinks.join('');
@@ -1208,17 +1208,14 @@ function renderSubjectLinks(structures, activeStructureId = null) {
           </div>
           <ul class="subject-list">
           <li>
-          <a${homeActiveClass}${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          <a class="notes-inline-link"${homeActiveClass}${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
           </li>
           ${combinedLinks}
           <li>
           <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
           </li>
           <li>
-                <a class="notes-theme-toggle" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" aria-label="GitHub" title="GitHub" data-notes-nav-item>GitHub</a>
-          </li>
-          <li>
-                <a class="notes-theme-toggle" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" aria-label="Support" title="Support" data-notes-nav-item>Support</a>
+          <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
           </li>
           </ul>
         </aside>`;
@@ -1266,12 +1263,6 @@ function renderSearchPanel() {
       <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
       <div class="search-results" id="search-results" role="list"></div>
     </div>
-  </aside>`;
-}
-
-function renderTimerPanel() {
-  return `<aside class="timer-panel" id="timer-panel" role="dialog" aria-modal="true" aria-label="Timer" hidden>
-    <div class="timer-panel__card panel" tabindex="-1"></div>
   </aside>`;
 }
 
@@ -1357,35 +1348,6 @@ function renderFloatingActions(quickActionsHtml = '') {
   return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>`;
 }
 
-function renderPomodoroBar() {
-  return `<div class="notes-pomodoro-bar" data-pomodoro-bar role="progressbar" aria-label="Pomodoro timer progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="Pomodoro timer is idle">
-    <div class="notes-pomodoro-bar__fill" data-pomodoro-fill></div>
-  </div>`;
-}
-
-function renderPomodoroControls() {
-  const presets = [
-    { mode: 'focus', minutes: 25, label: 'Focus' },
-    { mode: 'short', minutes: 5, label: 'Short break' },
-    { mode: 'long', minutes: 15, label: 'Long break' },
-  ];
-
-  return `<div class="notes-header__timer" aria-label="Pomodoro timer">
-    <p class="notes-header__eyebrow">Pomodoro</p>
-    <div class="notes-pomodoro" role="group" aria-label="Pomodoro presets">
-      ${presets.map((preset) => {
-    const ariaLabel = `Start ${preset.minutes} minute ${preset.label.toLowerCase()} timer`;
-
-    return `<button class="notes-pomodoro__preset" type="button" data-pomodoro-trigger data-pomodoro-mode="${escapeHtml(preset.mode)}" data-pomodoro-minutes="${escapeHtml(String(preset.minutes))}" aria-label="${escapeHtml(ariaLabel)}" aria-pressed="false">
-          <span class="notes-pomodoro__minutes" aria-hidden="true">${escapeHtml(String(preset.minutes))}</span>
-          <span class="notes-pomodoro__label">${escapeHtml(preset.label)}</span>
-        </button>`;
-  }).join('')}
-    </div>
-    <span class="sr-only" data-pomodoro-status aria-live="polite">Pomodoro timer is idle</span>
-  </div>`;
-}
-
 function renderHeader(structures, activeStructureId = null, includeIntro = false) {
   const intro = includeIntro
     ? `
@@ -1399,7 +1361,6 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
   return `<header class="shell notes-header">
     <div class="notes-header__inner">
       ${renderSubjectLinks(structures, activeStructureId)}
-      ${renderPomodoroControls()}
     </div>
   </header>`;
 }
@@ -1422,6 +1383,9 @@ function renderNotesPageDocument({
   headHtml = '',
   extraHead = '',
 }) {
+  const webmejiHead = `<link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
+  <script defer src="/notes/webmeji/config.js"></script>
+  <script defer src="/notes/webmeji/webmeji.js"></script>`;
   const themeBootstrapScript = `<script>
     (() => {
       let storedTheme = null;
@@ -1453,12 +1417,12 @@ function renderNotesPageDocument({
   ${headHtml}
   ${themeBootstrapScript}
   <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
+  ${webmejiHead}
   ${extraHead}
   <script defer src="${escapeHtml(runtimeHref)}"></script>
   <script defer src="${escapeHtml(scriptHref)}"></script>
 </head>
 <body class="notes-page ${escapeHtml(bodyClass)}" id="top">
-  ${renderPomodoroBar()}
   <a class="skip-link" href="#content">Skip to content</a>
   ${floatingActionsHtml}
 
@@ -1469,7 +1433,6 @@ function renderNotesPageDocument({
   </main>
   ${renderNotesFooter()}
   ${renderSearchPanel()}
-  ${renderTimerPanel()}
 </body>
 </html>`;
 }
@@ -1618,7 +1581,7 @@ function buildNoteHtml({
           ${contributorsHtml}
       </div>
       <div class="viewer-head__actions">
-          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Report Issue</a>
+          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">
@@ -1989,6 +1952,8 @@ function buildLandingHtml(structures, assetVersions, dag) {
         <button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search for a topic</button>
         <a class="notes-action-chip" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Follow prerequisites</a>
         <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/arithmetic/practice/" data-notes-nav-item>Practice problems</a>
+        <a class="notes-action-chip" href="https://github.com/Parell/parell.github.io/tree/master/notes" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
+        <a class="notes-action-chip" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" data-notes-nav-item>Support</a>
       </div>
     </section>
     <section class="landing-philosophy" id="learning-path" aria-labelledby="landing-philosophy-title">
@@ -2295,9 +2260,9 @@ function renderPracticeSidebarHtml(structure, notePath) {
     </aside>`;
 }
 
-function renderPracticeFiltersHtml(totalProblems) {
+function renderPracticeFiltersHtml() {
   return `
-      <section class="practice-filters panel" data-practice-filters aria-label="Practice filters">
+      <section class="practice-filters" data-practice-filters aria-label="Practice filters">
         <div class="practice-filters__bar" role="toolbar" aria-label="Practice problem filters">
           <button type="button" class="practice-filters__button is-active" data-practice-filter-button data-practice-filter="all" aria-pressed="true">All</button>
           <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="exam-i" aria-pressed="false">Exam I</button>
@@ -2306,7 +2271,6 @@ function renderPracticeFiltersHtml(totalProblems) {
           <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="marked" aria-pressed="false">Marked</button>
           <button type="button" class="practice-filters__button" data-practice-filter-button data-practice-filter="missed" aria-pressed="false">Missed</button>
         </div>
-        <p class="practice-filters__summary" data-practice-filter-summary aria-live="polite">Showing all ${escapeHtml(String(totalProblems))} problems</p>
       </section>`;
 }
 
@@ -2314,7 +2278,6 @@ function renderPracticeProgressHtml(totalProblems) {
   return `
       <section class="practice-progress" data-practice-progress role="progressbar" aria-label="Practice completion" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" aria-valuetext="0 of ${escapeHtml(String(totalProblems))} problems completed">
         <div class="practice-progress__head">
-          <p class="section-label">Progress</p>
           <p class="practice-progress__summary" data-practice-progress-summary>0 of ${escapeHtml(String(totalProblems))} completed</p>
         </div>
         <div class="practice-progress__track" aria-hidden="true">
@@ -2324,7 +2287,7 @@ function renderPracticeProgressHtml(totalProblems) {
 }
 
 function renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath) {
-  return problemGroups.map((group) => {
+  return problemGroups.filter((group) => group.items.length > 0).map((group) => {
     const levelProblemHtml = group.items.map(({ problem }) => renderPracticeProblem(problem, practiceSourcePath, notePath)).join('');
 
     return `<section class="practice-level practice-level--level-${escapeHtml(String(group.level))} panel" data-practice-level="${escapeHtml(String(group.level))}" aria-labelledby="practice-level-${group.level}">
@@ -2380,11 +2343,12 @@ function renderPracticePageHtml({
         </div>
         <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
-          <a class="practice-back-link notes-action-chip" href="${escapeHtml(noteUrl)}" data-notes-nav-item>Back to note</a>
         </div>
       </div>
-      ${renderPracticeFiltersHtml(totalProblems)}
-      ${renderPracticeProgressHtml(totalProblems)}
+      <section class="practice-controls panel" aria-label="Practice filters and completion">
+        ${renderPracticeFiltersHtml()}
+        ${renderPracticeProgressHtml(totalProblems)}
+      </section>
       <div class="practice-problem-list">
         ${problemHtml}
       </div>

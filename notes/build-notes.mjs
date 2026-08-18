@@ -1941,40 +1941,63 @@ function buildConceptDagTreeHtml(dag, selectedSubjectId = '') {
 }
 
 function buildLandingHtml(structures, assetVersions, dag) {
-  // const conceptDagHtml = buildConceptDagLandingHtml(dag);
-
   return renderNotesPageDocument({
     title: 'Home | Adriamics',
-    description: 'Welcome to the Universal Education System.',
+    description: 'Free, structured lessons for learning mathematics, physics, and engineering one concept at a time.',
     canonicalUrl: `${siteOrigin}/notes/`,
     bodyClass: 'notes-landing-page',
     mainClass: 'shell',
     mainAriaLabel: 'Home',
-    headHtml: '<link rel="preload" as="image" href="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.webp" fetchpriority="high" />',
-    extraHead: `<style>
-      .notes-landing-page .landing-hero__image {
-        transform: scale(1.24);
-      }
-
-      .notes-landing-page .landing-hero__overlay--spaced {
-        word-spacing: 0.14em;
-      }
-
-      .notes-landing-page .landing-hero__tagline--lead {
-        margin-top: 1.75rem;
-      }
-    </style>`,
-    mainHtml: `<section class="landing-hero panel" aria-label="Homepage hero">
-      <div class="landing-hero__media">
-        <img class="landing-hero__image" src="/assets/Children_competition_on_side_wheels_in_the_eighties_in_Czechoslovakia.webp" alt="" aria-hidden="true" loading="eager" fetchpriority="high" decoding="async" />
-        <div class="landing-hero__overlay landing-hero__overlay--spaced">
-          <h1>One should use common words to say uncommon things.</h1>
-          <p class="landing-hero__tagline landing-hero__tagline--lead"><strong>This project is <em>not</em> a textbook.</strong></p>
-          <p class="landing-hero__tagline">It is a <strong>structured study system</strong> designed to help you learn concepts in order, review <em>individual topics</em>, practice with <strong>focused problem sets</strong>, and follow guided prerequisite maps.</p>
-          <p class="landing-hero__tagline"><strong>No filler.</strong> <em>No empty history.</em> Just <strong>direct learning</strong>, rigorous reasoning, and <em>proof of understanding</em>.</p>
-          <p class="landing-hero__tagline">If education is truly <strong>universal</strong>, then anyone can become an expert. What matters is not where you start, but whether you can prove what you understand with <em>rigor</em>.</p>
-          <p class="landing-hero__credit landing-hero__credit--fixed"><a class="text-underline-muted" href="https://commons.wikimedia.org/w/index.php?curid=156464890" target="_blank" rel="noreferrer">Image by Josef Hejna - My father&#39;s reversal film collection, CC BY 4.0, </a></p>
+    mainHtml: `<section class="landing-hero panel" aria-labelledby="landing-title">
+      <div class="landing-hero__intro">
+        <p class="section-label">Open Sourced Education for all</p>
+        <h1 id="landing-title">Learn what you need, one concept at a time.</h1>
+        <p class="landing-hero__lead">Free, structured lessons that help you build understanding in order, revisit individual topics, and practice until the ideas hold together.</p>
+      </div>
+      <section class="landing-router" aria-labelledby="landing-router-title">
+        <p class="section-label">Start here</p>
+        <h2 id="landing-router-title">What do you want to learn?</h2>
+        <div class="landing-subject-grid">
+          <a class="landing-subject-card" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>
+            <span class="landing-subject-card__number" aria-hidden="true">01</span>
+            <span class="landing-subject-card__title">Mathematics</span>
+            <span class="landing-subject-card__description">Begin with arithmetic and build toward higher mathematics.</span>
+            <span class="landing-subject-card__link" aria-hidden="true">Start with Arithmetic <span>→</span></span>
+          </a>
+          <a class="landing-subject-card" href="/notes/subjects/physics/physics-i/" data-notes-nav-item>
+            <span class="landing-subject-card__number" aria-hidden="true">02</span>
+            <span class="landing-subject-card__title">Physics</span>
+            <span class="landing-subject-card__description">Use models, motion, and forces to explain the physical world.</span>
+            <span class="landing-subject-card__link" aria-hidden="true">Start with Physics I <span>→</span></span>
+          </a>
+          <a class="landing-subject-card" href="/notes/subjects/engineering/statics/" data-notes-nav-item>
+            <span class="landing-subject-card__number" aria-hidden="true">03</span>
+            <span class="landing-subject-card__title">Engineering</span>
+            <span class="landing-subject-card__description">Turn first principles into useful systems and sound designs.</span>
+            <span class="landing-subject-card__link" aria-hidden="true">Start with Statics <span>→</span></span>
+          </a>
         </div>
+      </section>
+    </section>
+    <section class="landing-support panel" aria-labelledby="landing-support-title">
+      <div>
+        <p class="section-label">Choose your next step</p>
+        <h2 id="landing-support-title">Not sure where to start?</h2>
+      </div>
+      <div class="landing-support__actions">
+        <a class="notes-action-chip" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Begin a subject</a>
+        <button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search for a topic</button>
+        <a class="notes-action-chip" href="/notes/subjects/math/arithmetic/" data-notes-nav-item>Follow prerequisites</a>
+        <a class="notes-action-chip notes-action-chip--practice" href="/notes/subjects/math/arithmetic/practice/" data-notes-nav-item>Practice problems</a>
+      </div>
+    </section>
+    <section class="landing-philosophy" id="learning-path" aria-labelledby="landing-philosophy-title">
+      <p class="section-label">The idea behind the notes</p>
+      <h2 id="landing-philosophy-title">Learning should have a path.</h2>
+      <div class="landing-philosophy__copy">
+        <p>This is <strong>not</strong> a textbook. It is a <strong>structured study system</strong> designed to help you learn concepts in order, review individual topics, practice with focused problem sets, and follow guided prerequisite maps.</p>
+        <p><strong>No filler.</strong> <em>No empty history.</em> Just direct learning, rigorous reasoning, and proof of understanding.</p>
+        <p>If education is truly <strong>universal</strong>, anyone can become an expert. What matters is not where you start, but whether you can prove what you understand with <em>rigor</em>.</p>
       </div>
     </section>`,
     structures,

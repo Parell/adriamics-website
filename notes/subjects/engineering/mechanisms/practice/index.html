@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Mechanisms" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="mechanisms-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Use
+          <article class="practice-problem panel" id="mechanisms-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Power transmission, Torque" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 T=\frac{9550P}{N}=\frac{9550(4)}{1200}=31.8\ \mathrm{N\,m}.
@@ -144,12 +157,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Convert Power and Speed to Torque</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#power-transmission" data-notes-nav-item>Power transmission</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#torque" data-notes-nav-item>Torque</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#power-transmission" data-notes-nav-item>Power transmission</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#torque" data-notes-nav-item>Torque</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A shaft transmits (4\ \mathrm{kW}) at (1200\ \mathrm{rpm}). Find its torque.</p>
@@ -166,9 +181,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -180,7 +197,7 @@ T=\frac{9550P}{N}=\frac{9550(4)}{1200}=31.8\ \mathrm{N\,m}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="mechanisms-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Gears, Speed ratio" data-problem-difficulty="Direct" data-problem-answer="$$
 i=\frac{z_2}{z_1}=\frac{60}{20}=3,
 \qquad N_2=\frac{1500}{3}=500\ \mathrm{rpm}.
 $$
@@ -189,12 +206,14 @@ The output turns one-third as fast, with ideal torque multiplied by three.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find a Gear Ratio</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#gears" data-notes-nav-item>Gears</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#speed-ratio" data-notes-nav-item>Speed ratio</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#gears" data-notes-nav-item>Gears</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#speed-ratio" data-notes-nav-item>Speed ratio</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A 20-tooth pinion drives a 60-tooth gear. What are the speed ratio and output speed if the input is (1500\ \mathrm{rpm})?</p>
@@ -211,9 +230,11 @@ The output turns one-third as fast, with ideal torque multiplied by three.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -226,18 +247,20 @@ $$</div>
 <p>The output turns one-third as fast, with ideal torque multiplied by three.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="mechanisms-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Gears, Interface loads" data-problem-difficulty="Direct" data-problem-answer="$$
 F_t=\frac{2T}{d}=\frac{2(45)}{0.090}=1000\ \mathrm N.
 $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Compute Gear Tooth Force</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#gears" data-notes-nav-item>Gears</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#interface-loads" data-notes-nav-item>Interface loads</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#gears" data-notes-nav-item>Gears</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#interface-loads" data-notes-nav-item>Interface loads</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A gear has (T=45\ \mathrm{N\,m}) and pitch diameter (d=90\ \mathrm{mm}). Find its tangential tooth force.</p>
@@ -254,9 +277,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -267,7 +292,7 @@ F_t=\frac{2T}{d}=\frac{2(45)}{0.090}=1000\ \mathrm N.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="For a ball bearing, (p=3):
+    </article><article class="practice-problem panel" id="mechanisms-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Bearings, Rating life" data-problem-difficulty="Direct" data-problem-answer="For a ball bearing, (p=3):
 
 $$
 L_{10}=\left(\frac{C}{P}\right)^3=\left(\frac{12}{3}\right)^3=64
@@ -277,12 +302,14 @@ million revolutions.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Estimate Bearing Life</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#bearings" data-notes-nav-item>Bearings</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#rating-life" data-notes-nav-item>Rating life</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#bearings" data-notes-nav-item>Bearings</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#rating-life" data-notes-nav-item>Rating life</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A ball bearing has (C=12\ \mathrm{kN}) and equivalent load (P=3\ \mathrm{kN}). Estimate (L_{10}) in million revolutions.</p>
@@ -299,9 +326,11 @@ million revolutions.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -314,19 +343,21 @@ $$</div>
 <p>million revolutions.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="mechanisms-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Springs, Stiffness" data-problem-difficulty="Direct" data-problem-answer="$$
 k_{eq}=k_1+k_2=1000\ \mathrm{N/m},
 \qquad F=k_{eq}x=1000(0.05)=50\ \mathrm N.
 $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Combine Springs in Parallel</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#springs" data-notes-nav-item>Springs</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#stiffness" data-notes-nav-item>Stiffness</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#springs" data-notes-nav-item>Springs</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#stiffness" data-notes-nav-item>Stiffness</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two linear springs with stiffnesses (k_1=400\ \mathrm{N/m}) and (k_2=600\ \mathrm{N/m}) are installed in parallel. Find the equivalent stiffness and force at (x=0.05\ \mathrm m).</p>
@@ -343,9 +374,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -357,7 +390,7 @@ k_{eq}=k_1+k_2=1000\ \mathrm{N/m},
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="mechanisms-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Fatigue, Stress components" data-problem-difficulty="Direct" data-problem-answer="$$
 \sigma_a=\frac{120-20}{2}=50\ \mathrm{MPa},
 \qquad
 \sigma_m=\frac{120+20}{2}=70\ \mathrm{MPa}.
@@ -365,12 +398,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Separate Mean and Alternating Stress</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#fatigue" data-notes-nav-item>Fatigue</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#stress-components" data-notes-nav-item>Stress components</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#fatigue" data-notes-nav-item>Fatigue</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#stress-components" data-notes-nav-item>Stress components</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A component experiences (sigma_{max}=120\ \mathrm{MPa}) and (sigma_{min}=20\ \mathrm{MPa}). Find (sigma_a) and (sigma_m).</p>
@@ -387,9 +422,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -402,7 +439,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="mechanisms-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Mobility, Kutzbach equation" data-problem-difficulty="Direct" data-problem-answer="$$
 M=3(n-1)-2j_1=3(4-1)-2(4)=1.
 $$
 
@@ -410,12 +447,14 @@ It has one independent input, as expected for a conventional four-bar linkage.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Count Planar Mechanism Mobility</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#mobility" data-notes-nav-item>Mobility</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#kutzbach-equation" data-notes-nav-item>Kutzbach equation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#mobility" data-notes-nav-item>Mobility</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#kutzbach-equation" data-notes-nav-item>Kutzbach equation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A planar mechanism has (n=4) links and (j_1=4) one-degree-of-freedom joints, with no higher pairs. Find its mobility.</p>
@@ -432,9 +471,11 @@ It has one independent input, as expected for a conventional four-bar linkage.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -446,7 +487,7 @@ $$</div>
 <p>It has one independent input, as expected for a conventional four-bar linkage.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanisms-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="For a single-start screw, (l=p=4\ \mathrm{mm}). Thus
+    </article><article class="practice-problem panel" id="mechanisms-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Power screws, Lead" data-problem-difficulty="Direct" data-problem-answer="For a single-start screw, (l=p=4\ \mathrm{mm}). Thus
 
 $$
 \lambda=\tan^{-1}\left(\frac{4}{\pi(20)}\right)=3.64^\circ.
@@ -454,12 +495,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compute Screw Lead Angle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#power-screws" data-notes-nav-item>Power screws</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#lead" data-notes-nav-item>Lead</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#power-screws" data-notes-nav-item>Power screws</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanisms/#lead" data-notes-nav-item>Lead</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A single-start screw has pitch (p=4\ \mathrm{mm}) and mean diameter (d_m=20\ \mathrm{mm}). Find its lead angle.</p>
@@ -476,9 +519,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

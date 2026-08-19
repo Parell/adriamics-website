@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Organic Chemistry" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Quick reactivity summary</h2><div class="markdown-body"><table><thead><tr><th>Topic</th><th>Quick rule</th></tr></thead><tbody><tr><td>SN2</td><td>Strong nucleophile, low steric hindrance, inversion</td></tr><tr><td>SN1</td><td>Carbocation, rearrangements possible</td></tr><tr><td>E2</td><td>Strong base, anti-periplanar, heat helps</td></tr><tr><td>E1</td><td>Carbocation elimination, often competes with SN1</td></tr><tr><td>Carbonyl addition</td><td>Aldehydes and ketones usually add nucleophiles</td></tr><tr><td>Acyl substitution</td><td>Carboxylic acid derivatives exchange leaving groups</td></tr><tr><td>Aromaticity</td><td>Cyclic, planar, fully conjugated, $4n+2$ pi electrons</td></tr></tbody></table></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,18 +149,20 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="organic-chemistry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The carbonyl carbon has three electron groups, so it is $sp^2$ hybridized.
+          <article class="practice-problem panel" id="organic-chemistry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Hybridization, Carbonyls" data-problem-difficulty="Direct" data-problem-answer="The carbonyl carbon has three electron groups, so it is $sp^2$ hybridized.
 
 Its geometry is trigonal planar, with bond angles of about 120 degrees.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify an sp2 Carbon</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#hybridization" data-notes-nav-item>Hybridization</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbonyls" data-notes-nav-item>Carbonyls</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#hybridization" data-notes-nav-item>Hybridization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbonyls" data-notes-nav-item>Carbonyls</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the hybridization and approximate geometry of the carbonyl carbon in acetone, $(CH_3)_2CO$?</p>
@@ -164,9 +179,11 @@ Its geometry is trigonal planar, with bond angles of about 120 degrees.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -176,7 +193,7 @@ Its geometry is trigonal planar, with bond angles of about 120 degrees.">
 <p>Its geometry is trigonal planar, with bond angles of about 120 degrees.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Count the bonds carefully:
+    </article><article class="practice-problem panel" id="organic-chemistry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Sigma and Pi Bonds" data-problem-difficulty="Direct" data-problem-answer="Count the bonds carefully:
 
 - $8$ C-H sigma bonds
 - $3$ C-C sigma bonds
@@ -186,12 +203,14 @@ So the molecule has $11$ sigma bonds and $1$ pi bond.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Count Sigma and Pi Bonds</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#sigma-and-pi-bonds" data-notes-nav-item>Sigma and Pi Bonds</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#sigma-and-pi-bonds" data-notes-nav-item>Sigma and Pi Bonds</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many sigma bonds and pi bonds are in $CH_3-CH=CH-CH_3$?</p>
@@ -208,9 +227,11 @@ So the molecule has $11$ sigma bonds and $1$ pi bond.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -221,18 +242,20 @@ So the molecule has $11$ sigma bonds and $1$ pi bond.">
 <p>So the molecule has $11$ sigma bonds and $1$ pi bond.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="The aldehyde is the highest-priority functional group, so it determines the suffix.
+    </article><article class="practice-problem panel" id="organic-chemistry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Functional Groups, Naming" data-problem-difficulty="Direct" data-problem-answer="The aldehyde is the highest-priority functional group, so it determines the suffix.
 
 The suffix is $-al$, and the hydroxyl group is named as a hydroxy substituent.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Choose the Principal Functional Group</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#functional-groups" data-notes-nav-item>Functional Groups</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#naming" data-notes-nav-item>Naming</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#functional-groups" data-notes-nav-item>Functional Groups</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#naming" data-notes-nav-item>Naming</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In $HOCH_2CH_2CHO$, which functional group determines the suffix, and how should the other group be named?</p>
@@ -249,9 +272,11 @@ The suffix is $-al$, and the hydroxyl group is named as a hydroxy substituent.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -261,18 +286,20 @@ The suffix is $-al$, and the hydroxyl group is named as a hydroxy substituent.">
 <p>The suffix is $-al$, and the hydroxyl group is named as a hydroxy substituent.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="They are constitutional isomers because the atoms are connected differently.
+    </article><article class="practice-problem panel" id="organic-chemistry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Constitutional Isomers" data-problem-difficulty="Direct" data-problem-answer="They are constitutional isomers because the atoms are connected differently.
 
 The molecular formula is the same, but the connectivity is not.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Distinguish Constitutional Isomers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#constitutional-isomers" data-notes-nav-item>Constitutional Isomers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#constitutional-isomers" data-notes-nav-item>Constitutional Isomers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>1-propanol and 2-propanol have the same molecular formula, $C_3H_8O$.</p>
@@ -290,9 +317,11 @@ The molecular formula is the same, but the connectivity is not.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -302,18 +331,20 @@ The molecular formula is the same, but the connectivity is not.">
 <p>The molecular formula is the same, but the connectivity is not.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="With the lowest-priority group pointing away, a clockwise $1 \to 2 \to 3$ path is $R$.
+    </article><article class="practice-problem panel" id="organic-chemistry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="R/S Assignment" data-problem-difficulty="Direct" data-problem-answer="With the lowest-priority group pointing away, a clockwise $1 \to 2 \to 3$ path is $R$.
 
 So the configuration is $R$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Assign an R Configuration</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#r-s-assignment" data-notes-nav-item>R/S Assignment</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#r-s-assignment" data-notes-nav-item>R/S Assignment</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A stereocenter has priorities $1 = OH$, $2 = CH_2CH_3$, $3 = CH_3$, and $4 = H$.</p>
@@ -331,9 +362,11 @@ So the configuration is $R$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -343,18 +376,20 @@ So the configuration is $R$.">
 <p>So the configuration is $R$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="If the highest-priority groups are on opposite sides, the alkene is $E$.
+    </article><article class="practice-problem panel" id="organic-chemistry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="E/Z Isomers" data-problem-difficulty="Direct" data-problem-answer="If the highest-priority groups are on opposite sides, the alkene is $E$.
 
 If they were on the same side, it would be $Z$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Identify E or Z</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#e-z-isomers" data-notes-nav-item>E/Z Isomers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#e-z-isomers" data-notes-nav-item>E/Z Isomers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>At an alkene, the highest-priority groups on each double-bond carbon are on opposite sides.</p>
@@ -372,9 +407,11 @@ If they were on the same side, it would be $Z$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -384,18 +421,20 @@ If they were on the same side, it would be $Z$.">
 <p>If they were on the same side, it would be $Z$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Acetic acid is the stronger acid.
+    </article><article class="practice-problem panel" id="organic-chemistry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Acidity and Basicity, Resonance" data-problem-difficulty="Direct" data-problem-answer="Acetic acid is the stronger acid.
 
 Its conjugate base, the carboxylate ion, is resonance-stabilized, so it is much more stable than the ethoxide ion.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Compare Acid Strength in a Simple Pair</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#acidity-and-basicity" data-notes-nav-item>Acidity and Basicity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#resonance" data-notes-nav-item>Resonance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#acidity-and-basicity" data-notes-nav-item>Acidity and Basicity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#resonance" data-notes-nav-item>Resonance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Between acetic acid and ethanol, which is the stronger acid? Briefly explain why.</p>
@@ -412,9 +451,11 @@ Its conjugate base, the carboxylate ion, is resonance-stabilized, so it is much 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -424,18 +465,20 @@ Its conjugate base, the carboxylate ion, is resonance-stabilized, so it is much 
 <p>Its conjugate base, the carboxylate ion, is resonance-stabilized, so it is much more stable than the ethoxide ion.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="The nucleophile is hydroxide, $OH^-$, because it donates an electron pair.
+    </article><article class="practice-problem panel" id="organic-chemistry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Nucleophiles and Electrophiles" data-problem-difficulty="Direct" data-problem-answer="The nucleophile is hydroxide, $OH^-$, because it donates an electron pair.
 
 The electrophile is the methyl carbon attached to bromine, because that carbon is attacked as bromide leaves.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Name the Nucleophile and Electrophile</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#nucleophiles-and-electrophiles" data-notes-nav-item>Nucleophiles and Electrophiles</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#nucleophiles-and-electrophiles" data-notes-nav-item>Nucleophiles and Electrophiles</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In the reaction of hydroxide ion with methyl bromide, identify the nucleophile and the electrophile.</p>
@@ -452,9 +495,11 @@ The electrophile is the methyl carbon attached to bromine, because that carbon i
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -464,18 +509,20 @@ The electrophile is the methyl carbon attached to bromine, because that carbon i
 <p>The electrophile is the methyl carbon attached to bromine, because that carbon is attacked as bromide leaves.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="SN1 is most likely.
+    </article><article class="practice-problem panel" id="organic-chemistry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="SN1 and SN2, Reaction Mechanisms" data-problem-difficulty="Direct" data-problem-answer="SN1 is most likely.
 
 The tertiary substrate can form a relatively stable carbocation, and methanol is a polar protic solvent that supports ionization.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Predict SN1 or SN2</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#sn1-and-sn2" data-notes-nav-item>SN1 and SN2</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#reaction-mechanisms" data-notes-nav-item>Reaction Mechanisms</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#sn1-and-sn2" data-notes-nav-item>SN1 and SN2</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#reaction-mechanisms" data-notes-nav-item>Reaction Mechanisms</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A tertiary alkyl bromide is dissolved in methanol with no strong base.</p>
@@ -493,9 +540,11 @@ The tertiary substrate can form a relatively stable carbocation, and methanol is
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -505,7 +554,7 @@ The tertiary substrate can form a relatively stable carbocation, and methanol is
 <p>The tertiary substrate can form a relatively stable carbocation, and methanol is a polar protic solvent that supports ionization.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Use the DBE formula:
+    </article><article class="practice-problem panel" id="organic-chemistry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Degree of Unsaturation" data-problem-difficulty="Direct" data-problem-answer="Use the DBE formula:
 
 $$
 \text{DBE} = \frac{2C + 2 - H}{2}
@@ -521,12 +570,14 @@ So the degree of unsaturation is $2$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Compute Degrees of Unsaturation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#degree-of-unsaturation" data-notes-nav-item>Degree of Unsaturation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#degree-of-unsaturation" data-notes-nav-item>Degree of Unsaturation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Compute the degree of unsaturation for $C_6H_{10}O$.</p>
@@ -543,9 +594,11 @@ So the degree of unsaturation is $2$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -576,7 +629,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="organic-chemistry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="The ketone has higher naming priority than the alcohol, so it controls the suffix.
+          <article class="practice-problem panel" id="organic-chemistry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Naming, Functional Groups" data-problem-difficulty="Integrated" data-problem-answer="The ketone has higher naming priority than the alcohol, so it controls the suffix.
 
 The suffix is $-one$, and numbering should start from the end that gives the carbonyl carbon the lowest possible locant.
 
@@ -584,12 +637,14 @@ The alcohol is then named as a hydroxy substituent.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Number a Chain with Competing Functional Groups</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#naming" data-notes-nav-item>Naming</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#functional-groups" data-notes-nav-item>Functional Groups</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#naming" data-notes-nav-item>Naming</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#functional-groups" data-notes-nav-item>Functional Groups</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A molecule has both a ketone and an alcohol, such as $CH_3COCH_2CH_2OH$.</p>
@@ -607,9 +662,11 @@ The alcohol is then named as a hydroxy substituent.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -620,18 +677,20 @@ The alcohol is then named as a hydroxy substituent.">
 <p>The alcohol is then named as a hydroxy substituent.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="The nitrogen lone pair in an amide is delocalized into the carbonyl by resonance.
+    </article><article class="practice-problem panel" id="organic-chemistry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Resonance, Basicity" data-problem-difficulty="Integrated" data-problem-answer="The nitrogen lone pair in an amide is delocalized into the carbonyl by resonance.
 
 Because that lone pair is less available to accept a proton, amides are much less basic than amines.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Explain Amide Basicity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#resonance" data-notes-nav-item>Resonance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#basicity" data-notes-nav-item>Basicity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#resonance" data-notes-nav-item>Resonance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#basicity" data-notes-nav-item>Basicity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Why is an amide much less basic than an amine?</p>
@@ -648,9 +707,11 @@ Because that lone pair is less available to accept a proton, amides are much les
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -660,7 +721,7 @@ Because that lone pair is less available to accept a proton, amides are much les
 <p>Because that lone pair is less available to accept a proton, amides are much less basic than amines.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="The order is:
+    </article><article class="practice-problem panel" id="organic-chemistry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Acidity and Basicity, Hybridization" data-problem-difficulty="Integrated" data-problem-answer="The order is:
 
 $$
 \text{terminal alkyne} &gt; \text{alkene} &gt; \text{alkane}
@@ -670,12 +731,14 @@ An sp carbon has more s-character, so its conjugate base is more stable.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Order Hydrocarbon Acidity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#acidity-and-basicity" data-notes-nav-item>Acidity and Basicity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#hybridization" data-notes-nav-item>Hybridization</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#acidity-and-basicity" data-notes-nav-item>Acidity and Basicity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#hybridization" data-notes-nav-item>Hybridization</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Rank these from most acidic to least acidic:</p>
@@ -693,9 +756,11 @@ An sp carbon has more s-character, so its conjugate base is more stable.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -708,18 +773,20 @@ $$</div>
 <p>An sp carbon has more s-character, so its conjugate base is more stable.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Hydroboration-oxidation gives anti-Markovnikov addition.
+    </article><article class="practice-problem panel" id="organic-chemistry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Alkene Addition, Regiochemistry" data-problem-difficulty="Integrated" data-problem-answer="Hydroboration-oxidation gives anti-Markovnikov addition.
 
 So the OH group ends up on the less substituted carbon, and the product is 1-propanol.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Predict Hydroboration-Oxidation Product</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#alkene-addition" data-notes-nav-item>Alkene Addition</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#regiochemistry" data-notes-nav-item>Regiochemistry</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#alkene-addition" data-notes-nav-item>Alkene Addition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#regiochemistry" data-notes-nav-item>Regiochemistry</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Propene undergoes hydroboration-oxidation.</p>
@@ -737,9 +804,11 @@ So the OH group ends up on the less substituted carbon, and the product is 1-pro
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -749,18 +818,20 @@ So the OH group ends up on the less substituted carbon, and the product is 1-pro
 <p>So the OH group ends up on the less substituted carbon, and the product is 1-propanol.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="E2 is favored because the substrate is secondary, the base is strong, and heat promotes elimination.
+    </article><article class="practice-problem panel" id="organic-chemistry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Elimination, Reaction Mechanisms" data-problem-difficulty="Integrated" data-problem-answer="E2 is favored because the substrate is secondary, the base is strong, and heat promotes elimination.
 
 For E2, the leaving group and the beta hydrogen must be anti-periplanar.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Identify the E2 Requirement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#elimination" data-notes-nav-item>Elimination</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#reaction-mechanisms" data-notes-nav-item>Reaction Mechanisms</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#elimination" data-notes-nav-item>Elimination</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#reaction-mechanisms" data-notes-nav-item>Reaction Mechanisms</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A secondary alkyl bromide is treated with a strong base and heat.</p>
@@ -778,9 +849,11 @@ For E2, the leaving group and the beta hydrogen must be anti-periplanar.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -790,18 +863,20 @@ For E2, the leaving group and the beta hydrogen must be anti-periplanar.">
 <p>For E2, the leaving group and the beta hydrogen must be anti-periplanar.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="The equatorial methyl conformation is more stable.
+    </article><article class="practice-problem panel" id="organic-chemistry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Conformations" data-problem-difficulty="Integrated" data-problem-answer="The equatorial methyl conformation is more stable.
 
 An axial methyl group experiences 1,3-diaxial strain, so it is less favorable.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Compare Cyclohexane Conformations</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#conformations" data-notes-nav-item>Conformations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#conformations" data-notes-nav-item>Conformations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In methylcyclohexane, which chair conformation is more stable, with the methyl group axial or equatorial?</p>
@@ -818,9 +893,11 @@ An axial methyl group experiences 1,3-diaxial strain, so it is less favorable.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -830,18 +907,20 @@ An axial methyl group experiences 1,3-diaxial strain, so it is less favorable.">
 <p>An axial methyl group experiences 1,3-diaxial strain, so it is less favorable.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="This pattern suggests a carboxylic acid.
+    </article><article class="practice-problem panel" id="organic-chemistry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="IR Spectroscopy, Functional Groups" data-problem-difficulty="Integrated" data-problem-answer="This pattern suggests a carboxylic acid.
 
 Carboxylic acids show both a carbonyl stretch and a very broad O-H stretch.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Read an IR Spectrum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#ir-spectroscopy" data-notes-nav-item>IR Spectroscopy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#functional-groups" data-notes-nav-item>Functional Groups</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#ir-spectroscopy" data-notes-nav-item>IR Spectroscopy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#functional-groups" data-notes-nav-item>Functional Groups</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An IR spectrum shows a broad O-H stretch and a strong C=O band.</p>
@@ -859,9 +938,11 @@ Carboxylic acids show both a carbonyl stretch and a very broad O-H stretch.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -871,18 +952,20 @@ Carboxylic acids show both a carbonyl stretch and a very broad O-H stretch.">
 <p>Carboxylic acids show both a carbonyl stretch and a very broad O-H stretch.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Chlorine is likely present.
+    </article><article class="practice-problem panel" id="organic-chemistry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Mass Spectrometry, Isotopes" data-problem-difficulty="Integrated" data-problem-answer="Chlorine is likely present.
 
 A 3:1 M to M+2 pattern is characteristic of chlorine, while a roughly 1:1 pattern suggests bromine.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Interpret an M+2 Pattern</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#mass-spectrometry" data-notes-nav-item>Mass Spectrometry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#isotopes" data-notes-nav-item>Isotopes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#mass-spectrometry" data-notes-nav-item>Mass Spectrometry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#isotopes" data-notes-nav-item>Isotopes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A mass spectrum has M and M+2 peaks in about a 3:1 ratio.</p>
@@ -900,9 +983,11 @@ A 3:1 M to M+2 pattern is characteristic of chlorine, while a roughly 1:1 patter
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -926,18 +1011,20 @@ A 3:1 M to M+2 pattern is characteristic of chlorine, while a roughly 1:1 patter
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="organic-chemistry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="The methyl group adds to the carbonyl carbon, and workup protonates the alkoxide.
+          <article class="practice-problem panel" id="organic-chemistry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Carbonyl Addition, Grignard Reactions" data-problem-difficulty="Applied" data-problem-answer="The methyl group adds to the carbonyl carbon, and workup protonates the alkoxide.
 
 The product is tert-butanol, also called 2-methyl-2-propanol.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Predict a Grignard Addition Product</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbonyl-addition" data-notes-nav-item>Carbonyl Addition</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#grignard-reactions" data-notes-nav-item>Grignard Reactions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbonyl-addition" data-notes-nav-item>Carbonyl Addition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#grignard-reactions" data-notes-nav-item>Grignard Reactions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Acetone reacts with $CH_3MgBr$, then water.</p>
@@ -955,9 +1042,11 @@ The product is tert-butanol, also called 2-methyl-2-propanol.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -967,18 +1056,20 @@ The product is tert-butanol, also called 2-methyl-2-propanol.">
 <p>The product is tert-butanol, also called 2-methyl-2-propanol.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Acyl chlorides undergo nucleophilic acyl substitution, and methanol replaces chloride.
+    </article><article class="practice-problem panel" id="organic-chemistry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Acyl Substitution, Carboxylic Acid Derivatives" data-problem-difficulty="Applied" data-problem-answer="Acyl chlorides undergo nucleophilic acyl substitution, and methanol replaces chloride.
 
 The product is methyl acetate.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Form an Ester by Acyl Substitution</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#acyl-substitution" data-notes-nav-item>Acyl Substitution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carboxylic-acid-derivatives" data-notes-nav-item>Carboxylic Acid Derivatives</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#acyl-substitution" data-notes-nav-item>Acyl Substitution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carboxylic-acid-derivatives" data-notes-nav-item>Carboxylic Acid Derivatives</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What ester forms when acetyl chloride reacts with methanol?</p>
@@ -995,9 +1086,11 @@ The product is methyl acetate.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1007,18 +1100,20 @@ The product is methyl acetate.">
 <p>The product is methyl acetate.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="An enolate from one ethanal molecule adds to another ethanal molecule.
+    </article><article class="practice-problem panel" id="organic-chemistry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Aldol Reactions, Enolates" data-problem-difficulty="Applied" data-problem-answer="An enolate from one ethanal molecule adds to another ethanal molecule.
 
 The addition product is 3-hydroxybutanal, a beta-hydroxy aldehyde.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Recognize an Aldol Product</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#aldol-reactions" data-notes-nav-item>Aldol Reactions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#enolates" data-notes-nav-item>Enolates</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#aldol-reactions" data-notes-nav-item>Aldol Reactions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#enolates" data-notes-nav-item>Enolates</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Ethanal undergoes base-catalyzed self-aldol addition before dehydration.</p>
@@ -1036,9 +1131,11 @@ The addition product is 3-hydroxybutanal, a beta-hydroxy aldehyde.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1048,18 +1145,20 @@ The addition product is 3-hydroxybutanal, a beta-hydroxy aldehyde.">
 <p>The addition product is 3-hydroxybutanal, a beta-hydroxy aldehyde.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="A cyclic hemiacetal is formed.
+    </article><article class="practice-problem panel" id="organic-chemistry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Carbohydrates, Hemiacetals" data-problem-difficulty="Applied" data-problem-answer="A cyclic hemiacetal is formed.
 
 The former carbonyl carbon becomes the anomeric carbon.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Identify a Cyclic Hemiacetal</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbohydrates" data-notes-nav-item>Carbohydrates</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#hemiacetals" data-notes-nav-item>Hemiacetals</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbohydrates" data-notes-nav-item>Carbohydrates</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#hemiacetals" data-notes-nav-item>Hemiacetals</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>When a glucose-like aldehyde cyclizes by reaction with an internal OH group, what functional group is formed, and what is the new carbon called?</p>
@@ -1076,9 +1175,11 @@ The former carbonyl carbon becomes the anomeric carbon.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1088,18 +1189,20 @@ The former carbonyl carbon becomes the anomeric carbon.">
 <p>The former carbonyl carbon becomes the anomeric carbon.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="The formula gives one degree of unsaturation, and the IR band shows a carbonyl.
+    </article><article class="practice-problem panel" id="organic-chemistry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="IR Spectroscopy, NMR Spectroscopy, Degree of Unsaturation" data-problem-difficulty="Applied" data-problem-answer="The formula gives one degree of unsaturation, and the IR band shows a carbonyl.
 
 The 9-10 ppm proton is characteristic of an aldehyde hydrogen, so the functional group is an aldehyde.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Identify an Unknown from Spectral Clues</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#ir-spectroscopy" data-notes-nav-item>IR Spectroscopy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#nmr-spectroscopy" data-notes-nav-item>NMR Spectroscopy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#degree-of-unsaturation" data-notes-nav-item>Degree of Unsaturation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#ir-spectroscopy" data-notes-nav-item>IR Spectroscopy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#nmr-spectroscopy" data-notes-nav-item>NMR Spectroscopy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#degree-of-unsaturation" data-notes-nav-item>Degree of Unsaturation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An unknown has formula $C_4H_8O$, DBE $1$, a strong IR band near $1720\ \text{cm}^{-1}$, and a 1H NMR signal near 9-10 ppm.</p>
@@ -1117,9 +1220,11 @@ The 9-10 ppm proton is characteristic of an aldehyde hydrogen, so the functional
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1143,18 +1248,20 @@ The 9-10 ppm proton is characteristic of an aldehyde hydrogen, so the functional
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="organic-chemistry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="A hydride shift can occur to move the positive charge to the more stable tertiary carbon.
+          <article class="practice-problem panel" id="organic-chemistry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Carbocations, Reaction Mechanisms, SN1 and SN2" data-problem-difficulty="Challenge" data-problem-answer="A hydride shift can occur to move the positive charge to the more stable tertiary carbon.
 
 Carbocations rearrange when a shift gives a more stable intermediate before the nucleophile attacks.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Predict a Carbocation Rearrangement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbocations" data-notes-nav-item>Carbocations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#reaction-mechanisms" data-notes-nav-item>Reaction Mechanisms</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#sn1-and-sn2" data-notes-nav-item>SN1 and SN2</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#carbocations" data-notes-nav-item>Carbocations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#reaction-mechanisms" data-notes-nav-item>Reaction Mechanisms</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#sn1-and-sn2" data-notes-nav-item>SN1 and SN2</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A secondary carbocation forms next to a tertiary carbon in a polar protic solvent.</p>
@@ -1172,9 +1279,11 @@ Carbocations rearrange when a shift gives a more stable intermediate before the 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1184,18 +1293,20 @@ Carbocations rearrange when a shift gives a more stable intermediate before the 
 <p>Carbocations rearrange when a shift gives a more stable intermediate before the nucleophile attacks.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="This is thermodynamic control.
+    </article><article class="practice-problem panel" id="organic-chemistry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Kinetic and Thermodynamic Control, Elimination" data-problem-difficulty="Challenge" data-problem-answer="This is thermodynamic control.
 
 When the reaction can equilibrate, the more stable product dominates, so the more substituted alkene is favored.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Choose Kinetic or Thermodynamic Control</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#kinetic-and-thermodynamic-control" data-notes-nav-item>Kinetic and Thermodynamic Control</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#elimination" data-notes-nav-item>Elimination</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#kinetic-and-thermodynamic-control" data-notes-nav-item>Kinetic and Thermodynamic Control</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#elimination" data-notes-nav-item>Elimination</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two elimination products are possible. One forms faster, but the other is more stable and dominates when the reaction is reversible and heated.</p>
@@ -1213,9 +1324,11 @@ When the reaction can equilibrate, the more stable product dominates, so the mor
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1225,17 +1338,19 @@ When the reaction can equilibrate, the more stable product dominates, so the mor
 <p>When the reaction can equilibrate, the more stable product dominates, so the more substituted alkene is favored.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="1. The first ring is aromatic because it is cyclic, planar, fully conjugated, and has $4n+2$ pi electrons.
+    </article><article class="practice-problem panel" id="organic-chemistry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Aromaticity, Conjugation" data-problem-difficulty="Challenge" data-problem-answer="1. The first ring is aromatic because it is cyclic, planar, fully conjugated, and has $4n+2$ pi electrons.
 2. The second ring is antiaromatic if it is planar, because it has $4n$ pi electrons.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Classify Ring Aromaticity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#aromaticity" data-notes-nav-item>Aromaticity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#conjugation" data-notes-nav-item>Conjugation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#aromaticity" data-notes-nav-item>Aromaticity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#conjugation" data-notes-nav-item>Conjugation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Classify each ring:</p>
@@ -1253,9 +1368,11 @@ When the reaction can equilibrate, the more stable product dominates, so the mor
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1264,7 +1381,7 @@ When the reaction can equilibrate, the more stable product dominates, so the mor
           <ol><li><p>The first ring is aromatic because it is cyclic, planar, fully conjugated, and has $4n+2$ pi electrons.</p></li><li><p>The second ring is antiaromatic if it is planar, because it has $4n$ pi electrons.</p></li></ol>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="organic-chemistry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="A peptide bond is an amide linkage between amino acids.
+    </article><article class="practice-problem panel" id="organic-chemistry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Amino Acids, Amides, Resonance" data-problem-difficulty="Challenge" data-problem-answer="A peptide bond is an amide linkage between amino acids.
 
 Its nitrogen lone pair is delocalized into the carbonyl by resonance, which gives the C-N bond partial double-bond character and makes the carbonyl less reactive.
 
@@ -1272,12 +1389,14 @@ That same resonance makes the nitrogen much less basic.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Explain Peptide Bond Stability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#amino-acids" data-notes-nav-item>Amino Acids</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#amides" data-notes-nav-item>Amides</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#resonance" data-notes-nav-item>Resonance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#amino-acids" data-notes-nav-item>Amino Acids</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#amides" data-notes-nav-item>Amides</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/organic-chemistry/#resonance" data-notes-nav-item>Resonance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Why are peptide bonds relatively stable and weakly basic?</p>
@@ -1294,9 +1413,11 @@ That same resonance makes the nitrogen much less basic.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

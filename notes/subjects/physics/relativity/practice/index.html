@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,19 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Relativity" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Reference frames</h2><div class="markdown-body"><p>An inertial frame is one that is not accelerating.</p>
+<p>Common notation:</p>
+<ul><li><p>$S$ = unprimed frame</p></li><li><p>$S&#39;$ = frame moving at constant velocity $v$ relative to $S$</p></li></ul>
+<p>If the motion is along the $x$-axis, the standard analysis uses one-dimensional Lorentz transformations.</p></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +152,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="relativity-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The two postulates are:
+          <article class="practice-problem panel" id="relativity-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Postulates, Inertial Frames" data-problem-difficulty="Direct" data-problem-answer="The two postulates are:
 
 1. The laws of physics are the same in all inertial frames.
 2. The speed of light in vacuum is the same for all inertial observers.
@@ -145,12 +161,14 @@ These are the starting point for special relativity.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">State the Two Postulates</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#postulates" data-notes-nav-item>Postulates</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#inertial-frames" data-notes-nav-item>Inertial Frames</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#postulates" data-notes-nav-item>Postulates</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#inertial-frames" data-notes-nav-item>Inertial Frames</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>State the two postulates of special relativity.</p>
@@ -167,9 +185,11 @@ These are the starting point for special relativity.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -180,7 +200,7 @@ These are the starting point for special relativity.">
 <p>These are the starting point for special relativity.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="relativity-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Lorentz Factor" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}.
@@ -194,12 +214,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Compute a Lorentz Factor</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For a speed of $v = 0.6c$, compute the Lorentz factor $\gamma$.</p>
@@ -216,9 +238,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -234,7 +258,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Compute the light-travel distance for the time separation:
+    </article><article class="practice-problem panel" id="relativity-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Spacetime Interval, Causality" data-problem-difficulty="Direct" data-problem-answer="Compute the light-travel distance for the time separation:
 
 $$
 c\Delta t = (3.00\times 10^8\ \text{m/s})(4\times 10^{-9}\ \text{s}) = 1.2\ \text{m}.
@@ -250,12 +274,14 @@ the interval is timelike.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Classify an Interval</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#spacetime-interval" data-notes-nav-item>Spacetime Interval</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#causality" data-notes-nav-item>Causality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#spacetime-interval" data-notes-nav-item>Spacetime Interval</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#causality" data-notes-nav-item>Causality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two events are separated by $\Delta t = 4\ \text{ns}$ and $\Delta x = 1\ \text{m}$ in one spatial dimension. Classify the spacetime interval.</p>
@@ -272,9 +298,11 @@ the interval is timelike.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -291,7 +319,7 @@ $$</div>
 <p>the interval is timelike.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="First find $\gamma$ from $v = 0.6c$:
+    </article><article class="practice-problem panel" id="relativity-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Time Dilation, Lorentz Factor" data-problem-difficulty="Direct" data-problem-answer="First find $\gamma$ from $v = 0.6c$:
 
 $$
 \gamma = 1.25.
@@ -305,12 +333,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Time Dilation from Proper Time</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A clock has proper time $\Delta \tau = 8\ \text{s}$ and moves at $0.6c$ relative to you. How much time do you measure?</p>
@@ -327,9 +357,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -345,7 +377,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="For $v = 0.8c$,
+    </article><article class="practice-problem panel" id="relativity-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Length Contraction, Proper Length" data-problem-difficulty="Direct" data-problem-answer="For $v = 0.8c$,
 
 $$
 \gamma = \frac{1}{\sqrt{1-0.8^2}} = \frac{1}{0.6} = \frac{5}{3}.
@@ -359,12 +391,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Length Contraction of a Rod</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#length-contraction" data-notes-nav-item>Length Contraction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-length" data-notes-nav-item>Proper Length</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#length-contraction" data-notes-nav-item>Length Contraction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-length" data-notes-nav-item>Proper Length</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A rod has proper length $L_0 = 12\ \text{m}$ and moves at $0.8c$ relative to you. What length do you measure?</p>
@@ -381,9 +415,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -399,7 +435,7 @@ L = \frac{L_0}{\gamma} = \frac{12}{5/3} = 12\cdot \frac{3}{5} = 7.2\ \text{m}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="If the events are simultaneous in the first frame, then $\Delta t = 0$ and
+    </article><article class="practice-problem panel" id="relativity-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Relativity of Simultaneity, Lorentz Transformations" data-problem-difficulty="Direct" data-problem-answer="If the events are simultaneous in the first frame, then $\Delta t = 0$ and
 
 $$
 \Delta t&#39; = -\gamma \frac{v\Delta x}{c^2}.
@@ -420,12 +456,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Relativity of Simultaneity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-transformations" data-notes-nav-item>Lorentz Transformations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-transformations" data-notes-nav-item>Lorentz Transformations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In one frame, two events are simultaneous and separated by $12\ \text{m}$ along the $x$-axis. If $S&#39;$ moves in the $+x$ direction at $0.6c$, what is $\Delta t&#39;$?</p>
@@ -442,9 +480,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -465,7 +505,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use relativistic velocity addition:
+    </article><article class="practice-problem panel" id="relativity-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Velocity Addition" data-problem-difficulty="Direct" data-problem-answer="Use relativistic velocity addition:
 
 $$
 u = \frac{u&#39;+v}{1+\frac{u&#39;v}{c^2}}.
@@ -479,12 +519,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Add Two Velocities</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#velocity-addition" data-notes-nav-item>Velocity Addition</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#velocity-addition" data-notes-nav-item>Velocity Addition</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A probe moves at $0.5c$ relative to a ship, and the ship moves at $0.5c$ relative to Earth in the same direction. What speed does Earth measure for the probe?</p>
@@ -501,9 +543,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -519,7 +563,7 @@ u = \frac{0.5c+0.5c}{1+0.25} = \frac{c}{1.25} = 0.8c.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="relativity-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Rest Energy, Mass-Energy Equivalence" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 E_0 = mc^2.
@@ -533,12 +577,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Find the Rest Energy</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#rest-energy" data-notes-nav-item>Rest Energy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#mass-energy-equivalence" data-notes-nav-item>Mass-Energy Equivalence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#rest-energy" data-notes-nav-item>Rest Energy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#mass-energy-equivalence" data-notes-nav-item>Mass-Energy Equivalence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the rest energy of a $1\ \text{kg}$ object?</p>
@@ -555,9 +601,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -573,18 +621,20 @@ E_0 = (1\ \text{kg})(3.00\times 10^8\ \text{m/s})^2 = 9.0\times 10^{16}\ \text{J
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="That time is called the **proper time**.
+    </article><article class="practice-problem panel" id="relativity-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Proper Time" data-problem-difficulty="Direct" data-problem-answer="That time is called the **proper time**.
 
 It is the time measured in the rest frame of the clock.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Name the Proper Time</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-time" data-notes-nav-item>Proper Time</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-time" data-notes-nav-item>Proper Time</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What do you call the time measured by a clock that travels with two timelike-separated events?</p>
@@ -601,9 +651,11 @@ It is the time measured in the rest frame of the clock.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -613,7 +665,7 @@ It is the time measured in the rest frame of the clock.">
 <p>It is the time measured in the rest frame of the clock.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="For light, the relation is
+    </article><article class="practice-problem panel" id="relativity-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Photon Relations" data-problem-difficulty="Direct" data-problem-answer="For light, the relation is
 
 $$
 E = pc.
@@ -627,12 +679,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Use the Photon Momentum Relation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#photon-relations" data-notes-nav-item>Photon Relations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#photon-relations" data-notes-nav-item>Photon Relations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For a photon with energy $E$, what is its momentum?</p>
@@ -649,9 +703,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -681,7 +737,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="relativity-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="For $v = 0.6c$, we have $\gamma = 1.25$.
+          <article class="practice-problem panel" id="relativity-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Lorentz Transformations, Lorentz Factor" data-problem-difficulty="Integrated" data-problem-answer="For $v = 0.6c$, we have $\gamma = 1.25$.
 
 Use the Lorentz transformations:
 
@@ -723,12 +779,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Transform One Event</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-transformations" data-notes-nav-item>Lorentz Transformations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-transformations" data-notes-nav-item>Lorentz Transformations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In frame $S$, an event occurs at $t = 2.0\times 10^{-8}\ \text{s}$ and $x = 3.0\ \text{m}$. If $S&#39;$ moves at $v = 0.6c$ in the $+x$ direction, find $x&#39;$ and $t&#39;$.</p>
@@ -745,9 +803,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -782,7 +842,7 @@ t&#39; = 1.25(2.0\times 10^{-8} - 6.0\times 10^{-9})
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="For $v = 0.8c$,
+    </article><article class="practice-problem panel" id="relativity-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Time Dilation, Proper Time" data-problem-difficulty="Integrated" data-problem-answer="For $v = 0.8c$,
 
 $$
 \gamma = \frac{5}{3}.
@@ -804,12 +864,14 @@ So the ship experiences $6\ \mu\text{s}$, and it travels $2400\ \text{m}$ in Ear
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Use Proper Time and Distance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-time" data-notes-nav-item>Proper Time</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-time" data-notes-nav-item>Proper Time</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A spaceship moves at $0.8c$ for $10\ \mu\text{s}$ as measured in Earth frame. How much proper time passes on the ship, and how far does it travel in Earth frame?</p>
@@ -826,9 +888,11 @@ So the ship experiences $6\ \mu\text{s}$, and it travels $2400\ \text{m}$ in Ear
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -849,7 +913,7 @@ $$</div>
 <p>So the ship experiences $6\ \mu\text{s}$, and it travels $2400\ \text{m}$ in Earth frame.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Compute the light-travel distance for the time separation:
+    </article><article class="practice-problem panel" id="relativity-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Spacetime Interval, Causality" data-problem-difficulty="Integrated" data-problem-answer="Compute the light-travel distance for the time separation:
 
 $$
 c\Delta t = (3.00\times 10^8)(20\times 10^{-9}) = 6\ \text{m}.
@@ -865,12 +929,14 @@ the interval is spacelike. A light signal cannot connect the events, so there is
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Interval to Causality</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#spacetime-interval" data-notes-nav-item>Spacetime Interval</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#causality" data-notes-nav-item>Causality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#spacetime-interval" data-notes-nav-item>Spacetime Interval</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#causality" data-notes-nav-item>Causality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two events are separated by $\Delta t = 20\ \text{ns}$ and $\Delta x = 9\ \text{m}$. Can a light signal connect them?</p>
@@ -887,9 +953,11 @@ the interval is spacelike. A light signal cannot connect the events, so there is
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -906,7 +974,7 @@ $$</div>
 <p>the interval is spacelike. A light signal cannot connect the events, so there is no causal connection at or below light speed.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="For $v = 0.6c$, the Lorentz factor is
+    </article><article class="practice-problem panel" id="relativity-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Kinetic Energy, Lorentz Factor" data-problem-difficulty="Integrated" data-problem-answer="For $v = 0.6c$, the Lorentz factor is
 
 $$
 \gamma = 1.25.
@@ -932,12 +1000,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Relativistic Kinetic Energy</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#kinetic-energy" data-notes-nav-item>Kinetic Energy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#kinetic-energy" data-notes-nav-item>Kinetic Energy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-factor" data-notes-nav-item>Lorentz Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the kinetic energy of a $2\ \text{kg}$ object moving at $0.6c$?</p>
@@ -954,9 +1024,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -980,7 +1052,7 @@ K = 0.5 \cdot 9.0\times 10^{16} = 4.5\times 10^{16}\ \text{J}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use the invariant energy-momentum relation:
+    </article><article class="practice-problem panel" id="relativity-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Energy-Momentum Relation, Momentum" data-problem-difficulty="Integrated" data-problem-answer="Use the invariant energy-momentum relation:
 
 $$
 E^2 = (pc)^2 + (mc^2)^2.
@@ -1007,12 +1079,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Energy from Momentum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#energy-momentum-relation" data-notes-nav-item>Energy-Momentum Relation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#momentum" data-notes-nav-item>Momentum</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#energy-momentum-relation" data-notes-nav-item>Energy-Momentum Relation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#momentum" data-notes-nav-item>Momentum</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A particle has rest mass $m$ and momentum $p = \frac{3}{4}mc$. Find its total energy in terms of $m$ and $c$.</p>
@@ -1029,9 +1103,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1056,7 +1132,7 @@ E = \frac{5}{4}mc^2.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="For $v = 0.8c$, we have
+    </article><article class="practice-problem panel" id="relativity-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Time Dilation, Applied Problem" data-problem-difficulty="Integrated" data-problem-answer="For $v = 0.8c$, we have
 
 $$
 \gamma = \frac{5}{3}.
@@ -1078,12 +1154,14 @@ Since $880\ \text{m} &gt; 500\ \text{m}$, the particle reaches the detector befo
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Particle Reaches the Detector</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#applied-problem" data-notes-nav-item>Applied Problem</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#applied-problem" data-notes-nav-item>Applied Problem</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A particle has proper lifetime $2.2\ \mu\text{s}$ and moves at $0.8c$. It is created $500\ \text{m}$ above a detector. Does it reach the detector before decaying?</p>
@@ -1100,9 +1178,11 @@ Since $880\ \text{m} &gt; 500\ \text{m}$, the particle reaches the detector befo
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1123,7 +1203,7 @@ $$</div>
 <p>Since $880\ \text{m} &gt; 500\ \text{m}$, the particle reaches the detector before decaying.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use the simultaneity formula with $\Delta t = 0$:
+    </article><article class="practice-problem panel" id="relativity-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Relativity of Simultaneity, Frame Dependence" data-problem-difficulty="Integrated" data-problem-answer="Use the simultaneity formula with $\Delta t = 0$:
 
 $$
 \Delta t&#39; = -\gamma \frac{v\Delta x}{c^2}.
@@ -1146,12 +1226,14 @@ So the flashes are not simultaneous in the train frame.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Simultaneous Flashes in Another Frame</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#frame-dependence" data-notes-nav-item>Frame Dependence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#frame-dependence" data-notes-nav-item>Frame Dependence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two lightning flashes happen simultaneously in Earth&#39;s frame and are separated by $20\ \text{m}$ along the $x$-axis. If a train moves at $0.6c$ in the $+x$ direction, what time separation does the train measure?</p>
@@ -1168,9 +1250,11 @@ So the flashes are not simultaneous in the train frame.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1192,7 +1276,7 @@ $$</div>
 <p>So the flashes are not simultaneous in the train frame.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="For a photon,
+    </article><article class="practice-problem panel" id="relativity-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Gravitational Redshift, Photon Relations" data-problem-difficulty="Integrated" data-problem-answer="For a photon,
 
 $$
 E = hf,
@@ -1210,12 +1294,14 @@ So the energy dropped to $90\%$ of its original value, a decrease of $10\%$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Photon Energy Loss from Redshift</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#gravitational-redshift" data-notes-nav-item>Gravitational Redshift</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#photon-relations" data-notes-nav-item>Photon Relations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#gravitational-redshift" data-notes-nav-item>Gravitational Redshift</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#photon-relations" data-notes-nav-item>Photon Relations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A photon is emitted with frequency $6.0\times 10^{14}\ \text{Hz}$ and later observed at $5.4\times 10^{14}\ \text{Hz}$. By what percentage did its energy change?</p>
@@ -1232,9 +1318,11 @@ So the energy dropped to $90\%$ of its original value, a decrease of $10\%$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1266,18 +1354,20 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="relativity-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="General relativity is essential, because the satellite and the ground clock are in different gravitational potentials.
+          <article class="practice-problem panel" id="relativity-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="General Relativity, Special Relativity, Inertial Frames" data-problem-difficulty="Applied" data-problem-answer="General relativity is essential, because the satellite and the ground clock are in different gravitational potentials.
 
 Special relativity handles motion in inertial frames, but it does not account for gravitational time dilation. GPS needs both motion and gravity, so the gravitational effect requires general relativity.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Decide Between SR and GR</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#general-relativity" data-notes-nav-item>General Relativity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#special-relativity" data-notes-nav-item>Special Relativity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#inertial-frames" data-notes-nav-item>Inertial Frames</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#general-relativity" data-notes-nav-item>General Relativity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#special-relativity" data-notes-nav-item>Special Relativity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#inertial-frames" data-notes-nav-item>Inertial Frames</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A problem asks for the clock-rate correction needed for a GPS satellite relative to a ground clock. Which theory is essential, and why?</p>
@@ -1294,9 +1384,11 @@ Special relativity handles motion in inertial frames, but it does not account fo
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1306,7 +1398,7 @@ Special relativity handles motion in inertial frames, but it does not account fo
 <p>Special relativity handles motion in inertial frames, but it does not account for gravitational time dilation. GPS needs both motion and gravity, so the gravitational effect requires general relativity.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="For $v = 0.6c$, the Lorentz factor is
+    </article><article class="practice-problem panel" id="relativity-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Time Dilation, Applied Problem" data-problem-difficulty="Applied" data-problem-answer="For $v = 0.6c$, the Lorentz factor is
 
 $$
 \gamma = 1.25.
@@ -1328,12 +1420,14 @@ So the muon travels about $495\ \text{m}$, which is just short of $500\ \text{m}
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Muon Reaches the Ground</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#applied-problem" data-notes-nav-item>Applied Problem</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#time-dilation" data-notes-nav-item>Time Dilation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#applied-problem" data-notes-nav-item>Applied Problem</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A muon has proper lifetime $2.2\ \mu\text{s}$ and moves at $0.6c$. It is created in the upper atmosphere $500\ \text{m}$ above the ground. Does it reach the ground before decaying?</p>
@@ -1350,9 +1444,11 @@ So the muon travels about $495\ \text{m}$, which is just short of $500\ \text{m}
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1373,7 +1469,7 @@ $$</div>
 <p>So the muon travels about $495\ \text{m}$, which is just short of $500\ \text{m}$. It does not quite reach the ground.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="The time coordinate transforms as
+    </article><article class="practice-problem panel" id="relativity-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Relativity of Simultaneity, Frame Dependence" data-problem-difficulty="Applied" data-problem-answer="The time coordinate transforms as
 
 $$
 t&#39; = \gamma\left(t-\frac{vx}{c^2}\right).
@@ -1385,12 +1481,14 @@ So simultaneity depends on the frame.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Why Simultaneity Can Change</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#frame-dependence" data-notes-nav-item>Frame Dependence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#frame-dependence" data-notes-nav-item>Frame Dependence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two lightning strikes happen simultaneously in Earth&#39;s frame at opposite ends of a moving train. Explain why a passenger on the train can disagree about whether they were simultaneous.</p>
@@ -1407,9 +1505,11 @@ So simultaneity depends on the frame.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1423,7 +1523,7 @@ $$</div>
 <p>So simultaneity depends on the frame.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="For each particle moving at $0.6c$, $\gamma = 1.25$, so each has energy
+    </article><article class="practice-problem panel" id="relativity-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Energy-Momentum Relation, Conservation Laws" data-problem-difficulty="Applied" data-problem-answer="For each particle moving at $0.6c$, $\gamma = 1.25$, so each has energy
 
 $$
 E = \gamma mc^2 = 1.25mc^2.
@@ -1449,12 +1549,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Final Mass After a Head-On Collision</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#energy-momentum-relation" data-notes-nav-item>Energy-Momentum Relation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#conservation-laws" data-notes-nav-item>Conservation Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#energy-momentum-relation" data-notes-nav-item>Energy-Momentum Relation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#conservation-laws" data-notes-nav-item>Conservation Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two identical particles each have rest mass $m$ and move directly toward each other at $0.6c$. They collide and stick together. What is the rest mass of the final composite object?</p>
@@ -1471,9 +1573,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1497,7 +1601,7 @@ M = 2.5m.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="For a photon,
+    </article><article class="practice-problem panel" id="relativity-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Gravitational Redshift, Photon Relations" data-problem-difficulty="Applied" data-problem-answer="For a photon,
 
 $$
 E = hf,
@@ -1509,12 +1613,14 @@ If the frequency drops by $12\%$, the energy also drops by $12\%$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">What Happens to a Photon Climbing Out of Gravity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#gravitational-redshift" data-notes-nav-item>Gravitational Redshift</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#photon-relations" data-notes-nav-item>Photon Relations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#gravitational-redshift" data-notes-nav-item>Gravitational Redshift</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#photon-relations" data-notes-nav-item>Photon Relations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A photon climbs out of a gravitational field and its frequency drops by $12\%$. By what percent does its energy drop?</p>
@@ -1531,9 +1637,11 @@ If the frequency drops by $12\%$, the energy also drops by $12\%$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1561,7 +1669,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="relativity-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="With $\Delta t = 0$,
+          <article class="practice-problem panel" id="relativity-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Relativity of Simultaneity, Lorentz Transformations" data-problem-difficulty="Challenge" data-problem-answer="With $\Delta t = 0$,
 
 $$
 \Delta t&#39; = -\gamma \frac{v\Delta x}{c^2}.
@@ -1621,12 +1729,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Solve for the Relative Speed</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-transformations" data-notes-nav-item>Lorentz Transformations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#relativity-of-simultaneity" data-notes-nav-item>Relativity of Simultaneity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#lorentz-transformations" data-notes-nav-item>Lorentz Transformations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In frame $S$, two events are simultaneous and separated by $24\ \text{m}$. Another frame $S&#39;$ measures them to be $80\ \text{ns}$ apart in time. What is the speed of $S&#39;$ relative to $S$? Give the magnitude.</p>
@@ -1643,9 +1753,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1692,7 +1804,7 @@ v = \frac{c}{\sqrt{2}} \approx 0.707c.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="First compute the light-travel distance:
+    </article><article class="practice-problem panel" id="relativity-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Spacetime Interval, Proper Time" data-problem-difficulty="Challenge" data-problem-answer="First compute the light-travel distance:
 
 $$
 c\Delta t = (3.00\times 10^8)(10\times 10^{-9}) = 3\ \text{m}.
@@ -1716,12 +1828,14 @@ So the proper time is $8\ \text{ns}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Find the Interval and Proper Time</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#spacetime-interval" data-notes-nav-item>Spacetime Interval</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-time" data-notes-nav-item>Proper Time</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#spacetime-interval" data-notes-nav-item>Spacetime Interval</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#proper-time" data-notes-nav-item>Proper Time</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two events occur $10\ \text{ns}$ apart and $1.8\ \text{m}$ apart. Find the invariant interval and the proper time between them, if it exists.</p>
@@ -1738,9 +1852,11 @@ So the proper time is $8\ \text{ns}$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1762,7 +1878,7 @@ $$</div>
 <p>So the proper time is $8\ \text{ns}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Each particle has $\gamma = 1.25$, so each carries energy
+    </article><article class="practice-problem panel" id="relativity-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Energy-Momentum Relation, Conservation Laws" data-problem-difficulty="Challenge" data-problem-answer="Each particle has $\gamma = 1.25$, so each carries energy
 
 $$
 E = \gamma mc^2 = 1.25mc^2.
@@ -1790,12 +1906,14 @@ That is larger than $2m$ because some kinetic energy has been converted into res
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Why the Final Object Is Heavier</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#energy-momentum-relation" data-notes-nav-item>Energy-Momentum Relation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#conservation-laws" data-notes-nav-item>Conservation Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#energy-momentum-relation" data-notes-nav-item>Energy-Momentum Relation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#conservation-laws" data-notes-nav-item>Conservation Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two identical particles each have rest mass $m$ and move at $0.6c$ in opposite directions. They collide and form one object at rest. Show that the final object&#39;s rest mass is larger than $2m$.</p>
@@ -1812,9 +1930,11 @@ That is larger than $2m$ because some kinetic energy has been converted into res
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1839,7 +1959,7 @@ $$</div>
 <p>That is larger than $2m$ because some kinetic energy has been converted into rest mass.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="relativity-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="General relativity says mass-energy curves spacetime, and light follows the curved geometry of spacetime.
+    </article><article class="practice-problem panel" id="relativity-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Equivalence Principle, Light Bending, General Relativity" data-problem-difficulty="Challenge" data-problem-answer="General relativity says mass-energy curves spacetime, and light follows the curved geometry of spacetime.
 
 So light is not being pulled by a Newtonian force in the usual way. Instead, its path is a geodesic in curved spacetime.
 
@@ -1847,12 +1967,14 @@ The equivalence principle is the key idea behind this: locally, gravity and acce
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Explain Why Light Bends Near a Star</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#equivalence-principle" data-notes-nav-item>Equivalence Principle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#light-bending" data-notes-nav-item>Light Bending</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#general-relativity" data-notes-nav-item>General Relativity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#equivalence-principle" data-notes-nav-item>Equivalence Principle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#light-bending" data-notes-nav-item>Light Bending</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/relativity/#general-relativity" data-notes-nav-item>General Relativity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Why does light bend near a massive object in general relativity, even though light has no rest mass?</p>
@@ -1869,9 +1991,11 @@ The equivalence principle is the key idea behind this: locally, gravity and acce
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

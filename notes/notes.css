@@ -1885,10 +1885,42 @@ body.notes-page--sepia.practice-page {
 }
 
 .practice-problem__meta {
+  min-width: 0;
   margin: 0.35rem 0 0;
   color: var(--muted);
   line-height: 1.5;
+  overflow-wrap: anywhere;
 }
+
+.practice-problem__head-actions { display: flex; align-items: flex-start; gap: 0.55rem; flex-wrap: wrap; justify-content: flex-end; }
+.worksheet-controls { margin: 1rem 0 1.25rem; padding: 0; }
+.worksheet-controls__summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem; cursor: pointer; list-style: none; }
+.worksheet-controls__summary::-webkit-details-marker { display: none; }
+.worksheet-controls__summary::after { content: '+'; color: var(--accent-strong); font-size: 1.3rem; }
+.worksheet-controls[open] .worksheet-controls__summary::after { content: '−'; }
+.worksheet-controls__title { display: block; margin-top: 0.2rem; font-size: 1.15rem; font-weight: 700; }
+.worksheet-controls__body { padding: 0 1rem 1rem; }
+.worksheet-controls__grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0.75rem; margin: 1rem 0; }
+.worksheet-controls label { display: flex; flex-direction: column; gap: 0.35rem; color: var(--muted); font-size: 0.8rem; font-weight: 700; }
+.worksheet-controls input[type='text'], .worksheet-controls select { width: 100%; padding: 0.55rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; }
+.worksheet-controls__actions, .worksheet-selection__actions { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
+.worksheet-action-link, .practice-problem__worksheet-toggle { appearance: none; border: 0; padding: 0; background: transparent; color: var(--accent-strong); cursor: pointer; font: inherit; text-decoration: underline; text-underline-offset: 0.15em; }
+.worksheet-action-link:hover, .worksheet-action-link:focus-visible, .practice-problem__worksheet-toggle:hover, .practice-problem__worksheet-toggle:focus-visible { color: var(--accent); }
+.worksheet-action-link:focus-visible, .practice-problem__worksheet-toggle:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+.worksheet-action-link:disabled { color: var(--muted); cursor: not-allowed; text-decoration: none; }
+.worksheet-controls__error { color: #a91f2d; font-weight: 700; }
+.worksheet-selection { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+.worksheet-selection h3 { margin: 0 0 0.65rem; font-size: 1rem; }
+.worksheet-selection__empty { margin: 0; color: var(--muted); }
+.worksheet-selection__list { display: grid; gap: 0.45rem; margin: 0; padding-left: 1.5rem; }
+.worksheet-selection__item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.45rem 0.55rem; border: 1px solid var(--border); background: var(--surface); cursor: grab; }
+.worksheet-selection__item:active { cursor: grabbing; }
+.worksheet-selection__label { min-width: 0; overflow-wrap: anywhere; }
+.worksheet-controls .worksheet-selection__spacing { display: flex; flex-direction: row; align-items: center; gap: 0.4rem; flex: 0 0 auto; color: var(--muted); font-size: 0.8rem; font-weight: 700; }
+.worksheet-selection__spacing input { width: 4.5rem; padding: 0.35rem; border: 1px solid var(--border); background: var(--surface); color: var(--text); font: inherit; }
+.worksheet-selection__spacing input:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 2px; }
+.worksheet-selection__actions { flex: 0 0 auto; font-size: 0.85rem; }
+.worksheet-print { display: none; }
 
 .practice-problem__uses {
   display: inline-flex;
@@ -1898,9 +1930,20 @@ body.notes-page--sepia.practice-page {
 }
 
 .practice-problem__skills {
-  display: inline-flex;
-  flex-wrap: wrap;
-  gap: 0.35rem;
+  display: inline;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.practice-problem__skills li {
+  display: inline;
+}
+
+.practice-problem__skills li + li::before {
+  content: "-";
+  margin: 0 0.35rem;
+  color: var(--muted);
 }
 
 .practice-problem__actions {
@@ -1985,7 +2028,7 @@ body.notes-page--sepia.practice-page {
 }
 
 .subject-list li+li::before {
-  content: "·";
+  content: "-";
   color: var(--muted);
   margin: 0 0.5rem 0;
   font-weight: 400;
@@ -2035,8 +2078,7 @@ body.notes-page--sepia.practice-page {
   text-decoration: underline;
 }
 
-.practice-page .practice-problem__feedback,
-.practice-page .practice-problem__study-submit {
+.practice-page .practice-problem__text-action {
   appearance: none;
   border: 0;
   background: transparent;
@@ -2051,33 +2093,21 @@ body.notes-page--sepia.practice-page {
   transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
-.practice-page .practice-problem__feedback {
+.practice-page .practice-problem__text-action {
   color: var(--accent-strong);
 }
 
-.practice-page .practice-problem__study-submit {
-  color: var(--accent-strong);
-}
-
-.practice-page .practice-problem__feedback:hover,
-.practice-page .practice-problem__feedback:focus-visible,
-.practice-page .practice-problem__study-submit:hover,
-.practice-page .practice-problem__study-submit:focus-visible {
+.practice-page .practice-problem__text-action:hover,
+.practice-page .practice-problem__text-action:focus-visible {
   text-decoration: underline;
 }
 
-.practice-page .practice-problem__feedback:hover,
-.practice-page .practice-problem__feedback:focus-visible {
+.practice-page .practice-problem__text-action:hover,
+.practice-page .practice-problem__text-action:focus-visible {
   color: var(--text);
 }
 
-.practice-page .practice-problem__study-submit:hover,
-.practice-page .practice-problem__study-submit:focus-visible {
-  color: var(--text);
-}
-
-.practice-page .practice-problem__feedback:focus-visible,
-.practice-page .practice-problem__study-submit:focus-visible {
+.practice-page .practice-problem__text-action:focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
 }
@@ -2104,21 +2134,15 @@ body.notes-page--sepia .markdown-body th {
   background: rgba(17, 17, 17, 0.04);
 }
 
-html.notes-page--sepia .practice-page .practice-problem__feedback,
-body.notes-page--sepia.practice-page .practice-problem__feedback,
-html.notes-page--sepia .practice-page .practice-problem__study-submit,
-body.notes-page--sepia.practice-page .practice-problem__study-submit {
+html.notes-page--sepia .practice-page .practice-problem__text-action,
+body.notes-page--sepia.practice-page .practice-problem__text-action {
   color: var(--accent-strong);
 }
 
-html.notes-page--sepia .practice-page .practice-problem__feedback:hover,
-body.notes-page--sepia.practice-page .practice-problem__feedback:hover,
-html.notes-page--sepia .practice-page .practice-problem__feedback:focus-visible,
-body.notes-page--sepia.practice-page .practice-problem__feedback:focus-visible,
-html.notes-page--sepia .practice-page .practice-problem__study-submit:hover,
-body.notes-page--sepia.practice-page .practice-problem__study-submit:hover,
-html.notes-page--sepia .practice-page .practice-problem__study-submit:focus-visible,
-body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visible {
+html.notes-page--sepia .practice-page .practice-problem__text-action:hover,
+body.notes-page--sepia.practice-page .practice-problem__text-action:hover,
+html.notes-page--sepia .practice-page .practice-problem__text-action:focus-visible,
+body.notes-page--sepia.practice-page .practice-problem__text-action:focus-visible {
   color: var(--muted);
 }
 
@@ -2311,6 +2335,26 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
 
 @media print {
 
+  body.is-printing-worksheet > * { display: none !important; }
+  body.is-printing-worksheet > [data-worksheet-print-container] { display: block !important; }
+  body,
+  .worksheet-print { font-family: Cambria, "Times New Roman", serif; }
+  .worksheet-print { color: #111; background: #fff; }
+  .worksheet-print__header { margin-bottom: 1rem; }
+  .worksheet-print__header h1 { margin: 0 0 0.5rem; font-size: 1.7rem; font-weight: 400; }
+  .worksheet-print__fields { display: flex; justify-content: space-between; padding: 0.75rem 0 1rem; }
+  .worksheet-print__kind { margin: 0 0 1rem; font-weight: 400; }
+  .worksheet-print__list { padding-left: 2rem; }
+  .worksheet-print__problem { break-inside: avoid; margin-bottom: 1.25rem; font-weight: 400; }
+  .worksheet-print__problem::marker { font-weight: 400; }
+  .worksheet-print__problem h2 { font-size: 1rem; font-weight: 400; margin: 0 0 0.45rem; break-after: avoid; }
+  .worksheet-print__prompt { margin-bottom: 0.5rem; }
+  .worksheet-print__workspace { min-height: calc(var(--worksheet-spacing-lines, 3) * 1.35rem); margin-top: 0.75rem; }
+  .worksheet-print__answer { margin-top: 0.5rem; }
+  .worksheet-reference { break-after: page; }
+  .worksheet-reference, .worksheet-print__problem { color: #111; }
+  .worksheet-print .math-block, .worksheet-print .MathJax { break-inside: avoid; }
+
   html,
   body {
     background: #ffffff;
@@ -2340,10 +2384,7 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
     padding: 0;
   }
 
-  .viewer-head {
-    display: block;
-    border-bottom: 1px solid #bbbbbb;
-  }
+  .viewer-head { display: block; border-bottom: 0; }
 
   .markdown-body {
     color: #111111;
@@ -2472,6 +2513,10 @@ body.notes-page--sepia.practice-page .practice-problem__study-submit:focus-visib
 }
 
 @media (max-width: 640px) {
+  .worksheet-selection__item { align-items: stretch; flex-wrap: wrap; }
+  .worksheet-selection__label { flex: 1 1 100%; }
+  .worksheet-selection__spacing { flex: 1 1 auto; }
+
   .shell {
     width: min(100% - 0.75rem, 1180px);
   }

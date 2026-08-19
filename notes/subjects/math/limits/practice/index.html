@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Limits" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="limits-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Because polynomials are continuous, substitute $x=4$ directly:
+          <article class="practice-problem panel" id="limits-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="What a Limit Means, Direct Substitution" data-problem-difficulty="Direct" data-problem-answer="Because polynomials are continuous, substitute $x=4$ directly:
 
 $$
 2(4^2) - 3(4) + 1 = 32 - 12 + 1 = 21
@@ -146,12 +159,14 @@ So the limit is $21$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Evaluate a Polynomial Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#what-a-limit-means" data-notes-nav-item>What a Limit Means</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#direct-substitution" data-notes-nav-item>Direct Substitution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#what-a-limit-means" data-notes-nav-item>What a Limit Means</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#direct-substitution" data-notes-nav-item>Direct Substitution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -171,9 +186,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -186,7 +203,7 @@ $$</div>
 <p>So the limit is $21$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Factor the numerator:
+    </article><article class="practice-problem panel" id="limits-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Algebraic Techniques, Removable Discontinuity" data-problem-difficulty="Direct" data-problem-answer="Factor the numerator:
 
 $$
 x^2 - 1 = (x - 1)(x + 1)
@@ -208,12 +225,14 @@ So the limit is $2$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Factor a Removable Discontinuity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -233,9 +252,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -256,7 +277,7 @@ $$</div>
 <p>So the limit is $2$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Approaching $2$ from the left means $x&lt;2$, so the rule $f(x)=1$ applies.
+    </article><article class="practice-problem panel" id="limits-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="One-Sided Limits, Piecewise Functions" data-problem-difficulty="Direct" data-problem-answer="Approaching $2$ from the left means $x&lt;2$, so the rule $f(x)=1$ applies.
 
 Therefore,
 
@@ -266,12 +287,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Read a Left-Hand Limit from a Piecewise Function</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#one-sided-limits" data-notes-nav-item>One-Sided Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#one-sided-limits" data-notes-nav-item>One-Sided Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -296,9 +319,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -311,7 +336,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="This is a standard limit:
+    </article><article class="practice-problem panel" id="limits-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Special Limits, Trigonometric Limits" data-problem-difficulty="Direct" data-problem-answer="This is a standard limit:
 
 $$
 \lim_{x \to 0} \frac{\sin x}{x}=1
@@ -319,12 +344,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Use the Sine Standard Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#trigonometric-limits" data-notes-nav-item>Trigonometric Limits</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#trigonometric-limits" data-notes-nav-item>Trigonometric Limits</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -344,9 +371,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -358,18 +387,20 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="No. As $x$ gets close to $0$, the inside value $\frac{1}{x}$ grows without bound, so the sine function keeps oscillating between $-1$ and $1$.
+    </article><article class="practice-problem panel" id="limits-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Oscillation, Limits That Do Not Exist" data-problem-difficulty="Direct" data-problem-answer="No. As $x$ gets close to $0$, the inside value $\frac{1}{x}$ grows without bound, so the sine function keeps oscillating between $-1$ and $1$.
 
 Since it does not approach a single value, the limit does not exist.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Identify an Oscillating Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#oscillation" data-notes-nav-item>Oscillation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-that-do-not-exist" data-notes-nav-item>Limits That Do Not Exist</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#oscillation" data-notes-nav-item>Oscillation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-that-do-not-exist" data-notes-nav-item>Limits That Do Not Exist</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Does the limit exist?</p>
@@ -389,9 +420,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -401,7 +434,7 @@ $$</div>
 <p>Since it does not approach a single value, the limit does not exist.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
+    </article><article class="practice-problem panel" id="limits-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Limits at Infinity, Rational Functions" data-problem-difficulty="Direct" data-problem-answer="The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
 
 $$
 \frac{5}{2}
@@ -411,12 +444,14 @@ So the limit is $\frac{5}{2}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Evaluate a Rational Limit at Infinity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rational-functions" data-notes-nav-item>Rational Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rational-functions" data-notes-nav-item>Rational Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -436,9 +471,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -451,7 +488,7 @@ $$</div>
 <p>So the limit is $\frac{5}{2}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="As $x$ approaches $2$, the denominator $(x-2)^2$ approaches $0$ through positive values.
+    </article><article class="practice-problem panel" id="limits-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Infinite Limits, Vertical Asymptotes" data-problem-difficulty="Direct" data-problem-answer="As $x$ approaches $2$, the denominator $(x-2)^2$ approaches $0$ through positive values.
 
 So the fraction grows without bound:
 
@@ -463,12 +500,14 @@ This means $x=2$ is a vertical asymptote.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Recognize an Infinite Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#infinite-limits" data-notes-nav-item>Infinite Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#vertical-asymptotes" data-notes-nav-item>Vertical Asymptotes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#infinite-limits" data-notes-nav-item>Infinite Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#vertical-asymptotes" data-notes-nav-item>Vertical Asymptotes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -488,9 +527,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -504,7 +545,7 @@ $$</div>
 <p>This means $x=2$ is a vertical asymptote.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Polynomials are continuous, so substitute $x=2$:
+    </article><article class="practice-problem panel" id="limits-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Continuity, Direct Substitution" data-problem-difficulty="Direct" data-problem-answer="Polynomials are continuous, so substitute $x=2$:
 
 $$
 2^3 - 4(2) + 1 = 8 - 8 + 1 = 1
@@ -514,12 +555,14 @@ So the limit is $1$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Use Continuity of a Polynomial</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#direct-substitution" data-notes-nav-item>Direct Substitution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#direct-substitution" data-notes-nav-item>Direct Substitution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -539,9 +582,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -554,7 +599,7 @@ $$</div>
 <p>So the limit is $1$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="This is a standard limit:
+    </article><article class="practice-problem panel" id="limits-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Special Limits, Exponential Limits" data-problem-difficulty="Direct" data-problem-answer="This is a standard limit:
 
 $$
 \lim_{x \to 0} \frac{e^x - 1}{x}=1
@@ -562,12 +607,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Evaluate an Exponential Standard Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#exponential-limits" data-notes-nav-item>Exponential Limits</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#exponential-limits" data-notes-nav-item>Exponential Limits</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -587,9 +634,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -601,7 +650,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Multiply by the conjugate:
+    </article><article class="practice-problem panel" id="limits-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Algebraic Techniques, Rationalizing" data-problem-difficulty="Direct" data-problem-answer="Multiply by the conjugate:
 
 $$
 \frac{\sqrt{x} - 3}{x - 9}\cdot \frac{\sqrt{x} + 3}{\sqrt{x} + 3}
@@ -618,12 +667,14 @@ So the limit is $\frac{1}{6}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Rationalize a Root Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rationalizing" data-notes-nav-item>Rationalizing</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rationalizing" data-notes-nav-item>Rationalizing</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -643,9 +694,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -677,7 +730,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="limits-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Factor the numerator:
+          <article class="practice-problem panel" id="limits-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Continuity, Factoring, Removable Discontinuity" data-problem-difficulty="Integrated" data-problem-answer="Factor the numerator:
 
 $$
 x^2-16=(x-4)(x+4)
@@ -703,12 +756,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Make a Removable Discontinuity Continuous</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#factoring" data-notes-nav-item>Factoring</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#factoring" data-notes-nav-item>Factoring</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -733,9 +788,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -759,7 +816,7 @@ k=8
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Find the one-sided limits.
+    </article><article class="practice-problem panel" id="limits-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="One-Sided Limits, Piecewise Functions, Algebraic Techniques" data-problem-difficulty="Integrated" data-problem-answer="Find the one-sided limits.
 
 From the left:
 
@@ -783,12 +840,14 @@ Since the one-sided limits are different, the two-sided limit does not exist.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Determine Whether a Piecewise Limit Exists</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#one-sided-limits" data-notes-nav-item>One-Sided Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#one-sided-limits" data-notes-nav-item>One-Sided Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -813,9 +872,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -837,7 +898,7 @@ $$</div>
 <p>Since the one-sided limits are different, the two-sided limit does not exist.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Factor the fraction first:
+    </article><article class="practice-problem panel" id="limits-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Limit Laws, Factoring, Direct Substitution" data-problem-difficulty="Integrated" data-problem-answer="Factor the fraction first:
 
 $$
 \frac{x^2-4}{x-2}=\frac{(x-2)(x+2)}{x-2}=x+2
@@ -859,12 +920,14 @@ So the limit is $6$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Combine a Factored Limit with a Simple Substitution</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#factoring" data-notes-nav-item>Factoring</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#direct-substitution" data-notes-nav-item>Direct Substitution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#factoring" data-notes-nav-item>Factoring</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#direct-substitution" data-notes-nav-item>Direct Substitution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -884,9 +947,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -907,7 +972,7 @@ $$</div>
 <p>So the limit is $6$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Rewrite the expression so the standard limit appears:
+    </article><article class="practice-problem panel" id="limits-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Special Limits, Trigonometric Limits, Limit Laws" data-problem-difficulty="Integrated" data-problem-answer="Rewrite the expression so the standard limit appears:
 
 $$
 \frac{\sin(3x)}{x}=3\cdot \frac{\sin(3x)}{3x}
@@ -923,12 +988,14 @@ So the limit is $3$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Use a Standard Trig Limit with a Constant</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#trigonometric-limits" data-notes-nav-item>Trigonometric Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#trigonometric-limits" data-notes-nav-item>Trigonometric Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -948,9 +1015,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -967,7 +1036,7 @@ $$</div>
 <p>So the limit is $3$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Since
+    </article><article class="practice-problem panel" id="limits-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Squeeze Theorem, Oscillation, Limits at a Point" data-problem-difficulty="Integrated" data-problem-answer="Since
 
 $$
 -1 \le \sin\left(\frac{1}{x}\right) \le 1,
@@ -987,12 +1056,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Apply the Squeeze Theorem</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#squeeze-theorem" data-notes-nav-item>Squeeze Theorem</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#oscillation" data-notes-nav-item>Oscillation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-a-point" data-notes-nav-item>Limits at a Point</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#squeeze-theorem" data-notes-nav-item>Squeeze Theorem</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#oscillation" data-notes-nav-item>Oscillation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-a-point" data-notes-nav-item>Limits at a Point</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -1012,9 +1083,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1034,7 +1107,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="To find the horizontal asymptote, compute the limit as $x\to\infty$.
+    </article><article class="practice-problem panel" id="limits-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Limits at Infinity, Horizontal Asymptotes, Rational Functions" data-problem-difficulty="Integrated" data-problem-answer="To find the horizontal asymptote, compute the limit as $x\to\infty$.
 
 The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
 
@@ -1050,12 +1123,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find the Horizontal Asymptote</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#horizontal-asymptotes" data-notes-nav-item>Horizontal Asymptotes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rational-functions" data-notes-nav-item>Rational Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#horizontal-asymptotes" data-notes-nav-item>Horizontal Asymptotes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rational-functions" data-notes-nav-item>Rational Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find the horizontal asymptote of</p>
@@ -1075,9 +1150,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1094,7 +1171,7 @@ y=2
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Rewrite the expression to match the standard limit:
+    </article><article class="practice-problem panel" id="limits-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Special Limits, Logarithmic Limits, Limit Laws" data-problem-difficulty="Integrated" data-problem-answer="Rewrite the expression to match the standard limit:
 
 $$
 \frac{\ln(1+2x)}{x}
@@ -1115,12 +1192,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Use the Logarithmic Standard Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#logarithmic-limits" data-notes-nav-item>Logarithmic Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#special-limits" data-notes-nav-item>Special Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#logarithmic-limits" data-notes-nav-item>Logarithmic Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -1140,9 +1219,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1163,7 +1244,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Find the one-sided limits.
+    </article><article class="practice-problem panel" id="limits-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Continuity, Piecewise Functions" data-problem-difficulty="Integrated" data-problem-answer="Find the one-sided limits.
 
 From the left:
 
@@ -1181,12 +1262,14 @@ The one-sided limits are different, so no value of $k$ can make the function con
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Choose the Value that Makes a Piecewise Function Continuous</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -1212,9 +1295,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1246,7 +1331,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="limits-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="As $x$ approaches $5$, the denominator $(x-5)^2$ approaches $0$ through positive values.
+          <article class="practice-problem panel" id="limits-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Infinite Limits, Vertical Asymptotes, Modeling" data-problem-difficulty="Applied" data-problem-answer="As $x$ approaches $5$, the denominator $(x-5)^2$ approaches $0$ through positive values.
 
 So the reading grows without bound:
 
@@ -1258,12 +1343,14 @@ This means $x=5$ is a vertical asymptote.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Model a Vertical Asymptote</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#infinite-limits" data-notes-nav-item>Infinite Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#vertical-asymptotes" data-notes-nav-item>Vertical Asymptotes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#modeling" data-notes-nav-item>Modeling</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#infinite-limits" data-notes-nav-item>Infinite Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#vertical-asymptotes" data-notes-nav-item>Vertical Asymptotes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#modeling" data-notes-nav-item>Modeling</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A sensor reading is modeled by</p>
@@ -1284,9 +1371,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1300,7 +1389,7 @@ $$</div>
 <p>This means $x=5$ is a vertical asymptote.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
+    </article><article class="practice-problem panel" id="limits-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Limits at Infinity, Horizontal Asymptotes, Rational Functions" data-problem-difficulty="Applied" data-problem-answer="The numerator and denominator have the same degree, so the limit is the ratio of leading coefficients:
 
 $$
 \lim_{t \to \infty} R(t)=\frac{7}{2}
@@ -1310,12 +1399,14 @@ So the model approaches $\frac{7}{2}$ in the long run.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Interpret a Long-Run Ratio</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#horizontal-asymptotes" data-notes-nav-item>Horizontal Asymptotes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rational-functions" data-notes-nav-item>Rational Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#horizontal-asymptotes" data-notes-nav-item>Horizontal Asymptotes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#rational-functions" data-notes-nav-item>Rational Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For</p>
@@ -1336,9 +1427,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1351,7 +1444,7 @@ $$</div>
 <p>So the model approaches $\frac{7}{2}$ in the long run.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="The expression has the indeterminate form $\frac{0}{0}$, so L&#39;Hopital&#39;s rule applies.
+    </article><article class="practice-problem panel" id="limits-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="L&#39;Hopital&#39;s Rule, Exponential Limits" data-problem-difficulty="Applied" data-problem-answer="The expression has the indeterminate form $\frac{0}{0}$, so L&#39;Hopital&#39;s rule applies.
 
 Differentiate the numerator and denominator:
 
@@ -1369,12 +1462,14 @@ So the limit is $2$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Use L&#39;Hopital&#39;s Rule Once</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#lhopitals-rule" data-notes-nav-item>L&#39;Hopital&#39;s Rule</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#exponential-limits" data-notes-nav-item>Exponential Limits</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#lhopitals-rule" data-notes-nav-item>L&#39;Hopital&#39;s Rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#exponential-limits" data-notes-nav-item>Exponential Limits</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -1394,9 +1489,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1414,7 +1511,7 @@ $$</div>
 <p>So the limit is $2$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Compute the one-sided limits.
+    </article><article class="practice-problem panel" id="limits-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="One-Sided Limits, Piecewise Functions, Continuity" data-problem-difficulty="Applied" data-problem-answer="Compute the one-sided limits.
 
 From the left:
 
@@ -1433,12 +1530,14 @@ This is a jump discontinuity.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Classify a Jump at a Pricing Threshold</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#one-sided-limits" data-notes-nav-item>One-Sided Limits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#one-sided-limits" data-notes-nav-item>One-Sided Limits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A delivery fee is modeled by</p>
@@ -1463,9 +1562,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1483,7 +1584,7 @@ $$</div>
 <p>The one-sided limits are different, so $F$ is not continuous at $w=5$. This is a jump discontinuity.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Factor the numerator:
+    </article><article class="practice-problem panel" id="limits-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Removable Discontinuity, Algebraic Techniques, Continuity" data-problem-difficulty="Applied" data-problem-answer="Factor the numerator:
 
 $$
 x^2-9=(x-3)(x+3)
@@ -1507,12 +1608,14 @@ To remove it, define $g(3)=6$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Spot a Hole and Its Fill-In Value</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>The function</p>
@@ -1534,9 +1637,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1572,7 +1677,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="limits-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Start with the expression:
+          <article class="practice-problem panel" id="limits-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Formal Definition, Epsilon-Delta" data-problem-difficulty="Challenge" data-problem-answer="Start with the expression:
 
 $$
 |(3x-1)-5|=|3x-6|=3|x-2|
@@ -1600,12 +1705,14 @@ which proves the limit.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Use the Epsilon-Delta Definition</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#formal-definition" data-notes-nav-item>Formal Definition</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#epsilon-delta" data-notes-nav-item>Epsilon-Delta</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#formal-definition" data-notes-nav-item>Formal Definition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#epsilon-delta" data-notes-nav-item>Epsilon-Delta</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Use the epsilon-delta definition to show that</p>
@@ -1626,9 +1733,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1653,7 +1762,7 @@ $$</div>
 <p>which proves the limit.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="First find the limit from the left:
+    </article><article class="practice-problem panel" id="limits-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Continuity, Piecewise Functions, Algebraic Techniques" data-problem-difficulty="Challenge" data-problem-answer="First find the limit from the left:
 
 $$
 \frac{x^2-4}{x-2}=\frac{(x-2)(x+2)}{x-2}=x+2
@@ -1697,12 +1806,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Solve for a Continuous Piecewise Rule</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#piecewise-functions" data-notes-nav-item>Piecewise Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#algebraic-techniques" data-notes-nav-item>Algebraic Techniques</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -1727,9 +1838,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1765,7 +1878,7 @@ b=-8
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Use the squeeze theorem first on $x\sin(1/x)$:
+    </article><article class="practice-problem panel" id="limits-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Squeeze Theorem, Oscillation, Limit Laws" data-problem-difficulty="Challenge" data-problem-answer="Use the squeeze theorem first on $x\sin(1/x)$:
 
 $$
 -|x| \le x\sin(1/x) \le |x|
@@ -1793,12 +1906,14 @@ So the limit is $0$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Combine Squeeze and a Standard Limit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#squeeze-theorem" data-notes-nav-item>Squeeze Theorem</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#oscillation" data-notes-nav-item>Oscillation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#squeeze-theorem" data-notes-nav-item>Squeeze Theorem</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#oscillation" data-notes-nav-item>Oscillation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limit-laws" data-notes-nav-item>Limit Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Evaluate the limit:</p>
@@ -1818,9 +1933,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1845,7 +1962,7 @@ $$</div>
 <p>So the limit is $0$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="limits-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="Factor the numerator:
+    </article><article class="practice-problem panel" id="limits-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Continuity, Removable Discontinuity, Limits at Infinity" data-problem-difficulty="Challenge" data-problem-answer="Factor the numerator:
 
 $$
 x^2-1=(x-1)(x+1)
@@ -1875,12 +1992,14 @@ Therefore, $f$ does not have a horizontal asymptote.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Continuity and End Behavior Together</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#removable-discontinuity" data-notes-nav-item>Removable Discontinuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/limits/#limits-at-infinity" data-notes-nav-item>Limits at Infinity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -1905,9 +2024,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

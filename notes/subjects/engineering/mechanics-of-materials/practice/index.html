@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,21 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Mechanics of Materials" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>General shear formula</h2><div class="markdown-body"><p>For transverse shear in a beam:</p>
+<div class="math-block">$$
+\tau = \frac{VQ}{It}
+$$</div>
+<p>where:</p>
+<ul><li><p>$V$ is the internal shear force</p></li><li><p>$Q$ is the first moment of area of the portion above or below the point</p></li><li><p>$I$ is the second moment of area of the entire cross-section</p></li><li><p>$t$ is the local thickness where the stress is evaluated</p></li></ul></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +154,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="mechanics-of-materials-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Use the axial stress formula:
+          <article class="practice-problem panel" id="mechanics-of-materials-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Normal Stress, Axial Loading" data-problem-difficulty="Direct" data-problem-answer="Use the axial stress formula:
 
 $$
 \sigma = \frac{P}{A}
@@ -156,12 +174,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Compute the Normal Stress in a Tension Member</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#normal-stress" data-notes-nav-item>Normal Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-loading" data-notes-nav-item>Axial Loading</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#normal-stress" data-notes-nav-item>Normal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-loading" data-notes-nav-item>Axial Loading</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel bar carries a tensile force of $24\ \text{kN}$ and has a cross-sectional area of $600\ \text{mm}^2$.</p>
@@ -179,9 +199,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -201,7 +223,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Use the strain definition:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Strain, Deformation" data-problem-difficulty="Direct" data-problem-answer="Use the strain definition:
 
 $$
 \varepsilon = \frac{\delta}{L}
@@ -221,12 +243,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find Engineering Strain from Elongation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#strain" data-notes-nav-item>Strain</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#deformation" data-notes-nav-item>Deformation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#strain" data-notes-nav-item>Strain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#deformation" data-notes-nav-item>Deformation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A bar with original length $750\ \text{mm}$ elongates by $1.5\ \text{mm}$.</p>
@@ -244,9 +268,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -266,7 +292,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Use Hooke&#39;s law:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Hooke&#39;s Law, Stress-Strain" data-problem-difficulty="Direct" data-problem-answer="Use Hooke&#39;s law:
 
 $$
 \sigma = E\varepsilon
@@ -292,12 +318,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Use Hooke&#39;s Law for a Linear Elastic Material</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#hookes-law-stress-strain" data-notes-nav-item>Hooke&#39;s Law, Stress-Strain</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#hookes-law-stress-strain" data-notes-nav-item>Hooke&#39;s Law, Stress-Strain</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A linearly elastic material has Young&#39;s modulus $E = 210\ \text{GPa}$. If it experiences a normal stress of $105\ \text{MPa}$, what is the axial strain?</p>
@@ -314,9 +342,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -340,7 +370,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Use free thermal expansion:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Thermal Strain, Expansion" data-problem-difficulty="Direct" data-problem-answer="Use free thermal expansion:
 
 $$
 \delta_{th} = \alpha L \Delta T
@@ -364,12 +394,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Compute Free Thermal Expansion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#thermal-strain" data-notes-nav-item>Thermal Strain</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#expansion" data-notes-nav-item>Expansion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#thermal-strain" data-notes-nav-item>Thermal Strain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#expansion" data-notes-nav-item>Expansion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel rod has length $2.5\ \text{m}$ and coefficient of thermal expansion</p>
@@ -390,9 +422,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -415,7 +449,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Use the torsion formula at the outer surface:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Torsion, Shear Stress" data-problem-difficulty="Direct" data-problem-answer="Use the torsion formula at the outer surface:
 
 $$
 \tau_{max} = \frac{Tc}{J}
@@ -439,12 +473,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find the Maximum Shear Stress in a Circular Shaft</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-stress" data-notes-nav-item>Shear Stress</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-stress" data-notes-nav-item>Shear Stress</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid circular shaft with diameter $60\ \text{mm}$ carries a torque of $600\ \text{N}\cdot\text{m}$.</p>
@@ -462,9 +498,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -487,7 +525,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Use the torsion deformation formula:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Angle of Twist, Torsion" data-problem-difficulty="Direct" data-problem-answer="Use the torsion deformation formula:
 
 $$
 \phi = \frac{TL}{JG}
@@ -523,12 +561,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Compute the Angle of Twist</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#angle-of-twist" data-notes-nav-item>Angle of Twist</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#angle-of-twist" data-notes-nav-item>Angle of Twist</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid circular shaft has length $1.5\ \text{m}$, diameter $50\ \text{mm}$, shear modulus $G = 80\ \text{GPa}$, and applied torque $900\ \text{N}\cdot\text{m}$.</p>
@@ -546,9 +586,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -579,7 +621,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use the flexure formula:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Bending Stress, Section Properties" data-problem-difficulty="Direct" data-problem-answer="Use the flexure formula:
 
 $$
 \sigma_{max} = \frac{Mc}{I}
@@ -617,12 +659,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Find the Maximum Bending Stress in a Rectangle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#bending-stress" data-notes-nav-item>Bending Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#section-properties" data-notes-nav-item>Section Properties</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#bending-stress" data-notes-nav-item>Bending Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#section-properties" data-notes-nav-item>Section Properties</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A beam section is rectangular with width $100\ \text{mm}$ and height $150\ \text{mm}$. The internal bending moment at a section is $8\ \text{kN}\cdot\text{m}$.</p>
@@ -640,9 +684,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -674,7 +720,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="For a rectangular section, the maximum shear stress is
+    </article><article class="practice-problem panel" id="mechanics-of-materials-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Beam Shear Stress, Shear Force" data-problem-difficulty="Direct" data-problem-answer="For a rectangular section, the maximum shear stress is
 
 $$
 \tau_{max} = \frac{3V}{2A}
@@ -700,12 +746,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Compute Maximum Beam Shear Stress in a Rectangle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#beam-shear-stress" data-notes-nav-item>Beam Shear Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-force" data-notes-nav-item>Shear Force</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#beam-shear-stress" data-notes-nav-item>Beam Shear Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-force" data-notes-nav-item>Shear Force</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$. The internal shear force is $15\ \text{kN}$.</p>
@@ -723,9 +771,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -749,7 +799,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="A downward concentrated load causes a downward jump in the shear diagram by the same magnitude.
+    </article><article class="practice-problem panel" id="mechanics-of-materials-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Internal Force Resultants, Shear Diagrams" data-problem-difficulty="Direct" data-problem-answer="A downward concentrated load causes a downward jump in the shear diagram by the same magnitude.
 
 So the shear-force diagram drops by
 
@@ -761,12 +811,14 @@ at that point.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Interpret a Concentrated Load in a Shear Diagram</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#internal-force-resultants" data-notes-nav-item>Internal Force Resultants</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-diagrams" data-notes-nav-item>Shear Diagrams</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#internal-force-resultants" data-notes-nav-item>Internal Force Resultants</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-diagrams" data-notes-nav-item>Shear Diagrams</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A beam&#39;s shear-force diagram is being drawn from left to right. At one point, the beam crosses a $12\ \text{kN}$ downward concentrated load.</p>
@@ -784,9 +836,11 @@ at that point.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -800,7 +854,7 @@ $$</div>
 <p>at that point.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Use Euler buckling with $K = 1$ for pinned-pinned ends:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Euler Buckling, Columns" data-problem-difficulty="Direct" data-problem-answer="Use Euler buckling with $K = 1$ for pinned-pinned ends:
 
 $$
 P_{cr} = \frac{\pi^2EI}{(KL)^2}
@@ -824,12 +878,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Find the Euler Buckling Load</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#columns" data-notes-nav-item>Columns</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#columns" data-notes-nav-item>Columns</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A pinned-pinned column has</p>
@@ -850,9 +906,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -889,7 +947,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="mechanics-of-materials-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Use the deformation formula on each segment:
+          <article class="practice-problem panel" id="mechanics-of-materials-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Axial Deformation, Piecewise Segments" data-problem-difficulty="Integrated" data-problem-answer="Use the deformation formula on each segment:
 
 $$
 \delta = \sum \frac{PL}{AE}
@@ -915,12 +973,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Sum the Elongation of a Two-Segment Bar</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-deformation" data-notes-nav-item>Axial Deformation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#piecewise-segments" data-notes-nav-item>Piecewise Segments</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-deformation" data-notes-nav-item>Axial Deformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#piecewise-segments" data-notes-nav-item>Piecewise Segments</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel bar has two segments in series. Segment 1 has length $400\ \text{mm}$ and area $200\ \text{mm}^2$. Segment 2 has length $600\ \text{mm}$ and area $300\ \text{mm}^2$. The bar carries a tensile force of $12\ \text{kN}$ throughout, and $E = 200\ \text{GPa}$.</p>
@@ -938,9 +998,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -964,7 +1026,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="The axial force is the same in every segment, so the stress in each segment is
+    </article><article class="practice-problem panel" id="mechanics-of-materials-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Axial Stress, Piecewise Segments, Deformation" data-problem-difficulty="Integrated" data-problem-answer="The axial force is the same in every segment, so the stress in each segment is
 
 $$
 \sigma = \frac{P}{A}
@@ -1007,12 +1069,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Analyze a Stepped Bar with Constant Axial Force</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-stress" data-notes-nav-item>Axial Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#piecewise-segments" data-notes-nav-item>Piecewise Segments</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#deformation" data-notes-nav-item>Deformation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-stress" data-notes-nav-item>Axial Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#piecewise-segments" data-notes-nav-item>Piecewise Segments</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#deformation" data-notes-nav-item>Deformation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A stepped steel bar is in tension with an axial force of $18\ \text{kN}$. Its segments are:</p>
@@ -1034,9 +1098,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1073,7 +1139,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="For a fully restrained bar, the total strain is zero, so the thermal stress is
+    </article><article class="practice-problem panel" id="mechanics-of-materials-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Thermal Stress, Constrained Expansion" data-problem-difficulty="Integrated" data-problem-answer="For a fully restrained bar, the total strain is zero, so the thermal stress is
 
 $$
 \sigma = E\alpha\Delta T
@@ -1093,12 +1159,14 @@ Because the bar is prevented from expanding, the stress is compressive.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Find the Stress from a Fully Restrained Temperature Rise</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#thermal-stress" data-notes-nav-item>Thermal Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#constrained-expansion" data-notes-nav-item>Constrained Expansion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#thermal-stress" data-notes-nav-item>Thermal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#constrained-expansion" data-notes-nav-item>Constrained Expansion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel bar with length $2\ \text{m}$ is fixed between rigid walls. Its coefficient of thermal expansion is</p>
@@ -1119,9 +1187,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1141,7 +1211,7 @@ $$</div>
 <p>Because the bar is prevented from expanding, the stress is compressive.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Because the bars are in parallel between rigid plates, they have the same elongation.
+    </article><article class="practice-problem panel" id="mechanics-of-materials-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Parallel Members, Compatibility, Stiffness" data-problem-difficulty="Integrated" data-problem-answer="Because the bars are in parallel between rigid plates, they have the same elongation.
 So the force in each bar is proportional to its stiffness:
 
 $$
@@ -1176,12 +1246,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Share Load Between Parallel Bars</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#parallel-members" data-notes-nav-item>Parallel Members</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#compatibility" data-notes-nav-item>Compatibility</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stiffness" data-notes-nav-item>Stiffness</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#parallel-members" data-notes-nav-item>Parallel Members</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#compatibility" data-notes-nav-item>Compatibility</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stiffness" data-notes-nav-item>Stiffness</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two bars connect rigid plates in parallel. Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$. One bar is steel with $E = 200\ \text{GPa}$, and the other is aluminum with $E = 70\ \text{GPa}$. The plates are pulled by a total tensile load of $27\ \text{kN}$.</p>
@@ -1199,9 +1271,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1230,7 +1304,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use the plane stress transformation results:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Stress Transformation, Principal Stress, Mohr&#39;s Circle" data-problem-difficulty="Integrated" data-problem-answer="Use the plane stress transformation results:
 
 $$
 \sigma_{1,2} = \frac{\sigma_x+\sigma_y}{2}
@@ -1266,12 +1340,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Find Principal Stresses from a Plane Stress State</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stress-transformation" data-notes-nav-item>Stress Transformation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#principal-stress" data-notes-nav-item>Principal Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#mohrs-circle" data-notes-nav-item>Mohr&#39;s Circle</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stress-transformation" data-notes-nav-item>Stress Transformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#principal-stress" data-notes-nav-item>Principal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#mohrs-circle" data-notes-nav-item>Mohr&#39;s Circle</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A point in a member is under the plane stress state</p>
@@ -1292,9 +1368,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1326,7 +1404,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Use the stress transformation equations:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Stress Transformation, Rotated Planes" data-problem-difficulty="Integrated" data-problem-answer="Use the stress transformation equations:
 
 $$
 \sigma_{x&#39;} = \frac{\sigma_x+\sigma_y}{2}
@@ -1361,12 +1439,14 @@ The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Transform Stress to a Rotated Plane</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stress-transformation" data-notes-nav-item>Stress Transformation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#rotated-planes" data-notes-nav-item>Rotated Planes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stress-transformation" data-notes-nav-item>Stress Transformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#rotated-planes" data-notes-nav-item>Rotated Planes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Using the same plane stress state</p>
@@ -1387,9 +1467,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1420,7 +1502,7 @@ $$</div>
 <p>The normal stress on the rotated plane is $78\ \text{MPa}$, and the shear stress is $-24\ \text{MPa}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="For a rectangular section, the maximum shear stress occurs at the neutral axis and can be found from
+    </article><article class="practice-problem panel" id="mechanics-of-materials-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Beam Shear Stress, Shear Formula" data-problem-difficulty="Integrated" data-problem-answer="For a rectangular section, the maximum shear stress occurs at the neutral axis and can be found from
 
 $$
 \tau = \frac{VQ}{It}
@@ -1464,12 +1546,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Use the Beam Shear Formula on a Rectangular Section</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#beam-shear-stress" data-notes-nav-item>Beam Shear Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-formula" data-notes-nav-item>Shear Formula</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#beam-shear-stress" data-notes-nav-item>Beam Shear Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shear-formula" data-notes-nav-item>Shear Formula</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A rectangular beam has width $50\ \text{mm}$ and height $150\ \text{mm}$. The internal shear force is $15\ \text{kN}$.</p>
@@ -1487,9 +1571,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1539,7 +1625,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="mechanics-of-materials-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Take $x$ from the fixed end. The bending moment is
+          <article class="practice-problem panel" id="mechanics-of-materials-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Beam Deflection, Integration" data-problem-difficulty="Applied" data-problem-answer="Take $x$ from the fixed end. The bending moment is
 
 $$
 M(x) = -P(L-x)
@@ -1589,12 +1675,14 @@ So the tip deflection is about $6.7\ \text{mm}$ downward.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Integrate the Deflection of a Cantilever</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#beam-deflection" data-notes-nav-item>Beam Deflection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#integration" data-notes-nav-item>Integration</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#beam-deflection" data-notes-nav-item>Beam Deflection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#integration" data-notes-nav-item>Integration</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A cantilever beam has length $2\ \text{m}$ and an end load of $4\ \text{kN}$. The beam has $E = 200\ \text{GPa}$ and $I = 8.0 \times 10^6\ \text{mm}^4$.</p>
@@ -1612,9 +1700,11 @@ So the tip deflection is about $6.7\ \text{mm}$ downward.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1653,7 +1743,7 @@ $$</div>
 <p>So the tip deflection is about $6.7\ \text{mm}$ downward.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="First convert power and speed to torque:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Power Transmission, Torsion, Shaft Design" data-problem-difficulty="Applied" data-problem-answer="First convert power and speed to torque:
 
 $$
 P = T\omega
@@ -1697,12 +1787,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Convert Power to Shaft Diameter</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#power-transmission" data-notes-nav-item>Power Transmission</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shaft-design" data-notes-nav-item>Shaft Design</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#power-transmission" data-notes-nav-item>Power Transmission</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#shaft-design" data-notes-nav-item>Shaft Design</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A motor delivers $12\ \text{kW}$ at $900\ \text{rpm}$ to a solid circular shaft. If the allowable shear stress is $40\ \text{MPa}$, what minimum shaft diameter is required?</p>
@@ -1719,9 +1811,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1757,7 +1851,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="First compute the axial stress:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Combined Loading, Axial Stress, Bending Stress" data-problem-difficulty="Applied" data-problem-answer="First compute the axial stress:
 
 $$
 \sigma_{ax} = \frac{P}{A} = \frac{30\,000}{80(160)} = 2.34\ \text{MPa}
@@ -1809,12 +1903,14 @@ So the top fiber is more highly compressed, and the bottom fiber is in tension."
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Combine Axial Load and Bending</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-stress" data-notes-nav-item>Axial Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#bending-stress" data-notes-nav-item>Bending Stress</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#axial-stress" data-notes-nav-item>Axial Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#bending-stress" data-notes-nav-item>Bending Stress</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A member carries a compressive axial load of $30\ \text{kN}$ and an internal bending moment of $6\ \text{kN}\cdot\text{m}$. Its cross-section is a rectangle with width $80\ \text{mm}$ and height $160\ \text{mm}$.</p>
@@ -1832,9 +1928,11 @@ So the top fiber is more highly compressed, and the bottom fiber is in tension."
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1875,7 +1973,7 @@ $$</div>
 <p>So the top fiber is more highly compressed, and the bottom fiber is in tension.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="First compute the second moment of area for a solid circle:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Euler Buckling, Yielding, Design Check" data-problem-difficulty="Applied" data-problem-answer="First compute the second moment of area for a solid circle:
 
 $$
 I = \frac{\pi d^4}{64}
@@ -1913,12 +2011,14 @@ Since $27.6\ \text{kN} &lt; 314\ \text{kN}$, Euler buckling governs.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Decide Which Column Failure Mode Governs</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#yielding" data-notes-nav-item>Yielding</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#yielding" data-notes-nav-item>Yielding</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel column has length $3\ \text{m}$, pinned-pinned ends, Young&#39;s modulus $E = 200\ \text{GPa}$, and a circular cross-section with diameter $40\ \text{mm}$. The yield strength is $250\ \text{MPa}$.</p>
@@ -1936,9 +2036,11 @@ Since $27.6\ \text{kN} &lt; 314\ \text{kN}$, Euler buckling governs.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1970,7 +2072,7 @@ $$</div>
 <p>Since $27.6\ \text{kN} &lt; 314\ \text{kN}$, Euler buckling governs.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Use the plane-stress von Mises formula:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="von Mises, Failure Criterion, Plane Stress" data-problem-difficulty="Applied" data-problem-answer="Use the plane-stress von Mises formula:
 
 $$
 \sigma_{vm} = \sqrt{\sigma_x^2 - \sigma_x\sigma_y + \sigma_y^2 + 3\tau_{xy}^2}
@@ -1995,12 +2097,14 @@ The part is just barely safe.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Check a Plane Stress State with von Mises</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#von-mises" data-notes-nav-item>von Mises</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#failure-criterion" data-notes-nav-item>Failure Criterion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#plane-stress" data-notes-nav-item>Plane Stress</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#von-mises" data-notes-nav-item>von Mises</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#failure-criterion" data-notes-nav-item>Failure Criterion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#plane-stress" data-notes-nav-item>Plane Stress</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A ductile part has the plane stress state</p>
@@ -2021,9 +2125,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2060,7 +2166,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="mechanics-of-materials-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="The local maximum shear stress is
+          <article class="practice-problem panel" id="mechanics-of-materials-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Stress Concentration, Torsion, Design Check" data-problem-difficulty="Challenge" data-problem-answer="The local maximum shear stress is
 
 $$
 \tau_{max} = K_t \tau_{nom}
@@ -2098,12 +2204,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Include a Stress Concentration in a Torsion Design Check</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stress-concentration" data-notes-nav-item>Stress Concentration</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#stress-concentration" data-notes-nav-item>Stress Concentration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid circular shaft has diameter $50\ \text{mm}$ and a shoulder with stress concentration factor $K_t = 1.6$. If the allowable maximum shear stress is $50\ \text{MPa}$, what is the largest torque the shaft can carry?</p>
@@ -2120,9 +2228,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2154,7 +2264,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="Because the plates are rigid, both bars have the same total elongation.
+    </article><article class="practice-problem panel" id="mechanics-of-materials-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Thermal Stress, Parallel Members, Compatibility" data-problem-difficulty="Challenge" data-problem-answer="Because the plates are rigid, both bars have the same total elongation.
 Let $\delta$ be that common elongation.
 
 For each bar,
@@ -2219,12 +2329,14 @@ So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries ab
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Solve a Thermal-Indeterminate Parallel-Bar System</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#thermal-stress" data-notes-nav-item>Thermal Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#parallel-members" data-notes-nav-item>Parallel Members</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#compatibility" data-notes-nav-item>Compatibility</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#thermal-stress" data-notes-nav-item>Thermal Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#parallel-members" data-notes-nav-item>Parallel Members</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#compatibility" data-notes-nav-item>Compatibility</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two bars connect rigid plates in parallel. Each bar is $800\ \text{mm}$ long and has cross-sectional area $400\ \text{mm}^2$. One bar is steel with $E = 200\ \text{GPa}$ and $\alpha = 12 \times 10^{-6}/^\circ\text{C}$. The other is aluminum with $E = 70\ \text{GPa}$ and $\alpha = 23 \times 10^{-6}/^\circ\text{C}$.</p>
@@ -2243,9 +2355,11 @@ So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries ab
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2295,7 +2409,7 @@ $$</div>
 <p>So the steel bar carries about $16.2\ \text{kN}$ and the aluminum bar carries about $1.8\ \text{kN}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="At the outer surface, the bending stress is
+    </article><article class="practice-problem panel" id="mechanics-of-materials-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Combined Loading, Torsion, Failure Criterion" data-problem-difficulty="Challenge" data-problem-answer="At the outer surface, the bending stress is
 
 $$
 \sigma = \frac{32M}{\pi d^3}
@@ -2341,12 +2455,14 @@ Since $24.8\ \text{MPa} &lt; 40\ \text{MPa}$, the shaft is safe by the von Mises
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Check a Shaft in Combined Bending and Torsion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#failure-criterion" data-notes-nav-item>Failure Criterion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#torsion" data-notes-nav-item>Torsion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#failure-criterion" data-notes-nav-item>Failure Criterion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid circular shaft with diameter $60\ \text{mm}$ carries a bending moment of $300\ \text{N}\cdot\text{m}$ and a torque of $500\ \text{N}\cdot\text{m}$.</p>
@@ -2364,9 +2480,11 @@ Since $24.8\ \text{MPa} &lt; 40\ \text{MPa}$, the shaft is safe by the von Mises
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2403,7 +2521,7 @@ $$</div>
 <p>Since $24.8\ \text{MPa} &lt; 40\ \text{MPa}$, the shaft is safe by the von Mises criterion.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="Use the Goodman design relation:
+    </article><article class="practice-problem panel" id="mechanics-of-materials-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Fatigue, Goodman Diagram, Design Check" data-problem-difficulty="Challenge" data-problem-answer="Use the Goodman design relation:
 
 $$
 \frac{\sigma_a}{S_e} + \frac{\sigma_m}{S_{ut}} \le \frac{1}{n}
@@ -2429,12 +2547,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Apply Goodman Fatigue Design</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#fatigue" data-notes-nav-item>Fatigue</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#goodman-diagram" data-notes-nav-item>Goodman Diagram</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#fatigue" data-notes-nav-item>Fatigue</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#goodman-diagram" data-notes-nav-item>Goodman Diagram</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A member has alternating stress and mean stress</p>
@@ -2456,9 +2576,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2482,7 +2604,7 @@ n = 3
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="mechanics-of-materials-45" data-practice-problem data-exam="final" data-problem-number="4.5" data-problem-answer="The eccentric load creates both axial stress and bending stress.
+    </article><article class="practice-problem panel" id="mechanics-of-materials-45" data-practice-problem data-exam="final" data-problem-number="4.5" data-problem-skills="Combined Loading, Euler Buckling, Design Check" data-problem-difficulty="Challenge" data-problem-answer="The eccentric load creates both axial stress and bending stress.
 
 Area:
 
@@ -2545,12 +2667,14 @@ The more restrictive check is buckling, because $8\ \text{kN}$ is close to $8.7\
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.5</span><span class="practice-problem__title-text">Check an Eccentrically Loaded Column</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#combined-loading" data-notes-nav-item>Combined Loading</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#euler-buckling" data-notes-nav-item>Euler Buckling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/mechanics-of-materials/#design-check" data-notes-nav-item>Design Check</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid steel column has diameter $30\ \text{mm}$, length $3\ \text{m}$, and modulus $E = 200\ \text{GPa}$. It carries a compressive load of $8\ \text{kN}$ applied with eccentricity $15\ \text{mm}$.</p>
@@ -2568,9 +2692,11 @@ The more restrictive check is buckling, because $8\ \text{kN}$ is close to $8.7\
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

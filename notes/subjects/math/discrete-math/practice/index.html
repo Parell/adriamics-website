@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Discrete Math" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="discrete-math-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The negation of $\forall n\, P(n)$ is $\exists n\, \neg P(n)$.
+          <article class="practice-problem panel" id="discrete-math-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Quantifiers, Implication" data-problem-difficulty="Direct" data-problem-answer="The negation of $\forall n\, P(n)$ is $\exists n\, \neg P(n)$.
 
 Here $P(n)$ is the implication &quot;if $n$ is prime, then $n$ is odd.&quot; The negation of an implication is:
 
@@ -160,12 +173,14 @@ Equivalently, there exists an integer $n$ that is prime and even.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Negate a Universal Implication</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#implication" data-notes-nav-item>Implication</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#implication" data-notes-nav-item>Implication</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Write the negation of the statement:</p>
@@ -185,9 +200,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -209,7 +226,7 @@ $$</div>
 <p>Equivalently, there exists an integer $n$ that is prime and even.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="For a statement $p \to q$, the contrapositive is $\neg q \to \neg p$.
+    </article><article class="practice-problem panel" id="discrete-math-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Implication, Contrapositive" data-problem-difficulty="Direct" data-problem-answer="For a statement $p \to q$, the contrapositive is $\neg q \to \neg p$.
 
 Here:
 
@@ -230,12 +247,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Write the Contrapositive</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#implication" data-notes-nav-item>Implication</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#contrapositive" data-notes-nav-item>Contrapositive</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#implication" data-notes-nav-item>Implication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#contrapositive" data-notes-nav-item>Contrapositive</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Write the contrapositive of the statement:</p>
@@ -255,9 +274,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -276,7 +297,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="By De Morgan&#39;s law,
+    </article><article class="practice-problem panel" id="discrete-math-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Negation, De Morgan&#39;s Laws" data-problem-difficulty="Direct" data-problem-answer="By De Morgan&#39;s law,
 
 $$
 \neg (p \lor q) \equiv \neg p \land \neg q
@@ -290,12 +311,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Use De Morgan&#39;s Law</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#negation" data-notes-nav-item>Negation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#de-morgans-laws" data-notes-nav-item>De Morgan&#39;s Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#negation" data-notes-nav-item>Negation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#de-morgans-laws" data-notes-nav-item>De Morgan&#39;s Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Simplify the negation:</p>
@@ -315,9 +338,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -333,7 +358,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="The elements common to both sets are $3$ and $5$, so:
+    </article><article class="practice-problem panel" id="discrete-math-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Sets, Union and Intersection" data-problem-difficulty="Direct" data-problem-answer="The elements common to both sets are $3$ and $5$, so:
 
 $$
 A \cap B = \{3,5\}
@@ -347,12 +372,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Compute a Set Union and Intersection</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#sets" data-notes-nav-item>Sets</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#union-and-intersection" data-notes-nav-item>Union and Intersection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#sets" data-notes-nav-item>Sets</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#union-and-intersection" data-notes-nav-item>Union and Intersection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -375,9 +402,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -393,7 +422,7 @@ A \cup B = \{1,2,3,4,5,6\}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="A set with $n$ elements has $2^n$ subsets.
+    </article><article class="practice-problem panel" id="discrete-math-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Power Sets, Counting" data-problem-difficulty="Direct" data-problem-answer="A set with $n$ elements has $2^n$ subsets.
 
 Here $n=4$, so the number of subsets is
 
@@ -403,12 +432,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Count the Subsets of a Set</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#power-sets" data-notes-nav-item>Power Sets</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#power-sets" data-notes-nav-item>Power Sets</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If a set $A$ has $4$ elements, how many subsets does $A$ have?</p>
@@ -425,9 +456,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -440,7 +473,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="The function is **not injective** because different inputs can give the same output:
+    </article><article class="practice-problem panel" id="discrete-math-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Functions, Injective and Surjective" data-problem-difficulty="Direct" data-problem-answer="The function is **not injective** because different inputs can give the same output:
 
 $$
 f(1)=a \quad \text{and} \quad f(3)=a
@@ -456,12 +489,14 @@ So $f$ is surjective but not injective.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Classify a Function</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#functions" data-notes-nav-item>Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#injective-and-surjective" data-notes-nav-item>Injective and Surjective</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#functions" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#injective-and-surjective" data-notes-nav-item>Injective and Surjective</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $f : \{1,2,3\} \to \{a,b\}$ be defined by</p>
@@ -482,9 +517,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -501,7 +538,7 @@ $$</div>
 <p>So $f$ is surjective but not injective.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="For finite sets,
+    </article><article class="practice-problem panel" id="discrete-math-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Cartesian Products, Counting" data-problem-difficulty="Direct" data-problem-answer="For finite sets,
 
 $$
 |A \times B| = |A||B|
@@ -515,12 +552,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Find the Size of a Cartesian Product</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#cartesian-products" data-notes-nav-item>Cartesian Products</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#cartesian-products" data-notes-nav-item>Cartesian Products</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $|A| = 3$ and $|B| = 7$, how many ordered pairs are in $A \times B$?</p>
@@ -537,9 +576,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -555,7 +596,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Check the three conditions:
+    </article><article class="practice-problem panel" id="discrete-math-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Relations, Partial Orders" data-problem-difficulty="Direct" data-problem-answer="Check the three conditions:
 
 - Reflexive: $(1,1)$, $(2,2)$, and $(3,3)$ are all in $R$.
 - Antisymmetric: there is no pair $(a,b)$ and $(b,a)$ with $a \neq b$.
@@ -565,12 +606,14 @@ So $R$ is a partial order.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Check a Partial Order</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#relations" data-notes-nav-item>Relations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#partial-orders" data-notes-nav-item>Partial Orders</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#relations" data-notes-nav-item>Relations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#partial-orders" data-notes-nav-item>Partial Orders</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -591,9 +634,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -604,7 +649,7 @@ $$</div>
 <p>So $R$ is a partial order.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="We need the multiplicative inverse of $2$ modulo $5$.
+    </article><article class="practice-problem panel" id="discrete-math-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Modular Arithmetic, Inverses" data-problem-difficulty="Direct" data-problem-answer="We need the multiplicative inverse of $2$ modulo $5$.
 
 Since
 
@@ -620,12 +665,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Solve a Congruence Modulo 5</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#modular-arithmetic" data-notes-nav-item>Modular Arithmetic</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#inverses" data-notes-nav-item>Inverses</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#modular-arithmetic" data-notes-nav-item>Modular Arithmetic</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#inverses" data-notes-nav-item>Inverses</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Solve for $x$:</p>
@@ -645,9 +692,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -664,7 +713,7 @@ x \equiv 3 \pmod 5
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="For a tree with $n$ vertices, the number of edges is
+    </article><article class="practice-problem panel" id="discrete-math-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Trees, Graphs" data-problem-difficulty="Direct" data-problem-answer="For a tree with $n$ vertices, the number of edges is
 
 $$
 n - 1
@@ -678,12 +727,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Count the Edges in a Tree</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#trees" data-notes-nav-item>Trees</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#graphs" data-notes-nav-item>Graphs</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#trees" data-notes-nav-item>Trees</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#graphs" data-notes-nav-item>Graphs</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A tree has $14$ vertices. How many edges does it have?</p>
@@ -700,9 +751,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -732,7 +785,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="discrete-math-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="The negation of $\forall n\, P(n)$ is $\exists n\, \neg P(n)$.
+          <article class="practice-problem panel" id="discrete-math-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Quantifiers, Implication" data-problem-difficulty="Integrated" data-problem-answer="The negation of $\forall n\, P(n)$ is $\exists n\, \neg P(n)$.
 
 The negation of $p \to q$ is $p \land \neg q$.
 
@@ -744,12 +797,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Negate a Quantified Statement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#implication" data-notes-nav-item>Implication</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#implication" data-notes-nav-item>Implication</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Write the negation of:</p>
@@ -769,9 +824,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -785,7 +842,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Congruence modulo $4$ is:
+    </article><article class="practice-problem panel" id="discrete-math-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Equivalence Relations, Modular Arithmetic" data-problem-difficulty="Integrated" data-problem-answer="Congruence modulo $4$ is:
 
 - Reflexive, because $a \equiv a \pmod 4$
 - Symmetric, because if $a \equiv b \pmod 4$, then $b \equiv a \pmod 4$
@@ -801,12 +858,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Use Congruence Modulo 4</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#equivalence-relations" data-notes-nav-item>Equivalence Relations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#modular-arithmetic" data-notes-nav-item>Modular Arithmetic</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#equivalence-relations" data-notes-nav-item>Equivalence Relations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#modular-arithmetic" data-notes-nav-item>Modular Arithmetic</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Consider the relation on integers defined by</p>
@@ -827,9 +886,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -844,7 +905,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Use the contrapositive: prove that if $n$ is odd, then $n^2$ is odd.
+    </article><article class="practice-problem panel" id="discrete-math-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Contrapositive, Divisibility" data-problem-difficulty="Integrated" data-problem-answer="Use the contrapositive: prove that if $n$ is odd, then $n^2$ is odd.
 
 If $n$ is odd, then $n = 2k+1$ for some integer $k$. Then
 
@@ -858,12 +919,14 @@ So the contrapositive is true, and therefore the original statement is true.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Prove a Divisibility Claim by Contrapositive</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#contrapositive" data-notes-nav-item>Contrapositive</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#divisibility" data-notes-nav-item>Divisibility</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#contrapositive" data-notes-nav-item>Contrapositive</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#divisibility" data-notes-nav-item>Divisibility</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that if $n^2$ is even, then $n$ is even.</p>
@@ -880,9 +943,11 @@ So the contrapositive is true, and therefore the original statement is true.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -897,7 +962,7 @@ $$</div>
 <p>So the contrapositive is true, and therefore the original statement is true.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Base case $n=1$:
+    </article><article class="practice-problem panel" id="discrete-math-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Induction, Summation" data-problem-difficulty="Integrated" data-problem-answer="Base case $n=1$:
 
 $$
 1 = \frac{1 \cdot 2}{2}
@@ -930,12 +995,14 @@ This is exactly the formula with $n=k+1$. Therefore the statement holds for all 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Prove a Summation Formula by Induction</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#induction" data-notes-nav-item>Induction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#summation" data-notes-nav-item>Summation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#induction" data-notes-nav-item>Induction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#summation" data-notes-nav-item>Summation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Use mathematical induction to prove that</p>
@@ -956,9 +1023,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -987,7 +1056,7 @@ $$</div>
 <p>This is exactly the formula with $n=k+1$. Therefore the statement holds for all $n \ge 1$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="If one student must be included, choose the other $2$ committee members from the remaining $7$ students.
+    </article><article class="practice-problem panel" id="discrete-math-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Combinations, Counting" data-problem-difficulty="Integrated" data-problem-answer="If one student must be included, choose the other $2$ committee members from the remaining $7$ students.
 
 The number of ways is
 
@@ -997,12 +1066,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Count Committees with a Required Member</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#combinations" data-notes-nav-item>Combinations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#combinations" data-notes-nav-item>Combinations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>From a group of $8$ students, how many $3$-person committees can be formed if one specific student must be included?</p>
@@ -1019,9 +1090,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1034,7 +1107,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Use conditional probability:
+    </article><article class="practice-problem panel" id="discrete-math-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Conditional Probability, Counting" data-problem-difficulty="Integrated" data-problem-answer="Use conditional probability:
 
 $$
 P(R \mid M) = \frac{P(R \cap M)}{P(M)}
@@ -1050,12 +1123,14 @@ So the probability is $\frac{4}{7}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Compute a Conditional Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#conditional-probability" data-notes-nav-item>Conditional Probability</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#conditional-probability" data-notes-nav-item>Conditional Probability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In a club of $12$ students, $7$ are in math club and $4$ are in both math club and robotics club.</p>
@@ -1073,9 +1148,11 @@ So the probability is $\frac{4}{7}$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1092,7 +1169,7 @@ $$</div>
 <p>So the probability is $\frac{4}{7}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use the Euclidean algorithm:
+    </article><article class="practice-problem panel" id="discrete-math-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Greatest Common Divisor, Euclidean Algorithm" data-problem-difficulty="Integrated" data-problem-answer="Use the Euclidean algorithm:
 
 $$
 252 = 198 + 54
@@ -1124,12 +1201,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Apply the Euclidean Algorithm</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#greatest-common-divisor" data-notes-nav-item>Greatest Common Divisor</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#euclidean-algorithm" data-notes-nav-item>Euclidean Algorithm</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#greatest-common-divisor" data-notes-nav-item>Greatest Common Divisor</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#euclidean-algorithm" data-notes-nav-item>Euclidean Algorithm</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find $\gcd(252,198)$.</p>
@@ -1146,9 +1225,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1177,7 +1258,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Compare the ratio:
+    </article><article class="practice-problem panel" id="discrete-math-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Asymptotic Notation, Growth Rates" data-problem-difficulty="Integrated" data-problem-answer="Compare the ratio:
 
 $$
 \frac{n^2}{n \log n} = \frac{n}{\log n}
@@ -1195,12 +1276,14 @@ but $n^2$ is not $O(n \log n)$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Compare Two Growth Rates</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#asymptotic-notation" data-notes-nav-item>Asymptotic Notation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#growth-rates" data-notes-nav-item>Growth Rates</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#asymptotic-notation" data-notes-nav-item>Asymptotic Notation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#growth-rates" data-notes-nav-item>Growth Rates</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which grows faster as $n$ becomes large: $n \log n$ or $n^2$?</p>
@@ -1217,9 +1300,11 @@ but $n^2$ is not $O(n \log n)$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1251,7 +1336,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="discrete-math-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Count all committees, then subtract those with no captains.
+          <article class="practice-problem panel" id="discrete-math-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Combinations, Inclusion-Exclusion" data-problem-difficulty="Applied" data-problem-answer="Count all committees, then subtract those with no captains.
 
 Total committees:
 
@@ -1273,12 +1358,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Count Committees with a Restriction</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#combinations" data-notes-nav-item>Combinations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#inclusion-exclusion" data-notes-nav-item>Inclusion-Exclusion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#combinations" data-notes-nav-item>Combinations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#inclusion-exclusion" data-notes-nav-item>Inclusion-Exclusion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A school needs a $4$-person committee from $10$ students. Two students are the team captains, and the committee must include at least one captain.</p>
@@ -1296,9 +1383,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1319,7 +1408,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="There are $12$ months, so there are $12$ boxes.
+    </article><article class="practice-problem panel" id="discrete-math-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Pigeonhole Principle, Counting" data-problem-difficulty="Applied" data-problem-answer="There are $12$ months, so there are $12$ boxes.
 
 To avoid having $3$ students in any one month, you can place at most $2$ students in each month:
 
@@ -1337,12 +1426,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Apply the Pigeonhole Principle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#pigeonhole-principle" data-notes-nav-item>Pigeonhole Principle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#pigeonhole-principle" data-notes-nav-item>Pigeonhole Principle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the smallest number of students needed to guarantee that at least $3$ students were born in the same month?</p>
@@ -1359,9 +1450,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1379,7 +1472,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="The probability of rolling an even number is $\frac{1}{2}$, and the probability of rolling an odd number is $\frac{1}{2}$.
+    </article><article class="practice-problem panel" id="discrete-math-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Expected Value, Probability" data-problem-difficulty="Applied" data-problem-answer="The probability of rolling an even number is $\frac{1}{2}$, and the probability of rolling an odd number is $\frac{1}{2}$.
 
 So the expected value is
 
@@ -1395,12 +1488,14 @@ So the expected value is \$1.50.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find the Expected Value of a Simple Game</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#expected-value" data-notes-nav-item>Expected Value</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#probability" data-notes-nav-item>Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#expected-value" data-notes-nav-item>Expected Value</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#probability" data-notes-nav-item>Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fair die is rolled. You win \$5 if the result is even and lose \$2 if the result is odd. What is the expected value of the game?</p>
@@ -1417,9 +1512,11 @@ So the expected value is \$1.50.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1436,7 +1533,7 @@ $$</div>
 <p>So the expected value is \$1.50.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Days of the week repeat every $7$ days, so compute
+    </article><article class="practice-problem panel" id="discrete-math-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Modular Arithmetic, Congruence" data-problem-difficulty="Applied" data-problem-answer="Days of the week repeat every $7$ days, so compute
 
 $$
 100 \bmod 7 = 2
@@ -1448,12 +1545,14 @@ Thursday.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Use Modular Arithmetic on a Calendar</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#modular-arithmetic" data-notes-nav-item>Modular Arithmetic</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#congruence" data-notes-nav-item>Congruence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#modular-arithmetic" data-notes-nav-item>Modular Arithmetic</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#congruence" data-notes-nav-item>Congruence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Today is Wednesday. What day of the week will it be $100$ days from now?</p>
@@ -1470,9 +1569,11 @@ Thursday.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1486,7 +1587,7 @@ $$</div>
 <p>Thursday.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="The recurrence is
+    </article><article class="practice-problem panel" id="discrete-math-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Recurrences, Exponential Growth" data-problem-difficulty="Applied" data-problem-answer="The recurrence is
 
 $$
 a_0 = 2,\quad a_n = 3a_{n-1}
@@ -1506,12 +1607,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Solve a Geometric Recurrence</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#recurrences" data-notes-nav-item>Recurrences</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#exponential-growth" data-notes-nav-item>Exponential Growth</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#recurrences" data-notes-nav-item>Recurrences</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#exponential-growth" data-notes-nav-item>Exponential Growth</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A bacteria culture starts with $2$ bacteria and triples each hour.</p>
@@ -1529,9 +1632,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1565,7 +1670,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="discrete-math-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="We use strong induction.
+          <article class="practice-problem panel" id="discrete-math-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Strong Induction, Prime Factorization" data-problem-difficulty="Challenge" data-problem-answer="We use strong induction.
 
 Base case: $n=2$. The number $2$ is prime, so it is already a product of primes.
 
@@ -1590,12 +1695,14 @@ Therefore every integer $n \ge 2$ can be written as a product of primes.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Prove Prime Factorization by Strong Induction</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#strong-induction" data-notes-nav-item>Strong Induction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#prime-factorization" data-notes-nav-item>Prime Factorization</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#strong-induction" data-notes-nav-item>Strong Induction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#prime-factorization" data-notes-nav-item>Prime Factorization</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that every integer $n \ge 2$ can be written as a product of primes.</p>
@@ -1612,9 +1719,11 @@ Therefore every integer $n \ge 2$ can be written as a product of primes.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1635,7 +1744,7 @@ $$</div>
 <p>Therefore every integer $n \ge 2$ can be written as a product of primes.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="Use inclusion-exclusion.
+    </article><article class="practice-problem panel" id="discrete-math-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Inclusion-Exclusion, Counting" data-problem-difficulty="Challenge" data-problem-answer="Use inclusion-exclusion.
 
 Counts of multiples:
 
@@ -1667,12 +1776,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Count Multiples with Inclusion-Exclusion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#inclusion-exclusion" data-notes-nav-item>Inclusion-Exclusion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#inclusion-exclusion" data-notes-nav-item>Inclusion-Exclusion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#counting" data-notes-nav-item>Counting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many integers from $1$ to $100$ are divisible by $2$, $3$, or $5$?</p>
@@ -1689,9 +1800,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1720,7 +1833,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="First add the degrees:
+    </article><article class="practice-problem panel" id="discrete-math-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Handshaking Lemma, Trees, Graphs" data-problem-difficulty="Challenge" data-problem-answer="First add the degrees:
 
 $$
 3+3+2+2+1+1 = 12
@@ -1748,12 +1861,14 @@ edges. Since this graph has $6$ edges, it cannot be a tree.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Use Degrees to Test a Tree</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#handshaking-lemma" data-notes-nav-item>Handshaking Lemma</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#trees" data-notes-nav-item>Trees</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#graphs" data-notes-nav-item>Graphs</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#handshaking-lemma" data-notes-nav-item>Handshaking Lemma</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#trees" data-notes-nav-item>Trees</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#graphs" data-notes-nav-item>Graphs</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A connected graph has $6$ vertices with degree sequence</p>
@@ -1774,9 +1889,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1801,7 +1918,7 @@ $$</div>
 <p>edges. Since this graph has $6$ edges, it cannot be a tree.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="discrete-math-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="A good loop invariant is:
+    </article><article class="practice-problem panel" id="discrete-math-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Loop Invariants, Algorithm Correctness" data-problem-difficulty="Challenge" data-problem-answer="A good loop invariant is:
 
 &gt; After the loop has processed the numbers $1,2,\dots,k$, the variable `total` equals $1+2+\cdots+k$.
 
@@ -1819,12 +1936,14 @@ Therefore the algorithm is correct.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Verify a Loop Invariant</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#loop-invariants" data-notes-nav-item>Loop Invariants</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#algorithm-correctness" data-notes-nav-item>Algorithm Correctness</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#loop-invariants" data-notes-nav-item>Loop Invariants</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/discrete-math/#algorithm-correctness" data-notes-nav-item>Algorithm Correctness</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Consider the algorithm:</p>
@@ -1848,9 +1967,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

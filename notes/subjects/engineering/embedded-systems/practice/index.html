@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Embedded Systems" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,18 +149,20 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="embedded-systems-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="$$
+          <article class="practice-problem panel" id="embedded-systems-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="ADC, Quantization" data-problem-difficulty="Direct" data-problem-answer="$$
 q=\frac{V_{ref}}{2^N}=\frac{5}{2^{10}}=0.00488\ \mathrm V\approx4.88\ \mathrm{mV}.
 $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Compute an ADC Step</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#adc" data-notes-nav-item>ADC</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#quantization" data-notes-nav-item>Quantization</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#adc" data-notes-nav-item>ADC</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#quantization" data-notes-nav-item>Quantization</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the ideal voltage step of a 10-bit ADC with a $5\ \mathrm V$ reference?</p>
@@ -164,9 +179,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -177,7 +194,7 @@ q=\frac{V_{ref}}{2^N}=\frac{5}{2^{10}}=0.00488\ \mathrm V\approx4.88\ \mathrm{mV
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="embedded-systems-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Sampling, Nyquist" data-problem-difficulty="Direct" data-problem-answer="$$
 f_s&gt;2f_{max}=2(100)=200\ \mathrm{Hz}.
 $$
 
@@ -185,12 +202,14 @@ Practical designs usually sample faster to allow an anti-alias filter transition
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Choose a Sampling Rate</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#sampling" data-notes-nav-item>Sampling</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#nyquist" data-notes-nav-item>Nyquist</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#sampling" data-notes-nav-item>Sampling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#nyquist" data-notes-nav-item>Nyquist</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A sensor contains useful content up to $100\ \mathrm{Hz}$. What is the minimum ideal sampling-rate condition to avoid aliasing?</p>
@@ -207,9 +226,11 @@ Practical designs usually sample faster to allow an anti-alias filter transition
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -221,18 +242,20 @@ $$</div>
 <p>Practical designs usually sample faster to allow an anti-alias filter transition band and timing margin.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="embedded-systems-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="PWM, Duty cycle" data-problem-difficulty="Direct" data-problem-answer="$$
 V_{avg}=DV=0.25(12)=3\ \mathrm V.
 $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Calculate PWM Average</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#pwm" data-notes-nav-item>PWM</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#duty-cycle" data-notes-nav-item>Duty cycle</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#pwm" data-notes-nav-item>PWM</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#duty-cycle" data-notes-nav-item>Duty cycle</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An ideal $0$-to-$12\ \mathrm V$ PWM signal has duty cycle $25\%$ and drives a sufficiently slow resistive load. What is its average voltage?</p>
@@ -249,9 +272,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -262,18 +287,20 @@ V_{avg}=DV=0.25(12)=3\ \mathrm V.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="embedded-systems-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Timers, Clocking" data-problem-difficulty="Direct" data-problem-answer="$$
 T=\frac{p(ARR+1)}{f_{clk}}=\frac{10(1000)}{1{,}000{,}000}=0.010\ \mathrm s=10\ \mathrm{ms}.
 $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find a Timer Period</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#timers" data-notes-nav-item>Timers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#clocking" data-notes-nav-item>Clocking</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#timers" data-notes-nav-item>Timers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#clocking" data-notes-nav-item>Clocking</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A timer clock is $1\ \mathrm{MHz}$, the prescaler is $10$, and $ARR=999$. Find the timer period.</p>
@@ -290,9 +317,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -303,7 +332,7 @@ T=\frac{p(ARR+1)}{f_{clk}}=\frac{10(1000)}{1{,}000{,}000}=0.010\ \mathrm s=10\ \
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="$$
+    </article><article class="practice-problem panel" id="embedded-systems-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Real-time systems, Scheduling" data-problem-difficulty="Direct" data-problem-answer="$$
 U=\frac{C}{T}=\frac{0.5}{5}=0.10.
 $$
 
@@ -311,12 +340,14 @@ The task uses an estimated $10\%$ of the processor before accounting for interru
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Estimate Task Utilization</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#real-time-systems" data-notes-nav-item>Real-time systems</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#scheduling" data-notes-nav-item>Scheduling</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#real-time-systems" data-notes-nav-item>Real-time systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#scheduling" data-notes-nav-item>Scheduling</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A task executes for $0.5\ \mathrm{ms}$ every $5\ \mathrm{ms}$. What is its utilization?</p>
@@ -333,9 +364,11 @@ The task uses an estimated $10\%$ of the processor before accounting for interru
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -347,16 +380,18 @@ $$</div>
 <p>The task uses an estimated $10\%$ of the processor before accounting for interrupts, scheduling overhead, blocking, and other tasks.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="`volatile` prevents the compiler from assuming that the value is unchanged between accesses. It does not make a read-modify-write increment atomic. The ISR can occur between the read and write, so use an atomic operation, a protected critical section, or a suitable synchronization design.">
+    </article><article class="practice-problem panel" id="embedded-systems-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Interrupts, Concurrency" data-problem-difficulty="Direct" data-problem-answer="`volatile` prevents the compiler from assuming that the value is unchanged between accesses. It does not make a read-modify-write increment atomic. The ISR can occur between the read and write, so use an atomic operation, a protected critical section, or a suitable synchronization design.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Distinguish Volatile from Atomic</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#interrupts" data-notes-nav-item>Interrupts</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#concurrency" data-notes-nav-item>Concurrency</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#interrupts" data-notes-nav-item>Interrupts</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#concurrency" data-notes-nav-item>Concurrency</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Why is declaring a shared variable <code>volatile</code> not enough to make an increment safe between an ISR and foreground code?</p>
@@ -373,9 +408,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -384,16 +421,18 @@ $$</div>
           <p><code>volatile</code> prevents the compiler from assuming that the value is unchanged between accesses. It does not make a read-modify-write increment atomic. The ISR can occur between the read and write, so use an atomic operation, a protected critical section, or a suitable synchronization design.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="No. UART defines electrical signaling and an asynchronous character frame, but an application must add message framing, length or terminators, timeout rules, and an integrity check such as a checksum or CRC.">
+    </article><article class="practice-problem panel" id="embedded-systems-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Communication protocols, UART" data-problem-difficulty="Direct" data-problem-answer="No. UART defines electrical signaling and an asynchronous character frame, but an application must add message framing, length or terminators, timeout rules, and an integrity check such as a checksum or CRC.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Select a Protocol Property</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#communication-protocols" data-notes-nav-item>Communication protocols</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#uart" data-notes-nav-item>UART</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#communication-protocols" data-notes-nav-item>Communication protocols</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#uart" data-notes-nav-item>UART</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Does UART by itself define message boundaries and guarantee that a received message is valid?</p>
@@ -410,9 +449,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -421,16 +462,18 @@ $$</div>
           <p>No. UART defines electrical signaling and an asynchronous character frame, but an application must add message framing, length or terminators, timeout rules, and an integrity check such as a checksum or CRC.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="embedded-systems-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Disconnect or substitute an out-of-range temperature sensor. The firmware should detect the invalid signal, record a diagnostic, and move the heater or actuator to its specified safe state rather than continuing with an untrusted measurement.">
+    </article><article class="practice-problem panel" id="embedded-systems-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Embedded testing, Fault injection" data-problem-difficulty="Direct" data-problem-answer="Disconnect or substitute an out-of-range temperature sensor. The firmware should detect the invalid signal, record a diagnostic, and move the heater or actuator to its specified safe state rather than continuing with an untrusted measurement.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Identify a Useful Test</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#embedded-testing" data-notes-nav-item>Embedded testing</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#fault-injection" data-notes-nav-item>Fault injection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#embedded-testing" data-notes-nav-item>Embedded testing</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/embedded-systems/#fault-injection" data-notes-nav-item>Fault injection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Give one fault-injection test for a temperature controller and state the expected safe response.</p>
@@ -447,9 +490,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

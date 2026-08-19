@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,57 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Materials Science" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Formula summary</h2><div class="markdown-body"><h3 id="mechanics">Mechanics</h3>
+<div class="math-block">$$
+\sigma = \frac{F}{A_0}
+$$</div>
+<div class="math-block">$$
+\varepsilon = \frac{L - L_0}{L_0}
+$$</div>
+<div class="math-block">$$
+\sigma = E\varepsilon
+$$</div>
+<div class="math-block">$$
+\sigma_y = \sigma_0 + k_y d^{-1/2}
+$$</div>
+<div class="math-block">$$
+K = Y\sigma \sqrt{\pi a}
+$$</div>
+<h3 id="diffusion">Diffusion</h3>
+<div class="math-block">$$
+J = -D \frac{dC}{dx}
+$$</div>
+<div class="math-block">$$
+\frac{\partial C}{\partial t} = D \frac{\partial^2 C}{\partial x^2}
+$$</div>
+<div class="math-block">$$
+D = D_0 e^{-Q/RT}
+$$</div>
+<h3 id="phase-fractions">Phase fractions</h3>
+<div class="math-block">$$
+W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
+$$</div>
+<div class="math-block">$$
+W_\beta = \frac{C_0 - C_\alpha}{C_\beta - C_\alpha}
+$$</div>
+<h3 id="crystal-geometry">Crystal geometry</h3>
+<div class="math-block">$$
+a = \frac{4r}{\sqrt{3}} \quad \text{for BCC}
+$$</div>
+<div class="math-block">$$
+a = 2\sqrt{2}\,r \quad \text{for FCC}
+$$</div>
+<hr />
+<a id="common-pitfalls"></a></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +190,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="materials-science-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The chain is
+          <article class="practice-problem panel" id="materials-science-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Processing-structure-properties" data-problem-difficulty="Direct" data-problem-answer="The chain is
 
 $$
 \text{Processing} \rightarrow \text{Structure} \rightarrow \text{Properties} \rightarrow \text{Performance}
@@ -146,12 +200,14 @@ So processing affects structure, structure affects properties, and properties af
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">State the Processing Chain</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#processing-structure-properties" data-notes-nav-item>Processing-structure-properties</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#processing-structure-properties" data-notes-nav-item>Processing-structure-properties</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>According to the central idea in the note, what is the order of the four linked factors in materials science?</p>
@@ -168,9 +224,11 @@ So processing affects structure, structure affects properties, and properties af
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -183,18 +241,20 @@ $$</div>
 <p>So processing affects structure, structure affects properties, and properties affect performance.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="That is **metallic bonding**.
+    </article><article class="practice-problem panel" id="materials-science-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Bonding, Metals" data-problem-difficulty="Direct" data-problem-answer="That is **metallic bonding**.
 
 The delocalized electrons explain why metals conduct electricity and why they can deform plastically without immediately fracturing.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Identify a Metallic Bond Effect</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#bonding" data-notes-nav-item>Bonding</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#metals" data-notes-nav-item>Metals</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#bonding" data-notes-nav-item>Bonding</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#metals" data-notes-nav-item>Metals</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which bonding type is associated with delocalized electrons, electrical conductivity, and ductility?</p>
@@ -211,9 +271,11 @@ The delocalized electrons explain why metals conduct electricity and why they ca
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -223,7 +285,7 @@ The delocalized electrons explain why metals conduct electricity and why they ca
 <p>The delocalized electrons explain why metals conduct electricity and why they can deform plastically without immediately fracturing.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="An FCC unit cell contains
+    </article><article class="practice-problem panel" id="materials-science-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Crystal structures" data-problem-difficulty="Direct" data-problem-answer="An FCC unit cell contains
 
 $$
 4
@@ -233,12 +295,14 @@ atoms.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Count Atoms in an FCC Cell</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystal-structures" data-notes-nav-item>Crystal structures</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystal-structures" data-notes-nav-item>Crystal structures</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many atoms are in one face-centered cubic (FCC) unit cell?</p>
@@ -255,9 +319,11 @@ atoms.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -270,18 +336,20 @@ $$</div>
 <p>atoms.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="That defect is a **vacancy**.
+    </article><article class="practice-problem panel" id="materials-science-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Point defects" data-problem-difficulty="Direct" data-problem-answer="That defect is a **vacancy**.
 
 It is one of the common point defects listed in the note.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Name a Vacancy Defect</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#point-defects" data-notes-nav-item>Point defects</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#point-defects" data-notes-nav-item>Point defects</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What point defect is created when an atom is missing from its normal lattice site?</p>
@@ -298,9 +366,11 @@ It is one of the common point defects listed in the note.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -310,18 +380,20 @@ It is one of the common point defects listed in the note.">
 <p>It is one of the common point defects listed in the note.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Miller indices describe **crystallographic planes and directions**.
+    </article><article class="practice-problem panel" id="materials-science-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Miller indices, Crystallography" data-problem-difficulty="Direct" data-problem-answer="Miller indices describe **crystallographic planes and directions**.
 
 They are used to identify things like slip systems, cleavage planes, and anisotropy.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">State What Miller Indices Describe</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#miller-indices" data-notes-nav-item>Miller indices</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystallography" data-notes-nav-item>Crystallography</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#miller-indices" data-notes-nav-item>Miller indices</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystallography" data-notes-nav-item>Crystallography</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What do Miller indices describe in a crystal?</p>
@@ -338,9 +410,11 @@ They are used to identify things like slip systems, cleavage planes, and anisotr
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -350,7 +424,7 @@ They are used to identify things like slip systems, cleavage planes, and anisotr
 <p>They are used to identify things like slip systems, cleavage planes, and anisotropy.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="materials-science-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Stress, Units" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \sigma = \frac{F}{A_0}
@@ -370,12 +444,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Compute Engineering Stress</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#stress" data-notes-nav-item>Stress</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#units" data-notes-nav-item>Units</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#stress" data-notes-nav-item>Stress</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#units" data-notes-nav-item>Units</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A tensile specimen carries a force of $12$ kN over an original area of $30$ mm$^2$.</p>
@@ -393,9 +469,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -415,18 +493,20 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="That treatment is **quenching**.
+    </article><article class="practice-problem panel" id="materials-science-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Heat treatment" data-problem-difficulty="Direct" data-problem-answer="That treatment is **quenching**.
 
 Rapid cooling can suppress diffusion and produce a harder microstructure.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Choose the Right Heat Treatment</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which heat treatment is used to increase hardness by rapid cooling?</p>
@@ -443,9 +523,11 @@ Rapid cooling can suppress diffusion and produce a harder microstructure.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -455,18 +537,20 @@ Rapid cooling can suppress diffusion and produce a harder microstructure.">
 <p>Rapid cooling can suppress diffusion and produce a harder microstructure.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="That class is **polymers**.
+    </article><article class="practice-problem panel" id="materials-science-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Polymers, Material classes" data-problem-difficulty="Direct" data-problem-answer="That class is **polymers**.
 
 The note lists them as low density, low stiffness, and strongly affected by temperature and strain rate.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Match a Material Class to Its Traits</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#polymers" data-notes-nav-item>Polymers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#material-classes" data-notes-nav-item>Material classes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#polymers" data-notes-nav-item>Polymers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#material-classes" data-notes-nav-item>Material classes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which material class is typically low density, low modulus, viscoelastic, and strongly dependent on temperature and strain rate?</p>
@@ -483,9 +567,11 @@ The note lists them as low density, low stiffness, and strongly affected by temp
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -495,18 +581,20 @@ The note lists them as low density, low stiffness, and strongly affected by temp
 <p>The note lists them as low density, low stiffness, and strongly affected by temperature and strain rate.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="The best method is **X-ray diffraction (XRD)**.
+    </article><article class="practice-problem panel" id="materials-science-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="XRD, Characterization" data-problem-difficulty="Direct" data-problem-answer="The best method is **X-ray diffraction (XRD)**.
 
 The note says XRD is used for crystal structure and phase identification.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Identify the Best Characterization Tool</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#xrd" data-notes-nav-item>XRD</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#characterization" data-notes-nav-item>Characterization</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#xrd" data-notes-nav-item>XRD</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#characterization" data-notes-nav-item>Characterization</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which characterization method is best for identifying crystal structure and phase identity by lattice spacing?</p>
@@ -523,9 +611,11 @@ The note says XRD is used for crystal structure and phase identification.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -535,18 +625,20 @@ The note says XRD is used for crystal structure and phase identification.">
 <p>The note says XRD is used for crystal structure and phase identification.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="You should first define the **function of the part**.
+    </article><article class="practice-problem panel" id="materials-science-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Materials selection" data-problem-difficulty="Direct" data-problem-answer="You should first define the **function of the part**.
 
 From there, you can identify the loading, environment, temperature, lifetime, and other constraints.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Pick the First Selection Step</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#materials-selection" data-notes-nav-item>Materials selection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#materials-selection" data-notes-nav-item>Materials selection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Before screening candidate materials, what is the first thing you should define in the selection workflow?</p>
@@ -563,9 +655,11 @@ From there, you can identify the loading, environment, temperature, lifetime, an
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -589,7 +683,7 @@ From there, you can identify the loading, environment, temperature, lifetime, an
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="materials-science-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="For FCC,
+          <article class="practice-problem panel" id="materials-science-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Crystal structures, FCC" data-problem-difficulty="Integrated" data-problem-answer="For FCC,
 
 $$
 a = 2\sqrt{2}\,r
@@ -609,12 +703,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Find the Unit-Cell Edge Length</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystal-structures" data-notes-nav-item>Crystal structures</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#fcc" data-notes-nav-item>FCC</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystal-structures" data-notes-nav-item>Crystal structures</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#fcc" data-notes-nav-item>FCC</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An FCC metal has atomic radius $r = 0.125$ nm.</p>
@@ -632,9 +728,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -654,7 +752,7 @@ a \approx 0.354\ \text{nm}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="The Hall-Petch term is proportional to $d^{-1/2}$.
+    </article><article class="practice-problem panel" id="materials-science-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Hall-Petch, Grain-size strengthening" data-problem-difficulty="Integrated" data-problem-answer="The Hall-Petch term is proportional to $d^{-1/2}$.
 
 For material A:
 
@@ -674,12 +772,14 @@ Therefore, **material B** should have the higher yield strength.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Compare Two Grain Sizes</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#hall-petch" data-notes-nav-item>Hall-Petch</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#grain-size-strengthening" data-notes-nav-item>Grain-size strengthening</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#hall-petch" data-notes-nav-item>Hall-Petch</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#grain-size-strengthening" data-notes-nav-item>Grain-size strengthening</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Material A has a grain size of $16\ \mu\text{m}$ and material B has a grain size of $4\ \mu\text{m}$.</p>
@@ -697,9 +797,11 @@ Therefore, **material B** should have the higher yield strength.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -718,7 +820,7 @@ $$</div>
 <p>Therefore, <strong>material B</strong> should have the higher yield strength.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Use the lever rule:
+    </article><article class="practice-problem panel" id="materials-science-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Lever rule, Phase diagrams" data-problem-difficulty="Integrated" data-problem-answer="Use the lever rule:
 
 $$
 W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
@@ -744,12 +846,14 @@ So the two phases are present in equal amounts.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use the Lever Rule for Phase Fractions</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#lever-rule" data-notes-nav-item>Lever rule</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#phase-diagrams" data-notes-nav-item>Phase diagrams</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#lever-rule" data-notes-nav-item>Lever rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#phase-diagrams" data-notes-nav-item>Phase diagrams</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>At a temperature in a two-phase $\alpha+\beta$ region, suppose</p>
@@ -770,9 +874,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -796,18 +902,20 @@ $$</div>
 <p>So the two phases are present in equal amounts.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="As $T$ increases, the quantity $-Q/RT$ becomes less negative, so the exponential term gets larger.
+    </article><article class="practice-problem panel" id="materials-science-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Diffusion, Arrhenius relation" data-problem-difficulty="Integrated" data-problem-answer="As $T$ increases, the quantity $-Q/RT$ becomes less negative, so the exponential term gets larger.
 
 Therefore, **diffusivity increases** with temperature, and it usually increases rapidly because of the exponential dependence.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Interpret the Effect of Temperature on Diffusivity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#diffusion" data-notes-nav-item>Diffusion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#arrhenius-relation" data-notes-nav-item>Arrhenius relation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#diffusion" data-notes-nav-item>Diffusion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#arrhenius-relation" data-notes-nav-item>Arrhenius relation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Using</p>
@@ -828,9 +936,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -840,18 +950,20 @@ $$</div>
 <p>Therefore, <strong>diffusivity increases</strong> with temperature, and it usually increases rapidly because of the exponential dependence.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="The ultimate tensile strength is the **maximum engineering stress** reached on the curve.
+    </article><article class="practice-problem panel" id="materials-science-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Tensile test, Plastic deformation" data-problem-difficulty="Integrated" data-problem-answer="The ultimate tensile strength is the **maximum engineering stress** reached on the curve.
 
 After that point, necking usually begins.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Read a Tensile Curve Milestone</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#tensile-test" data-notes-nav-item>Tensile test</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#plastic-deformation" data-notes-nav-item>Plastic deformation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#tensile-test" data-notes-nav-item>Tensile test</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#plastic-deformation" data-notes-nav-item>Plastic deformation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>On a tensile test curve, what does the ultimate tensile strength mark?</p>
@@ -868,9 +980,11 @@ After that point, necking usually begins.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -880,7 +994,7 @@ After that point, necking usually begins.">
 <p>After that point, necking usually begins.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="The usual sequence is:
+    </article><article class="practice-problem panel" id="materials-science-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Precipitation hardening, Heat treatment" data-problem-difficulty="Integrated" data-problem-answer="The usual sequence is:
 
 1. Solution heat treat
 2. Quench
@@ -890,12 +1004,14 @@ Quenching is used to retain a **supersaturated solid solution** so that fine pre
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Order a Precipitation-Hardening Sequence</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#precipitation-hardening" data-notes-nav-item>Precipitation hardening</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#precipitation-hardening" data-notes-nav-item>Precipitation hardening</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Put the precipitation-hardening steps in order, and state why quenching is used.</p>
@@ -912,9 +1028,11 @@ Quenching is used to retain a **supersaturated solid solution** so that fine pre
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -925,7 +1043,7 @@ Quenching is used to retain a **supersaturated solid solution** so that fine pre
 <p>Quenching is used to retain a <strong>supersaturated solid solution</strong> so that fine precipitates can form during aging.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="materials-science-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="True strain, Deformation" data-problem-difficulty="Integrated" data-problem-answer="Use
 
 $$
 \varepsilon_t = \ln\left(\frac{L}{L_0}\right)
@@ -941,12 +1059,14 @@ That is the exact true strain.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Convert Strain to True Strain</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#true-strain" data-notes-nav-item>True strain</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#deformation" data-notes-nav-item>Deformation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#true-strain" data-notes-nav-item>True strain</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#deformation" data-notes-nav-item>Deformation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A specimen stretches from $50$ mm to $55$ mm.</p>
@@ -964,9 +1084,11 @@ That is the exact true strain.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -983,18 +1105,20 @@ $$</div>
 <p>That is the exact true strain.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Those values match **face-centered cubic (FCC)**.
+    </article><article class="practice-problem panel" id="materials-science-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Crystal structures, Coordination number" data-problem-difficulty="Integrated" data-problem-answer="Those values match **face-centered cubic (FCC)**.
 
 The note lists FCC as having 4 atoms per unit cell, coordination number 12, and packing factor 0.74.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Identify a Crystal Structure from Geometry</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystal-structures" data-notes-nav-item>Crystal structures</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#coordination-number" data-notes-nav-item>Coordination number</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#crystal-structures" data-notes-nav-item>Crystal structures</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#coordination-number" data-notes-nav-item>Coordination number</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A crystal structure has 4 atoms per unit cell, a coordination number of 12, and a packing factor of 0.74.</p>
@@ -1012,9 +1136,11 @@ The note lists FCC as having 4 atoms per unit cell, coordination number 12, and 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1038,18 +1164,20 @@ The note lists FCC as having 4 atoms per unit cell, coordination number 12, and 
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="materials-science-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="The best fit is a **composite**, especially a fiber-reinforced polymer.
+          <article class="practice-problem panel" id="materials-science-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Composites, Materials selection" data-problem-difficulty="Applied" data-problem-answer="The best fit is a **composite**, especially a fiber-reinforced polymer.
 
 Composites are used for high specific stiffness, directional reinforcement, and tailored performance.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Choose a Material for a Lightweight Stiff Panel</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#composites" data-notes-nav-item>Composites</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#materials-selection" data-notes-nav-item>Materials selection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#composites" data-notes-nav-item>Composites</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#materials-selection" data-notes-nav-item>Materials selection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>You need a panel for a drone wing skin that is light, stiff, and reinforced in a preferred direction.</p>
@@ -1067,9 +1195,11 @@ Composites are used for high specific stiffness, directional reinforcement, and 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1079,7 +1209,7 @@ Composites are used for high specific stiffness, directional reinforcement, and 
 <p>Composites are used for high specific stiffness, directional reinforcement, and tailored performance.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Use the lever rule:
+    </article><article class="practice-problem panel" id="materials-science-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Lever rule, Phase diagrams" data-problem-difficulty="Applied" data-problem-answer="Use the lever rule:
 
 $$
 W_\alpha = \frac{C_\beta - C_0}{C_\beta - C_\alpha}
@@ -1099,12 +1229,14 @@ So $\alpha$ is more abundant, with a mass fraction of $0.6$ versus $0.4$ for $\b
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Predict the Phase Fraction from Composition</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#lever-rule" data-notes-nav-item>Lever rule</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#phase-diagrams" data-notes-nav-item>Phase diagrams</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#lever-rule" data-notes-nav-item>Lever rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#phase-diagrams" data-notes-nav-item>Phase diagrams</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An alloy is in an $\alpha+\beta$ region with</p>
@@ -1125,9 +1257,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1149,7 +1283,7 @@ $$</div>
 <p>So $\alpha$ is more abundant, with a mass fraction of $0.6$ versus $0.4$ for $\beta$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="materials-science-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Fracture toughness, Stress intensity" data-problem-difficulty="Applied" data-problem-answer="Use
 
 $$
 K = Y\sigma\sqrt{\pi a}
@@ -1175,12 +1309,14 @@ the component is **safe by this criterion**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Estimate Crack Safety</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#fracture-toughness" data-notes-nav-item>Fracture toughness</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#stress-intensity" data-notes-nav-item>Stress intensity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#fracture-toughness" data-notes-nav-item>Fracture toughness</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#stress-intensity" data-notes-nav-item>Stress intensity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A component has stress $\sigma = 120$ MPa, crack size $a = 5$ mm, and geometry factor $Y = 1$.</p>
@@ -1198,9 +1334,11 @@ the component is **safe by this criterion**.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1224,18 +1362,20 @@ $$</div>
 <p>the component is <strong>safe by this criterion</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="The next step should be **tempering**.
+    </article><article class="practice-problem panel" id="materials-science-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Tempering, Heat treatment" data-problem-difficulty="Applied" data-problem-answer="The next step should be **tempering**.
 
 The note says tempering reduces brittleness after a quench while helping keep useful hardness.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Pick a Heat Treatment for Toughness</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#tempering" data-notes-nav-item>Tempering</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#tempering" data-notes-nav-item>Tempering</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel part is too brittle after quenching.</p>
@@ -1253,9 +1393,11 @@ The note says tempering reduces brittleness after a quench while helping keep us
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1265,18 +1407,20 @@ The note says tempering reduces brittleness after a quench while helping keep us
 <p>The note says tempering reduces brittleness after a quench while helping keep useful hardness.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="That is **precipitation hardening**.
+    </article><article class="practice-problem panel" id="materials-science-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Precipitation hardening, Alloys" data-problem-difficulty="Applied" data-problem-answer="That is **precipitation hardening**.
 
 The fine precipitates impede dislocation motion and raise strength.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Choose a Strengthening Mechanism for Aluminum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#precipitation-hardening" data-notes-nav-item>Precipitation hardening</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#alloys" data-notes-nav-item>Alloys</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#precipitation-hardening" data-notes-nav-item>Precipitation hardening</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#alloys" data-notes-nav-item>Alloys</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A designer strengthens an aluminum alloy by solution heat treating, quenching, and then aging it so that fine precipitates form.</p>
@@ -1294,9 +1438,11 @@ The fine precipitates impede dislocation motion and raise strength.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1320,18 +1466,20 @@ The fine precipitates impede dislocation motion and raise strength.">
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="materials-science-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="The **yield strength increases** and the **ductility decreases**.
+          <article class="practice-problem panel" id="materials-science-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Hall-Petch, Strain hardening" data-problem-difficulty="Challenge" data-problem-answer="The **yield strength increases** and the **ductility decreases**.
 
 Fine grains strengthen the metal by impeding dislocation motion, and cold work increases dislocation density, which makes further slip harder.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Predict the Effect of Fine Grains and Cold Work</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#hall-petch" data-notes-nav-item>Hall-Petch</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#strain-hardening" data-notes-nav-item>Strain hardening</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#hall-petch" data-notes-nav-item>Hall-Petch</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#strain-hardening" data-notes-nav-item>Strain hardening</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A metal is made finer-grained and then cold-worked.</p>
@@ -1349,9 +1497,11 @@ Fine grains strengthen the metal by impeding dislocation motion, and cold work i
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1361,18 +1511,20 @@ Fine grains strengthen the metal by impeding dislocation motion, and cold work i
 <p>Fine grains strengthen the metal by impeding dislocation motion, and cold work increases dislocation density, which makes further slip harder.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="The best fit is a **ceramic**.
+    </article><article class="practice-problem panel" id="materials-science-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Ceramics, Materials selection" data-problem-difficulty="Challenge" data-problem-answer="The best fit is a **ceramic**.
 
 The main tradeoff is that ceramics are typically **brittle** and have low ductility.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Select a High-Temperature Insulating Material</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#ceramics" data-notes-nav-item>Ceramics</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#materials-selection" data-notes-nav-item>Materials selection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#ceramics" data-notes-nav-item>Ceramics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#materials-selection" data-notes-nav-item>Materials selection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A part must keep its shape at high temperature, resist wear, and act as an electrical insulator.</p>
@@ -1390,9 +1542,11 @@ The main tradeoff is that ceramics are typically **brittle** and have low ductil
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1402,7 +1556,7 @@ The main tradeoff is that ceramics are typically **brittle** and have low ductil
 <p>The main tradeoff is that ceramics are typically <strong>brittle</strong> and have low ductility.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Rapid quenching suppresses diffusion, so the steel transforms into a **metastable martensitic structure** instead of a diffusion-controlled equilibrium structure.
+    </article><article class="practice-problem panel" id="materials-science-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Martensite, Processing-structure-properties" data-problem-difficulty="Challenge" data-problem-answer="Rapid quenching suppresses diffusion, so the steel transforms into a **metastable martensitic structure** instead of a diffusion-controlled equilibrium structure.
 
 That new structure is much harder, but also more brittle.
 
@@ -1410,12 +1564,14 @@ So the processing change leads to a structure change, which then changes propert
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Explain Why Quenching Changes Properties</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#martensite" data-notes-nav-item>Martensite</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#processing-structure-properties" data-notes-nav-item>Processing-structure-properties</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#martensite" data-notes-nav-item>Martensite</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#processing-structure-properties" data-notes-nav-item>Processing-structure-properties</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A rapid quench changes a steel microstructure to martensite.</p>
@@ -1433,9 +1589,11 @@ So the processing change leads to a structure change, which then changes propert
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1446,18 +1604,20 @@ So the processing change leads to a structure change, which then changes propert
 <p>So the processing change leads to a structure change, which then changes properties.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="materials-science-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="The best sequence is to **quench, then temper**.
+    </article><article class="practice-problem panel" id="materials-science-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Heat treatment, Toughness" data-problem-difficulty="Challenge" data-problem-answer="The best sequence is to **quench, then temper**.
 
 Quenching raises hardness, and tempering reduces brittleness and improves toughness enough to make the part more reliable in service.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Choose a Hard-But-Not-Brittle Heat Treatment</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#toughness" data-notes-nav-item>Toughness</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#heat-treatment" data-notes-nav-item>Heat treatment</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/materials-science/#toughness" data-notes-nav-item>Toughness</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steel gear needs high hardness, but it must not fail in a brittle way.</p>
@@ -1475,9 +1635,11 @@ Quenching raises hardness, and tempering reduces brittleness and improves toughn
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

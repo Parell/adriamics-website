@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,46 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Proof Writing" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Quick reference</h2><div class="markdown-body"><p>If the statement is:</p>
+<ul><li><p>\(P \Rightarrow Q\), try direct proof first</p></li><li><p>\(P \Rightarrow Q\) with an awkward conclusion, try contrapositive</p></li><li><p>A universal claim over integers, consider induction</p></li><li><p>A set identity, prove both inclusions</p></li><li><p>An existence statement, try construction or a nonconstructive argument</p></li><li><p>A uniqueness statement, prove existence and then compare two candidates</p></li></ul>
+<hr />
+<h1 id="formula-summary">Formula summary</h1>
+<div class="math-block">$$
+\neg(\forall x\, P(x)) \equiv \exists x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg(\exists x\, P(x)) \equiv \forall x\, \neg P(x)
+$$</div>
+<div class="math-block">$$
+\neg(P \Rightarrow Q) \equiv P \land \neg Q
+$$</div>
+<div class="math-block">$$
+P \Leftrightarrow Q \iff (P \Rightarrow Q) \land (Q \Rightarrow P)
+$$</div>
+<div class="math-block">$$
+A = B \iff (A \subseteq B) \land (B \subseteq A)
+$$</div>
+<div class="math-block">$$
+\text{To prove } \forall x\, P(x), \text{ choose arbitrary } x.
+$$</div>
+<div class="math-block">$$
+\text{To prove } \exists x\, P(x), \text{ exhibit a witness } x.
+$$</div>
+<div class="math-block">$$
+\text{To prove } P \Rightarrow Q, \text{ assume } P \text{ and derive } Q.
+$$</div>
+<div class="math-block">$$
+\text{To prove } P \Rightarrow Q, \text{ it is enough to show } \neg Q \Rightarrow \neg P.
+$$</div></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +179,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="proof-writing-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="This is a universal conditional statement. One symbolic form is
+          <article class="practice-problem panel" id="proof-writing-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Quantifiers, Implication" data-problem-difficulty="Direct" data-problem-answer="This is a universal conditional statement. One symbolic form is
 
 $$
 \forall n \in \mathbb{Z},\; (n \text{ is even} \Rightarrow n^2 \text{ is even}).
@@ -150,12 +193,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Rewrite a Universal Conditional Statement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#implication" data-notes-nav-item>Implication</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#implication" data-notes-nav-item>Implication</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Rewrite the statement below using symbols:</p>
@@ -173,9 +218,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -191,7 +238,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Negate the quantifiers in reverse order:
+    </article><article class="practice-problem panel" id="proof-writing-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Quantifiers, Negation" data-problem-difficulty="Direct" data-problem-answer="Negate the quantifiers in reverse order:
 
 $$
 \neg\bigl(\forall x \in \mathbb{R}\, \exists y \in \mathbb{R}\,(x &lt; y)\bigr)
@@ -203,12 +250,14 @@ In words, there is a real number that is greater than or equal to every real num
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Negate a Quantified Statement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#negation" data-notes-nav-item>Negation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#negation" data-notes-nav-item>Negation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Write the negation of</p>
@@ -228,9 +277,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -245,7 +296,7 @@ $$</div>
 <p>In words, there is a real number that is greater than or equal to every real number.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="You must prove both directions:
+    </article><article class="practice-problem panel" id="proof-writing-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Logical Form, Equivalence" data-problem-difficulty="Direct" data-problem-answer="You must prove both directions:
 
 $$
 P \Rightarrow Q
@@ -257,12 +308,14 @@ Proving both directions is exactly what makes the statement an equivalence.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Split an &#39;If and Only If&#39;</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#logical-form" data-notes-nav-item>Logical Form</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#equivalence" data-notes-nav-item>Equivalence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#logical-form" data-notes-nav-item>Logical Form</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#equivalence" data-notes-nav-item>Equivalence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What two implications must be proved to establish $P \Leftrightarrow Q$?</p>
@@ -279,9 +332,11 @@ Proving both directions is exactly what makes the statement an equivalence.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -296,7 +351,7 @@ $$</div>
 <p>Proving both directions is exactly what makes the statement an equivalence.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Since $m$ and $n$ are even, write
+    </article><article class="practice-problem panel" id="proof-writing-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Direct Proof, Even/Odd" data-problem-difficulty="Direct" data-problem-answer="Since $m$ and $n$ are even, write
 
 $$
 m = 2a \quad \text{and} \quad n = 2b
@@ -312,12 +367,14 @@ Because $a+b$ is an integer, $m+n$ is even.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Add Two Even Integers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that if $m$ and $n$ are even integers, then $m+n$ is even.</p>
@@ -334,9 +391,11 @@ Because $a+b$ is an integer, $m+n$ is even.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -353,7 +412,7 @@ $$</div>
 <p>Because $a+b$ is an integer, $m+n$ is even.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Since $m$ and $n$ are odd, write
+    </article><article class="practice-problem panel" id="proof-writing-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Direct Proof, Even/Odd" data-problem-difficulty="Direct" data-problem-answer="Since $m$ and $n$ are odd, write
 
 $$
 m = 2a+1 \quad \text{and} \quad n = 2b+1
@@ -375,12 +434,14 @@ This has the form $2k+1$, so $mn$ is odd.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Multiply Two Odd Integers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that if $m$ and $n$ are odd integers, then $mn$ is odd.</p>
@@ -397,9 +458,11 @@ This has the form $2k+1$, so $mn$ is odd.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -420,7 +483,7 @@ $$</div>
 <p>This has the form $2k+1$, so $mn$ is odd.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Since $a \mid b$, there is an integer $k$ such that $b = ak$.
+    </article><article class="practice-problem panel" id="proof-writing-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Direct Proof, Divisibility" data-problem-difficulty="Direct" data-problem-answer="Since $a \mid b$, there is an integer $k$ such that $b = ak$.
 
 Since $a \mid c$, there is an integer $\ell$ such that $c = a\ell$.
 
@@ -434,12 +497,14 @@ Because $k+\ell$ is an integer, $a \mid (b+c)$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Add Divisible Numbers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#divisibility" data-notes-nav-item>Divisibility</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#divisibility" data-notes-nav-item>Divisibility</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that if $a \mid b$ and $a \mid c$, then $a \mid (b+c)$.</p>
@@ -456,9 +521,11 @@ Because $k+\ell$ is an integer, $a \mid (b+c)$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -473,7 +540,7 @@ $$</div>
 <p>Because $k+\ell$ is an integer, $a \mid (b+c)$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Let $x \in A \cap B$. By definition of intersection, $x \in A$ and $x \in B$.
+    </article><article class="practice-problem panel" id="proof-writing-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Set Inclusion" data-problem-difficulty="Direct" data-problem-answer="Let $x \in A \cap B$. By definition of intersection, $x \in A$ and $x \in B$.
 
 In particular, $x \in A$. Since every element of $A \cap B$ is an element of $A$, we have
 
@@ -483,12 +550,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">A Basic Set Inclusion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that $A \cap B \subseteq A$.</p>
@@ -505,9 +574,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -520,7 +591,7 @@ A \cap B \subseteq A.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Assume $f(x_1) = f(x_2)$. Then
+    </article><article class="practice-problem panel" id="proof-writing-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Injective, Functions" data-problem-difficulty="Direct" data-problem-answer="Assume $f(x_1) = f(x_2)$. Then
 
 $$
 5x_1 - 2 = 5x_2 - 2.
@@ -542,12 +613,14 @@ Therefore $f$ is injective.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Check Injectivity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#injective" data-notes-nav-item>Injective</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#injective" data-notes-nav-item>Injective</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $f(x) = 5x - 2$ on $\mathbb{R}$. Prove that $f$ is injective.</p>
@@ -564,9 +637,11 @@ Therefore $f$ is injective.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -587,7 +662,7 @@ $$</div>
 <p>Therefore $f$ is injective.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Let $y \in \mathbb{R}$ be arbitrary. Choose
+    </article><article class="practice-problem panel" id="proof-writing-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Surjective, Functions" data-problem-difficulty="Direct" data-problem-answer="Let $y \in \mathbb{R}$ be arbitrary. Choose
 
 $$
 x = \sqrt[3]{y}.
@@ -603,12 +678,14 @@ So every real number has a preimage under $g$, and $g$ is surjective.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Check Surjectivity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#surjective" data-notes-nav-item>Surjective</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#surjective" data-notes-nav-item>Surjective</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $g(x) = x^3$ on $\mathbb{R}$. Prove that $g$ is surjective.</p>
@@ -625,9 +702,11 @@ So every real number has a preimage under $g$, and $g$ is surjective.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -658,7 +737,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="proof-writing-20" data-practice-problem data-exam="exam-ii" data-problem-number="2.0" data-problem-answer="Choose
+          <article class="practice-problem panel" id="proof-writing-20" data-practice-problem data-exam="exam-ii" data-problem-number="2.0" data-problem-skills="Existence, Rational Numbers" data-problem-difficulty="Integrated" data-problem-answer="Choose
 
 $$
 \frac{3}{2}.
@@ -674,12 +753,14 @@ So a rational number between $1$ and $2$ exists.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.0</span><span class="practice-problem__title-text">Give a Witness</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.0</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#existence" data-notes-nav-item>Existence</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#rational-numbers" data-notes-nav-item>Rational Numbers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.0</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#existence" data-notes-nav-item>Existence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#rational-numbers" data-notes-nav-item>Rational Numbers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Show that there exists a rational number between $1$ and $2$.</p>
@@ -696,9 +777,11 @@ So a rational number between $1$ and $2$ exists.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -715,7 +798,7 @@ $$</div>
 <p>So a rational number between $1$ and $2$ exists.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="We prove both inclusions.
+    </article><article class="practice-problem panel" id="proof-writing-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Set Equality, Set Inclusion" data-problem-difficulty="Integrated" data-problem-answer="We prove both inclusions.
 
 First let $x \in A \cap (B \cup C)$. Then $x \in A$ and $x \in B \cup C$. So $x \in B$ or $x \in C$.
 
@@ -735,12 +818,14 @@ Thus the two sets are equal.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Distribute a Set Intersection</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-equality" data-notes-nav-item>Set Equality</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-equality" data-notes-nav-item>Set Equality</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that</p>
@@ -760,9 +845,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -780,7 +867,7 @@ $$</div>
 <p>Thus the two sets are equal.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Reflexive: for any integer $a$,
+    </article><article class="practice-problem panel" id="proof-writing-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Relations, Direct Proof" data-problem-difficulty="Integrated" data-problem-answer="Reflexive: for any integer $a$,
 
 $$
 a-a = 0
@@ -812,12 +899,14 @@ so $a-c$ is even. Hence $aRc$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">An Even-Difference Relation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#relations" data-notes-nav-item>Relations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#relations" data-notes-nav-item>Relations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#direct-proof" data-notes-nav-item>Direct Proof</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>On the integers, define a relation $R$ by $aRb$ if $a-b$ is even. Prove that $R$ is reflexive, symmetric, and transitive.</p>
@@ -834,9 +923,11 @@ so $a-c$ is even. Hence $aRc$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -863,7 +954,7 @@ $$</div>
 <p>so $a-c$ is even. Hence $aRc$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="We prove the contrapositive: if $n$ is odd, then $n^2$ is odd.
+    </article><article class="practice-problem panel" id="proof-writing-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Contrapositive, Even/Odd" data-problem-difficulty="Integrated" data-problem-answer="We prove the contrapositive: if $n$ is odd, then $n^2$ is odd.
 
 If $n$ is odd, then $n = 2k+1$ for some integer $k$. Squaring gives
 
@@ -877,12 +968,14 @@ Therefore the contrapositive is true, and so the original statement is true.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use the Contrapositive</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contrapositive" data-notes-nav-item>Contrapositive</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contrapositive" data-notes-nav-item>Contrapositive</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that if $n^2$ is even, then $n$ is even.</p>
@@ -899,9 +992,11 @@ Therefore the contrapositive is true, and so the original statement is true.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -916,7 +1011,7 @@ $$</div>
 <p>Therefore the contrapositive is true, and so the original statement is true.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Assume, for contradiction, that
+    </article><article class="practice-problem panel" id="proof-writing-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Contradiction, Irrationality" data-problem-difficulty="Integrated" data-problem-answer="Assume, for contradiction, that
 
 $$
 \sqrt{2} = \frac{a}{b}
@@ -946,12 +1041,14 @@ Therefore $\sqrt{2}$ is irrational.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">A Contradiction Argument</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contradiction" data-notes-nav-item>Contradiction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#irrationality" data-notes-nav-item>Irrationality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contradiction" data-notes-nav-item>Contradiction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#irrationality" data-notes-nav-item>Irrationality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that $\sqrt{2}$ is irrational.</p>
@@ -968,9 +1065,11 @@ Therefore $\sqrt{2}$ is irrational.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -998,7 +1097,7 @@ $$</div>
 <p>Therefore $\sqrt{2}$ is irrational.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Consider two cases.
+    </article><article class="practice-problem panel" id="proof-writing-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Cases, Modulo" data-problem-difficulty="Integrated" data-problem-answer="Consider two cases.
 
 If $n$ is even, then $n = 2k$ for some integer $k$. So
 
@@ -1016,12 +1115,14 @@ In either case, $n^2 \equiv 0$ or $1 \pmod{4}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Split Into Cases</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#cases" data-notes-nav-item>Cases</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#modulo" data-notes-nav-item>Modulo</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#cases" data-notes-nav-item>Cases</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#modulo" data-notes-nav-item>Modulo</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that for any integer $n$, $n^2 \equiv 0$ or $1 \pmod{4}$.</p>
@@ -1038,9 +1139,11 @@ In either case, $n^2 \equiv 0$ or $1 \pmod{4}$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1058,7 +1161,7 @@ $$</div>
 <p>In either case, $n^2 \equiv 0$ or $1 \pmod{4}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Base case: when $n=1$,
+    </article><article class="practice-problem panel" id="proof-writing-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Induction, Sums" data-problem-difficulty="Integrated" data-problem-answer="Base case: when $n=1$,
 
 $$
 1 = \frac{1\cdot 2}{2}.
@@ -1090,12 +1193,14 @@ This is exactly the desired formula with $n = k+1$. Therefore the statement hold
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Induction on a Sum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#induction" data-notes-nav-item>Induction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#sums" data-notes-nav-item>Sums</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#induction" data-notes-nav-item>Induction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#sums" data-notes-nav-item>Sums</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove by induction that for all integers $n \ge 1$,</p>
@@ -1115,9 +1220,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1145,7 +1252,7 @@ $$</div>
 <p>This is exactly the desired formula with $n = k+1$. Therefore the statement holds for all $n \ge 1$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Solve the equation:
+    </article><article class="practice-problem panel" id="proof-writing-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Existence, Uniqueness" data-problem-difficulty="Integrated" data-problem-answer="Solve the equation:
 
 $$
 3x - 7 = 11
@@ -1161,12 +1268,14 @@ If $x_1$ and $x_2$ both satisfy $3x - 7 = 11$, then each must equal $6$, so $x_1
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Existence and Uniqueness</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#existence" data-notes-nav-item>Existence</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#uniqueness" data-notes-nav-item>Uniqueness</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#existence" data-notes-nav-item>Existence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#uniqueness" data-notes-nav-item>Uniqueness</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Show that there exists exactly one real number $x$ such that</p>
@@ -1186,9 +1295,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1206,7 +1317,7 @@ $$</div>
 <p>If $x_1$ and $x_2$ both satisfy $3x - 7 = 11$, then each must equal $6$, so $x_1 = x_2$. Thus the solution is unique.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="To show injectivity, assume
+    </article><article class="practice-problem panel" id="proof-writing-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Functions, Injective, Surjective" data-problem-difficulty="Integrated" data-problem-answer="To show injectivity, assume
 
 $$
 f(x_1) = f(x_2).
@@ -1237,12 +1348,14 @@ Therefore $f$ is bijective.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">A Cubic Function Is Bijective</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#injective" data-notes-nav-item>Injective</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#surjective" data-notes-nav-item>Surjective</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#injective" data-notes-nav-item>Injective</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#surjective" data-notes-nav-item>Surjective</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $f(x) = x^3$ on $\mathbb{R}$. Prove that $f$ is bijective.</p>
@@ -1259,9 +1372,11 @@ Therefore $f$ is bijective.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1301,7 +1416,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="proof-writing-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="First show injectivity. If $f(x_1) = f(x_2)$, then
+          <article class="practice-problem panel" id="proof-writing-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Functions, Injective, Surjective" data-problem-difficulty="Applied" data-problem-answer="First show injectivity. If $f(x_1) = f(x_2)$, then
 
 $$
 4x_1 - 1 = 4x_2 - 1.
@@ -1333,12 +1448,14 @@ Therefore $f$ is bijective.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Prove a Linear Map Is Bijective</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#injective" data-notes-nav-item>Injective</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#surjective" data-notes-nav-item>Surjective</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#injective" data-notes-nav-item>Injective</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#surjective" data-notes-nav-item>Surjective</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $f(x) = 4x - 1$ on $\mathbb{R}$. Prove that $f$ is bijective.</p>
@@ -1355,9 +1472,11 @@ Therefore $f$ is bijective.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1384,7 +1503,7 @@ $$</div>
 <p>Therefore $f$ is bijective.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Let $x \in A$. Since $A \cap B = A$, the element $x$ is also in $A \cap B$.
+    </article><article class="practice-problem panel" id="proof-writing-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Set Inclusion, Set Equality" data-problem-difficulty="Applied" data-problem-answer="Let $x \in A$. Since $A \cap B = A$, the element $x$ is also in $A \cap B$.
 
 By definition of intersection, $x \in B$.
 
@@ -1396,12 +1515,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Recover a Set Inclusion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-equality" data-notes-nav-item>Set Equality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-equality" data-notes-nav-item>Set Equality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose $A \cap B = A$. Prove that $A \subseteq B$.</p>
@@ -1418,9 +1539,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1434,7 +1557,7 @@ A \subseteq B.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Every integer is either even or odd.
+    </article><article class="practice-problem panel" id="proof-writing-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Cases, Even/Odd" data-problem-difficulty="Applied" data-problem-answer="Every integer is either even or odd.
 
 If $n$ is even, then $n = 2k$ for some integer $k$, so
 
@@ -1456,12 +1579,14 @@ So in either case, exactly one of $n$ and $n+1$ is even.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Exactly One of Two Consecutive Integers Is Even</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#cases" data-notes-nav-item>Cases</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#cases" data-notes-nav-item>Cases</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#even-odd" data-notes-nav-item>Even/Odd</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that for every integer $n$, exactly one of $n$ and $n+1$ is even.</p>
@@ -1478,9 +1603,11 @@ So in either case, exactly one of $n$ and $n+1$ is even.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1500,7 +1627,7 @@ $$</div>
 <p>So in either case, exactly one of $n$ and $n+1$ is even.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Base case: for $n=1$,
+    </article><article class="practice-problem panel" id="proof-writing-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Induction, Sums" data-problem-difficulty="Applied" data-problem-answer="Base case: for $n=1$,
 
 $$
 1 = 1^2.
@@ -1530,12 +1657,14 @@ So the formula holds for $k+1$. Therefore it holds for all $n \ge 1$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Sum of the First Odd Numbers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#induction" data-notes-nav-item>Induction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#sums" data-notes-nav-item>Sums</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#induction" data-notes-nav-item>Induction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#sums" data-notes-nav-item>Sums</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove by induction that for all integers $n \ge 1$,</p>
@@ -1555,9 +1684,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1583,7 +1714,7 @@ $$</div>
 <p>So the formula holds for $k+1$. Therefore it holds for all $n \ge 1$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Assume, for contradiction, that there is an integer $n$ with $n^2=2$.
+    </article><article class="practice-problem panel" id="proof-writing-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Contradiction, Integers" data-problem-difficulty="Applied" data-problem-answer="Assume, for contradiction, that there is an integer $n$ with $n^2=2$.
 
 Then $n^2$ is even, so $n$ must be even. Write $n=2k$ for some integer $k$. Substituting gives
 
@@ -1601,12 +1732,14 @@ Therefore no integer $n$ satisfies $n^2=2$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">No Integer Squares to Two</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contradiction" data-notes-nav-item>Contradiction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#integers" data-notes-nav-item>Integers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contradiction" data-notes-nav-item>Contradiction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#integers" data-notes-nav-item>Integers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that there is no integer $n$ such that</p>
@@ -1626,9 +1759,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1661,7 +1796,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="proof-writing-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Take the domain to be the real numbers and let
+          <article class="practice-problem panel" id="proof-writing-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Quantifiers, Logic" data-problem-difficulty="Challenge" data-problem-answer="Take the domain to be the real numbers and let
 
 $$
 P(x,y): x &lt; y.
@@ -1675,12 +1810,14 @@ This shows that the order of the quantifiers matters.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Quantifier Order Matters</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#logic" data-notes-nav-item>Logic</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#logic" data-notes-nav-item>Logic</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Give a concrete predicate and domain where</p>
@@ -1705,9 +1842,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1722,7 +1861,7 @@ $$</div>
 <p>This shows that the order of the quantifiers matters.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="First assume $A \subseteq B$. To show $A \cap B = A$, prove both inclusions.
+    </article><article class="practice-problem panel" id="proof-writing-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Set Equality, Set Inclusion" data-problem-difficulty="Challenge" data-problem-answer="First assume $A \subseteq B$. To show $A \cap B = A$, prove both inclusions.
 
 If $x \in A \cap B$, then $x \in A$, so $A \cap B \subseteq A$.
 
@@ -1736,12 +1875,14 @@ Thus every element of $A$ is an element of $B$, which means $A \subseteq B$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">A Set Characterization</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-equality" data-notes-nav-item>Set Equality</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-equality" data-notes-nav-item>Set Equality</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#set-inclusion" data-notes-nav-item>Set Inclusion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that</p>
@@ -1761,9 +1902,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1777,7 +1920,7 @@ $$</div>
 <p>Thus every element of $A$ is an element of $B$, which means $A \subseteq B$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Let $y \in \mathbb{R}$ be arbitrary.
+    </article><article class="practice-problem panel" id="proof-writing-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Functions, Existence, Uniqueness" data-problem-difficulty="Challenge" data-problem-answer="Let $y \in \mathbb{R}$ be arbitrary.
 
 Since $f$ is surjective, there exists some $x$ such that
 
@@ -1803,12 +1946,14 @@ Therefore the equation $f(x)=y$ has exactly one solution.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">A Bijection Gives Exactly One Solution</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#existence" data-notes-nav-item>Existence</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#uniqueness" data-notes-nav-item>Uniqueness</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#functions" data-notes-nav-item>Functions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#existence" data-notes-nav-item>Existence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#uniqueness" data-notes-nav-item>Uniqueness</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $f:\mathbb{R}\to\mathbb{R}$ be bijective. Prove that for each $y\in\mathbb{R}$, the equation $f(x)=y$ has exactly one solution.</p>
@@ -1825,9 +1970,11 @@ Therefore the equation $f(x)=y$ has exactly one solution.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1850,7 +1997,7 @@ $$</div>
 <p>Therefore the equation $f(x)=y$ has exactly one solution.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="proof-writing-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="Assume, for contradiction, that $\sqrt{2}$ is rational. Then we can write
+    </article><article class="practice-problem panel" id="proof-writing-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Contradiction, Irrationality" data-problem-difficulty="Challenge" data-problem-answer="Assume, for contradiction, that $\sqrt{2}$ is rational. Then we can write
 
 $$
 \sqrt{2} = \frac{a}{b}
@@ -1884,12 +2031,14 @@ Therefore $\sqrt{2}$ is irrational.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Irrationality of Root Two</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contradiction" data-notes-nav-item>Contradiction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#irrationality" data-notes-nav-item>Irrationality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#contradiction" data-notes-nav-item>Contradiction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/proof-writing/#irrationality" data-notes-nav-item>Irrationality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that $\sqrt{2}$ is irrational.</p>
@@ -1906,9 +2055,11 @@ Therefore $\sqrt{2}$ is irrational.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

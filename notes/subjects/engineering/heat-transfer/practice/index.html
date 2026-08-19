@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Heat Transfer" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="heat-transfer-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The dominant modes are:
+          <article class="practice-problem panel" id="heat-transfer-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Three Modes, Heat Transfer Basics" data-problem-difficulty="Direct" data-problem-answer="The dominant modes are:
 
 - Through a stationary wall: conduction
 - From the engine block to moving air: convection
@@ -144,12 +157,14 @@
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify the Dominant Heat-Transfer Mode</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#three-modes" data-notes-nav-item>Three Modes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-transfer-basics" data-notes-nav-item>Heat Transfer Basics</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#three-modes" data-notes-nav-item>Three Modes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-transfer-basics" data-notes-nav-item>Heat Transfer Basics</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Name the dominant mode in each situation:</p>
@@ -167,9 +182,11 @@
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -179,7 +196,7 @@
 <ul><li><p>Through a stationary wall: conduction</p></li><li><p>From the engine block to moving air: convection</p></li><li><p>From the sun to the roof: radiation</p></li></ul>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Use Fourier&#39;s law for a plane wall:
+    </article><article class="practice-problem panel" id="heat-transfer-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Conduction, Fourier&#39;s Law" data-problem-difficulty="Direct" data-problem-answer="Use Fourier&#39;s law for a plane wall:
 
 $$
 \dot{Q} = kA\frac{T_1 - T_2}{L}
@@ -197,12 +214,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Compute Heat Flow Through a Plane Wall</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#conduction" data-notes-nav-item>Conduction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#fouriers-law" data-notes-nav-item>Fourier&#39;s Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#conduction" data-notes-nav-item>Conduction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#fouriers-law" data-notes-nav-item>Fourier&#39;s Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A plane wall has $k = 0.8\ \text{W/(m K)}$, area $A = 3\ \text{m}^2$, thickness $L = 0.05\ \text{m}$, and surface temperatures $T_1 = 60^\circ\text{C}$ and $T_2 = 20^\circ\text{C}$.</p>
@@ -220,9 +239,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -241,7 +262,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="For a plane wall,
+    </article><article class="practice-problem panel" id="heat-transfer-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Conduction, Thermal Resistance" data-problem-difficulty="Direct" data-problem-answer="For a plane wall,
 
 $$
 R_{cond} = \frac{L}{kA}
@@ -261,12 +282,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Find a Conduction Resistance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#conduction" data-notes-nav-item>Conduction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#conduction" data-notes-nav-item>Conduction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A flat layer has thickness $L = 0.10\ \text{m}$, conductivity $k = 2\ \text{W/(m K)}$, and area $A = 4\ \text{m}^2$.</p>
@@ -284,9 +307,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -306,7 +331,7 @@ R_{cond} = \frac{1}{80}\ \text{K/W}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Use Newton&#39;s law of cooling:
+    </article><article class="practice-problem panel" id="heat-transfer-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Convection, Newton&#39;s Law of Cooling" data-problem-difficulty="Direct" data-problem-answer="Use Newton&#39;s law of cooling:
 
 $$
 \dot{Q} = hA_s(T_s - T_\infty)
@@ -324,12 +349,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Use Newton&#39;s Law of Cooling</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#newtons-law-of-cooling" data-notes-nav-item>Newton&#39;s Law of Cooling</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#newtons-law-of-cooling" data-notes-nav-item>Newton&#39;s Law of Cooling</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A surface has area $A_s = 1.5\ \text{m}^2$, convection coefficient $h = 12\ \text{W/(m}^2\text{ K)}$, surface temperature $T_s = 85^\circ\text{C}$, and surrounding fluid temperature $T_\infty = 25^\circ\text{C}$.</p>
@@ -347,9 +374,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -368,7 +397,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="heat-transfer-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Convection, Thermal Resistance" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 R_{conv} = \frac{1}{hA_s}
@@ -388,12 +417,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find a Convection Resistance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A surface has $h = 15\ \text{W/(m}^2\text{ K)}$ and area $A_s = 0.4\ \text{m}^2$.</p>
@@ -411,9 +442,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -433,7 +466,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Using the linearized radiation model,
+    </article><article class="practice-problem panel" id="heat-transfer-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Radiation, Linearized Radiation" data-problem-difficulty="Direct" data-problem-answer="Using the linearized radiation model,
 
 $$
 \dot{Q}_{rad} = h_rA(T_s - T_{sur})
@@ -451,12 +484,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Evaluate Linearized Radiation Loss</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#linearized-radiation" data-notes-nav-item>Linearized Radiation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#linearized-radiation" data-notes-nav-item>Linearized Radiation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A hot surface has area $A = 2.5\ \text{m}^2$ and linearized radiation coefficient $h_r = 6\ \text{W/(m}^2\text{ K)}$.</p>
@@ -474,9 +509,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -495,7 +532,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="heat-transfer-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Heat Generation, Volume" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \dot{Q}_{gen} = \dot{q}&#39;&#39;&#39;V
@@ -509,12 +546,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Compute Heat Generated in a Solid</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-generation" data-notes-nav-item>Heat Generation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#volume" data-notes-nav-item>Volume</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-generation" data-notes-nav-item>Heat Generation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#volume" data-notes-nav-item>Volume</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid has volumetric heat generation rate $\dot{q}&#39;&#39;&#39; = 2.5\times 10^5\ \text{W/m}^3$ and volume $V = 0.004\ \text{m}^3$.</p>
@@ -532,9 +571,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -550,7 +591,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="For resistances in series,
+    </article><article class="practice-problem panel" id="heat-transfer-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Thermal Resistance, Series Networks" data-problem-difficulty="Direct" data-problem-answer="For resistances in series,
 
 $$
 R_{eq} = R_1 + R_2 + R_3
@@ -564,12 +605,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Add Resistances in Series</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#series-networks" data-notes-nav-item>Series Networks</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#series-networks" data-notes-nav-item>Series Networks</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Three thermal resistances are connected in series:</p>
@@ -590,9 +633,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -608,7 +653,7 @@ R_{eq} = 0.10 + 0.25 + 0.15 = 0.50\ \text{K/W}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Use reciprocity:
+    </article><article class="practice-problem panel" id="heat-transfer-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Radiation, View Factors" data-problem-difficulty="Direct" data-problem-answer="Use reciprocity:
 
 $$
 A_1F_{1\to 2} = A_2F_{2\to 1}
@@ -626,12 +671,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Use Reciprocity for a View Factor</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#view-factors" data-notes-nav-item>View Factors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#view-factors" data-notes-nav-item>View Factors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two surfaces have areas $A_1 = 2\ \text{m}^2$ and $A_2 = 3\ \text{m}^2$.</p>
@@ -649,9 +696,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -670,7 +719,7 @@ F_{2\to 1} = \frac{2(0.30)}{3} = 0.20
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="heat-transfer-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Biot Number, Lumped Capacitance" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 Bi = \frac{hL_c}{k}
@@ -686,12 +735,14 @@ Since $Bi \ll 0.1$, the lumped-capacitance approximation is reasonable.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Compute a Biot Number</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#biot-number" data-notes-nav-item>Biot Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#biot-number" data-notes-nav-item>Biot Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solid has $h = 20\ \text{W/(m}^2\text{ K)}$, characteristic length $L_c = 0.01\ \text{m}$, and conductivity $k = 200\ \text{W/(m K)}$.</p>
@@ -709,9 +760,11 @@ Since $Bi \ll 0.1$, the lumped-capacitance approximation is reasonable.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -742,7 +795,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="heat-transfer-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Build the resistance network:
+          <article class="practice-problem panel" id="heat-transfer-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Composite Walls, Convection, Thermal Resistance" data-problem-difficulty="Integrated" data-problem-answer="Build the resistance network:
 
 $$
 R_{tot} = \frac{1}{h_1A} + \frac{L}{kA} + \frac{1}{h_2A}
@@ -772,12 +825,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Steady Heat Loss Through a Composite Wall</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#composite-walls" data-notes-nav-item>Composite Walls</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#composite-walls" data-notes-nav-item>Composite Walls</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A wall separates indoor air at $100^\circ\text{C}$ from outdoor air at $20^\circ\text{C}$.</p>
@@ -796,9 +851,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -825,7 +882,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="For radial conduction through a cylinder,
+    </article><article class="practice-problem panel" id="heat-transfer-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Cylindrical Conduction, Thermal Resistance" data-problem-difficulty="Integrated" data-problem-answer="For radial conduction through a cylinder,
 
 $$
 R_{cond,cyl} = \frac{\ln(r_2/r_1)}{2\pi kL}
@@ -843,12 +900,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Heat Flow Through Cylindrical Insulation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#cylindrical-conduction" data-notes-nav-item>Cylindrical Conduction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#cylindrical-conduction" data-notes-nav-item>Cylindrical Conduction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A pipe has inner radius $r_1 = 0.02\ \text{m}$ and outer radius $r_2 = 0.04\ \text{m}$.</p>
@@ -867,9 +926,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -888,7 +949,7 @@ R_{cond,cyl} = \frac{\ln 2}{0.5027} \approx 1.38\ \text{K/W}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="First find the total resistance:
+    </article><article class="practice-problem panel" id="heat-transfer-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Contact Resistance, Thermal Resistance" data-problem-difficulty="Integrated" data-problem-answer="First find the total resistance:
 
 $$
 R_{tot} = 0.20 + 0.10 + 0.20 = 0.50\ \text{K/W}
@@ -920,12 +981,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Track Interface Temperatures in a Resistance Network</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#contact-resistance" data-notes-nav-item>Contact Resistance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#contact-resistance" data-notes-nav-item>Contact Resistance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A hot surface at $80^\circ\text{C}$ is connected to a cold surface at $20^\circ\text{C}$ through three resistances in series:</p>
@@ -946,9 +1009,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -976,7 +1041,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="For lumped cooling,
+    </article><article class="practice-problem panel" id="heat-transfer-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Transient Heat Transfer, Lumped Capacitance" data-problem-difficulty="Integrated" data-problem-answer="For lumped cooling,
 
 $$
 T(t) = T_\infty + (T_i - T_\infty)\exp\left(-\frac{t}{\tau}\right)
@@ -1006,12 +1071,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Lumped Cooling After a Fixed Time</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#transient-heat-transfer" data-notes-nav-item>Transient Heat Transfer</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#transient-heat-transfer" data-notes-nav-item>Transient Heat Transfer</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A body has mass $m = 2\ \text{kg}$ and specific heat $c_p = 500\ \text{J/(kg K)}$.</p>
@@ -1031,9 +1098,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1060,7 +1129,7 @@ T(100) = 20 + 80e^{-0.5} \approx 68.5^\circ\text{C}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use the energy balance:
+    </article><article class="practice-problem panel" id="heat-transfer-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Heat Exchangers, Energy Balance" data-problem-difficulty="Integrated" data-problem-answer="Use the energy balance:
 
 $$
 \dot{Q} = \dot{m}_h c_{p,h}(T_{h,in} - T_{h,out})
@@ -1090,12 +1159,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Cold-Stream Outlet Temperature in a Heat Exchanger</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-exchangers" data-notes-nav-item>Heat Exchangers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#energy-balance" data-notes-nav-item>Energy Balance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-exchangers" data-notes-nav-item>Heat Exchangers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#energy-balance" data-notes-nav-item>Energy Balance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A heat exchanger transfers heat from a hot stream to a cold stream.</p>
@@ -1115,9 +1186,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1144,7 +1217,7 @@ T_{c,out} = 40^\circ\text{C}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="First compute the heat transfer rate from the hot stream:
+    </article><article class="practice-problem panel" id="heat-transfer-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Heat Exchangers, LMTD" data-problem-difficulty="Integrated" data-problem-answer="First compute the heat transfer rate from the hot stream:
 
 $$
 \dot{Q} = \dot{m}_h c_{p,h}(T_{h,in} - T_{h,out})
@@ -1194,12 +1267,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Required Area from LMTD</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-exchangers" data-notes-nav-item>Heat Exchangers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lmtd" data-notes-nav-item>LMTD</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-exchangers" data-notes-nav-item>Heat Exchangers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lmtd" data-notes-nav-item>LMTD</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A counterflow heat exchanger has:</p>
@@ -1218,9 +1293,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1261,7 +1338,7 @@ A = \frac{105000}{350(41.2)} \approx 7.3\ \text{m}^2
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use the definition of the Nusselt number:
+    </article><article class="practice-problem panel" id="heat-transfer-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Nusselt Number, Convection" data-problem-difficulty="Integrated" data-problem-answer="Use the definition of the Nusselt number:
 
 $$
 Nu = \frac{hL_c}{k}
@@ -1281,12 +1358,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Recover a Heat Transfer Coefficient from Nusselt Number</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#nusselt-number" data-notes-nav-item>Nusselt Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#nusselt-number" data-notes-nav-item>Nusselt Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A correlation gives $Nu = 25$ for a flow over a surface with $k = 0.6\ \text{W/(m K)}$ and characteristic length $L_c = 0.02\ \text{m}$.</p>
@@ -1304,9 +1383,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1326,7 +1407,7 @@ h = \frac{25(0.6)}{0.02} = 750\ \text{W/(m}^2\text{ K)}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="First the Reynolds number:
+    </article><article class="practice-problem panel" id="heat-transfer-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Reynolds Number, Prandtl Number" data-problem-difficulty="Integrated" data-problem-answer="First the Reynolds number:
 
 $$
 Re = \frac{\rho VL}{\mu}
@@ -1354,12 +1435,14 @@ A large Reynolds number suggests inertia effects are strong and turbulence is mo
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Compute Reynolds and Prandtl Numbers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#reynolds-number" data-notes-nav-item>Reynolds Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#prandtl-number" data-notes-nav-item>Prandtl Number</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#reynolds-number" data-notes-nav-item>Reynolds Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#prandtl-number" data-notes-nav-item>Prandtl Number</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fluid has $\rho = 1.2\ \text{kg/m}^3$, $V = 10\ \text{m/s}$, $L = 0.05\ \text{m}$, $\mu = 1.8\times 10^{-5}\ \text{Pa s}$, $c_p = 1005\ \text{J/(kg K)}$, and $k = 0.026\ \text{W/(m K)}$.</p>
@@ -1377,9 +1460,11 @@ A large Reynolds number suggests inertia effects are strong and turbulence is mo
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1419,7 +1504,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="heat-transfer-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Write the total resistance:
+          <article class="practice-problem panel" id="heat-transfer-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Composite Walls, Convection, Thermal Resistance" data-problem-difficulty="Applied" data-problem-answer="Write the total resistance:
 
 $$
 R_{tot} = \frac{1}{h_1A} + \frac{L_1}{k_1A} + \frac{L_2}{k_2A} + \frac{1}{h_2A}
@@ -1443,12 +1528,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Heat Loss Through a Layered Wall in a Room</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#composite-walls" data-notes-nav-item>Composite Walls</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#composite-walls" data-notes-nav-item>Composite Walls</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Indoor air is at $22^\circ\text{C}$ and outdoor air is at $-8^\circ\text{C}$.</p>
@@ -1467,9 +1554,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1492,7 +1581,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Compute the critical radius for a cylinder:
+    </article><article class="practice-problem panel" id="heat-transfer-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Critical Radius, Cylindrical Conduction" data-problem-difficulty="Applied" data-problem-answer="Compute the critical radius for a cylinder:
 
 $$
 r_{crit} = \frac{k}{h}
@@ -1508,12 +1597,14 @@ Because the current radius $0.015\ \text{m}$ is smaller than the critical radius
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Decide Whether Added Pipe Insulation Helps</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#critical-radius" data-notes-nav-item>Critical Radius</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#cylindrical-conduction" data-notes-nav-item>Cylindrical Conduction</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#critical-radius" data-notes-nav-item>Critical Radius</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#cylindrical-conduction" data-notes-nav-item>Cylindrical Conduction</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A pipe has outer radius $r_0 = 0.015\ \text{m}$, insulation conductivity $k = 0.06\ \text{W/(m K)}$, and surrounding convection coefficient $h = 3\ \text{W/(m}^2\text{ K)}$.</p>
@@ -1531,9 +1622,11 @@ Because the current radius $0.015\ \text{m}$ is smaller than the critical radius
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1550,7 +1643,7 @@ $$</div>
 <p>Because the current radius $0.015\ \text{m}$ is smaller than the critical radius, adding a thin layer of insulation initially increases heat loss.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Treat convection and linearized radiation as parallel heat-transfer paths:
+    </article><article class="practice-problem panel" id="heat-transfer-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Radiation, Convection, Thermal Resistance" data-problem-difficulty="Applied" data-problem-answer="Treat convection and linearized radiation as parallel heat-transfer paths:
 
 $$
 \dot{Q} = (h + h_r)A(T_s - T_\infty)
@@ -1568,12 +1661,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Combine Convection and Radiation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#convection" data-notes-nav-item>Convection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A surface has area $A = 1.2\ \text{m}^2$, surface temperature $T_s = 120^\circ\text{C}$, ambient temperature $T_\infty = 20^\circ\text{C}$, convection coefficient $h = 10\ \text{W/(m}^2\text{ K)}$, and linearized radiation coefficient $h_r = 5\ \text{W/(m}^2\text{ K)}$.</p>
@@ -1591,9 +1686,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1612,7 +1709,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Use the lumped transient relation:
+    </article><article class="practice-problem panel" id="heat-transfer-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Transient Heat Transfer, Lumped Capacitance" data-problem-difficulty="Applied" data-problem-answer="Use the lumped transient relation:
 
 $$
 \frac{T(t) - T_\infty}{T_i - T_\infty} = \exp\left(-\frac{t}{\tau}\right)
@@ -1644,12 +1741,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Time to Reach a Target Temperature</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#transient-heat-transfer" data-notes-nav-item>Transient Heat Transfer</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#transient-heat-transfer" data-notes-nav-item>Transient Heat Transfer</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A body has a time constant of $\tau = 60\ \text{s}$, initial temperature $T_i = 20^\circ\text{C}$, and surrounding temperature $T_\infty = 200^\circ\text{C}$.</p>
@@ -1667,9 +1766,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1697,7 +1798,7 @@ t = 60\ln 2 \approx 41.6\ \text{s}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Add the resistances:
+    </article><article class="practice-problem panel" id="heat-transfer-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Contact Resistance, Thermal Resistance, Composite Systems" data-problem-difficulty="Applied" data-problem-answer="Add the resistances:
 
 $$
 R_{tot} = 0.20 + 0.10 + 0.20 = 0.50\ \text{K/W}
@@ -1717,12 +1818,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Heat Flow Through a Bolted Joint with Contact Resistance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#contact-resistance" data-notes-nav-item>Contact Resistance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#composite-systems" data-notes-nav-item>Composite Systems</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#contact-resistance" data-notes-nav-item>Contact Resistance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#composite-systems" data-notes-nav-item>Composite Systems</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two plates in a bolted joint are connected by conduction resistances $R_1 = 0.20\ \text{K/W}$ and $R_2 = 0.20\ \text{K/W}$, with a contact resistance of $R_{contact} = 0.10\ \text{K/W}$ between them.</p>
@@ -1741,9 +1844,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1777,7 +1882,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="heat-transfer-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="First reduce the parallel part:
+          <article class="practice-problem panel" id="heat-transfer-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Parallel Networks, Thermal Resistance" data-problem-difficulty="Challenge" data-problem-answer="First reduce the parallel part:
 
 $$
 \frac{1}{R_p} = \frac{1}{0.60} + \frac{1}{0.30}
@@ -1807,12 +1912,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Reduce a Network with Parallel Paths</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#parallel-networks" data-notes-nav-item>Parallel Networks</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#parallel-networks" data-notes-nav-item>Parallel Networks</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#thermal-resistance" data-notes-nav-item>Thermal Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A thermal circuit has a hot-side resistance of $0.15\ \text{K/W}$, then two parallel paths with resistances $0.60\ \text{K/W}$ and $0.30\ \text{K/W}$, and finally a cold-side resistance of $0.05\ \text{K/W}$.</p>
@@ -1830,9 +1937,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1859,7 +1968,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="Check the Biot number:
+    </article><article class="practice-problem panel" id="heat-transfer-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Biot Number, Lumped Capacitance, Transient Heat Transfer" data-problem-difficulty="Challenge" data-problem-answer="Check the Biot number:
 
 $$
 Bi = \frac{hL_c}{k} = \frac{18(0.005)}{120} = 0.00075
@@ -1887,12 +1996,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Check Lumped Validity and Predict Cooling</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#biot-number" data-notes-nav-item>Biot Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#transient-heat-transfer" data-notes-nav-item>Transient Heat Transfer</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#biot-number" data-notes-nav-item>Biot Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#transient-heat-transfer" data-notes-nav-item>Transient Heat Transfer</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A small metal part has $h = 18\ \text{W/(m}^2\text{ K)}$, $L_c = 0.005\ \text{m}$, $k = 120\ \text{W/(m K)}$, mass $m = 0.8\ \text{kg}$, specific heat $c_p = 500\ \text{J/(kg K)}$, and area $A_s = 0.4\ \text{m}^2$.</p>
@@ -1911,9 +2022,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1938,7 +2051,7 @@ T(100) = 25 + 75\exp\left(-\frac{100}{55.6}\right) \approx 37.4^\circ\text{C}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="The heat transfer rate is
+    </article><article class="practice-problem panel" id="heat-transfer-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Heat Exchangers, LMTD, Energy Balance" data-problem-difficulty="Challenge" data-problem-answer="The heat transfer rate is
 
 $$
 \dot{Q} = 1.0(4200)(100 - 75) = 105000\ \text{W}
@@ -1968,12 +2081,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Design a Counterflow Exchanger Area</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-exchangers" data-notes-nav-item>Heat Exchangers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lmtd" data-notes-nav-item>LMTD</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#energy-balance" data-notes-nav-item>Energy Balance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#heat-exchangers" data-notes-nav-item>Heat Exchangers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lmtd" data-notes-nav-item>LMTD</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#energy-balance" data-notes-nav-item>Energy Balance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A counterflow heat exchanger has the following data:</p>
@@ -1992,9 +2107,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2021,7 +2138,7 @@ A = \frac{\dot{Q}}{U\Delta T_{lm}} = \frac{105000}{350(41.2)} \approx 7.3\ \text
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="heat-transfer-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="Because the object is lumped, its temperature is uniform in space and depends only on time. The energy balance is
+    </article><article class="practice-problem panel" id="heat-transfer-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Radiation, Lumped Capacitance, Problem-Solving Workflow" data-problem-difficulty="Challenge" data-problem-answer="Because the object is lumped, its temperature is uniform in space and depends only on time. The energy balance is
 
 $$
 mc_p\frac{dT}{dt} = -\varepsilon\sigma A\left(T^4 - T_{sur}^4\right)
@@ -2043,12 +2160,14 @@ So the workflow is: identify radiation as the only mode, confirm lumped behavior
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Write the Governing Model for Radiation Cooling</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#problem-solving-workflow" data-notes-nav-item>Problem-Solving Workflow</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#radiation" data-notes-nav-item>Radiation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#lumped-capacitance" data-notes-nav-item>Lumped Capacitance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/heat-transfer/#problem-solving-workflow" data-notes-nav-item>Problem-Solving Workflow</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A small object in a vacuum cools only by radiation to a large surrounding enclosure. The object is small enough that the lumped-capacitance model is valid.</p>
@@ -2066,9 +2185,11 @@ So the workflow is: identify radiation as the only mode, confirm lumped behavior
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

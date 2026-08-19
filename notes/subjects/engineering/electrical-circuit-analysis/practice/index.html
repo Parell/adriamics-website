@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Electrical Circuit Analysis" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electrical-circuit-analysis-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Current is the derivative of charge:
+          <article class="practice-problem panel" id="electrical-circuit-analysis-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Current, Derivatives" data-problem-difficulty="Direct" data-problem-answer="Current is the derivative of charge:
 
 $$
 i(t) = \frac{dq}{dt} = 8t + 3
@@ -152,12 +165,14 @@ So the current is $19$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Differentiate a Charge Function</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#current" data-notes-nav-item>Current</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#derivatives" data-notes-nav-item>Derivatives</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#current" data-notes-nav-item>Current</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#derivatives" data-notes-nav-item>Derivatives</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If</p>
@@ -178,9 +193,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -197,7 +214,7 @@ $$</div>
 <p>So the current is $19$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Under the passive sign convention,
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Passive Sign Convention, Power" data-problem-difficulty="Direct" data-problem-answer="Under the passive sign convention,
 
 $$
 p = vi
@@ -213,12 +230,14 @@ The device absorbs $18$ W.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Compute Power with Passive Sign Convention</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#passive-sign-convention" data-notes-nav-item>Passive Sign Convention</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power" data-notes-nav-item>Power</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#passive-sign-convention" data-notes-nav-item>Passive Sign Convention</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power" data-notes-nav-item>Power</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A device has $v = 9$ V across it, and the current of $2$ A enters the positive-labeled terminal.</p>
@@ -236,9 +255,11 @@ The device absorbs $18$ W.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -255,7 +276,7 @@ $$</div>
 <p>The device absorbs $18$ W.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Use Ohm&#39;s law:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Ohm&#39;s Law, Resistors" data-problem-difficulty="Direct" data-problem-answer="Use Ohm&#39;s law:
 
 $$
 v = Ri
@@ -271,12 +292,14 @@ So the current is $4$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Find Current from Ohm&#39;s Law</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law-resistors" data-notes-nav-item>Ohm&#39;s Law, Resistors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law-resistors" data-notes-nav-item>Ohm&#39;s Law, Resistors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $6~\Omega$ resistor has $24$ V across it.</p>
@@ -294,9 +317,11 @@ So the current is $4$ A.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -313,7 +338,7 @@ $$</div>
 <p>So the current is $4$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="For series resistors, add the values:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Series Resistance" data-problem-difficulty="Direct" data-problem-answer="For series resistors, add the values:
 
 $$
 R_{eq} = 3 + 5 + 7 = 15
@@ -323,12 +348,14 @@ So the equivalent resistance is $15~\Omega$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Add Series Resistors</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#series-resistance" data-notes-nav-item>Series Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#series-resistance" data-notes-nav-item>Series Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find the equivalent resistance of three series resistors:</p>
@@ -348,9 +375,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -363,7 +392,7 @@ $$</div>
 <p>So the equivalent resistance is $15~\Omega$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="For two parallel resistors,
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Parallel Resistance" data-problem-difficulty="Direct" data-problem-answer="For two parallel resistors,
 
 $$
 R_{eq} = \frac{R_1R_2}{R_1 + R_2}
@@ -379,12 +408,14 @@ The equivalent resistance is $3~\Omega$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Combine Two Parallel Resistors</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#parallel-resistance" data-notes-nav-item>Parallel Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#parallel-resistance" data-notes-nav-item>Parallel Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find the equivalent resistance of $4~\Omega$ and $12~\Omega$ in parallel.</p>
@@ -401,9 +432,11 @@ The equivalent resistance is $3~\Omega$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -420,7 +453,7 @@ $$</div>
 <p>The equivalent resistance is $3~\Omega$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Use the voltage divider formula:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Voltage Divider, Series Resistance" data-problem-difficulty="Direct" data-problem-answer="Use the voltage divider formula:
 
 $$
 V_{out} = V_{in}\frac{R_2}{R_1 + R_2}
@@ -436,12 +469,14 @@ So $V_{out} = 8$ V.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Use a Voltage Divider</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#voltage-divider" data-notes-nav-item>Voltage Divider</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#series-resistance" data-notes-nav-item>Series Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#voltage-divider" data-notes-nav-item>Voltage Divider</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#series-resistance" data-notes-nav-item>Series Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $12$ V source drives two series resistors, $2~k\Omega$ and $4~k\Omega$.</p>
@@ -459,9 +494,11 @@ So $V_{out} = 8$ V.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -478,7 +515,7 @@ $$</div>
 <p>So $V_{out} = 8$ V.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="For two parallel resistors, the current in one branch is
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Current Divider, Parallel Resistance" data-problem-difficulty="Direct" data-problem-answer="For two parallel resistors, the current in one branch is
 
 $$
 I_1 = I_{in}\frac{R_2}{R_1 + R_2}
@@ -494,12 +531,14 @@ So the $3~\Omega$ branch carries $4$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Use a Current Divider</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#current-divider" data-notes-nav-item>Current Divider</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#parallel-resistance" data-notes-nav-item>Parallel Resistance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#current-divider" data-notes-nav-item>Current Divider</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#parallel-resistance" data-notes-nav-item>Parallel Resistance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A total current of $6$ A enters two parallel resistors, $3~\Omega$ and $6~\Omega$.</p>
@@ -517,9 +556,11 @@ So the $3~\Omega$ branch carries $4$ A.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -536,7 +577,7 @@ $$</div>
 <p>So the $3~\Omega$ branch carries $4$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Use the capacitor energy formula:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Energy Storage, Capacitors" data-problem-difficulty="Direct" data-problem-answer="Use the capacitor energy formula:
 
 $$
 w_C = \frac{1}{2}Cv^2
@@ -556,12 +597,14 @@ So the stored energy is $1.0\times 10^{-4}$ J.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Energy in a Capacitor</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#energy-storage" data-notes-nav-item>Energy Storage</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#capacitors" data-notes-nav-item>Capacitors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#energy-storage" data-notes-nav-item>Energy Storage</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#capacitors" data-notes-nav-item>Capacitors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A capacitor has $C = 2~\mu\text{F}$ and voltage $v = 10$ V.</p>
@@ -579,9 +622,11 @@ So the stored energy is $1.0\times 10^{-4}$ J.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -601,7 +646,7 @@ $$</div>
 <p>So the stored energy is $1.0\times 10^{-4}$ J.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="For a capacitor,
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Phasors, Impedance" data-problem-difficulty="Direct" data-problem-answer="For a capacitor,
 
 $$
 Z_C = \frac{1}{j\omega C}
@@ -621,12 +666,14 @@ So the impedance is $-j500~\Omega$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Write an Element Impedance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#phasors" data-notes-nav-item>Phasors</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#impedance" data-notes-nav-item>Impedance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#phasors" data-notes-nav-item>Phasors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#impedance" data-notes-nav-item>Impedance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>At angular frequency $\omega = 1000$ rad/s, what is the impedance of a $2~\mu\text{F}$ capacitor?</p>
@@ -643,9 +690,11 @@ So the impedance is $-j500~\Omega$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -665,7 +714,7 @@ $$</div>
 <p>So the impedance is $-j500~\Omega$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="By KCL, the total current entering equals the total current leaving:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="KCL" data-problem-difficulty="Direct" data-problem-answer="By KCL, the total current entering equals the total current leaving:
 
 $$
 2 + 5 = 3 + I
@@ -685,12 +734,14 @@ The other branch must carry $4$ A leaving the node.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Balance Currents at a Node</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kcl" data-notes-nav-item>KCL</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kcl" data-notes-nav-item>KCL</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>At a node, $2$ A and $5$ A enter, and $3$ A leaves through one branch.</p>
@@ -708,9 +759,11 @@ The other branch must carry $4$ A leaving the node.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -744,7 +797,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electrical-circuit-analysis-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Use the resistor current form:
+          <article class="practice-problem panel" id="electrical-circuit-analysis-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Node Voltage, Ohm&#39;s Law" data-problem-difficulty="Integrated" data-problem-answer="Use the resistor current form:
 
 $$
 i_{ab} = \frac{V_a - V_b}{R}
@@ -760,12 +813,14 @@ The current from $a$ to $b$ is $1$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Write a Branch Current from Node Voltages</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#node-voltage" data-notes-nav-item>Node Voltage</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law" data-notes-nav-item>Ohm&#39;s Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#node-voltage" data-notes-nav-item>Node Voltage</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law" data-notes-nav-item>Ohm&#39;s Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Node $a$ is at $12$ V and node $b$ is at $5$ V.</p>
@@ -783,9 +838,11 @@ The current from $a$ to $b$ is $1$ A.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -802,7 +859,7 @@ $$</div>
 <p>The current from $a$ to $b$ is $1$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Use KCL on the supernode:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Supernodes, KCL, Ohm&#39;s Law" data-problem-difficulty="Integrated" data-problem-answer="Use KCL on the supernode:
 
 $$
 \frac{V_a}{6} + \frac{V_b}{3} = 3
@@ -844,12 +901,14 @@ So $V_a = 12$ V.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Solve a Simple Supernode</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#supernodes" data-notes-nav-item>Supernodes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kcl" data-notes-nav-item>KCL</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law" data-notes-nav-item>Ohm&#39;s Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#supernodes" data-notes-nav-item>Supernodes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kcl" data-notes-nav-item>KCL</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law" data-notes-nav-item>Ohm&#39;s Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A supernode contains two unknown node voltages $V_a$ and $V_b$.</p>
@@ -868,9 +927,11 @@ So $V_a = 12$ V.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -905,7 +966,7 @@ $$</div>
 <p>So $V_a = 12$ V.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Write KVL for each mesh.
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Mesh Analysis, KVL, Shared Resistor" data-problem-difficulty="Integrated" data-problem-answer="Write KVL for each mesh.
 
 Left mesh:
 
@@ -961,12 +1022,14 @@ So $i_1 = 8$ A and $i_2 = 4$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Solve Two Mesh Currents</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#mesh-analysis" data-notes-nav-item>Mesh Analysis</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kvl" data-notes-nav-item>KVL</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#shared-resistor" data-notes-nav-item>Shared Resistor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#mesh-analysis" data-notes-nav-item>Mesh Analysis</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kvl" data-notes-nav-item>KVL</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#shared-resistor" data-notes-nav-item>Shared Resistor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two clockwise mesh currents $i_1$ and $i_2$ share a $1~\Omega$ resistor.</p>
@@ -985,9 +1048,11 @@ So $i_1 = 8$ A and $i_2 = 4$ A.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1031,7 +1096,7 @@ $$</div>
 <p>So $i_1 = 8$ A and $i_2 = 4$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Write KVL around the outer perimeter of the supermesh:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Supermesh, Mesh Analysis, KVL" data-problem-difficulty="Integrated" data-problem-answer="Write KVL around the outer perimeter of the supermesh:
 
 $$
 3i_1 + 3i_2 = 15
@@ -1077,12 +1142,14 @@ So $i_1 = 2$ A and $i_2 = 3$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Use a Supermesh</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#supermesh" data-notes-nav-item>Supermesh</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#mesh-analysis" data-notes-nav-item>Mesh Analysis</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kvl" data-notes-nav-item>KVL</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#supermesh" data-notes-nav-item>Supermesh</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#mesh-analysis" data-notes-nav-item>Mesh Analysis</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#kvl" data-notes-nav-item>KVL</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two clockwise mesh currents $i_1$ and $i_2$ share a branch with a $1$ A current source.</p>
@@ -1105,9 +1172,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1145,7 +1214,7 @@ $$</div>
 <p>So $i_1 = 2$ A and $i_2 = 3$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use superposition.
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Superposition, Node Voltage, Voltage Divider" data-problem-difficulty="Integrated" data-problem-answer="Use superposition.
 
 First, keep the $12$ V source and open the current source. The node is then a divider between $12$ V and ground through two equal $6~\Omega$ resistors, so the node voltage is:
 
@@ -1175,12 +1244,14 @@ So the node voltage is $15$ V.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Apply Superposition to a Node</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#superposition" data-notes-nav-item>Superposition</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#node-voltage" data-notes-nav-item>Node Voltage</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#voltage-divider" data-notes-nav-item>Voltage Divider</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#superposition" data-notes-nav-item>Superposition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#node-voltage" data-notes-nav-item>Node Voltage</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#voltage-divider" data-notes-nav-item>Voltage Divider</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A node is connected to ground through a $6~\Omega$ resistor.</p>
@@ -1199,9 +1270,11 @@ So the node voltage is $15$ V.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1227,7 +1300,7 @@ $$</div>
 <p>So the node voltage is $15$ V.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="The open-circuit voltage is the divider voltage across the $4~\Omega$ resistor:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Thevenin Equivalent, Resistance Reduction, Voltage Divider" data-problem-difficulty="Integrated" data-problem-answer="The open-circuit voltage is the divider voltage across the $4~\Omega$ resistor:
 
 $$
 V_{th} = 12\frac{4}{2+4} = 8
@@ -1243,12 +1316,14 @@ So the Thevenin equivalent is $V_{th} = 8$ V in series with $R_{th} = \frac{4}{3
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find a Thevenin Equivalent</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#thevenin-equivalent" data-notes-nav-item>Thevenin Equivalent</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#resistance-reduction" data-notes-nav-item>Resistance Reduction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#voltage-divider" data-notes-nav-item>Voltage Divider</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#thevenin-equivalent" data-notes-nav-item>Thevenin Equivalent</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#resistance-reduction" data-notes-nav-item>Resistance Reduction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#voltage-divider" data-notes-nav-item>Voltage Divider</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $12$ V source feeds a $2~\Omega$ resistor in series with a node.</p>
@@ -1267,9 +1342,11 @@ So the Thevenin equivalent is $V_{th} = 8$ V in series with $R_{th} = \frac{4}{3
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1286,7 +1363,7 @@ $$</div>
 <p>So the Thevenin equivalent is $V_{th} = 8$ V in series with $R_{th} = \frac{4}{3}~\Omega$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="First find the time constant:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="RC Circuits, Time Constant, Capacitors" data-problem-difficulty="Integrated" data-problem-answer="First find the time constant:
 
 $$
 \tau = RC = (3000)(100\times 10^{-6}) = 0.3\ \text{s}
@@ -1320,12 +1397,14 @@ which is about $7.6$ V.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Find an RC Step Response</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#rc-circuits" data-notes-nav-item>RC Circuits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#time-constant" data-notes-nav-item>Time Constant</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#capacitors" data-notes-nav-item>Capacitors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#rc-circuits" data-notes-nav-item>RC Circuits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#time-constant" data-notes-nav-item>Time Constant</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#capacitors" data-notes-nav-item>Capacitors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $12$ V source charges a $100~\mu\text{F}$ capacitor through a $3~k\Omega$ resistor.</p>
@@ -1344,9 +1423,11 @@ which is about $7.6$ V.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1375,7 +1456,7 @@ $$</div>
 <p>which is about $7.6$ V.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Find each impedance:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Phasors, Impedance, Ohm&#39;s Law" data-problem-difficulty="Integrated" data-problem-answer="Find each impedance:
 
 $$
 Z_R = 100
@@ -1415,12 +1496,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Find a Series AC Current</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#phasors" data-notes-nav-item>Phasors</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#impedance" data-notes-nav-item>Impedance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law" data-notes-nav-item>Ohm&#39;s Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#phasors" data-notes-nav-item>Phasors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#impedance" data-notes-nav-item>Impedance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ohms-law" data-notes-nav-item>Ohm&#39;s Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A source of $10\angle 0^\circ$ V at $\omega = 1000$ rad/s drives a series $100~\Omega$ resistor and $0.1$ H inductor.</p>
@@ -1438,9 +1521,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1488,7 +1573,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electrical-circuit-analysis-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Convert the voltage source and series resistor to a Norton equivalent:
+          <article class="practice-problem panel" id="electrical-circuit-analysis-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Source Transformation, Current Divider, Norton Equivalent" data-problem-difficulty="Applied" data-problem-answer="Convert the voltage source and series resistor to a Norton equivalent:
 
 $$
 I_N = \frac{V_s}{R} = \frac{12}{6} = 2
@@ -1506,12 +1591,14 @@ So the load current is $1$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Transform a Source to Simplify a Load</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#source-transformation" data-notes-nav-item>Source Transformation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#current-divider" data-notes-nav-item>Current Divider</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#norton-equivalent" data-notes-nav-item>Norton Equivalent</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#source-transformation" data-notes-nav-item>Source Transformation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#current-divider" data-notes-nav-item>Current Divider</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#norton-equivalent" data-notes-nav-item>Norton Equivalent</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $12$ V source in series with a $6~\Omega$ resistor drives a $6~\Omega$ load.</p>
@@ -1529,9 +1616,11 @@ So the load current is $1$ A.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1549,7 +1638,7 @@ $$</div>
 <p>So the load current is $1$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="The total series resistance is
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Thevenin Equivalent, Power" data-problem-difficulty="Applied" data-problem-answer="The total series resistance is
 
 $$
 R_{tot} = 3 + 6 = 9
@@ -1571,12 +1660,14 @@ So the load absorbs $24$ W.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Compute Load Power from a Thevenin Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#thevenin-equivalent" data-notes-nav-item>Thevenin Equivalent</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power" data-notes-nav-item>Power</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#thevenin-equivalent" data-notes-nav-item>Thevenin Equivalent</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power" data-notes-nav-item>Power</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A sensor port is modeled by a Thevenin equivalent of $18$ V in series with $3~\Omega$.</p>
@@ -1594,9 +1685,11 @@ So the load absorbs $24$ W.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1617,7 +1710,7 @@ $$</div>
 <p>So the load absorbs $24$ W.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="First find the time constant:
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="RL Circuits, Time Constant, Inductors" data-problem-difficulty="Applied" data-problem-answer="First find the time constant:
 
 $$
 \tau = \frac{L}{R} = \frac{0.5}{5} = 0.1\ \text{s}
@@ -1645,12 +1738,14 @@ which is about $1.73$ A.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Estimate an RL Current After a Switch Closes</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#rl-circuits" data-notes-nav-item>RL Circuits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#time-constant" data-notes-nav-item>Time Constant</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#inductors" data-notes-nav-item>Inductors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#rl-circuits" data-notes-nav-item>RL Circuits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#time-constant" data-notes-nav-item>Time Constant</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#inductors" data-notes-nav-item>Inductors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $10$ V source, $5~\Omega$ resistor, and $0.5$ H inductor are connected in series when a switch closes at $t=0$.</p>
@@ -1669,9 +1764,11 @@ which is about $1.73$ A.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1696,7 +1793,7 @@ $$</div>
 <p>which is about $1.73$ A.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="The power factor is
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="AC Power, Power Factor, Phasors" data-problem-difficulty="Applied" data-problem-answer="The power factor is
 
 $$
 \text{pf} = \cos 30^\circ = 0.866
@@ -1716,12 +1813,14 @@ So the load has real power about $416$ W and power factor $0.866$ lagging.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Find Real Power and Power Factor</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ac-power" data-notes-nav-item>AC Power</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power-factor" data-notes-nav-item>Power Factor</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#phasors" data-notes-nav-item>Phasors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#ac-power" data-notes-nav-item>AC Power</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power-factor" data-notes-nav-item>Power Factor</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#phasors" data-notes-nav-item>Phasors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $120$ V rms source supplies a load current of $4$ A rms that lags the voltage by $30^\circ$.</p>
@@ -1739,9 +1838,11 @@ So the load has real power about $416$ W and power factor $0.866$ lagging.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1761,7 +1862,7 @@ $$</div>
 <p>So the load has real power about $416$ W and power factor $0.866$ lagging.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="For an ideal inverting amplifier,
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Operational Amplifiers, Inverting Amplifier, Negative Feedback" data-problem-difficulty="Applied" data-problem-answer="For an ideal inverting amplifier,
 
 $$
 V_{out} = -\frac{R_f}{R_{in}}V_{in}
@@ -1781,12 +1882,14 @@ So the output is $-2$ V.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Evaluate an Inverting Amplifier</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#operational-amplifiers" data-notes-nav-item>Operational Amplifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#inverting-amplifier" data-notes-nav-item>Inverting Amplifier</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#negative-feedback" data-notes-nav-item>Negative Feedback</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#operational-amplifiers" data-notes-nav-item>Operational Amplifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#inverting-amplifier" data-notes-nav-item>Inverting Amplifier</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#negative-feedback" data-notes-nav-item>Negative Feedback</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An ideal inverting op-amp has $R_{in} = 2~k\Omega$ and $R_f = 8~k\Omega$.</p>
@@ -1804,9 +1907,11 @@ So the output is $-2$ V.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1840,7 +1945,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electrical-circuit-analysis-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Maximum power transfer occurs when
+          <article class="practice-problem panel" id="electrical-circuit-analysis-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Thevenin Equivalent, Maximum Power Transfer, Power" data-problem-difficulty="Challenge" data-problem-answer="Maximum power transfer occurs when
 
 $$
 R_L = R_{th}
@@ -1866,12 +1971,14 @@ So $R_L = 5~\Omega$ and the maximum load power is $20$ W.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Maximize Power to a Load</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#thevenin-equivalent" data-notes-nav-item>Thevenin Equivalent</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#maximum-power-transfer" data-notes-nav-item>Maximum Power Transfer</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power" data-notes-nav-item>Power</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#thevenin-equivalent" data-notes-nav-item>Thevenin Equivalent</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#maximum-power-transfer" data-notes-nav-item>Maximum Power Transfer</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#power" data-notes-nav-item>Power</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A linear network seen from two terminals has a Thevenin equivalent of $20$ V in series with $5~\Omega$.</p>
@@ -1889,9 +1996,11 @@ So $R_L = 5~\Omega$ and the maximum load power is $20$ W.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1915,7 +2024,7 @@ $$</div>
 <p>So $R_L = 5~\Omega$ and the maximum load power is $20$ W.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="The capacitor voltage cannot change instantly, so
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="RC Circuits, Time Constant, Energy Storage" data-problem-difficulty="Challenge" data-problem-answer="The capacitor voltage cannot change instantly, so
 
 $$
 v_C(0^+) = 6
@@ -1967,12 +2076,14 @@ So the capacitor reaches $12$ V after $0.2\ln 2 \approx 0.139$ s.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Use Continuity in an RC Transient</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#rc-circuits" data-notes-nav-item>RC Circuits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#time-constant" data-notes-nav-item>Time Constant</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#energy-storage" data-notes-nav-item>Energy Storage</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#rc-circuits" data-notes-nav-item>RC Circuits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#time-constant" data-notes-nav-item>Time Constant</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#energy-storage" data-notes-nav-item>Energy Storage</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A capacitor of $200~\mu\text{F}$ is initially at $6$ V.</p>
@@ -1991,9 +2102,11 @@ So the capacitor reaches $12$ V after $0.2\ln 2 \approx 0.139$ s.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2035,7 +2148,7 @@ $$</div>
 <p>So the capacitor reaches $12$ V after $0.2\ln 2 \approx 0.139$ s.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="For series resonance,
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Resonance, Series RLC, Frequency Response" data-problem-difficulty="Challenge" data-problem-answer="For series resonance,
 
 $$
 \omega_0 = \frac{1}{\sqrt{LC}}
@@ -2061,12 +2174,14 @@ So the resonant frequency is about $50.3$ Hz.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Find the Resonant Frequency of a Series RLC Circuit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#resonance" data-notes-nav-item>Resonance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#series-rlc" data-notes-nav-item>Series RLC</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#resonance" data-notes-nav-item>Resonance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#series-rlc" data-notes-nav-item>Series RLC</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A series RLC circuit has $L = 50$ mH and $C = 200~\mu\text{F}$.</p>
@@ -2084,9 +2199,11 @@ So the resonant frequency is about $50.3$ Hz.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2110,7 +2227,7 @@ $$</div>
 <p>So the resonant frequency is about $50.3$ Hz.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electrical-circuit-analysis-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="For an ideal inverting summing amplifier,
+    </article><article class="practice-problem panel" id="electrical-circuit-analysis-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Operational Amplifiers, Summing Amplifier, Negative Feedback" data-problem-difficulty="Challenge" data-problem-answer="For an ideal inverting summing amplifier,
 
 $$
 V_{out} = -R_f\left(\frac{V_1}{R_1} + \frac{V_2}{R_2}\right)
@@ -2134,12 +2251,14 @@ So the output voltage is $-8$ V.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Evaluate an Inverting Summing Amplifier</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#operational-amplifiers" data-notes-nav-item>Operational Amplifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#summing-amplifier" data-notes-nav-item>Summing Amplifier</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#negative-feedback" data-notes-nav-item>Negative Feedback</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#operational-amplifiers" data-notes-nav-item>Operational Amplifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#summing-amplifier" data-notes-nav-item>Summing Amplifier</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/electrical-circuit-analysis/#negative-feedback" data-notes-nav-item>Negative Feedback</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An ideal inverting summing amplifier has feedback resistor $R_f = 12~k\Omega$.</p>
@@ -2158,9 +2277,11 @@ So the output voltage is $-8$ V.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Electricity and Magnetism" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electricity-and-magnetism-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Use Coulomb&#39;s law:
+          <article class="practice-problem panel" id="electricity-and-magnetism-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Coulomb&#39;s law, Point charges" data-problem-difficulty="Direct" data-problem-answer="Use Coulomb&#39;s law:
 
 $$
 F = k\frac{|q_1q_2|}{r^2}
@@ -156,12 +169,14 @@ Because the charges have opposite signs, the force is attractive.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Force Between Two Point Charges</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#coulombs-law-point-charges" data-notes-nav-item>Coulomb&#39;s law, Point charges</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#coulombs-law-point-charges" data-notes-nav-item>Coulomb&#39;s law, Point charges</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two point charges, $q_1 = +3\,\mu\text{C}$ and $q_2 = -2\,\mu\text{C}$, are separated by $0.50\ \text{m}$.</p>
@@ -179,9 +194,11 @@ Because the charges have opposite signs, the force is attractive.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -201,7 +218,7 @@ $$</div>
 <p>Because the charges have opposite signs, the force is attractive.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="For a point charge,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Electric field, Point charges" data-problem-difficulty="Direct" data-problem-answer="For a point charge,
 
 $$
 E = k\frac{|q|}{r^2}
@@ -221,12 +238,14 @@ Since the charge is positive, the field points away from the charge.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Electric Field of a Point Charge</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-field" data-notes-nav-item>Electric field</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#point-charges" data-notes-nav-item>Point charges</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-field" data-notes-nav-item>Electric field</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#point-charges" data-notes-nav-item>Point charges</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A charge of $+5.0\ \text{nC}$ is located in space.</p>
@@ -244,9 +263,11 @@ Since the charge is positive, the field points away from the charge.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -266,7 +287,7 @@ $$</div>
 <p>Since the charge is positive, the field points away from the charge.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Linear charge density is
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Charge densities, Continuous charge distributions" data-problem-difficulty="Direct" data-problem-answer="Linear charge density is
 
 $$
 \lambda = \frac{dq}{dl}
@@ -286,12 +307,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Linear Charge Density</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#charge-densities" data-notes-nav-item>Charge densities</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#continuous-charge-distributions" data-notes-nav-item>Continuous charge distributions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#charge-densities" data-notes-nav-item>Charge densities</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#continuous-charge-distributions" data-notes-nav-item>Continuous charge distributions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A uniform charge of $12\ \mu\text{C}$ is spread along a thin wire of length $3.0\ \text{m}$.</p>
@@ -309,9 +332,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -331,7 +356,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="For a flat surface in a uniform field,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Electric flux" data-problem-difficulty="Direct" data-problem-answer="For a flat surface in a uniform field,
 
 $$
 \Phi_E = EA\cos\theta
@@ -349,12 +374,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Electric Flux Through a Flat Surface</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-flux" data-notes-nav-item>Electric flux</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-flux" data-notes-nav-item>Electric flux</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A uniform electric field of magnitude $200\ \text{N/C}$ passes through a flat surface of area $0.15\ \text{m}^2$.</p>
@@ -373,9 +400,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -394,7 +423,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Gauss&#39;s law says
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Gauss&#39;s law, Electric flux" data-problem-difficulty="Direct" data-problem-answer="Gauss&#39;s law says
 
 $$
 \oint \mathbf{E}\cdot d\mathbf{A} = \frac{Q_{\text{enc}}}{\varepsilon_0}
@@ -418,12 +447,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Charge Enclosed by a Gaussian Surface</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-electric-flux" data-notes-nav-item>Gauss&#39;s law, Electric flux</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-electric-flux" data-notes-nav-item>Gauss&#39;s law, Electric flux</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A closed surface has electric flux</p>
@@ -444,9 +475,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -469,7 +502,7 @@ Q_{\text{enc}} = 4.4\times 10^{-8}\ \text{C}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Electric potential adds as a scalar:
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Electric potential, Superposition" data-problem-difficulty="Direct" data-problem-answer="Electric potential adds as a scalar:
 
 $$
 V = \sum_i k\frac{q_i}{r_i}
@@ -493,12 +526,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Potential from Two Point Charges</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#superposition" data-notes-nav-item>Superposition</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#superposition" data-notes-nav-item>Superposition</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>At a point in space, a $+4.0\ \text{nC}$ charge is $0.30\ \text{m}$ away and a $-1.0\ \text{nC}$ charge is $0.20\ \text{m}$ away.</p>
@@ -516,9 +551,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -541,7 +578,7 @@ V = 120 - 45 = 75\ \text{V}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Electric potential, Potential energy" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \Delta U = q\Delta V
@@ -567,12 +604,14 @@ The potential energy decreases.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Change in Potential Energy</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#potential-energy" data-notes-nav-item>Potential energy</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#potential-energy" data-notes-nav-item>Potential energy</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A charge of $+3.0\ \mu\text{C}$ moves from a point at $20\ \text{V}$ to a point at $-10\ \text{V}$.</p>
@@ -590,9 +629,11 @@ The potential energy decreases.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -616,7 +657,7 @@ $$</div>
 <p>The potential energy decreases.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="With a dielectric,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Capacitance, Dielectrics" data-problem-difficulty="Direct" data-problem-answer="With a dielectric,
 
 $$
 C = \kappa \varepsilon_0 \frac{A}{d}
@@ -630,12 +671,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Dielectric Constant from Capacitance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#capacitance" data-notes-nav-item>Capacitance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#dielectrics" data-notes-nav-item>Dielectrics</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#capacitance" data-notes-nav-item>Capacitance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#dielectrics" data-notes-nav-item>Dielectrics</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A capacitor has capacitance $2.0\ \mu\text{F}$ in vacuum. After a dielectric is inserted, its capacitance becomes $6.0\ \mu\text{F}$.</p>
@@ -653,9 +696,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -671,7 +716,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="For a uniform conductor,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Resistance, Ohm&#39;s law" data-problem-difficulty="Direct" data-problem-answer="For a uniform conductor,
 
 $$
 R = \rho\frac{L}{A}
@@ -697,12 +742,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Resistance of a Uniform Wire</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#resistance" data-notes-nav-item>Resistance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#ohms-law" data-notes-nav-item>Ohm&#39;s law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#resistance" data-notes-nav-item>Resistance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#ohms-law" data-notes-nav-item>Ohm&#39;s law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A wire has resistivity $2.0\times 10^{-6}\ \Omega\cdot\text{m}$, length $4.0\ \text{m}$, and cross-sectional area $2.0\times 10^{-6}\ \text{m}^2$.</p>
@@ -720,9 +767,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -746,7 +795,7 @@ I = \frac{V}{R} = \frac{12}{4.0} = 3.0\ \text{A}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="For a straight wire in a uniform field,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Magnetic force, Current" data-problem-difficulty="Direct" data-problem-answer="For a straight wire in a uniform field,
 
 $$
 F = ILB\sin\theta
@@ -764,12 +813,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Magnetic Force on a Current-Carrying Wire</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#magnetic-force" data-notes-nav-item>Magnetic force</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#current" data-notes-nav-item>Current</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#magnetic-force" data-notes-nav-item>Magnetic force</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#current" data-notes-nav-item>Current</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A straight wire segment of length $0.30\ \text{m}$ carries a current of $5.0\ \text{A}$. It is placed in a uniform magnetic field of magnitude $0.40\ \text{T}$, and the wire is perpendicular to the field.</p>
@@ -787,9 +838,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -822,7 +875,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electricity-and-magnetism-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Each charge produces a field of magnitude
+          <article class="practice-problem panel" id="electricity-and-magnetism-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Superposition, Electric field" data-problem-difficulty="Integrated" data-problem-answer="Each charge produces a field of magnitude
 
 $$
 E = k\frac{|q|}{r^2}
@@ -846,12 +899,14 @@ The direction is to the right, from the positive charge toward the negative char
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Net Field from Two Point Charges on a Line</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#superposition" data-notes-nav-item>Superposition</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-field" data-notes-nav-item>Electric field</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#superposition" data-notes-nav-item>Superposition</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-field" data-notes-nav-item>Electric field</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two charges lie on a line: a $+6.0\ \text{nC}$ charge on the left and a $-6.0\ \text{nC}$ charge on the right. A point is exactly halfway between them, $0.10\ \text{m}$ from each charge.</p>
@@ -869,9 +924,11 @@ The direction is to the right, from the positive charge toward the negative char
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -893,7 +950,7 @@ $$</div>
 <p>The direction is to the right, from the positive charge toward the negative charge.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="For an infinite sheet,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Gauss&#39;s law, Electric field" data-problem-difficulty="Integrated" data-problem-answer="For an infinite sheet,
 
 $$
 E = \frac{\sigma}{2\varepsilon_0}
@@ -913,12 +970,14 @@ Because the sheet is positively charged, the field points away from the sheet on
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Gauss&#39;s Law for an Infinite Sheet</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-electric-field" data-notes-nav-item>Gauss&#39;s law, Electric field</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-electric-field" data-notes-nav-item>Gauss&#39;s law, Electric field</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An infinite sheet of charge has surface charge density</p>
@@ -939,9 +998,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -961,7 +1022,7 @@ $$</div>
 <p>Because the sheet is positively charged, the field points away from the sheet on both sides.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="The work done by the field is
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Electric potential, Potential energy" data-problem-difficulty="Integrated" data-problem-answer="The work done by the field is
 
 $$
 W_{\text{field}} = -\Delta U = -q\Delta V
@@ -985,12 +1046,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Work from a Potential Difference</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#potential-energy" data-notes-nav-item>Potential energy</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#potential-energy" data-notes-nav-item>Potential energy</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $3.0\ \mu\text{C}$ charge moves from a point at $20\ \text{V}$ to a point at $-10\ \text{V}$.</p>
@@ -1008,9 +1071,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1033,7 +1098,7 @@ W_{\text{field}} = 9.0\times 10^{-5}\ \text{J}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="For capacitors in series,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Capacitor combinations, Capacitance" data-problem-difficulty="Integrated" data-problem-answer="For capacitors in series,
 
 $$
 \frac{1}{C_{\text{eq}}} = \frac{1}{3.0} + \frac{1}{6.0} = \frac{1}{2.0}
@@ -1055,12 +1120,14 @@ In series, each capacitor has the same charge, so each one stores $24\ \mu\text{
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Capacitors in Series</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#capacitor-combinations" data-notes-nav-item>Capacitor combinations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#capacitance" data-notes-nav-item>Capacitance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#capacitor-combinations" data-notes-nav-item>Capacitor combinations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#capacitance" data-notes-nav-item>Capacitance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two capacitors of $3.0\ \mu\text{F}$ and $6.0\ \mu\text{F}$ are connected in series across a $12\ \text{V}$ battery.</p>
@@ -1078,9 +1145,11 @@ In series, each capacitor has the same charge, so each one stores $24\ \mu\text{
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1101,7 +1170,7 @@ $$</div>
 <p>In series, each capacitor has the same charge, so each one stores $24\ \mu\text{C}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="The total resistance is
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Kirchhoff&#39;s rules, Power" data-problem-difficulty="Integrated" data-problem-answer="The total resistance is
 
 $$
 R_{\text{tot}} = 2 + 4 = 6\ \Omega
@@ -1121,12 +1190,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Kirchhoff Loop with Power</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#kirchhoffs-rules-power" data-notes-nav-item>Kirchhoff&#39;s rules, Power</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#kirchhoffs-rules-power" data-notes-nav-item>Kirchhoff&#39;s rules, Power</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $12\ \text{V}$ battery is connected in series with a $2\ \Omega$ resistor and a $4\ \Omega$ resistor.</p>
@@ -1144,9 +1215,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1166,7 +1239,7 @@ P = I^2R = (2)^2(4) = 16\ \text{W}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="The time constant is
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="RC circuits, Time constant" data-problem-difficulty="Integrated" data-problem-answer="The time constant is
 
 $$
 \tau = RC = (2.0\times 10^3)(100\times 10^{-6}) = 0.20\ \text{s}
@@ -1190,12 +1263,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">RC Charging After One Time Constant</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#rc-circuits" data-notes-nav-item>RC circuits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#time-constant" data-notes-nav-item>Time constant</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#rc-circuits" data-notes-nav-item>RC circuits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#time-constant" data-notes-nav-item>Time constant</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An RC circuit has $R = 2.0\ \text{k}\Omega$, $C = 100\ \mu\text{F}$, and is connected to a $12\ \text{V}$ battery.</p>
@@ -1213,9 +1288,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1238,7 +1315,7 @@ Q(\tau) \approx 0.632(1.2\times 10^{-3}) = 7.6\times 10^{-4}\ \text{C}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="For a long straight wire,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Ampere&#39;s law, Magnetic field" data-problem-difficulty="Integrated" data-problem-answer="For a long straight wire,
 
 $$
 B = \frac{\mu_0 I}{2\pi r}
@@ -1256,12 +1333,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Magnetic Field of a Long Straight Wire</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#amperes-law-magnetic-field" data-notes-nav-item>Ampere&#39;s law, Magnetic field</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#amperes-law-magnetic-field" data-notes-nav-item>Ampere&#39;s law, Magnetic field</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A long straight wire carries a current of $8.0\ \text{A}$.</p>
@@ -1279,9 +1358,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1300,7 +1381,7 @@ B = 3.2\times 10^{-5}\ \text{T}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="For circular motion in a magnetic field,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Magnetic force, Circular motion" data-problem-difficulty="Integrated" data-problem-answer="For circular motion in a magnetic field,
 
 $$
 r = \frac{mv}{|q|B}
@@ -1318,12 +1399,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Motion in a Uniform Magnetic Field</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#magnetic-force" data-notes-nav-item>Magnetic force</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#circular-motion" data-notes-nav-item>Circular motion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#magnetic-force" data-notes-nav-item>Magnetic force</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#circular-motion" data-notes-nav-item>Circular motion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A proton moves perpendicular to a uniform magnetic field of magnitude $0.50\ \text{T}$ with speed $2.0\times 10^5\ \text{m/s}$.</p>
@@ -1341,9 +1424,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1376,7 +1461,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electricity-and-magnetism-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="For an infinite line charge,
+          <article class="practice-problem panel" id="electricity-and-magnetism-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Gauss&#39;s law, Electric field" data-problem-difficulty="Applied" data-problem-answer="For an infinite line charge,
 
 $$
 E = \frac{\lambda}{2\pi\varepsilon_0 r}
@@ -1396,12 +1481,14 @@ Since the line charge is positive, the field points away from the line.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Field from an Infinite Line Charge</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-electric-field" data-notes-nav-item>Gauss&#39;s law, Electric field</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-electric-field" data-notes-nav-item>Gauss&#39;s law, Electric field</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An infinite line of charge has linear charge density</p>
@@ -1422,9 +1509,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1444,7 +1533,7 @@ $$</div>
 <p>Since the line charge is positive, the field points away from the line.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="First find the number of turns per unit length:
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Ampere&#39;s law, Magnetic field" data-problem-difficulty="Applied" data-problem-answer="First find the number of turns per unit length:
 
 $$
 n = \frac{900}{0.30} = 3000\ \text{m}^{-1}
@@ -1468,12 +1557,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Magnetic Field Inside a Solenoid</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#amperes-law-magnetic-field" data-notes-nav-item>Ampere&#39;s law, Magnetic field</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#amperes-law-magnetic-field" data-notes-nav-item>Ampere&#39;s law, Magnetic field</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A solenoid has $900$ turns over a length of $0.30\ \text{m}$ and carries a current of $2.0\ \text{A}$.</p>
@@ -1491,9 +1582,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1516,7 +1609,7 @@ B \approx 7.5\times 10^{-3}\ \text{T}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="The increasing flux into the page must be opposed by an induced field out of the page.
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Faraday&#39;s law, Lenz&#39;s law" data-problem-difficulty="Applied" data-problem-answer="The increasing flux into the page must be opposed by an induced field out of the page.
 
 Using the right-hand rule, a field out of the page is produced by a counterclockwise current.
 
@@ -1524,12 +1617,14 @@ So the induced current is counterclockwise.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Direction of an Induced Current</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#faradays-law-lenzs-law" data-notes-nav-item>Faraday&#39;s law, Lenz&#39;s law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#faradays-law-lenzs-law" data-notes-nav-item>Faraday&#39;s law, Lenz&#39;s law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A circular loop lies in the page. The magnetic field through the loop points into the page and is increasing.</p>
@@ -1547,9 +1642,11 @@ So the induced current is counterclockwise.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1560,7 +1657,7 @@ So the induced current is counterclockwise.">
 <p>So the induced current is counterclockwise.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="The motional emf is
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Motional emf, Current" data-problem-difficulty="Applied" data-problem-answer="The motional emf is
 
 $$
 \mathcal{E} = BLv
@@ -1580,12 +1677,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Motional EMF in a Sliding Bar</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#motional-emf" data-notes-nav-item>Motional emf</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#current" data-notes-nav-item>Current</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#motional-emf" data-notes-nav-item>Motional emf</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#current" data-notes-nav-item>Current</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A metal bar of length $0.40\ \text{m}$ slides at $5.0\ \text{m/s}$ through a magnetic field of magnitude $0.80\ \text{T}$. The bar and its motion are perpendicular to the field. The circuit resistance is $2.0\ \Omega$.</p>
@@ -1603,9 +1702,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1625,7 +1726,7 @@ I = \frac{\mathcal{E}}{R} = \frac{1.6}{2.0} = 0.80\ \text{A}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="The time constant is
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="RL circuits, Time constant" data-problem-difficulty="Applied" data-problem-answer="The time constant is
 
 $$
 \tau = \frac{L}{R} = \frac{0.20}{4.0} = 0.050\ \text{s}
@@ -1649,12 +1750,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Current Growth in an RL Circuit</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#rl-circuits" data-notes-nav-item>RL circuits</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#time-constant" data-notes-nav-item>Time constant</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#rl-circuits" data-notes-nav-item>RL circuits</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#time-constant" data-notes-nav-item>Time constant</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An RL circuit has resistance $4.0\ \Omega$, inductance $0.20\ \text{H}$, and final current $3.0\ \text{A}$.</p>
@@ -1672,9 +1775,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1711,7 +1816,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="electricity-and-magnetism-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="The Ampere-Maxwell law is
+          <article class="practice-problem panel" id="electricity-and-magnetism-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Maxwell&#39;s equations, Current circuits" data-problem-difficulty="Challenge" data-problem-answer="The Ampere-Maxwell law is
 
 $$
 \oint \mathbf{B}\cdot d\mathbf{\ell}
@@ -1730,12 +1835,14 @@ in magnitude.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Charging Capacitor and the Displacement Current</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#maxwells-equations-current-circuits" data-notes-nav-item>Maxwell&#39;s equations, Current circuits</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#maxwells-equations-current-circuits" data-notes-nav-item>Maxwell&#39;s equations, Current circuits</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A capacitor is charging in a circuit, and the conduction current in the wire is $0.40\ \text{A}$.</p>
@@ -1753,9 +1860,11 @@ in magnitude.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1774,7 +1883,7 @@ $$</div>
 <p>in magnitude.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="The electric potential adds as a scalar:
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Electric potential, Electric field" data-problem-difficulty="Challenge" data-problem-answer="The electric potential adds as a scalar:
 
 $$
 V = k\frac{2.0\times 10^{-9}}{0.10} + k\frac{-2.0\times 10^{-9}}{0.10} = 0
@@ -1798,12 +1907,14 @@ The field points toward the negative charge.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Zero Potential, Nonzero Field</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-field" data-notes-nav-item>Electric field</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-potential" data-notes-nav-item>Electric potential</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#electric-field" data-notes-nav-item>Electric field</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two charges, $+2.0\ \text{nC}$ and $-2.0\ \text{nC}$, are placed on a line, each $0.10\ \text{m}$ from the midpoint.</p>
@@ -1821,9 +1932,11 @@ The field points toward the negative charge.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1845,7 +1958,7 @@ $$</div>
 <p>The field points toward the negative charge.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="By Gauss&#39;s law for electricity,
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Gauss&#39;s law, Maxwell&#39;s equations" data-problem-difficulty="Challenge" data-problem-answer="By Gauss&#39;s law for electricity,
 
 $$
 \Phi_E = \frac{Q_{\text{enc}}}{\varepsilon_0}
@@ -1868,12 +1981,14 @@ So the surface has nonzero electric flux, but zero net magnetic flux.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Electric and Magnetic Flux Through a Closed Surface</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-maxwells-equations" data-notes-nav-item>Gauss&#39;s law, Maxwell&#39;s equations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#gausss-law-maxwells-equations" data-notes-nav-item>Gauss&#39;s law, Maxwell&#39;s equations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A closed surface encloses a net charge of $+3.0\ \text{nC}$ and also surrounds a bar magnet.</p>
@@ -1891,9 +2006,11 @@ So the surface has nonzero electric flux, but zero net magnetic flux.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1915,7 +2032,7 @@ $$</div>
 <p>So the surface has nonzero electric flux, but zero net magnetic flux.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="electricity-and-magnetism-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="With counterclockwise chosen as positive, the associated area vector points out of the page.
+    </article><article class="practice-problem panel" id="electricity-and-magnetism-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Faraday&#39;s law, Lenz&#39;s law" data-problem-difficulty="Challenge" data-problem-answer="With counterclockwise chosen as positive, the associated area vector points out of the page.
 
 The magnetic flux is therefore positive, and because the field is increasing, $d\Phi_B/dt &gt; 0$.
 
@@ -1931,12 +2048,14 @@ A negative emf means the actual current goes opposite the positive loop directio
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Faraday Sign Convention</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#faradays-law-lenzs-law" data-notes-nav-item>Faraday&#39;s law, Lenz&#39;s law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/electricity-and-magnetism/#faradays-law-lenzs-law" data-notes-nav-item>Faraday&#39;s law, Lenz&#39;s law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A circular loop lies in the page. The magnetic field through the loop points out of the page and is increasing.</p>
@@ -1955,9 +2074,11 @@ A negative emf means the actual current goes opposite the positive loop directio
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

@@ -2,6 +2,9 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 
 import {
+  MATHJAX_CDN_URL,
+  MATHJAX_SVG_BLACKER,
+  MATHJAX_SVG_FONT_CACHE,
   getSummary,
   normalizePracticeExam,
   parseFrontmatter,
@@ -10,6 +13,12 @@ import {
   rewriteInternalHref,
   stripSearchOnlySections,
 } from '../build-notes.mjs';
+
+test('MathJax SVG output is self-contained for printing', () => {
+  assert.equal(MATHJAX_SVG_FONT_CACHE, 'local');
+  assert.equal(MATHJAX_SVG_BLACKER, 0);
+  assert.match(MATHJAX_CDN_URL, /mathjax@4\.1\.3\/tex-svg\.js$/);
+});
 
 test('frontmatter parsing preserves typed scalar and list values', () => {
   assert.deepEqual(parseFrontmatter([

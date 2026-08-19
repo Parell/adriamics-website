@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Statistics" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Formula sheet</h2><div class="markdown-body"></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,18 +149,20 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="statistics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The **population** is the full group of interest: all first-year students at the college.
+          <article class="practice-problem panel" id="statistics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Population, Sample" data-problem-difficulty="Direct" data-problem-answer="The **population** is the full group of interest: all first-year students at the college.
 
 The **sample** is the subset actually observed: the 120 first-year students who were surveyed.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify the Population and Sample</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#population" data-notes-nav-item>Population</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#sample" data-notes-nav-item>Sample</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#population" data-notes-nav-item>Population</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#sample" data-notes-nav-item>Sample</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A researcher wants to study sleep habits of all first-year students at a college. She surveys 120 first-year students. Which group is the population, and which group is the sample?</p>
@@ -164,9 +179,11 @@ The **sample** is the subset actually observed: the 120 first-year students who 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -176,19 +193,21 @@ The **sample** is the subset actually observed: the 120 first-year students who 
 <p>The <strong>sample</strong> is the subset actually observed: the 120 first-year students who were surveyed.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="- Blood type is **categorical**.
+    </article><article class="practice-problem panel" id="statistics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Variable Types, Discrete and Continuous" data-problem-difficulty="Direct" data-problem-answer="- Blood type is **categorical**.
 - Class rank is **ordinal**.
 - Number of siblings is **quantitative discrete**.
 - Time to finish a race is **quantitative continuous**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Classify the Variable</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#variable-types" data-notes-nav-item>Variable Types</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#discrete-and-continuous" data-notes-nav-item>Discrete and Continuous</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#variable-types" data-notes-nav-item>Variable Types</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#discrete-and-continuous" data-notes-nav-item>Discrete and Continuous</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Classify each variable as categorical, ordinal, or quantitative. If it is quantitative, say whether it is discrete or continuous.</p>
@@ -206,9 +225,11 @@ The **sample** is the subset actually observed: the 120 first-year students who 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -217,19 +238,21 @@ The **sample** is the subset actually observed: the 120 first-year students who 
           <ul><li><p>Blood type is <strong>categorical</strong>.</p></li><li><p>Class rank is <strong>ordinal</strong>.</p></li><li><p>Number of siblings is <strong>quantitative discrete</strong>.</p></li><li><p>Time to finish a race is <strong>quantitative continuous</strong>.</p></li></ul>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="- Jersey number is **nominal** because it is a label.
+    </article><article class="practice-problem panel" id="statistics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Measurement Scales" data-problem-difficulty="Direct" data-problem-answer="- Jersey number is **nominal** because it is a label.
 - Class rank is **ordinal** because order matters but differences do not have a natural numerical meaning.
 - Celsius temperature is **interval** because differences are meaningful but there is no true zero.
 - Body mass is **ratio** because differences and ratios are meaningful and there is a true zero.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Match the Measurement Scale</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#measurement-scales" data-notes-nav-item>Measurement Scales</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#measurement-scales" data-notes-nav-item>Measurement Scales</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>State the measurement scale for each variable: nominal, ordinal, interval, or ratio.</p>
@@ -247,9 +270,11 @@ The **sample** is the subset actually observed: the 120 first-year students who 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -258,7 +283,7 @@ The **sample** is the subset actually observed: the 120 first-year students who 
           <ul><li><p>Jersey number is <strong>nominal</strong> because it is a label.</p></li><li><p>Class rank is <strong>ordinal</strong> because order matters but differences do not have a natural numerical meaning.</p></li><li><p>Celsius temperature is <strong>interval</strong> because differences are meaningful but there is no true zero.</p></li><li><p>Body mass is <strong>ratio</strong> because differences and ratios are meaningful and there is a true zero.</p></li></ul>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="The mean is
+    </article><article class="practice-problem panel" id="statistics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Mean, Median, Outliers" data-problem-difficulty="Direct" data-problem-answer="The mean is
 
 $$
 \bar{x} = \frac{3+4+4+5+40}{5} = \frac{56}{5} = 11.2
@@ -274,12 +299,14 @@ The value $40$ is an outlier compared with the rest of the data, so the **median
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Choose Mean or Median</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#mean" data-notes-nav-item>Mean</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#median" data-notes-nav-item>Median</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#mean" data-notes-nav-item>Mean</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#median" data-notes-nav-item>Median</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the data set</p>
@@ -300,9 +327,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -319,7 +348,7 @@ $$</div>
 <p>The value $40$ is an outlier compared with the rest of the data, so the <strong>median</strong> is the better measure of center.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Use the formula
+    </article><article class="practice-problem panel" id="statistics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Quartiles, Interquartile Range" data-problem-difficulty="Direct" data-problem-answer="Use the formula
 
 $$
 \mathrm{IQR} = Q_3 - Q_1
@@ -333,12 +362,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find the Interquartile Range</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#quartiles" data-notes-nav-item>Quartiles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#interquartile-range" data-notes-nav-item>Interquartile Range</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#quartiles" data-notes-nav-item>Quartiles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#interquartile-range" data-notes-nav-item>Interquartile Range</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If a data set has</p>
@@ -359,9 +390,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -377,7 +410,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="statistics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Z-scores, Standard Deviation" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 z = \frac{x - \mu}{\sigma}
@@ -393,12 +426,14 @@ The score is 2 standard deviations above the mean.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Compute a Z-Score</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#z-scores" data-notes-nav-item>Z-scores</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standard-deviation" data-notes-nav-item>Standard Deviation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#z-scores" data-notes-nav-item>Z-scores</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standard-deviation" data-notes-nav-item>Standard Deviation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A score of $80$ comes from a distribution with mean $72$ and standard deviation $4$. What is the z-score?</p>
@@ -415,9 +450,11 @@ The score is 2 standard deviations above the mean.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -434,7 +471,7 @@ $$</div>
 <p>The score is 2 standard deviations above the mean.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use the complement rule:
+    </article><article class="practice-problem panel" id="statistics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Complement Rule, Probability" data-problem-difficulty="Direct" data-problem-answer="Use the complement rule:
 
 $$
 P(A^c) = 1 - P(A)
@@ -448,12 +485,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Use the Complement Rule</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#complement-rule" data-notes-nav-item>Complement Rule</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#complement-rule" data-notes-nav-item>Complement Rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If the probability of rain tomorrow is $0.3$, what is the probability that it will not rain tomorrow?</p>
@@ -470,9 +509,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -488,7 +529,7 @@ P(\text{no rain}) = 1 - 0.3 = 0.7
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Use conditional probability:
+    </article><article class="practice-problem panel" id="statistics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Conditional Probability, Probability" data-problem-difficulty="Direct" data-problem-answer="Use conditional probability:
 
 $$
 P(\text{late} \mid \text{bus}) = \frac{P(\text{late and bus})}{P(\text{bus})}
@@ -504,12 +545,14 @@ So the probability is $0.25$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Apply Conditional Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#conditional-probability" data-notes-nav-item>Conditional Probability</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#conditional-probability" data-notes-nav-item>Conditional Probability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In a survey, $20\%$ of students take the bus to school, and $5\%$ of students both take the bus and arrive late. What is the probability that a student is late given that the student takes the bus?</p>
@@ -526,9 +569,11 @@ So the probability is $0.25$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -545,7 +590,7 @@ $$</div>
 <p>So the probability is $0.25$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Check whether
+    </article><article class="practice-problem panel" id="statistics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Independence, Probability" data-problem-difficulty="Direct" data-problem-answer="Check whether
 
 $$
 P(A \cap B) = P(A)P(B)
@@ -561,12 +606,14 @@ This matches $P(A \cap B)$, so the events are **independent**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Check Independence</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#independence" data-notes-nav-item>Independence</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#independence" data-notes-nav-item>Independence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose $P(A) = 0.4$, $P(B) = 0.5$, and $P(A \cap B) = 0.2$. Are $A$ and $B$ independent?</p>
@@ -583,9 +630,11 @@ This matches $P(A \cap B)$, so the events are **independent**.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -602,7 +651,7 @@ $$</div>
 <p>This matches $P(A \cap B)$, so the events are <strong>independent</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Since $X \sim \mathcal{N}(50, 9)$, the standard deviation is
+    </article><article class="practice-problem panel" id="statistics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Normal Distribution, Standardization" data-problem-difficulty="Direct" data-problem-answer="Since $X \sim \mathcal{N}(50, 9)$, the standard deviation is
 
 $$
 \sigma = 3
@@ -618,12 +667,14 @@ So the z-score is $2$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Standardize a Normal Value</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#normal-distribution" data-notes-nav-item>Normal Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standardization" data-notes-nav-item>Standardization</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#normal-distribution" data-notes-nav-item>Normal Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standardization" data-notes-nav-item>Standardization</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $X \sim \mathcal{N}(50, 9)$. What is the z-score for the value $56$?</p>
@@ -640,9 +691,11 @@ So the z-score is $2$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -673,7 +726,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="statistics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="The mean is
+          <article class="practice-problem panel" id="statistics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Mean, Median, Outliers" data-problem-difficulty="Integrated" data-problem-answer="The mean is
 
 $$
 \bar{x} = \frac{1+2+2+7+10}{5} = \frac{22}{5} = 4.4
@@ -689,12 +742,14 @@ The value $10$ pulls the mean upward, so the **median** is more resistant to the
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Find the Mean and Median</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#mean" data-notes-nav-item>Mean</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#median" data-notes-nav-item>Median</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#mean" data-notes-nav-item>Mean</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#median" data-notes-nav-item>Median</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the data set</p>
@@ -715,9 +770,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -734,7 +791,7 @@ $$</div>
 <p>The value $10$ pulls the mean upward, so the <strong>median</strong> is more resistant to the large value.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="First find the mean:
+    </article><article class="practice-problem panel" id="statistics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Variance, Standard Deviation" data-problem-difficulty="Integrated" data-problem-answer="First find the mean:
 
 $$
 \bar{x} = \frac{2+4+6+8}{4} = 5
@@ -762,12 +819,14 @@ So the sample standard deviation is $\sqrt{20/3}$, about $2.58$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Compute the Sample Standard Deviation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#variance" data-notes-nav-item>Variance</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standard-deviation" data-notes-nav-item>Standard Deviation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#variance" data-notes-nav-item>Variance</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standard-deviation" data-notes-nav-item>Standard Deviation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the data set</p>
@@ -788,9 +847,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -815,7 +876,7 @@ $$</div>
 <p>So the sample standard deviation is $\sqrt{20/3}$, about $2.58$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="This is a binomial probability with $n=5$, $k=4$, and $p=0.7$:
+    </article><article class="practice-problem panel" id="statistics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Binomial Distribution, Probability" data-problem-difficulty="Integrated" data-problem-answer="This is a binomial probability with $n=5$, $k=4$, and $p=0.7$:
 
 $$
 P(X=4) = {5 \choose 4}(0.7)^4(0.3)^1
@@ -831,12 +892,14 @@ So the probability is about $0.360$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Find an Exact Binomial Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#binomial-distribution" data-notes-nav-item>Binomial Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#binomial-distribution" data-notes-nav-item>Binomial Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#probability" data-notes-nav-item>Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A basketball player makes each free throw with probability $0.7$. Assuming the shots are independent, what is the probability of making exactly 4 out of 5 free throws?</p>
@@ -853,9 +916,11 @@ So the probability is about $0.360$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -872,7 +937,7 @@ $$</div>
 <p>So the probability is about $0.360$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Standardize each value.
+    </article><article class="practice-problem panel" id="statistics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Normal Distribution, Standardization, Z-scores" data-problem-difficulty="Integrated" data-problem-answer="Standardize each value.
 
 For $56$:
 
@@ -890,12 +955,14 @@ The two values have the same z-score, so they are **equally unusual** relative t
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Compare Two Standardized Scores</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#normal-distribution" data-notes-nav-item>Normal Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standardization" data-notes-nav-item>Standardization</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#z-scores" data-notes-nav-item>Z-scores</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#normal-distribution" data-notes-nav-item>Normal Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standardization" data-notes-nav-item>Standardization</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#z-scores" data-notes-nav-item>Z-scores</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two values come from different normal distributions:</p>
@@ -914,9 +981,11 @@ The two values have the same z-score, so they are **equally unusual** relative t
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -934,7 +1003,7 @@ $$</div>
 <p>The two values have the same z-score, so they are <strong>equally unusual</strong> relative to their own distributions.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="For the sample mean,
+    </article><article class="practice-problem panel" id="statistics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Sampling Distributions, Standard Error, Central Limit Theorem" data-problem-difficulty="Integrated" data-problem-answer="For the sample mean,
 
 $$
 \mathrm{SE}(\bar{x}) = \frac{\sigma}{\sqrt{n}}
@@ -956,12 +1025,14 @@ So the standard error gets smaller as the sample size increases. This matches th
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Use Standard Error and the CLT</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#sampling-distributions" data-notes-nav-item>Sampling Distributions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standard-error" data-notes-nav-item>Standard Error</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#central-limit-theorem" data-notes-nav-item>Central Limit Theorem</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#sampling-distributions" data-notes-nav-item>Sampling Distributions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#standard-error" data-notes-nav-item>Standard Error</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#central-limit-theorem" data-notes-nav-item>Central Limit Theorem</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose a population has standard deviation $12$. If the sample size is $36$, what is the standard error of the sample mean? What happens to the standard error if the sample size increases to $144$?</p>
@@ -978,9 +1049,11 @@ So the standard error gets smaller as the sample size increases. This matches th
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1001,7 +1074,7 @@ $$</div>
 <p>So the standard error gets smaller as the sample size increases. This matches the central limit theorem idea that larger samples reduce random error in the sample mean.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Use the general form
+    </article><article class="practice-problem panel" id="statistics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Confidence Intervals, Interpretation" data-problem-difficulty="Integrated" data-problem-answer="Use the general form
 
 $$
 \text{estimate} \pm \text{margin of error}
@@ -1023,12 +1096,14 @@ This means the method produces intervals that would capture the true parameter a
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Construct a Confidence Interval</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#confidence-intervals" data-notes-nav-item>Confidence Intervals</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#interpretation" data-notes-nav-item>Interpretation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#confidence-intervals" data-notes-nav-item>Confidence Intervals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#interpretation" data-notes-nav-item>Interpretation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A sample has mean $52$ and margin of error $4.3$. Construct the confidence interval and interpret it correctly.</p>
@@ -1045,9 +1120,11 @@ This means the method produces intervals that would capture the true parameter a
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1068,7 +1145,7 @@ $$</div>
 <p>This means the method produces intervals that would capture the true parameter about the stated confidence level in repeated sampling. It does not mean there is a probability of 1 particular interval being correct.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="statistics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Hypothesis Testing, Test Statistic" data-problem-difficulty="Integrated" data-problem-answer="Use
 
 $$
 t = \frac{\bar{x} - \mu_0}{s/\sqrt{n}}
@@ -1084,12 +1161,14 @@ Since the p-value is about $0.11$, and $0.11 &gt; 0.05$, you **fail to reject** 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Compute a One-Sample t Statistic</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#hypothesis-testing" data-notes-nav-item>Hypothesis Testing</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#test-statistic" data-notes-nav-item>Test Statistic</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#hypothesis-testing" data-notes-nav-item>Hypothesis Testing</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#test-statistic" data-notes-nav-item>Test Statistic</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A sample has $\bar{x} = 105$, $s = 15$, and $n = 25$. Compute the one-sample t statistic for testing $H_0: \mu = 100$. If the two-sided p-value is about $0.11$, what should you conclude at $\alpha = 0.05$?</p>
@@ -1106,9 +1185,11 @@ Since the p-value is about $0.11$, and $0.11 &gt; 0.05$, you **fail to reject** 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1125,7 +1206,7 @@ $$</div>
 <p>Since the p-value is about $0.11$, and $0.11 &gt; 0.05$, you <strong>fail to reject</strong> $H_0$ at the $5\%$ level. The data are reasonably consistent with the null model.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="The predicted value is
+    </article><article class="practice-problem panel" id="statistics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Simple Linear Regression, Residuals" data-problem-difficulty="Integrated" data-problem-answer="The predicted value is
 
 $$
 \hat{y} = 12 + 3(4) = 24
@@ -1141,12 +1222,14 @@ The slope is $3$, so each 1-unit increase in $x$ is associated with an increase 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Interpret a Linear Regression Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#simple-linear-regression" data-notes-nav-item>Simple Linear Regression</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#residuals" data-notes-nav-item>Residuals</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#simple-linear-regression" data-notes-nav-item>Simple Linear Regression</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#residuals" data-notes-nav-item>Residuals</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose a regression model is</p>
@@ -1167,9 +1250,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1200,18 +1285,20 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="statistics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="The better choices are the **median** and **IQR**.
+          <article class="practice-problem panel" id="statistics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Median, IQR, Outliers" data-problem-difficulty="Applied" data-problem-answer="The better choices are the **median** and **IQR**.
 
 The data are skewed by a few large orders, so the mean would be pulled upward and the standard deviation would be more sensitive to the extreme values. The median and IQR are more robust and better summarize the typical spending.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Choose a Summary for Skewed Data</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#median" data-notes-nav-item>Median</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#iqr" data-notes-nav-item>IQR</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#median" data-notes-nav-item>Median</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#iqr" data-notes-nav-item>IQR</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A store manager records weekly customer spending. Most customers spend between $20$ and $60$, but a few large orders are much higher. Which measure of center and which measure of spread should the manager report: mean and standard deviation, or median and IQR? Explain why.</p>
@@ -1228,9 +1315,11 @@ The data are skewed by a few large orders, so the mean would be pulled upward an
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1240,7 +1329,7 @@ The data are skewed by a few large orders, so the mean would be pulled upward an
 <p>The data are skewed by a few large orders, so the mean would be pulled upward and the standard deviation would be more sensitive to the extreme values. The median and IQR are more robust and better summarize the typical spending.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="This is a **Poisson** model, because it counts events over a fixed interval when events occur independently at a constant average rate.
+    </article><article class="practice-problem panel" id="statistics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Poisson Distribution, Applied Probability" data-problem-difficulty="Applied" data-problem-answer="This is a **Poisson** model, because it counts events over a fixed interval when events occur independently at a constant average rate.
 
 The parameter is
 
@@ -1256,12 +1345,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Model a Count with Poisson</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#poisson-distribution" data-notes-nav-item>Poisson Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#applied-probability" data-notes-nav-item>Applied Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#poisson-distribution" data-notes-nav-item>Poisson Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#applied-probability" data-notes-nav-item>Applied Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A help desk receives an average of $3$ calls per hour, and calls arrive independently at a roughly constant rate. What distribution is the best model for the number of calls in one hour, and what is its parameter?</p>
@@ -1278,9 +1369,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1297,7 +1390,7 @@ X \sim \mathrm{Poisson}(3)
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="By the central limit theorem, the sample mean is approximately normal for a large enough sample size.
+    </article><article class="practice-problem panel" id="statistics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Central Limit Theorem, Sampling Distributions" data-problem-difficulty="Applied" data-problem-answer="By the central limit theorem, the sample mean is approximately normal for a large enough sample size.
 
 Its mean is the population mean:
 
@@ -1315,12 +1408,14 @@ So the sampling distribution is approximately normal with mean $50$ and standard
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Use the CLT for a Sample Mean</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#central-limit-theorem" data-notes-nav-item>Central Limit Theorem</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#sampling-distributions" data-notes-nav-item>Sampling Distributions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#central-limit-theorem" data-notes-nav-item>Central Limit Theorem</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#sampling-distributions" data-notes-nav-item>Sampling Distributions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A population has mean $50$ and standard deviation $10$. A random sample of size $64$ is taken. Approximate the mean and standard deviation of the sampling distribution of the sample mean.</p>
@@ -1337,9 +1432,11 @@ So the sampling distribution is approximately normal with mean $50$ and standard
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1357,7 +1454,7 @@ $$</div>
 <p>So the sampling distribution is approximately normal with mean $50$ and standard deviation $1.25$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="The sample proportion is
+    </article><article class="practice-problem panel" id="statistics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Hypothesis Testing, One-Sample Proportion" data-problem-difficulty="Applied" data-problem-answer="The sample proportion is
 
 $$
 \hat{p} = \frac{8}{200} = 0.04
@@ -1391,12 +1488,14 @@ That is enough evidence to reject the null at the $5\%$ level, so the sample sug
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Test a Population Proportion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#hypothesis-testing" data-notes-nav-item>Hypothesis Testing</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#one-sample-proportion" data-notes-nav-item>One-Sample Proportion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#hypothesis-testing" data-notes-nav-item>Hypothesis Testing</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#one-sample-proportion" data-notes-nav-item>One-Sample Proportion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A manufacturer claims that only $2\%$ of its items are defective. In a random sample of $200$ items, $8$ are defective. Use a one-sample proportion test to compute the z statistic for $H_0: p = 0.02$, and decide whether the result gives evidence against the claim at the $5\%$ level.</p>
@@ -1413,9 +1512,11 @@ That is enough evidence to reject the null at the $5\%$ level, so the sample sug
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1444,7 +1545,7 @@ $$</div>
 <p>That is enough evidence to reject the null at the $5\%$ level, so the sample suggests the defect rate may be higher than claimed.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="statistics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Chi-Square, Categorical Data" data-problem-difficulty="Applied" data-problem-answer="Use
 
 $$
 \chi^2 = \sum \frac{(O-E)^2}{E}
@@ -1474,12 +1575,14 @@ So the chi-square statistic is $0.4$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Compute a Chi-Square Goodness-of-Fit Statistic</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#chi-square" data-notes-nav-item>Chi-Square</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#categorical-data" data-notes-nav-item>Categorical Data</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#chi-square" data-notes-nav-item>Chi-Square</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#categorical-data" data-notes-nav-item>Categorical Data</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A survey asks 60 people to choose one of three categories. If all three categories were equally likely, the expected count would be 20 in each category. The observed counts are 18, 22, and 20. Compute the chi-square goodness-of-fit statistic.</p>
@@ -1496,9 +1599,11 @@ So the chi-square statistic is $0.4$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1539,7 +1644,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="statistics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="The **population of interest** is all emergency-room patients whose wait times the hospital wants to understand.
+          <article class="practice-problem panel" id="statistics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Workflow, Bias, Outliers" data-problem-difficulty="Challenge" data-problem-answer="The **population of interest** is all emergency-room patients whose wait times the hospital wants to understand.
 
 The **sample** is the 300 people who responded to the survey.
 
@@ -1552,12 +1657,14 @@ Because of these issues, the hospital should be cautious about generalizing the 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Plan a Simple Statistical Workflow</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#workflow" data-notes-nav-item>Workflow</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#bias" data-notes-nav-item>Bias</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#workflow" data-notes-nav-item>Workflow</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#bias" data-notes-nav-item>Bias</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#outliers" data-notes-nav-item>Outliers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A hospital wants to understand patient wait times. It sends an optional online survey to people who recently visited the emergency room, and only 300 people respond. What is the likely sample, what is the population of interest, and what are two problems with this data collection process?</p>
@@ -1574,9 +1681,11 @@ Because of these issues, the hospital should be cautious about generalizing the 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1589,18 +1698,20 @@ Because of these issues, the hospital should be cautious about generalizing the 
 <p>Because of these issues, the hospital should be cautious about generalizing the results. A good workflow would include checking data quality, assessing representativeness, and reporting limitations.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="The safer choice is the **sign test**.
+    </article><article class="practice-problem panel" id="statistics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Nonparametric Methods, Ordinal Data" data-problem-difficulty="Challenge" data-problem-answer="The safer choice is the **sign test**.
 
 The data are paired and ordinal, but the differences are skewed and include an outlier. The sign test makes fewer assumptions because it uses only the direction of the change, not the size of each difference. That makes it more robust in this situation.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Choose a Nonparametric Method</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#nonparametric-methods" data-notes-nav-item>Nonparametric Methods</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#ordinal-data" data-notes-nav-item>Ordinal Data</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#nonparametric-methods" data-notes-nav-item>Nonparametric Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#ordinal-data" data-notes-nav-item>Ordinal Data</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A researcher measures pain on a 1-to-10 rating scale for the same 12 patients before and after a treatment. The paired differences are skewed and include an outlier. Which method from the note is the safest choice: the sign test or the Wilcoxon signed-rank test? Explain your choice.</p>
@@ -1617,9 +1728,11 @@ The data are paired and ordinal, but the differences are skewed and include an o
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1629,7 +1742,7 @@ The data are paired and ordinal, but the differences are skewed and include an o
 <p>The data are paired and ordinal, but the differences are skewed and include an outlier. The sign test makes fewer assumptions because it uses only the direction of the change, not the size of each difference. That makes it more robust in this situation.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="The slope is $4$, so each additional study hour is associated with an increase of 4 points in the predicted exam score.
+    </article><article class="practice-problem panel" id="statistics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Correlation, Regression, Residuals" data-problem-difficulty="Challenge" data-problem-answer="The slope is $4$, so each additional study hour is associated with an increase of 4 points in the predicted exam score.
 
 The correlation $r = 0.92$ indicates a strong positive linear relationship.
 
@@ -1651,12 +1764,14 @@ One important caution is that correlation does not imply causation, so the model
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Interpret Correlation and Regression Together</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#correlation" data-notes-nav-item>Correlation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#regression" data-notes-nav-item>Regression</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#residuals" data-notes-nav-item>Residuals</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#correlation" data-notes-nav-item>Correlation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#regression" data-notes-nav-item>Regression</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#residuals" data-notes-nav-item>Residuals</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A model predicts exam score from study hours with</p>
@@ -1677,9 +1792,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1699,18 +1816,20 @@ $$</div>
 <p>One important caution is that correlation does not imply causation, so the model does not by itself prove that studying causes the higher scores. Also, predictions should not be trusted far outside the observed range.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="statistics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="The main pitfall is **confounding**. Coffee drinking may be associated with other variables, such as smoking, diet, or exercise, that also affect heart disease risk.
+    </article><article class="practice-problem panel" id="statistics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Confounding, Correlation, Bias" data-problem-difficulty="Challenge" data-problem-answer="The main pitfall is **confounding**. Coffee drinking may be associated with other variables, such as smoking, diet, or exercise, that also affect heart disease risk.
 
 Because this is an observational association, the result does not show causation. A better analysis would need to control for potential confounders, use a stronger study design if possible, and state the limitations clearly.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Spot Confounding and Correlation Pitfalls</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#confounding" data-notes-nav-item>Confounding</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#correlation" data-notes-nav-item>Correlation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#bias" data-notes-nav-item>Bias</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#confounding" data-notes-nav-item>Confounding</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#correlation" data-notes-nav-item>Correlation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/statistics/#bias" data-notes-nav-item>Bias</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A newspaper reports that people who drink more coffee also have higher rates of heart disease. The article does not mention smoking, diet, or exercise. What is the main statistical pitfall here, and what would a better analysis need to address?</p>
@@ -1727,9 +1846,11 @@ Because this is an observational association, the result does not show causation
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

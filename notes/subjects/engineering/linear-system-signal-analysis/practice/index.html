@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Linear System Signal Analysis" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,18 +149,20 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="linear-system-signal-analysis-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The signal is **continuous-time** because it is defined for real values of $t$.
+          <article class="practice-problem panel" id="linear-system-signal-analysis-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Signals, Signal Types" data-problem-difficulty="Direct" data-problem-answer="The signal is **continuous-time** because it is defined for real values of $t$.
 
 It is **deterministic** because it is given by an explicit formula, not a statistical description.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Classify a Signal</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#signals" data-notes-nav-item>Signals</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#signal-types" data-notes-nav-item>Signal Types</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#signals" data-notes-nav-item>Signals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#signal-types" data-notes-nav-item>Signal Types</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Classify the signal below as continuous-time or discrete-time, and state whether it is deterministic or random:</p>
@@ -167,9 +182,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -179,7 +196,7 @@ $$</div>
 <p>It is <strong>deterministic</strong> because it is given by an explicit formula, not a statistical description.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Replace $t$ by $t-3$:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Time Shifting" data-problem-difficulty="Direct" data-problem-answer="Replace $t$ by $t-3$:
 
 $$
 x(t-3) = u(t-3)
@@ -189,12 +206,14 @@ This is the original step delayed by $3$ units.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Shift a Step Signal</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#time-shifting" data-notes-nav-item>Time Shifting</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#time-shifting" data-notes-nav-item>Time Shifting</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If</p>
@@ -215,9 +234,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -230,7 +251,7 @@ $$</div>
 <p>This is the original step delayed by $3$ units.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="First compute $x(-t)$:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Even and Odd Parts" data-problem-difficulty="Direct" data-problem-answer="First compute $x(-t)$:
 
 $$
 x(-t) = -t + 2
@@ -260,12 +281,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Find Even and Odd Parts</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#even-and-odd-parts" data-notes-nav-item>Even and Odd Parts</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#even-and-odd-parts" data-notes-nav-item>Even and Odd Parts</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -286,9 +309,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -315,7 +340,7 @@ x_o(t) = \frac{(t+2)-(-t+2)}{2} = t
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="No. Linearity requires superposition.
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Linearity" data-problem-difficulty="Direct" data-problem-answer="No. Linearity requires superposition.
 
 For an input $x(t)$, the output is $x(t)^2$. But if we double the input, the output becomes
 
@@ -333,12 +358,14 @@ These are not the same, so the system is not linear.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Test Linearity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#linearity" data-notes-nav-item>Linearity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#linearity" data-notes-nav-item>Linearity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Is the system</p>
@@ -359,9 +386,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -379,18 +408,20 @@ $$</div>
 <p>These are not the same, so the system is not linear.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="The system **has memory** because $y(t)$ depends on $x(t-1)$, not just the input at the same time.
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Memory, Causality" data-problem-difficulty="Direct" data-problem-answer="The system **has memory** because $y(t)$ depends on $x(t-1)$, not just the input at the same time.
 
 It is **causal** because it depends only on the present value $x(t)$ and the past value $x(t-1)$, not on any future input.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Check Memory and Causality</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#memory" data-notes-nav-item>Memory</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#causality" data-notes-nav-item>Causality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#memory" data-notes-nav-item>Memory</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#causality" data-notes-nav-item>Causality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the system</p>
@@ -411,9 +442,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -423,7 +456,7 @@ $$</div>
 <p>It is <strong>causal</strong> because it depends only on the present value $x(t)$ and the past value $x(t-1)$, not on any future input.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="An impulse delayed by $2$ units produces a delayed copy of the impulse response:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Impulse Response, Convolution" data-problem-difficulty="Direct" data-problem-answer="An impulse delayed by $2$ units produces a delayed copy of the impulse response:
 
 $$
 y(t) = h(t-2)
@@ -433,12 +466,14 @@ This follows from the shift property of convolution.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Use the Impulse Shift Property</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#impulse-response" data-notes-nav-item>Impulse Response</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#impulse-response" data-notes-nav-item>Impulse Response</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For an LTI system with impulse response $h(t)$, what is the output when the input is</p>
@@ -458,9 +493,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -473,7 +510,7 @@ $$</div>
 <p>This follows from the shift property of convolution.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Convolution with a delayed impulse shifts the other signal:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Convolution, Discrete Time" data-problem-difficulty="Direct" data-problem-answer="Convolution with a delayed impulse shifts the other signal:
 
 $$
 y[n] = h[n-2]
@@ -487,12 +524,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Convolve with a Delayed Impulse</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#discrete-time" data-notes-nav-item>Discrete Time</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#discrete-time" data-notes-nav-item>Discrete Time</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Given</p>
@@ -517,9 +556,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -535,7 +576,7 @@ y[n] = \delta[n-2] + \delta[n-3]
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Fourier Series, Period" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \omega_0 = \frac{2\pi}{T}
@@ -555,12 +596,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Find the Fundamental Angular Frequency</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-series" data-notes-nav-item>Fourier Series</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#period" data-notes-nav-item>Period</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-series" data-notes-nav-item>Fourier Series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#period" data-notes-nav-item>Period</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A periodic signal has period</p>
@@ -581,9 +624,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -603,7 +648,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="The pole is where the denominator is zero:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Transfer Function, Poles and Zeros" data-problem-difficulty="Direct" data-problem-answer="The pole is where the denominator is zero:
 
 $$
 s + 5 = 0 \quad \Rightarrow \quad s = -5
@@ -613,12 +658,14 @@ Since $-5$ has negative real part, the pole lies in the **left-half plane**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Read a Pole from a Transfer Function</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#transfer-function" data-notes-nav-item>Transfer Function</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#poles-and-zeros" data-notes-nav-item>Poles and Zeros</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#transfer-function" data-notes-nav-item>Transfer Function</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#poles-and-zeros" data-notes-nav-item>Poles and Zeros</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For</p>
@@ -639,9 +686,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -654,7 +703,7 @@ $$</div>
 <p>Since $-5$ has negative real part, the pole lies in the <strong>left-half plane</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Compare the equations to
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="State-Space, Continuous Time" data-problem-difficulty="Direct" data-problem-answer="Compare the equations to
 
 $$
 \dot{x}(t) = Ax(t) + Bu(t)
@@ -674,12 +723,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Read a Scalar State-Space Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#state-space" data-notes-nav-item>State-Space</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#continuous-time" data-notes-nav-item>Continuous Time</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#state-space" data-notes-nav-item>State-Space</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#continuous-time" data-notes-nav-item>Continuous Time</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the system</p>
@@ -700,9 +751,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -736,7 +789,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="linear-system-signal-analysis-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="The system is **linear** because $x(t)$ and $y(t)$ appear only to the first power and are not multiplied together.
+          <article class="practice-problem panel" id="linear-system-signal-analysis-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="LTI Systems, Differential Equations" data-problem-difficulty="Integrated" data-problem-answer="The system is **linear** because $x(t)$ and $y(t)$ appear only to the first power and are not multiplied together.
 
 It is **time invariant** because the coefficients are constant and there is no explicit dependence on $t$.
 
@@ -744,12 +797,14 @@ So the system is **LTI**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Classify a Differential-Equation Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#lti-systems" data-notes-nav-item>LTI Systems</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#differential-equations" data-notes-nav-item>Differential Equations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#lti-systems" data-notes-nav-item>LTI Systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#differential-equations" data-notes-nav-item>Differential Equations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Determine whether the system</p>
@@ -770,9 +825,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -783,7 +840,7 @@ $$</div>
 <p>So the system is <strong>LTI</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="First compute
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Even and Odd Parts" data-problem-difficulty="Integrated" data-problem-answer="First compute
 
 $$
 x(-t) = t^2 - 3t
@@ -815,12 +872,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Split a Polynomial Signal</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#even-and-odd-parts" data-notes-nav-item>Even and Odd Parts</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#even-and-odd-parts" data-notes-nav-item>Even and Odd Parts</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -841,9 +900,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -871,7 +932,7 @@ x_o(t) = \frac{(t^2+3t)-(t^2-3t)}{2} = 3t
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="The filter averages three consecutive samples:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Convolution, Impulse Response" data-problem-difficulty="Integrated" data-problem-answer="The filter averages three consecutive samples:
 
 $$
 y[n] = \frac{1}{3}\big(x[n] + x[n-1] + x[n-2]\big)
@@ -893,12 +954,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Output of a Moving-Average Filter</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#impulse-response" data-notes-nav-item>Impulse Response</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#impulse-response" data-notes-nav-item>Impulse Response</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -923,9 +986,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -949,7 +1014,7 @@ y[n] =
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="For a cosine input at frequency $\omega$, the output keeps the same frequency and is scaled and phase shifted by $H(j\omega)$.
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Frequency Response, Sinusoids" data-problem-difficulty="Integrated" data-problem-answer="For a cosine input at frequency $\omega$, the output keeps the same frequency and is scaled and phase shifted by $H(j\omega)$.
 
 The magnitude is $2$ and the phase is $-\pi/6$, so
 
@@ -959,12 +1024,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Compute a Sinusoidal Steady-State Output</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sinusoids" data-notes-nav-item>Sinusoids</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sinusoids" data-notes-nav-item>Sinusoids</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An LTI system has frequency response</p>
@@ -989,9 +1056,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1004,7 +1073,7 @@ y(t) = 2\cos\left(5t - \frac{\pi}{6}\right)
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use the time-shift property:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Fourier Transform, Time Shift" data-problem-difficulty="Integrated" data-problem-answer="Use the time-shift property:
 
 $$
 x(t-t_0) \longleftrightarrow e^{-j\omega t_0}X(j\omega)
@@ -1024,12 +1093,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Shift a Known Fourier Transform</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-transform" data-notes-nav-item>Fourier Transform</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#time-shift" data-notes-nav-item>Time Shift</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-transform" data-notes-nav-item>Fourier Transform</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#time-shift" data-notes-nav-item>Time Shift</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose</p>
@@ -1054,9 +1125,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1076,7 +1149,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Take the Laplace transform of both sides:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Laplace Transform, Initial Conditions" data-problem-difficulty="Integrated" data-problem-answer="Take the Laplace transform of both sides:
 
 $$
 sY(s) + 4Y(s) = \frac{1}{s}
@@ -1102,12 +1175,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Solve a First-Order System with Laplace Transforms</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#laplace-transform" data-notes-nav-item>Laplace Transform</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#initial-conditions" data-notes-nav-item>Initial Conditions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#laplace-transform" data-notes-nav-item>Laplace Transform</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#initial-conditions" data-notes-nav-item>Initial Conditions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Solve for $y(t)$ given</p>
@@ -1127,9 +1202,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1153,7 +1230,7 @@ y(t) = \frac{1}{4}\left(1 - e^{-4t}\right)u(t)
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Take the Z-transform with zero initial conditions:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Z-Transform, Difference Equations" data-problem-difficulty="Integrated" data-problem-answer="Take the Z-transform with zero initial conditions:
 
 $$
 Y(z) - 0.6z^{-1}Y(z) = X(z)
@@ -1179,12 +1256,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Find the Transfer Function of a Difference Equation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#z-transform" data-notes-nav-item>Z-Transform</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#difference-equations" data-notes-nav-item>Difference Equations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#z-transform" data-notes-nav-item>Z-Transform</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#difference-equations" data-notes-nav-item>Difference Equations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the causal system</p>
@@ -1205,9 +1284,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1231,7 +1312,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="The Nyquist rate is
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Sampling, Aliasing" data-problem-difficulty="Integrated" data-problem-answer="The Nyquist rate is
 
 $$
 2f_{\max} = 2(900) = 1800 \text{ Hz}
@@ -1243,12 +1324,14 @@ Since $1.5$ kHz $= 1500$ Hz is below $1800$ Hz, it is **not sufficient**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Apply the Nyquist Criterion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sampling" data-notes-nav-item>Sampling</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#aliasing" data-notes-nav-item>Aliasing</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sampling" data-notes-nav-item>Sampling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#aliasing" data-notes-nav-item>Aliasing</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A signal has highest frequency content at $900$ Hz. What is the Nyquist rate, and is sampling at $1.5$ kHz sufficient to avoid aliasing?</p>
@@ -1265,9 +1348,11 @@ Since $1.5$ kHz $= 1500$ Hz is below $1800$ Hz, it is **not sufficient**.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1295,7 +1380,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="linear-system-signal-analysis-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Use linearity and the shift property:
+          <article class="practice-problem panel" id="linear-system-signal-analysis-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Convolution, Impulse Response" data-problem-difficulty="Applied" data-problem-answer="Use linearity and the shift property:
 
 $$
 y(t) = 3h(t-1) - 2h(t) + h(t-3)
@@ -1309,12 +1394,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Impulse Input as a Weighted Sum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#impulse-response" data-notes-nav-item>Impulse Response</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#impulse-response" data-notes-nav-item>Impulse Response</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An LTI system has impulse response</p>
@@ -1339,9 +1426,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1357,7 +1446,7 @@ y(t) = 3e^{-2(t-1)}u(t-1) - 2e^{-2t}u(t) + e^{-2(t-3)}u(t-3)
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Evaluate the frequency response at $\omega=2$:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Frequency Response, Sinusoids" data-problem-difficulty="Applied" data-problem-answer="Evaluate the frequency response at $\omega=2$:
 
 $$
 H(j2) = \frac{1}{1+j2}
@@ -1389,12 +1478,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Attenuation of a Sinusoid</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sinusoids" data-notes-nav-item>Sinusoids</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sinusoids" data-notes-nav-item>Sinusoids</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An LTI system has frequency response</p>
@@ -1419,9 +1510,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1449,7 +1542,7 @@ y(t) = \sqrt{5}\cos\big(2t - \tan^{-1}(2)\big)
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="The sampled spectrum repeats every $f_s = 4$ kHz.
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Sampling, Aliasing" data-problem-difficulty="Applied" data-problem-answer="The sampled spectrum repeats every $f_s = 4$ kHz.
 
 Since
 
@@ -1467,12 +1560,14 @@ in the baseband interval $[0, f_s/2]$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Aliased Tone</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sampling" data-notes-nav-item>Sampling</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#aliasing" data-notes-nav-item>Aliasing</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#sampling" data-notes-nav-item>Sampling</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#aliasing" data-notes-nav-item>Aliasing</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $3.4$ kHz sinusoid is sampled at $4$ kHz. What aliased frequency appears after sampling?</p>
@@ -1489,9 +1584,11 @@ in the baseband interval $[0, f_s/2]$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1509,7 +1606,7 @@ $$</div>
 <p>in the baseband interval $[0, f_s/2]$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="State-Space, Transfer Function" data-problem-difficulty="Applied" data-problem-answer="Use
 
 $$
 H(s) = C(sI-A)^{-1}B + D
@@ -1535,12 +1632,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">State-Space to Transfer Function</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#state-space" data-notes-nav-item>State-Space</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#transfer-function" data-notes-nav-item>Transfer Function</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#state-space" data-notes-nav-item>State-Space</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#transfer-function" data-notes-nav-item>Transfer Function</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the scalar state-space model</p>
@@ -1561,9 +1660,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1587,7 +1688,7 @@ H(s) = \frac{4s+11}{s+2}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Odd symmetry means the Fourier series can contain **sine terms only**. There is no DC term and no cosine terms.
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Fourier Series, Symmetry" data-problem-difficulty="Applied" data-problem-answer="Odd symmetry means the Fourier series can contain **sine terms only**. There is no DC term and no cosine terms.
 
 The fundamental frequency is
 
@@ -1599,12 +1700,14 @@ So the harmonics occur at integer multiples of $100$ Hz.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Interpret a Symmetric Periodic Waveform</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-series" data-notes-nav-item>Fourier Series</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#symmetry" data-notes-nav-item>Symmetry</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-series" data-notes-nav-item>Fourier Series</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#symmetry" data-notes-nav-item>Symmetry</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A real periodic signal has period</p>
@@ -1629,9 +1732,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1659,7 +1764,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="linear-system-signal-analysis-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Both signals are rectangular pulses. The convolution equals the amount of overlap between the interval $[0,2)$ and the shifted interval $[t-1,t)$.
+          <article class="practice-problem panel" id="linear-system-signal-analysis-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Convolution, Piecewise Signals" data-problem-difficulty="Challenge" data-problem-answer="Both signals are rectangular pulses. The convolution equals the amount of overlap between the interval $[0,2)$ and the shifted interval $[t-1,t)$.
 
 That overlap length is:
 
@@ -1678,12 +1783,14 @@ So the output is a trapezoid made of two ramps and a flat middle section.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Convolution of Two Rectangular Pulses</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#piecewise-signals" data-notes-nav-item>Piecewise Signals</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#convolution" data-notes-nav-item>Convolution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#piecewise-signals" data-notes-nav-item>Piecewise Signals</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let</p>
@@ -1711,9 +1818,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1734,7 +1843,7 @@ $$</div>
 <p>So the output is a trapezoid made of two ramps and a flat middle section.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="Take the Laplace transform:
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Laplace Transform, Partial Fractions" data-problem-difficulty="Challenge" data-problem-answer="Take the Laplace transform:
 
 $$
 sY(s) + 3Y(s) = \frac{1}{s+2}
@@ -1760,12 +1869,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Solve a Forced First-Order System</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#laplace-transform" data-notes-nav-item>Laplace Transform</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#partial-fractions" data-notes-nav-item>Partial Fractions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#laplace-transform" data-notes-nav-item>Laplace Transform</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#partial-fractions" data-notes-nav-item>Partial Fractions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Solve for $y(t)$ given</p>
@@ -1785,9 +1896,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1811,7 +1924,7 @@ y(t) = \big(e^{-2t} - e^{-3t}\big)u(t)
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="The poles are at
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Poles and Zeros, Stability" data-problem-difficulty="Challenge" data-problem-answer="The poles are at
 
 $$
 s = -2 \quad \text{and} \quad s = 3.
@@ -1829,12 +1942,14 @@ Therefore, a **causal stable realization is not possible**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Stability and Causality from Poles</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#poles-and-zeros" data-notes-nav-item>Poles and Zeros</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#stability" data-notes-nav-item>Stability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#poles-and-zeros" data-notes-nav-item>Poles and Zeros</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#stability" data-notes-nav-item>Stability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Consider</p>
@@ -1855,9 +1970,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1875,7 +1992,7 @@ $$</div>
 <p>Therefore, a <strong>causal stable realization is not possible</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="linear-system-signal-analysis-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="The frequency response is
+    </article><article class="practice-problem panel" id="linear-system-signal-analysis-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Frequency Response, Fourier Transform" data-problem-difficulty="Challenge" data-problem-answer="The frequency response is
 
 $$
 H(j\omega) = \frac{1}{a+j\omega}
@@ -1901,12 +2018,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Frequency Response from an Exponential Impulse Response</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-transform" data-notes-nav-item>Fourier Transform</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#frequency-response" data-notes-nav-item>Frequency Response</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/linear-system-signal-analysis/#fourier-transform" data-notes-nav-item>Fourier Transform</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A system has impulse response</p>
@@ -1931,9 +2050,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

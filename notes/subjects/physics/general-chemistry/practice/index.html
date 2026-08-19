@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,54 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="General Chemistry" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Core formulas</h2><div class="markdown-body"><div class="math-block">$$
+A = Z + N
+$$</div>
+<div class="math-block">$$
+n = \frac{m}{M}
+$$</div>
+<div class="math-block">$$
+PV = nRT
+$$</div>
+<div class="math-block">$$
+M = \frac{n}{V}
+$$</div>
+<div class="math-block">$$
+M_1V_1 = M_2V_2
+$$</div>
+<div class="math-block">$$
+q = mc\Delta T
+$$</div>
+<div class="math-block">$$
+\Delta H = q_p
+$$</div>
+<div class="math-block">$$
+\text{pH} = -\log[H^+]
+$$</div>
+<div class="math-block">$$
+\text{pOH} = -\log[OH^-]
+$$</div>
+<div class="math-block">$$
+\text{pH} + \text{pOH} = 14 \quad \text{(at 25 C)}
+$$</div>
+<div class="math-block">$$
+\text{pH} = \text{p}K_a + \log\left(\frac{[A^-]}{[HA]}\right)
+$$</div>
+<div class="math-block">$$
+\text{rate} = k[A]^m[B]^n
+$$</div>
+<div class="math-block">$$
+\% \text{yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100
+$$</div></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +187,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="general-chemistry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Air is a homogeneous mixture because its composition is fairly uniform throughout.
+          <article class="practice-problem panel" id="general-chemistry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Matter, Mixtures" data-problem-difficulty="Direct" data-problem-answer="Air is a homogeneous mixture because its composition is fairly uniform throughout.
 
 Salt water is also a homogeneous mixture because the salt is dissolved evenly in the water.
 
@@ -144,12 +195,14 @@ Granite is a heterogeneous mixture because its different minerals remain visible
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Classify Common Forms of Matter</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#matter" data-notes-nav-item>Matter</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#mixtures" data-notes-nav-item>Mixtures</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#matter" data-notes-nav-item>Matter</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#mixtures" data-notes-nav-item>Mixtures</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Classify each sample as an element, compound, homogeneous mixture, or heterogeneous mixture:</p>
@@ -169,9 +222,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -182,7 +237,7 @@ $$</div>
 <p>Granite is a heterogeneous mixture because its different minerals remain visible as separate parts.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="The atomic number gives the number of protons, so the atom has $12$ protons.
+    </article><article class="practice-problem panel" id="general-chemistry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Atomic Structure, Isotopes, Ions" data-problem-difficulty="Direct" data-problem-answer="The atomic number gives the number of protons, so the atom has $12$ protons.
 
 The mass number is
 
@@ -202,12 +257,14 @@ Because the atom is neutral, it also has $12$ electrons.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Count Particles in an Atom</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#atomic-structure" data-notes-nav-item>Atomic Structure</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#isotopes" data-notes-nav-item>Isotopes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#ions" data-notes-nav-item>Ions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#atomic-structure" data-notes-nav-item>Atomic Structure</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#isotopes" data-notes-nav-item>Isotopes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#ions" data-notes-nav-item>Ions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A neutral atom has atomic number $12$ and mass number $24$.</p>
@@ -225,9 +282,11 @@ Because the atom is neutral, it also has $12$ electrons.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -246,18 +305,20 @@ $$</div>
 <p>Because the atom is neutral, it also has $12$ electrons.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Group 2 elements usually have $2$ valence electrons.
+    </article><article class="practice-problem panel" id="general-chemistry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Periodic Table, Groups" data-problem-difficulty="Direct" data-problem-answer="Group 2 elements usually have $2$ valence electrons.
 
 Group 18 elements are especially stable because their outer electron shells are full.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Use Group Trends in the Periodic Table</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#periodic-table" data-notes-nav-item>Periodic Table</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#groups" data-notes-nav-item>Groups</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#periodic-table" data-notes-nav-item>Periodic Table</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#groups" data-notes-nav-item>Groups</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A main-group element is in Group 2.</p>
@@ -275,9 +336,11 @@ Group 18 elements are especially stable because their outer electron shells are 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -287,18 +350,20 @@ Group 18 elements are especially stable because their outer electron shells are 
 <p>Group 18 elements are especially stable because their outer electron shells are full.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="A $p$ subshell holds $6$ electrons.
+    </article><article class="practice-problem panel" id="general-chemistry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Electron Configuration, Orbitals" data-problem-difficulty="Direct" data-problem-answer="A $p$ subshell holds $6$ electrons.
 
 A $d$ subshell holds $10$ electrons.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Read Subshell Capacities</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#electron-configuration" data-notes-nav-item>Electron Configuration</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#orbitals" data-notes-nav-item>Orbitals</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#electron-configuration" data-notes-nav-item>Electron Configuration</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#orbitals" data-notes-nav-item>Orbitals</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many electrons can a $p$ subshell hold, and how many can a $d$ subshell hold?</p>
@@ -315,9 +380,11 @@ A $d$ subshell holds $10$ electrons.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -327,18 +394,20 @@ A $d$ subshell holds $10$ electrons.">
 <p>A $d$ subshell holds $10$ electrons.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Across a period, atomic radius decreases.
+    </article><article class="practice-problem panel" id="general-chemistry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Periodic Trends" data-problem-difficulty="Direct" data-problem-answer="Across a period, atomic radius decreases.
 
 Across a period, electronegativity generally increases.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Use Periodic Trends</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#periodic-trends" data-notes-nav-item>Periodic Trends</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#periodic-trends" data-notes-nav-item>Periodic Trends</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Moving from left to right across a period, what happens to atomic radius and electronegativity?</p>
@@ -355,9 +424,11 @@ Across a period, electronegativity generally increases.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -367,7 +438,7 @@ Across a period, electronegativity generally increases.">
 <p>Across a period, electronegativity generally increases.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="The best Lewis structure is
+    </article><article class="practice-problem panel" id="general-chemistry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Lewis Structures, Formal Charge" data-problem-difficulty="Direct" data-problem-answer="The best Lewis structure is
 
 $$
 \mathrm{O=C=O}
@@ -381,12 +452,14 @@ So every atom in the preferred structure has formal charge $0$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Find Formal Charge in a Lewis Structure</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#lewis-structures" data-notes-nav-item>Lewis Structures</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#formal-charge" data-notes-nav-item>Formal Charge</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#lewis-structures" data-notes-nav-item>Lewis Structures</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#formal-charge" data-notes-nav-item>Formal Charge</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In the best Lewis structure for carbon dioxide, what is the formal charge on each atom?</p>
@@ -403,9 +476,11 @@ So every atom in the preferred structure has formal charge $0$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -420,7 +495,7 @@ $$</div>
 <p>So every atom in the preferred structure has formal charge $0$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Oxygen has four electron groups around it: two bonding pairs and two lone pairs.
+    </article><article class="practice-problem panel" id="general-chemistry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="VSEPR, Polarity" data-problem-difficulty="Direct" data-problem-answer="Oxygen has four electron groups around it: two bonding pairs and two lone pairs.
 
 That gives a tetrahedral electron geometry and a bent molecular shape.
 
@@ -428,12 +503,14 @@ Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Predict Shape and Polarity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#vsepr" data-notes-nav-item>VSEPR</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#polarity" data-notes-nav-item>Polarity</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#vsepr" data-notes-nav-item>VSEPR</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#polarity" data-notes-nav-item>Polarity</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What are the molecular shape and polarity of water, $H_2O$?</p>
@@ -450,9 +527,11 @@ Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -463,7 +542,7 @@ Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.">
 <p>Because the bond dipoles do not cancel in a bent molecule, $H_2O$ is polar.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="$\mathrm{NaCl}$ is sodium chloride.
+    </article><article class="practice-problem panel" id="general-chemistry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Nomenclature, Acids" data-problem-difficulty="Direct" data-problem-answer="$\mathrm{NaCl}$ is sodium chloride.
 
 $\mathrm{CO_2}$ is carbon dioxide.
 
@@ -473,12 +552,14 @@ $\mathrm{CaCO_3}$ is calcium carbonate.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Name Common Compounds</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#nomenclature" data-notes-nav-item>Nomenclature</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#acids" data-notes-nav-item>Acids</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#nomenclature" data-notes-nav-item>Nomenclature</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#acids" data-notes-nav-item>Acids</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Give the names of the following substances:</p>
@@ -498,9 +579,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -512,7 +595,7 @@ $$</div>
 <p>$\mathrm{CaCO_3}$ is calcium carbonate.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Start by balancing carbon and hydrogen:
+    </article><article class="practice-problem panel" id="general-chemistry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Balancing Equations, Reaction Types" data-problem-difficulty="Direct" data-problem-answer="Start by balancing carbon and hydrogen:
 
 $$
 \mathrm{CH_4 + O_2 \rightarrow CO_2 + 2H_2O}
@@ -530,12 +613,14 @@ This is a combustion reaction because a hydrocarbon reacts with oxygen to form c
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Balance a Combustion Reaction</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#balancing-equations" data-notes-nav-item>Balancing Equations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#reaction-types" data-notes-nav-item>Reaction Types</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#balancing-equations" data-notes-nav-item>Balancing Equations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#reaction-types" data-notes-nav-item>Reaction Types</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Balance the equation and identify the reaction type:</p>
@@ -555,9 +640,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -575,7 +662,7 @@ $$</div>
 <p>This is a combustion reaction because a hydrocarbon reacts with oxygen to form carbon dioxide and water.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Use Avogadro&#39;s number:
+    </article><article class="practice-problem panel" id="general-chemistry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Mole Concept, Avogadro&#39;s Number" data-problem-difficulty="Direct" data-problem-answer="Use Avogadro&#39;s number:
 
 $$
 0.25 \text{ mol} \times 6.022 \times 10^{23} \frac{\text{molecules}}{\text{mol}}
@@ -593,12 +680,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Use the Mole Concept</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#mole-concept" data-notes-nav-item>Mole Concept</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#avogadros-number" data-notes-nav-item>Avogadro&#39;s Number</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#mole-concept" data-notes-nav-item>Mole Concept</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#avogadros-number" data-notes-nav-item>Avogadro&#39;s Number</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many molecules are in $0.25$ mol of water?</p>
@@ -615,9 +704,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -650,7 +741,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="general-chemistry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="The molar mass of water is $18.0$ g/mol, so
+          <article class="practice-problem panel" id="general-chemistry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Mole Concept, Unit Conversion" data-problem-difficulty="Integrated" data-problem-answer="The molar mass of water is $18.0$ g/mol, so
 
 $$
 n = \frac{18.0\text{ g}}{18.0\text{ g/mol}} = 1.00\text{ mol}
@@ -665,12 +756,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Convert Mass to Particles</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#mole-concept" data-notes-nav-item>Mole Concept</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#unit-conversion" data-notes-nav-item>Unit Conversion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#mole-concept" data-notes-nav-item>Mole Concept</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#unit-conversion" data-notes-nav-item>Unit Conversion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A sample contains $18.0$ g of water.</p>
@@ -688,9 +781,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -707,7 +802,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="The reaction needs $2$ mol of $H_2$ for every $1$ mol of $O_2$.
+    </article><article class="practice-problem panel" id="general-chemistry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Stoichiometry, Limiting Reagent" data-problem-difficulty="Integrated" data-problem-answer="The reaction needs $2$ mol of $H_2$ for every $1$ mol of $O_2$.
 
 If $2.0$ mol of $O_2$ are available, the reaction requires
 
@@ -725,12 +820,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Find the Limiting Reagent</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#stoichiometry" data-notes-nav-item>Stoichiometry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#limiting-reagent" data-notes-nav-item>Limiting Reagent</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#stoichiometry" data-notes-nav-item>Stoichiometry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#limiting-reagent" data-notes-nav-item>Limiting Reagent</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the reaction</p>
@@ -752,9 +849,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -772,7 +871,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Use the ideal gas law:
+    </article><article class="practice-problem panel" id="general-chemistry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Gas Laws, Kelvin" data-problem-difficulty="Integrated" data-problem-answer="Use the ideal gas law:
 
 $$
 PV = nRT
@@ -802,12 +901,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Solve an Ideal Gas Problem</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#gas-laws" data-notes-nav-item>Gas Laws</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#kelvin" data-notes-nav-item>Kelvin</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#gas-laws" data-notes-nav-item>Gas Laws</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#kelvin" data-notes-nav-item>Kelvin</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What volume does $0.50$ mol of gas occupy at $1.00$ atm and $300$ K?</p>
@@ -825,9 +926,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -854,7 +957,7 @@ V \approx 12.3\text{ L}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Use the dilution relationship:
+    </article><article class="practice-problem panel" id="general-chemistry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Solutions, Dilution" data-problem-difficulty="Integrated" data-problem-answer="Use the dilution relationship:
 
 $$
 M_1V_1 = M_2V_2
@@ -872,12 +975,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Use Molarity and Dilution</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#solutions" data-notes-nav-item>Solutions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#dilution" data-notes-nav-item>Dilution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#solutions" data-notes-nav-item>Solutions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#dilution" data-notes-nav-item>Dilution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many milliliters of a $2.00$ M stock solution are needed to prepare $100.0$ mL of a $0.500$ M solution?</p>
@@ -894,9 +999,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -915,7 +1022,7 @@ V_1 = \frac{(0.500)(100.0)}{2.00} = 25.0\text{ mL}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="general-chemistry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Thermochemistry, Specific Heat" data-problem-difficulty="Integrated" data-problem-answer="Use
 
 $$
 q = mc\Delta T
@@ -935,12 +1042,14 @@ Because the temperature increases, the heat is positive.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Compute Heat Flow</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#thermochemistry" data-notes-nav-item>Thermochemistry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#specific-heat" data-notes-nav-item>Specific Heat</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#thermochemistry" data-notes-nav-item>Thermochemistry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#specific-heat" data-notes-nav-item>Specific Heat</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How much heat is required to warm $50.0$ g of water by $10.0^\circ$C?</p>
@@ -958,9 +1067,11 @@ Because the temperature increases, the heat is positive.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -980,7 +1091,7 @@ $$</div>
 <p>Because the temperature increases, the heat is positive.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Compare $Q$ and $K$.
+    </article><article class="practice-problem panel" id="general-chemistry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Equilibrium, Le Chatelier&#39;s Principle" data-problem-difficulty="Integrated" data-problem-answer="Compare $Q$ and $K$.
 
 Since
 
@@ -994,12 +1105,14 @@ The reaction shifts to the right, toward ammonia, to increase $Q$ until equilibr
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Predict a Shift in Equilibrium</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#equilibrium" data-notes-nav-item>Equilibrium</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#le-chateliers-principle" data-notes-nav-item>Le Chatelier&#39;s Principle</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#equilibrium" data-notes-nav-item>Equilibrium</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#le-chateliers-principle" data-notes-nav-item>Le Chatelier&#39;s Principle</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the reaction</p>
@@ -1021,9 +1134,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1038,7 +1153,7 @@ $$</div>
 <p>The reaction shifts to the right, toward ammonia, to increase $Q$ until equilibrium is reached.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use the Henderson-Hasselbalch equation:
+    </article><article class="practice-problem panel" id="general-chemistry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Buffers, pH, Henderson-Hasselbalch" data-problem-difficulty="Integrated" data-problem-answer="Use the Henderson-Hasselbalch equation:
 
 $$
 \text{pH} = \text{p}K_a + \log\left(\frac{[A^-]}{[HA]}\right)
@@ -1056,12 +1171,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Calculate pH from a Buffer</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#buffers" data-notes-nav-item>Buffers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#ph" data-notes-nav-item>pH</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#henderson-hasselbalch" data-notes-nav-item>Henderson-Hasselbalch</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#buffers" data-notes-nav-item>Buffers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#ph" data-notes-nav-item>pH</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#henderson-hasselbalch" data-notes-nav-item>Henderson-Hasselbalch</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A buffer has $[A^-] = 10[HA]$ and $\mathrm{p}K_a = 7.00$.</p>
@@ -1079,9 +1196,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1100,7 +1219,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="The rate changes by the factor
+    </article><article class="practice-problem panel" id="general-chemistry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Kinetics, Rate Laws" data-problem-difficulty="Integrated" data-problem-answer="The rate changes by the factor
 
 $$
 3^2 \times \frac{1}{2} = 9 \times \frac{1}{2} = 4.5
@@ -1110,12 +1229,14 @@ So the rate increases by a factor of $4.5$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Use a Rate Law</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#kinetics" data-notes-nav-item>Kinetics</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#rate-laws" data-notes-nav-item>Rate Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#kinetics" data-notes-nav-item>Kinetics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#rate-laws" data-notes-nav-item>Rate Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For a reaction with rate law</p>
@@ -1136,9 +1257,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1165,7 +1288,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="general-chemistry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="The outside solution is hypotonic relative to the cell.
+          <article class="practice-problem panel" id="general-chemistry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Solutions, Osmosis" data-problem-difficulty="Applied" data-problem-answer="The outside solution is hypotonic relative to the cell.
 
 Water moves into the cell by osmosis.
 
@@ -1173,12 +1296,14 @@ The cell swells and may burst if the concentration difference is large enough.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Choose the Tonicity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#solutions" data-notes-nav-item>Solutions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#osmosis" data-notes-nav-item>Osmosis</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#solutions" data-notes-nav-item>Solutions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#osmosis" data-notes-nav-item>Osmosis</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A red blood cell is placed in a solution that has a lower solute concentration than the cell.</p>
@@ -1196,9 +1321,11 @@ The cell swells and may burst if the concentration difference is large enough.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1209,7 +1336,7 @@ The cell swells and may burst if the concentration difference is large enough.">
 <p>The cell swells and may burst if the concentration difference is large enough.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Use Dalton&#39;s law:
+    </article><article class="practice-problem panel" id="general-chemistry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Gas Laws, Partial Pressure" data-problem-difficulty="Applied" data-problem-answer="Use Dalton&#39;s law:
 
 $$
 P_i = X_i P_{total}
@@ -1233,12 +1360,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Read a Gas Mixture</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#gas-laws" data-notes-nav-item>Gas Laws</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#partial-pressure" data-notes-nav-item>Partial Pressure</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#gas-laws" data-notes-nav-item>Gas Laws</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#partial-pressure" data-notes-nav-item>Partial Pressure</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air has a total pressure of $760$ mmHg, and oxygen makes up $21\%$ of the mixture by mole fraction.</p>
@@ -1256,9 +1385,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1281,7 +1412,7 @@ P_{O_2} \approx 160\text{ mmHg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="general-chemistry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Stoichiometry, Percent Yield" data-problem-difficulty="Applied" data-problem-answer="Use
 
 $$
 \% \text{yield} = \frac{\text{actual yield}}{\text{theoretical yield}} \times 100
@@ -1295,12 +1426,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find Percent Yield</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#stoichiometry" data-notes-nav-item>Stoichiometry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#percent-yield" data-notes-nav-item>Percent Yield</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#stoichiometry" data-notes-nav-item>Stoichiometry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#percent-yield" data-notes-nav-item>Percent Yield</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An experiment has a theoretical yield of $20.0$ g and an actual yield of $15.0$ g.</p>
@@ -1318,9 +1451,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1336,7 +1471,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Because
+    </article><article class="practice-problem panel" id="general-chemistry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Acids, Bases, pKa" data-problem-difficulty="Applied" data-problem-answer="Because
 
 $$
 \text{pH} &lt; \text{p}K_a
@@ -1348,12 +1483,14 @@ That is the key pH-to-pKa rule for weak acids.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Decide Protonation from pH and pKa</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#acids" data-notes-nav-item>Acids</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#bases" data-notes-nav-item>Bases</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#pka" data-notes-nav-item>pKa</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#acids" data-notes-nav-item>Acids</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#bases" data-notes-nav-item>Bases</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#pka" data-notes-nav-item>pKa</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A weak acid drug has $\mathrm{p}K_a = 8.0$ and is placed in blood at pH $7.4$.</p>
@@ -1371,9 +1508,11 @@ That is the key pH-to-pKa rule for weak acids.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1387,7 +1526,7 @@ $$</div>
 <p>That is the key pH-to-pKa rule for weak acids.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Loss of mass means oxidation is happening there.
+    </article><article class="practice-problem panel" id="general-chemistry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Redox, Electrochemistry" data-problem-difficulty="Applied" data-problem-answer="Loss of mass means oxidation is happening there.
 
 Oxidation occurs at the anode, so that electrode is the anode.
 
@@ -1395,12 +1534,14 @@ The electrons flow away from the anode and toward the cathode.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Identify the Anode and Cathode</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#redox" data-notes-nav-item>Redox</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#electrochemistry" data-notes-nav-item>Electrochemistry</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#redox" data-notes-nav-item>Redox</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#electrochemistry" data-notes-nav-item>Electrochemistry</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In a galvanic cell, one metal electrode loses mass because its atoms become ions.</p>
@@ -1418,9 +1559,11 @@ The electrons flow away from the anode and toward the cathode.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1445,7 +1588,7 @@ The electrons flow away from the anode and toward the cathode.">
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="general-chemistry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Water is polar, so ionic and polar substances dissolve better than nonpolar substances.
+          <article class="practice-problem panel" id="general-chemistry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Bonding, Polarity, Solubility" data-problem-difficulty="Challenge" data-problem-answer="Water is polar, so ionic and polar substances dissolve better than nonpolar substances.
 
 $\mathrm{NaCl}$ is ionic, so it is the most water-soluble.
 
@@ -1461,12 +1604,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Match Shape, Polarity, and Solubility</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#bonding" data-notes-nav-item>Bonding</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#polarity" data-notes-nav-item>Polarity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#solubility" data-notes-nav-item>Solubility</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#bonding" data-notes-nav-item>Bonding</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#polarity" data-notes-nav-item>Polarity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#solubility" data-notes-nav-item>Solubility</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Rank the following from most likely to least likely to dissolve in water:</p>
@@ -1486,9 +1631,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1504,18 +1651,20 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="Removing product lowers the product concentration, so $Q$ becomes less than $K$.
+    </article><article class="practice-problem panel" id="general-chemistry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Equilibrium, Le Chatelier&#39;s Principle" data-problem-difficulty="Challenge" data-problem-answer="Removing product lowers the product concentration, so $Q$ becomes less than $K$.
 
 To restore equilibrium, the reaction shifts to the right and makes more product.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Use Q and K After a Disturbance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#equilibrium" data-notes-nav-item>Equilibrium</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#le-chateliers-principle" data-notes-nav-item>Le Chatelier&#39;s Principle</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#equilibrium" data-notes-nav-item>Equilibrium</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#le-chateliers-principle" data-notes-nav-item>Le Chatelier&#39;s Principle</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For a reaction at equilibrium, a small amount of product is removed.</p>
@@ -1533,9 +1682,11 @@ To restore equilibrium, the reaction shifts to the right and makes more product.
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1545,7 +1696,7 @@ To restore equilibrium, the reaction shifts to the right and makes more product.
 <p>To restore equilibrium, the reaction shifts to the right and makes more product.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="The added acid reacts with the base form:
+    </article><article class="practice-problem panel" id="general-chemistry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Buffers, pH, Le Chatelier&#39;s Principle" data-problem-difficulty="Challenge" data-problem-answer="The added acid reacts with the base form:
 
 $$
 A^- + H^+ \rightarrow HA
@@ -1577,12 +1728,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Update a Buffer After Adding Acid</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#buffers" data-notes-nav-item>Buffers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#ph" data-notes-nav-item>pH</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#le-chateliers-principle" data-notes-nav-item>Le Chatelier&#39;s Principle</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#buffers" data-notes-nav-item>Buffers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#ph" data-notes-nav-item>pH</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#le-chateliers-principle" data-notes-nav-item>Le Chatelier&#39;s Principle</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A buffer contains $0.10$ mol of $HA$ and $0.10$ mol of $A^-$ in $1.0$ L of solution, and $\mathrm{p}K_a = 7.00$.</p>
@@ -1601,9 +1754,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1632,7 +1787,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="general-chemistry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="From the balanced equation, $1$ mol of $O_2$ produces $2$ mol of water.
+    </article><article class="practice-problem panel" id="general-chemistry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Stoichiometry, Gas Laws, Unit Conversion" data-problem-difficulty="Challenge" data-problem-answer="From the balanced equation, $1$ mol of $O_2$ produces $2$ mol of water.
 
 So to make $2.00$ mol of $H_2O$, you need
 
@@ -1656,12 +1811,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Combine Stoichiometry and the Ideal Gas Law</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#stoichiometry" data-notes-nav-item>Stoichiometry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#gas-laws" data-notes-nav-item>Gas Laws</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#unit-conversion" data-notes-nav-item>Unit Conversion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#stoichiometry" data-notes-nav-item>Stoichiometry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#gas-laws" data-notes-nav-item>Gas Laws</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/general-chemistry/#unit-conversion" data-notes-nav-item>Unit Conversion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>For the reaction</p>
@@ -1683,9 +1840,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

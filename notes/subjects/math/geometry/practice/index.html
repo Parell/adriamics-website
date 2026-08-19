@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,27 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Geometry" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Circle formulas</h2><div class="markdown-body"><div class="math-block">$$
+C=2\pi r
+$$</div>
+<div class="math-block">$$
+A=\pi r^2
+$$</div>
+<div class="math-block">$$
+s=\frac{\theta}{360^\circ}\cdot 2\pi r
+$$</div>
+<div class="math-block">$$
+A_{sector}=\frac{\theta}{360^\circ}\cdot \pi r^2
+$$</div></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +160,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="geometry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The notation for the segment is
+          <article class="practice-problem panel" id="geometry-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Notation, Segments" data-problem-difficulty="Direct" data-problem-answer="The notation for the segment is
 
 $$
 \overline{AB}
@@ -146,12 +170,14 @@ A segment has two endpoints and finite length.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Write the Notation for a Segment</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#notation" data-notes-nav-item>Notation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#segments" data-notes-nav-item>Segments</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#notation" data-notes-nav-item>Notation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#segments" data-notes-nav-item>Segments</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the notation for the line segment with endpoints $A$ and $B$?</p>
@@ -168,9 +194,11 @@ A segment has two endpoints and finite length.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -183,7 +211,7 @@ $$</div>
 <p>A segment has two endpoints and finite length.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Complementary angles sum to $90^\circ$.
+    </article><article class="practice-problem panel" id="geometry-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Angle Relationships" data-problem-difficulty="Direct" data-problem-answer="Complementary angles sum to $90^\circ$.
 
 So the other angle is
 
@@ -193,12 +221,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find a Complementary Angle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#angle-relationships" data-notes-nav-item>Angle Relationships</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#angle-relationships" data-notes-nav-item>Angle Relationships</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>One angle measures $37^\circ$. If it is complementary to another angle, what is the measure of the other angle?</p>
@@ -215,9 +245,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -230,7 +262,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Vertical angles are congruent, so the vertical angle has the same measure.
+    </article><article class="practice-problem panel" id="geometry-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Vertical Angles, Angle Relationships" data-problem-difficulty="Direct" data-problem-answer="Vertical angles are congruent, so the vertical angle has the same measure.
 
 $$
 128^\circ
@@ -238,12 +270,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Use Vertical Angles</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#vertical-angles" data-notes-nav-item>Vertical Angles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#angle-relationships" data-notes-nav-item>Angle Relationships</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#vertical-angles" data-notes-nav-item>Vertical Angles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#angle-relationships" data-notes-nav-item>Angle Relationships</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two lines intersect. One angle measures $128^\circ$. What is the measure of its vertical angle?</p>
@@ -260,9 +294,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -274,7 +310,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="The angles of a triangle sum to $180^\circ$.
+    </article><article class="practice-problem panel" id="geometry-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Triangle Angle Sum" data-problem-difficulty="Direct" data-problem-answer="The angles of a triangle sum to $180^\circ$.
 
 So the third angle is
 
@@ -284,12 +320,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Complete a Triangle Angle Sum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In a triangle, two angles measure $48^\circ$ and $67^\circ$. What is the measure of the third angle?</p>
@@ -306,9 +344,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -321,7 +361,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="The two base angles are congruent.
+    </article><article class="practice-problem panel" id="geometry-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Isosceles Triangles, Triangle Angle Sum" data-problem-difficulty="Direct" data-problem-answer="The two base angles are congruent.
 
 First find their total:
 
@@ -339,12 +379,14 @@ Each base angle measures $67^\circ$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Find the Base Angles of an Isosceles Triangle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#isosceles-triangles" data-notes-nav-item>Isosceles Triangles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#isosceles-triangles" data-notes-nav-item>Isosceles Triangles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An isosceles triangle has a vertex angle of $46^\circ$. What is the measure of each base angle?</p>
@@ -361,9 +403,11 @@ Each base angle measures $67^\circ$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -381,7 +425,7 @@ $$</div>
 <p>Each base angle measures $67^\circ$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="No. For a triangle to exist, the sum of any two side lengths must be greater than the third.
+    </article><article class="practice-problem panel" id="geometry-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Triangle Inequality" data-problem-difficulty="Direct" data-problem-answer="No. For a triangle to exist, the sum of any two side lengths must be greater than the third.
 
 Here,
 
@@ -395,12 +439,14 @@ So these side lengths do not form a triangle.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Check the Triangle Inequality</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-inequality" data-notes-nav-item>Triangle Inequality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-inequality" data-notes-nav-item>Triangle Inequality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Can side lengths $5$, $7$, and $13$ form a triangle?</p>
@@ -417,9 +463,11 @@ So these side lengths do not form a triangle.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -434,7 +482,7 @@ $$</div>
 <p>So these side lengths do not form a triangle.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="That is the SAS criterion:
+    </article><article class="practice-problem panel" id="geometry-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Congruence, Triangle Congruence Criteria" data-problem-difficulty="Direct" data-problem-answer="That is the SAS criterion:
 
 - Side
 - Angle
@@ -444,12 +492,14 @@ The angle must be included between the two sides.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Identify a Triangle Congruence Criterion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#congruence" data-notes-nav-item>Congruence</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-congruence-criteria" data-notes-nav-item>Triangle Congruence Criteria</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#congruence" data-notes-nav-item>Congruence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-congruence-criteria" data-notes-nav-item>Triangle Congruence Criteria</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two triangles have two corresponding sides and the included angle congruent. Which triangle congruence criterion applies?</p>
@@ -466,9 +516,11 @@ The angle must be included between the two sides.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -479,7 +531,7 @@ The angle must be included between the two sides.">
 <p>The angle must be included between the two sides.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Multiply the smaller side by the scale factor:
+    </article><article class="practice-problem panel" id="geometry-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Similarity, Scale Factor" data-problem-difficulty="Direct" data-problem-answer="Multiply the smaller side by the scale factor:
 
 $$
 6 \times 4 = 24
@@ -489,12 +541,14 @@ The corresponding side is $24$ cm.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Scale a Similar Triangle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#similarity" data-notes-nav-item>Similarity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#scale-factor" data-notes-nav-item>Scale Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#similarity" data-notes-nav-item>Similarity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#scale-factor" data-notes-nav-item>Scale Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two similar triangles have a scale factor of $4$ from the smaller triangle to the larger triangle. If a side of the smaller triangle is $6$ cm, what is the corresponding side of the larger triangle?</p>
@@ -511,9 +565,11 @@ The corresponding side is $24$ cm.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -526,7 +582,7 @@ $$</div>
 <p>The corresponding side is $24$ cm.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Use the Pythagorean theorem:
+    </article><article class="practice-problem panel" id="geometry-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Right Triangles, Pythagorean Theorem" data-problem-difficulty="Direct" data-problem-answer="Use the Pythagorean theorem:
 
 $$
 a^2+b^2=c^2
@@ -552,12 +608,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Use the Pythagorean Theorem</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#right-triangles" data-notes-nav-item>Right Triangles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#pythagorean-theorem" data-notes-nav-item>Pythagorean Theorem</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#right-triangles" data-notes-nav-item>Right Triangles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#pythagorean-theorem" data-notes-nav-item>Pythagorean Theorem</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A right triangle has legs of lengths $8$ and $15$. What is the length of the hypotenuse?</p>
@@ -574,9 +632,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -601,7 +661,7 @@ c=17
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="An inscribed angle measures half its intercepted arc.
+    </article><article class="practice-problem panel" id="geometry-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Circles, Inscribed Angles" data-problem-difficulty="Direct" data-problem-answer="An inscribed angle measures half its intercepted arc.
 
 So,
 
@@ -613,12 +673,14 @@ The inscribed angle measures $62^\circ$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Find an Inscribed Angle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#inscribed-angles" data-notes-nav-item>Inscribed Angles</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#inscribed-angles" data-notes-nav-item>Inscribed Angles</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An inscribed angle intercepts an arc that measures $124^\circ$. What is the measure of the inscribed angle?</p>
@@ -635,9 +697,11 @@ The inscribed angle measures $62^\circ$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -665,7 +729,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="geometry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Corresponding angles are congruent, so set the expressions equal:
+          <article class="practice-problem panel" id="geometry-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Parallel Lines, Corresponding Angles, Linear Equations" data-problem-difficulty="Integrated" data-problem-answer="Corresponding angles are congruent, so set the expressions equal:
 
 $$
 3x+7=5x-9
@@ -691,12 +755,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Solve with Parallel Lines</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#parallel-lines" data-notes-nav-item>Parallel Lines</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#corresponding-angles" data-notes-nav-item>Corresponding Angles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#linear-equations" data-notes-nav-item>Linear Equations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#parallel-lines" data-notes-nav-item>Parallel Lines</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#corresponding-angles" data-notes-nav-item>Corresponding Angles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#linear-equations" data-notes-nav-item>Linear Equations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two parallel lines are cut by a transversal. One corresponding angle measures $3x+7^\circ$ and the matching angle measures $5x-9^\circ$. Find $x$.</p>
@@ -713,9 +779,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -739,7 +807,7 @@ x=8
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="The two base angles are congruent.
+    </article><article class="practice-problem panel" id="geometry-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Isosceles Triangles, Triangle Angle Sum, Supplementary Angles" data-problem-difficulty="Integrated" data-problem-answer="The two base angles are congruent.
 
 First find one base angle:
 
@@ -761,12 +829,14 @@ The exterior angle measures $107^\circ$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Exterior Angle in an Isosceles Triangle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#isosceles-triangles" data-notes-nav-item>Isosceles Triangles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#supplementary-angles" data-notes-nav-item>Supplementary Angles</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#isosceles-triangles" data-notes-nav-item>Isosceles Triangles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#supplementary-angles" data-notes-nav-item>Supplementary Angles</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An isosceles triangle has a vertex angle of $34^\circ$. What is the measure of an exterior angle at one base?</p>
@@ -783,9 +853,11 @@ The exterior angle measures $107^\circ$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -806,7 +878,7 @@ $$</div>
 <p>The exterior angle measures $107^\circ$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Perimeters scale by the same factor as corresponding side lengths.
+    </article><article class="practice-problem panel" id="geometry-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Similarity, Perimeter, Scale Factor" data-problem-difficulty="Integrated" data-problem-answer="Perimeters scale by the same factor as corresponding side lengths.
 
 So multiply by $\frac{3}{2}$:
 
@@ -818,12 +890,14 @@ The larger perimeter is $30$ cm.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use Similarity with Perimeter</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#similarity" data-notes-nav-item>Similarity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#perimeter" data-notes-nav-item>Perimeter</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#scale-factor" data-notes-nav-item>Scale Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#similarity" data-notes-nav-item>Similarity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#perimeter" data-notes-nav-item>Perimeter</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#scale-factor" data-notes-nav-item>Scale Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two similar triangles have a scale factor of $3:2$ from the smaller triangle to the larger triangle. If the smaller triangle has perimeter $20$ cm, what is the larger perimeter?</p>
@@ -840,9 +914,11 @@ The larger perimeter is $30$ cm.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -856,7 +932,7 @@ $$</div>
 <p>The larger perimeter is $30$ cm.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="First apply the dilation by factor $4$:
+    </article><article class="practice-problem panel" id="geometry-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Dilations, Reflections, Coordinate Geometry" data-problem-difficulty="Integrated" data-problem-answer="First apply the dilation by factor $4$:
 
 $$
 (2,-3)\mapsto(8,-12)
@@ -872,12 +948,14 @@ The image is $(8,12)$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Apply a Dilation and a Reflection</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#dilations" data-notes-nav-item>Dilations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#reflections" data-notes-nav-item>Reflections</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#dilations" data-notes-nav-item>Dilations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#reflections" data-notes-nav-item>Reflections</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A point is at $(2,-3)$. It is dilated about the origin by a factor of $4$ and then reflected across the $x$-axis. Where does it land?</p>
@@ -894,9 +972,11 @@ The image is $(8,12)$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -913,7 +993,7 @@ $$</div>
 <p>The image is $(8,12)$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="In a parallelogram, opposite angles are congruent and adjacent angles are supplementary.
+    </article><article class="practice-problem panel" id="geometry-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Parallelograms, Angle Relationships" data-problem-difficulty="Integrated" data-problem-answer="In a parallelogram, opposite angles are congruent and adjacent angles are supplementary.
 
 The opposite angle is
 
@@ -931,12 +1011,14 @@ So the angles are $112^\circ$ and $68^\circ$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Use Parallelogram Angle Properties</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#parallelograms" data-notes-nav-item>Parallelograms</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#angle-relationships" data-notes-nav-item>Angle Relationships</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#parallelograms" data-notes-nav-item>Parallelograms</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#angle-relationships" data-notes-nav-item>Angle Relationships</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A parallelogram has one angle that measures $68^\circ$. What are the measures of an adjacent angle and the opposite angle?</p>
@@ -953,9 +1035,11 @@ So the angles are $112^\circ$ and $68^\circ$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -973,7 +1057,7 @@ $$</div>
 <p>So the angles are $112^\circ$ and $68^\circ$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Use the interior angle sum formula:
+    </article><article class="practice-problem panel" id="geometry-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Polygons, Interior Angle Sum" data-problem-difficulty="Integrated" data-problem-answer="Use the interior angle sum formula:
 
 $$
 (n-2)180^\circ = 1260^\circ
@@ -995,12 +1079,14 @@ The polygon has $9$ sides.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Find the Number of Sides of a Polygon</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#polygons" data-notes-nav-item>Polygons</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#interior-angle-sum" data-notes-nav-item>Interior Angle Sum</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#polygons" data-notes-nav-item>Polygons</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#interior-angle-sum" data-notes-nav-item>Interior Angle Sum</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A polygon has an interior angle sum of $1260^\circ$. How many sides does it have?</p>
@@ -1017,9 +1103,11 @@ The polygon has $9$ sides.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1040,7 +1128,7 @@ $$</div>
 <p>The polygon has $9$ sides.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="The radius is the distance from the center to a point on the circle:
+    </article><article class="practice-problem panel" id="geometry-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Circles, Distance Formula, Coordinate Geometry" data-problem-difficulty="Integrated" data-problem-answer="The radius is the distance from the center to a point on the circle:
 
 $$
 r=\sqrt{(6-2)^2+(2-(-1))^2}
@@ -1058,12 +1146,14 @@ The radius is $5$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Find the Radius from Coordinates</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#distance-formula" data-notes-nav-item>Distance Formula</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#distance-formula" data-notes-nav-item>Distance Formula</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A circle has center $(2,-1)$ and passes through $(6,2)$. What is its radius?</p>
@@ -1080,9 +1170,11 @@ The radius is $5$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1101,7 +1193,7 @@ $$</div>
 <p>The radius is $5$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="The radius is perpendicular to the tangent, so one angle in the triangle is $90^\circ$.
+    </article><article class="practice-problem panel" id="geometry-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Circles, Tangents, Triangle Angle Sum" data-problem-difficulty="Integrated" data-problem-answer="The radius is perpendicular to the tangent, so one angle in the triangle is $90^\circ$.
 
 The angles of a triangle sum to $180^\circ$, so the angle at the center is
 
@@ -1113,12 +1205,14 @@ The angle at the center is $63^\circ$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Use a Radius and a Tangent</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#tangents" data-notes-nav-item>Tangents</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#tangents" data-notes-nav-item>Tangents</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#triangle-angle-sum" data-notes-nav-item>Triangle Angle Sum</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A radius is drawn to a point of tangency, and a segment from that same point of tangency goes to an external point. If the angle at the external point is $27^\circ$, what is the angle at the center?</p>
@@ -1135,9 +1229,11 @@ The angle at the center is $63^\circ$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1165,7 +1261,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="geometry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="The triangles are similar, so corresponding sides are proportional:
+          <article class="practice-problem panel" id="geometry-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Similarity, Proportional Reasoning" data-problem-difficulty="Applied" data-problem-answer="The triangles are similar, so corresponding sides are proportional:
 
 $$
 \frac{6}{8}=\frac{h}{20}
@@ -1185,12 +1281,14 @@ The tree is $15$ feet tall.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Use Similar Triangles in a Shadow Problem</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#similarity" data-notes-nav-item>Similarity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#proportional-reasoning" data-notes-nav-item>Proportional Reasoning</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#similarity" data-notes-nav-item>Similarity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#proportional-reasoning" data-notes-nav-item>Proportional Reasoning</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $6$-foot person casts an $8$-foot shadow. At the same time, a tree casts a $20$-foot shadow. How tall is the tree?</p>
@@ -1207,9 +1305,11 @@ The tree is $15$ feet tall.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1229,7 +1329,7 @@ $$</div>
 <p>The tree is $15$ feet tall.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="Use the Pythagorean theorem with the ladder as the hypotenuse:
+    </article><article class="practice-problem panel" id="geometry-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Right Triangles, Pythagorean Theorem" data-problem-difficulty="Applied" data-problem-answer="Use the Pythagorean theorem with the ladder as the hypotenuse:
 
 $$
 x^2+12^2=13^2
@@ -1251,12 +1351,14 @@ The base of the ladder is $5$ feet from the wall.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Solve a Ladder Problem</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#right-triangles" data-notes-nav-item>Right Triangles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#pythagorean-theorem" data-notes-nav-item>Pythagorean Theorem</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#right-triangles" data-notes-nav-item>Right Triangles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#pythagorean-theorem" data-notes-nav-item>Pythagorean Theorem</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $13$-foot ladder reaches a window $12$ feet above the ground. How far is the base of the ladder from the wall?</p>
@@ -1273,9 +1375,11 @@ The base of the ladder is $5$ feet from the wall.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1297,7 +1401,7 @@ $$</div>
 <p>The base of the ladder is $5$ feet from the wall.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Use the sector area formula:
+    </article><article class="practice-problem panel" id="geometry-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Circles, Sector Area, Area" data-problem-difficulty="Applied" data-problem-answer="Use the sector area formula:
 
 $$
 A=\frac{\theta}{360^\circ}\cdot \pi r^2
@@ -1321,12 +1425,14 @@ The area is $20\pi$ square meters.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Find the Area of a Sector</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#sector-area" data-notes-nav-item>Sector Area</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#area" data-notes-nav-item>Area</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#sector-area" data-notes-nav-item>Sector Area</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#area" data-notes-nav-item>Area</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find the area of a sector with radius $10$ m and central angle $72^\circ$.</p>
@@ -1343,9 +1449,11 @@ The area is $20\pi$ square meters.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1368,7 +1476,7 @@ $$</div>
 <p>The area is $20\pi$ square meters.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Use the surface area of a rectangular prism:
+    </article><article class="practice-problem panel" id="geometry-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Surface Area, Rectangular Prisms" data-problem-difficulty="Applied" data-problem-answer="Use the surface area of a rectangular prism:
 
 $$
 SA=2(lw+lh+wh)
@@ -1392,12 +1500,14 @@ The surface area is $158$ cm$^2$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Find the Surface Area of a Rectangular Prism</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#surface-area" data-notes-nav-item>Surface Area</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#rectangular-prisms" data-notes-nav-item>Rectangular Prisms</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#surface-area" data-notes-nav-item>Surface Area</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#rectangular-prisms" data-notes-nav-item>Rectangular Prisms</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A rectangular prism has length $8$ cm, width $5$ cm, and height $3$ cm. What is its surface area?</p>
@@ -1414,9 +1524,11 @@ The surface area is $158$ cm$^2$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1439,7 +1551,7 @@ $$</div>
 <p>The surface area is $158$ cm$^2$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="Check the side directions:
+    </article><article class="practice-problem panel" id="geometry-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Coordinate Geometry, Proof Strategies, Rectangles" data-problem-difficulty="Applied" data-problem-answer="Check the side directions:
 
 - $AB$ is horizontal, so its slope is $0$.
 - $BC$ is vertical, so its slope is undefined.
@@ -1457,12 +1569,14 @@ Since the quadrilateral has four right angles, it is a rectangle.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Show a Rectangle with Coordinates</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#proof-strategies" data-notes-nav-item>Proof Strategies</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#rectangles" data-notes-nav-item>Rectangles</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#proof-strategies" data-notes-nav-item>Proof Strategies</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#rectangles" data-notes-nav-item>Rectangles</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Use coordinates to show that the quadrilateral with vertices $A(0,0)$, $B(4,0)$, $C(4,3)$, and $D(0,3)$ is a rectangle.</p>
@@ -1479,9 +1593,11 @@ Since the quadrilateral has four right angles, it is a rectangle.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1509,7 +1625,7 @@ Since the quadrilateral has four right angles, it is a rectangle.">
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="geometry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Use the tangent-secant relationship:
+          <article class="practice-problem panel" id="geometry-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Circles, Power of a Point, Tangents" data-problem-difficulty="Challenge" data-problem-answer="Use the tangent-secant relationship:
 
 $$
 (\text{tangent})^2=(\text{external})(\text{whole})
@@ -1533,12 +1649,14 @@ The whole secant length is $16$ cm.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Use the Power of a Point</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#power-of-a-point" data-notes-nav-item>Power of a Point</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#tangents" data-notes-nav-item>Tangents</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#power-of-a-point" data-notes-nav-item>Power of a Point</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#tangents" data-notes-nav-item>Tangents</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>From an external point, a tangent segment has length $12$ cm and a secant has external part $9$ cm and whole length $x$ cm. Find $x$.</p>
@@ -1555,9 +1673,11 @@ The whole secant length is $16$ cm.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1580,7 +1700,7 @@ $$</div>
 <p>The whole secant length is $16$ cm.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="First check the side lengths:
+    </article><article class="practice-problem panel" id="geometry-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Coordinate Geometry, Quadrilaterals, Slopes, Distance Formula" data-problem-difficulty="Challenge" data-problem-answer="First check the side lengths:
 
 $$
 AB=\sqrt{(4-0)^2+(2-0)^2}=\sqrt{20}
@@ -1608,12 +1728,14 @@ Since the figure has four equal sides and a right angle, it is a square.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Classify a Square by Coordinates</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#quadrilaterals" data-notes-nav-item>Quadrilaterals</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#slopes" data-notes-nav-item>Slopes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#distance-formula" data-notes-nav-item>Distance Formula</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#coordinate-geometry" data-notes-nav-item>Coordinate Geometry</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#quadrilaterals" data-notes-nav-item>Quadrilaterals</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#slopes" data-notes-nav-item>Slopes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#distance-formula" data-notes-nav-item>Distance Formula</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Determine whether the quadrilateral with vertices $A(0,0)$, $B(4,2)$, $C(2,6)$, and $D(-2,4)$ is a square.</p>
@@ -1630,9 +1752,11 @@ Since the figure has four equal sides and a right angle, it is a square.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1657,7 +1781,7 @@ $$</div>
 <p>Since the figure has four equal sides and a right angle, it is a square.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Under a dilation by factor $k$:
+    </article><article class="practice-problem panel" id="geometry-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Dilations, Area Scale Factor, Volume Scale Factor" data-problem-difficulty="Challenge" data-problem-answer="Under a dilation by factor $k$:
 
 - area scales by $k^2$
 - volume scales by $k^3$
@@ -1680,12 +1804,14 @@ The new area is $126\text{ cm}^2$ and the new volume is $378\text{ cm}^3$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Scale Area and Volume Under a Dilation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#dilations" data-notes-nav-item>Dilations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#area-scale-factor" data-notes-nav-item>Area Scale Factor</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#volume-scale-factor" data-notes-nav-item>Volume Scale Factor</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#dilations" data-notes-nav-item>Dilations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#area-scale-factor" data-notes-nav-item>Area Scale Factor</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#volume-scale-factor" data-notes-nav-item>Volume Scale Factor</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A figure is dilated by a factor of $3$. If its original area is $14\text{ cm}^2$ and its original volume is $14\text{ cm}^3$, what are the new area and new volume?</p>
@@ -1702,9 +1828,11 @@ The new area is $126\text{ cm}^2$ and the new volume is $378\text{ cm}^3$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1724,7 +1852,7 @@ $$</div>
 <p>The new area is $126\text{ cm}^2$ and the new volume is $378\text{ cm}^3$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="geometry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="Because the segment from the center meets the chord at its midpoint, $AM=MB=8$ cm.
+    </article><article class="practice-problem panel" id="geometry-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Circles, Right Triangles, Perpendicular Bisectors" data-problem-difficulty="Challenge" data-problem-answer="Because the segment from the center meets the chord at its midpoint, $AM=MB=8$ cm.
 
 Then $\triangle OMA$ is a right triangle with hypotenuse $OA=10$ and one leg $AM=8$.
 
@@ -1750,12 +1878,14 @@ So $OM=6$ cm.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Find a Chord Length from the Center</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#right-triangles" data-notes-nav-item>Right Triangles</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#perpendicular-bisectors" data-notes-nav-item>Perpendicular Bisectors</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#circles" data-notes-nav-item>Circles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#right-triangles" data-notes-nav-item>Right Triangles</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/geometry/#perpendicular-bisectors" data-notes-nav-item>Perpendicular Bisectors</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A circle has center $O$ and radius $10$ cm. A chord $AB$ is $16$ cm long, and the segment from $O$ to the chord meets the chord at its midpoint $M$. Find the length of $OM$.</p>
@@ -1772,9 +1902,11 @@ So $OM=6$ cm.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

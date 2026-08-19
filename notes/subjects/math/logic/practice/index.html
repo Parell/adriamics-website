@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,17 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Logic" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>How to simplify a formula</h2><div class="markdown-body"><p>A reliable workflow is:</p>
+<ol><li><p>Remove biconditionals.</p></li><li><p>Replace implications using $P \to Q \equiv \neg P \lor Q$.</p></li><li><p>Push negations inward with De Morgan&#39;s laws.</p></li><li><p>Use distributive laws to reach CNF or DNF.</p></li><li><p>Cancel tautological or contradictory pieces.</p></li></ol></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,19 +150,21 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="logic-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="1. This is not a proposition because the truth value depends on the unspecified variable $x$.
+          <article class="practice-problem panel" id="logic-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Propositions, Truth Values" data-problem-difficulty="Direct" data-problem-answer="1. This is not a proposition because the truth value depends on the unspecified variable $x$.
 2. This is a proposition, and it is true.
 3. This is not a proposition because it is a command.
 4. This is a proposition, and it is true.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify Propositions</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#propositions" data-notes-nav-item>Propositions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#truth-values" data-notes-nav-item>Truth Values</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#propositions" data-notes-nav-item>Propositions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#truth-values" data-notes-nav-item>Truth Values</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which of the following are propositions?</p>
@@ -166,9 +182,11 @@
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -177,7 +195,7 @@
           <ol><li><p>This is not a proposition because the truth value depends on the unspecified variable $x$.</p></li><li><p>This is a proposition, and it is true.</p></li><li><p>This is not a proposition because it is a command.</p></li><li><p>This is a proposition, and it is true.</p></li></ol>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Since $Q$ is false, $\neg Q$ is true, so
+    </article><article class="practice-problem panel" id="logic-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Logical Connectives, Truth Tables" data-problem-difficulty="Direct" data-problem-answer="Since $Q$ is false, $\neg Q$ is true, so
 
 $$
 P \land \neg Q = T \land T = T.
@@ -197,12 +215,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Evaluate a Compound Statement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logical-connectives" data-notes-nav-item>Logical Connectives</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#truth-tables" data-notes-nav-item>Truth Tables</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logical-connectives" data-notes-nav-item>Logical Connectives</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#truth-tables" data-notes-nav-item>Truth Tables</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $P$ be true and $Q$ be false. Find the truth value of</p>
@@ -222,9 +242,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -244,7 +266,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="An implication is false only when the antecedent is true and the conclusion is false. Since $P$ is false,
+    </article><article class="practice-problem panel" id="logic-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Implication, Biconditional" data-problem-difficulty="Direct" data-problem-answer="An implication is false only when the antecedent is true and the conclusion is false. Since $P$ is false,
 
 $$
 P \to Q = T.
@@ -258,12 +280,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Read an Implication Correctly</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#biconditional" data-notes-nav-item>Biconditional</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#biconditional" data-notes-nav-item>Biconditional</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $P$ is false and $Q$ is false, determine the truth values of $P \to Q$ and $P \leftrightarrow Q$.</p>
@@ -280,9 +304,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -298,7 +324,7 @@ P \leftrightarrow Q = T.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Let $P$ be &quot;the number is divisible by $6$&quot; and $Q$ be &quot;the number is divisible by $3$.&quot;
+    </article><article class="practice-problem panel" id="logic-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Implication, Contrapositive" data-problem-difficulty="Direct" data-problem-answer="Let $P$ be &quot;the number is divisible by $6$&quot; and $Q$ be &quot;the number is divisible by $3$.&quot;
 
 The contrapositive of $P \to Q$ is
 
@@ -312,12 +338,14 @@ If a number is not divisible by $3$, then it is not divisible by $6$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Find the Contrapositive</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contrapositive" data-notes-nav-item>Contrapositive</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contrapositive" data-notes-nav-item>Contrapositive</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Write the contrapositive of the statement:</p>
@@ -335,9 +363,11 @@ If a number is not divisible by $3$, then it is not divisible by $6$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -352,7 +382,7 @@ $$</div>
 <p>If a number is not divisible by $3$, then it is not divisible by $6$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="Apply De Morgan&#39;s laws:
+    </article><article class="practice-problem panel" id="logic-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="De Morgan&#39;s Laws, Negation" data-problem-difficulty="Direct" data-problem-answer="Apply De Morgan&#39;s laws:
 
 $$
 \neg(P \land (Q \lor R)) \equiv \neg P \lor \neg(Q \lor R).
@@ -372,12 +402,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Negate a Conjunction with a Disjunction</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws-negation" data-notes-nav-item>De Morgan&#39;s Laws, Negation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws-negation" data-notes-nav-item>De Morgan&#39;s Laws, Negation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find a logically equivalent formula for</p>
@@ -397,9 +429,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -419,7 +453,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="A biconditional means both implications hold:
+    </article><article class="practice-problem panel" id="logic-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Biconditional, Logical Equivalence" data-problem-difficulty="Direct" data-problem-answer="A biconditional means both implications hold:
 
 $$
 P \leftrightarrow Q \equiv (P \to Q) \land (Q \to P).
@@ -429,12 +463,14 @@ This matches the definition of &quot;if and only if.&quot;">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Expand a Biconditional</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#biconditional" data-notes-nav-item>Biconditional</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logical-equivalence" data-notes-nav-item>Logical Equivalence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#biconditional" data-notes-nav-item>Biconditional</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logical-equivalence" data-notes-nav-item>Logical Equivalence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Rewrite $P \leftrightarrow Q$ using only implications.</p>
@@ -451,9 +487,11 @@ This matches the definition of &quot;if and only if.&quot;">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -466,7 +504,7 @@ $$</div>
 <p>This matches the definition of &quot;if and only if.&quot;</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="The negation of a universal statement is existential:
+    </article><article class="practice-problem panel" id="logic-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Quantifiers, Negating Quantifiers" data-problem-difficulty="Direct" data-problem-answer="The negation of a universal statement is existential:
 
 $$
 \neg \forall x\, P(x) \equiv \exists x\, \neg P(x).
@@ -476,12 +514,14 @@ In words: there exists at least one $x$ for which $P(x)$ is false.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Negate a Universal Statement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#negating-quantifiers" data-notes-nav-item>Negating Quantifiers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#negating-quantifiers" data-notes-nav-item>Negating Quantifiers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Negate the statement</p>
@@ -501,9 +541,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -516,7 +558,7 @@ $$</div>
 <p>In words: there exists at least one $x$ for which $P(x)$ is false.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="The negation of an existential statement is universal:
+    </article><article class="practice-problem panel" id="logic-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Quantifiers, Negating Quantifiers" data-problem-difficulty="Direct" data-problem-answer="The negation of an existential statement is universal:
 
 $$
 \neg \exists x\, (P(x) \land Q(x)) \equiv \forall x\, \neg(P(x) \land Q(x)).
@@ -530,12 +572,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Negate an Existential Statement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#negating-quantifiers" data-notes-nav-item>Negating Quantifiers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#negating-quantifiers" data-notes-nav-item>Negating Quantifiers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Negate the statement</p>
@@ -555,9 +599,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -573,7 +619,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="No. The order of quantifiers matters.
+    </article><article class="practice-problem panel" id="logic-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Quantifiers, Order Matters" data-problem-difficulty="Direct" data-problem-answer="No. The order of quantifiers matters.
 
 The first statement says that for every $x$, you may choose a possibly different $y$.
 
@@ -583,12 +629,14 @@ These are different claims, so they are not logically equivalent.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Compare Quantifier Order</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#order-matters" data-notes-nav-item>Order Matters</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#order-matters" data-notes-nav-item>Order Matters</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Are the statements</p>
@@ -613,9 +661,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -627,17 +677,19 @@ $$</div>
 <p>These are different claims, so they are not logically equivalent.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="1. $P \lor \neg P$ is a tautology because it is true for every truth value of $P$.
+    </article><article class="practice-problem panel" id="logic-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Tautology, Contradiction" data-problem-difficulty="Direct" data-problem-answer="1. $P \lor \neg P$ is a tautology because it is true for every truth value of $P$.
 2. $P \land \neg P$ is a contradiction because it is never true.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Tautology or Contradiction</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#tautology" data-notes-nav-item>Tautology</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contradiction" data-notes-nav-item>Contradiction</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#tautology" data-notes-nav-item>Tautology</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contradiction" data-notes-nav-item>Contradiction</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Classify each formula:</p>
@@ -655,9 +707,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -680,7 +734,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="logic-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="First apply De Morgan&#39;s law:
+          <article class="practice-problem panel" id="logic-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Implication, De Morgan&#39;s Laws, Logical Equivalence" data-problem-difficulty="Integrated" data-problem-answer="First apply De Morgan&#39;s law:
 
 $$
 \neg(P \land Q) \equiv \neg P \lor \neg Q.
@@ -706,12 +760,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Simplify an Expression with an Implication</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws-logical-equivalence" data-notes-nav-item>De Morgan&#39;s Laws, Logical Equivalence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws-logical-equivalence" data-notes-nav-item>De Morgan&#39;s Laws, Logical Equivalence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Simplify the formula</p>
@@ -731,9 +787,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -757,7 +815,7 @@ P \land \neg Q.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="First flip the universal quantifier:
+    </article><article class="practice-problem panel" id="logic-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Quantifiers, Implication, Negating Quantifiers" data-problem-difficulty="Integrated" data-problem-answer="First flip the universal quantifier:
 
 $$
 \neg \forall x\, (P(x) \to Q(x)) \equiv \exists x\, \neg(P(x) \to Q(x)).
@@ -783,12 +841,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Negate a Universal Conditional</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#negating-quantifiers" data-notes-nav-item>Negating Quantifiers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#negating-quantifiers" data-notes-nav-item>Negating Quantifiers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Negate the statement</p>
@@ -808,9 +868,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -834,7 +896,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Use hypothetical syllogism on the first two premises:
+    </article><article class="practice-problem panel" id="logic-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Rules of Inference, Hypothetical Syllogism" data-problem-difficulty="Integrated" data-problem-answer="Use hypothetical syllogism on the first two premises:
 
 $$
 P \to Q,\ Q \to R \implies P \to R.
@@ -854,12 +916,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Chain Two Implications</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#hypothetical-syllogism" data-notes-nav-item>Hypothetical Syllogism</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#hypothetical-syllogism" data-notes-nav-item>Hypothetical Syllogism</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>From the premises</p>
@@ -880,9 +944,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -902,7 +968,7 @@ R.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="First use disjunctive syllogism:
+    </article><article class="practice-problem panel" id="logic-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Rules of Inference, Disjunctive Syllogism" data-problem-difficulty="Integrated" data-problem-answer="First use disjunctive syllogism:
 
 $$
 P \lor Q,\ \neg P \implies Q.
@@ -922,12 +988,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Use Disjunctive Syllogism</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#disjunctive-syllogism" data-notes-nav-item>Disjunctive Syllogism</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#disjunctive-syllogism" data-notes-nav-item>Disjunctive Syllogism</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>From the premises</p>
@@ -948,9 +1016,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -970,7 +1040,7 @@ R.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="Use proof by cases on $P \lor Q$.
+    </article><article class="practice-problem panel" id="logic-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Proof Methods, Proof by Cases" data-problem-difficulty="Integrated" data-problem-answer="Use proof by cases on $P \lor Q$.
 
 If $P$ is true, then $P \to R$ gives $R$.
 
@@ -985,12 +1055,14 @@ is a valid conclusion.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Prove by Cases</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#proof-methods" data-notes-nav-item>Proof Methods</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#proof-by-cases" data-notes-nav-item>Proof by Cases</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#proof-methods" data-notes-nav-item>Proof Methods</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#proof-by-cases" data-notes-nav-item>Proof by Cases</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Show that $R$ follows from the premises</p>
@@ -1010,9 +1082,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1028,7 +1102,7 @@ $$</div>
 <p>is a valid conclusion.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Use the distributive law:
+    </article><article class="practice-problem panel" id="logic-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Normal Forms, Distributive Laws" data-problem-difficulty="Integrated" data-problem-answer="Use the distributive law:
 
 $$
 P \lor (Q \land R) \equiv (P \lor Q) \land (P \lor R).
@@ -1038,12 +1112,14 @@ This is in conjunctive normal form because it is an AND of OR-clauses.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Put a Formula into CNF</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#normal-forms" data-notes-nav-item>Normal Forms</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#distributive-laws" data-notes-nav-item>Distributive Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#normal-forms" data-notes-nav-item>Normal Forms</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#distributive-laws" data-notes-nav-item>Distributive Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Convert</p>
@@ -1064,9 +1140,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1079,7 +1157,7 @@ $$</div>
 <p>This is in conjunctive normal form because it is an AND of OR-clauses.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Let $x$ be arbitrary and assume $x \in A \cap B$.
+    </article><article class="practice-problem panel" id="logic-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Logic and Sets, Subset Proof" data-problem-difficulty="Integrated" data-problem-answer="Let $x$ be arbitrary and assume $x \in A \cap B$.
 
 By the definition of intersection, this means $x \in A$ and $x \in B$.
 
@@ -1093,12 +1171,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Prove a Simple Subset Relation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logic-and-sets" data-notes-nav-item>Logic and Sets</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#subset-proof" data-notes-nav-item>Subset Proof</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logic-and-sets" data-notes-nav-item>Logic and Sets</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#subset-proof" data-notes-nav-item>Subset Proof</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that</p>
@@ -1118,9 +1198,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1135,7 +1217,7 @@ A \cap B \subseteq A.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Apply resolution to the first two premises:
+    </article><article class="practice-problem panel" id="logic-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Rules of Inference, Resolution" data-problem-difficulty="Integrated" data-problem-answer="Apply resolution to the first two premises:
 
 $$
 (P \lor Q),\ (\neg P \lor R) \implies Q \lor R.
@@ -1155,12 +1237,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Apply Resolution</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#resolution" data-notes-nav-item>Resolution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#resolution" data-notes-nav-item>Resolution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>From the premises</p>
@@ -1181,9 +1265,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1217,7 +1303,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="logic-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="It is enough to give one counterexample.
+          <article class="practice-problem panel" id="logic-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Counterexample, Proof Methods" data-problem-difficulty="Applied" data-problem-answer="It is enough to give one counterexample.
 
 Take the integer $1$. It is not even, so the claim &quot;every integer is even&quot; is false.
 
@@ -1225,12 +1311,14 @@ Thus a single counterexample disproof is sufficient.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Find a Counterexample</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#counterexample" data-notes-nav-item>Counterexample</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#proof-methods" data-notes-nav-item>Proof Methods</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#counterexample" data-notes-nav-item>Counterexample</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#proof-methods" data-notes-nav-item>Proof Methods</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Disprove the claim that every integer is even.</p>
@@ -1247,9 +1335,11 @@ Thus a single counterexample disproof is sufficient.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1260,7 +1350,7 @@ Thus a single counterexample disproof is sufficient.">
 <p>Thus a single counterexample disproof is sufficient.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="No. This is the fallacy of affirming the consequent.
+    </article><article class="practice-problem panel" id="logic-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Pitfalls, Rules of Inference" data-problem-difficulty="Applied" data-problem-answer="No. This is the fallacy of affirming the consequent.
 
 The premise $P \to Q$ does not allow you to conclude $P$ from $Q$.
 
@@ -1268,12 +1358,14 @@ In this example, many shapes are rectangles without being squares, so the conclu
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Spot a Common Invalid Argument</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#pitfalls" data-notes-nav-item>Pitfalls</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#pitfalls" data-notes-nav-item>Pitfalls</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Consider the argument:</p>
@@ -1292,9 +1384,11 @@ In this example, many shapes are rectangles without being squares, so the conclu
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1305,7 +1399,7 @@ In this example, many shapes are rectangles without being squares, so the conclu
 <p>In this example, many shapes are rectangles without being squares, so the conclusion does not follow.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="If being licensed is necessary for driving, then driving cannot happen without being licensed:
+    </article><article class="practice-problem panel" id="logic-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Implication, Common Pitfalls" data-problem-difficulty="Applied" data-problem-answer="If being licensed is necessary for driving, then driving cannot happen without being licensed:
 
 $$
 D \to L.
@@ -1319,12 +1413,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Translate Necessary and Sufficient</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#common-pitfalls" data-notes-nav-item>Common Pitfalls</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#implication" data-notes-nav-item>Implication</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#common-pitfalls" data-notes-nav-item>Common Pitfalls</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $L$ mean &quot;the person is licensed&quot; and $D$ mean &quot;the person is driving.&quot;</p>
@@ -1343,9 +1439,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1361,7 +1459,7 @@ L \to D.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Since $\neg P$ must be true, choose
+    </article><article class="practice-problem panel" id="logic-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Satisfiability, Truth Tables" data-problem-difficulty="Applied" data-problem-answer="Since $\neg P$ must be true, choose
 
 $$
 P = F.
@@ -1377,12 +1475,14 @@ One satisfying assignment is $P = F$ and $Q = T$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Find a Satisfying Assignment</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#satisfiability" data-notes-nav-item>Satisfiability</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#truth-tables" data-notes-nav-item>Truth Tables</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#satisfiability" data-notes-nav-item>Satisfiability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#truth-tables" data-notes-nav-item>Truth Tables</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Find truth values for $P$ and $Q$ that make</p>
@@ -1403,9 +1503,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1422,7 +1524,7 @@ $$</div>
 <p>One satisfying assignment is $P = F$ and $Q = T$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="The formula requires both $P \to Q$ and $P$ to be true, which forces $Q$ to be true by modus ponens.
+    </article><article class="practice-problem panel" id="logic-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Tautology, Contradiction, Contingency" data-problem-difficulty="Applied" data-problem-answer="The formula requires both $P \to Q$ and $P$ to be true, which forces $Q$ to be true by modus ponens.
 
 But the formula also requires $\neg Q$.
 
@@ -1430,12 +1532,14 @@ So the formula cannot be true under any assignment. It is a contradiction.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Classify a Formula</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#tautology" data-notes-nav-item>Tautology</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contradiction" data-notes-nav-item>Contradiction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contingency" data-notes-nav-item>Contingency</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#tautology" data-notes-nav-item>Tautology</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contradiction" data-notes-nav-item>Contradiction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#contingency" data-notes-nav-item>Contingency</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Is</p>
@@ -1456,9 +1560,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1483,7 +1589,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="logic-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="First replace each implication:
+          <article class="practice-problem panel" id="logic-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Logical Equivalence, De Morgan&#39;s Laws, Implication" data-problem-difficulty="Challenge" data-problem-answer="First replace each implication:
 
 $$
 (P \to Q) \land (Q \to R) \equiv (\neg P \lor Q) \land (\neg Q \lor R).
@@ -1511,12 +1617,14 @@ This is an equivalent formula using only $\neg$, $\land$, and $\lor$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Simplify a Nested Formula</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logical-equivalence" data-notes-nav-item>Logical Equivalence</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws-implication" data-notes-nav-item>De Morgan&#39;s Laws, Implication</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logical-equivalence" data-notes-nav-item>Logical Equivalence</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws-implication" data-notes-nav-item>De Morgan&#39;s Laws, Implication</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Simplify</p>
@@ -1537,9 +1645,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1564,7 +1674,7 @@ $$</div>
 <p>This is an equivalent formula using only $\neg$, $\land$, and $\lor$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="For $\forall x\, \exists y\, P(x,y)$, every $x$ can choose itself as $y$. So this statement is true.
+    </article><article class="practice-problem panel" id="logic-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Quantifiers, Order Matters, Domain of Discourse" data-problem-difficulty="Challenge" data-problem-answer="For $\forall x\, \exists y\, P(x,y)$, every $x$ can choose itself as $y$. So this statement is true.
 
 For $\exists y\, \forall x\, P(x,y)$, we would need one single $y$ that equals both $1$ and $2$. That is impossible, so this statement is false.
 
@@ -1572,12 +1682,14 @@ Thus the first statement is true and the second is false.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Compare Nested Quantifiers on a Finite Domain</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#order-matters" data-notes-nav-item>Order Matters</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#domain-of-discourse" data-notes-nav-item>Domain of Discourse</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#order-matters" data-notes-nav-item>Order Matters</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#domain-of-discourse" data-notes-nav-item>Domain of Discourse</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let the domain be $\{1,2\}$, and let $P(x,y)$ mean $x=y$.</p>
@@ -1602,9 +1714,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1615,7 +1729,7 @@ $$</div>
 <p>Thus the first statement is true and the second is false.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Let $x$ be arbitrary. Then
+    </article><article class="practice-problem panel" id="logic-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Logic and Sets, De Morgan&#39;s Laws" data-problem-difficulty="Challenge" data-problem-answer="Let $x$ be arbitrary. Then
 
 $$
 x \in (A \cap B)^c
@@ -1649,12 +1763,14 @@ Since the two sides contain exactly the same elements, the sets are equal.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Prove a Set Identity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logic-and-sets" data-notes-nav-item>Logic and Sets</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws" data-notes-nav-item>De Morgan&#39;s Laws</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#logic-and-sets" data-notes-nav-item>Logic and Sets</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#de-morgans-laws" data-notes-nav-item>De Morgan&#39;s Laws</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Prove that</p>
@@ -1674,9 +1790,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1705,7 +1823,7 @@ $$</div>
 <p>Since the two sides contain exactly the same elements, the sets are equal.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="logic-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="No, the set is inconsistent.
+    </article><article class="practice-problem panel" id="logic-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Satisfiability, Quantifiers, Rules of Inference" data-problem-difficulty="Challenge" data-problem-answer="No, the set is inconsistent.
 
 From $\exists x\, P(x)$, choose a witness $c$ such that $P(c)$ is true.
 
@@ -1717,12 +1835,14 @@ So we obtain both $Q(c)$ and $\neg Q(c)$, which is impossible. Therefore the set
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Check a Mixed Consistency Claim</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#satisfiability" data-notes-nav-item>Satisfiability</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#satisfiability" data-notes-nav-item>Satisfiability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#quantifiers" data-notes-nav-item>Quantifiers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/logic/#rules-of-inference" data-notes-nav-item>Rules of Inference</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Is the set of statements</p>
@@ -1743,9 +1863,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

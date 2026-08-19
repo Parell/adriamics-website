@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,17 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Fluid Mechanics" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Quick reference</h2><div class="markdown-body"><p>If the problem asks for:</p>
+<ul><li><p><strong>Pressure at depth</strong>: use hydrostatics</p></li><li><p><strong>Forces on a gate or bend</strong>: use momentum and pressure forces</p></li><li><p><strong>Flow rate through a pipe</strong>: use continuity plus energy and losses</p></li><li><p><strong>Flow regime</strong>: compute Reynolds number</p></li><li><p><strong>Model testing or scaling</strong>: use dimensionless groups</p></li><li><p><strong>Gas flow at high speed</strong>: check Mach number first</p></li></ul></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +150,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="fluid-mechanics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="Use the definitions:
+          <article class="practice-problem panel" id="fluid-mechanics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Fluid Properties, Newtonian Fluids" data-problem-difficulty="Direct" data-problem-answer="Use the definitions:
 
 $$
 \gamma = \rho g = 1000(9.81) = 9810\ \text{N/m}^3
@@ -154,12 +168,14 @@ This fluid is commonly modeled as incompressible and Newtonian in ordinary pipe 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Relate Density, Specific Weight, and Viscosity</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#fluid-properties" data-notes-nav-item>Fluid Properties</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#newtonian-fluids" data-notes-nav-item>Newtonian Fluids</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#fluid-properties" data-notes-nav-item>Fluid Properties</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#newtonian-fluids" data-notes-nav-item>Newtonian Fluids</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fluid has density $1000\ \text{kg/m}^3$ and dynamic viscosity $1.0\times 10^{-3}\ \text{Pa}\cdot\text{s}$.</p>
@@ -179,9 +195,11 @@ This fluid is commonly modeled as incompressible and Newtonian in ordinary pipe 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -200,7 +218,7 @@ $$</div>
 <p>This fluid is commonly modeled as incompressible and Newtonian in ordinary pipe flow.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Compute the Reynolds number:
+    </article><article class="practice-problem panel" id="fluid-mechanics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Reynolds Number, Flow Regime" data-problem-difficulty="Direct" data-problem-answer="Compute the Reynolds number:
 
 $$
 \mathrm{Re} = \frac{\rho V D}{\mu}
@@ -212,12 +230,14 @@ Since $\mathrm{Re} \ll 2300$, the flow is laminar.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Classify Flow by Reynolds Number</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#reynolds-number" data-notes-nav-item>Reynolds Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#flow-regime" data-notes-nav-item>Flow Regime</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#reynolds-number" data-notes-nav-item>Reynolds Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#flow-regime" data-notes-nav-item>Flow Regime</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Oil flows through a circular pipe with</p>
@@ -238,9 +258,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -255,7 +277,7 @@ $$</div>
 <p>Since $\mathrm{Re} \ll 2300$, the flow is laminar.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="For a fluid at rest, pressure increases with depth:
+    </article><article class="practice-problem panel" id="fluid-mechanics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Hydrostatics, Pressure" data-problem-difficulty="Direct" data-problem-answer="For a fluid at rest, pressure increases with depth:
 
 $$
 p = \rho g h
@@ -273,12 +295,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Find Pressure at a Depth</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>What is the gauge pressure $6$ m below the free surface in fresh water?</p>
@@ -296,9 +320,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -317,7 +343,7 @@ p \approx 58.9\ \text{kPa}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Pressure head is
+    </article><article class="practice-problem panel" id="fluid-mechanics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Pressure Head" data-problem-difficulty="Direct" data-problem-answer="Pressure head is
 
 $$
 \frac{p}{\gamma}
@@ -335,12 +361,14 @@ So the pressure head is about $15.3$ m of water.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Convert Gauge Pressure to Pressure Head</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure-head" data-notes-nav-item>Pressure Head</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure-head" data-notes-nav-item>Pressure Head</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A gauge reads $150\ \text{kPa}$ in water.</p>
@@ -358,9 +386,11 @@ So the pressure head is about $15.3$ m of water.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -378,7 +408,7 @@ $$</div>
 <p>So the pressure head is about $15.3$ m of water.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="By Archimedes&#39; principle, the buoyant force equals the weight of the displaced fluid:
+    </article><article class="practice-problem panel" id="fluid-mechanics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Buoyancy, Hydrostatics" data-problem-difficulty="Direct" data-problem-answer="By Archimedes&#39; principle, the buoyant force equals the weight of the displaced fluid:
 
 $$
 F_B = \rho g V_{\text{disp}}
@@ -392,12 +422,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Compute Buoyant Force from Displaced Volume</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#buoyancy" data-notes-nav-item>Buoyancy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#buoyancy" data-notes-nav-item>Buoyancy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A submerged object displaces $0.030\ \text{m}^3$ of water.</p>
@@ -415,9 +447,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -433,7 +467,7 @@ F_B = 1000(9.81)(0.030) = 294.3\ \text{N}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="First compute the flow rate at the larger section:
+    </article><article class="practice-problem panel" id="fluid-mechanics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Continuity, Volumetric Flow Rate" data-problem-difficulty="Direct" data-problem-answer="First compute the flow rate at the larger section:
 
 $$
 A_1 = \frac{\pi}{4}(0.060)^2
@@ -455,12 +489,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Use Continuity in a Converging Pipe</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#volumetric-flow-rate" data-notes-nav-item>Volumetric Flow Rate</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#volumetric-flow-rate" data-notes-nav-item>Volumetric Flow Rate</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Water flows through a $60$ mm pipe at $3.0\ \text{m/s}$ and then enters a $30$ mm nozzle.</p>
@@ -478,9 +514,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -502,7 +540,7 @@ V_2 = \frac{Q}{A_2} = \frac{8.48\times 10^{-3}}{\pi(0.030)^2/4} = 12\ \text{m/s}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="For steady, incompressible, inviscid flow at the same elevation,
+    </article><article class="practice-problem panel" id="fluid-mechanics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Bernoulli Equation, Pressure" data-problem-difficulty="Direct" data-problem-answer="For steady, incompressible, inviscid flow at the same elevation,
 
 $$
 \frac{p_1}{\gamma} + \frac{V_1^2}{2g}
@@ -530,12 +568,14 @@ So the pressure drops by $16\ \text{kPa}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Apply Bernoulli at the Same Elevation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In a horizontal water line, the speed increases from $2\ \text{m/s}$ to $6\ \text{m/s}$.</p>
@@ -553,9 +593,11 @@ So the pressure drops by $16\ \text{kPa}$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -581,7 +623,7 @@ $$</div>
 <p>So the pressure drops by $16\ \text{kPa}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="For laminar pipe flow,
+    </article><article class="practice-problem panel" id="fluid-mechanics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Friction Factor, Reynolds Number" data-problem-difficulty="Direct" data-problem-answer="For laminar pipe flow,
 
 $$
 f = \frac{64}{\mathrm{Re}}
@@ -595,12 +637,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Find the Darcy Friction Factor for Laminar Flow</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#friction-factor" data-notes-nav-item>Friction Factor</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#reynolds-number" data-notes-nav-item>Reynolds Number</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#friction-factor" data-notes-nav-item>Friction Factor</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#reynolds-number" data-notes-nav-item>Reynolds Number</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A pipe flow has Reynolds number $1600$.</p>
@@ -618,9 +662,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -636,7 +682,7 @@ f = \frac{64}{1600} = 0.04
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Use the stagnation pressure relation:
+    </article><article class="practice-problem panel" id="fluid-mechanics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Stagnation Pressure, Bernoulli Equation" data-problem-difficulty="Direct" data-problem-answer="Use the stagnation pressure relation:
 
 $$
 p_0 = p + \frac{1}{2}\rho V^2
@@ -660,12 +706,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Compute Stagnation Pressure</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#stagnation-pressure" data-notes-nav-item>Stagnation Pressure</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#stagnation-pressure" data-notes-nav-item>Stagnation Pressure</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air flows with static pressure $101\ \text{kPa}$, density $1.2\ \text{kg/m}^3$, and speed $30\ \text{m/s}$.</p>
@@ -683,9 +731,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -708,7 +758,7 @@ p_0 \approx 101.5\ \text{kPa}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Compute the Mach number:
+    </article><article class="practice-problem panel" id="fluid-mechanics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Mach Number, Compressible Flow" data-problem-difficulty="Direct" data-problem-answer="Compute the Mach number:
 
 $$
 \mathrm{Ma} = \frac{V}{a} = \frac{120}{340} \approx 0.35
@@ -718,12 +768,14 @@ Since this is greater than about $0.3$, compressibility effects may matter.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Check for Compressibility from Mach Number</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mach-number" data-notes-nav-item>Mach Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#compressible-flow" data-notes-nav-item>Compressible Flow</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mach-number" data-notes-nav-item>Mach Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#compressible-flow" data-notes-nav-item>Compressible Flow</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air moves at $120\ \text{m/s}$ and the local speed of sound is $340\ \text{m/s}$.</p>
@@ -741,9 +793,11 @@ Since this is greater than about $0.3$, compressibility effects may matter.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -770,7 +824,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="fluid-mechanics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Start at the open surface, where the pressure is atmospheric.
+          <article class="practice-problem panel" id="fluid-mechanics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Hydrostatics, Manometers, Pressure" data-problem-difficulty="Integrated" data-problem-answer="Start at the open surface, where the pressure is atmospheric.
 
 Move down $0.15$ m in mercury:
 
@@ -802,12 +856,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Read a Two-Fluid Manometer</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#manometers" data-notes-nav-item>Manometers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#manometers" data-notes-nav-item>Manometers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A tank gas is connected to a U-tube manometer. On the tank side, $5$ cm of water sits above mercury. The mercury level on the open side is $15$ cm higher than the mercury-water interface on the tank side. The open side is at atmospheric pressure.</p>
@@ -825,9 +881,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -855,7 +913,7 @@ p_g \approx 19.5\ \text{kPa}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="The centroid of the gate is at a depth
+    </article><article class="practice-problem panel" id="fluid-mechanics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Hydrostatic Force, Center of Pressure" data-problem-difficulty="Integrated" data-problem-answer="The centroid of the gate is at a depth
 
 $$
 h_c = 3 + 1 = 4\ \text{m}
@@ -897,12 +955,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Resultant Force on a Submerged Gate</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatic-force" data-notes-nav-item>Hydrostatic Force</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#center-of-pressure" data-notes-nav-item>Center of Pressure</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatic-force" data-notes-nav-item>Hydrostatic Force</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#center-of-pressure" data-notes-nav-item>Center of Pressure</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A vertical rectangular gate is $2$ m high and $1$ m wide. Its top edge is $3$ m below the free surface in water.</p>
@@ -920,9 +980,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -957,7 +1019,7 @@ h_p = 4 + \frac{0.667}{(4)(2)} \approx 4.08\ \text{m}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Compute the inlet area:
+    </article><article class="practice-problem panel" id="fluid-mechanics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Continuity, Mass Flow Rate" data-problem-difficulty="Integrated" data-problem-answer="Compute the inlet area:
 
 $$
 A_1 = \frac{\pi}{4}(0.060)^2
@@ -989,12 +1051,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Match Mass Flow Rates Across a Nozzle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mass-flow-rate" data-notes-nav-item>Mass Flow Rate</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mass-flow-rate" data-notes-nav-item>Mass Flow Rate</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Water enters a $60$ mm pipe at $3.0\ \text{m/s}$ and leaves through a $30$ mm nozzle.</p>
@@ -1012,9 +1076,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1042,7 +1108,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="Between the two reservoir surfaces, the pressure terms cancel and the velocities are negligible. The pump must supply the elevation gain plus the losses:
+    </article><article class="practice-problem panel" id="fluid-mechanics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Bernoulli Equation, Head Loss, Pumps" data-problem-difficulty="Integrated" data-problem-answer="Between the two reservoir surfaces, the pressure terms cancel and the velocities are negligible. The pump must supply the elevation gain plus the losses:
 
 $$
 h_p = 8 + 3 = 11\ \text{m}
@@ -1050,12 +1116,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Find Pump Head in an Extended Bernoulli Balance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pumps" data-notes-nav-item>Pumps</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pumps" data-notes-nav-item>Pumps</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Water is pumped from one large open reservoir to another large open reservoir that is $8$ m higher.</p>
@@ -1074,9 +1142,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1088,7 +1158,7 @@ h_p = 8 + 3 = 11\ \text{m}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="First find the mass flow rate:
+    </article><article class="practice-problem panel" id="fluid-mechanics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Momentum Equation, Control Volume" data-problem-difficulty="Integrated" data-problem-answer="First find the mass flow rate:
 
 $$
 A = \frac{\pi}{4}(0.10)^2
@@ -1116,12 +1186,14 @@ So the fluid exerts a force of about $178\ \text{N}$ on the elbow.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Compute the Force on a 90-Degree Elbow</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#momentum-equation" data-notes-nav-item>Momentum Equation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#control-volume" data-notes-nav-item>Control Volume</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#momentum-equation" data-notes-nav-item>Momentum Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#control-volume" data-notes-nav-item>Control Volume</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $0.10$ m diameter pipe carries water at $4.0\ \text{m/s}$ through a 90-degree elbow.</p>
@@ -1140,9 +1212,11 @@ So the fluid exerts a force of about $178\ \text{N}$ on the elbow.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1167,7 +1241,7 @@ $$</div>
 <p>So the fluid exerts a force of about $178\ \text{N}$ on the elbow.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="For free-surface flow, match the Froude number:
+    </article><article class="practice-problem panel" id="fluid-mechanics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Froude Number, Similitude" data-problem-difficulty="Integrated" data-problem-answer="For free-surface flow, match the Froude number:
 
 $$
 \mathrm{Fr} = \frac{V}{\sqrt{gL}}
@@ -1189,12 +1263,14 @@ Exact Reynolds similarity is not possible at this scale with the same fluid, so 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Scale a Free-Surface Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#froude-number" data-notes-nav-item>Froude Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#similitude" data-notes-nav-item>Similitude</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#froude-number" data-notes-nav-item>Froude Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#similitude" data-notes-nav-item>Similitude</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A spillway model is built at $1:36$ scale using the same fluid as the prototype.</p>
@@ -1212,9 +1288,11 @@ Exact Reynolds similarity is not possible at this scale with the same fluid, so 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1235,7 +1313,7 @@ $$</div>
 <p>Exact Reynolds similarity is not possible at this scale with the same fluid, so Froude similarity is the governing choice.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="First compute the velocity head:
+    </article><article class="practice-problem panel" id="fluid-mechanics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Darcy-Weisbach, Minor Losses, Head Loss" data-problem-difficulty="Integrated" data-problem-answer="First compute the velocity head:
 
 $$
 \frac{V^2}{2g} = \frac{2.0^2}{2(9.81)} \approx 0.204\ \text{m}
@@ -1274,12 +1352,14 @@ So the pressure drop is about $52\ \text{kPa}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Combine Major and Minor Losses</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#darcy-weisbach" data-notes-nav-item>Darcy-Weisbach</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#minor-losses" data-notes-nav-item>Minor Losses</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#darcy-weisbach" data-notes-nav-item>Darcy-Weisbach</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#minor-losses" data-notes-nav-item>Minor Losses</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Water flows through a $40$ m long pipe of diameter $50$ mm at $2.0\ \text{m/s}$.</p>
@@ -1298,9 +1378,11 @@ So the pressure drop is about $52\ \text{kPa}$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1333,7 +1415,7 @@ $$</div>
 <p>So the pressure drop is about $52\ \text{kPa}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Use the drag-coefficient relation:
+    </article><article class="practice-problem panel" id="fluid-mechanics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Drag Coefficient, External Flow" data-problem-difficulty="Integrated" data-problem-answer="Use the drag-coefficient relation:
 
 $$
 C_D = \frac{D}{\tfrac{1}{2}\rho V^2 A}
@@ -1357,12 +1439,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Calculate Drag from a Coefficient</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#drag-coefficient" data-notes-nav-item>Drag Coefficient</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#external-flow" data-notes-nav-item>External Flow</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#drag-coefficient" data-notes-nav-item>Drag Coefficient</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#external-flow" data-notes-nav-item>External Flow</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A bluff body in air has reference area $2.0\ \text{m}^2$ and drag coefficient $C_D = 1.2$.</p>
@@ -1381,9 +1465,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1420,7 +1506,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="fluid-mechanics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="First find the pipe speed:
+          <article class="practice-problem panel" id="fluid-mechanics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Continuity, Bernoulli Equation, Head Loss" data-problem-difficulty="Applied" data-problem-answer="First find the pipe speed:
 
 $$
 A = \frac{\pi}{4}(0.10)^2
@@ -1463,12 +1549,14 @@ So the required inlet gauge pressure is about $78.2\ \text{kPa}$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Size the Inlet Pressure for a Rising Pipe</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Water flows at $0.015\ \text{m}^3/\text{s}$ through an $80$ m long, $0.10$ m diameter pipe that rises $5$ m and discharges to atmosphere at the same diameter.</p>
@@ -1487,9 +1575,11 @@ So the required inlet gauge pressure is about $78.2\ \text{kPa}$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1525,7 +1615,7 @@ $$</div>
 <p>So the required inlet gauge pressure is about $78.2\ \text{kPa}$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="The jet area is
+    </article><article class="practice-problem panel" id="fluid-mechanics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Momentum Equation, Jets" data-problem-difficulty="Applied" data-problem-answer="The jet area is
 
 $$
 A = \frac{\pi}{4}(0.050)^2
@@ -1548,12 +1638,14 @@ So the jet exerts about $785\ \text{N}$ on the plate.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Find the Force of a Jet on a Flat Plate</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#momentum-equation" data-notes-nav-item>Momentum Equation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#jets" data-notes-nav-item>Jets</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#momentum-equation" data-notes-nav-item>Momentum Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#jets" data-notes-nav-item>Jets</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A $50$ mm diameter water jet moves at $20\ \text{m/s}$ and is brought to rest in the jet direction by a flat plate.</p>
@@ -1571,9 +1663,11 @@ So the jet exerts about $785\ \text{N}$ on the plate.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1595,7 +1689,7 @@ $$</div>
 <p>So the jet exerts about $785\ \text{N}$ on the plate.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="For a free-surface flow, the key similarity condition is Froude similarity because gravity effects control the wave pattern and surface profile.
+    </article><article class="practice-problem panel" id="fluid-mechanics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Froude Number, Similitude, Free-Surface Flow" data-problem-difficulty="Applied" data-problem-answer="For a free-surface flow, the key similarity condition is Froude similarity because gravity effects control the wave pattern and surface profile.
 
 So
 
@@ -1613,12 +1707,14 @@ Reynolds similarity is not matched exactly at this scale, but Froude similarity 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Choose the Right Similarity Condition for a Spillway Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#froude-number" data-notes-nav-item>Froude Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#similitude" data-notes-nav-item>Similitude</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#free-surface-flow" data-notes-nav-item>Free-Surface Flow</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#froude-number" data-notes-nav-item>Froude Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#similitude" data-notes-nav-item>Similitude</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#free-surface-flow" data-notes-nav-item>Free-Surface Flow</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A spillway model is built at $1:36$ scale in the same fluid as the prototype.</p>
@@ -1637,9 +1733,11 @@ Reynolds similarity is not matched exactly at this scale, but Froude similarity 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1657,7 +1755,7 @@ $$</div>
 <p>Reynolds similarity is not matched exactly at this scale, but Froude similarity is the dominant choice.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="For air, take $\gamma = 1.4$.
+    </article><article class="practice-problem panel" id="fluid-mechanics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Mach Number, Choked Flow, Isentropic Relations" data-problem-difficulty="Applied" data-problem-answer="For air, take $\gamma = 1.4$.
 
 The critical pressure ratio for choking is
 
@@ -1698,12 +1796,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Check Whether a Converging Nozzle Chokes</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mach-number" data-notes-nav-item>Mach Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#choked-flow" data-notes-nav-item>Choked Flow</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#isentropic-relations" data-notes-nav-item>Isentropic Relations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mach-number" data-notes-nav-item>Mach Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#choked-flow" data-notes-nav-item>Choked Flow</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#isentropic-relations" data-notes-nav-item>Isentropic Relations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air flows from a large reservoir with stagnation pressure $500\ \text{kPa}$ and stagnation temperature $300\ \text{K}$ through a converging nozzle.</p>
@@ -1722,9 +1822,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1759,7 +1861,7 @@ T^* = \frac{300}{1.2} = 250\ \text{K}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="For level flight, lift equals weight:
+    </article><article class="practice-problem panel" id="fluid-mechanics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Lift Coefficient, External Flow, Force Balance" data-problem-difficulty="Applied" data-problem-answer="For level flight, lift equals weight:
 
 $$
 L = \frac{1}{2}\rho V^2 A C_L = W
@@ -1783,12 +1885,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Estimate the Minimum Flight Speed for Level Lift</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#lift-coefficient" data-notes-nav-item>Lift Coefficient</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#external-flow" data-notes-nav-item>External Flow</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#force-balance" data-notes-nav-item>Force Balance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#lift-coefficient" data-notes-nav-item>Lift Coefficient</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#external-flow" data-notes-nav-item>External Flow</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#force-balance" data-notes-nav-item>Force Balance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A glider must support a weight of $5400\ \text{N}$ in level flight.</p>
@@ -1807,9 +1911,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1846,7 +1952,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="fluid-mechanics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Follow the pressure changes along the path:
+          <article class="practice-problem panel" id="fluid-mechanics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Hydrostatics, Manometers, Pressure" data-problem-difficulty="Challenge" data-problem-answer="Follow the pressure changes along the path:
 
 $$
 p_g = \rho_{\text{Hg}}g(0.12) - \rho_w g(0.40) - \rho_o g(0.18)
@@ -1864,12 +1970,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Balance a Multi-Fluid Manometer</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#manometers" data-notes-nav-item>Manometers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#hydrostatics" data-notes-nav-item>Hydrostatics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#manometers" data-notes-nav-item>Manometers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pressure" data-notes-nav-item>Pressure</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An open mercury surface is connected to a tank through a multi-fluid column. Starting at the open surface, move down $0.12$ m in mercury, then up $0.40$ m in water, then up $0.18$ m in oil with density $850\ \text{kg/m}^3$ to reach the tank gas.</p>
@@ -1887,9 +1995,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1908,7 +2018,7 @@ p_g \approx 10.6\ \text{kPa}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="First find the pipe speed:
+    </article><article class="practice-problem panel" id="fluid-mechanics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Continuity, Bernoulli Equation, Head Loss, Pumps" data-problem-difficulty="Challenge" data-problem-answer="First find the pipe speed:
 
 $$
 A = \frac{\pi}{4}(0.08)^2
@@ -1948,12 +2058,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Size the Pump for a Reservoir-to-Reservoir Line</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pumps" data-notes-nav-item>Pumps</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#continuity" data-notes-nav-item>Continuity</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#bernoulli-equation" data-notes-nav-item>Bernoulli Equation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#head-loss" data-notes-nav-item>Head Loss</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#pumps" data-notes-nav-item>Pumps</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Water is pumped from one large open reservoir to another large open reservoir that is $12$ m higher.</p>
@@ -1973,9 +2085,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2010,7 +2124,7 @@ h_p = 12 + 7.56 + 0.36 \approx 19.9\ \text{m}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="For Reynolds similarity,
+    </article><article class="practice-problem panel" id="fluid-mechanics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Reynolds Number, Similitude, External Flow" data-problem-difficulty="Challenge" data-problem-answer="For Reynolds similarity,
 
 $$
 \mathrm{Re} \propto VL
@@ -2032,12 +2146,14 @@ That speed is often impractical, which is why exact dynamic similarity is not al
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Match Reynolds Number in a Wind-Tunnel Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#reynolds-number" data-notes-nav-item>Reynolds Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#similitude" data-notes-nav-item>Similitude</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#external-flow" data-notes-nav-item>External Flow</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#reynolds-number" data-notes-nav-item>Reynolds Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#similitude" data-notes-nav-item>Similitude</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#external-flow" data-notes-nav-item>External Flow</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A car is tested in a wind tunnel with a $1:5$ scale model.</p>
@@ -2056,9 +2172,11 @@ That speed is often impractical, which is why exact dynamic similarity is not al
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2079,7 +2197,7 @@ $$</div>
 <p>That speed is often impractical, which is why exact dynamic similarity is not always achievable in a wind tunnel.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="fluid-mechanics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="For air, take $\gamma = 1.4$.
+    </article><article class="practice-problem panel" id="fluid-mechanics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Mach Number, Choked Flow, Isentropic Relations" data-problem-difficulty="Challenge" data-problem-answer="For air, take $\gamma = 1.4$.
 
 The critical pressure ratio is
 
@@ -2113,12 +2231,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Use Critical Pressure Ratio to Test for Choking</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mach-number" data-notes-nav-item>Mach Number</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#choked-flow" data-notes-nav-item>Choked Flow</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#isentropic-relations" data-notes-nav-item>Isentropic Relations</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#mach-number" data-notes-nav-item>Mach Number</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#choked-flow" data-notes-nav-item>Choked Flow</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/engineering/fluid-mechanics/#isentropic-relations" data-notes-nav-item>Isentropic Relations</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A converging nozzle receives air from a large reservoir at $p_0 = 500\ \text{kPa}$ and $T_0 = 300\ \text{K}$.</p>
@@ -2136,9 +2256,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

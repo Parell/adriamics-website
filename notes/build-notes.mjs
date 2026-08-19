@@ -11,6 +11,11 @@ const repoRoot = path.resolve(__dirname, '..');
 const notesRoot = path.join(repoRoot, 'notes');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
 const conceptDagSourcePath = path.join(notesRoot, 'source', 'paths.json');
+// Printed worksheets clone equations while hiding MathJax's page-level cache,
+// so every SVG needs to carry its own glyph definitions.
+const MATHJAX_SVG_FONT_CACHE = 'local';
+const MATHJAX_SVG_BLACKER = 0;
+const MATHJAX_CDN_URL = 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js';
 
 function repairMojibake(text) {
   return String(text ?? '')
@@ -578,11 +583,39 @@ function resolvePracticeSkillHref(notePath, skillName) {
 }
 
 function renderPracticeSkills(notePath, skills) {
-  return skills.map((skill) => {
+  const items = skills.map((skill) => {
     const label = String(skill).trim();
     const href = resolvePracticeSkillHref(notePath, label);
-    return `<a class="notes-inline-link practice-problem__skill" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
-  }).join(' &middot; ');
+    return `<li><a class="notes-inline-link practice-problem__skill" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a></li>`;
+  }).join('');
+
+  return `<ul class="practice-problem__skills">${items}</ul>`;
+}
+
+function extractPracticeReferenceSection(markdown) {
+  const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
+  const matches = [];
+  lines.forEach((line, index) => {
+    const match = line.match(/^##\s+(.+?)\s*$/);
+    if (match && /formula|reference|quick reference|summary/i.test(match[1])) {
+      matches.push({ index, heading: match[1].trim() });
+    }
+  });
+
+  const selected = matches.at(-1);
+  if (!selected) return null;
+  let end = lines.length;
+  for (let index = selected.index + 1; index < lines.length; index += 1) {
+    if (/^##\s+/.test(lines[index])) {
+      end = index;
+      break;
+    }
+  }
+
+  return {
+    heading: selected.heading,
+    markdown: lines.slice(selected.index + 1, end).join('\n').trim(),
+  };
 }
 
 function groupPracticeProblems(problems) {
@@ -1621,13 +1654,16 @@ function buildNoteHtml({
           oiint: '\\\\mathop{\\\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: '${MATHJAX_SVG_FONT_CACHE}',
+        blacker: ${MATHJAX_SVG_BLACKER}
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="${MATHJAX_CDN_URL}"></script>
   `,
   });
 }
@@ -2058,6 +2094,7 @@ function validatePracticeProblemMetadata(metadata, sourcePath, problemIndex, see
     title: String(metadata.title).trim(),
     type,
     answer: derivedAnswer,
+    answerIsExplicit: metadata.answer !== undefined && metadata.answer !== null && String(metadata.answer).trim() !== '',
     exam: metadata.exam === undefined || metadata.exam === null ? '' : String(metadata.exam).trim(),
     tolerance: metadata.tolerance,
     unit: metadata.unit,
@@ -2203,20 +2240,22 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
   const metadataBits = [
     `<span class="practice-problem__exam">${escapeHtml(exam.label)}</span>`,
     `<span class="practice-problem__problem">Problem ${escapeHtml(problemNumber)}</span>`,
-    skills ? `<span class="practice-problem__uses"><span class="practice-problem__skills">${skills}</span></span>` : null,
+    skills || null,
     unit ? `<span>Unit ${escapeHtml(unit)}</span>` : null,
   ].filter(Boolean).join(' | ');
 
-  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem data-exam="${escapeHtml(exam.key)}" data-problem-number="${escapeHtml(problemNumber)}"${type ? ` data-problem-type="${escapeHtml(type)}"` : ''}${problem.answer ? ` data-problem-answer="${escapeHtml(String(problem.answer).trim())}"` : ''}${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
+  return `<article class="practice-problem panel" id="${escapeHtml(problem.id)}" data-practice-problem data-exam="${escapeHtml(exam.key)}" data-problem-number="${escapeHtml(problemNumber)}" data-problem-skills="${escapeHtml(problem.skills.join(', '))}" data-problem-difficulty="${escapeHtml(getPracticeLevelLabel(problem.level))}"${type ? ` data-problem-type="${escapeHtml(type)}"` : ''}${problem.answer ? ` data-problem-answer="${escapeHtml(String(problem.answer).trim())}"` : ''}${problem.answerIsExplicit ? ' data-problem-answer-explicit' : ''}${tolerance ? ` data-problem-tolerance="${escapeHtml(tolerance)}"` : ''}${unit ? ` data-problem-unit="${escapeHtml(unit)}"` : ''}>
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">${escapeHtml(problemNumber)}</span><span class="practice-problem__title-text">${escapeHtml(problem.title)}</span></h2>
-          <p class="practice-problem__meta">${metadataBits}</p>
+          <div class="practice-problem__meta">${metadataBits}</div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         ${promptHtml}
@@ -2233,9 +2272,11 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -2286,6 +2327,19 @@ function renderPracticeProgressHtml(totalProblems) {
       </section>`;
 }
 
+function renderWorksheetControlsHtml(title, referenceHtml = '') {
+  return `<details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="${escapeHtml(title)}" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button>${referenceHtml ? '<button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button>' : ''}</div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    ${referenceHtml ? `<template data-worksheet-reference-template><section class="worksheet-reference"><h2>${escapeHtml(referenceHtml.heading)}</h2><div class="markdown-body">${referenceHtml.html}</div></section></template>` : ''}
+    </div></details>`;
+}
+
 function renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath) {
   return problemGroups.filter((group) => group.items.length > 0).map((group) => {
     const levelProblemHtml = group.items.map(({ problem }) => renderPracticeProblem(problem, practiceSourcePath, notePath)).join('');
@@ -2324,6 +2378,7 @@ function renderPracticePageHtml({
   outputDir,
   assetVersions,
   problems,
+  referenceHtml = null,
 }) {
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
@@ -2349,6 +2404,7 @@ function renderPracticePageHtml({
         ${renderPracticeFiltersHtml()}
         ${renderPracticeProgressHtml(totalProblems)}
       </section>
+      ${renderWorksheetControlsHtml(title.replace(/\s+Practice$/, ''), referenceHtml)}
       <div class="practice-problem-list">
         ${problemHtml}
       </div>
@@ -2381,13 +2437,16 @@ function renderPracticePageHtml({
           oiint: '\\\\mathop{\\\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: '${MATHJAX_SVG_FONT_CACHE}',
+        blacker: ${MATHJAX_SVG_BLACKER}
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>`,
+  <script defer src="${MATHJAX_CDN_URL}"></script>`,
   });
 }
 
@@ -2621,7 +2680,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   };
 }
 
-async function buildPracticePage(practice, structures, assetVersions) {
+async function buildPracticePage(practice, structures, assetVersions, noteDocument = null) {
   const sourcePath = practice.sourcePath;
   const note = practice.note;
   const title = `${note.title} Practice`;
@@ -2646,6 +2705,10 @@ async function buildPracticePage(practice, structures, assetVersions) {
     outputDir: getPracticeOutputDir(note.path),
     assetVersions,
     problems: practice.problems,
+    referenceHtml: (() => {
+      const reference = extractPracticeReferenceSection(noteDocument?.bodyForDisplay ?? '');
+      return reference ? { ...reference, html: renderBlocks(reference.markdown, noteDocument?.sourcePath ?? note.path) } : null;
+    })(),
   });
   const outputPath = path.join(getPracticeOutputDir(note.path), 'index.html');
 
@@ -2756,7 +2819,7 @@ async function buildNotePages(notes, structures, assetVersions, conceptDag) {
     searchEntries.push(await buildNotePage(note, urls[index], structures, assetVersions, noteDocument, conceptDag, practice));
 
     if (practice) {
-      const practicePage = await buildPracticePage(practice, structures, assetVersions);
+      const practicePage = await buildPracticePage(practice, structures, assetVersions, noteDocument);
       practiceUrls.push(practicePage.url);
     }
   }
@@ -2769,6 +2832,9 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
 }
 
 export {
+  MATHJAX_CDN_URL,
+  MATHJAX_SVG_BLACKER,
+  MATHJAX_SVG_FONT_CACHE,
   collectConceptDagAncestors,
   collectConceptDagRootIds,
   getSummary,

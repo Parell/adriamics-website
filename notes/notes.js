@@ -11,6 +11,14 @@ const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
 const practiceLevelSections = Array.from(document.querySelectorAll('[data-practice-level]'));
 const practiceProblemCards = Array.from(document.querySelectorAll('[data-practice-problem]'));
+const worksheetControls = document.querySelector('[data-worksheet-controls]');
+const worksheetError = document.querySelector('[data-worksheet-error]');
+const worksheetSelectedList = document.querySelector('[data-worksheet-selected-list]');
+const worksheetEmpty = document.querySelector('[data-worksheet-empty]');
+let worksheetSelectedIds = [];
+const worksheetSpacing = new Map();
+let worksheetDraggedId = null;
+let worksheetPrintState = null;
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
 const notesScriptUrl = document.currentScript?.src
@@ -366,6 +374,144 @@ function savePracticeCompletionState() {
   savePracticeCompletionIds(completedIds);
   updatePracticeProgressUi(completedCount, practiceProblemCards.length);
   renderPracticeFilter(activePracticeFilter);
+}
+
+function getWorksheetCards() {
+  const cardsById = new Map(practiceProblemCards.map((card) => [card.id, card]));
+  return worksheetSelectedIds.map((id) => cardsById.get(id)).filter(Boolean);
+}
+
+const WORKSHEET_SPACING_DEFAULTS = { direct: 3, integrated: 5, applied: 7, challenge: 10 };
+
+function worksheetSpacingDefault(card) {
+  const difficulty = String(card?.dataset.problemDifficulty ?? '').trim().toLowerCase();
+  return WORKSHEET_SPACING_DEFAULTS[difficulty] ?? 3;
+}
+
+function ensureWorksheetSpacing(card) {
+  if (card?.id && !worksheetSpacing.has(card.id)) worksheetSpacing.set(card.id, worksheetSpacingDefault(card));
+  return worksheetSpacing.get(card?.id) ?? 3;
+}
+
+function setWorksheetSelection(ids) {
+  const available = new Set(practiceProblemCards.map((card) => card.id).filter(Boolean));
+  worksheetSelectedIds = [...new Set(ids)].filter((id) => available.has(id));
+  worksheetSelectedIds.forEach((id) => ensureWorksheetSpacing(practiceProblemCards.find((card) => card.id === id)));
+  practiceProblemCards.forEach((card) => {
+    const toggle = card.querySelector('[data-worksheet-problem-toggle]');
+    const selected = worksheetSelectedIds.includes(card.id);
+    if (toggle) {
+      toggle.textContent = selected ? 'Remove from worksheet.' : 'Add to worksheet.';
+      toggle.setAttribute('aria-pressed', String(selected));
+    }
+  });
+  renderWorksheetSelection();
+}
+
+function renderWorksheetSelection() {
+  if (!worksheetControls) return;
+  const count = worksheetSelectedIds.length;
+  if (count) worksheetError.hidden = true;
+  if (!worksheetSelectedList) return;
+  worksheetSelectedList.innerHTML = '';
+  worksheetEmpty.hidden = count > 0;
+  worksheetSelectedIds.forEach((id) => {
+    const card = practiceProblemCards.find((candidate) => candidate.id === id);
+    if (!card) return;
+    const item = document.createElement('li');
+    item.className = 'worksheet-selection__item';
+    item.draggable = true;
+    item.dataset.worksheetSelectedId = id;
+    const label = document.createElement('span');
+    label.className = 'worksheet-selection__label';
+    label.textContent = `${card.dataset.problemNumber ?? ''}. ${card.querySelector('.practice-problem__title-text')?.textContent?.trim() || 'Problem'}`;
+    const spacingLabel = document.createElement('label');
+    spacingLabel.className = 'worksheet-selection__spacing';
+    spacingLabel.textContent = 'Spacing';
+    const spacingInput = document.createElement('input');
+    spacingInput.type = 'number'; spacingInput.min = '1'; spacingInput.max = '20'; spacingInput.step = '1';
+    spacingInput.value = String(ensureWorksheetSpacing(card));
+    spacingInput.dataset.worksheetSpacingId = id;
+    spacingLabel.append(spacingInput);
+    const controls = document.createElement('span');
+    controls.className = 'worksheet-selection__actions';
+    const remove = document.createElement('button');
+    remove.type = 'button'; remove.className = 'practice-problem__text-action worksheet-action-link'; remove.dataset.worksheetRemoveId = id; remove.textContent = 'Remove';
+    remove.setAttribute('aria-label', `Remove ${label.textContent}`); controls.append(remove);
+    item.append(label, spacingLabel, controls); worksheetSelectedList.append(item);
+  });
+}
+
+function worksheetValue(selector, fallback) {
+  return worksheetControls?.querySelector(selector)?.value ?? fallback;
+}
+
+function renderWorksheetPrint(mode, cards) {
+  let container = document.querySelector('[data-worksheet-print-container]');
+  if (!container) {
+    container = document.createElement('section');
+    container.dataset.worksheetPrintContainer = '';
+    document.body.append(container);
+  }
+  const title = worksheetValue('[data-worksheet-title]', 'Worksheet');
+  const includeReference = worksheetControls?.querySelector('[data-worksheet-reference-toggle]')?.getAttribute('aria-pressed') === 'true';
+  const reference = includeReference ? worksheetControls?.querySelector('[data-worksheet-reference-template]')?.content.cloneNode(true) : null;
+  const escapePrintText = (value) => value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+  const header = `<header class="worksheet-print__header"><h1>${escapePrintText(title)}</h1>${mode === 'student' ? '<div class="worksheet-print__fields"><span>Name: ______________________________</span><span>Date: ______________</span></div>' : '<p class="worksheet-print__kind">Answer key</p>'}</header>`;
+  container.className = `worksheet-print worksheet-print--${mode}`;
+  container.innerHTML = header;
+  if (reference) container.append(reference);
+  const list = document.createElement('ol');
+  list.className = 'worksheet-print__list';
+  cards.forEach((card) => {
+    const item = document.createElement('li');
+    item.className = 'worksheet-print__problem';
+    const heading = document.createElement('h2');
+    heading.textContent = card.querySelector('.practice-problem__title-text')?.textContent?.trim() || 'Problem';
+    item.append(heading);
+    const prompt = card.querySelector('[data-practice-prompt]');
+    if (prompt) {
+      const promptClone = prompt.cloneNode(true);
+      promptClone.classList.add('worksheet-print__prompt');
+      item.append(promptClone);
+    }
+    if (mode === 'answers') {
+      const answer = document.createElement('div');
+      answer.className = 'worksheet-print__answer markdown-body';
+      answer.innerHTML = card.hasAttribute('data-problem-answer-explicit')
+        ? (card.dataset.problemAnswer || '<p>No answer provided.</p>')
+        : (card.querySelector('[data-practice-solution] .markdown-body')?.innerHTML || '<p>No solution provided.</p>');
+      item.append(answer);
+    } else {
+      const workspace = document.createElement('div');
+      workspace.className = 'worksheet-print__workspace';
+      workspace.style.setProperty('--worksheet-spacing-lines', String(worksheetSpacing.get(card.id) ?? worksheetSpacingDefault(card)));
+      item.append(workspace);
+    }
+    list.append(item);
+  });
+  container.append(list);
+  container.hidden = false;
+  document.body.classList.add('is-printing-worksheet');
+  window.MathJax?.typesetPromise?.([container]).catch(() => {});
+}
+
+function printWorksheet(mode) {
+  const cards = getWorksheetCards();
+  if (!cards.length) {
+    worksheetError.hidden = false;
+    worksheetError.focus?.();
+    return;
+  }
+  worksheetPrintState = { cards };
+  renderWorksheetPrint(mode, cards);
+  window.setTimeout(() => window.print(), 80);
+}
+
+function finishWorksheetPrint() {
+  document.querySelector('[data-worksheet-print-container]')?.remove();
+  document.body.classList.remove('is-printing-worksheet');
+  worksheetPrintState = null;
 }
 
 /*
@@ -1621,11 +1767,68 @@ practiceFilterButtons.forEach((button) => {
   });
 });
 
+worksheetControls?.addEventListener('click', (event) => {
+  if (event.target.closest('[data-worksheet-select-all]')) {
+    setWorksheetSelection([...worksheetSelectedIds, ...practiceProblemCards.map((card) => card.id)]);
+  } else if (event.target.closest('[data-worksheet-clear]')) {
+    worksheetSpacing.clear();
+    setWorksheetSelection([]);
+  } else if (event.target.closest('[data-worksheet-reference-toggle]')) {
+    const toggle = event.target.closest('[data-worksheet-reference-toggle]');
+    const enabled = toggle.getAttribute('aria-pressed') !== 'true';
+    toggle.setAttribute('aria-pressed', String(enabled));
+    toggle.textContent = `Reference sheet: ${enabled ? 'On' : 'Off'}`;
+  } else if (event.target.closest('[data-worksheet-print]')) {
+    printWorksheet(event.target.closest('[data-worksheet-print]').dataset.worksheetPrint);
+  } else if (event.target.closest('[data-worksheet-remove-id]')) {
+    const id = event.target.closest('[data-worksheet-remove-id]').dataset.worksheetRemoveId;
+    setWorksheetSelection(worksheetSelectedIds.filter((selectedId) => selectedId !== id));
+  }
+});
+
+worksheetSelectedList?.addEventListener('input', (event) => {
+  const input = event.target.closest('[data-worksheet-spacing-id]');
+  if (!input) return;
+  const value = Math.max(1, Math.min(20, Number.parseInt(input.value, 10) || 1));
+  input.value = String(value);
+  worksheetSpacing.set(input.dataset.worksheetSpacingId, value);
+});
+
+worksheetSelectedList?.addEventListener('dragstart', (event) => {
+  const item = event.target.closest('[data-worksheet-selected-id]');
+  worksheetDraggedId = item?.dataset.worksheetSelectedId ?? null;
+  if (event.dataTransfer && worksheetDraggedId) event.dataTransfer.effectAllowed = 'move';
+});
+worksheetSelectedList?.addEventListener('dragover', (event) => { if (event.target.closest('[data-worksheet-selected-id]')) event.preventDefault(); });
+worksheetSelectedList?.addEventListener('drop', (event) => {
+  event.preventDefault();
+  const target = event.target.closest('[data-worksheet-selected-id]');
+  if (!worksheetDraggedId || !target || target.dataset.worksheetSelectedId === worksheetDraggedId) return;
+  const ids = worksheetSelectedIds.filter((id) => id !== worksheetDraggedId);
+  const targetIndex = ids.indexOf(target.dataset.worksheetSelectedId);
+  ids.splice(targetIndex < 0 ? ids.length : targetIndex, 0, worksheetDraggedId);
+  setWorksheetSelection(ids); worksheetDraggedId = null;
+});
+
+window.addEventListener('afterprint', finishWorksheetPrint);
+
 document.addEventListener('click', async (event) => {
   const themeButton = event.target.closest('[data-theme-toggle]');
 
   if (themeButton) {
     toggleThemePreference();
+    return;
+  }
+
+  const worksheetToggle = event.target.closest('[data-worksheet-problem-toggle]');
+
+  if (worksheetToggle) {
+    const card = worksheetToggle.closest('[data-practice-problem]');
+    if (card?.id) {
+      setWorksheetSelection(worksheetSelectedIds.includes(card.id)
+        ? worksheetSelectedIds.filter((id) => id !== card.id)
+        : [...worksheetSelectedIds, card.id]);
+    }
     return;
   }
 
@@ -1717,6 +1920,7 @@ if (practiceFilterFromUrl) {
   savePracticeFilter(initialPracticeFilter);
 }
 renderPracticeFilter(initialPracticeFilter);
+renderWorksheetSelection();
 
 syncSubjectNavigation();
 window.addEventListener('storage', (event) => {

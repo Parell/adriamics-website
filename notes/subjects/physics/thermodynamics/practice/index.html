@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Thermodynamics" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,18 +149,20 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="thermodynamics-i-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="This is a **closed system** or **control mass**.
+          <article class="practice-problem panel" id="thermodynamics-i-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="System type, Boundaries" data-problem-difficulty="Direct" data-problem-answer="This is a **closed system** or **control mass**.
 
 Mass does not cross the boundary, but energy can cross as heat or work.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Identify a Closed System</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#system-type" data-notes-nav-item>System type</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#boundaries" data-notes-nav-item>Boundaries</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#system-type" data-notes-nav-item>System type</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#boundaries" data-notes-nav-item>Boundaries</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A gas is sealed inside a piston-cylinder device. The piston can move, and heat can cross the boundary, but no mass can enter or leave.</p>
@@ -165,9 +180,11 @@ Mass does not cross the boundary, but energy can cross as heat or work.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -177,7 +194,7 @@ Mass does not cross the boundary, but energy can cross as heat or work.">
 <p>Mass does not cross the boundary, but energy can cross as heat or work.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="An extensive property depends on system size.
+    </article><article class="practice-problem panel" id="thermodynamics-i-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Extensive properties, Intensive properties" data-problem-difficulty="Direct" data-problem-answer="An extensive property depends on system size.
 
 So the extensive properties are
 
@@ -189,12 +206,14 @@ Pressure $P$ and temperature $T$ are intensive properties.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Classify Properties by Size Dependence</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#extensive-properties" data-notes-nav-item>Extensive properties</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#intensive-properties" data-notes-nav-item>Intensive properties</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#extensive-properties" data-notes-nav-item>Extensive properties</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#intensive-properties" data-notes-nav-item>Intensive properties</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Which of the following are extensive properties?</p>
@@ -214,9 +233,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -230,7 +251,7 @@ $$</div>
 <p>Pressure $P$ and temperature $T$ are intensive properties.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="thermodynamics-i-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Pressure, Units" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 P_{abs} = P_{gage} + P_{atm}
@@ -244,12 +265,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Convert Gauge Pressure to Absolute Pressure</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#pressure" data-notes-nav-item>Pressure</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#units" data-notes-nav-item>Units</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#pressure" data-notes-nav-item>Pressure</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#units" data-notes-nav-item>Units</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A tire gauge reads $220\ \text{kPa}$ and the atmospheric pressure is $101\ \text{kPa}$.</p>
@@ -267,9 +290,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -285,7 +310,7 @@ P_{abs} = 220 + 101 = 321\ \text{kPa}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Use the absolute temperature relation:
+    </article><article class="practice-problem panel" id="thermodynamics-i-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Temperature, Units" data-problem-difficulty="Direct" data-problem-answer="Use the absolute temperature relation:
 
 $$
 T(K) = T(^\circ C) + 273.15
@@ -299,12 +324,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Convert Celsius to Kelvin</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#temperature" data-notes-nav-item>Temperature</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#units" data-notes-nav-item>Units</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#temperature" data-notes-nav-item>Temperature</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#units" data-notes-nav-item>Units</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Convert $27^\circ\text{C}$ to Kelvin.</p>
@@ -321,9 +348,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -339,16 +368,18 @@ T = 27 + 273.15 = 300.15\ \text{K}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="If the temperature is below the saturation temperature at the given pressure, the substance is in the **compressed liquid** or **subcooled liquid** region.">
+    </article><article class="practice-problem panel" id="thermodynamics-i-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Pure substances, Phase regions" data-problem-difficulty="Direct" data-problem-answer="If the temperature is below the saturation temperature at the given pressure, the substance is in the **compressed liquid** or **subcooled liquid** region.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Choose the Phase Region</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#pure-substances" data-notes-nav-item>Pure substances</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#phase-regions" data-notes-nav-item>Phase regions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#pure-substances" data-notes-nav-item>Pure substances</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#phase-regions" data-notes-nav-item>Phase regions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A pure substance is at a pressure of $500\ \text{kPa}$ and a temperature below $T_{sat}$ at that pressure.</p>
@@ -366,9 +397,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -377,7 +410,7 @@ $$</div>
           <p>If the temperature is below the saturation temperature at the given pressure, the substance is in the <strong>compressed liquid</strong> or <strong>subcooled liquid</strong> region.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="thermodynamics-i-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Quality, Saturated mixtures" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 x = \frac{m_g}{m_f + m_g}
@@ -391,12 +424,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Compute Quality from Masses</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#quality" data-notes-nav-item>Quality</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#saturated-mixtures" data-notes-nav-item>Saturated mixtures</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#quality" data-notes-nav-item>Quality</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#saturated-mixtures" data-notes-nav-item>Saturated mixtures</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A saturated liquid-vapor mixture contains $3\ \text{kg}$ of saturated liquid and $9\ \text{kg}$ of saturated vapor.</p>
@@ -414,9 +449,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -432,7 +469,7 @@ x = \frac{9}{3+9} = \frac{9}{12} = 0.75
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use the specific ideal gas law:
+    </article><article class="practice-problem panel" id="thermodynamics-i-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Ideal gas, Equation of state" data-problem-difficulty="Direct" data-problem-answer="Use the specific ideal gas law:
 
 $$
 Pv = RT
@@ -446,12 +483,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Use the Ideal Gas Law</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas" data-notes-nav-item>Ideal gas</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#equation-of-state" data-notes-nav-item>Equation of state</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas" data-notes-nav-item>Ideal gas</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#equation-of-state" data-notes-nav-item>Equation of state</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An ideal gas has</p>
@@ -472,9 +511,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -490,7 +531,7 @@ v = \frac{RT}{P} = \frac{0.287(300)}{300} = 0.287\ \text{m}^3/\text{kg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="For constant pressure,
+    </article><article class="practice-problem panel" id="thermodynamics-i-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Boundary work, Sign conventions" data-problem-difficulty="Direct" data-problem-answer="For constant pressure,
 
 $$
 W_b = P(V_2 - V_1)
@@ -506,12 +547,14 @@ The work is positive because the system does work on the surroundings.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Find Constant-Pressure Boundary Work</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#boundary-work" data-notes-nav-item>Boundary work</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#sign-conventions" data-notes-nav-item>Sign conventions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#boundary-work" data-notes-nav-item>Boundary work</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#sign-conventions" data-notes-nav-item>Sign conventions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A gas expands at constant pressure from $0.50\ \text{m}^3$ to $0.80\ \text{m}^3$ while the pressure remains $150\ \text{kPa}$.</p>
@@ -529,9 +572,11 @@ The work is positive because the system does work on the surroundings.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -548,7 +593,7 @@ $$</div>
 <p>The work is positive because the system does work on the surroundings.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Use the closed-system First Law:
+    </article><article class="practice-problem panel" id="thermodynamics-i-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="First Law, Closed systems" data-problem-difficulty="Direct" data-problem-answer="Use the closed-system First Law:
 
 $$
 \Delta U = Q - W
@@ -562,12 +607,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Apply the Closed-System First Law</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#closed-systems" data-notes-nav-item>Closed systems</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#closed-systems" data-notes-nav-item>Closed systems</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A closed system receives $120\ \text{kJ}$ of heat and does $35\ \text{kJ}$ of work. Neglect changes in kinetic and potential energy.</p>
@@ -585,9 +632,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -603,7 +652,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="thermodynamics-i-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Mass flow rate, Control volumes" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \dot{m} = \rho A V
@@ -617,12 +666,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Compute Mass Flow Rate</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#mass-flow-rate" data-notes-nav-item>Mass flow rate</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#control-volumes" data-notes-nav-item>Control volumes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#mass-flow-rate" data-notes-nav-item>Mass flow rate</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#control-volumes" data-notes-nav-item>Control volumes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air with density $1.2\ \text{kg/m}^3$ flows through a duct with area $0.050\ \text{m}^2$ at a speed of $20\ \text{m/s}$.</p>
@@ -640,9 +691,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -672,7 +725,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="thermodynamics-i-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Use the saturated mixture relation:
+          <article class="practice-problem panel" id="thermodynamics-i-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Saturated mixtures, Quality" data-problem-difficulty="Integrated" data-problem-answer="Use the saturated mixture relation:
 
 $$
 u = u_f + x u_{fg}
@@ -686,12 +739,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Find a Saturated Mixture Property</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#saturated-mixtures" data-notes-nav-item>Saturated mixtures</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#quality" data-notes-nav-item>Quality</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#saturated-mixtures" data-notes-nav-item>Saturated mixtures</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#quality" data-notes-nav-item>Quality</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A saturated mixture has</p>
@@ -712,9 +767,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -730,7 +787,7 @@ u = 500 + 0.20(1500) = 500 + 300 = 800\ \text{kJ/kg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Use the compressed-liquid approximation:
+    </article><article class="practice-problem panel" id="thermodynamics-i-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Compressed liquid approximation, Property data" data-problem-difficulty="Integrated" data-problem-answer="Use the compressed-liquid approximation:
 
 $$
 h \approx h_f(T) + v_f(T)\left[P - P_{sat}(T)\right]
@@ -750,12 +807,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Approximate a Compressed-Liquid Enthalpy</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#compressed-liquid-approximation" data-notes-nav-item>Compressed liquid approximation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#property-data" data-notes-nav-item>Property data</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#compressed-liquid-approximation" data-notes-nav-item>Compressed liquid approximation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#property-data" data-notes-nav-item>Property data</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>At a given temperature, a liquid has</p>
@@ -780,9 +839,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -802,7 +863,7 @@ h \approx 340.5\ \text{kJ/kg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="For an isentropic ideal gas,
+    </article><article class="practice-problem panel" id="thermodynamics-i-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Isentropic ideal gas relations, Ideal gas" data-problem-difficulty="Integrated" data-problem-answer="For an isentropic ideal gas,
 
 $$
 \frac{T_2}{T_1} = \left(\frac{P_2}{P_1}\right)^{(k-1)/k}
@@ -820,12 +881,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use an Isentropic Ideal-Gas Relation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#isentropic-ideal-gas-relations" data-notes-nav-item>Isentropic ideal gas relations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas" data-notes-nav-item>Ideal gas</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#isentropic-ideal-gas-relations" data-notes-nav-item>Isentropic ideal gas relations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas" data-notes-nav-item>Ideal gas</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air with $k = 1.4$ is compressed isentropically from $P_1 = 100\ \text{kPa}$ and $T_1 = 300\ \text{K}$ to $P_2 = 400\ \text{kPa}$.</p>
@@ -843,9 +906,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -864,7 +929,7 @@ T_2 \approx 300(4^{0.2857}) \approx 446\ \text{K}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="For an ideal-gas isothermal process, $n=1$ and
+    </article><article class="practice-problem panel" id="thermodynamics-i-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Polytropic work, Boundary work, Ideal gas" data-problem-difficulty="Integrated" data-problem-answer="For an ideal-gas isothermal process, $n=1$ and
 
 $$
 W_b = P_1V_1 \ln\left(\frac{V_2}{V_1}\right)
@@ -882,12 +947,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Evaluate Polytropic Boundary Work</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#polytropic-work" data-notes-nav-item>Polytropic work</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#boundary-work" data-notes-nav-item>Boundary work</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas" data-notes-nav-item>Ideal gas</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#polytropic-work" data-notes-nav-item>Polytropic work</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#boundary-work" data-notes-nav-item>Boundary work</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas" data-notes-nav-item>Ideal gas</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An ideal gas undergoes an isothermal expansion. At the initial state,</p>
@@ -909,9 +976,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -930,7 +999,7 @@ W_b = 60(0.693) \approx 41.6\ \text{kJ}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="For a linear spring,
+    </article><article class="practice-problem panel" id="thermodynamics-i-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Spring work, First Law, Closed systems" data-problem-difficulty="Integrated" data-problem-answer="For a linear spring,
 
 $$
 W = \frac{1}{2}k(x_2^2 - x_1^2)
@@ -954,12 +1023,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Solve a Spring-Loaded Energy Balance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#spring-work" data-notes-nav-item>Spring work</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#closed-systems" data-notes-nav-item>Closed systems</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#spring-work" data-notes-nav-item>Spring work</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#closed-systems" data-notes-nav-item>Closed systems</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A piston-cylinder device compresses a linear spring from $x_1 = 0$ to $x_2 = 0.20\ \text{m}$. The spring constant is $k = 8.0\ \text{kN/m}$.</p>
@@ -978,9 +1049,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1003,7 +1076,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="For an adiabatic turbine with negligible kinetic and potential energy changes,
+    </article><article class="practice-problem panel" id="thermodynamics-i-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Turbine, Steady-flow energy" data-problem-difficulty="Integrated" data-problem-answer="For an adiabatic turbine with negligible kinetic and potential energy changes,
 
 $$
 \dot{W}_{out} = \dot{m}(h_1 - h_2)
@@ -1017,12 +1090,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Analyze a Turbine</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#turbine" data-notes-nav-item>Turbine</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#steady-flow-energy" data-notes-nav-item>Steady-flow energy</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#turbine" data-notes-nav-item>Turbine</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#steady-flow-energy" data-notes-nav-item>Steady-flow energy</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A steady adiabatic turbine has negligible kinetic and potential energy changes. The mass flow rate is $3\ \text{kg/s}$, the inlet enthalpy is $h_1 = 3200\ \text{kJ/kg}$, and the outlet enthalpy is $h_2 = 2500\ \text{kJ/kg}$.</p>
@@ -1040,9 +1115,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1058,7 +1135,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="For throttling,
+    </article><article class="practice-problem panel" id="thermodynamics-i-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Throttling valve, Enthalpy" data-problem-difficulty="Integrated" data-problem-answer="For throttling,
 
 $$
 h_1 = h_2
@@ -1072,12 +1149,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Analyze a Throttling Valve</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#throttling-valve" data-notes-nav-item>Throttling valve</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#enthalpy" data-notes-nav-item>Enthalpy</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#throttling-valve" data-notes-nav-item>Throttling valve</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#enthalpy" data-notes-nav-item>Enthalpy</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A throttling valve drops the pressure of a fluid from $900\ \text{kPa}$ to $200\ \text{kPa}$.</p>
@@ -1095,9 +1174,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1113,7 +1194,7 @@ h_2 = 245\ \text{kJ/kg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="Use the constant-specific-heat ideal-gas entropy relation:
+    </article><article class="practice-problem panel" id="thermodynamics-i-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Entropy, Ideal gas entropy changes" data-problem-difficulty="Integrated" data-problem-answer="Use the constant-specific-heat ideal-gas entropy relation:
 
 $$
 s_2 - s_1 = c_p \ln\left(\frac{T_2}{T_1}\right) - R \ln\left(\frac{P_2}{P_1}\right)
@@ -1135,12 +1216,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Compute Ideal-Gas Entropy Change</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#entropy" data-notes-nav-item>Entropy</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas-entropy-changes" data-notes-nav-item>Ideal gas entropy changes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#entropy" data-notes-nav-item>Entropy</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#ideal-gas-entropy-changes" data-notes-nav-item>Ideal gas entropy changes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Air has</p>
@@ -1162,9 +1245,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1200,7 +1285,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="thermodynamics-i-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Apply mass conservation:
+          <article class="practice-problem panel" id="thermodynamics-i-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Mixing chamber, Control volumes, First Law" data-problem-difficulty="Applied" data-problem-answer="Apply mass conservation:
 
 $$
 \dot{m}_{out} = \dot{m}_1 + \dot{m}_2 = 1 + 2 = 3\ \text{kg/s}
@@ -1228,12 +1313,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Mix Two Streams</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#mixing-chamber" data-notes-nav-item>Mixing chamber</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#control-volumes" data-notes-nav-item>Control volumes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#mixing-chamber" data-notes-nav-item>Mixing chamber</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#control-volumes" data-notes-nav-item>Control volumes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An adiabatic mixing chamber has two inlet streams of the same substance:</p>
@@ -1258,9 +1345,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1286,7 +1375,7 @@ h_{out} = 433.3\ \text{kJ/kg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="With negligible heat loss to the surroundings, the enthalpy lost by the hot stream equals the enthalpy gained by the cold stream:
+    </article><article class="practice-problem panel" id="thermodynamics-i-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Heat exchanger, Control volumes, Energy balance" data-problem-difficulty="Applied" data-problem-answer="With negligible heat loss to the surroundings, the enthalpy lost by the hot stream equals the enthalpy gained by the cold stream:
 
 $$
 \dot{m}_h(h_{h,in}-h_{h,out}) = \dot{m}_c(h_{c,out}-h_{c,in})
@@ -1312,12 +1401,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Analyze a Heat Exchanger</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#heat-exchanger" data-notes-nav-item>Heat exchanger</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#control-volumes" data-notes-nav-item>Control volumes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#energy-balance" data-notes-nav-item>Energy balance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#heat-exchanger" data-notes-nav-item>Heat exchanger</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#control-volumes" data-notes-nav-item>Control volumes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#energy-balance" data-notes-nav-item>Energy balance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An adiabatic heat exchanger has a hot stream and a cold stream. The hot stream has</p>
@@ -1342,9 +1433,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1369,7 +1462,7 @@ h_{c,out} = 166.7\ \text{kJ/kg}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="For a cycle,
+    </article><article class="practice-problem panel" id="thermodynamics-i-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Heat engine, Efficiency, Second Law" data-problem-difficulty="Applied" data-problem-answer="For a cycle,
 
 $$
 W_{net,out} = Q_H - Q_L
@@ -1397,12 +1490,14 @@ So the efficiency is $40\%$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Evaluate a Heat Engine</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#heat-engine" data-notes-nav-item>Heat engine</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#efficiency" data-notes-nav-item>Efficiency</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#second-law" data-notes-nav-item>Second Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#heat-engine" data-notes-nav-item>Heat engine</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#efficiency" data-notes-nav-item>Efficiency</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#second-law" data-notes-nav-item>Second Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A heat engine absorbs $900\ \text{kJ}$ from a hot reservoir and rejects $540\ \text{kJ}$ to a cold reservoir during one cycle.</p>
@@ -1420,9 +1515,11 @@ So the efficiency is $40\%$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1447,7 +1544,7 @@ $$</div>
 <p>So the efficiency is $40\%$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="Use the refrigerator energy balance:
+    </article><article class="practice-problem panel" id="thermodynamics-i-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Refrigerator, COP, Second Law" data-problem-difficulty="Applied" data-problem-answer="Use the refrigerator energy balance:
 
 $$
 W_{net,in} = Q_H - Q_L
@@ -1473,12 +1570,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Evaluate a Refrigerator</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#refrigerator" data-notes-nav-item>Refrigerator</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#cop" data-notes-nav-item>COP</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#second-law" data-notes-nav-item>Second Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#refrigerator" data-notes-nav-item>Refrigerator</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#cop" data-notes-nav-item>COP</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#second-law" data-notes-nav-item>Second Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A refrigerator removes $420\ \text{kJ}$ of heat from the cold space and requires $140\ \text{kJ}$ of work input.</p>
@@ -1496,9 +1595,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1522,7 +1623,7 @@ COP_{HP} = \frac{Q_H}{W_{net,in}} = \frac{560}{140} = 4
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="The hot reservoir loses entropy:
+    </article><article class="practice-problem panel" id="thermodynamics-i-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Entropy principle, Second Law" data-problem-difficulty="Applied" data-problem-answer="The hot reservoir loses entropy:
 
 $$
 \Delta S_H = -\frac{600}{600} = -1\ \text{kJ/K}
@@ -1544,12 +1645,14 @@ Because $\Delta S_{universe} &gt; 0$, the process satisfies the Second Law.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Check Entropy Generation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#entropy-principle" data-notes-nav-item>Entropy principle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#second-law" data-notes-nav-item>Second Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#entropy-principle" data-notes-nav-item>Entropy principle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#second-law" data-notes-nav-item>Second Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Six hundred kilojoules of heat flows directly from a $600\ \text{K}$ reservoir to a $300\ \text{K}$ reservoir.</p>
@@ -1567,9 +1670,11 @@ Because $\Delta S_{universe} &gt; 0$, the process satisfies the Second Law.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1604,7 +1709,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="thermodynamics-i-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="For the ideal Otto cycle,
+          <article class="practice-problem panel" id="thermodynamics-i-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Otto cycle, Efficiency" data-problem-difficulty="Challenge" data-problem-answer="For the ideal Otto cycle,
 
 $$
 \eta_{Otto} = 1 - \frac{1}{r^{k-1}}
@@ -1632,12 +1737,14 @@ So the efficiency is about $56.5\%$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Evaluate an Otto Cycle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#otto-cycle" data-notes-nav-item>Otto cycle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#efficiency" data-notes-nav-item>Efficiency</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#otto-cycle" data-notes-nav-item>Otto cycle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#efficiency" data-notes-nav-item>Efficiency</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An air-standard Otto cycle has a compression ratio of $r = 8$ and $k = 1.4$.</p>
@@ -1655,9 +1762,11 @@ So the efficiency is about $56.5\%$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1682,7 +1791,7 @@ $$</div>
 <p>So the efficiency is about $56.5\%$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="For the ideal Brayton cycle,
+    </article><article class="practice-problem panel" id="thermodynamics-i-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Brayton cycle, Efficiency" data-problem-difficulty="Challenge" data-problem-answer="For the ideal Brayton cycle,
 
 $$
 \eta_{Brayton} = 1 - \frac{1}{r_p^{(k-1)/k}}
@@ -1710,12 +1819,14 @@ So the efficiency is about $40\%$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Evaluate a Brayton Cycle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#brayton-cycle" data-notes-nav-item>Brayton cycle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#efficiency" data-notes-nav-item>Efficiency</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#brayton-cycle" data-notes-nav-item>Brayton cycle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#efficiency" data-notes-nav-item>Efficiency</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An air-standard Brayton cycle has a pressure ratio of $r_p = 6$ and $k = 1.4$.</p>
@@ -1733,9 +1844,11 @@ So the efficiency is about $40\%$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1760,7 +1873,7 @@ $$</div>
 <p>So the efficiency is about $40\%$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Use the Rankine cycle relations:
+    </article><article class="practice-problem panel" id="thermodynamics-i-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Rankine cycle, First Law, Cycles" data-problem-difficulty="Challenge" data-problem-answer="Use the Rankine cycle relations:
 
 $$
 w_{pump,in} = h_2 - h_1 = 210 - 200 = 10\ \text{kJ/kg}
@@ -1792,12 +1905,14 @@ So the efficiency is about $33.1\%$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Compute Rankine Cycle Efficiency</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#rankine-cycle" data-notes-nav-item>Rankine cycle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#cycles" data-notes-nav-item>Cycles</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#rankine-cycle" data-notes-nav-item>Rankine cycle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#first-law" data-notes-nav-item>First Law</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#cycles" data-notes-nav-item>Cycles</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An ideal Rankine cycle has the following enthalpies:</p>
@@ -1819,9 +1934,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1849,7 +1966,7 @@ $$</div>
 <p>So the efficiency is about $33.1\%$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="thermodynamics-i-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="The tank is a **closed system** because no mass crosses the boundary.
+    </article><article class="practice-problem panel" id="thermodynamics-i-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Problem-solving workflow, Closed systems, Sign conventions" data-problem-difficulty="Challenge" data-problem-answer="The tank is a **closed system** because no mass crosses the boundary.
 
 Using the note&#39;s sign convention:
 
@@ -1879,12 +1996,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Apply the Workflow to a Sealed Tank</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#problem-solving-workflow" data-notes-nav-item>Problem-solving workflow</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#closed-systems" data-notes-nav-item>Closed systems</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#sign-conventions" data-notes-nav-item>Sign conventions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#problem-solving-workflow" data-notes-nav-item>Problem-solving workflow</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#closed-systems" data-notes-nav-item>Closed systems</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/thermodynamics/#sign-conventions" data-notes-nav-item>Sign conventions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A rigid, sealed tank contains gas. It loses $5\ \text{kJ}$ of heat to the surroundings and receives $12\ \text{kJ}$ of electrical work input. Neglect kinetic and potential energy changes.</p>
@@ -1902,9 +2021,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

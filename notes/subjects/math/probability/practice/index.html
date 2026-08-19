@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,16 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Probability" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,7 +149,7 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="probability-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The sample space is
+          <article class="practice-problem panel" id="probability-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Sample Spaces, Equally Likely Outcomes" data-problem-difficulty="Direct" data-problem-answer="The sample space is
 
 $$
 \{HH, HT, TH, TT\}
@@ -152,12 +165,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Count a Simple Sample Space</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#sample-spaces" data-notes-nav-item>Sample Spaces</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#equally-likely-outcomes" data-notes-nav-item>Equally Likely Outcomes</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#sample-spaces" data-notes-nav-item>Sample Spaces</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#equally-likely-outcomes" data-notes-nav-item>Equally Likely Outcomes</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fair coin is flipped twice. What is the probability of getting exactly one head?</p>
@@ -174,9 +189,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -193,7 +210,7 @@ P(\text{exactly one head}) = \frac{2}{4} = \frac{1}{2}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Use combinations because the order does not matter:
+    </article><article class="practice-problem panel" id="probability-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Combinations, Counting Methods" data-problem-difficulty="Direct" data-problem-answer="Use combinations because the order does not matter:
 
 $$
 {8 \choose 3} = \frac{8!}{3!5!} = \frac{8 \cdot 7 \cdot 6}{3 \cdot 2 \cdot 1} = 56
@@ -201,12 +218,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Choose a Committee</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#combinations" data-notes-nav-item>Combinations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#counting-methods" data-notes-nav-item>Counting Methods</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#combinations" data-notes-nav-item>Combinations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#counting-methods" data-notes-nav-item>Counting Methods</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many ways can you choose 3 students from a group of 8?</p>
@@ -223,9 +242,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -237,7 +258,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Use permutations because order matters:
+    </article><article class="practice-problem panel" id="probability-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Permutations, Counting Methods" data-problem-difficulty="Direct" data-problem-answer="Use permutations because order matters:
 
 $$
 {}_7P_3 = \frac{7!}{(7-3)!} = 7 \cdot 6 \cdot 5 = 210
@@ -245,12 +266,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Arrange Runners</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#permutations" data-notes-nav-item>Permutations</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#counting-methods" data-notes-nav-item>Counting Methods</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#permutations" data-notes-nav-item>Permutations</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#counting-methods" data-notes-nav-item>Counting Methods</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many ordered outcomes are there for the gold, silver, and bronze places among 7 runners?</p>
@@ -267,9 +290,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -281,7 +306,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="The word BOOK has 4 letters, with O repeated twice. The number of distinct arrangements is
+    </article><article class="practice-problem panel" id="probability-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Repeated Objects, Counting Methods" data-problem-difficulty="Direct" data-problem-answer="The word BOOK has 4 letters, with O repeated twice. The number of distinct arrangements is
 
 $$
 \frac{4!}{2!} = 12
@@ -289,12 +314,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Count Distinct Arrangements</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#repeated-objects" data-notes-nav-item>Repeated Objects</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#counting-methods" data-notes-nav-item>Counting Methods</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#repeated-objects" data-notes-nav-item>Repeated Objects</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#counting-methods" data-notes-nav-item>Counting Methods</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>How many distinct arrangements of the letters in BOOK are there?</p>
@@ -311,9 +338,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -325,7 +354,7 @@ $$">
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="It is easier to compute the complement: no 6s on all 3 rolls.
+    </article><article class="practice-problem panel" id="probability-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Complement Rule" data-problem-difficulty="Direct" data-problem-answer="It is easier to compute the complement: no 6s on all 3 rolls.
 
 $$
 P(\text{at least one 6}) = 1 - \left(\frac{5}{6}\right)^3
@@ -339,12 +368,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Use the Complement Rule</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#complement-rule" data-notes-nav-item>Complement Rule</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#complement-rule" data-notes-nav-item>Complement Rule</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fair die is rolled 3 times. What is the probability of getting at least one 6?</p>
@@ -361,9 +392,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -379,7 +412,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="Use the addition rule:
+    </article><article class="practice-problem panel" id="probability-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Addition Rule, Events" data-problem-difficulty="Direct" data-problem-answer="Use the addition rule:
 
 $$
 P(A \cup B)=P(A)+P(B)-P(A \cap B)
@@ -393,12 +426,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Apply the Addition Rule</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#addition-rule" data-notes-nav-item>Addition Rule</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#events" data-notes-nav-item>Events</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#addition-rule" data-notes-nav-item>Addition Rule</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#events" data-notes-nav-item>Events</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose</p>
@@ -419,9 +454,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -437,7 +474,7 @@ P(A \cup B)=0.42+0.31-0.08=0.65
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use the definition of conditional probability:
+    </article><article class="practice-problem panel" id="probability-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Conditional Probability" data-problem-difficulty="Direct" data-problem-answer="Use the definition of conditional probability:
 
 $$
 P(A \mid B)=\frac{P(A \cap B)}{P(B)}
@@ -451,12 +488,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Find a Conditional Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#conditional-probability" data-notes-nav-item>Conditional Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#conditional-probability" data-notes-nav-item>Conditional Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose</p>
@@ -477,9 +516,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -495,7 +536,7 @@ P(A \mid B)=\frac{0.12}{0.3}=0.4
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="For a Bernoulli random variable,
+    </article><article class="practice-problem panel" id="probability-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Bernoulli Distribution, Expectation, Variance" data-problem-difficulty="Direct" data-problem-answer="For a Bernoulli random variable,
 
 $$
 E[X]=p \quad \text{and} \quad \mathrm{Var}(X)=p(1-p)
@@ -515,12 +556,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Evaluate a Bernoulli Mean and Variance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#bernoulli-distribution" data-notes-nav-item>Bernoulli Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#expectation" data-notes-nav-item>Expectation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#variance" data-notes-nav-item>Variance</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#bernoulli-distribution" data-notes-nav-item>Bernoulli Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#expectation" data-notes-nav-item>Expectation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#variance" data-notes-nav-item>Variance</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $X \sim \mathrm{Bernoulli}(0.7)$, find $E[X]$ and $\mathrm{Var}(X)$.</p>
@@ -537,9 +580,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -559,7 +604,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Use the binomial formula:
+    </article><article class="practice-problem panel" id="probability-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Binomial Distribution" data-problem-difficulty="Direct" data-problem-answer="Use the binomial formula:
 
 $$
 P(X=2)={5 \choose 2}(0.2)^2(0.8)^3
@@ -579,12 +624,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Compute a Binomial Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#binomial-distribution" data-notes-nav-item>Binomial Distribution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#binomial-distribution" data-notes-nav-item>Binomial Distribution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $X \sim \mathrm{Binomial}(5,0.2)$, find $P(X=2)$.</p>
@@ -601,9 +648,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -623,7 +672,7 @@ P(X=2)=10(0.04)(0.512)=0.2048
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Standardize using
+    </article><article class="practice-problem panel" id="probability-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Normal Distribution, Standardization" data-problem-difficulty="Direct" data-problem-answer="Standardize using
 
 $$
 z=\frac{x-\mu}{\sigma}
@@ -637,12 +686,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Standardize a Normal Random Variable</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#normal-distribution" data-notes-nav-item>Normal Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#standardization" data-notes-nav-item>Standardization</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#normal-distribution" data-notes-nav-item>Normal Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#standardization" data-notes-nav-item>Standardization</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $X \sim \mathcal{N}(100,15^2)$, what is the $z$-score for $x=130$?</p>
@@ -659,9 +710,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -691,7 +744,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="probability-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Use the hypergeometric model:
+          <article class="practice-problem panel" id="probability-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Hypergeometric Distribution, Sampling Without Replacement" data-problem-difficulty="Integrated" data-problem-answer="Use the hypergeometric model:
 
 $$
 P(X=1)=\frac{{4 \choose 1}{6 \choose 1}}{{10 \choose 2}}
@@ -705,12 +758,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">Count Draws Without Replacement</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#hypergeometric-distribution" data-notes-nav-item>Hypergeometric Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#sampling-without-replacement" data-notes-nav-item>Sampling Without Replacement</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#hypergeometric-distribution" data-notes-nav-item>Hypergeometric Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#sampling-without-replacement" data-notes-nav-item>Sampling Without Replacement</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A box contains 6 good parts and 4 defective parts. Two parts are drawn without replacement. What is the probability that exactly 1 part is defective?</p>
@@ -727,9 +782,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -745,7 +802,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Let $D$ be the event that the person has the disease and $+$ be the event of a positive test.
+    </article><article class="practice-problem panel" id="probability-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Bayes Theorem, Conditional Probability" data-problem-difficulty="Integrated" data-problem-answer="Let $D$ be the event that the person has the disease and $+$ be the event of a positive test.
 
 By Bayes&#39; theorem,
 
@@ -773,12 +830,14 @@ So the probability is about $0.162$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Update a Belief with Bayes&#39; Theorem</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#bayes-theorem" data-notes-nav-item>Bayes Theorem</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#conditional-probability" data-notes-nav-item>Conditional Probability</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#bayes-theorem" data-notes-nav-item>Bayes Theorem</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#conditional-probability" data-notes-nav-item>Conditional Probability</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A disease affects 2% of a population. A test is 95% accurate for people who have the disease, and it gives a false positive 10% of the time for people who do not have the disease. If a person tests positive, what is the probability that the person actually has the disease?</p>
@@ -795,9 +854,11 @@ So the probability is about $0.162$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -822,7 +883,7 @@ $$</div>
 <p>So the probability is about $0.162$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="Use the memoryless property:
+    </article><article class="practice-problem panel" id="probability-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Geometric Distribution, Memoryless Property" data-problem-difficulty="Integrated" data-problem-answer="Use the memoryless property:
 
 $$
 P(X&gt;m+n \mid X&gt;m)=P(X&gt;n)
@@ -844,12 +905,14 @@ So the probability is about $0.316$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Use the Geometric Memoryless Property</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#geometric-distribution" data-notes-nav-item>Geometric Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#memoryless-property" data-notes-nav-item>Memoryless Property</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#geometric-distribution" data-notes-nav-item>Geometric Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#memoryless-property" data-notes-nav-item>Memoryless Property</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $X \sim \mathrm{Geometric}(0.25)$, find $P(X&gt;7 \mid X&gt;3)$.</p>
@@ -866,9 +929,11 @@ So the probability is about $0.316$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -889,7 +954,7 @@ $$</div>
 <p>So the probability is about $0.316$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="This is a negative binomial situation with $r=3$ and $k=5$.
+    </article><article class="practice-problem panel" id="probability-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Negative Binomial Distribution" data-problem-difficulty="Integrated" data-problem-answer="This is a negative binomial situation with $r=3$ and $k=5$.
 
 $$
 P(X=5)={5-1 \choose 3-1}(0.6)^3(0.4)^{5-3}
@@ -907,12 +972,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Solve a Negative Binomial Count</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#negative-binomial-distribution" data-notes-nav-item>Negative Binomial Distribution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#negative-binomial-distribution" data-notes-nav-item>Negative Binomial Distribution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A basketball player makes each free throw with probability $0.6$, independently. What is the probability that the third make occurs on the fifth attempt?</p>
@@ -929,9 +996,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -950,7 +1019,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="In half an hour, the mean count is
+    </article><article class="practice-problem panel" id="probability-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Poisson Distribution" data-problem-difficulty="Integrated" data-problem-answer="In half an hour, the mean count is
 
 $$
 \lambda=4 \cdot \frac{1}{2}=2
@@ -972,12 +1041,14 @@ which is about $0.271$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Compute a Poisson Count Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#poisson-distribution" data-notes-nav-item>Poisson Distribution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#poisson-distribution" data-notes-nav-item>Poisson Distribution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A support line receives 4 calls per hour on average. What is the probability of exactly 2 calls in a half hour?</p>
@@ -994,9 +1065,11 @@ which is about $0.271$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1017,7 +1090,7 @@ $$</div>
 <p>which is about $0.271$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Convert 20 minutes to hours:
+    </article><article class="practice-problem panel" id="probability-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Exponential Distribution" data-problem-difficulty="Integrated" data-problem-answer="Convert 20 minutes to hours:
 
 $$
 20 \text{ min}=\frac{1}{3} \text{ hour}
@@ -1039,12 +1112,14 @@ This is about $0.368$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Compute an Exponential Waiting-Time Probability</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#exponential-distribution" data-notes-nav-item>Exponential Distribution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#exponential-distribution" data-notes-nav-item>Exponential Distribution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>The waiting time to the next event has an exponential distribution with rate 3 per hour. What is the probability of waiting more than 20 minutes?</p>
@@ -1061,9 +1136,11 @@ This is about $0.368$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1084,7 +1161,7 @@ $$</div>
 <p>This is about $0.368$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Use inclusion-exclusion:
+    </article><article class="practice-problem panel" id="probability-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Inclusion-Exclusion" data-problem-difficulty="Integrated" data-problem-answer="Use inclusion-exclusion:
 
 $$
 P(A \cup B \cup C)
@@ -1099,12 +1176,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Use Inclusion-Exclusion for Three Events</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#inclusion-exclusion" data-notes-nav-item>Inclusion-Exclusion</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#inclusion-exclusion" data-notes-nav-item>Inclusion-Exclusion</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Suppose</p>
@@ -1129,9 +1208,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1148,7 +1229,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="First find the marginals by summing rows and columns.
+    </article><article class="practice-problem panel" id="probability-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Joint Distribution, Marginal Distributions, Independence" data-problem-difficulty="Integrated" data-problem-answer="First find the marginals by summing rows and columns.
 
 For $X$:
 
@@ -1182,12 +1263,14 @@ Therefore, $X$ and $Y$ are independent.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Check Independence from a Joint Table</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#joint-distribution" data-notes-nav-item>Joint Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#marginal-distributions" data-notes-nav-item>Marginal Distributions</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#independence" data-notes-nav-item>Independence</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#joint-distribution" data-notes-nav-item>Joint Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#marginal-distributions" data-notes-nav-item>Marginal Distributions</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#independence" data-notes-nav-item>Independence</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A joint pmf is given by</p>
@@ -1213,9 +1296,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1258,7 +1343,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="probability-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="Use the formula for the expected value of a function of $X$:
+          <article class="practice-problem panel" id="probability-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Expectation, Functions of Random Variables" data-problem-difficulty="Applied" data-problem-answer="Use the formula for the expected value of a function of $X$:
 
 $$
 E[X^2]=\sum_x x^2 P(X=x)
@@ -1278,12 +1363,14 @@ The expected payoff is $7$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Find an Expected Value from a Discrete Distribution</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#expectation" data-notes-nav-item>Expectation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#functions-of-random-variables" data-notes-nav-item>Functions of Random Variables</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#expectation" data-notes-nav-item>Expectation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#functions-of-random-variables" data-notes-nav-item>Functions of Random Variables</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Let $X$ take the values $1$, $2$, and $4$ with probabilities $0.2$, $0.5$, and $0.3$, respectively. If the payoff is $X^2$, what is the expected payoff?</p>
@@ -1300,9 +1387,11 @@ The expected payoff is $7$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1322,7 +1411,7 @@ $$</div>
 <p>The expected payoff is $7$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="There are 4 adjacent pairs: $(1,2)$, $(2,3)$, $(3,4)$, and $(4,5)$.
+    </article><article class="practice-problem panel" id="probability-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Indicator Variables, Linearity of Expectation" data-problem-difficulty="Applied" data-problem-answer="There are 4 adjacent pairs: $(1,2)$, $(2,3)$, $(3,4)$, and $(4,5)$.
 
 Let $I_i$ be the indicator for the event that the $i$th pair matches. Then
 
@@ -1344,12 +1433,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Model an Expected Count with Indicators</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#indicator-variables" data-notes-nav-item>Indicator Variables</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#linearity-of-expectation" data-notes-nav-item>Linearity of Expectation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#indicator-variables" data-notes-nav-item>Indicator Variables</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#linearity-of-expectation" data-notes-nav-item>Linearity of Expectation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fair die is rolled 5 times. Let $X$ be the number of adjacent pairs that match. Find $E[X]$.</p>
@@ -1366,9 +1457,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1389,7 +1482,7 @@ E[X]=4\cdot \frac{1}{6}=\frac{2}{3}
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Use the complement event: no defective components are drawn.
+    </article><article class="practice-problem panel" id="probability-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Hypergeometric Distribution, Sampling Without Replacement" data-problem-difficulty="Applied" data-problem-answer="Use the complement event: no defective components are drawn.
 
 There are 8 good components, so
 
@@ -1411,12 +1504,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Model a Sampling Situation</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#hypergeometric-distribution" data-notes-nav-item>Hypergeometric Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#sampling-without-replacement" data-notes-nav-item>Sampling Without Replacement</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#hypergeometric-distribution" data-notes-nav-item>Hypergeometric Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#sampling-without-replacement" data-notes-nav-item>Sampling Without Replacement</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A box has 8 good components and 4 defective components. Three components are drawn without replacement. What is the probability that at least one component is defective?</p>
@@ -1433,9 +1528,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1456,7 +1553,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="The waiting time to the third event is modeled by a gamma distribution with shape $3$ and rate $2$.
+    </article><article class="practice-problem panel" id="probability-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Gamma Distribution, Poisson Process" data-problem-difficulty="Applied" data-problem-answer="The waiting time to the third event is modeled by a gamma distribution with shape $3$ and rate $2$.
 
 For $X \sim \mathrm{Gamma}(\alpha,\lambda)$,
 
@@ -1474,12 +1571,14 @@ The mean waiting time is $1.5$ hours.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Waiting Time to the Third Event</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#gamma-distribution" data-notes-nav-item>Gamma Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#poisson-process" data-notes-nav-item>Poisson Process</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#gamma-distribution" data-notes-nav-item>Gamma Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#poisson-process" data-notes-nav-item>Poisson Process</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Calls arrive at a rate of 2 per hour. Under the gamma model, what is the mean waiting time until the third call?</p>
@@ -1496,9 +1595,11 @@ The mean waiting time is $1.5$ hours.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1516,18 +1617,20 @@ $$</div>
 <p>The mean waiting time is $1.5$ hours.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="The beta distribution is defined on the interval $[0,1]$, so it is a natural model for probabilities and proportions.
+    </article><article class="practice-problem panel" id="probability-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Beta Distribution, Proportions" data-problem-difficulty="Applied" data-problem-answer="The beta distribution is defined on the interval $[0,1]$, so it is a natural model for probabilities and proportions.
 
 Therefore, the appropriate choice is the beta distribution.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Infer a Beta Model for a Proportion</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#beta-distribution" data-notes-nav-item>Beta Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#proportions" data-notes-nav-item>Proportions</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#beta-distribution" data-notes-nav-item>Beta Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#proportions" data-notes-nav-item>Proportions</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A parameter $p$ represents a conversion rate, so it must stay between 0 and 1. Which distribution from the note is a natural choice for modeling $p$?</p>
@@ -1544,9 +1647,11 @@ Therefore, the appropriate choice is the beta distribution.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1570,7 +1675,7 @@ Therefore, the appropriate choice is the beta distribution.">
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="probability-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="Let $A$ be the event that the item came from Machine A and let $D$ be the event that the item is defective.
+          <article class="practice-problem panel" id="probability-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Law of Total Probability, Bayes Theorem" data-problem-difficulty="Challenge" data-problem-answer="Let $A$ be the event that the item came from Machine A and let $D$ be the event that the item is defective.
 
 First use the law of total probability:
 
@@ -1596,12 +1701,14 @@ So the probability is about $0.273$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Combine Total Probability and Bayes</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#law-of-total-probability" data-notes-nav-item>Law of Total Probability</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#bayes-theorem" data-notes-nav-item>Bayes Theorem</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#law-of-total-probability" data-notes-nav-item>Law of Total Probability</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#bayes-theorem" data-notes-nav-item>Bayes Theorem</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Machine A makes 60% of the items and has a defect rate of 1%. Machine B makes the other 40% and has a defect rate of 4%. If an item is defective, what is the probability that it came from Machine A?</p>
@@ -1618,9 +1725,11 @@ So the probability is about $0.273$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1644,7 +1753,7 @@ $$</div>
 <p>So the probability is about $0.273$.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="For a binomial random variable,
+    </article><article class="practice-problem panel" id="probability-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Normal Approximation, Binomial Distribution, Continuity Correction" data-problem-difficulty="Challenge" data-problem-answer="For a binomial random variable,
 
 $$
 \mu=np=100(0.2)=20
@@ -1682,12 +1791,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Approximate a Binomial Count with a Normal Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#normal-approximation" data-notes-nav-item>Normal Approximation</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#binomial-distribution" data-notes-nav-item>Binomial Distribution</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#continuity-correction" data-notes-nav-item>Continuity Correction</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#normal-approximation" data-notes-nav-item>Normal Approximation</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#binomial-distribution" data-notes-nav-item>Binomial Distribution</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#continuity-correction" data-notes-nav-item>Continuity Correction</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>If $X \sim \mathrm{Binomial}(100,0.2)$, approximate $P(16 \le X \le 24)$ using a normal model.</p>
@@ -1704,9 +1815,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1738,7 +1851,7 @@ P(16 \le X \le 24) \approx P(-1.125 \le Z \le 1.125) \approx 0.739
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="The standard error of the sample mean is
+    </article><article class="practice-problem panel" id="probability-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Law of Large Numbers, Standard Error" data-problem-difficulty="Challenge" data-problem-answer="The standard error of the sample mean is
 
 $$
 \sigma_{\bar X}=\frac{\sigma}{\sqrt{n}}
@@ -1760,12 +1873,14 @@ The sample mean from 144 observations has the smaller standard error, so it shou
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Compare Sample Sizes with Standard Error</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#law-of-large-numbers" data-notes-nav-item>Law of Large Numbers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#standard-error" data-notes-nav-item>Standard Error</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#law-of-large-numbers" data-notes-nav-item>Law of Large Numbers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#standard-error" data-notes-nav-item>Standard Error</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A population has mean 50 and standard deviation 12. Compare the standard error of the sample mean for samples of size 36 and 144. Which sample mean should be more stable?</p>
@@ -1782,9 +1897,11 @@ The sample mean from 144 observations has the smaller standard error, so it shou
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1805,7 +1922,7 @@ $$</div>
 <p>The sample mean from 144 observations has the smaller standard error, so it should be more stable and closer to the true mean. That is the kind of behavior predicted by the law of large numbers.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="probability-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="Use the union bound:
+    </article><article class="practice-problem panel" id="probability-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Union Bound, Events" data-problem-difficulty="Challenge" data-problem-answer="Use the union bound:
 
 $$
 P(A_1 \cup A_2 \cup A_3) \le P(A_1)+P(A_2)+P(A_3)
@@ -1821,12 +1938,14 @@ The upper bound is $0.10$.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Use the Union Bound</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#union-bound" data-notes-nav-item>Union Bound</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#events" data-notes-nav-item>Events</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#union-bound" data-notes-nav-item>Union Bound</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/math/probability/#events" data-notes-nav-item>Events</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Three independent backup checks have failure probabilities 0.03, 0.05, and 0.02. Give an upper bound on the probability that at least one check fails.</p>
@@ -1843,9 +1962,11 @@ The upper bound is $0.10$.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

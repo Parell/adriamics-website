@@ -24,7 +24,7 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../../notes.min.css?v=07ac732e9776" />
+  <link rel="stylesheet" href="../../../../notes.min.css?v=2045d202ac9b" />
   <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
   <script defer src="/notes/webmeji/config.js"></script>
   <script defer src="/notes/webmeji/webmeji.js"></script>
@@ -41,15 +41,18 @@
           oiint: '\\mathop{\\unicode{x222F}}'
         }
       },
-      svg: { fontCache: 'global' },
+      svg: {
+        fontCache: 'local',
+        blacker: 0
+      },
       options: {
         skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-svg.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
   <script defer src="../../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../../notes.min.js?v=9db2d3dc8f07"></script>
+  <script defer src="../../../../notes.min.js?v=57e6ffd8c533"></script>
 </head>
 <body class="notes-page practice-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -123,6 +126,18 @@
         </div>
       </section>
       </section>
+      <details class="worksheet-controls panel" data-worksheet-controls aria-labelledby="worksheet-title">
+    <summary class="worksheet-controls__summary"><span class="worksheet-controls__title" id="worksheet-title">Create worksheet</span></summary>
+    <div class="worksheet-controls__body"><div class="worksheet-controls__grid">
+      <label for="worksheet-title-input">Title<input id="worksheet-title-input" name="worksheet-title" type="text" data-worksheet-title value="Optics" /></label>
+    </div>
+    <div class="worksheet-controls__actions"><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-select-all>Select all</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-clear>Clear</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="student">Print worksheet</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-print="answers">Print answer key</button><button type="button" class="practice-problem__text-action worksheet-action-link" data-worksheet-reference-toggle aria-pressed="false">Reference sheet: Off</button></div>
+    <p class="worksheet-controls__error" data-worksheet-error role="alert" hidden>Select at least one problem.</p>
+    <div class="worksheet-selection" aria-labelledby="worksheet-selection-title"><h3 id="worksheet-selection-title">Selected problems</h3><p class="worksheet-selection__empty" data-worksheet-empty>No problems selected.</p><ol class="worksheet-selection__list" data-worksheet-selected-list></ol></div>
+    <template data-worksheet-reference-template><section class="worksheet-reference"><h2>Summary</h2><div class="markdown-body"><p>Optics links ray behavior, wave behavior, and imaging systems. The most important skill is choosing the right model:</p>
+<ul><li><p>Use geometric optics for mirrors, lenses, refraction, and image formation.</p></li><li><p>Use wave optics for interference, diffraction, and polarization.</p></li></ul>
+<p>When in doubt, start with a diagram, identify the relevant interfaces or apertures, and track signs and phase changes carefully.</p></div></section></template>
+    </div></details>
       <div class="practice-problem-list">
         <section class="practice-level practice-level--level-1 panel" data-practice-level="1" aria-labelledby="practice-level-1">
         <div class="practice-level__head">
@@ -136,18 +151,20 @@
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="optics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-answer="The pattern comes from interference and diffraction, so the correct model is **wave optics**.
+          <article class="practice-problem panel" id="optics-11" data-practice-problem data-exam="exam-i" data-problem-number="1.1" data-problem-skills="Wave Optics, Model Choice" data-problem-difficulty="Direct" data-problem-answer="The pattern comes from interference and diffraction, so the correct model is **wave optics**.
 
 Geometric optics treats light as rays, but it does not explain the fringe pattern.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.1</span><span class="practice-problem__title-text">Choose the Right Optics Model</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#wave-optics" data-notes-nav-item>Wave Optics</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#model-choice" data-notes-nav-item>Model Choice</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#wave-optics" data-notes-nav-item>Wave Optics</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#model-choice" data-notes-nav-item>Model Choice</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A student is studying the bright and dark bands produced by light passing through two slits.</p>
@@ -165,9 +182,11 @@ Geometric optics treats light as rays, but it does not explain the fringe patter
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -177,7 +196,7 @@ Geometric optics treats light as rays, but it does not explain the fringe patter
 <p>Geometric optics treats light as rays, but it does not explain the fringe pattern.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="optics-12" data-practice-problem data-exam="exam-i" data-problem-number="1.2" data-problem-skills="Wave Speed, Frequency-Wavelength Relation" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 c = \lambda f.
@@ -199,12 +218,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.2</span><span class="practice-problem__title-text">Find a Wavelength in Vacuum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#wave-speed" data-notes-nav-item>Wave Speed</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#frequency-wavelength-relation" data-notes-nav-item>Frequency-Wavelength Relation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#wave-speed" data-notes-nav-item>Wave Speed</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#frequency-wavelength-relation" data-notes-nav-item>Frequency-Wavelength Relation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Light in vacuum has frequency</p>
@@ -225,9 +246,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -249,7 +272,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="optics-13" data-practice-problem data-exam="exam-i" data-problem-number="1.3" data-problem-skills="Refractive Index, Wave Speed" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 v = \frac{c}{n}.
@@ -263,12 +286,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.3</span><span class="practice-problem__title-text">Find Light Speed in Glass</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#refractive-index" data-notes-nav-item>Refractive Index</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#wave-speed" data-notes-nav-item>Wave Speed</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#refractive-index" data-notes-nav-item>Refractive Index</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#wave-speed" data-notes-nav-item>Wave Speed</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A piece of glass has refractive index</p>
@@ -289,9 +314,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -307,18 +334,20 @@ v = \frac{3.0 \times 10^8}{1.5} = 2.0 \times 10^8\ \text{m/s}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-answer="Water has a larger refractive index than air, so the light slows down as it enters the water.
+    </article><article class="practice-problem panel" id="optics-14" data-practice-problem data-exam="exam-i" data-problem-number="1.4" data-problem-skills="Snell&#39;s Law, Refraction" data-problem-difficulty="Direct" data-problem-answer="Water has a larger refractive index than air, so the light slows down as it enters the water.
 
 That means the ray bends **toward the normal**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.4</span><span class="practice-problem__title-text">Refraction Direction at an Interface</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#snells-law-refraction" data-notes-nav-item>Snell&#39;s Law, Refraction</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#snells-law-refraction" data-notes-nav-item>Snell&#39;s Law, Refraction</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A ray of light goes from air into water.</p>
@@ -336,9 +365,11 @@ That means the ray bends **toward the normal**.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -348,7 +379,7 @@ That means the ray bends **toward the normal**.">
 <p>That means the ray bends <strong>toward the normal</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-answer="A plane mirror forms an image the same distance behind the mirror as the object is in front of it.
+    </article><article class="practice-problem panel" id="optics-15" data-practice-problem data-exam="exam-i" data-problem-number="1.5" data-problem-skills="Plane Mirrors, Image Type" data-problem-difficulty="Direct" data-problem-answer="A plane mirror forms an image the same distance behind the mirror as the object is in front of it.
 
 So the image is
 
@@ -359,12 +390,14 @@ behind the mirror.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.5</span><span class="practice-problem__title-text">Plane Mirror Image Location</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#plane-mirrors" data-notes-nav-item>Plane Mirrors</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#image-type" data-notes-nav-item>Image Type</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#plane-mirrors" data-notes-nav-item>Plane Mirrors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#image-type" data-notes-nav-item>Image Type</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>An object is placed 1.8 m in front of a plane mirror.</p>
@@ -382,9 +415,11 @@ behind the mirror.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -398,7 +433,7 @@ $$</div>
 <p>behind the mirror.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-answer="For a spherical mirror,
+    </article><article class="practice-problem panel" id="optics-16" data-practice-problem data-exam="exam-i" data-problem-number="1.6" data-problem-skills="Spherical Mirrors, Focal Length" data-problem-difficulty="Direct" data-problem-answer="For a spherical mirror,
 
 $$
 f = \frac{R}{2}.
@@ -412,12 +447,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.6</span><span class="practice-problem__title-text">Find a Mirror Focal Length</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#spherical-mirrors" data-notes-nav-item>Spherical Mirrors</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#focal-length" data-notes-nav-item>Focal Length</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#spherical-mirrors" data-notes-nav-item>Spherical Mirrors</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#focal-length" data-notes-nav-item>Focal Length</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A concave mirror has radius of curvature</p>
@@ -438,9 +475,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -456,7 +495,7 @@ f = \frac{40}{2} = 20\ \text{cm}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-answer="Use the thin lens equation:
+    </article><article class="practice-problem panel" id="optics-17" data-practice-problem data-exam="exam-i" data-problem-number="1.7" data-problem-skills="Thin Lens Equation" data-problem-difficulty="Direct" data-problem-answer="Use the thin lens equation:
 
 $$
 \frac{1}{f} = \frac{1}{d_o} + \frac{1}{d_i}.
@@ -482,12 +521,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.7</span><span class="practice-problem__title-text">Solve a Thin Lens Image Distance</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lens-equation" data-notes-nav-item>Thin Lens Equation</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lens-equation" data-notes-nav-item>Thin Lens Equation</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A converging lens has focal length</p>
@@ -513,9 +554,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -539,7 +582,7 @@ d_i = 18\ \text{cm}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="optics-18" data-practice-problem data-exam="exam-i" data-problem-number="1.8" data-problem-skills="Magnification, Thin Lenses" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 m = -\frac{d_i}{d_o}.
@@ -555,12 +598,14 @@ The negative sign means the image is inverted, and the magnitude shows it is hal
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.8</span><span class="practice-problem__title-text">Find the Magnification</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>In the previous lens setup, what is the magnification?</p>
@@ -577,9 +622,11 @@ The negative sign means the image is inverted, and the magnitude shows it is hal
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -596,7 +643,7 @@ $$</div>
 <p>The negative sign means the image is inverted, and the magnitude shows it is half the object size.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="optics-19" data-practice-problem data-exam="exam-i" data-problem-number="1.9" data-problem-skills="Critical Angle, Total Internal Reflection" data-problem-difficulty="Direct" data-problem-answer="Use
 
 $$
 \sin \theta_c = \frac{n_2}{n_1}.
@@ -616,12 +663,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.9</span><span class="practice-problem__title-text">Compute a Critical Angle</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#critical-angle" data-notes-nav-item>Critical Angle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#total-internal-reflection" data-notes-nav-item>Total Internal Reflection</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.9</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#critical-angle" data-notes-nav-item>Critical Angle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#total-internal-reflection" data-notes-nav-item>Total Internal Reflection</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Light goes from a material with index</p>
@@ -646,9 +695,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -668,7 +719,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-answer="Use Malus&#39;s law:
+    </article><article class="practice-problem panel" id="optics-110" data-practice-problem data-exam="exam-i" data-problem-number="1.10" data-problem-skills="Malus Law, Polarizers" data-problem-difficulty="Direct" data-problem-answer="Use Malus&#39;s law:
 
 $$
 I = I_0 \cos^2 \theta.
@@ -682,12 +733,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">1.10</span><span class="practice-problem__title-text">Intensity Through a Polarizer</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#malus-law" data-notes-nav-item>Malus Law</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#polarizers" data-notes-nav-item>Polarizers</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam I</span> | <span class="practice-problem__problem">Problem 1.10</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#malus-law" data-notes-nav-item>Malus Law</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#polarizers" data-notes-nav-item>Polarizers</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Linearly polarized light with intensity</p>
@@ -709,9 +762,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -741,7 +796,7 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="optics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-answer="Use the thin lens equation:
+          <article class="practice-problem panel" id="optics-21" data-practice-problem data-exam="exam-ii" data-problem-number="2.1" data-problem-skills="Thin Lenses, Magnification, Image Type" data-problem-difficulty="Integrated" data-problem-answer="Use the thin lens equation:
 
 $$
 \frac{1}{15} = \frac{1}{10} + \frac{1}{d_i}.
@@ -771,12 +826,14 @@ So the image is upright and enlarged.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.1</span><span class="practice-problem__title-text">A Converging Lens with Object Inside the Focal Length</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#image-type" data-notes-nav-item>Image Type</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#image-type" data-notes-nav-item>Image Type</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A converging lens has focal length</p>
@@ -802,9 +859,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -830,7 +889,7 @@ $$</div>
 <p>So the image is upright and enlarged.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-answer="Use Snell&#39;s law with $n_1 \approx 1$ for air:
+    </article><article class="practice-problem panel" id="optics-22" data-practice-problem data-exam="exam-ii" data-problem-number="2.2" data-problem-skills="Snell&#39;s Law, Refractive Index, Wave Speed" data-problem-difficulty="Integrated" data-problem-answer="Use Snell&#39;s law with $n_1 \approx 1$ for air:
 
 $$
 n_1 \sin \theta_1 = n_2 \sin \theta_2.
@@ -858,12 +917,14 @@ $$" data-problem-tolerance="0.2">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.2</span><span class="practice-problem__title-text">Refraction and Speed Change in Water</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#snells-law-refractive-index-wave-speed" data-notes-nav-item>Snell&#39;s Law, Refractive Index, Wave Speed</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#snells-law-refractive-index-wave-speed" data-notes-nav-item>Snell&#39;s Law, Refractive Index, Wave Speed</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Light travels from air into water. The angle of incidence in air is</p>
@@ -888,9 +949,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -916,7 +979,7 @@ v = \frac{c}{n} = \frac{3.0 \times 10^8}{1.33} \approx 2.26 \times 10^8\ \text{m
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-answer="First lens:
+    </article><article class="practice-problem panel" id="optics-23" data-practice-problem data-exam="exam-ii" data-problem-number="2.3" data-problem-skills="Thin Lenses, Multiple Optical Elements, Magnification" data-problem-difficulty="Integrated" data-problem-answer="First lens:
 
 $$
 \frac{1}{10} = \frac{1}{30} + \frac{1}{d_{i1}}
@@ -978,12 +1041,14 @@ The final image is virtual, inverted relative to the original object, and slight
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.3</span><span class="practice-problem__title-text">Two Lenses in Series</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#multiple-optical-elements" data-notes-nav-item>Multiple Optical Elements</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#multiple-optical-elements" data-notes-nav-item>Multiple Optical Elements</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A converging lens with focal length</p>
@@ -1014,9 +1079,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1064,18 +1131,20 @@ $$</div>
 <p>The final image is virtual, inverted relative to the original object, and slightly smaller.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-answer="This is **myopia** or nearsightedness.
+    </article><article class="practice-problem panel" id="optics-24" data-practice-problem data-exam="exam-ii" data-problem-number="2.4" data-problem-skills="Human Eye, Vision Defects, Corrective Lenses" data-problem-difficulty="Integrated" data-problem-answer="This is **myopia** or nearsightedness.
 
 It is corrected with a **diverging lens**, which spreads incoming rays slightly so the eye focuses the image farther back, onto the retina.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.4</span><span class="practice-problem__title-text">Correct a Nearsighted Eye</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#human-eye" data-notes-nav-item>Human Eye</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#vision-defects" data-notes-nav-item>Vision Defects</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#corrective-lenses" data-notes-nav-item>Corrective Lenses</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#human-eye" data-notes-nav-item>Human Eye</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#vision-defects" data-notes-nav-item>Vision Defects</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#corrective-lenses" data-notes-nav-item>Corrective Lenses</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A student can see nearby objects clearly, but distant street signs are blurry because the image would form in front of the retina.</p>
@@ -1093,9 +1162,11 @@ It is corrected with a **diverging lens**, which spreads incoming rays slightly 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1105,7 +1176,7 @@ It is corrected with a **diverging lens**, which spreads incoming rays slightly 
 <p>It is corrected with a <strong>diverging lens</strong>, which spreads incoming rays slightly so the eye focuses the image farther back, onto the retina.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-answer="The path difference of $\lambda/2$ contributes a phase shift of $\pi$.
+    </article><article class="practice-problem panel" id="optics-25" data-practice-problem data-exam="exam-ii" data-problem-number="2.5" data-problem-skills="Thin-Film Interference, Phase Shift" data-problem-difficulty="Integrated" data-problem-answer="The path difference of $\lambda/2$ contributes a phase shift of $\pi$.
 
 The reflection from lower index to higher index adds another phase shift of $\pi$.
 
@@ -1121,12 +1192,14 @@ So the reflected light is **bright**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.5</span><span class="practice-problem__title-text">Bright or Dark in a Thin Film?</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-film-interference" data-notes-nav-item>Thin-Film Interference</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#phase-shift" data-notes-nav-item>Phase Shift</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-film-interference" data-notes-nav-item>Thin-Film Interference</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#phase-shift" data-notes-nav-item>Phase Shift</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A thin film produces a path difference equal to</p>
@@ -1148,9 +1221,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1166,7 +1241,7 @@ $$</div>
 <p>So the reflected light is <strong>bright</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-answer="Use the grating equation:
+    </article><article class="practice-problem panel" id="optics-26" data-practice-problem data-exam="exam-ii" data-problem-number="2.6" data-problem-skills="Diffraction Grating, Interference" data-problem-difficulty="Integrated" data-problem-answer="Use the grating equation:
 
 $$
 d \sin \theta = m\lambda.
@@ -1192,12 +1267,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.6</span><span class="practice-problem__title-text">Angle of a Diffraction Grating Maximum</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction-grating" data-notes-nav-item>Diffraction Grating</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#interference" data-notes-nav-item>Interference</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.6</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction-grating" data-notes-nav-item>Diffraction Grating</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#interference" data-notes-nav-item>Interference</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A diffraction grating has slit spacing</p>
@@ -1223,9 +1300,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1249,7 +1328,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-answer="Unpolarized light loses half its intensity in the first polarizer:
+    </article><article class="practice-problem panel" id="optics-27" data-practice-problem data-exam="exam-ii" data-problem-number="2.7" data-problem-skills="Polarizers, Malus Law" data-problem-difficulty="Integrated" data-problem-answer="Unpolarized light loses half its intensity in the first polarizer:
 
 $$
 I = \frac{I_0}{2}.
@@ -1275,12 +1354,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.7</span><span class="practice-problem__title-text">Two Polarizers in Sequence</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#polarizers" data-notes-nav-item>Polarizers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#malus-law" data-notes-nav-item>Malus Law</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.7</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#polarizers" data-notes-nav-item>Polarizers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#malus-law" data-notes-nav-item>Malus Law</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Unpolarized light with intensity</p>
@@ -1302,9 +1383,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1328,7 +1411,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-answer="The Rayleigh criterion says
+    </article><article class="practice-problem panel" id="optics-28" data-practice-problem data-exam="exam-ii" data-problem-number="2.8" data-problem-skills="Diffraction, Resolution" data-problem-difficulty="Integrated" data-problem-answer="The Rayleigh criterion says
 
 $$
 \theta_{\min} \approx 1.22 \frac{\lambda}{D}.
@@ -1342,12 +1425,14 @@ So **telescope B** has the better resolution, by a factor of **2**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">2.8</span><span class="practice-problem__title-text">Choose the Better Resolving Aperture</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction" data-notes-nav-item>Diffraction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#resolution" data-notes-nav-item>Resolution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Exam II</span> | <span class="practice-problem__problem">Problem 2.8</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction" data-notes-nav-item>Diffraction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#resolution" data-notes-nav-item>Resolution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two telescopes observe the same light. Telescope A has aperture diameter 5.0 cm, and telescope B has aperture diameter 10.0 cm.</p>
@@ -1365,9 +1450,11 @@ So **telescope B** has the better resolution, by a factor of **2**.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1396,18 +1483,20 @@ $$</div>
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="optics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-answer="This is **myopia**.
+          <article class="practice-problem panel" id="optics-31" data-practice-problem data-exam="final" data-problem-number="3.1" data-problem-skills="Human Eye, Vision Defects, Corrective Lenses" data-problem-difficulty="Applied" data-problem-answer="This is **myopia**.
 
 A **diverging lens** is used because it reduces the convergence of incoming parallel rays so the eye can focus the image onto the retina instead of in front of it.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.1</span><span class="practice-problem__title-text">Choose the Correct Vision Aid</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#human-eye" data-notes-nav-item>Human Eye</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#vision-defects" data-notes-nav-item>Vision Defects</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#corrective-lenses" data-notes-nav-item>Corrective Lenses</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#human-eye" data-notes-nav-item>Human Eye</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#vision-defects" data-notes-nav-item>Vision Defects</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#corrective-lenses" data-notes-nav-item>Corrective Lenses</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A person can read a book clearly, but distant road signs are blurry.</p>
@@ -1425,9 +1514,11 @@ A **diverging lens** is used because it reduces the convergence of incoming para
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1437,7 +1528,7 @@ A **diverging lens** is used because it reduces the convergence of incoming para
 <p>A <strong>diverging lens</strong> is used because it reduces the convergence of incoming parallel rays so the eye can focus the image onto the retina instead of in front of it.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-answer="First find the critical angle:
+    </article><article class="practice-problem panel" id="optics-32" data-practice-problem data-exam="final" data-problem-number="3.2" data-problem-skills="Critical Angle, Total Internal Reflection, Fiber Optics" data-problem-difficulty="Applied" data-problem-answer="First find the critical angle:
 
 $$
 \sin \theta_c = \frac{n_2}{n_1} = \frac{1.30}{1.50} \approx 0.867.
@@ -1455,12 +1546,14 @@ Therefore the ray undergoes **total internal reflection** and stays confined in 
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.2</span><span class="practice-problem__title-text">Check Total Internal Reflection in a Fiber</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#critical-angle" data-notes-nav-item>Critical Angle</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#total-internal-reflection" data-notes-nav-item>Total Internal Reflection</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#fiber-optics" data-notes-nav-item>Fiber Optics</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#critical-angle" data-notes-nav-item>Critical Angle</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#total-internal-reflection" data-notes-nav-item>Total Internal Reflection</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#fiber-optics" data-notes-nav-item>Fiber Optics</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A fiber-optic core has refractive index</p>
@@ -1486,9 +1579,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1506,18 +1601,20 @@ $$</div>
 <p>Therefore the ray undergoes <strong>total internal reflection</strong> and stays confined in the fiber.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-answer="Use a **telescope**.
+    </article><article class="practice-problem panel" id="optics-33" data-practice-problem data-exam="final" data-problem-number="3.3" data-problem-skills="Telescopes, Angular Magnification" data-problem-difficulty="Applied" data-problem-answer="Use a **telescope**.
 
 Microscopes are for very small nearby objects, while telescopes are designed to view far objects with larger angular size.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.3</span><span class="practice-problem__title-text">Which Instrument Fits the Job?</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#telescopes" data-notes-nav-item>Telescopes</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#angular-magnification" data-notes-nav-item>Angular Magnification</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#telescopes" data-notes-nav-item>Telescopes</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#angular-magnification" data-notes-nav-item>Angular Magnification</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>You want a distant planet to appear larger in angular size.</p>
@@ -1535,9 +1632,11 @@ Microscopes are for very small nearby objects, while telescopes are designed to 
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1547,7 +1646,7 @@ Microscopes are for very small nearby objects, while telescopes are designed to 
 <p>Microscopes are for very small nearby objects, while telescopes are designed to view far objects with larger angular size.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-answer="By the Rayleigh criterion,
+    </article><article class="practice-problem panel" id="optics-34" data-practice-problem data-exam="final" data-problem-number="3.4" data-problem-skills="Diffraction, Resolution" data-problem-difficulty="Applied" data-problem-answer="By the Rayleigh criterion,
 
 $$
 \theta_{\min} \approx 1.22 \frac{\lambda}{D}.
@@ -1565,12 +1664,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.4</span><span class="practice-problem__title-text">Compare Two Apertures</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction" data-notes-nav-item>Diffraction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#resolution" data-notes-nav-item>Resolution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction" data-notes-nav-item>Diffraction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#resolution" data-notes-nav-item>Resolution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two cameras use the same wavelength of light.</p>
@@ -1589,9 +1690,11 @@ $$">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1609,7 +1712,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-answer="In normal dispersion, shorter wavelengths have larger refractive index.
+    </article><article class="practice-problem panel" id="optics-35" data-practice-problem data-exam="final" data-problem-number="3.5" data-problem-skills="Dispersion, Refraction" data-problem-difficulty="Applied" data-problem-answer="In normal dispersion, shorter wavelengths have larger refractive index.
 
 Blue light has a shorter wavelength than red light, so it bends more.
 
@@ -1617,12 +1720,14 @@ Therefore, **blue** bends more than red.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">3.5</span><span class="practice-problem__title-text">Which Color Bends More in a Prism?</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#dispersion" data-notes-nav-item>Dispersion</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#refraction" data-notes-nav-item>Refraction</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 3.5</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#dispersion" data-notes-nav-item>Dispersion</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#refraction" data-notes-nav-item>Refraction</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>White light passes through a prism.</p>
@@ -1640,9 +1745,11 @@ Therefore, **blue** bends more than red.">
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1667,7 +1774,7 @@ Therefore, **blue** bends more than red.">
           </div>
         </div>
         <div class="practice-problem-list practice-problem-list--grouped">
-          <article class="practice-problem panel" id="optics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-answer="For the first lens:
+          <article class="practice-problem panel" id="optics-41" data-practice-problem data-exam="final" data-problem-number="4.1" data-problem-skills="Multiple Optical Elements, Thin Lenses, Magnification" data-problem-difficulty="Challenge" data-problem-answer="For the first lens:
 
 $$
 \frac{1}{12} = \frac{1}{18} + \frac{1}{d_{i1}}.
@@ -1729,12 +1836,14 @@ The final image is **virtual, inverted, and enlarged**.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.1</span><span class="practice-problem__title-text">Two-Lens System With a Final Virtual Image</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#multiple-optical-elements" data-notes-nav-item>Multiple Optical Elements</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.1</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#multiple-optical-elements" data-notes-nav-item>Multiple Optical Elements</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-lenses" data-notes-nav-item>Thin Lenses</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#magnification" data-notes-nav-item>Magnification</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A converging lens has focal length</p>
@@ -1765,9 +1874,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1815,7 +1926,7 @@ $$</div>
 <p>The final image is <strong>virtual, inverted, and enlarged</strong>.</p>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-answer="Because the reflection from air to film is from lower index to higher index, one reflected ray gets a phase shift of $\pi$.
+    </article><article class="practice-problem panel" id="optics-42" data-practice-problem data-exam="final" data-problem-number="4.2" data-problem-skills="Thin-Film Interference, Phase Shift" data-problem-difficulty="Challenge" data-problem-answer="Because the reflection from air to film is from lower index to higher index, one reflected ray gets a phase shift of $\pi$.
 
 For constructive reflection with one phase reversal, the film thickness must satisfy
 
@@ -1843,12 +1954,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.2</span><span class="practice-problem__title-text">Constructive Thin-Film Reflection</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-film-interference" data-notes-nav-item>Thin-Film Interference</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#phase-shift" data-notes-nav-item>Phase Shift</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.2</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#thin-film-interference" data-notes-nav-item>Thin-Film Interference</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#phase-shift" data-notes-nav-item>Phase Shift</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>A thin film has refractive index</p>
@@ -1874,9 +1987,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1901,7 +2016,7 @@ t = 100\ \text{nm}.
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-answer="Use
+    </article><article class="practice-problem panel" id="optics-43" data-practice-problem data-exam="final" data-problem-number="4.3" data-problem-skills="Diffraction, Resolution" data-problem-difficulty="Challenge" data-problem-answer="Use
 
 $$
 \theta_{\min} \approx 1.22 \frac{\lambda}{D}.
@@ -1931,12 +2046,14 @@ $$">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.3</span><span class="practice-problem__title-text">Compare Two Resolving Powers</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction" data-notes-nav-item>Diffraction</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#resolution" data-notes-nav-item>Resolution</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.3</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#diffraction" data-notes-nav-item>Diffraction</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#resolution" data-notes-nav-item>Resolution</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Two telescopes observe light of wavelength</p>
@@ -1958,9 +2075,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>
@@ -1987,7 +2106,7 @@ $$</div>
 $$</div>
         </div>
       </section>
-    </article><article class="practice-problem panel" id="optics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-answer="After the first polarizer, the intensity is
+    </article><article class="practice-problem panel" id="optics-44" data-practice-problem data-exam="final" data-problem-number="4.4" data-problem-skills="Polarizers, Malus Law, Inverse Reasoning" data-problem-difficulty="Challenge" data-problem-answer="After the first polarizer, the intensity is
 
 $$
 \frac{I_0}{2}.
@@ -2045,12 +2164,14 @@ Because of symmetry, $67.5^\circ$ is also a valid answer.">
       <div class="practice-problem__head">
         <div>
           <h2 class="practice-problem__title"><span class="practice-problem__number">4.4</span><span class="practice-problem__title-text">Three Polarizers With a Fixed Output</span></h2>
-          <p class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <span class="practice-problem__uses"><span class="practice-problem__skills"><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#polarizers" data-notes-nav-item>Polarizers</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#malus-law" data-notes-nav-item>Malus Law</a> &middot; <a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#inverse-reasoning" data-notes-nav-item>Inverse Reasoning</a></span></span></p>
+          <div class="practice-problem__meta"><span class="practice-problem__exam">Final</span> | <span class="practice-problem__problem">Problem 4.4</span> | <ul class="practice-problem__skills"><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#polarizers" data-notes-nav-item>Polarizers</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#malus-law" data-notes-nav-item>Malus Law</a></li><li><a class="notes-inline-link practice-problem__skill" href="/notes/subjects/physics/optics/#inverse-reasoning" data-notes-nav-item>Inverse Reasoning</a></li></ul></div>
         </div>
-        <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
-          <span class="practice-problem__complete-mark" aria-hidden="true"></span>
-          <span class="practice-problem__complete-text">Complete</span>
-        </button>
+        <div class="practice-problem__head-actions">
+          <button type="button" class="practice-problem__complete-toggle" data-practice-complete-toggle aria-pressed="false">
+            <span class="practice-problem__complete-mark" aria-hidden="true"></span>
+            <span class="practice-problem__complete-text">Complete</span>
+          </button>
+        </div>
       </div>
       <div class="practice-problem__prompt markdown-body" data-practice-prompt>
         <p>Unpolarized light of intensity $I_0$ passes through three polarizers.</p>
@@ -2073,9 +2194,11 @@ $$</div>
           ></textarea>
         </div>
         <div class="practice-problem__action-links" aria-label="Problem actions">
-          <button type="button" class="practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
+          <button type="button" class="practice-problem__text-action practice-problem__feedback" data-practice-solution-toggle data-notes-nav-item>Show solutions</button>
           <span class="practice-problem__action-separator" aria-hidden="true">-</span>
-          <button type="button" class="practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <button type="button" class="practice-problem__text-action practice-problem__study-submit" data-practice-study-submit data-notes-nav-item>Ask ChatGPT</button>
+          <span class="practice-problem__action-separator" aria-hidden="true">-</span>
+          <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
       <section class="practice-problem__solution" data-practice-solution hidden>

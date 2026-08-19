@@ -40,28 +40,41 @@ parell.github.io/
 
 **How It Works**
 
-The site is generated from the content in `source/` and the site structure defined in `source/manifest.js`.
-When notes or problem sets change, rebuild the site so the generated pages, search index, and sitemap stay in sync. Everything done with markdown files.
+The site is generated from the content in `source/`, the site structure in
+`source/manifest.js`, and the prerequisite graph in `source/paths.json`.
+When notes, problem sets, or site structure change, rebuild the site so the
+generated pages, search index, and sitemap stay in sync. Markdown files hold
+the lesson and practice content; JavaScript and JSON files define the site
+structure and prerequisite relationships.
 
 ## Build
 
-From the repository root:
+Run these commands from the repository root (`parell.github.io/`):
+
+```bash
+npm install
+npm run build
+```
+
+`npm run build` is the complete build. It runs both focused build steps:
+
+| Command | Purpose |
+| --- | --- |
+| `npm run build:assets` | Minifies the site and notes CSS/JavaScript into the `*.min.css` and `*.min.js` files used by generated pages. The minifier packages are downloaded by `npx` when needed. |
+| `npm run build:notes` | Reads `source/`, validates the manifest, and regenerates lesson pages, practice pages, landing pages, concept maps, `search-index.json`, and `sitemap.xml`. |
+| `npm run build` | Runs `build:assets`, then `build:notes`; use this after normal content or code changes. |
+
+If only lesson content, practice problems, the manifest, or prerequisite
+paths changed and the minified assets are already current, run the notes
+generator directly:
 
 ```bash
 node notes/build-notes.mjs
 ```
 
-That command regenerates the notes pages, practice pages, concept maps, search index, and sitemap.
-
-To install the build dependency:
-
-
-```bash
-npm install
-npm run build
-npm run build:notes
-npm run build:assets
-```
+The build scripts do not provide command-line flags. They overwrite generated
+files in the repository, so edit files under `source/` (and the unminified
+assets) rather than editing generated HTML or minified assets by hand.
 
 ## Contributing
 
@@ -78,15 +91,11 @@ Good contributions are small and specific:
 
 ## Roadmap
 
-- Try doing advertising in light mode
-- Thermodynamic tables and plots
-- Do the ideal gas interactive one but have the heat added be changeable visually so that you can make a turbine a rocket engine or a car engine with the same simulator.
 - Professors/TAs, Find Student orgs
-  
+
 - Instrument cantilever beam: strain gauges, circuits, DAQ, uncertainty, fatigue.
 - Build temperature control system: heat transfer, sensors, embedded control, parameter estimation.
 - Build two-wheel robot: dynamics, kinematics, motors, encoders, state-space control.
 - Run wind-tunnel/pipe-flow study: fluids, dimensional analysis, CFD, experiment design, metrology.
 - Model satellite attitude control: rigid-body dynamics, quaternions, sensors, estimation, digital control.
 - Analyze component failure: materials, manufacturing, fracture, reliability, safety.
-- Add teacher landing page, lesson wrappers, PhET embeds/links, shareable practice sets, printable/downloadable assignments.

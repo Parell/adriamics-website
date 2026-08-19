@@ -3,7 +3,9 @@ window.UES_GUIDE_MANIFEST = {
     {
       id: 'hidden',
       title: 'Hidden',
-      children: [],
+      children: [
+        { title: 'Tests', path: 'source/hidden/tests/tests.md' },
+      ],
     },
     {
       id: 'math',

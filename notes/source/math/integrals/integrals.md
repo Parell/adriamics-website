@@ -20,17 +20,6 @@ The central idea is that differentiation and integration are inverse operations.
 
 ---
 
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 # Indefinite integrals and antiderivatives
 
 An **antiderivative** of $f(x)$ is a function $F(x)$ such that
@@ -803,3 +792,14 @@ Series study infinite sums and their convergence. They build on the limit langua
 ## What this enables
 
 You can now model accumulation with antiderivatives, definite integrals, the Fundamental Theorem of Calculus, and numerical methods. Continue to **Series** for infinite sums; convergence tests will reuse limits and sometimes integrals.
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

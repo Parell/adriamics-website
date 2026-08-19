@@ -1,16 +1,5 @@
 # Thermodynamics
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 Use algebra, functions, unit conversions, and basic energy ideas from Physics I as prerequisites. This note prepares you to write closed-system and control-volume balances, interpret property data, and distinguish reversible limits from real irreversible processes.
@@ -33,6 +22,8 @@ Before solving any problem, identify the system type. This determines the correc
 
 ## Properties
 
+:::definition Property
+
 A **property** describes the state of a system.
 
 Examples:
@@ -45,6 +36,8 @@ Examples:
 - Internal energy, $U$
 - Enthalpy, $H$
 - Entropy, $S$
+
+:::
 
 ## Extensive and intensive properties
 
@@ -1783,3 +1776,14 @@ $$
 - Assuming work is always positive. The sign depends on whether work is done by or on the system.
 - Ignoring entropy generation in irreversible processes.
 - Comparing efficiencies without checking reservoir temperatures or cycle assumptions.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

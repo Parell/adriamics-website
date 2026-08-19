@@ -1,33 +1,3 @@
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Engineering Mechanics*
-- Nilsson and Riedel, *Electric Circuits*
-- Sedra and Smith, *Microelectronic Circuits*
-- Oppenheim and Willsky, *Signals and Systems*
-- Nise, *Control Systems Engineering*
-- Incropera et al., *Fundamentals of Heat and Mass Transfer*
-- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Montgomery, *Introduction to Statistical Quality Control*
-- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
-- Law, *Simulation Modeling and Analysis*
-- Fraden, *Handbook of Modern Sensors*
-- Leake and Borger, *Engineering Design Graphics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
-> **Suggested route:** Sections 1–4 build the DC vocabulary and reduction
-> skills. Continue to Sections 5–9 for systematic DC analysis and power. Read
-> Section 10 only after reviewing first-order ODEs; read Sections 11–13 after
-> you are comfortable with complex numbers and sinusoidal functions. Section
-> 14 uses the same circuit laws with ideal op-amp assumptions.
-
-The early sections are useful on their own. The later sections form branches:
-transients (Section 10) models time-domain storage, while phasors and
-frequency response (Sections 11–13) model sinusoidal steady state. Do not use a
-steady-state phasor result to answer a startup transient question.
-
 # Core quantities and circuit elements
 
 Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components.
@@ -869,3 +839,33 @@ $$
 $$
 f_0 = \frac{1}{2\pi\sqrt{LC}}
 $$
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Nilsson and Riedel, *Electric Circuits*
+- Sedra and Smith, *Microelectronic Circuits*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Fox, McDonald, and Pritchard, *Introduction to Fluid Mechanics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- Leake and Borger, *Engineering Design Graphics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+> **Suggested route:** Sections 1–4 build the DC vocabulary and reduction
+> skills. Continue to Sections 5–9 for systematic DC analysis and power. Read
+> Section 10 only after reviewing first-order ODEs; read Sections 11–13 after
+> you are comfortable with complex numbers and sinusoidal functions. Section
+> 14 uses the same circuit laws with ideal op-amp assumptions.
+
+The early sections are useful on their own. The later sections form branches:
+transients (Section 10) models time-domain storage, while phasors and
+frequency response (Sections 11–13) model sinusoidal steady state. Do not use a
+steady-state phasor result to answer a startup transient question.

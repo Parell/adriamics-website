@@ -1,12 +1,5 @@
 # Atomic and Molecular Physics
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Eisberg and Resnick, *Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles*
-- Griffiths and Schroeter, *Introduction to Quantum Mechanics*
-
 ## Prerequisites and outcomes
 
 This note assumes introductory quantum mechanics, complex numbers, and basic electromagnetism. By the end, you should be able to connect quantum numbers and energy differences to spectra, distinguish hydrogen-like results from multi-electron approximations, and choose an appropriate atomic or molecular model.
@@ -92,3 +85,10 @@ When analyzing a problem, state whether the hydrogen-like or multi-electron appr
 ## Summary
 
 Atomic and molecular physics connects quantum states to measurable spectra. Energy-level spacing, selection rules, and the separation of electronic, vibrational, and rotational motion provide the main organizing framework.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Eisberg and Resnick, *Quantum Physics of Atoms, Molecules, Solids, Nuclei, and Particles*
+- Griffiths and Schroeter, *Introduction to Quantum Mechanics*

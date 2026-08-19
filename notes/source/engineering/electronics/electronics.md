@@ -1,12 +1,5 @@
 # Electronics
 
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Sedra and Smith, *Microelectronic Circuits*
-- Nilsson and Riedel, *Electric Circuits*
-- Horowitz and Hill, *The Art of Electronics*
-
 ## Circuit quantities and signal paths
 
 Electronics uses components to control voltage, current, energy, and information. The basic relations are
@@ -195,3 +188,10 @@ $$
 ## Progression
 
 Begin with voltage, current, power, and device operating regions. Then analyze op-amp feedback and frequency response. Add power conversion with thermal and safety checks, and finish by tracing noise currents and measurement bandwidth through a complete signal path. The central question is whether each component is operating in the region, frequency range, and thermal environment assumed by the model.
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Sedra and Smith, *Microelectronic Circuits*
+- Nilsson and Riedel, *Electric Circuits*
+- Horowitz and Hill, *The Art of Electronics*

@@ -1,12 +1,5 @@
 # Tribology
 
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Stachowiak and Batchelor, *Engineering Tribology*
-- Hamrock, Schmid, and Jacobson, *Fundamentals of Fluid Film Lubrication*
-- Harris and Kotzalas, *Rolling Bearing Analysis*
-
 ## The tribology problem
 
 Tribology studies interacting surfaces in relative motion. It combines friction, wear, lubrication, materials, surface finish, heat, and reliability. A contact is a system: changing load, speed, material, roughness, temperature, lubricant, or contamination can change the governing failure mechanism.
@@ -183,3 +176,10 @@ million revolutions. Convert to hours only after specifying speed, then check lu
 ## Progression
 
 Start with load, speed, roughness, and materials; classify the wear mechanism and lubrication regime; then use Archard and Hertz relations for screening. Use Stribeck behavior to reason about transitions and bearing/seal models to connect contact conditions to machine life. The central question is not simply “what has the lowest friction?” but “what contact state gives acceptable friction, heat, wear, leakage, and reliability over the full operating cycle?”
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Stachowiak and Batchelor, *Engineering Tribology*
+- Hamrock, Schmid, and Jacobson, *Fundamentals of Fluid Film Lubrication*
+- Harris and Kotzalas, *Rolling Bearing Analysis*

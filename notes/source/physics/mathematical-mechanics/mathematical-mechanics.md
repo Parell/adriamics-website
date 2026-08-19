@@ -1,12 +1,5 @@
 # Mathematical Mechanics
 
-## Sources
-
-- Taylor, *Classical Mechanics*
-- Goldstein, Poole, and Safko, *Classical Mechanics*
-- Lanczos, *The Variational Principles of Mechanics*
-- [MIT OpenCourseWare: Classical Mechanics](https://ocw.mit.edu/courses/8-223-classical-mechanics-fall-1998/)
-
 ## Prerequisites and outcomes
 
 This note assumes single- and multivariable calculus, ordinary differential equations, vectors, and the Newtonian ideas in [Classical Mechanics](../classical-mechanics/classical-mechanics.md). By the end, you should be able to formulate a mechanical problem with a Lagrangian, handle ideal constraints, identify symmetry and conserved quantities, change between Lagrangian and Hamiltonian descriptions, and recognize the Hamilton–Jacobi equation as a generating equation for canonical motion.
@@ -264,3 +257,10 @@ Newton emphasizes forces, Lagrange emphasizes stationary action and configuratio
 - Rigid-body dynamics and Euler angles
 - Continuum mechanics and field-theoretic Lagrangians
 - Perturbation theory and action–angle variables
+
+## Sources
+
+- Taylor, *Classical Mechanics*
+- Goldstein, Poole, and Safko, *Classical Mechanics*
+- Lanczos, *The Variational Principles of Mechanics*
+- [MIT OpenCourseWare: Classical Mechanics](https://ocw.mit.edu/courses/8-223-classical-mechanics-fall-1998/)

@@ -1,12 +1,5 @@
 # Metallurgy and Manufacturing
 
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Dieter, *Mechanical Metallurgy*
-
 ## The manufacturing chain
 
 Metallurgy explains how composition, thermal history, defects, and microstructure determine material behavior. Manufacturing turns that material into a part with a required geometry, tolerance, surface, cost, and service life.
@@ -190,3 +183,10 @@ Choose a starting route for ten aluminum housings with complex internal channels
 ## Progression
 
 Study phase diagrams and diffusion first, then heat treatment and solidification. Connect microstructure to forming, machining, welding, and additive manufacturing. Finish with process selection. The central question is: how will this process change the material, and will the resulting part still satisfy its service requirements?
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Dieter, *Mechanical Metallurgy*

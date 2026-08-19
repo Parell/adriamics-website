@@ -1,14 +1,5 @@
 # General Chemistry
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- [OpenStax Chemistry 2e](https://openstax.org/details/books/chemistry-2e)
-- [Chemistry LibreTexts](https://chem.libretexts.org/)
-- Brown et al., *Chemistry: The Central Science*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 This note assumes arithmetic, algebra, unit conversions, and proportional reasoning. By the end, you should be able to balance reactions, use moles and concentrations, predict basic molecular structure, and select equilibrium, acid–base, kinetics, thermochemistry, or redox models without confusing an approximation with a definition.
@@ -866,3 +857,12 @@ $$
 - Buffers resist pH change but do not make pH immutable.
 - Catalysts speed reactions but do not change equilibrium position.
 - Chemical intuition improves when equations are balanced and units are tracked carefully.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- [OpenStax Chemistry 2e](https://openstax.org/details/books/chemistry-2e)
+- [Chemistry LibreTexts](https://chem.libretexts.org/)
+- Brown et al., *Chemistry: The Central Science*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

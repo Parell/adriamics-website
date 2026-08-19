@@ -1,14 +1,5 @@
 # Organic Chemistry
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- [OpenStax Organic Chemistry](https://openstax.org/details/books/organic-chemistry)
-- [Chemistry LibreTexts](https://chem.libretexts.org/Bookshelves/Organic_Chemistry)
-- McMurry, *Organic Chemistry*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 This note assumes general chemistry, Lewis structures, acid–base language, and basic algebra. By the end, you should be able to identify functional groups, draw electron-flow mechanisms, predict major products with stated conditions, and verify constitutional and stereochemical changes.
@@ -604,3 +595,12 @@ When learning a new reaction, always ask:
 5. What controls regioselectivity and stereoselectivity?
 
 If you can answer those five questions, most organic chemistry problems become manageable.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- [OpenStax Organic Chemistry](https://openstax.org/details/books/organic-chemistry)
+- [Chemistry LibreTexts](https://chem.libretexts.org/Bookshelves/Organic_Chemistry)
+- McMurry, *Organic Chemistry*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

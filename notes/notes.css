@@ -1341,6 +1341,7 @@ body.notes-page--sepia.practice-page {
 }
 
 .vector-calculus-gradient,
+.vector-calculus-gradient-3d,
 .vector-calculus-vector-field {
   margin: 2rem 0;
   padding: 0;
@@ -1455,6 +1456,39 @@ body.notes-page--sepia.practice-page {
   touch-action: none;
 }
 
+.vector-calculus-gradient__board .JXGtext,
+.vector-calculus-gradient__board svg text,
+.vector-calculus-gradient-3d__board .JXGtext,
+.vector-calculus-gradient-3d__board svg text,
+.vector-calculus-vector-field__board .JXGtext,
+.vector-calculus-vector-field__board svg text {
+  color: var(--text) !important;
+  fill: var(--text) !important;
+}
+
+.vector-calculus-gradient-3d__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.vector-calculus-gradient-3d__board {
+  width: 100%;
+  min-height: 24rem;
+  aspect-ratio: 1.35;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  touch-action: none;
+}
+
+/* JSXGraph supplies black axis labels by default; follow the page theme. */
+.vector-calculus-vector-field__board .JXGtext,
+.vector-calculus-vector-field__board svg text {
+  color: var(--text) !important;
+  fill: var(--text) !important;
+}
+
 .vector-calculus-vector-field__controls {
   display: grid;
   gap: 0.65rem;
@@ -1493,6 +1527,10 @@ body.notes-page--sepia.practice-page {
 
   .vector-calculus-gradient__board {
     min-height: 16rem;
+  }
+
+  .vector-calculus-gradient-3d__board {
+    min-height: 18rem;
   }
 
   .vector-calculus-vector-field__board {
@@ -1891,6 +1929,15 @@ body.notes-page--sepia.practice-page {
   line-height: 1.5;
   overflow-wrap: anywhere;
 }
+
+.jsxgraph-diagram {
+  margin: 1.5rem 0 2rem;
+  padding: 1rem;
+  border: 1px solid var(--border);
+  background: var(--control-bg);
+}
+.jsxgraph-diagram__board { width: 100%; height: clamp(220px, 30vw, 360px); border: 0; background: transparent; }
+.jsxgraph-diagram__caption { margin: .7rem 0 0; color: var(--muted); font-size: .88rem; line-height: 1.5; }
 
 .practice-problem__head-actions { display: flex; align-items: flex-start; gap: 0.55rem; flex-wrap: wrap; justify-content: flex-end; }
 .worksheet-controls { margin: 1rem 0 1.25rem; padding: 0; }
@@ -2300,6 +2347,116 @@ body.notes-page--sepia.practice-page .practice-problem__text-action:focus-visibl
   color: var(--muted);
 }
 
+.markdown-body .callout {
+  --callout-accent: #8bbfe8;
+  --callout-background: rgba(185, 220, 247, 0.1);
+  margin: 1.35rem 0;
+  padding: 0;
+  border: 1px solid var(--callout-accent);
+  background: var(--callout-background);
+  break-inside: avoid;
+}
+
+.markdown-body .callout--definition {
+  --callout-accent: #8bbfe8;
+  --callout-background: rgba(185, 220, 247, 0.1);
+}
+
+.markdown-body .callout--rule {
+  --callout-accent: #8bbfe8;
+  --callout-background: rgba(185, 220, 247, 0.1);
+}
+
+.markdown-body .callout--warning {
+  --callout-accent: #8bbfe8;
+  --callout-background: rgba(185, 220, 247, 0.08);
+}
+
+.markdown-body .callout--example {
+  --callout-accent: #aecd9f;
+  --callout-background: rgba(217, 241, 209, 0.1);
+}
+
+.callout__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.75rem;
+  padding: 0.65rem 0.9rem 0.55rem;
+  border-bottom: 1px solid color-mix(in srgb, var(--callout-accent) 55%, transparent);
+}
+
+.callout__label {
+  color: var(--callout-accent);
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.callout__label::before {
+  content: none;
+}
+
+.callout__title {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.callout__body {
+  padding: 0.85rem 0.9rem 0.05rem;
+}
+
+.callout__body > :first-child { margin-top: 0; }
+.callout__body > :last-child { margin-bottom: 0; }
+.callout .callout { margin: 0.9rem 0 1rem; }
+
+.practice-example__prompt > :first-child,
+.practice-example__solution > :first-child {
+  margin-top: 0;
+}
+
+.practice-example__prompt > :last-child,
+.practice-example__solution > :last-child {
+  margin-bottom: 0;
+}
+
+.practice-example__answer {
+  margin: 0.95rem -0.9rem 0;
+  border-top: 1px solid color-mix(in srgb, var(--callout-accent) 45%, transparent);
+}
+
+.practice-example__answer summary {
+  padding: 0.7rem 0.9rem;
+  color: var(--accent-strong);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.practice-example__answer summary:hover {
+  color: var(--accent);
+}
+
+.practice-example__answer summary:focus-visible {
+  border-radius: 0;
+  outline: 2px solid var(--accent-strong);
+  outline-offset: -3px;
+}
+
+.practice-example__solution {
+  padding: 0.1rem 0.9rem 0.9rem;
+}
+
+.practice-example__link {
+  margin: 0.8rem 0 0;
+}
+
+.practice-example__link a:focus-visible {
+  border-radius: 0;
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
 .markdown-body table {
   width: 100%;
   border-collapse: collapse;
@@ -2403,6 +2560,7 @@ body.notes-page--sepia.practice-page .practice-problem__text-action:focus-visibl
 
   .markdown-body pre,
   .markdown-body blockquote,
+  .markdown-body .callout,
   .markdown-body table,
   .markdown-body img,
   .markdown-body .math-block {
@@ -2423,6 +2581,30 @@ body.notes-page--sepia.practice-page .practice-problem__text-action:focus-visibl
   .markdown-body table {
     display: table;
     overflow: visible;
+  }
+
+  .markdown-body .callout {
+    border-color: #555555;
+    border-left-color: #222222;
+    background: #fafafa;
+    color: #111111;
+  }
+
+  .callout__heading { border-bottom-color: #999999; }
+  .callout__label { color: #222222; }
+  .callout__title { color: #111111; }
+
+  .practice-example__answer {
+    border-top-color: #999999;
+  }
+
+  .practice-example__answer summary {
+    display: none;
+  }
+
+  .practice-example__answer > .practice-example__solution {
+    display: block !important;
+    padding-top: 0.8rem;
   }
 
   .viewer-meta,
@@ -2513,6 +2695,27 @@ body.notes-page--sepia.practice-page .practice-problem__text-action:focus-visibl
 }
 
 @media (max-width: 640px) {
+  .markdown-body .callout {
+    margin: 1rem 0;
+  }
+
+  .callout__heading,
+  .callout__body {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
+  .practice-example__answer {
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+  }
+
+  .practice-example__answer summary,
+  .practice-example__solution {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+
   .worksheet-selection__item { align-items: stretch; flex-wrap: wrap; }
   .worksheet-selection__label { flex: 1 1 100%; }
   .worksheet-selection__spacing { flex: 1 1 auto; }

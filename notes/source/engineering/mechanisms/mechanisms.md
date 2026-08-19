@@ -1,16 +1,5 @@
 # Mechanisms
 
-## Sources
-
-- Shigley, Budynas, and Nisbett, *Mechanical Engineering Design*
-- Norton, *Design of Machinery*
-- Hibbeler, *Engineering Mechanics: Dynamics*
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-
-Mechanisms transmit power or guide motion by constraining the relative movement of solid parts. A mechanism may change speed, torque, direction, force, or the type of motion. A machine is a mechanism considered together with a power source, loads, controls, and useful output.
-
-This note is a first design pass. It gives the models needed to choose a mechanism and estimate its size; detailed standards, bearing catalogs, tooth geometry, fatigue data, and finite-element analysis are still required for a release design.
-
 ## A common mechanism model
 
 Start with the input, the output, and the load path:
@@ -367,3 +356,14 @@ Before approving a mechanism concept, record:
 - static strength, fatigue, wear, contact, stiffness, and stability checks;
 - alignment, retention, guarding, maintenance, and failure containment;
 - applicable standards, test evidence, and unresolved assumptions.
+
+## Sources
+
+- Shigley, Budynas, and Nisbett, *Mechanical Engineering Design*
+- Norton, *Design of Machinery*
+- Hibbeler, *Engineering Mechanics: Dynamics*
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+
+Mechanisms transmit power or guide motion by constraining the relative movement of solid parts. A mechanism may change speed, torque, direction, force, or the type of motion. A machine is a mechanism considered together with a power source, loads, controls, and useful output.
+
+This note is a first design pass. It gives the models needed to choose a mechanism and estimate its size; detailed standards, bearing catalogs, tooth geometry, fatigue data, and finite-element analysis are still required for a release design.

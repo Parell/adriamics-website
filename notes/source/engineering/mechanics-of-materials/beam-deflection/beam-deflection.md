@@ -294,4 +294,3 @@ Every elastic deflection is proportional to $1/E$. Doubling $E$ halves the resul
 - [Engineering LibreTexts](https://eng.libretexts.org/)
 - Hibbeler, *Mechanics of Materials*
 - Gere and Goodno, *Mechanics of Materials*
-

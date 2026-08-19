@@ -1,16 +1,5 @@
 # Optics
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 This note assumes geometry, trigonometry, wave basics, and introductory electromagnetism. By the end, you should be able to decide when the ray approximation is valid, construct images with sign conventions, and predict interference, diffraction, and polarization outcomes from phase and geometry.
@@ -751,3 +740,14 @@ Optics links ray behavior, wave behavior, and imaging systems. The most importan
 - Use wave optics for interference, diffraction, and polarization.
 
 When in doubt, start with a diagram, identify the relevant interfaces or apertures, and track signs and phase changes carefully.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

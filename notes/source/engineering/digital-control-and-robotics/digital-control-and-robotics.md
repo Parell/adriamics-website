@@ -1,12 +1,5 @@
 # Digital Control and Robotics
 
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Ogata, *Discrete-Time Control Systems*
-- Spong, Hutchinson, and Vidyasagar, *Robot Modeling and Control*
-- Nise, *Control Systems Engineering*
-
 ## Frames and rigid-body transformations
 
 Robotics describes a point or body relative to a coordinate frame. A rotation matrix $R\in SO(3)$ satisfies
@@ -271,3 +264,10 @@ What does increasing measurement covariance $R$ do in a Kalman filter?
 ## Progression
 
 Learn frames and kinematics before Jacobians and trajectories. Then study sampling, Z-transforms, and discrete stability before implementing PID. Finish with state feedback, observers, and Kalman filtering. At every stage, connect equations to timing, frames, limits, noise, and the physical authority of the robot or actuator.
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Ogata, *Discrete-Time Control Systems*
+- Spong, Hutchinson, and Vidyasagar, *Robot Modeling and Control*
+- Nise, *Control Systems Engineering*

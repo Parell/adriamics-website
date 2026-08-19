@@ -1,16 +1,5 @@
 # Physics I
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 Before starting, be comfortable with algebra, trigonometry, vectors, and basic differentiation and integration. By the end, you should be able to choose between force, energy, momentum, and torque models and justify the assumptions used in a mechanics solution.
@@ -94,17 +83,25 @@ Kinematics describes motion in terms of position, velocity, and acceleration.
 
 ## Definitions
 
-Displacement:
+:::definition Displacement
+
+Displacement is the change in position from an initial point to a final point.
 
 $$
 \Delta x = x_f - x_i
 $$
 
-Average velocity:
+:::
+
+:::definition Average velocity
+
+Average velocity is displacement divided by the elapsed time.
 
 $$
 \bar v = \frac{\Delta x}{\Delta t}
 $$
+
+:::
 
 Instantaneous velocity:
 
@@ -126,6 +123,8 @@ $$
 
 ## Constant-acceleration equations
 
+:::rule Constant acceleration
+
 If acceleration is constant, the following equations apply:
 
 $$
@@ -146,6 +145,11 @@ $$
 
 These are valid only when acceleration does not change during the interval.
 
+:::
+
+:::practice-example physics-i-14
+:::
+
 ## Interpretation tips
 
 - Velocity is the slope of the position-time graph.
@@ -154,6 +158,12 @@ These are valid only when acceleration does not change during the interval.
 - The area under an acceleration-time graph gives change in velocity.
 
 ## Free-fall as a special case
+
+:::warning Sign convention
+
+Choose the positive direction before writing the free-fall equations. The sign of $g$ depends on that choice.
+
+:::
 
 Near Earth, the acceleration from gravity is approximately constant:
 
@@ -334,6 +344,9 @@ $$
 
 Friction opposes relative motion or impending motion between surfaces.
 
+:::practice-example physics-i-111
+:::
+
 ## Springs
 
 Hooke's law:
@@ -407,6 +420,9 @@ If nonconservative forces do work:
 $$
 K_i + U_i + W_{nc} = K_f + U_f
 $$
+
+:::practice-example physics-i-23
+:::
 
 ## Power
 
@@ -490,6 +506,9 @@ If two masses stick together:
 $$
 m_1 v_{1i} + m_2 v_{2i} = (m_1 + m_2)v_f
 $$
+
+:::practice-example physics-i-24
+:::
 
 ## Common mistake
 
@@ -580,6 +599,9 @@ $$
 $$
 
 Here $I$ is the moment of inertia.
+
+:::practice-example physics-i-25
+:::
 
 ## Rotational kinetic energy
 
@@ -679,6 +701,9 @@ Period:
 $$
 T = 2\pi\sqrt{\frac{m}{k}}
 $$
+
+:::practice-example physics-i-27
+:::
 
 ## Useful energy form
 
@@ -930,3 +955,14 @@ $$
 - Applying energy when the problem asks for a force or acceleration directly
 - Forgetting that momentum is vector-valued
 - Using a circular motion formula without checking whether the motion is actually circular
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

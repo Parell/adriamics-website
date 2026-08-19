@@ -1,31 +1,6 @@
 ---
-interactive:
-  - vector-calculus-gradient
-  - vector-calculus-vector-field-3d
----
 
 # Vector Calculus
-
-## Sources
-
-- [OpenStax Calculus](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Marsden and Tromba, *Vector Calculus*
-- Griffiths, *Introduction to Electrodynamics*
-- Batchelor, *An Introduction to Fluid Dynamics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
-Vector calculus is the calculus of quantities distributed through space. It studies scalar fields such as temperature and pressure, vector fields such as velocity and force, and the rates at which those fields change, spread, rotate, and pass through surfaces.
-
-It matters because the conservation laws of fluid mechanics, heat transfer, electromagnetism, elasticity, and continuum mechanics are naturally written with vector-calculus operators. The central ideas are:
-
-1. The **gradient** converts a scalar field into its direction of greatest increase.
-2. **Divergence** measures local net outflow; **curl** measures local circulation; the **Laplacian** measures a field's local imbalance relative to its neighbors.
-3. **Line, surface, and volume integrals** accumulate fields along curves, across surfaces, and throughout regions.
-4. **Green's, Stokes', and the divergence theorems** convert local derivatives into global boundary measurements.
-
-Unless stated otherwise, coordinates are Cartesian, fields are sufficiently smooth for the derivatives used, and SI units are assumed. A field may be idealized as continuous even though real matter is molecular and measurements are discrete.
 
 ## Most important ideas first
 
@@ -60,55 +35,6 @@ $$
 $$
 
 The operator $\nabla$ is not a vector of numbers. It is a compact instruction for differentiating a field.
-
-## Geometric picture
-
-<section class="vector-calculus-gradient" data-interactive="vector-calculus-gradient" data-vector-calculus-gradient aria-labelledby="gradient-explorer-title">
-  <p id="gradient-explorer-title">Drag the probe point or choose a direction. The gradient arrow points toward greatest increase, while the tangent line follows the level curve through the point.</p>
-  <div class="vector-calculus-gradient__layout">
-    <div class="vector-calculus-gradient__visual">
-      <div id="vector-calculus-gradient-board" class="vector-calculus-gradient__board" data-gradient-board role="img" aria-label="Interactive level-curve diagram"></div>
-      <p class="vector-calculus-gradient__legend" aria-hidden="true"><span class="gradient-legend gradient-legend--level"></span> level curves <span class="gradient-legend gradient-legend--gradient"></span> gradient <span class="gradient-legend gradient-legend--tangent"></span> tangent <span class="gradient-legend gradient-legend--direction"></span> direction</p>
-    </div>
-    <div class="vector-calculus-gradient__controls">
-      <label for="gradient-field">Scalar field</label>
-      <select id="gradient-field" data-gradient-field>
-        <option value="quadratic">f(x,y) = ½x² + y²</option>
-        <option value="saddle">f(x,y) = xy</option>
-      </select>
-      <label for="gradient-angle">Direction angle: <output data-gradient-angle-value>35°</output></label>
-      <input id="gradient-angle" data-gradient-angle type="range" min="0" max="360" value="35" step="1" />
-      <dl class="vector-calculus-gradient__values" aria-live="polite" aria-atomic="true">
-        <div><dt>Point P</dt><dd data-gradient-value="point">(2.00, 1.00)</dd></div>
-        <div><dt>f(P)</dt><dd data-gradient-value="field">3.00</dd></div>
-        <div><dt>∇f(P)</dt><dd data-gradient-value="gradient">⟨2.00, 2.00⟩</dd></div>
-        <div><dt>|∇f(P)|</dt><dd data-gradient-value="magnitude">2.83</dd></div>
-        <div><dt>Directional derivative</dt><dd data-gradient-value="directional">2.77</dd></div>
-      </dl>
-    </div>
-  </div>
-</section>
-
-<section class="vector-calculus-vector-field" data-interactive="vector-calculus-vector-field-3d" aria-labelledby="vector-field-explorer-title">
-  <h3 id="vector-field-explorer-title">Explore a vector field in 3D</h3>
-  <p>Rotate the view to see how a vector field changes through space. The arrows show the vector at sampled points; this example uses fields that are easy to evaluate by hand.</p>
-  <div class="vector-calculus-vector-field__layout">
-    <div id="vector-calculus-vector-field-board" class="vector-calculus-vector-field__board" data-vector-field-board role="img" aria-label="Interactive three-dimensional vector-field diagram"></div>
-    <div class="vector-calculus-vector-field__controls">
-      <label for="vector-field-choice">Vector field</label>
-      <select id="vector-field-choice" data-vector-field-choice>
-        <option value="rotation">F(x,y,z) = ⟨−y, x, 0⟩</option>
-        <option value="radial">F(x,y,z) = ⟨x, y, z⟩</option>
-      </select>
-      <label for="vector-field-scale">Vector length</label>
-      <div class="vector-calculus-vector-field__scale-control">
-        <input id="vector-field-scale" data-vector-field-scale type="range" min="0" max="1.2" step="0.05" value="0.4" />
-        <output for="vector-field-scale" data-vector-field-scale-value>0.40</output>
-      </div>
-      <p class="vector-calculus-vector-field__formula" data-vector-field-formula>Horizontal rotation around the z-axis.</p>
-    </div>
-  </div>
-</section>
 
 ---
 
@@ -717,3 +643,24 @@ $$
 - Tensor calculus and continuum mechanics
 - Numerical methods, finite volume, finite difference, and finite element methods
 - Differential forms and the generalized Stokes theorem
+
+## Sources
+
+- [OpenStax Calculus](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Marsden and Tromba, *Vector Calculus*
+- Griffiths, *Introduction to Electrodynamics*
+- Batchelor, *An Introduction to Fluid Dynamics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+Vector calculus is the calculus of quantities distributed through space. It studies scalar fields such as temperature and pressure, vector fields such as velocity and force, and the rates at which those fields change, spread, rotate, and pass through surfaces.
+
+It matters because the conservation laws of fluid mechanics, heat transfer, electromagnetism, elasticity, and continuum mechanics are naturally written with vector-calculus operators. The central ideas are:
+
+1. The **gradient** converts a scalar field into its direction of greatest increase.
+2. **Divergence** measures local net outflow; **curl** measures local circulation; the **Laplacian** measures a field's local imbalance relative to its neighbors.
+3. **Line, surface, and volume integrals** accumulate fields along curves, across surfaces, and throughout regions.
+4. **Green's, Stokes', and the divergence theorems** convert local derivatives into global boundary measurements.
+
+Unless stated otherwise, coordinates are Cartesian, fields are sufficiently smooth for the derivatives used, and SI units are assumed. A field may be idealized as continuous even though real matter is molecular and measurements are discrete.

@@ -1,14 +1,5 @@
 # Vibrations
 
-## Sources
-
-- Inman, *Engineering Vibration*
-- Rao, *Mechanical Vibrations*
-- Den Hartog, *Mechanical Vibrations*
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-
-Vibration is oscillatory motion about an equilibrium configuration. The useful engineering model is a balance among inertia, stiffness, damping, and applied excitation. This note develops linear models first, then shows how modal and frequency-domain descriptions organize larger systems.
-
 ## Modeling assumptions and notation
 
 Assume small displacements, linear springs, time-invariant properties, and an initially stationary system unless stated otherwise. Let $x(t)$ be displacement, $\dot{x}$ velocity, and $\ddot{x}$ acceleration. The parameters are mass $m$, damping coefficient $c$, and stiffness $k$:
@@ -182,3 +173,12 @@ and $\phi=\operatorname{atan2}(0.09,0.19)=25.3^\circ$. The machine moves about $
 6. Validate uncertain parameters with a ring-down, sine sweep, impact test, or operating data.
 
 Common mistakes include using $\omega_n$ as the damped frequency, mixing Hz and rad/s, forgetting that base excitation is not an applied force, treating a mode shape's scale as physically meaningful, assuming every resonance is exactly at $\omega_n$, and fitting viscous damping without checking the decay model.
+
+## Sources
+
+- Inman, *Engineering Vibration*
+- Rao, *Mechanical Vibrations*
+- Den Hartog, *Mechanical Vibrations*
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+
+Vibration is oscillatory motion about an equilibrium configuration. The useful engineering model is a balance among inertia, stiffness, damping, and applied excitation. This note develops linear models first, then shows how modal and frequency-domain descriptions organize larger systems.

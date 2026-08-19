@@ -1,12 +1,5 @@
 # Condensed Matter Physics
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Kittel, *Introduction to Solid State Physics*
-- Ashcroft and Mermin, *Solid State Physics*
-
 ## Prerequisites and outcomes
 
 This note assumes introductory quantum mechanics, thermodynamics, electromagnetism, and vectors. By the end, you should be able to move between lattice, phonon, band, and continuum models, identify the assumptions behind each model, and relate measurable transport or diffraction data to microscopic structure.
@@ -92,3 +85,10 @@ Near a continuous phase transition, fluctuations become important and macroscopi
 ## Summary
 
 Condensed matter physics is organized around structure, excitations, and collective behavior. Diffraction probes structure, transport probes motion, and thermodynamic or magnetic measurements reveal phases and transitions.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Kittel, *Introduction to Solid State Physics*
+- Ashcroft and Mermin, *Solid State Physics*

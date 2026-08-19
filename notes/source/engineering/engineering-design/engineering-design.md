@@ -1,44 +1,5 @@
 # Engineering Design
 
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Engineering Mechanics*
-- Shigley et al., *Mechanical Engineering Design*
-- Leake and Borgerson, *Engineering Design Graphics*
-- Groover, *Fundamentals of Modern Manufacturing*
-- Callister and Rethwisch, *Materials Science and Engineering*
-- Montgomery, *Introduction to Statistical Quality Control*
-- Oppenheim and Willsky, *Signals and Systems*
-- Nise, *Control Systems Engineering*
-- Incropera et al., *Fundamentals of Heat and Mass Transfer*
-- Nilsson and Riedel, *Electric Circuits*
-- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
-- Law, *Simulation Modeling and Analysis*
-- Fraden, *Handbook of Modern Sensors*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
-Engineering design is the process of turning a need into a product, system, part, or process that can be built, checked, used, maintained, and changed in a controlled way.
-
-A design is not just a CAD model. A complete engineering design explains:
-
-1. What the thing must do.
-2. What is being built.
-3. Why the chosen solution should work.
-4. How much variation is allowed.
-5. How it will be manufactured, inspected, and maintained.
-6. How failures and future changes will be controlled.
-
-The subject flows best as a sequence:
-
-$$
-\text{need} \rightarrow \text{requirements} \rightarrow \text{concept} \rightarrow \text{definition} \rightarrow \text{analysis} \rightarrow \text{manufacturing} \rightarrow \text{verification} \rightarrow \text{release}
-$$
-
-Each topic in engineering design fits somewhere in that chain.
-
----
-
 # The design loop
 
 Engineering design is iterative. Engineers rarely move straight from problem to finished product. They define the need, propose a solution, test the solution against constraints, revise it, and repeat until the design is good enough to release.
@@ -2154,5 +2115,44 @@ A complete engineering design answers:
 7. How are future changes controlled?
 
 If those questions are answered clearly, the design is much more likely to survive manufacturing, testing, service, and revision.
+
+---
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Engineering Mechanics*
+- Shigley et al., *Mechanical Engineering Design*
+- Leake and Borgerson, *Engineering Design Graphics*
+- Groover, *Fundamentals of Modern Manufacturing*
+- Callister and Rethwisch, *Materials Science and Engineering*
+- Montgomery, *Introduction to Statistical Quality Control*
+- Oppenheim and Willsky, *Signals and Systems*
+- Nise, *Control Systems Engineering*
+- Incropera et al., *Fundamentals of Heat and Mass Transfer*
+- Nilsson and Riedel, *Electric Circuits*
+- Kerzner, *Project Management: A Systems Approach to Planning, Scheduling, and Controlling*
+- Law, *Simulation Modeling and Analysis*
+- Fraden, *Handbook of Modern Sensors*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+Engineering design is the process of turning a need into a product, system, part, or process that can be built, checked, used, maintained, and changed in a controlled way.
+
+A design is not just a CAD model. A complete engineering design explains:
+
+1. What the thing must do.
+2. What is being built.
+3. Why the chosen solution should work.
+4. How much variation is allowed.
+5. How it will be manufactured, inspected, and maintained.
+6. How failures and future changes will be controlled.
+
+The subject flows best as a sequence:
+
+$$
+\text{need} \rightarrow \text{requirements} \rightarrow \text{concept} \rightarrow \text{definition} \rightarrow \text{analysis} \rightarrow \text{manufacturing} \rightarrow \text{verification} \rightarrow \text{release}
+$$
+
+Each topic in engineering design fits somewhere in that chain.
 
 ---

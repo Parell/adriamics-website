@@ -816,6 +816,84 @@ function isListItem(line) {
   return /^\s{0,8}(?:[-*+]|(?:\d+\.))\s+/.test(line);
 }
 
+const CALLOUT_LABELS = {
+  definition: 'Definition',
+  rule: 'Rule',
+  warning: 'Warning',
+  example: 'Example',
+};
+
+function getCalloutOpening(line) {
+  const match = line.match(/^\s{0,3}:::(definition|rule|warning|example)(?:\s+(.+?))?\s*$/i);
+  return match ? { type: match[1].toLowerCase(), title: match[2]?.trim() ?? '' } : null;
+}
+
+function isCalloutOpening(line) {
+  return Boolean(getCalloutOpening(line));
+}
+
+function isPracticeExampleOpening(line) {
+  return /^\s{0,3}:::practice-example(?:\s|$)/i.test(line);
+}
+
+function getPracticeExampleOpening(line) {
+  const match = line.match(/^\s{0,3}:::practice-example\s+([A-Za-z0-9][A-Za-z0-9-]*)\s*$/i);
+  return match ? { id: match[1] } : null;
+}
+
+function toPracticeProblemMap(problems, label, notePath) {
+  if (problems instanceof Map) {
+    return new Map(problems);
+  }
+
+  const problemMap = new Map();
+  for (const problem of problems ?? []) {
+    const id = String(problem?.id ?? '').trim();
+    if (!id) continue;
+    if (problemMap.has(id)) {
+      throw new Error(`Duplicate practice problem "${id}" in ${label} for ${notePath}.`);
+    }
+    problemMap.set(id, problem);
+  }
+  return problemMap;
+}
+
+function createPracticeExampleContext(notePath, currentProblems = [], allProblems = currentProblems) {
+  return {
+    notePath,
+    currentProblemById: toPracticeProblemMap(currentProblems, 'current lesson', notePath),
+    problemById: toPracticeProblemMap(allProblems, 'practice problem index', notePath),
+    usedProblemIds: new Set(),
+    resolvedProblems: [],
+  };
+}
+
+function findCalloutEnd(lines, index, sourcePath) {
+  const stack = [getCalloutOpening(lines[index]).type];
+  let inFence = false;
+
+  for (let nextIndex = index + 1; nextIndex < lines.length; nextIndex += 1) {
+    const line = lines[nextIndex];
+    if (isFence(line)) {
+      inFence = !inFence;
+      continue;
+    }
+    if (inFence) continue;
+
+    const opening = getCalloutOpening(line);
+    if (opening) {
+      stack.push(opening.type);
+    } else if (isPracticeExampleOpening(line)) {
+      stack.push('practice-example');
+    } else if (/^\s*:::\s*$/.test(line)) {
+      stack.pop();
+      if (!stack.length) return nextIndex;
+    }
+  }
+
+  throw new Error(`Missing closing ::: for ${stack[0]} callout in ${sourcePath}`);
+}
+
 function getIndentWidth(line) {
   return line.match(/^[ \t]*/)?.[0].length ?? 0;
 }
@@ -890,7 +968,7 @@ function renderTableBlock(lines, index, sourcePath) {
   };
 }
 
-function renderQuoteBlock(lines, index, sourcePath) {
+function renderQuoteBlock(lines, index, sourcePath, practiceExampleContext) {
   const quoteLines = [];
   let nextIndex = index;
 
@@ -900,12 +978,12 @@ function renderQuoteBlock(lines, index, sourcePath) {
   }
 
   return {
-    html: `<blockquote>${renderBlocks(quoteLines.join('\n'), sourcePath)}</blockquote>`,
+    html: `<blockquote>${renderBlocks(quoteLines.join('\n'), sourcePath, practiceExampleContext)}</blockquote>`,
     nextIndex,
   };
 }
 
-function renderListBlock(lines, index, sourcePath) {
+function renderListBlock(lines, index, sourcePath, practiceExampleContext) {
   const startIndent = getIndentWidth(lines[index]);
   const isOrdered = /^\s*\d+\.\s+/.test(lines[index]);
   const items = [];
@@ -937,13 +1015,80 @@ function renderListBlock(lines, index, sourcePath) {
       break;
     }
 
-    items.push(`<li>${renderBlocks(itemLines.join('\n').replace(/^\n+|\n+$/g, ''), sourcePath)}</li>`);
+    items.push(`<li>${renderBlocks(itemLines.join('\n').replace(/^\n+|\n+$/g, ''), sourcePath, practiceExampleContext)}</li>`);
   }
 
   const listTag = isOrdered ? 'ol' : 'ul';
   return {
     html: `<${listTag}>${items.join('')}</${listTag}>`,
     nextIndex,
+  };
+}
+
+function renderCalloutBlock(lines, index, sourcePath, practiceExampleContext) {
+  const opening = getCalloutOpening(lines[index]);
+  const endIndex = findCalloutEnd(lines, index, sourcePath);
+  const label = CALLOUT_LABELS[opening.type];
+  const titleHtml = opening.title
+    ? `<span class="callout__title">${renderInline(opening.title, sourcePath)}</span>`
+    : '';
+
+  return {
+    html: `<aside class="callout callout--${opening.type}"><div class="callout__heading"><span class="callout__label">${label}</span>${titleHtml}</div><div class="callout__body">${renderBlocks(lines.slice(index + 1, endIndex).join('\n'), sourcePath, practiceExampleContext)}</div></aside>`,
+    nextIndex: endIndex + 1,
+  };
+}
+
+function renderPracticeExampleBlock(lines, index, sourcePath, context) {
+  const opening = getPracticeExampleOpening(lines[index]);
+  const lessonPath = context?.notePath ?? sourcePath;
+
+  if (!opening) {
+    throw new Error(`Malformed practice-example directive "${lines[index].trim()}" in ${lessonPath}. Expected ":::practice-example <problem-id>".`);
+  }
+
+  let endIndex = index + 1;
+  while (endIndex < lines.length && !/^\s*:::\s*$/.test(lines[endIndex])) {
+    endIndex += 1;
+  }
+
+  if (endIndex >= lines.length) {
+    throw new Error(`Missing closing ::: for practice example "${opening.id}" in ${lessonPath}.`);
+  }
+
+  if (lines.slice(index + 1, endIndex).some((line) => line.trim())) {
+    throw new Error(`Practice example "${opening.id}" in ${lessonPath} must be empty.`);
+  }
+
+  const indexedProblem = context?.problemById?.get(opening.id);
+  const problem = context?.currentProblemById?.get(opening.id);
+
+  if (!indexedProblem) {
+    throw new Error(`Unknown practice example "${opening.id}" in ${lessonPath}.`);
+  }
+
+  if (!problem) {
+    throw new Error(`Practice example "${opening.id}" in ${lessonPath} belongs to another lesson (${indexedProblem.sourcePath ?? indexedProblem.note ?? 'unknown source'}).`);
+  }
+
+  if (context.usedProblemIds.has(opening.id)) {
+    throw new Error(`Duplicate practice example "${opening.id}" in ${lessonPath}.`);
+  }
+
+  if (!String(problem.solutionMarkdown ?? '').trim()) {
+    throw new Error(`Practice example "${opening.id}" in ${lessonPath} has no solution.`);
+  }
+
+  context.usedProblemIds.add(opening.id);
+  context.resolvedProblems.push(problem);
+
+  const promptHtml = renderBlocks(problem.promptMarkdown, problem.sourcePath ?? sourcePath);
+  const solutionHtml = renderBlocks(problem.solutionMarkdown, problem.sourcePath ?? sourcePath);
+  const practiceHref = `practice/?filter=all#${encodeURIComponent(problem.id)}`;
+
+  return {
+    html: `<aside class="callout callout--example practice-example" data-practice-example="${escapeHtml(problem.id)}"><div class="callout__heading"><span class="callout__label">Worked example</span><span class="callout__title">${escapeHtml(problem.title)}</span></div><div class="callout__body practice-example__body"><div class="practice-example__prompt">${promptHtml}</div><details class="practice-example__answer"><summary>Reveal answer</summary><div class="practice-example__solution">${solutionHtml}</div></details><p class="practice-example__link"><a href="${escapeHtml(practiceHref)}">Practice this problem</a></p></div></aside>`,
+    nextIndex: endIndex + 1,
   };
 }
 
@@ -963,6 +1108,8 @@ function renderParagraphBlock(lines, index, sourcePath) {
     && !isTableStart(lines, nextIndex)
     && !lines[nextIndex].trim().startsWith('>')
     && !isListItem(lines[nextIndex])
+    && !isCalloutOpening(lines[nextIndex])
+    && !isPracticeExampleOpening(lines[nextIndex])
   ) {
     paragraphLines.push(lines[nextIndex]);
     nextIndex += 1;
@@ -998,26 +1145,28 @@ function renderHeadingBlock(lines, index, sourcePath, usedHeadingIds) {
   };
 }
 
-function getMarkdownBlockHandlers(sourcePath, usedHeadingIds) {
+function getMarkdownBlockHandlers(sourcePath, usedHeadingIds, practiceExampleContext) {
   return [
     { matches: (lines, index) => isFence(lines[index]), render: renderFenceBlock },
     { matches: (lines, index) => isMathFence(lines[index]), render: renderMathBlock },
+    { matches: (lines, index) => isPracticeExampleOpening(lines[index]), render: (lines, index) => renderPracticeExampleBlock(lines, index, sourcePath, practiceExampleContext) },
+    { matches: (lines, index) => isCalloutOpening(lines[index]), render: (lines, index) => renderCalloutBlock(lines, index, sourcePath, practiceExampleContext) },
     { matches: (lines, index) => isHeading(lines[index]), render: (lines, index) => renderHeadingBlock(lines, index, sourcePath, usedHeadingIds) },
     { matches: (lines, index) => isHr(lines[index]), render: (_lines, index) => ({ html: '<hr />', nextIndex: index + 1 }) },
     { matches: (lines, index) => isStandaloneAnchor(lines[index]), render: (lines, index) => ({ html: lines[index].trim(), nextIndex: index + 1 }) },
     { matches: (lines, index) => isRawHtmlLine(lines[index]), render: renderRawHtmlBlock },
     { matches: (lines, index) => isTableStart(lines, index), render: (lines, index) => renderTableBlock(lines, index, sourcePath) },
-    { matches: (lines, index) => lines[index].trim().startsWith('>'), render: (lines, index) => renderQuoteBlock(lines, index, sourcePath) },
-    { matches: (lines, index) => isListItem(lines[index]), render: (lines, index) => renderListBlock(lines, index, sourcePath) },
+    { matches: (lines, index) => lines[index].trim().startsWith('>'), render: (lines, index) => renderQuoteBlock(lines, index, sourcePath, practiceExampleContext) },
+    { matches: (lines, index) => isListItem(lines[index]), render: (lines, index) => renderListBlock(lines, index, sourcePath, practiceExampleContext) },
     { matches: () => true, wrap: true, render: (lines, index) => renderParagraphBlock(lines, index, sourcePath) },
   ];
 }
 
-function renderBlocks(markdown, sourcePath) {
+function renderBlocks(markdown, sourcePath, practiceExampleContext = null) {
   const lines = String(markdown ?? '').replace(/\r\n/g, '\n').split('\n');
   const usedHeadingIds = new Set();
   const blocks = [];
-  const handlers = getMarkdownBlockHandlers(sourcePath, usedHeadingIds);
+  const handlers = getMarkdownBlockHandlers(sourcePath, usedHeadingIds, practiceExampleContext);
   let index = 0;
 
   while (index < lines.length) {
@@ -1549,6 +1698,9 @@ function renderTableOfContents(bodyHtml) {
     id,
     headingHtml,
   })).filter((entry) => {
+    if (entry.level !== 1) {
+      return false;
+    }
     const normalizedText = normalizeTocHeadingText(entry.headingHtml);
     return normalizedText && normalizedText !== 'table of contents' && normalizedText !== 'contents';
   });
@@ -1591,7 +1743,7 @@ function buildNoteHtml({
   const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.min.js')}?v=${assetVersions.notesRuntimeJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
   const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
-  const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-vector-field-3d') ? `
+  const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-gradient-3d') || interactiveAssets.has('vector-calculus-vector-field-3d') || interactiveAssets.has('statics-modeling') || interactiveAssets.has('dynamics-projectile') || interactiveAssets.has('circuits-kcl') || interactiveAssets.has('jsxgraph-examples') ? `
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraph.css" />
   <script defer src="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraphcore.js"></script>
   ` : '';
@@ -2634,7 +2786,7 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null) {
+async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null, practiceProblemIndex = new Map()) {
   const sourcePath = noteDocument.sourcePath;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const title = note.title;
@@ -2646,7 +2798,13 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   const { sourceUrl, lastModifiedDate, contributorsHtml } = getSourceMetadata(relativeSourcePath);
   const conceptDagSubjectId = getConceptDagSubjectIdFromNotePath(note.path);
   const conceptDagHtml = conceptDag ? buildConceptDagTreeHtml(conceptDag, conceptDagSubjectId) : '';
-  const bodyHtml = renderBlocks(bodyForDisplay, `notes/${note.path}`);
+  const lessonPath = `notes/${note.path}`;
+  const practiceExampleContext = createPracticeExampleContext(
+    lessonPath,
+    practice?.problems ?? [],
+    practiceProblemIndex,
+  );
+  const bodyHtml = renderBlocks(bodyForDisplay, lessonPath, practiceExampleContext);
   const pageHtml = buildNoteHtml({
     title,
     description,
@@ -2676,7 +2834,15 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     subject: note.structureTitle,
     url: urlPath,
     summary,
-    text: trimMarkdownText(`${title} ${stripSearchOnlySections(bodyForDisplay)}`),
+    text: trimMarkdownText([
+      title,
+      stripSearchOnlySections(bodyForDisplay),
+      ...practiceExampleContext.resolvedProblems.flatMap((problem) => [
+        problem.title,
+        problem.promptMarkdown,
+        problem.solutionMarkdown,
+      ]),
+    ].join(' ')),
   };
 }
 
@@ -2807,6 +2973,11 @@ async function buildNotePages(notes, structures, assetVersions, conceptDag) {
   ]);
   const practiceUrls = [];
   const searchEntries = [];
+  const practiceProblemIndex = new Map(
+    [...practiceByNotePath.values()].flatMap((practice) => (
+      practice.problems.map((problem) => [problem.id, problem])
+    )),
+  );
 
   for (const [index, note] of notes.entries()) {
     const practice = practiceByNotePath.get(note.path);
@@ -2816,7 +2987,16 @@ async function buildNotePages(notes, structures, assetVersions, conceptDag) {
       throw new Error(`Missing loaded note content for ${note.path}.`);
     }
 
-    searchEntries.push(await buildNotePage(note, urls[index], structures, assetVersions, noteDocument, conceptDag, practice));
+    searchEntries.push(await buildNotePage(
+      note,
+      urls[index],
+      structures,
+      assetVersions,
+      noteDocument,
+      conceptDag,
+      practice,
+      practiceProblemIndex,
+    ));
 
     if (practice) {
       const practicePage = await buildPracticePage(practice, structures, assetVersions, noteDocument);
@@ -2837,12 +3017,14 @@ export {
   MATHJAX_SVG_FONT_CACHE,
   collectConceptDagAncestors,
   collectConceptDagRootIds,
+  createPracticeExampleContext,
   getSummary,
   normalizePracticeExam,
   parseFrontmatter,
   parsePracticeProblems,
   renderBlocks,
   renderFloatingActions,
+  renderTableOfContents,
   rewriteInternalHref,
   slugifyHeading,
   stripSearchOnlySections,

@@ -1,9 +1,3 @@
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Gere and Goodno, *Mechanics of Materials*
-- Sadd, *Elasticity: Theory, Applications, and Numerics*
-
 # Scope and core ideas
 
 Solid mechanics studies the motion, deformation, and failure of solid bodies under mechanical loading. Its central questions are:
@@ -474,3 +468,9 @@ $$
 5. Decide whether the state is plane stress, plane strain, or three-dimensional.
 6. Calculate principal stresses or an equivalent stress if failure is relevant.
 7. Check yield, deformation, and units.
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Gere and Goodno, *Mechanics of Materials*
+- Sadd, *Elasticity: Theory, Applications, and Numerics*

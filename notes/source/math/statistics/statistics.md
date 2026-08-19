@@ -1,17 +1,4 @@
-# Statistics
-
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
-## What statistics studies
+# What statistics studies
 
 Statistics is the science of turning data into conclusions under uncertainty.
 
@@ -40,7 +27,7 @@ Because samples are incomplete, every statistical conclusion carries uncertainty
 
 ---
 
-## Data, variables, and measurement scales
+# Data, variables, and measurement scales
 
 ## Types of variables
 
@@ -78,7 +65,7 @@ These are not cosmetic issues. They can change the answer.
 
 ---
 
-## Describing a distribution
+# Describing a distribution
 
 A distribution describes how values are spread across a variable.
 
@@ -153,7 +140,7 @@ Z-scores are useful for comparing values across different scales.
 This summary underlies the boxplot.
 ---
 
-## Probability essentials
+# Probability essentials
 
 Probability models uncertainty mathematically.
 
@@ -216,7 +203,7 @@ $$
 P(A \mid B) = P(A)
 $$
 
-## Bayes' rule
+# Bayes' rule
 
 $$
 P(A \mid B) = \frac{P(B \mid A)P(A)}{P(B)}
@@ -226,7 +213,7 @@ Bayes' rule reverses conditioning. It is especially important in diagnostics and
 
 ---
 
-## Common distributions
+# Common distributions
 
 ## Bernoulli
 
@@ -314,7 +301,7 @@ $$
 
 ---
 
-## Sampling and the central limit theorem
+# Sampling and the central limit theorem
 
 ## Sampling distributions
 
@@ -362,7 +349,7 @@ If sampling is biased, inference can be precise and wrong at the same time.
 
 ---
 
-## Estimation and confidence intervals
+# Estimation and confidence intervals
 
 ## Point estimates
 
@@ -420,7 +407,7 @@ Margin of error usually decreases when:
 
 ---
 
-## Hypothesis testing
+# Hypothesis testing
 
 Hypothesis testing is a framework for deciding whether observed data are consistent with a null model.
 
@@ -478,7 +465,7 @@ $$
 
 ---
 
-## Correlation and regression
+# Correlation and regression
 
 ## Correlation
 
@@ -549,7 +536,7 @@ is the proportion of variability in the response explained by the model.
 
 ---
 
-## Nonparametric and categorical methods
+# Nonparametric and categorical methods
 
 ## Categorical data
 
@@ -588,7 +575,7 @@ These are useful when data are skewed, ordinal, or have strong outliers.
 
 ---
 
-## Practical workflow and pitfalls
+# Practical workflow and pitfalls
 
 ## A reliable analysis workflow
 
@@ -622,7 +609,7 @@ These are useful when data are skewed, ordinal, or have strong outliers.
 
 ---
 
-## Formula sheet
+# Formula sheet
 
 ## Descriptive statistics
 
@@ -706,9 +693,20 @@ $$
 e_i = y_i - \hat{y}_i
 $$
 
-## Problem-solving notes
+# Problem-solving notes
 
 - Start by naming the parameter.
 - Check whether the method is for a mean, proportion, count, or association.
 - If the data are skewed, consider a transformation or a robust method.
 - If the conclusion depends on a model assumption, state that assumption explicitly.
+
+# Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

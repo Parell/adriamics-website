@@ -1610,13 +1610,11 @@ function initVectorCalculusGradient(root) {
 
   const boardId = ensureInteractiveBoardId(boardElement, 'gradient');
 
-  const fieldSelect = root.querySelector('[data-gradient-field]');
-  const angleInput = root.querySelector('[data-gradient-angle]');
-  const angleOutput = root.querySelector('[data-gradient-angle-value]');
-  const values = Object.fromEntries(Array.from(root.querySelectorAll('[data-gradient-value]')).map((element) => [element.dataset.gradientValue, element]));
   const fields = createGradientFields();
-  let fieldKey = fieldSelect?.value in fields ? fieldSelect.value : 'quadratic';
-  let angle = Number(angleInput?.value ?? 35) * Math.PI / 180;
+  const values = Object.fromEntries(Array.from(root.querySelectorAll('[data-gradient-value]')).map((element) => [element.dataset.gradientValue, element]));
+  const angleOutput = null;
+  const fieldKey = root.dataset.gradientField in fields ? root.dataset.gradientField : 'quadratic';
+  const angle = 35 * Math.PI / 180;
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true });
   const probe = board.create('point', [2, 1], { name: 'P', size: 4, color: '#f4b942', fixed: false, snapSizeX: 0.05, snapSizeY: 0.05 });
   const pointCoords = () => [probe.X(), probe.Y()];
@@ -1639,8 +1637,6 @@ function initVectorCalculusGradient(root) {
     board.update();
   };
   const updateFieldVisibility = () => levelCurves.forEach((curve, index) => curve.setAttribute({ visible: fieldKey === 'quadratic' ? index < 7 : index >= 7 }));
-  fieldSelect?.addEventListener('change', () => { fieldKey = fields[fieldSelect.value] ? fieldSelect.value : 'quadratic'; updateFieldVisibility(); update(); });
-  angleInput?.addEventListener('input', () => { angle = Number(angleInput.value) * Math.PI / 180; update(); });
   probe.on('drag', update);
   updateFieldVisibility();
   update();
@@ -1677,6 +1673,39 @@ function createGradientLevelCurves(addCurve) {
   return curves;
 }
 
+function initVectorCalculusGradient3D(root) {
+  if (!root || root.dataset.gradient3dInitialized === 'true') return;
+  root.dataset.gradient3dInitialized = 'true';
+  const boardElement = root.querySelector('[data-gradient-3d-board]');
+  if (!window.JXG || !boardElement || !JXG.JSXGraph.initBoard) {
+    throw new Error('3D gradient interactive failed to initialize.');
+  }
+
+  const boardId = ensureInteractiveBoardId(boardElement, 'gradient-3d');
+  const board = JXG.JSXGraph.initBoard(boardId, {
+    boundingbox: [-6, 6, 6, -6], axis: false, pan: { enabled: false },
+    showCopyright: false, showNavigation: false, keepaspectratio: true,
+  });
+  const view = board.create('view3d', [[-5, -4], [9, 9], [[-3, 3], [-3, 3], [0, 10]]], {
+    projection: 'central',
+    trackball: { enabled: true },
+    xPlaneRear: { visible: false }, yPlaneRear: { visible: false }, zPlaneRear: { visible: false },
+  });
+  const f = (x, y) => 0.5 * x * x + y * y;
+  const fx = (x) => x;
+  const fy = (y) => 2 * y;
+  view.create('functiongraph3d', [f, [-3, 3], [-3, 3]], {
+    strokeColor: '#8f9aaa', strokeWidth: 0.7, fillColor: '#8f9aaa', fillOpacity: 0.28,
+    stepU: 28, stepsV: 28,
+  });
+  const basePoint = view.create('point3d', [1, 1, 0], { name: 'P', size: 4, fillColor: '#f4b942', strokeColor: '#f4b942' });
+  const surfacePoint = view.create('point3d', [() => [basePoint.X(), basePoint.Y(), f(basePoint.X(), basePoint.Y())]], { fixed: true, size: 4, fillColor: '#f4b942', strokeColor: '#f4b942' });
+  view.create('line3d', [basePoint, surfacePoint], { dash: 2, strokeColor: '#777', strokeWidth: 1.5 });
+  const gradientTip = view.create('point3d', [() => [surfacePoint.X() + fx(basePoint.X()) * 0.5, surfacePoint.Y() + fy(basePoint.Y()) * 0.5, surfacePoint.Z()]], { fixed: true, size: 3, fillColor: '#777', strokeColor: '#777' });
+  view.create('line3d', [surfacePoint, gradientTip], { strokeColor: '#777', strokeWidth: 3 });
+  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+}
+
 function initVectorField3D(root) {
   if (!root || root.dataset.vectorFieldInitialized === 'true') {
     return;
@@ -1691,15 +1720,12 @@ function initVectorField3D(root) {
 
   const boardId = ensureInteractiveBoardId(boardElement, 'vector-field-3d');
 
-  const choice = root.querySelector('[data-vector-field-choice]');
-  const scaleInput = root.querySelector('[data-vector-field-scale]');
-  const scaleValue = root.querySelector('[data-vector-field-scale-value]');
   const formula = root.querySelector('[data-vector-field-formula]');
   const fields = {
     rotation: { value: (x, y, z) => [-y, x, 0], description: 'Horizontal rotation around the z-axis.' },
     radial: { value: (x, y, z) => [x, y, z], description: 'Vectors point away from the origin.' },
   };
-  let fieldKey = fields[choice?.value] ? choice.value : 'rotation';
+  const fieldKey = root.dataset.vectorField in fields ? root.dataset.vectorField : 'rotation';
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-6, 6, 6, -6], axis: true, pan: { enabled: false }, showCopyright: false, showNavigation: false, keepaspectratio: true });
   let view;
 
@@ -1714,32 +1740,156 @@ function initVectorField3D(root) {
       zPlaneRear: { visible: false },
   });
     // JSXGraph element names are lowercase, including the trailing "3d".
-    let vectorScale = 0.4;
-    const vectorField = view.create('vectorfield3d', [fields[fieldKey].value, [-3, 2, 3], [-3, 2, 3], [-3, 2, 3]], { strokeColor: '#555', strokeWidth: 2.5, scale: () => vectorScale });
-    const updateScale = () => {
-      vectorScale = Number(scaleInput?.value ?? 0.4);
-      vectorField.setAttribute({ scale: () => vectorScale });
-      vectorField.update();
-      if (scaleValue) scaleValue.value = vectorScale.toFixed(2);
-      if (scaleValue) scaleValue.textContent = vectorScale.toFixed(2);
-      board.fullUpdate();
-    };
+    let vectorScale = 0.28;
+    const vectorField = view.create('vectorfield3d', [fields[fieldKey].value, [-3, 8, 3], [-3, 8, 3], [-3, 8, 3]], {
+      strokeColor: '#777',
+      strokeWidth: 1.4,
+      arrowhead: { enabled: true, size: 3, angle: Math.PI * 0.125 },
+      scale: () => vectorScale,
+    });
     const update = () => {
-      fieldKey = fields[choice?.value] ? choice.value : 'rotation';
       vectorField.setF(fields[fieldKey].value);
       if (formula) formula.textContent = fields[fieldKey].description;
       board.update();
     };
-    choice?.addEventListener('change', update);
-    scaleInput?.addEventListener('input', updateScale);
     update();
-    updateScale();
   if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+}
+
+function createStaticBoard(root, type, boundingbox) {
+  const boardElement = root?.querySelector('[data-static-board]');
+  if (!window.JXG || !boardElement || !JXG.JSXGraph.initBoard) {
+    throw new Error(`${type} diagram failed to initialize.`);
+  }
+  const boardId = ensureInteractiveBoardId(boardElement, type);
+  const board = JXG.JSXGraph.initBoard(boardId, {
+    boundingbox, axis: false, pan: { enabled: false }, zoom: { enabled: false },
+    showCopyright: false, showNavigation: false, keepaspectratio: true,
+  });
+  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+  return board;
+}
+
+function diagramText(board, x, y, text, options = {}) {
+  return board.create('text', [x, y, text], { fixed: true, fontSize: options.fontSize ?? 14, strokeColor: options.color ?? '#252525', anchorX: options.anchorX ?? 'middle', anchorY: 'middle', ...options });
+}
+
+function diagramArrow(board, start, end, options = {}) {
+  return board.create('arrow', [start, end], { fixed: true, strokeWidth: 2.5, strokeColor: options.color ?? '#b33a3a', fillColor: options.color ?? '#b33a3a', ...options });
+}
+
+function initStaticsModeling(root) {
+  if (!root || root.dataset.staticInitialized === 'true') return;
+  root.dataset.staticInitialized = 'true';
+  const board = createStaticBoard(root, 'statics-modeling', [0, 7, 24, 0]);
+  const ink = '#263238'; const muted = '#718096'; const accent = '#b33a3a'; const support = '#315c8c';
+  [6, 12, 18].forEach((x) => board.create('segment', [[x, .5], [x, 6.5]], { fixed: true, strokeColor: '#cbd5e0', dash: 2 }));
+  diagramText(board, 3, 6.55, '1  PHYSICAL OBJECT', { fontSize: 12, color: muted });
+  diagramText(board, 9, 6.55, '2  ISOLATE', { fontSize: 12, color: muted });
+  diagramText(board, 15, 6.55, '3  FBD', { fontSize: 12, color: muted });
+  diagramText(board, 21, 6.55, '4  EQUATIONS', { fontSize: 12, color: muted });
+  board.create('polygon', [[1.3, 2], [4.7, 2], [4.7, 4.2], [1.3, 4.2]], { fixed: true, fillColor: '#d9e4ef', fillOpacity: .9, borders: { strokeColor: ink, strokeWidth: 2 } });
+  board.create('segment', [[.8, 1.2], [5.2, 1.2]], { fixed: true, strokeColor: ink, strokeWidth: 2 });
+  diagramArrow(board, [3, 5.2], [3, 4.25], { color: accent }); diagramText(board, 3, 5.45, 'W = mg', { color: accent });
+  diagramText(board, 3, 1.75, 'block on rough floor', { fontSize: 12, color: ink });
+  board.create('polygon', [[7.3, 2], [10.7, 2], [10.7, 4.2], [7.3, 4.2]], { fixed: true, fillColor: '#eef2f7', fillOpacity: .9, borders: { strokeColor: ink, strokeWidth: 2 } });
+  diagramText(board, 9, 1.75, 'remove floor and surroundings', { fontSize: 12, color: muted });
+  diagramArrow(board, [9, 5.2], [9, 4.25], { color: accent }); diagramText(board, 9, 5.45, 'W', { color: accent });
+  board.create('circle', [[15, 3.1], .95], { fixed: true, fillColor: '#eef2f7', fillOpacity: .9, strokeColor: ink, strokeWidth: 2 });
+  diagramArrow(board, [15, 4.05], [15, 5.35], { color: accent }); diagramText(board, 15.7, 5.35, 'N', { color: accent, anchorX: 'left' });
+  diagramArrow(board, [14.05, 3.1], [12.7, 3.1], { color: accent }); diagramText(board, 12.8, 3.55, 'F', { color: accent, anchorX: 'left' });
+  diagramArrow(board, [15, 2.15], [15, .85], { color: accent }); diagramText(board, 15.7, .9, 'W = mg', { color: accent, anchorX: 'left' });
+  diagramArrow(board, [15.95, 3.1], [17.3, 3.1], { color: support }); diagramText(board, 17.2, 3.55, 'f', { color: support, anchorX: 'right' });
+  diagramText(board, 21, 5.25, 'ΣFₓ = 0', { fontSize: 16, color: ink });
+  diagramText(board, 21, 4.25, 'F − f = 0', { fontSize: 16, color: accent });
+  diagramText(board, 21, 3.05, 'ΣFᵧ = 0', { fontSize: 16, color: ink });
+  diagramText(board, 21, 2.05, 'N − mg = 0', { fontSize: 16, color: accent });
+  diagramText(board, 21, .8, 'model → forces → balance', { fontSize: 12, color: muted });
+}
+
+function initProjectileDiagram(root) {
+  if (!root || root.dataset.staticInitialized === 'true') return;
+  root.dataset.staticInitialized = 'true';
+  const board = createStaticBoard(root, 'dynamics-projectile', [0, 8, 12, 0]);
+  const ink = '#263238'; const accent = '#b33a3a'; const muted = '#718096';
+  board.create('segment', [[.7, 1], [11.4, 1]], { fixed: true, strokeColor: ink, strokeWidth: 2 });
+  board.create('curve', [(t) => 1 + 4 * t - 3.2 * t * t, (t) => 1 + 2.2 * t, [0, 1.25]], { fixed: true, strokeColor: accent, strokeWidth: 3 });
+  diagramArrow(board, [1, 1.15], [2.4, 1.9], { color: accent }); diagramText(board, 2.1, 2.2, 'v₀', { color: accent });
+  diagramArrow(board, [4.2, 4.55], [4.2, 3.55], { color: '#315c8c' }); diagramText(board, 4.65, 4.05, 'g', { color: '#315c8c', anchorX: 'left' });
+  diagramText(board, 1, .55, 'x = v₀ cosθ · t', { fontSize: 15, color: ink, anchorX: 'left' });
+  diagramText(board, 7.1, .55, 'y = v₀ sinθ · t − ½gt²', { fontSize: 15, color: ink });
+  diagramText(board, 6, 7.3, 'projectile: resolve first, then integrate acceleration', { fontSize: 12, color: muted });
+}
+
+function initCircuitDiagram(root) {
+  if (!root || root.dataset.staticInitialized === 'true') return;
+  root.dataset.staticInitialized = 'true';
+  const board = createStaticBoard(root, 'circuits-kcl', [0, 7, 14, 0]);
+  const ink = '#263238'; const accent = '#b33a3a'; const blue = '#315c8c';
+  const line = (a, b) => board.create('segment', [a, b], { fixed: true, strokeColor: ink, strokeWidth: 2 });
+  line([2, 5.5], [5, 5.5]); line([9, 5.5], [12, 5.5]); line([2, 1.5], [12, 1.5]); line([2, 1.5], [2, 5.5]); line([12, 1.5], [12, 5.5]);
+  board.create('circle', [[7, 5.5], .65], { fixed: true, fillColor: '#eef2f7', fillOpacity: .9, strokeColor: ink, strokeWidth: 2 });
+  diagramText(board, 7, 5.5, 'R', { fontSize: 16, color: ink });
+  board.create('polygon', [[3, 1.5], [3.5, 2], [3, 2.5], [2.5, 2], [3, 1.5]], { fixed: true, fillColor: '#f4d06f', fillOpacity: .95, borders: { strokeColor: ink, strokeWidth: 1.5 } });
+  diagramText(board, 3, 3, 'Vₛ', { color: accent });
+  diagramArrow(board, [4, 5.9], [6, 5.9], { color: blue }); diagramText(board, 5, 6.35, 'i', { color: blue });
+  board.create('point', [7, 5.5], { fixed: true, size: 4, color: accent, name: 'node' });
+  diagramText(board, 7, 3.6, 'KCL at node', { fontSize: 13, color: accent });
+  diagramText(board, 7, 2.7, 'Σi = 0', { fontSize: 18, color: ink });
+  diagramText(board, 7, 1.1, 'iₛ − i_R = 0', { fontSize: 15, color: blue });
+}
+
+function initJSXGraphExamples(root) {
+  if (!root || root.dataset.jsxgraphInitialized === 'true' || !window.JXG) return;
+  root.dataset.jsxgraphInitialized = 'true';
+  const boardElement = root.querySelector('[data-jsxgraph-board]');
+  if (!boardElement) return;
+  const kind = root.dataset.jsxgraphExample;
+  const bounds = kind === 'geometry' ? [-3, 3, 3, -3] : kind === 'trigonometry' ? [-1.5, 1.5, 7, -1.5] : kind === 'physics-2d' ? [-1, 6, 12, -1] : [-5, 8, 5, -2];
+  const board = JXG.JSXGraph.initBoard(boardElement.id, { boundingbox: bounds, axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true });
+  const blue = '#315c8c'; const red = '#b33a3a'; const ink = '#263238';
+  if (kind === 'algebra') {
+    const firstA = board.create('point', [-2, -3], { name: 'A', size: 3, color: blue });
+    const firstB = board.create('point', [2, 5], { name: 'B', size: 3, color: blue });
+    const secondA = board.create('point', [-2, 6], { name: 'C', size: 3, color: red });
+    const secondB = board.create('point', [2, 2], { name: 'D', size: 3, color: red });
+    const firstLine = board.create('line', [firstA, firstB], { strokeColor: blue, strokeWidth: 3 });
+    const secondLine = board.create('line', [secondA, secondB], { strokeColor: red, strokeWidth: 3 });
+    board.create('intersection', [firstLine, secondLine, 0], { name: 'P', size: 4, color: ink });
+  } else if (kind === 'geometry') {
+    const center = board.create('point', [0, 0], { name: 'O', fixed: true });
+    const circle = board.create('circle', [center, [1, 1]], { strokeColor: blue, strokeWidth: 3, fillOpacity: 0.08 });
+    const point = board.create('glider', [1, 1, circle], { name: 'P', size: 4, color: red });
+    board.create('segment', [center, point], { strokeColor: red, strokeWidth: 2 });
+    board.create('tangent', [circle, point], { strokeColor: ink, strokeWidth: 2 });
+  } else if (kind === 'trigonometry') {
+    const circle = board.create('circle', [[0, 0], 1], { strokeColor: blue, strokeWidth: 2 });
+    const point = board.create('glider', [0.76, 0.64, circle], { name: 'P', size: 4, color: red });
+    board.create('segment', [[0, 0], point], { strokeColor: red, strokeWidth: 2 });
+    const sine = board.create('curve', [x => x, x => Math.sin(x), 0, 2 * Math.PI], { strokeColor: ink, strokeWidth: 2 });
+    const angle = () => Math.atan2(point.Y(), point.X()) < 0 ? Math.atan2(point.Y(), point.X()) + 2 * Math.PI : Math.atan2(point.Y(), point.X());
+    board.create('point', [angle, () => point.Y()], { name: 'sin(θ)', size: 4, color: red });
+    board.create('segment', [[() => angle(), () => point.Y()], point], { strokeColor: '#718096', dash: 2 });
+  } else if (kind === 'physics-2d') {
+    const theta = Math.PI / 4; const speed = 10; const gravity = 9.8;
+    const trajectory = x => x * Math.tan(theta) - gravity * x * x / (2 * speed * speed * Math.cos(theta) ** 2);
+    const path = board.create('functiongraph', [trajectory, 0, 10.2], { strokeColor: red, strokeWidth: 3 });
+    board.create('segment', [[0, 0], [10.5, 0]], { strokeColor: ink, strokeWidth: 2 });
+    const projectile = board.create('glider', [2.2, trajectory(2.2), path], { name: 'r(t)', size: 4, color: red });
+    const slope = x => Math.tan(theta) - gravity * x / (speed * speed * Math.cos(theta) ** 2);
+    board.create('arrow', [projectile, [() => projectile.X() + Math.cos(Math.atan(slope(projectile.X()))), () => projectile.Y() + Math.sin(Math.atan(slope(projectile.X())))]], { strokeColor: blue, strokeWidth: 3 });
+    board.create('arrow', [[() => projectile.X(), () => projectile.Y()], [() => projectile.X(), () => projectile.Y() - 1]], { strokeColor: ink, strokeWidth: 3 });
+  }
 }
 
 const INTERACTIVE_INITIALIZERS = {
   'vector-calculus-gradient': (root) => initVectorCalculusGradient(root),
+  'vector-calculus-gradient-3d': (root) => initVectorCalculusGradient3D(root),
   'vector-calculus-vector-field-3d': (root) => initVectorField3D(root),
+  'statics-modeling': (root) => initStaticsModeling(root),
+  'dynamics-projectile': (root) => initProjectileDiagram(root),
+  'circuits-kcl': (root) => initCircuitDiagram(root),
+  'jsxgraph-examples': (root) => initJSXGraphExamples(root),
 };
 
 function initInteractiveExperiences() {

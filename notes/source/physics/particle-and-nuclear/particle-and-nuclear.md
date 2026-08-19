@@ -1,13 +1,5 @@
 # Particle and Nuclear Physics
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Particle Data Group](https://pdg.lbl.gov/)
-- [CERN](https://home.cern/science/physics)
-- Griffiths, *Introduction to Elementary Particles*
-- Krane, *Introductory Nuclear Physics*
-
 ## Prerequisites and outcomes
 
 This note assumes special relativity, introductory quantum mechanics, and conservation-law reasoning. By the end, you should be able to test reactions for kinematic and charge constraints, compute decay quantities from mass differences or half-lives, and distinguish a measured cross section from a probability for one particular event.
@@ -70,3 +62,11 @@ Detectors may track charged particles, measure deposited energy, identify time o
 ## Summary
 
 Particle and nuclear physics uses conservation laws, relativistic kinematics, and measured decay or scattering patterns to connect fundamental interactions with the structure of matter.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Particle Data Group](https://pdg.lbl.gov/)
+- [CERN](https://home.cern/science/physics)
+- Griffiths, *Introduction to Elementary Particles*
+- Krane, *Introductory Nuclear Physics*

@@ -241,6 +241,24 @@ $$
 :::
 
 <!--
+id: physics-i-111
+note: physics-physics-i
+title: "Determine the Direction of Static Friction on an Incline"
+exam: exam-ii
+skills: [Static friction, Inclined planes, Newton's laws]
+-->
+
+An otherwise unforced block is stationary on a $30^\circ$ incline. Which direction does the static friction force on the block point?
+
+:::solution
+The component of gravity parallel to the surface points down the incline. Without friction, that component would produce impending motion down the incline.
+
+Static friction opposes that impending relative motion, so it **acts up the incline**.
+
+For equilibrium, its required magnitude is $mg\sin 30^\circ$ as long as that value does not exceed the maximum available static friction. Static friction is not automatically equal to $\mu_sN$; $\mu_sN$ is only its maximum possible magnitude.
+:::
+
+<!--
 id: physics-i-21
 note: physics-physics-i
 title: "Find the Time of Flight for a Projectile"

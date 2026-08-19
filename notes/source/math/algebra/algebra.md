@@ -1,24 +1,5 @@
 # Algebra
 
-## Sources
-
-- [OpenStax Mathematics](https://openstax.org/subjects/math)
-- [Mathematics LibreTexts](https://math.libretexts.org/)
-- Stewart, *Calculus: Early Transcendentals*
-- Lay, *Linear Algebra and Its Applications*
-- Rosen, *Discrete Mathematics and Its Applications*
-- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
-- Blitzstein and Hwang, *Introduction to Probability*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
-Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.
-
-> **What this assumes:** Arithmetic with integers, fractions, decimals, percentages, and signed numbers.
->
-> **What this enables:** Functions, limits, calculus, probability, statistics, and mathematical modeling all rely on algebraic expressions, equations, and inequalities.
-
-> **Scope note:** This is the canonical note for symbolic manipulation and equation-solving. Use [Functions](/notes/subjects/math/functions/) for domain, codomain, composition, and inverse-function concepts.
-
 # Core ideas and notation
 
 At its core, algebra replaces specific numbers with symbols so that one argument can describe many cases.
@@ -51,6 +32,8 @@ The goal is usually to find all values of the variable that make the statement t
 
 ## Order of operations
 
+:::rule Order of operations
+
 Evaluate in this order:
 
 1. Parentheses and grouped expressions
@@ -65,6 +48,8 @@ a(b + c) = ab + ac
 $$
 
 This property is one of the most important tools in algebra.
+
+:::
 
 ## Arithmetic review: numerical fluency
 
@@ -149,13 +134,15 @@ $$
 
 An **identity** is true for all allowed values of the variable.
 
-Example:
+:::example Squaring a binomial
 
 $$
 (a+b)^2 = a^2 + 2ab + b^2
 $$
 
 This is not an equation to solve; it is a pattern to use.
+
+:::
 
 ---
 
@@ -795,3 +782,22 @@ See [Functions](../functions/functions.md) for the canonical concepts: [notation
 domain, codomain, and range](../functions/functions.md#2-notation-domain-codomain-and-range),
 [exponential and logarithmic functions](../functions/functions.md#exponential-and-logarithmic-functions),
 and [composition and inverse functions](../functions/functions.md#6-composition-and-inverse-functions).
+
+## Sources
+
+- [OpenStax Mathematics](https://openstax.org/subjects/math)
+- [Mathematics LibreTexts](https://math.libretexts.org/)
+- Stewart, *Calculus: Early Transcendentals*
+- Lay, *Linear Algebra and Its Applications*
+- Rosen, *Discrete Mathematics and Its Applications*
+- Boyce and DiPrima, *Elementary Differential Equations and Boundary Value Problems*
+- Blitzstein and Hwang, *Introduction to Probability*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+
+Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.
+
+> **What this assumes:** Arithmetic with integers, fractions, decimals, percentages, and signed numbers.
+>
+> **What this enables:** Functions, limits, calculus, probability, statistics, and mathematical modeling all rely on algebraic expressions, equations, and inequalities.
+
+> **Scope note:** This is the canonical note for symbolic manipulation and equation-solving. Use [Functions](/notes/subjects/math/functions/) for domain, codomain, composition, and inverse-function concepts.

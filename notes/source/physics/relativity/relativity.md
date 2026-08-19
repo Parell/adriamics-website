@@ -1,16 +1,5 @@
 # Relativity
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 This note assumes algebra, functions, vectors, and introductory mechanics. Calculus and linear algebra help with the general-relativity overview but are not required for the special-relativity core. By the end, you should be able to choose an inertial frame, use invariant quantities, and distinguish the special- and general-relativistic regimes.
@@ -795,3 +784,14 @@ $$
 - Forgetting that momentum is $\gamma mv$, not just $mv$.
 - Applying special-relativity formulas to strong gravity without checking the model.
 - Confusing gravitational time dilation with Doppler shift, which are related but not the same effect.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

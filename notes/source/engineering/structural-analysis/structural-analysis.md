@@ -1,10 +1,3 @@
-## Sources
-
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-- Hibbeler, *Structural Analysis*
-- Gere and Goodno, *Mechanics of Materials*
-- Kassimali, *Structural Analysis*
-
 # Structural analysis
 
 Structural analysis predicts the forces, reactions, displacements, and internal actions in a structure. The central distinction is between what equilibrium can determine and what requires deformation information. A structure is **statically determinate** when equilibrium alone is sufficient. It is **statically indeterminate** when additional equations based on compatibility and constitutive behavior are required.
@@ -284,3 +277,10 @@ The model may contain an unconstrained rigid-body mode; inspect the supports and
 - Every final result needs equilibrium, compatibility, units, and physical-reasonableness checks.
 
 Structural analysis is therefore a modeling discipline as much as an algebraic one: identify the constraints, choose the unknowns that expose them, and use independent checks before trusting the result.
+
+## Sources
+
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+- Hibbeler, *Structural Analysis*
+- Gere and Goodno, *Mechanics of Materials*
+- Kassimali, *Structural Analysis*

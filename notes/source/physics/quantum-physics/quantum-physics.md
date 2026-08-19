@@ -1,16 +1,5 @@
 # Quantum Physics
 
-## Sources
-
-- [OpenStax University Physics](https://openstax.org/subjects/science)
-- [Physics LibreTexts](https://phys.libretexts.org/)
-- Halliday, Resnick, and Walker, *Fundamentals of Physics*
-- Serway and Jewett, *Physics for Scientists and Engineers*
-- Griffiths, *Introduction to Electrodynamics*
-- Griffiths, *Introduction to Quantum Mechanics*
-- Taylor, *Classical Mechanics*
-- [Parell GitHub repository](https://github.com/Parell/parell.github.io)
-
 ## Prerequisites and outcomes
 
 You should know complex numbers, derivatives, integrals, matrices, and eigenvalues; introductory waves and electromagnetism are helpful. By the end, you should be able to translate a one-dimensional quantum model into boundary conditions, operators, eigenvalues, and measurable probabilities.
@@ -552,3 +541,14 @@ When solving quantum problems, keep the following sequence in mind:
 **state -> operator -> boundary conditions -> eigenvalues -> probabilities -> interpretation**
 
 That order prevents most beginner mistakes and matches how the theory is actually used in practice.
+
+## Sources
+
+- [OpenStax University Physics](https://openstax.org/subjects/science)
+- [Physics LibreTexts](https://phys.libretexts.org/)
+- Halliday, Resnick, and Walker, *Fundamentals of Physics*
+- Serway and Jewett, *Physics for Scientists and Engineers*
+- Griffiths, *Introduction to Electrodynamics*
+- Griffiths, *Introduction to Quantum Mechanics*
+- Taylor, *Classical Mechanics*
+- [Parell GitHub repository](https://github.com/Parell/parell.github.io)

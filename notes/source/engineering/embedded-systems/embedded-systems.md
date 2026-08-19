@@ -1,29 +1,5 @@
 # Embedded Systems
 
-## Sources
-
-- Valvano, *Embedded Systems: Introduction to ARM Cortex-M Microcontrollers*
-- Barr and Massa, *Programming Embedded Systems*
-- Axelson, *Serial Port Complete*
-- Fraden, *Handbook of Modern Sensors*
-- [Engineering LibreTexts](https://eng.libretexts.org/)
-
-An embedded system is a computing system built into a larger product to sense, decide, communicate, and control. It combines hardware, firmware, electronics, timing, and physical constraints. Unlike a general-purpose computer, it usually has a defined function, limited resources, and an explicit relationship with the real world.
-
-The central signal path is
-
-$$
-\text{physical variable}
-\rightarrow \text{sensor}
-\rightarrow \text{signal conditioning}
-\rightarrow \text{ADC}
-\rightarrow \text{firmware}
-\rightarrow \text{PWM/DAC/communication}
-\rightarrow \text{actuator or system}
-$$
-
-This note assumes basic circuit analysis, binary numbers, programming, and algebra. It focuses on design reasoning rather than one particular microcontroller family.
-
 ## Requirements and system boundaries
 
 Begin with measurable requirements:
@@ -228,3 +204,27 @@ Synchronize ADC acquisition away from switching transients, verify ADC settling 
 6. Protocols define framing, integrity, timeout, retry, priority, and recovery behavior.
 7. Safety-related outputs fail to a known state on reset, watchdog, brownout, and detected sensor faults.
 8. Unit, integration, hardware-in-loop, fault-injection, and regression evidence is traceable to requirements.
+
+## Sources
+
+- Valvano, *Embedded Systems: Introduction to ARM Cortex-M Microcontrollers*
+- Barr and Massa, *Programming Embedded Systems*
+- Axelson, *Serial Port Complete*
+- Fraden, *Handbook of Modern Sensors*
+- [Engineering LibreTexts](https://eng.libretexts.org/)
+
+An embedded system is a computing system built into a larger product to sense, decide, communicate, and control. It combines hardware, firmware, electronics, timing, and physical constraints. Unlike a general-purpose computer, it usually has a defined function, limited resources, and an explicit relationship with the real world.
+
+The central signal path is
+
+$$
+\text{physical variable}
+\rightarrow \text{sensor}
+\rightarrow \text{signal conditioning}
+\rightarrow \text{ADC}
+\rightarrow \text{firmware}
+\rightarrow \text{PWM/DAC/communication}
+\rightarrow \text{actuator or system}
+$$
+
+This note assumes basic circuit analysis, binary numbers, programming, and algebra. It focuses on design reasoning rather than one particular microcontroller family.

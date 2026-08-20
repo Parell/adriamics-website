@@ -21,20 +21,34 @@ function renderMathJaxConfig(outputDir, assetVersions) {
   const mathJaxHref = `${getRelativeNotesAssetHref(outputDir, MATHJAX_ASSET_PATH)}?v=${assetVersions.mathjax}`;
   return `
   <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
     window.MathJax = {
       tex: {
         inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
-        macros: {
-          degree: '{^{\\\\circ}}',
-          arcsec: '\\\\operatorname{arcsec}',
-          oiint: '\\\\oiint'
-        }
+        packages: { '[+]': ['ams'] }
       },
       svg: {
         fontCache: '${MATHJAX_SVG_FONT_CACHE}',
         blacker: ${MATHJAX_SVG_BLACKER}
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
       }
     };
   </script>
@@ -1593,6 +1607,12 @@ function renderNotesPageDocument({
   headHtml = '',
   extraHead = '',
 }) {
+  const webmejiCriticalStyles = `<style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>`;
   const webmejiHead = `${renderAsyncStylesheet('/notes/webmeji/webmeji.css', { nonBlocking: true })}
   <script defer src="/notes/webmeji/config.min.js"></script>
   <script defer src="/notes/webmeji/webmeji.min.js"></script>`;
@@ -1627,6 +1647,7 @@ function renderNotesPageDocument({
   ${headHtml}
   ${themeBootstrapScript}
   ${renderAsyncStylesheet(stylesheetHref)}
+  ${webmejiCriticalStyles}
   ${webmejiHead}
   ${extraHead}
   <script defer src="${escapeHtml(scriptHref)}"></script>
@@ -1798,8 +1819,10 @@ function buildNoteHtml({
       <article class="markdown-body" id="note-content">
         ${beforeBodyHtml}
         ${tocHtml}
-        ${bodyHtml}
-        ${afterBodyHtml}
+        <div data-notes-lesson-body>
+          ${bodyHtml}
+          ${afterBodyHtml}
+        </div>
       </article>
     </section>
   `;
@@ -1817,6 +1840,7 @@ function buildNoteHtml({
     quickActionsHtml,
     stylesheetHref,
     scriptHref,
+    headHtml: '<script>document.documentElement.classList.add("notes-lesson-boot");</script>',
     extraHead: `${interactiveHead}
   ${renderMathJaxConfig(outputDir, assetVersions)}
   `,
@@ -2520,6 +2544,7 @@ function renderPracticePageHtml({
     quickActionsHtml,
     stylesheetHref,
     scriptHref,
+    headHtml: '<script>document.documentElement.classList.add("notes-practice-boot");</script>',
     extraHead: renderMathJaxConfig(outputDir, assetVersions),
   });
 }

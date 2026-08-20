@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/math/optimization/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
   <script>
     (() => {
       let storedTheme = null;
@@ -24,7 +24,13 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.min.css?v=ac6f575c0bc9" />
+  <link rel="stylesheet" href="../../../notes.min.css?v=b35311c03754" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
   <link rel="preload" href="/notes/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="/notes/webmeji/webmeji.css" /></noscript>
   <script defer src="/notes/webmeji/config.min.js"></script>
@@ -32,26 +38,40 @@
   
   
   <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
     window.MathJax = {
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
-        macros: {
-          degree: '{^{\\circ}}',
-          arcsec: '\\operatorname{arcsec}',
-          oiint: '\\oiint'
-        }
+        packages: { '[+]': ['ams'] }
       },
       svg: {
         fontCache: 'local',
         blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
       }
     };
   </script>
-  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=896a6a833e10"></script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
   
-  <script defer src="../../../notes.min.js?v=9c2881d618bb"></script>
+  <script defer src="../../../notes.min.js?v=7e5352e386fd"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -112,7 +132,8 @@
       <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/statistics/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/multivariable-calculus/multivariable-differential-calculus/" data-notes-nav-item>Multivariable Calculus</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/matrices/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/matrices/" data-notes-nav-item>Matrices</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/notes/subjects/math/optimization/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/optimization/" data-notes-nav-item>Optimization</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/eigenvalues/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/eigenvalues/" data-notes-nav-item>Eigenvalues</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="6"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/numerical-methods/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/numerical-methods/" data-notes-nav-item>Numerical Methods</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/first-order-odes/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/first-order-odes/" data-notes-nav-item>First Order ODEs</a></span></div></div></div>
     </section>
         
-        <p>Optimization is the mathematics of choosing the best available option. The quantity we care about is the <strong>objective</strong>: cost, error, time, energy, risk, or perhaps negative profit. The choices we are allowed to make form the <strong>feasible set</strong>.</p>
+        <div data-notes-lesson-body>
+          <p>Optimization is the mathematics of choosing the best available option. The quantity we care about is the <strong>objective</strong>: cost, error, time, energy, risk, or perhaps negative profit. The choices we are allowed to make form the <strong>feasible set</strong>.</p>
 <p>For example, if \(x\) is the amount of material in a design, we might want to</p>
 <div class="math-block">$$
 \text{minimize } f(x) \qquad \text{subject to } x\ge 0.
@@ -295,7 +316,8 @@ $$</div>
 <ol><li><p>Define the decision variables, units, objective, and constraints. Decide which quantities are minimized or maximized.</p></li><li><p>Check feasibility and scaling. Ask whether the functions are differentiable and whether convexity makes a global answer likely.</p></li><li><p>Solve simple cases analytically. For larger smooth problems, consider gradient, Newton, or quasi-Newton methods; use LP or QP solvers when the model has that structure.</p></li><li><p>Verify the result: inspect the objective, gradient or KKT residuals, constraint violations, bounds, and sensitivity to the starting point and tolerances.</p></li><li><p>Check the model itself. A solver can accurately optimize an objective that is still a poor representation of the real decision.</p></li></ol>
 <h3 id="checkpoint">Checkpoint</h3>
 <p>You are ready to use this note when you can explain local versus global minima, find and classify a stationary point, interpret a gradient as a direction, recognize basic convexity, set up a Lagrange-multiplier system, and describe why a numerical solver needs a step-size or stopping rule.</p>
-        
+          
+        </div>
       </article>
     </section>
   

@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/engineering/electrical-circuit-analysis/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
   <script>
     (() => {
       let storedTheme = null;
@@ -24,7 +24,13 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.min.css?v=ac6f575c0bc9" />
+  <link rel="stylesheet" href="../../../notes.min.css?v=b35311c03754" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
   <link rel="preload" href="/notes/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="/notes/webmeji/webmeji.css" /></noscript>
   <script defer src="/notes/webmeji/config.min.js"></script>
@@ -32,26 +38,40 @@
   
   
   <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
     window.MathJax = {
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
-        macros: {
-          degree: '{^{\\circ}}',
-          arcsec: '\\operatorname{arcsec}',
-          oiint: '\\oiint'
-        }
+        packages: { '[+]': ['ams'] }
       },
       svg: {
         fontCache: 'local',
         blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
       }
     };
   </script>
-  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=896a6a833e10"></script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
   
-  <script defer src="../../../notes.min.js?v=9c2881d618bb"></script>
+  <script defer src="../../../notes.min.js?v=7e5352e386fd"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -115,7 +135,8 @@
       <h2 class="notes-toc__title">Table of Contents</h2>
       <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#core-quantities-and-circuit-elements">Core quantities and circuit elements</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#reference-directions-and-sign-conventions">Reference directions and sign conventions</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#ohms-law-and-kirchhoffs-laws">Ohm&#39;s law and Kirchhoff&#39;s laws</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#series-parallel-and-equivalent-reduction">Series, parallel, and equivalent reduction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#node-voltage-analysis">Node-voltage analysis</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#mesh-current-analysis">Mesh-current analysis</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#source-transformations-and-superposition">Source transformations and superposition</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#thevenin-and-norton-equivalents">Thevenin and Norton equivalents</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#power-energy-and-maximum-power-transfer">Power, energy, and maximum power transfer</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#first-order-transients-rc-and-rl">First-order transients: RC and RL</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sinusoidal-steady-state-and-phasors">Sinusoidal steady state and phasors</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#impedance-admittance-and-ac-power">Impedance, admittance, and AC power</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#resonance-and-frequency-response">Resonance and frequency response</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#operational-amplifier-basics">Operational amplifier basics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#problem-solving-workflow">Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-sheet">Formula sheet</a></li></ol></div>
     </nav>
-        <h1 id="core-quantities-and-circuit-elements">Core quantities and circuit elements</h1>
+        <div data-notes-lesson-body>
+          <h1 id="core-quantities-and-circuit-elements">Core quantities and circuit elements</h1>
 <p>Electrical circuit analysis studies how voltage, current, charge, and power behave in interconnected components.</p>
 <h2 id="fundamental-quantities">Fundamental quantities</h2>
 <ul><li><p>Current, $i(t)$: rate of charge flow, $i = \dfrac{dq}{dt}$</p></li><li><p>Voltage, $v(t)$: electric potential difference</p></li><li><p>Charge, $q(t)$</p></li><li><p>Power, $p(t)$: instantaneous energy transfer, $p = vi$</p></li><li><p>Energy, $w(t)$: accumulated power, $w = \int p\,dt$</p></li></ul>
@@ -581,7 +602,8 @@ $$</div>
 <ul><li><p><a href="https://eng.libretexts.org/">Engineering LibreTexts</a></p></li><li><p>Hibbeler, <em>Engineering Mechanics</em></p></li><li><p>Nilsson and Riedel, <em>Electric Circuits</em></p></li><li><p>Sedra and Smith, <em>Microelectronic Circuits</em></p></li><li><p>Oppenheim and Willsky, <em>Signals and Systems</em></p></li><li><p>Nise, <em>Control Systems Engineering</em></p></li><li><p>Incropera et al., <em>Fundamentals of Heat and Mass Transfer</em></p></li><li><p>Fox, McDonald, and Pritchard, <em>Introduction to Fluid Mechanics</em></p></li><li><p>Groover, <em>Fundamentals of Modern Manufacturing</em></p></li><li><p>Callister and Rethwisch, <em>Materials Science and Engineering</em></p></li><li><p>Montgomery, <em>Introduction to Statistical Quality Control</em></p></li><li><p>Kerzner, <em>Project Management: A Systems Approach to Planning, Scheduling, and Controlling</em></p></li><li><p>Law, <em>Simulation Modeling and Analysis</em></p></li><li><p>Fraden, <em>Handbook of Modern Sensors</em></p></li><li><p>Leake and Borger, <em>Engineering Design Graphics</em></p></li><li><p><a href="https://github.com/Parell/parell.github.io">Parell GitHub repository</a></p></li></ul>
 <blockquote><p><strong>Suggested route:</strong> Sections 1–4 build the DC vocabulary and reduction skills. Continue to Sections 5–9 for systematic DC analysis and power. Read Section 10 only after reviewing first-order ODEs; read Sections 11–13 after you are comfortable with complex numbers and sinusoidal functions. Section 14 uses the same circuit laws with ideal op-amp assumptions.</p></blockquote>
 <p>The early sections are useful on their own. The later sections form branches: transients (Section 10) models time-domain storage, while phasors and frequency response (Sections 11–13) model sinusoidal steady state. Do not use a steady-state phasor result to answer a startup transient question.</p>
-        
+          
+        </div>
       </article>
     </section>
   

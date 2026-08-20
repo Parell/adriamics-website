@@ -5,6 +5,7 @@ const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
 const noteContent = document.getElementById('note-content');
+const lessonBody = document.querySelector('[data-notes-lesson-body]');
 const isPracticePage = document.querySelector('[data-practice-page]');
 const practiceFilterButtons = Array.from(document.querySelectorAll('[data-practice-filter-button]'));
 const practiceProgressBar = document.querySelector('[data-practice-progress]');
@@ -30,6 +31,7 @@ const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
+const PRACTICE_READY_FALLBACK_MS = 5000;
 
 let searchIndex = [];
 let searchIndexPromise = null;
@@ -297,6 +299,54 @@ function renderPracticeFilter(value) {
 
   activePracticeFilter = normalized;
   syncPracticeFilterButtons(normalized);
+}
+
+function revealPracticePageWhenReady() {
+  if (!isPracticePage) {
+    return;
+  }
+
+  const mathJaxReady = window.__NOTES_MATHJAX_READY
+    || window.MathJax?.startup?.promise
+    || Promise.resolve();
+  let timeoutId = null;
+  const fallback = new Promise((resolve) => {
+    timeoutId = window.setTimeout(resolve, PRACTICE_READY_FALLBACK_MS);
+  });
+
+  Promise.race([
+    Promise.resolve(mathJaxReady).catch(() => {}),
+    fallback,
+  ]).finally(() => {
+    if (timeoutId !== null) {
+      window.clearTimeout(timeoutId);
+    }
+    document.documentElement.classList.remove('notes-practice-boot');
+  });
+}
+
+function revealLessonBodyWhenReady() {
+  if (!lessonBody) {
+    return;
+  }
+
+  const mathJaxReady = window.__NOTES_MATHJAX_READY
+    || window.MathJax?.startup?.promise
+    || Promise.resolve();
+  let timeoutId = null;
+  const fallback = new Promise((resolve) => {
+    timeoutId = window.setTimeout(resolve, PRACTICE_READY_FALLBACK_MS);
+  });
+
+  Promise.race([
+    Promise.resolve(mathJaxReady).catch(() => {}),
+    fallback,
+  ]).finally(() => {
+    if (timeoutId !== null) {
+      window.clearTimeout(timeoutId);
+    }
+    document.documentElement.classList.remove('notes-lesson-boot');
+  });
 }
 
 function updatePracticeProgressUi(completedCount, totalCount) {
@@ -1791,8 +1841,10 @@ if (practiceFilterFromUrl) {
 }
 renderPracticeFilter(initialPracticeFilter);
 renderWorksheetSelection();
+revealPracticePageWhenReady();
 
 syncSubjectNavigation();
+revealLessonBodyWhenReady();
 window.addEventListener('storage', (event) => {
   if (event.key === NOTES_THEME_STORAGE_KEY) {
     syncThemePreference();

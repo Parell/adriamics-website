@@ -8,7 +8,7 @@
   <link rel="canonical" href="https://adriamics.com/notes/subjects/engineering/failure-reliability-and-safety/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
-  
+  <script>document.documentElement.classList.add("notes-lesson-boot");</script>
   <script>
     (() => {
       let storedTheme = null;
@@ -24,7 +24,13 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.min.css?v=ac6f575c0bc9" />
+  <link rel="stylesheet" href="../../../notes.min.css?v=b35311c03754" />
+  <style id="webmeji-critical-styles">
+    .webmeji-container { position: fixed; bottom: 0; width: 96px; height: 96px; overflow: hidden; z-index: 20; pointer-events: auto; }
+    .webmeji-container--hidden { display: none; }
+    .webmeji-container img { display: block; width: 100%; height: auto; }
+    @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
+  </style>
   <link rel="preload" href="/notes/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
   <noscript><link rel="stylesheet" href="/notes/webmeji/webmeji.css" /></noscript>
   <script defer src="/notes/webmeji/config.min.js"></script>
@@ -32,26 +38,40 @@
   
   
   <script>
+    let resolveNotesMathJaxReady;
+    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
+      resolveNotesMathJaxReady = resolve;
+    });
+
     window.MathJax = {
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams'] },
-        macros: {
-          degree: '{^{\\circ}}',
-          arcsec: '\\operatorname{arcsec}',
-          oiint: '\\oiint'
-        }
+        packages: { '[+]': ['ams'] }
       },
       svg: {
         fontCache: 'local',
         blacker: 0
+      },
+      startup: {
+        ready() {
+          window.MathJax.startup.defaultReady();
+          window.MathJax.startup.promise.then(() => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          }, () => {
+            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
+            resolveNotesMathJaxReady();
+            window.dispatchEvent(new Event('notes:mathjax-ready'));
+          });
+        }
       }
     };
   </script>
-  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=896a6a833e10"></script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=40ca27a9722e"></script>
   
-  <script defer src="../../../notes.min.js?v=9c2881d618bb"></script>
+  <script defer src="../../../notes.min.js?v=7e5352e386fd"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -112,7 +132,8 @@
       <div class="concept-dag-tree"><div class="concept-dag-tree__lines"><div class="concept-dag-tree__row" data-concept-dag-depth="0"><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/arithmetic/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/arithmetic/" data-notes-nav-item>Arithmetic</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/logic/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/logic/" data-notes-nav-item>Logic</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="1"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/geometry/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/geometry/" data-notes-nav-item>Geometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/algebra/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/algebra/" data-notes-nav-item>Algebra</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="2"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/trigonometry/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/trigonometry/" data-notes-nav-item>Trigonometry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/functions/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/functions/" data-notes-nav-item>Functions</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/probability/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/probability/" data-notes-nav-item>Probability</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="3"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/math/vectors/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/vectors/" data-notes-nav-item>Vectors</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/limits/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/limits/" data-notes-nav-item>Limits</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/statistics/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/statistics/" data-notes-nav-item>Statistics</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="4"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/physics/physics-i/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/physics/physics-i/" data-notes-nav-item>Physics I</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/derivatives/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/derivatives/" data-notes-nav-item>Derivatives</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="5"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/engineering/statics/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/engineering/statics/" data-notes-nav-item>Statics</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/physics/general-chemistry/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/physics/general-chemistry/" data-notes-nav-item>General Chemistry</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/math/integrals/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/math/integrals/" data-notes-nav-item>Integrals</a></span></div><div class="concept-dag-tree__row" data-concept-dag-depth="6"><span class="concept-dag-tree__connector" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--vertical" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node" href="/notes/subjects/engineering/mechanics-of-materials/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/engineering/mechanics-of-materials/" data-notes-nav-item>Mechanics of Materials</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/engineering/engineering-design/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/engineering/engineering-design/" data-notes-nav-item>Engineering Design</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/engineering/materials-science/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/engineering/materials-science/" data-notes-nav-item>Materials Science</a></span></div><div class="concept-dag-tree__row concept-dag-tree__row--tail" data-concept-dag-depth="7"><span class="concept-dag-tree__connector concept-dag-tree__connector--tail" aria-hidden="true"><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--corner" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span><span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--junction" aria-hidden="true"></span></span><span class="concept-dag-tree__nodes"><a class="concept-dag-tree__node is-selected" href="/notes/subjects/engineering/failure-reliability-and-safety/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/engineering/failure-reliability-and-safety/" data-notes-nav-item>Failure, Reliability, and Safety</a><span class="concept-dag-tree__separator" aria-hidden="true"> - </span><a class="concept-dag-tree__node" href="/notes/subjects/engineering/metallurgy-and-manufacturing/" data-concept-dag-node-link data-concept-dag-note-url="/notes/subjects/engineering/metallurgy-and-manufacturing/" data-notes-nav-item>Metallurgy and Manufacturing</a></span></div></div></div>
     </section>
         
-        <p>Failure engineering asks three connected questions: <strong>How can a system fail? How likely is each failure? What can we do to prevent harm?</strong> A useful analysis separates the physical failure mechanism from the probability of occurrence and from the consequences of an event.</p>
+        <div data-notes-lesson-body>
+          <p>Failure engineering asks three connected questions: <strong>How can a system fail? How likely is each failure? What can we do to prevent harm?</strong> A useful analysis separates the physical failure mechanism from the probability of occurrence and from the consequences of an event.</p>
 <p>This note is a systems-level companion to <a href="/notes/subjects/engineering/mechanics-of-materials/">Mechanics of Materials</a>, <a href="/notes/subjects/engineering/materials-science/">Materials Science</a>, <a href="/notes/subjects/engineering/tribology/">Tribology</a>, and <a href="/notes/subjects/engineering/engineering-design/">Engineering Design</a>. Those notes develop detailed stress, material, and contact models; this note organizes them into investigation, reliability, and safety decisions.</p>
 <h2 id="failure-is-a-loss-of-required-function">Failure is a loss of required function</h2>
 <p>A failure occurs when an item cannot perform a specified function within stated limits. It need not be a dramatic fracture: excessive deflection, leakage, inaccurate measurement, unsafe temperature, loss of containment, or unacceptable downtime can all be failures.</p>
@@ -193,7 +214,8 @@ $$</div>
 <p>:::solution $$P=1-(1-0.02)(1-0.03)=0.0494.$$ :::</p>
 <h2 id="progression">Progression</h2>
 <p>Study mechanics and materials first, then classify physical failure evidence. Next learn probability distributions and system reliability, followed by FMEA, fault trees, and hazard analysis. Finish by applying the full workflow to a real or simulated failure chronology and defending both the causal evidence and the proposed risk controls.</p>
-        
+          
+        </div>
       </article>
     </section>
   

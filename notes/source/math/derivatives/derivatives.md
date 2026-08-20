@@ -248,15 +248,15 @@ $$
 Useful extensions:
 
 $$
-\frac{d}{dx}[\arcsec x] = \frac{1}{|x|\sqrt{x^2-1}}
+\frac{d}{dx}[\operatorname{arcsec} x] = \frac{1}{|x|\sqrt{x^2-1}}
 $$
 
 $$
-\frac{d}{dx}[\arccsc x] = -\frac{1}{|x|\sqrt{x^2-1}}
+\frac{d}{dx}[\operatorname{arccsc} x] = -\frac{1}{|x|\sqrt{x^2-1}}
 $$
 
 $$
-\frac{d}{dx}[\arccot x] = -\frac{1}{1+x^2}
+\frac{d}{dx}[\operatorname{arccot} x] = -\frac{1}{1+x^2}
 $$
 
 ---

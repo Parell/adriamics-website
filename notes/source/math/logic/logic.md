@@ -1,36 +1,4 @@
-# What logic studies
-
-Logic is the study of valid reasoning. In mathematics, it provides the language and rules used to build definitions, state theorems, and prove conclusions from assumptions.
-
-> **What this assumes:** Careful reading of ordinary statements and basic set notation.
->
-> **What this enables:** Discrete mathematics and proof writing use quantifiers, implications, equivalence, and valid inference explicitly.
-
-At a high level, logic separates three ideas:
-
-- **Syntax**: the symbols and formulas you are allowed to write.
-- **Semantics**: what those formulas mean, and when they are true.
-- **Inference**: the rules that let you derive new statements from old ones.
-
-The main goal is to decide whether an argument is **valid**: if the premises are true, must the conclusion be true?
-
-## Two levels of reasoning
-
-| Level            | Focus                              | Example                                     |
-| ---------------- | ----------------------------------- | ------------------------------------------- |
-| Propositional    | Whole statements and connectives    | $P \to Q$                                   |
-| Predicate        | Objects, properties, and quantifiers | $\forall x\, (x > 0 \to x^2 > 0)$          |
-
-Logic is also the foundation for:
-
-- Set theory
-- Algebraic proof techniques
-- Computer science and Boolean circuits
-- Formal verification and programming language semantics
-
----
-
-# Propositions and truth values
+﻿# Propositions and truth values
 
 A **proposition** is a declarative statement that is either true or false, but not both.
 

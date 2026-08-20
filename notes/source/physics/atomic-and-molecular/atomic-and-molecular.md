@@ -1,19 +1,4 @@
-# Atomic and Molecular Physics
-
-## Prerequisites and outcomes
-
-This note assumes introductory quantum mechanics, complex numbers, and basic electromagnetism. By the end, you should be able to connect quantum numbers and energy differences to spectra, distinguish hydrogen-like results from multi-electron approximations, and choose an appropriate atomic or molecular model.
-
-# What atomic and molecular physics studies
-
-Atomic physics explains the structure and behavior of electrons and nuclei in atoms. Molecular physics extends the same ideas to bonded collections of atoms. Quantum mechanics is required because bound particles have discrete energies and wave-like behavior.
-
-## Core ideas
-
-- Allowed states are described by wavefunctions and quantum numbers.
-- Measurements are probabilistic, with probability density $|\psi|^2$.
-- Spectral lines arise when systems change between energy levels.
-- Molecular rotation, vibration, and electronic motion occur on different energy scales.
+﻿# Atomic and Molecular Physics
 
 # Hydrogen and quantum states
 
@@ -55,7 +40,7 @@ $$
 E \approx E_{\text{electronic}}+E_{\text{vibrational}}+E_{\text{rotational}}.
 $$
 
-Electronic transitions are typically in the ultraviolet or visible range, vibrations in the infrared, and rotations in the microwave or far-infrared. The Born–Oppenheimer approximation separates fast electronic motion from slower nuclear motion.
+Electronic transitions are typically in the ultraviolet or visible range, vibrations in the infrared, and rotations in the microwave or far-infrared. The Bornâ€“Oppenheimer approximation separates fast electronic motion from slower nuclear motion.
 
 For a rigid rotor,
 

@@ -30,6 +30,34 @@ function setWebmejiVisibility(enabled) {
   }
 }
 
+let webmejiStarted = false;
+
+function startWebmeji() {
+  if (webmejiStarted) return;
+  webmejiStarted = true;
+
+  // Do not preload the complete sprite sheet. Frames are requested by the
+  // animation as they are needed, after the page has had a chance to paint.
+  const creatures = [];
+  window.SPAWNING.forEach(({ id, config }) => {
+    const cfg = window[config];
+    if (!cfg) {
+      console.warn(`config not found: ${config}`);
+      return;
+    }
+    creatures.push(new Creature(id, cfg));
+  });
+  setWebmejiVisibility(getWebmejiEnabled());
+}
+
+function scheduleWebmejiStart() {
+  if ('requestIdleCallback' in window) {
+    window.requestIdleCallback(startWebmeji, { timeout: 2000 });
+  } else {
+    window.setTimeout(startWebmeji, 2000);
+  }
+}
+
 window.addEventListener('DOMContentLoaded', () => {
   let enabled = getWebmejiEnabled();
   const toggle = document.querySelector('[data-webmeji-toggle]');
@@ -43,56 +71,13 @@ window.addEventListener('DOMContentLoaded', () => {
         // Continue for browsers where storage is unavailable.
       }
       setWebmejiVisibility(enabled);
+      if (enabled) scheduleWebmejiStart();
     });
     setWebmejiVisibility(enabled);
   }
 
-  // collect unique config names from SPAWNING
-  const configNames = [...new Set(
-    window.SPAWNING.map(spawn => spawn.config)
-  )];
-
-  // resolve them to actual config objects on window
-  const configs = configNames
-    .map(name => window[name])
-    .filter(Boolean);
-
-  // preload all images
-  Promise.all(configs.map(preloadImages))
-    .then(() => {
-      console.log("all images are loaded!");
-
-      const creatures = [];
-      window.SPAWNING.forEach(({ id, config }) => {
-        const cfg = window[config];
-        if (!cfg) {
-          console.warn(`config not found: ${config}`);
-          return;
-        }
-        creatures.push(new Creature(id, cfg));
-        setWebmejiVisibility(enabled);
-      });
-    })
-    .catch(error => {
-      console.error("error loading images:", error);
-    });
+  if (enabled) scheduleWebmejiStart();
 });
-
-
-// preloads all frames from a given configuration
-function preloadImages(config) {
-  // collect all frames from every action in the config
-  const imagePaths = Object.values(config)
-    .flatMap(item => (item.frames && Array.isArray(item.frames)) ? item.frames : []);
-
-  // return a promise that resolves when all images are loaded
-  return Promise.all(imagePaths.map(src => new Promise((resolve, reject) => {
-    const img = new Image();
-    img.onload = resolve;  // resolve when image loads
-    img.onerror = reject;  // reject if error occurs
-    img.src = src;
-  })));
-}
 
 // creature class -------------------------------------------------------
 class Creature {
@@ -107,6 +92,9 @@ class Creature {
     // create img element for first frame of sprite
     this.img = document.createElement('img');
     this.img.id = containerId;
+    this.img.width = 128;
+    this.img.height = 128;
+    this.img.alt = 'Webmeji companion';
     this.img.src = spriteConfig.walk.frames[0]; // default to first walk frame
     this.container.appendChild(this.img);
 

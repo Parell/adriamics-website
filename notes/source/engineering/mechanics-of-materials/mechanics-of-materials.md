@@ -1,42 +1,4 @@
-# Scope and core ideas
-
-Mechanics of materials studies how solid members deform and fail under load. The central goal is to relate:
-
-- External loads and supports
-- Internal force resultants
-- Stress and strain
-- Material properties
-- Deflection and stability
-
-The subject is built on idealizations:
-
-- Members are usually slender compared with their length.
-- Materials are treated as continuous media.
-- Loads are assumed to act in a prescribed way at first, then converted to internal resultants.
-- Linear elasticity is often used unless the problem states otherwise.
-
-## The engineering chain
-
-Most problems follow this chain:
-
-$$
-\text{loads} \rightarrow \text{internal forces} \rightarrow \text{stress} \rightarrow \text{strain} \rightarrow \text{deformation} \rightarrow \text{failure check}
-$$
-
-If any link is wrong, the final answer is usually wrong even if the algebra is correct.
-
-## Main failure modes
-
-- Yielding in ductile materials
-- Brittle fracture
-- Excessive deflection
-- Buckling
-- Fatigue from repeated loading
-- Shear failure in joints or sections
-
----
-
-# Stress, strain, and constitutive behavior
+﻿# Stress, strain, and constitutive behavior
 
 ## Normal stress
 

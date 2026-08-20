@@ -1,74 +1,4 @@
-# Algebra
-
-# Core ideas and notation
-
-At its core, algebra replaces specific numbers with symbols so that one argument can describe many cases.
-
-## Variables, constants, and parameters
-
-- A **variable** represents a quantity that may change, such as $x$ or $t$.
-- A **constant** is a fixed value, such as $2$, $\pi$, or $-7$.
-- A **parameter** is a symbol treated as fixed within a problem, such as $m$ and $b$ in $y = mx + b$.
-
-## Equality
-
-An equation states that two expressions have the same value:
-
-$$
-2x + 3 = 11
-$$
-
-The goal is usually to find all values of the variable that make the statement true.
-
-## Sets of numbers
-
-| Set | Meaning | Examples |
-| --- | --- | --- |
-| Natural numbers | Counting numbers | $1, 2, 3, \dots$ |
-| Integers | Whole numbers and negatives | $-3, 0, 8$ |
-| Rational numbers | Ratios of integers | $\frac{3}{4}, -2, 0.125$ |
-| Irrational numbers | Not expressible as ratios of integers | $\sqrt{2}, \pi$ |
-| Real numbers | All rational and irrational numbers on the line | most elementary algebra values |
-
-## Order of operations
-
-:::rule Order of operations
-
-Evaluate in this order:
-
-1. Parentheses and grouped expressions
-2. Exponents and roots
-3. Multiplication and division
-4. Addition and subtraction
-
-Multiplication distributes over addition:
-
-$$
-a(b + c) = ab + ac
-$$
-
-This property is one of the most important tools in algebra.
-
-:::
-
-## Arithmetic review: numerical fluency
-
-Algebra reuses arithmetic operations, but applies them to symbols and
-expressions. This short review is the intentional overlap between the two
-subjects:
-
-| Numerical version | Symbolic version in Algebra |
-| --- | --- |
-| $\frac{3}{4}+\frac{1}{4}=1$ | $\frac{a}{b}+\frac{c}{d}=\frac{ad+bc}{bd}$, with denominator restrictions |
-| $2^3\cdot2^4=2^7$ | $a^m\cdot a^n=a^{m+n}$ ([exponent laws](#exponent-laws)) |
-| $\sqrt{49}=7$ | $a^{1/n}=\sqrt[n]{a}$ ([rational exponents and radicals](#rational-exponents-and-radicals)) |
-| $25\%=0.25$ | Solve equations involving a symbolic percent or parameter |
-
-Arithmetic develops reliable calculation with known numbers. Algebra extends
-that fluency to unknowns, expressions, restrictions, and general identities;
-use the linked algebra sections for the full symbolic treatment.
-
----
+﻿# Algebra
 
 # Expressions and algebraic manipulation
 
@@ -612,7 +542,7 @@ If $a > 0$, the parabola opens upward. If $a < 0$, it opens downward.
 > This section covers only the algebraic methods used to solve equations
 > involving those concepts.
 
-Algebra’s role is symbolic manipulation and equation solving. Before working with a
+Algebraâ€™s role is symbolic manipulation and equation solving. Before working with a
 function, exponential, or logarithm here, review the relevant concepts in
 [function notation, domain, codomain, and range](../functions/functions.md#2-notation-domain-codomain-and-range),
 [exponential and logarithmic functions](../functions/functions.md#exponential-and-logarithmic-functions),
@@ -796,8 +726,6 @@ and [composition and inverse functions](../functions/functions.md#6-composition-
 
 Algebra is the language of mathematical structure and symbolic reasoning. It turns patterns and quantitative relationships into expressions, equations, functions, and general rules that can be manipulated precisely.
 
-> **What this assumes:** Arithmetic with integers, fractions, decimals, percentages, and signed numbers.
 >
-> **What this enables:** Functions, limits, calculus, probability, statistics, and mathematical modeling all rely on algebraic expressions, equations, and inequalities.
 
 > **Scope note:** This is the canonical note for symbolic manipulation and equation-solving. Use [Functions](/notes/subjects/math/functions/) for domain, codomain, composition, and inverse-function concepts.

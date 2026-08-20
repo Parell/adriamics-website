@@ -1,8 +1,4 @@
-# Relativity
-
-## Prerequisites and outcomes
-
-This note assumes algebra, functions, vectors, and introductory mechanics. Calculus and linear algebra help with the general-relativity overview but are not required for the special-relativity core. By the end, you should be able to choose an inertial frame, use invariant quantities, and distinguish the special- and general-relativistic regimes.
+﻿# Relativity
 
 # Why relativity is needed
 
@@ -180,7 +176,7 @@ Proper time is the shortest time elapsed between two timelike-separated events a
 
 A moving clock is observed to run slow.
 
-If $\Delta \tau$ is the proper time measured in the clockâ€™s rest frame, then an observer who sees the clock moving measures:
+If $\Delta \tau$ is the proper time measured in the clockÃ¢â‚¬â„¢s rest frame, then an observer who sees the clock moving measures:
 
 $$
 \Delta t = \gamma \Delta \tau
@@ -200,7 +196,7 @@ $$
 
 An object moving relative to an observer is shortened along the direction of motion.
 
-If $L_0$ is the proper length measured in the objectâ€™s rest frame, then the observed length is:
+If $L_0$ is the proper length measured in the objectÃ¢â‚¬â„¢s rest frame, then the observed length is:
 
 $$
 L = \frac{L_0}{\gamma}
@@ -241,7 +237,7 @@ Relativity of simultaneity is not a minor correction. It is the key idea that ma
 
 ## Common interpretation trap
 
-If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of â€œsame timeâ€ is frame-dependent.
+If two flashes occur at the same time in one frame, that does not mean they were emitted at the same time in every frame. The notion of Ã¢â‚¬Å“same timeÃ¢â‚¬Â is frame-dependent.
 
 ---
 
@@ -443,7 +439,7 @@ $$
 \partial_{[\alpha}F_{\beta\gamma]}=0.
 $$
 
-The first equation contains Gauss's law and the Ampère–Maxwell law; the second contains
+The first equation contains Gauss's law and the AmpÃ¨reâ€“Maxwell law; the second contains
 Gauss's law for magnetism and Faraday's law. A gauge transformation
 $A^\mu\mapsto A^\mu+\partial^\mu\Lambda$ leaves $F^{\mu\nu}$ unchanged. The Lorentz
 force law is $dp^\mu/d\tau=qF^{\mu\nu}U_\nu$, and charge conservation is
@@ -474,7 +470,7 @@ because they have the same meaning in every coordinate system.
 
 ## Metrics and geodesics
 
-The Levi–Civita connection is
+The Leviâ€“Civita connection is
 
 $$
 \Gamma^\rho_{\mu\nu}=\frac12g^{\rho\sigma}

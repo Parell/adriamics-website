@@ -1,34 +1,4 @@
-# What trigonometry studies
-
-Trigonometry is the study of relationships between angles and side lengths in triangles, and more generally the study of periodic behavior through the sine, cosine, and tangent functions.
-
-At its core, trigonometry connects:
-
-- Geometry and measurement
-- Circular motion and periodic waves
-- Algebraic identities and equation solving
-
-The subject appears in:
-
-- Surveying and navigation
-- Physics and engineering
-- Computer graphics
-- Signal processing
-- Calculus and differential equations
-
-The most important idea is that trigonometric functions are not just triangle ratios. They are functions defined on angles, and the unit circle provides the cleanest definition.
-
-## Recalled from geometry
-
-This note assumes the geometric language of points, angles, similar triangles,
-and right triangles. Geometry owns those definitions and the Pythagorean
-theorem; this note uses them to define functions, evaluate exact values, and
-solve triangles. For a geometric review, see the
-[Geometry note](../geometry/geometry.md).
-
----
-
-# Angles and the unit circle
+﻿# Angles and the unit circle
 
 ## Angle measure
 

@@ -15,7 +15,41 @@ const conceptDagSourcePath = path.join(notesRoot, 'source', 'paths.json');
 // so every SVG needs to carry its own glyph definitions.
 const MATHJAX_SVG_FONT_CACHE = 'local';
 const MATHJAX_SVG_BLACKER = 0;
-const MATHJAX_CDN_URL = 'https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js';
+const MATHJAX_ASSET_PATH = 'vendor/mathjax/mathjax.min.js';
+
+function renderMathJaxConfig(outputDir, assetVersions) {
+  const mathJaxHref = `${getRelativeNotesAssetHref(outputDir, MATHJAX_ASSET_PATH)}?v=${assetVersions.mathjax}`;
+  return `
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
+        displayMath: [['$$', '$$']],
+        packages: { '[+]': ['ams'] },
+        macros: {
+          degree: '{^{\\\\circ}}',
+          arcsec: '\\\\operatorname{arcsec}',
+          oiint: '\\\\oiint'
+        }
+      },
+      svg: {
+        fontCache: '${MATHJAX_SVG_FONT_CACHE}',
+        blacker: ${MATHJAX_SVG_BLACKER}
+      }
+    };
+  </script>
+  <script defer src="${mathJaxHref}"></script>`;
+}
+
+function renderAsyncStylesheet(href, { nonBlocking = false } = {}) {
+  const escapedHref = escapeHtml(href);
+  if (nonBlocking) {
+    return `<link rel="preload" href="${escapedHref}" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="${escapedHref}" /></noscript>`;
+  }
+
+  return `<link rel="stylesheet" href="${escapedHref}" />`;
+}
 
 function repairMojibake(text) {
   return String(text ?? '')
@@ -86,10 +120,6 @@ function escapeHtml(text) {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
-}
-
-function serializeJsonForScript(value) {
-  return JSON.stringify(value).replace(/</g, '\\u003c');
 }
 
 function escapeRegExp(text) {
@@ -1087,7 +1117,7 @@ function renderPracticeExampleBlock(lines, index, sourcePath, context) {
   const practiceHref = `practice/?filter=all#${encodeURIComponent(problem.id)}`;
 
   return {
-    html: `<aside class="callout callout--example practice-example" data-practice-example="${escapeHtml(problem.id)}"><div class="callout__heading"><span class="callout__label">Worked example</span><span class="callout__title">${escapeHtml(problem.title)}</span></div><div class="callout__body practice-example__body"><div class="practice-example__prompt">${promptHtml}</div><details class="practice-example__answer"><summary>Reveal answer</summary><div class="practice-example__solution">${solutionHtml}</div></details><p class="practice-example__link"><a href="${escapeHtml(practiceHref)}">Practice this problem</a></p></div></aside>`,
+    html: `<aside class="callout callout--example practice-example" data-practice-example="${escapeHtml(problem.id)}"><div class="callout__heading"><span class="callout__label">Worked example</span><span class="callout__title">${escapeHtml(problem.title)}</span></div><div class="callout__body practice-example__body"><div class="practice-example__prompt">${promptHtml}</div><div class="practice-example__solution">${solutionHtml}</div><p class="practice-example__link"><a href="${escapeHtml(practiceHref)}">Practice this problem</a></p></div></aside>`,
     nextIndex: endIndex + 1,
   };
 }
@@ -1380,7 +1410,6 @@ function renderSubjectLinks(structures, activeStructureId = null) {
     });
 
   const combinedLinks = structureLinks.join('');
-  const homeActiveClass = activeStructureId === homeStructureId ? ' class="is-active"' : '';
   const homeCurrent = activeStructureId === homeStructureId ? ' aria-current="true"' : '';
 
   return `<aside class="notes-structures" aria-label="Guide structures">
@@ -1390,7 +1419,7 @@ function renderSubjectLinks(structures, activeStructureId = null) {
           </div>
           <ul class="subject-list">
           <li>
-          <a class="notes-inline-link"${homeActiveClass}${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
+          <a class="notes-inline-link${activeStructureId === homeStructureId ? ' is-active' : ''}"${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
           </li>
           ${combinedLinks}
           <li>
@@ -1561,13 +1590,12 @@ function renderNotesPageDocument({
   quickActionsHtml = '',
   stylesheetHref = '/notes/notes.min.css',
   scriptHref = '/notes/notes.min.js',
-  runtimeHref = '/notes/notes-runtime.min.js',
   headHtml = '',
   extraHead = '',
 }) {
-  const webmejiHead = `<link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
-  <script defer src="/notes/webmeji/config.js"></script>
-  <script defer src="/notes/webmeji/webmeji.js"></script>`;
+  const webmejiHead = `${renderAsyncStylesheet('/notes/webmeji/webmeji.css', { nonBlocking: true })}
+  <script defer src="/notes/webmeji/config.min.js"></script>
+  <script defer src="/notes/webmeji/webmeji.min.js"></script>`;
   const themeBootstrapScript = `<script>
     (() => {
       let storedTheme = null;
@@ -1598,10 +1626,9 @@ function renderNotesPageDocument({
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   ${headHtml}
   ${themeBootstrapScript}
-  <link rel="stylesheet" href="${escapeHtml(stylesheetHref)}" />
+  ${renderAsyncStylesheet(stylesheetHref)}
   ${webmejiHead}
   ${extraHead}
-  <script defer src="${escapeHtml(runtimeHref)}"></script>
   <script defer src="${escapeHtml(scriptHref)}"></script>
 </head>
 <body class="notes-page ${escapeHtml(bodyClass)}" id="top">
@@ -1740,12 +1767,11 @@ function buildNoteHtml({
   const tocHtml = renderTableOfContents(bodyHtml);
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
-  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.min.js')}?v=${assetVersions.notesRuntimeJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
   const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
   const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-gradient-3d') || interactiveAssets.has('vector-calculus-vector-field-3d') || interactiveAssets.has('statics-modeling') || interactiveAssets.has('dynamics-projectile') || interactiveAssets.has('circuits-kcl') || interactiveAssets.has('jsxgraph-examples') ? `
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraph.css" />
-  <script defer src="https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraphcore.js"></script>
+  <script>window.__NOTES_JSXGRAPH_CSS_URL = 'https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraph.css';</script>
+  <script>window.__NOTES_JSXGRAPH_URL = 'https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraphcore.js';</script>
   ` : '';
   const quickActionsHtml = renderQuickActions({ practiceUrl });
   const mainHtml = `
@@ -1791,31 +1817,8 @@ function buildNoteHtml({
     quickActionsHtml,
     stylesheetHref,
     scriptHref,
-    runtimeHref,
     extraHead: `${interactiveHead}
-  <script>
-    window.MathJax = {
-      loader: { load: ['[tex]/unicode'] },
-      tex: {
-        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
-        displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams', 'unicode'] },
-        macros: {
-          degree: '{^{\\\\circ}}',
-          arcsec: '\\\\operatorname{arcsec}',
-          oiint: '\\\\mathop{\\\\unicode{x222F}}'
-        }
-      },
-      svg: {
-        fontCache: '${MATHJAX_SVG_FONT_CACHE}',
-        blacker: ${MATHJAX_SVG_BLACKER}
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    };
-  </script>
-  <script defer src="${MATHJAX_CDN_URL}"></script>
+  ${renderMathJaxConfig(outputDir, assetVersions)}
   `,
   });
 }
@@ -1858,47 +1861,6 @@ function buildConceptResourceLinks(node, nodesById, options = {}) {
   return dependencyLinks.join('');
 }
 
-function buildConceptCard(node, nodesById) {
-  const prereqCount = node.requires.hard.length + node.requires.soft.length;
-  const anchorId = getConceptNodeAnchorId(node.id);
-  const resourceLinksHtml = buildConceptResourceLinks(node, nodesById);
-  const levelHtml = node.level ? `<span class="learning-path-card__level">${escapeHtml(node.level)}</span>` : '';
-  const domainLabel = getConceptDomainFromId(node.id);
-
-  return `<article class="learning-path-card panel concept-node-card" id="${escapeHtml(anchorId)}" data-concept-node data-concept-node-id="${escapeHtml(node.id)}">
-    <div class="learning-path-card__head">
-      <div>
-        <p class="section-label">${escapeHtml(toTitleCase(domainLabel))}</p>
-        <h2 class="learning-path-card__title">${escapeHtml(node.title)}</h2>
-      </div>
-      ${levelHtml}
-    </div>
-    <p class="learning-path-card__meta">${escapeHtml(node.id)}${prereqCount ? ` · ${escapeHtml(String(prereqCount))} prerequisites` : ''}</p>
-    ${resourceLinksHtml}
-  </article>`;
-}
-
-function groupConceptNodesByDomain(nodes) {
-  const domains = [];
-  const grouped = new Map();
-
-  for (const node of nodes) {
-    const domain = getConceptDomainFromId(node.id);
-
-    if (!grouped.has(domain)) {
-      grouped.set(domain, []);
-      domains.push(domain);
-    }
-
-    grouped.get(domain).push(node);
-  }
-
-  return domains.map((domain) => ({
-    domain,
-    nodes: grouped.get(domain) ?? [],
-  }));
-}
-
 function getConceptDagDefaultSubjectId(nodes) {
   const preferredIds = ['math.vectors', 'math.limits', 'math.algebra'];
 
@@ -1939,17 +1901,6 @@ function getConceptDagSubjectIdFromNotePath(notePath) {
 
   return '';
 }
-
-// function buildConceptDagLandingHtml(dag) {
-//   const groupedNodes = groupConceptNodesByDomain(dag.nodes);
-//   const domainSummary = groupedNodes.map((group) => `<li><strong>${escapeHtml(toTitleCase(group.domain))}</strong> ${escapeHtml(String(group.nodes.length))} subjects</li>`).join('');
-//   return `<section class="learning-path-index-hero panel concept-dag-hero concept-dag-domains" aria-label="Domains">
-//       <h1>Subjects</h1>
-//       <ul class="concept-dag-domains__list">
-//         ${domainSummary}
-//       </ul>
-//     </section>`;
-// }
 
 function collectConceptDagAncestors(selectedId, nodesById) {
   const visited = new Set();
@@ -2158,13 +2109,8 @@ function buildLandingHtml(structures, assetVersions, dag) {
     quickActionsHtml: '',
     stylesheetHref: `notes.min.css?v=${assetVersions.notesCss}`,
     scriptHref: `notes.min.js?v=${assetVersions.notesJs}`,
-    runtimeHref: `notes-runtime.min.js?v=${assetVersions.notesRuntimeJs}`,
   });
 }
-
-// <section id="concept-dag" class="learning-paths-layout" aria-label="Domains">
-//   ${conceptDagHtml}
-// </section>`,
 
 function trimBlankLines(lines) {
   let start = 0;
@@ -2431,7 +2377,7 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
           <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
-      <section class="practice-problem__solution" data-practice-solution hidden>
+      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           ${solutionHtml}
@@ -2534,7 +2480,6 @@ function renderPracticePageHtml({
 }) {
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
-  const runtimeHref = `${getRelativeNotesAssetHref(outputDir, 'notes-runtime.min.js')}?v=${assetVersions.notesRuntimeJs}`;
   const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
   const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
@@ -2575,30 +2520,7 @@ function renderPracticePageHtml({
     quickActionsHtml,
     stylesheetHref,
     scriptHref,
-    runtimeHref,
-    extraHead: `<script>
-    window.MathJax = {
-      loader: { load: ['[tex]/unicode'] },
-      tex: {
-        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
-        displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams', 'unicode'] },
-        macros: {
-          degree: '{^{\\\\circ}}',
-          arcsec: '\\\\operatorname{arcsec}',
-          oiint: '\\\\mathop{\\\\unicode{x222F}}'
-        }
-      },
-      svg: {
-        fontCache: '${MATHJAX_SVG_FONT_CACHE}',
-        blacker: ${MATHJAX_SVG_BLACKER}
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    };
-  </script>
-  <script defer src="${MATHJAX_CDN_URL}"></script>`,
+    extraHead: renderMathJaxConfig(outputDir, assetVersions),
   });
 }
 
@@ -2954,15 +2876,15 @@ async function main() {
 }
 
 async function loadAssetVersions() {
-  const [siteCss, siteJs, notesCss, notesRuntimeJs, notesJs] = await Promise.all([
+  const [siteCss, siteJs, notesCss, notesJs, mathjax] = await Promise.all([
     getAssetVersion(path.join(repoRoot, 'site.min.css')),
     getAssetVersion(path.join(repoRoot, 'site.min.js')),
     getAssetVersion(path.join(notesRoot, 'notes.min.css')),
-    getAssetVersion(path.join(notesRoot, 'notes-runtime.min.js')),
     getAssetVersion(path.join(notesRoot, 'notes.min.js')),
+    getAssetVersion(path.join(notesRoot, MATHJAX_ASSET_PATH)),
   ]);
 
-  return { siteCss, siteJs, notesCss, notesRuntimeJs, notesJs };
+  return { siteCss, siteJs, notesCss, notesJs, mathjax };
 }
 
 async function buildNotePages(notes, structures, assetVersions, conceptDag) {
@@ -3012,7 +2934,7 @@ if (process.argv[1] && path.resolve(process.argv[1]) === __filename) {
 }
 
 export {
-  MATHJAX_CDN_URL,
+  MATHJAX_ASSET_PATH,
   MATHJAX_SVG_BLACKER,
   MATHJAX_SVG_FONT_CACHE,
   collectConceptDagAncestors,

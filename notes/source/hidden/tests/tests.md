@@ -26,28 +26,28 @@ interactive:
 </section>
 
 <section class="vector-calculus-vector-field" data-interactive="jsxgraph-examples" data-jsxgraph-example="algebra" aria-labelledby="jsxgraph-algebra-title">
-  <h3 id="jsxgraph-algebra-title">Algebra: two lines and their intersection</h3>
+  <h3 id="jsxgraph-algebra-title">Two lines and their intersection</h3>
   <div class="vector-calculus-vector-field__layout">
     <div id="jsxgraph-algebra-board" class="vector-calculus-vector-field__board" data-jsxgraph-board role="img" aria-label="Graph of two intersecting linear equations"></div>
   </div>
 </section>
 
 <section class="vector-calculus-vector-field" data-interactive="jsxgraph-examples" data-jsxgraph-example="geometry" aria-labelledby="jsxgraph-geometry-title">
-  <h3 id="jsxgraph-geometry-title">Geometry: a circle with a radius and tangent</h3>
+  <h3 id="jsxgraph-geometry-title">A circle with a radius and tangent</h3>
   <div class="vector-calculus-vector-field__layout">
     <div id="jsxgraph-geometry-board" class="vector-calculus-vector-field__board" data-jsxgraph-board role="img" aria-label="Circle with radius and tangent line"></div>
   </div>
 </section>
 
 <section class="vector-calculus-vector-field" data-interactive="jsxgraph-examples" data-jsxgraph-example="trigonometry" aria-labelledby="jsxgraph-trigonometry-title">
-  <h3 id="jsxgraph-trigonometry-title">Trigonometry: the unit circle and \(y=\sin x\)</h3>
+  <h3 id="jsxgraph-trigonometry-title">The unit circle and \(y=\sin x\)</h3>
   <div class="vector-calculus-vector-field__layout">
     <div id="jsxgraph-trigonometry-board" class="vector-calculus-vector-field__board" data-jsxgraph-board role="img" aria-label="Unit circle and sine graph"></div>
   </div>
 </section>
 
 <section class="vector-calculus-vector-field" data-interactive="jsxgraph-examples" data-jsxgraph-example="physics-2d" aria-labelledby="jsxgraph-physics-title">
-  <h3 id="jsxgraph-physics-title">Physics 2D: projectile motion</h3>
+  <h3 id="jsxgraph-physics-title">Projectile motion</h3>
   <div class="vector-calculus-vector-field__layout">
     <div id="jsxgraph-physics-2d-board" class="vector-calculus-vector-field__board" data-jsxgraph-board role="img" aria-label="Projectile trajectory with velocity and gravity vectors"></div>
   </div>

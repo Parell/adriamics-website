@@ -1,4 +1,4 @@
-# Probability language and sample spaces
+﻿# Probability language and sample spaces
 
 Probability is the mathematics of uncertainty. A probability model has three parts:
 
@@ -6,9 +6,7 @@ Probability is the mathematics of uncertainty. A probability model has three par
 - A **collection of events** built from subsets of $\Omega$
 - A **probability measure** $P$ assigning likelihoods to events
 
-> **What this assumes:** Arithmetic with fractions and basic set operations. Algebra becomes important for conditional probability and random variables.
 >
-> **What this enables:** Statistics uses probability models to describe sampling uncertainty and quantify the strength of evidence.
 
 ## Outcomes, events, and sample spaces
 

@@ -1,33 +1,4 @@
-# What statistics studies
-
-Statistics is the science of turning data into conclusions under uncertainty.
-
-> **What this assumes:** Arithmetic, basic algebra, and the probability language of events and random variables. Follow [Probability](/notes/subjects/math/probability/) when conditional probability or distributions are unfamiliar.
->
-> **What this enables:** Data summaries, estimation, hypothesis tests, regression, and evidence-based decisions with explicit uncertainty.
-
-It has two main goals:
-
-- **Descriptive statistics** summarize what the data show.
-- **Inferential statistics** generalize from a sample to a population.
-
-The key distinction is this:
-
-- A **population** is the full set of units of interest.
-- A **sample** is the subset actually observed.
-
-Because samples are incomplete, every statistical conclusion carries uncertainty. Good statistical work makes that uncertainty explicit.
-
-## Core ideas
-
-- Variation is real and expected.
-- Models are approximations, not truth.
-- Randomness can be quantified and used.
-- The same dataset can support different conclusions if the question changes.
-
----
-
-# Data, variables, and measurement scales
+﻿# Data, variables, and measurement scales
 
 ## Types of variables
 

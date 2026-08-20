@@ -1,32 +1,4 @@
-# Organic Chemistry
-
-## Prerequisites and outcomes
-
-This note assumes general chemistry, Lewis structures, acid–base language, and basic algebra. By the end, you should be able to identify functional groups, draw electron-flow mechanisms, predict major products with stated conditions, and verify constitutional and stereochemical changes.
-
-# What organic chemistry studies
-
-Organic chemistry is the study of carbon-containing compounds, especially those built around covalent carbon-carbon and carbon-heteroatom bonds. It matters because carbon can form chains, rings, branched frameworks, and multiple bonds, giving rise to an enormous number of molecules with distinct properties.
-
-At the study level, the subject usually reduces to four questions:
-
-1. What is the structure?
-2. How reactive is it?
-3. What product forms from a given set of conditions?
-4. Why does that product dominate?
-
-The answer is usually determined by a small set of ideas:
-
-- Bonding and hybridization
-- Functional groups
-- Resonance and inductive effects
-- Stereochemistry
-- Mechanistic steps
-- Thermodynamic and kinetic control
-
-Organic chemistry is less about memorizing isolated reactions and more about recognizing patterns.
-
----
+﻿# Organic Chemistry
 
 # Atomic structure and bonding
 
@@ -36,9 +8,9 @@ Carbon is tetravalent and most commonly forms four bonds by using hybrid orbital
 
 | Geometry | Hybridization | Approx. bond angle | Typical example |
 | --- | --- | ---: | --- |
-| Tetrahedral | $sp^3$ | 109.5Â° | Alkanes |
-| Trigonal planar | $sp^2$ | 120Â° | Alkenes, carbonyl carbons |
-| Linear | $sp$ | 180Â° | Alkynes, nitriles |
+| Tetrahedral | $sp^3$ | 109.5Ã‚Â° | Alkanes |
+| Trigonal planar | $sp^2$ | 120Ã‚Â° | Alkenes, carbonyl carbons |
+| Linear | $sp$ | 180Ã‚Â° | Alkynes, nitriles |
 
 Single bonds are sigma bonds. Double bonds contain one sigma and one pi bond. Triple bonds contain one sigma and two pi bonds.
 

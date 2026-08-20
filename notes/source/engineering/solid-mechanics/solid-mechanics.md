@@ -1,21 +1,4 @@
-# Scope and core ideas
-
-Solid mechanics studies the motion, deformation, and failure of solid bodies under mechanical loading. Its central questions are:
-
-- What forces and moments act on a body?
-- What stress and strain fields do those loads produce?
-- How does the material respond?
-- Is the body strong, stiff, stable, and durable enough?
-
-The basic modeling chain is
-
-$$
-\text{loads} \rightarrow \text{equilibrium} \rightarrow \text{stress} \rightarrow \text{strain} \rightarrow \text{displacement}.
-$$
-
-Statics supplies equilibrium. Kinematics relates strain to displacement. Constitutive laws relate stress to strain. Boundary conditions select the physical solution.
-
-# Stress and traction
+﻿# Stress and traction
 
 The traction acting on a plane with unit normal $\mathbf n$ is
 
@@ -148,7 +131,7 @@ $$
 \boldsymbol\sigma = 2G\boldsymbol\varepsilon + \lambda\,\operatorname{tr}(\boldsymbol\varepsilon)\mathbf I,
 $$
 
-where $G$ and $\lambda$ are Lamé constants. In terms of Young's modulus $E$ and Poisson's ratio $\nu$,
+where $G$ and $\lambda$ are LamÃ© constants. In terms of Young's modulus $E$ and Poisson's ratio $\nu$,
 
 $$
 G=\frac{E}{2(1+\nu)},\qquad \lambda=\frac{E\nu}{(1+\nu)(1-2\nu)}.

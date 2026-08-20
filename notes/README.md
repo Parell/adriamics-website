@@ -60,7 +60,7 @@ npm run build
 
 | Command                | Purpose                                                                                                                                                                  |
 | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `npm run build:assets` | Minifies the site and notes CSS/JavaScript into the `*.min.css` and `*.min.js` files used by generated pages. The minifier packages are downloaded by `npx` when needed. |
+| `npm run build:assets` | Minifies the site and notes CSS/JavaScript plus the Webmeji JavaScript into the `*.min.css` and `*.min.js` files used by generated pages. The minifier packages are downloaded by `npx` when needed. |
 | `npm run build:notes`  | Reads `source/`, validates the manifest, and regenerates lesson pages, practice pages, landing pages, concept maps, `search-index.json`, and `sitemap.xml`.              |
 | `npm run build`        | Runs `build:assets`, then `build:notes`; use this after normal content or code changes.                                                                                  |
 
@@ -90,12 +90,6 @@ Good contributions are small and specific:
 - Suggest a missing topic or course mapping
 
 ## Roadmap
-- More diagrams, by a lot in physics/engineering, less interactivity and more visuals
-  - physical object → isolated body → support reactions → labeled FBD → equations.
-  - Same for projectile motion, torque, trusses, distributed loads, beam shear/moment, circuits, vectors, etc. These shouldn't be decorative images; they should carry information.
----
-- Professors/TAs, Find Student orgs
----
 - Instrument cantilever beam: strain gauges, circuits, DAQ, uncertainty, fatigue.
 - Build temperature control system: heat transfer, sensors, embedded control, parameter estimation.
 - Build two-wheel robot: dynamics, kinematics, motors, encoders, state-space control.
@@ -103,12 +97,4 @@ Good contributions are small and specific:
 - Model satellite attitude control: rigid-body dynamics, quaternions, sensors, estimation, digital control.
 - Analyze component failure: materials, manufacturing, fracture, reliability, safety.
 ---
-- What you'll learn in 4–6 bullets.
-- Add “When do I use this?” more often.
-
-
-Go to manifest.js and make a hidden file, that file should have all the JSXGraphs and SVG diagrams,
-
-Make premade SVGs for, ForceArrow, DimensionArrow, AngleArc, Block, Mass, Beam, PinSupport, RollerSupport, FixedSupport, Pulley, Cable, Spring, Ground, Axis, MomentArrow, DistributedLoad
-
-Then remove the JSX from the notes md files and then embbed the Graph or Diagram, so that the hidden page is the source of truth.
+- Professors/TAs, Find Student orgs

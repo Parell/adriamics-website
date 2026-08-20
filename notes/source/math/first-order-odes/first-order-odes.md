@@ -1,49 +1,6 @@
-# First-Order ODEs
+﻿# First-Order ODEs
 
 First-order ordinary differential equations (ODEs) involve an unknown function $y(x)$ and its first derivative $y'$. They are the first serious class of differential equations because many modeling problems reduce to them, and because most core solution techniques appear here in their simplest form.
-# What a first-order ODE is
-
-A **first-order ODE** is any equation of the form
-
-$$
-F(x,y,y') = 0
-$$
-
-or, when solved for the derivative,
-
-$$
-\frac{dy}{dx} = f(x,y)
-$$
-
-where $y$ is an unknown function of $x$.
-
-## Ordinary vs. partial
-
-- An **ordinary** differential equation involves derivatives with respect to one independent variable.
-- A **partial** differential equation involves partial derivatives with respect to multiple variables.
-
-## Order
-
-The **order** of a differential equation is the highest derivative that appears. For a first-order ODE, the highest derivative is $y'$.
-
-## Linear vs. nonlinear
-
-A first-order ODE is **linear** if it can be written as
-
-$$
-y' + p(x)y = q(x)
-$$
-
-and **nonlinear** otherwise.
-
-Examples:
-
-- Linear: $y' + 3y = e^x$
-- Nonlinear: $y' = y^2 - x$
-- Nonlinear: $xy' + y = \sin(y)$
-
----
-
 # Initial value problems and geometric meaning
 
 A first-order ODE usually becomes a specific problem once an initial condition is given:

@@ -1,36 +1,4 @@
-# Quantum Physics
-
-## Prerequisites and outcomes
-
-You should know complex numbers, derivatives, integrals, matrices, and eigenvalues; introductory waves and electromagnetism are helpful. By the end, you should be able to translate a one-dimensional quantum model into boundary conditions, operators, eigenvalues, and measurable probabilities.
-
-# What quantum physics studies
-
-Quantum physics describes matter and radiation at atomic and subatomic scales, where energy exchange is quantized and measurement outcomes are fundamentally probabilistic.
-
-The subject is built around a few recurring ideas:
-
-- States are represented by wave functions or vectors in a complex vector space.
-- Observables are represented by operators.
-- Measured values come from eigenvalues of those operators.
-- Probabilities come from squared amplitudes, not direct field intensity or classical trajectories.
-- Time evolution is deterministic for the state, but measurement outcomes are not.
-
-## Core vocabulary
-
-| Term | Meaning |
-| --- | --- |
-| State | Complete mathematical description of the system |
-| Observable | Measurable physical quantity such as position, momentum, or energy |
-| Wave function | Complex amplitude whose magnitude squared gives probability density |
-| Eigenstate | State that returns a definite value when an observable is measured |
-| Superposition | Linear combination of allowed states |
-| Collapse | Update of state after measurement in the textbook formulation |
-| Operator | Rule that acts on states to produce another state |
-
-Quantum mechanics is not just "small-scale classical mechanics." It uses different rules for states, measurement, and prediction.
-
----
+﻿# Quantum Physics
 
 # Classical limits and why quantum theory is needed
 
@@ -463,7 +431,7 @@ The basic intuition is to connect classical motion with quantum phase accumulati
 
 ## Units to check
 
-- $\hbar$ has units of JÂ·s.
+- $\hbar$ has units of JÃ‚Â·s.
 - Momentum operator introduces $1/\text{length}$.
 - Energy eigenvalues must have units of energy.
 - Probability is dimensionless.

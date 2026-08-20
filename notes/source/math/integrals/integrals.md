@@ -1,9 +1,7 @@
----
+﻿---
 # What an integral is
 
-> **What this assumes:** Functions, limits and continuity, and derivatives with their basic rules.
 >
-> **What this enables:** Series can use integration for convergence tests and term-by-term constructions. This note focuses on accumulation, antiderivatives, and definite integrals rather than series.
 
 An **integral** measures accumulation. In calculus, that accumulation is usually:
 

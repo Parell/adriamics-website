@@ -1,10 +1,9 @@
-# Sequences, series, and convergence
+﻿# Sequences, series, and convergence
 
-> **Layer 1 â€” after Limits:** This layer develops sequences, series, and convergence without requiring derivatives or integrals.
+> **Layer 1 Ã¢â‚¬â€ after Limits:** This layer develops sequences, series, and convergence without requiring derivatives or integrals.
 >
-> **Layer 2 â€” after Derivatives:** Power and Taylor series use derivatives to represent and approximate functions. Integration appears only in the advanced subsections.
+> **Layer 2 Ã¢â‚¬â€ after Derivatives:** Power and Taylor series use derivatives to represent and approximate functions. Integration appears only in the advanced subsections.
 >
-> **What this enables:** Taylor and power series approximate functions, while convergence tests support numerical analysis and differential equations.
 
 A **series** is the sum of the terms of a sequence.
 

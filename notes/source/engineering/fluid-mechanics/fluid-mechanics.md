@@ -1,28 +1,4 @@
-# Fluid Mechanics
-
-# What fluid mechanics studies
-
-Fluid mechanics is the study of how fluids move and how they respond to forces.
-
-It is usually split into:
-
-- **Fluid statics**: fluids at rest
-- **Fluid dynamics**: fluids in motion
-
-A **fluid** is a substance that continuously deforms under any sustained shear stress. In practice, both liquids and gases are treated as fluids.
-
-## Core modeling idea
-
-Most engineering fluid problems are solved by combining:
-
-- Conservation of mass
-- Conservation of momentum
-- Conservation of energy
-- An appropriate constitutive model, such as viscosity or an equation of state
-
-The main task is to choose the right control volume, assumptions, and level of detail.
-
----
+﻿# Fluid Mechanics
 
 # Fluid properties and classification
 

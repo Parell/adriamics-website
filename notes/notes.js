@@ -18,7 +18,6 @@ const worksheetEmpty = document.querySelector('[data-worksheet-empty]');
 let worksheetSelectedIds = [];
 const worksheetSpacing = new Map();
 let worksheetDraggedId = null;
-let worksheetPrintState = null;
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
 const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
 const notesScriptUrl = document.currentScript?.src
@@ -102,7 +101,7 @@ function getScopedStorageKey(prefix, scope) {
   return normalizedScope ? `${prefix}${normalizedScope}` : null;
 }
 
-function readStoredStringSet(storageKey, validate = null) {
+function readStoredStringSet(storageKey) {
   return readFromStorage(getLocalStorage, storageKey, (storage) => {
     const raw = storage.getItem(storageKey);
 
@@ -120,7 +119,7 @@ function readStoredStringSet(storageKey, validate = null) {
       .map((value) => (typeof value === 'string' ? value.trim() : ''))
       .filter(Boolean);
 
-    return new Set(typeof validate === 'function' ? values.filter(validate) : values);
+    return new Set(values);
   }, new Set());
 }
 
@@ -181,10 +180,6 @@ function showContributorCopiedState(button) {
 }
 
 function readThemePreference() {
-  if (window.NotesRuntime?.readThemePreference) {
-    return window.NotesRuntime.readThemePreference();
-  }
-
   return ['sepia', 'light'].includes(readStoredString(NOTES_THEME_STORAGE_KEY));
 }
 
@@ -197,11 +192,6 @@ function getThemeToggleAriaLabel(isSepia) {
 }
 
 function writeThemePreference(isSepia) {
-  if (window.NotesRuntime?.writeThemePreference) {
-    window.NotesRuntime.writeThemePreference(isSepia);
-    return;
-  }
-
   writeToStorage(getLocalStorage, NOTES_THEME_STORAGE_KEY, (storage) => {
     storage.setItem(NOTES_THEME_STORAGE_KEY, isSepia ? 'light' : 'default');
   });
@@ -396,10 +386,15 @@ function ensureWorksheetSpacing(card) {
 function setWorksheetSelection(ids) {
   const available = new Set(practiceProblemCards.map((card) => card.id).filter(Boolean));
   worksheetSelectedIds = [...new Set(ids)].filter((id) => available.has(id));
-  worksheetSelectedIds.forEach((id) => ensureWorksheetSpacing(practiceProblemCards.find((card) => card.id === id)));
+  worksheetSelectedIds.forEach((id) => {
+    const card = practiceProblemCards.find((candidate) => candidate.id === id);
+    ensureWorksheetSpacing(card);
+  });
+
   practiceProblemCards.forEach((card) => {
     const toggle = card.querySelector('[data-worksheet-problem-toggle]');
     const selected = worksheetSelectedIds.includes(card.id);
+
     if (toggle) {
       toggle.textContent = selected ? 'Remove from worksheet.' : 'Add to worksheet.';
       toggle.setAttribute('aria-pressed', String(selected));
@@ -409,10 +404,20 @@ function setWorksheetSelection(ids) {
 }
 
 function renderWorksheetSelection() {
-  if (!worksheetControls) return;
+  if (!worksheetControls) {
+    return;
+  }
+
   const count = worksheetSelectedIds.length;
-  if (count) worksheetError.hidden = true;
-  if (!worksheetSelectedList) return;
+
+  if (count) {
+    worksheetError.hidden = true;
+  }
+
+  if (!worksheetSelectedList) {
+    return;
+  }
+
   worksheetSelectedList.innerHTML = '';
   worksheetEmpty.hidden = count > 0;
   worksheetSelectedIds.forEach((id) => {
@@ -429,16 +434,24 @@ function renderWorksheetSelection() {
     spacingLabel.className = 'worksheet-selection__spacing';
     spacingLabel.textContent = 'Spacing';
     const spacingInput = document.createElement('input');
-    spacingInput.type = 'number'; spacingInput.min = '1'; spacingInput.max = '20'; spacingInput.step = '1';
+    spacingInput.type = 'number';
+    spacingInput.min = '1';
+    spacingInput.max = '20';
+    spacingInput.step = '1';
     spacingInput.value = String(ensureWorksheetSpacing(card));
     spacingInput.dataset.worksheetSpacingId = id;
     spacingLabel.append(spacingInput);
     const controls = document.createElement('span');
     controls.className = 'worksheet-selection__actions';
     const remove = document.createElement('button');
-    remove.type = 'button'; remove.className = 'practice-problem__text-action worksheet-action-link'; remove.dataset.worksheetRemoveId = id; remove.textContent = 'Remove';
-    remove.setAttribute('aria-label', `Remove ${label.textContent}`); controls.append(remove);
-    item.append(label, spacingLabel, controls); worksheetSelectedList.append(item);
+    remove.type = 'button';
+    remove.className = 'practice-problem__text-action worksheet-action-link';
+    remove.dataset.worksheetRemoveId = id;
+    remove.textContent = 'Remove';
+    remove.setAttribute('aria-label', `Remove ${label.textContent}`);
+    controls.append(remove);
+    item.append(label, spacingLabel, controls);
+    worksheetSelectedList.append(item);
   });
 }
 
@@ -457,7 +470,10 @@ function renderWorksheetPrint(mode, cards) {
   const includeReference = worksheetControls?.querySelector('[data-worksheet-reference-toggle]')?.getAttribute('aria-pressed') === 'true';
   const reference = includeReference ? worksheetControls?.querySelector('[data-worksheet-reference-template]')?.content.cloneNode(true) : null;
   const escapePrintText = (value) => value.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
-  const header = `<header class="worksheet-print__header"><h1>${escapePrintText(title)}</h1>${mode === 'student' ? '<div class="worksheet-print__fields"><span>Name: ______________________________</span><span>Date: ______________</span></div>' : '<p class="worksheet-print__kind">Answer key</p>'}</header>`;
+  const headerFields = mode === 'student'
+    ? '<div class="worksheet-print__fields"><span>Name: ______________________________</span><span>Date: ______________</span></div>'
+    : '<p class="worksheet-print__kind">Answer key</p>';
+  const header = `<header class="worksheet-print__header"><h1>${escapePrintText(title)}</h1>${headerFields}</header>`;
   container.className = `worksheet-print worksheet-print--${mode}`;
   container.innerHTML = header;
   if (reference) container.append(reference);
@@ -503,7 +519,6 @@ function printWorksheet(mode) {
     worksheetError.focus?.();
     return;
   }
-  worksheetPrintState = { cards };
   renderWorksheetPrint(mode, cards);
   window.setTimeout(() => window.print(), 80);
 }
@@ -511,352 +526,7 @@ function printWorksheet(mode) {
 function finishWorksheetPrint() {
   document.querySelector('[data-worksheet-print-container]')?.remove();
   document.body.classList.remove('is-printing-worksheet');
-  worksheetPrintState = null;
 }
-
-/*
-function loadConceptDagState() {
-  if (!isConceptDagPage || !conceptDagDataScript) {
-    throw new Error('Invalid concept DAG data.');
-  }
-
-  if (conceptDagModel) {
-    return conceptDagModel;
-  }
-
-  try {
-    const parsed = JSON.parse(conceptDagDataScript.textContent ?? 'null');
-
-    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) {
-      return null;
-    }
-
-    const nodes = Array.isArray(parsed.nodes) ? parsed.nodes : [];
-    const orderedNodeIds = [];
-    const nodesById = new Map();
-    const nodeOrder = new Map();
-
-    nodes.forEach((node, index) => {
-      if (!node || typeof node !== 'object' || Array.isArray(node)) {
-        return;
-      }
-
-      const id = String(node.id ?? '').trim();
-
-      if (!id) {
-        return;
-      }
-
-      orderedNodeIds.push(id);
-      nodesById.set(id, {
-        id,
-        title: String(node.title ?? '').trim(),
-        level: String(node.level ?? '').trim(),
-        requires: getConceptDagRequirements(node),
-      });
-      nodeOrder.set(id, index);
-    });
-
-    conceptDagModel = {
-      id: String(parsed.id ?? 'concept-dag').trim(),
-      description: String(parsed.description ?? '').trim(),
-      defaultSubjectId: String(parsed.defaultSubjectId ?? orderedNodeIds[0] ?? '').trim(),
-      nodes,
-      orderedNodeIds,
-      nodesById,
-      nodeOrder,
-    };
-
-    return conceptDagModel;
-}
-
-function getConceptDagRequirements(node) {
-  const requires = node?.requires && typeof node.requires === 'object' && !Array.isArray(node.requires)
-    ? node.requires
-    : {};
-
-  return {
-    hard: Array.isArray(requires.hard) ? requires.hard : [],
-    soft: Array.isArray(requires.soft) ? requires.soft : [],
-  };
-}
-
-function getConceptDagStorageScope() {
-  const state = loadConceptDagState();
-  const fallbackScope = String(window.location.pathname ?? '').trim();
-  return String(state?.defaultSubjectId ?? fallbackScope ?? '').trim();
-}
-
-function getConceptDagStorageKey() {
-  return getScopedStorageKey(CONCEPT_DAG_SELECTION_STORAGE_KEY + ':', getConceptDagStorageScope());
-}
-
-function getConceptDagSelection() {
-  const state = loadConceptDagState();
-
-  if (!state) {
-    return '';
-  }
-
-  const storageKey = getConceptDagStorageKey();
-  const fallback = state.defaultSubjectId || state.orderedNodeIds[0] || '';
-  const raw = readStoredString(storageKey);
-  return state.nodesById.has(raw) ? raw : fallback;
-}
-
-function setConceptDagSelection(subjectId) {
-  writeStoredString(getConceptDagStorageKey(), subjectId);
-}
-
-function collectConceptDagAncestors(selectedId, nodesById) {
-  const visited = new Set();
-  const stack = [selectedId];
-
-  while (stack.length) {
-    const nodeId = stack.pop();
-
-    if (visited.has(nodeId)) {
-      continue;
-    }
-
-    visited.add(nodeId);
-
-    const node = nodesById.get(nodeId);
-
-    if (!node) {
-      continue;
-    }
-
-    const requirements = [...node.requires.hard, ...node.requires.soft];
-
-    requirements.forEach((dependencyId) => {
-      if (nodesById.has(dependencyId)) {
-        stack.push(dependencyId);
-      }
-    });
-  }
-
-  return visited;
-}
-
-function buildConceptDagChildMap(ancestorIds, nodesById, nodeOrder) {
-  const childMap = new Map();
-
-  ancestorIds.forEach((nodeId) => {
-    childMap.set(nodeId, {
-      hard: [],
-      soft: [],
-    });
-  });
-
-  ancestorIds.forEach((nodeId) => {
-    const node = nodesById.get(nodeId);
-
-    if (!node) {
-      return;
-    }
-
-    const pushChildren = (dependencyIds, type) => {
-      dependencyIds.forEach((dependencyId) => {
-        if (!ancestorIds.has(dependencyId) || !childMap.has(dependencyId)) {
-          return;
-        }
-
-        childMap.get(dependencyId)[type].push(nodeId);
-      });
-    };
-
-    pushChildren(node.requires.hard, 'hard');
-    pushChildren(node.requires.soft, 'soft');
-  });
-
-  childMap.forEach((relations) => {
-    relations.hard.sort((left, right) => (nodeOrder.get(left) ?? 0) - (nodeOrder.get(right) ?? 0));
-    relations.soft.sort((left, right) => (nodeOrder.get(left) ?? 0) - (nodeOrder.get(right) ?? 0));
-  });
-
-  return childMap;
-}
-
-function getConceptNoteUrlFromId(nodeId) {
-  const normalizedId = String(nodeId ?? '').trim();
-  const separatorIndex = normalizedId.indexOf('.');
-
-  if (separatorIndex < 0) {
-    return '';
-  }
-
-  const domain = normalizedId.slice(0, separatorIndex).trim();
-  const slug = normalizedId.slice(separatorIndex + 1).trim();
-
-  if (!domain || !slug) {
-    return '';
-  }
-
-  return `/notes/subjects/${domain}/${slug}/`;
-}
-
-function renderConceptDagNodeLink(node, isSelected = false) {
-  const selectedClass = isSelected ? ' is-selected' : '';
-  const noteUrl = getConceptNoteUrlFromId(node.id);
-
-  return `<a class="concept-dag-tree__node${selectedClass}" href="${escapeHtml(noteUrl)}" data-concept-dag-node-link data-concept-dag-note-url="${escapeHtml(noteUrl)}" data-notes-nav-item>${escapeHtml(node.title)}</a>`;
-}
-
-function collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder) {
-  const rootIds = [];
-
-  ancestorIds.forEach((nodeId) => {
-    const node = nodesById.get(nodeId);
-
-    if (!node) {
-      return;
-    }
-
-    const prerequisites = [...node.requires.hard, ...node.requires.soft]
-      .filter((dependencyId) => ancestorIds.has(dependencyId) && nodesById.has(dependencyId));
-
-    if (!prerequisites.length) {
-      rootIds.push(nodeId);
-    }
-  });
-
-  rootIds.sort((left, right) => (nodeOrder.get(left) ?? 0) - (nodeOrder.get(right) ?? 0));
-  return rootIds;
-}
-
-function walkConceptDagTreeRows(nodeId, context, depth, pathStack, rows) {
-  if (pathStack.has(nodeId)) {
-    return;
-  }
-
-  const nextPathStack = new Set(pathStack);
-  nextPathStack.add(nodeId);
-  const node = context.nodesById.get(nodeId);
-
-  if (!node) {
-    return;
-  }
-
-  if (context.renderedIds.has(nodeId)) {
-    return;
-  }
-
-  context.renderedIds.add(nodeId);
-  if (!rows[depth]) {
-    rows[depth] = [];
-  }
-
-  rows[depth].push(node);
-
-  const children = context.childMap.get(nodeId) ?? { hard: [], soft: [] };
-  const childIds = [...children.hard, ...children.soft].filter((childId) => context.ancestorIds.has(childId));
-  childIds
-    .filter((childId) => !context.renderedIds.has(childId))
-    .forEach((childId) => walkConceptDagTreeRows(childId, context, depth + 1, nextPathStack, rows));
-}
-
-function renderConceptDagRows(rows, selectedId) {
-  return rows.map((rowNodes, depth) => {
-    const isLastRow = depth === rows.length - 1 && depth > 0;
-    const connectorCells = depth
-      ? Array.from({ length: depth }, (_, index) => {
-        const type = isLastRow ? (index === 0 ? 'corner' : 'junction') : 'vertical';
-        return `<span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--${type}" aria-hidden="true"></span>`;
-      }).join('')
-      : '';
-    const nodesHtml = rowNodes.map((node, index) => {
-      const separator = index > 0 ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : '';
-
-      return `${separator}${renderConceptDagNodeLink(node, node.id === selectedId)}`;
-    }).join('');
-
-    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${depth ? `<span class="concept-dag-tree__connector${isLastRow ? ' concept-dag-tree__connector--tail' : ''}" aria-hidden="true">${connectorCells}</span>` : ''}<span class="concept-dag-tree__nodes">${nodesHtml}</span></div>`;
-  }).join('');
-}
-
-function syncConceptDagSubjectButtons(selectedId) {
-  Array.from(document.querySelectorAll('[data-concept-dag-subject]')).forEach((button) => {
-    const isActive = String(button.dataset.conceptDagSubject ?? '').trim() === selectedId;
-    button.classList.toggle('is-active', isActive);
-    button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
-  });
-}
-
-function renderConceptDagTree() {
-  const state = loadConceptDagState();
-
-  if (!state || !conceptDagTree) {
-    return;
-  }
-
-  const selectedId = selectedConceptDagSubjectId && state.nodesById.has(selectedConceptDagSubjectId)
-    ? selectedConceptDagSubjectId
-    : state.defaultSubjectId || state.orderedNodeIds[0] || '';
-
-  if (!selectedId) {
-    conceptDagTree.innerHTML = '<p class="concept-dag-tree__empty">No concept data available.</p>';
-    return;
-  }
-
-  const ancestorIds = collectConceptDagAncestors(selectedId, state.nodesById);
-  const rootIds = collectConceptDagRootIds(ancestorIds, state.nodesById, state.nodeOrder);
-  const renderRootIds = rootIds.length ? rootIds : [selectedId];
-
-  const context = {
-    nodesById: state.nodesById,
-    nodeOrder: state.nodeOrder,
-    ancestorIds,
-    selectedId,
-    childMap: buildConceptDagChildMap(ancestorIds, state.nodesById, state.nodeOrder),
-    renderedIds: new Set(),
-  };
-
-  const rows = [];
-
-  renderRootIds.forEach((nodeId) => {
-    walkConceptDagTreeRows(nodeId, context, 0, new Set(), rows);
-  });
-
-  conceptDagTree.innerHTML = rows.length
-    ? `<div class="concept-dag-tree__lines">
-        ${renderConceptDagRows(rows, selectedId)}
-      </div>`
-    : '<p class="concept-dag-tree__empty">No prerequisite chain available for this subject.</p>';
-
-  syncConceptDagSubjectButtons(selectedId);
-}
-
-function syncConceptDagSelection() {
-  const state = loadConceptDagState();
-
-  if (!state || !isConceptDagPage) {
-    return;
-  }
-
-  selectedConceptDagSubjectId = getConceptDagSelection();
-
-  if (!state.nodesById.has(selectedConceptDagSubjectId)) {
-    selectedConceptDagSubjectId = state.defaultSubjectId || state.orderedNodeIds[0] || '';
-    setConceptDagSelection(selectedConceptDagSubjectId);
-  }
-
-  renderConceptDagTree();
-}
-
-function selectConceptDagSubject(subjectId) {
-  const state = loadConceptDagState();
-
-  if (!state || !state.nodesById.has(subjectId)) {
-    return;
-  }
-
-  selectedConceptDagSubjectId = subjectId;
-  setConceptDagSelection(subjectId);
-  renderConceptDagTree();
-}
-
-*/
 
 function applyThemePreference(isSepia) {
   const enabled = Boolean(isSepia);
@@ -1078,7 +748,7 @@ function expandLatexSearchStructures(text) {
 function translateLatexSearchCommands(text) {
   return String(text ?? '').replace(/\\([A-Za-z]+)\b/g, (_, command) => {
     return LATEX_COMMAND_MAP.get(command) ?? command;
-  }, {});
+  });
 }
 
 function tokenize(query) {
@@ -1098,10 +768,6 @@ function setSearchTriggerState(isExpanded) {
 }
 
 function isVisibleElement(element) {
-  if (window.NotesRuntime?.isVisibleElement) {
-    return window.NotesRuntime.isVisibleElement(element);
-  }
-
   return element instanceof HTMLElement
     && !element.hidden
     && element.getClientRects().length > 0
@@ -1409,7 +1075,7 @@ function searchNotes(query) {
     </div>`;
   }).join('');
 
-  updateSearchResultState(results.length ? 0 : -1);
+  updateSearchResultState(0);
 }
 
 async function loadSearchIndex() {
@@ -1417,13 +1083,10 @@ async function loadSearchIndex() {
     return searchIndexPromise;
   }
 
-  const requestSearchIndex = window.NotesRuntime?.loadSearchIndex
-    ?? ((url) => fetch(url).then((response) => {
+  searchIndexPromise = fetch(SEARCH_INDEX_URL).then((response) => {
       if (!response.ok) throw new Error(`Search index returned ${response.status}`);
       return response.json();
-    }));
-
-  searchIndexPromise = requestSearchIndex(SEARCH_INDEX_URL)
+    })
     .then((entries) => {
       searchIndex = Array.isArray(entries) ? entries : [];
       searchIndexReady = true;
@@ -1612,7 +1275,6 @@ function initVectorCalculusGradient(root) {
 
   const fields = createGradientFields();
   const values = Object.fromEntries(Array.from(root.querySelectorAll('[data-gradient-value]')).map((element) => [element.dataset.gradientValue, element]));
-  const angleOutput = null;
   const fieldKey = root.dataset.gradientField in fields ? root.dataset.gradientField : 'quadratic';
   const angle = 35 * Math.PI / 180;
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-5, 5, 5, -5], axis: true, showCopyright: false, showNavigation: false, keepaspectratio: true });
@@ -1620,9 +1282,9 @@ function initVectorCalculusGradient(root) {
   const pointCoords = () => [probe.X(), probe.Y()];
   const addCurve = (x, y, range, extra = {}) => board.create('curve', [x, y, ...range], { strokeColor: '#7d8794', strokeWidth: 1, strokeOpacity: 0.55, fixed: true, ...extra });
   const levelCurves = createGradientLevelCurves(addCurve);
-  const gradientArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + fields[fieldKey].gradient(probe.X(), probe.Y())[0] * 0.55, () => probe.Y() + fields[fieldKey].gradient(probe.X(), probe.Y())[1] * 0.55]], { strokeColor: '#444', fillColor: '#444', strokeWidth: 3 });
-  const directionArrow = board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + Math.cos(angle) * 1.5, () => probe.Y() + Math.sin(angle) * 1.5]], { strokeColor: '#777', fillColor: '#777', strokeWidth: 3 });
-  const tangentLine = board.create('line', [[() => probe.X() - Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() + Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5], [() => probe.X() + Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() - Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5]], { strokeColor: '#c084fc', strokeWidth: 2, dash: 2 });
+  board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + fields[fieldKey].gradient(probe.X(), probe.Y())[0] * 0.55, () => probe.Y() + fields[fieldKey].gradient(probe.X(), probe.Y())[1] * 0.55]], { strokeColor: '#444', fillColor: '#444', strokeWidth: 3 });
+  board.create('arrow', [[() => probe.X(), () => probe.Y()], [() => probe.X() + Math.cos(angle) * 1.5, () => probe.Y() + Math.sin(angle) * 1.5]], { strokeColor: '#777', fillColor: '#777', strokeWidth: 3 });
+  board.create('line', [[() => probe.X() - Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() + Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5], [() => probe.X() + Math.sin(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5, () => probe.Y() - Math.cos(Math.atan2(fields[fieldKey].gradient(probe.X(), probe.Y())[1], fields[fieldKey].gradient(probe.X(), probe.Y())[0])) * 5]], { strokeColor: '#c084fc', strokeWidth: 2, dash: 2 });
   const update = () => {
     const [x, y] = pointCoords();
     const [gx, gy] = fields[fieldKey].gradient(x, y);
@@ -1633,7 +1295,6 @@ function initVectorCalculusGradient(root) {
     if (values.gradient) values.gradient.textContent = `⟨${gx.toFixed(2)}, ${gy.toFixed(2)}⟩`;
     if (values.magnitude) values.magnitude.textContent = magnitude.toFixed(2);
     if (values.directional) values.directional.textContent = directional.toFixed(2);
-    if (angleOutput) angleOutput.textContent = `${Math.round(angle * 180 / Math.PI)}°`;
     board.update();
   };
   const updateFieldVisibility = () => levelCurves.forEach((curve, index) => curve.setAttribute({ visible: fieldKey === 'quadratic' ? index < 7 : index >= 7 }));
@@ -1727,9 +1388,7 @@ function initVectorField3D(root) {
   };
   const fieldKey = root.dataset.vectorField in fields ? root.dataset.vectorField : 'rotation';
   const board = JXG.JSXGraph.initBoard(boardId, { boundingbox: [-6, 6, 6, -6], axis: true, pan: { enabled: false }, showCopyright: false, showNavigation: false, keepaspectratio: true });
-  let view;
-
-  view = board.create('view3d', [[-5, -4], [9, 9], [[-3, 3], [-3, 3], [-3, 3]]], {
+  const view = board.create('view3d', [[-5, -4], [9, 9], [[-3, 3], [-3, 3], [-3, 3]]], {
       projection: 'central',
       trackball: { enabled: true },
       xPlaneFront: { visible: false },
@@ -1740,7 +1399,7 @@ function initVectorField3D(root) {
       zPlaneRear: { visible: false },
   });
     // JSXGraph element names are lowercase, including the trailing "3d".
-    let vectorScale = 0.28;
+    const vectorScale = 0.28;
     const vectorField = view.create('vectorfield3d', [fields[fieldKey].value, [-3, 8, 3], [-3, 8, 3], [-3, 8, 3]], {
       strokeColor: '#777',
       strokeWidth: 1.4,
@@ -1857,7 +1516,7 @@ function initJSXGraphExamples(root) {
     const secondLine = board.create('line', [secondA, secondB], { strokeColor: red, strokeWidth: 3 });
     board.create('intersection', [firstLine, secondLine, 0], { name: 'P', size: 4, color: ink });
   } else if (kind === 'geometry') {
-    const center = board.create('point', [0, 0], { name: 'O', fixed: true });
+    const center = board.create('point', [0, 0], { name: 'O', fixed: true, visible: false });
     const circle = board.create('circle', [center, [1, 1]], { strokeColor: blue, strokeWidth: 3, fillOpacity: 0.08 });
     const point = board.create('glider', [1, 1, circle], { name: 'P', size: 4, color: red });
     board.create('segment', [center, point], { strokeColor: red, strokeWidth: 2 });
@@ -1866,7 +1525,7 @@ function initJSXGraphExamples(root) {
     const circle = board.create('circle', [[0, 0], 1], { strokeColor: blue, strokeWidth: 2 });
     const point = board.create('glider', [0.76, 0.64, circle], { name: 'P', size: 4, color: red });
     board.create('segment', [[0, 0], point], { strokeColor: red, strokeWidth: 2 });
-    const sine = board.create('curve', [x => x, x => Math.sin(x), 0, 2 * Math.PI], { strokeColor: ink, strokeWidth: 2 });
+    board.create('curve', [x => x, x => Math.sin(x), 0, 2 * Math.PI], { strokeColor: ink, strokeWidth: 2 });
     const angle = () => Math.atan2(point.Y(), point.X()) < 0 ? Math.atan2(point.Y(), point.X()) + 2 * Math.PI : Math.atan2(point.Y(), point.X());
     board.create('point', [angle, () => point.Y()], { name: 'sin(θ)', size: 4, color: red });
     board.create('segment', [[() => angle(), () => point.Y()], point], { strokeColor: '#718096', dash: 2 });
@@ -1893,9 +1552,64 @@ const INTERACTIVE_INITIALIZERS = {
 };
 
 function initInteractiveExperiences() {
-  Object.entries(INTERACTIVE_INITIALIZERS).forEach(([type, initializer]) => {
-    document.querySelectorAll(`[data-interactive="${type}"]`).forEach(initializer);
-  });
+  const pendingRoots = Object.entries(INTERACTIVE_INITIALIZERS).flatMap(([type, initializer]) => (
+    Array.from(document.querySelectorAll(`[data-interactive="${type}"]`), (root) => ({ root, initializer }))
+  ));
+
+  if (!pendingRoots.length) return;
+
+  const staticRoots = pendingRoots.filter(({ root }) => root.dataset.interactive !== 'jsxgraph-examples');
+  const jsxGraphRoots = pendingRoots.filter(({ root }) => root.dataset.interactive === 'jsxgraph-examples');
+
+  staticRoots.forEach(({ root, initializer }) => initializer(root));
+
+  if (!jsxGraphRoots.length) return;
+
+  let jsxGraphPromise = null;
+  const loadJSXGraph = () => {
+    if (window.JXG) return Promise.resolve();
+    if (jsxGraphPromise) return jsxGraphPromise;
+
+    const source = window.__NOTES_JSXGRAPH_URL;
+    if (!source) return Promise.reject(new Error('JSXGraph source is not configured.'));
+
+    jsxGraphPromise = new Promise((resolve, reject) => {
+      const stylesheet = document.createElement('link');
+      stylesheet.rel = 'stylesheet';
+      stylesheet.href = window.__NOTES_JSXGRAPH_CSS_URL ?? source.replace(/jsxgraphcore\.js(?:\?.*)?$/, 'jsxgraph.css');
+      document.head.appendChild(stylesheet);
+
+      const script = document.createElement('script');
+      script.src = source;
+      script.async = true;
+      script.onload = resolve;
+      script.onerror = () => reject(new Error('JSXGraph failed to load.'));
+      document.head.appendChild(script);
+    });
+
+    return jsxGraphPromise;
+  };
+
+  const initialize = ({ root, initializer }) => {
+    loadJSXGraph().then(() => initializer(root)).catch(() => {
+      root.dataset.interactiveError = 'true';
+    });
+  };
+
+  if (!('IntersectionObserver' in window)) {
+    jsxGraphRoots.forEach(initialize);
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) return;
+      observer.unobserve(entry.target);
+      initialize(jsxGraphRoots.find(({ root }) => root === entry.target));
+    });
+  }, { rootMargin: '400px 0px' });
+
+  jsxGraphRoots.forEach(({ root }) => observer.observe(root));
 }
 
 searchTriggers.forEach((trigger) => {
@@ -2039,9 +1753,15 @@ document.addEventListener('click', async (event) => {
   const problemCard = solutionButton.closest('[data-practice-problem]');
   const solution = problemCard?.querySelector('[data-practice-solution]');
   const isHidden = solution?.hidden ?? true;
+  const needsMathJax = isHidden && solution?.classList.contains('mathjax_ignore');
 
   if (solution) {
     solution.hidden = !isHidden;
+
+    if (needsMathJax) {
+      solution.classList.remove('mathjax_ignore');
+      window.MathJax?.typesetPromise?.([solution])?.catch(() => {});
+    }
   }
 
   solutionButton.textContent = isHidden ? 'Hide solutions' : 'Show solutions';

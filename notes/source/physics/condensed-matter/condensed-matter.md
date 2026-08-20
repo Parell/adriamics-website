@@ -1,19 +1,4 @@
-# Condensed Matter Physics
-
-## Prerequisites and outcomes
-
-This note assumes introductory quantum mechanics, thermodynamics, electromagnetism, and vectors. By the end, you should be able to move between lattice, phonon, band, and continuum models, identify the assumptions behind each model, and relate measurable transport or diffraction data to microscopic structure.
-
-# What condensed matter physics studies
-
-Condensed matter physics explains how large collections of atoms and electrons produce the properties of solids, liquids, and structured materials. The central challenge is connecting microscopic interactions to collective behavior.
-
-## Core ideas
-
-- Crystal structure determines symmetry, defects, and many material properties.
-- Quasiparticles provide useful descriptions of collective excitations.
-- Band structure explains electrical and optical behavior.
-- Temperature, pressure, disorder, and fields can drive phase transitions.
+﻿# Condensed Matter Physics
 
 # Crystal structure
 
@@ -45,7 +30,7 @@ At long wavelength, acoustic phonons behave like sound waves. Optical phonons oc
 
 # Electrons in solids
 
-Periodic potentials split atomic levels into bands. The Fermi–Dirac distribution is
+Periodic potentials split atomic levels into bands. The Fermiâ€“Dirac distribution is
 
 $$
 f(E)=\frac{1}{e^{(E-\mu)/(k_BT)}+1}.

@@ -1,29 +1,4 @@
-# General Chemistry
-
-## Prerequisites and outcomes
-
-This note assumes arithmetic, algebra, unit conversions, and proportional reasoning. By the end, you should be able to balance reactions, use moles and concentrations, predict basic molecular structure, and select equilibrium, acid–base, kinetics, thermochemistry, or redox models without confusing an approximation with a definition.
-
-# Scope and core ideas
-
-General chemistry explains how matter is built, how it reacts, and how energy changes during those reactions. It is the language behind biology, physiology, pharmacology, and laboratory science.
-
-The central idea is that macroscopic behavior comes from microscopic structure:
-
-- Atomic structure influences bonding.
-- Bonding influences molecular shape and polarity.
-- Shape and polarity influence solubility, reactivity, and biological function.
-- Concentration and pH influence chemical equilibria in cells and fluids.
-
-Most introductory problems reduce to one of these tasks:
-
-- Count particles or moles.
-- Convert between mass, moles, and volume.
-- Predict bonding or molecular geometry.
-- Balance a reaction and apply stoichiometry.
-- Use equilibrium, pH, or redox relationships to find an unknown.
-
----
+﻿# General Chemistry
 
 # Matter, atoms, and the periodic table
 

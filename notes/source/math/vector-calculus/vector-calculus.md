@@ -1,4 +1,4 @@
----
+﻿---
 
 # Vector Calculus
 
@@ -7,34 +7,6 @@
 Learn these in order: scalar and vector fields; directional derivatives and gradient; divergence and curl; line and surface integrals; conservative and incompressible fields; then Green's, Stokes', and the divergence theorems. Coordinate systems, potential theory, and numerical methods come after those foundations.
 
 ---
-
-# Prerequisites and notation
-
-You should be comfortable with:
-
-- algebra, trigonometry, and functions;
-- one-variable limits, derivatives, and definite integrals;
-- vectors, dot products, cross products, and equations of lines and planes;
-- partial derivatives and multiple integrals;
-- basic mechanics and SI units.
-
-## Fields
-
-A **scalar field** assigns one number to each point. Examples include temperature $T(x,y,z)$, pressure $p(x,y,z)$, and electric potential $V(x,y,z)$.
-
-A **vector field** assigns a vector to each point. A fluid velocity field can be written
-
-$$
-\mathbf{u}(x,y,z)=\langle u(x,y,z),v(x,y,z),w(x,y,z)\rangle.
-$$
-
-Here $u,v,w$ are component functions; $\mathbf{u}$ is a velocity with units of m/s. The position vector is $\mathbf{r}=\langle x,y,z\rangle$, and $\nabla$ (del, or nabla) is the differential operator
-
-$$
-\nabla=\left\langle\frac{\partial}{\partial x},\frac{\partial}{\partial y},\frac{\partial}{\partial z}\right\rangle.
-$$
-
-The operator $\nabla$ is not a vector of numbers. It is a compact instruction for differentiating a field.
 
 ---
 
@@ -490,7 +462,7 @@ Dimensional checks are essential:
 
 Vector calculus appears wherever a quantity is distributed in space.
 
-- **Fluid mechanics:** continuity uses divergence; vorticity is curl of velocity; Navier–Stokes includes gradients and Laplacians.
+- **Fluid mechanics:** continuity uses divergence; vorticity is curl of velocity; Navierâ€“Stokes includes gradients and Laplacians.
 - **Heat transfer:** temperature gradients drive heat flux, and the Laplacian appears in conduction.
 - **Electromagnetism:** Maxwell's laws are naturally written with divergence and curl.
 - **Mechanics and materials:** stress divergence produces force density; displacement gradients produce strain.
@@ -526,7 +498,7 @@ Theorems assume smooth fields and correctly oriented, sufficiently regular bound
 - Reversing the surface normal or curve orientation.
 - Applying the divergence theorem to an open surface without adding the missing pieces.
 - Assuming zero curl implies conservative behavior on a domain with a hole.
-- Calling $\nabla\cdot\mathbf{u}=0$ “zero velocity.”
+- Calling $\nabla\cdot\mathbf{u}=0$ â€œzero velocity.â€
 - Using cylindrical or spherical formulas as if they were Cartesian.
 - Ignoring units: a gradient is not measured in the same units as the original field.
 
@@ -638,7 +610,7 @@ $$
 # Recommended next topics
 
 - Partial differential equations: Laplace, heat, and wave equations
-- Fluid mechanics and Navier–Stokes equations
+- Fluid mechanics and Navierâ€“Stokes equations
 - Electromagnetism and Maxwell's equations
 - Tensor calculus and continuum mechanics
 - Numerical methods, finite volume, finite difference, and finite element methods

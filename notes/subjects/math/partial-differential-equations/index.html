@@ -24,37 +24,34 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.min.css?v=3cf80617cc94" />
-  <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
-  <script defer src="/notes/webmeji/config.js"></script>
-  <script defer src="/notes/webmeji/webmeji.js"></script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=ac6f575c0bc9" />
+  <link rel="preload" href="/notes/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/notes/webmeji/webmeji.css" /></noscript>
+  <script defer src="/notes/webmeji/config.min.js"></script>
+  <script defer src="/notes/webmeji/webmeji.min.js"></script>
+  
   
   <script>
     window.MathJax = {
-      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams', 'unicode'] },
+        packages: { '[+]': ['ams'] },
         macros: {
           degree: '{^{\\circ}}',
           arcsec: '\\operatorname{arcsec}',
-          oiint: '\\mathop{\\unicode{x222F}}'
+          oiint: '\\oiint'
         }
       },
       svg: {
         fontCache: 'local',
         blacker: 0
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=896a6a833e10"></script>
   
-  <script defer src="../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../notes.min.js?v=1dea25793cc8"></script>
+  <script defer src="../../../notes.min.js?v=9c2881d618bb"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -98,7 +95,7 @@
       <div class="viewer-head">
         <div>
           <h1>PDEs</h1>
-          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/partial-differential-equations/partial-differential-equations.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="2026-08-15T15:30:54.000Z">Last modified Aug 15, 2026</time></p>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/math/partial-differential-equations/partial-differential-equations.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="2026-08-20T16:41:43.000Z">Last modified Aug 20, 2026</time></p>
           <div class="viewer-contributors-block"><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">2</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
       </div>
       <div class="viewer-head__actions">
@@ -116,48 +113,11 @@
     </section>
         <nav class="notes-toc" aria-label="Table of contents">
       <h2 class="notes-toc__title">Table of Contents</h2>
-      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#partial-differential-equations">Partial Differential Equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#what-a-pde-is">What a PDE is</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#derivative-language-and-common-operators">Derivative language and common operators</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#classification-of-second-order-pdes">Classification of second-order PDEs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conditions-needed-to-define-a-problem">Conditions needed to define a problem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservation-laws-and-the-divergence-theorem">Conservation laws and the divergence theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#separation-of-variables">Separation of variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#the-heat-equation">The heat equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#the-wave-equation">The wave equation</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#laplaces-equation">Laplace&#39;s equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#a-worked-separation-example">A worked separation example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#numerical-pdes-and-real-engineering-systems">Numerical PDEs and real engineering systems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-misconceptions-and-mistakes">Common misconceptions and mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#summary">Summary</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-sheet">Formula sheet</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#glossary">Glossary</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#practice-problems">Practice problems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#recommended-next-topics">Recommended next topics</a></li></ol></div>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#partial-differential-equations">Partial Differential Equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#derivative-language-and-common-operators">Derivative language and common operators</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#classification-of-second-order-pdes">Classification of second-order PDEs</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conditions-needed-to-define-a-problem">Conditions needed to define a problem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#conservation-laws-and-the-divergence-theorem">Conservation laws and the divergence theorem</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#separation-of-variables">Separation of variables</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#the-heat-equation">The heat equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#the-wave-equation">The wave equation</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#laplaces-equation">Laplace&#39;s equation</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#a-worked-separation-example">A worked separation example</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#numerical-pdes-and-real-engineering-systems">Numerical PDEs and real engineering systems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#common-misconceptions-and-mistakes">Common misconceptions and mistakes</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#summary">Summary</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-sheet">Formula sheet</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#glossary">Glossary</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#practice-problems">Practice problems</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#recommended-next-topics">Recommended next topics</a></li></ol></div>
     </nav>
         <h1 id="partial-differential-equations">Partial Differential Equations</h1>
 <p>Partial differential equations (PDEs) describe how an unknown quantity changes with respect to <strong>several independent variables</strong>. A temperature field $T(x,y,z,t)$, a pressure field $p(x,y,z,t)$, and a displacement field $u(x,t)$ are typical examples. PDEs matter because conservation of mass, momentum, energy, and charge almost always produces fields rather than single numbers.</p>
 <p>This note develops the core language of PDEs, the classification of second-order equations, initial and boundary conditions, separation of variables, the wave, heat, and Laplace equations, well-posedness, and conservation laws. The emphasis is on the one-dimensional and rectangular-domain cases that make the ideas transparent; real geometries usually require numerical methods.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<p>Before starting, be comfortable with:</p>
-<ul><li><p>functions of several variables and partial derivatives</p></li><li><p>gradients, divergence, and the Laplacian</p></li><li><p>single and multiple integrals, including integration by parts</p></li><li><p>ordinary differential equations and initial-value problems</p></li><li><p>vectors, matrices, eigenvalues, and basic Fourier series</p></li><li><p>algebra, trigonometry, and dimensional analysis</p></li></ul>
-<p>The main ideas can be learned with calculus, but rigorous existence theory and numerical PDEs require more analysis and linear algebra.</p>
-<hr />
-<h1 id="what-a-pde-is">What a PDE is</h1>
-<p>An <strong>ordinary differential equation</strong> (ODE) has derivatives with respect to one independent variable. A <strong>partial differential equation</strong> has partial derivatives with respect to at least two independent variables.</p>
-<p>For example, a rod temperature $T(x,t)$ depends on position $x$ and time $t$. Its time rate of change and spatial curvature are different derivatives:</p>
-<div class="math-block">$$
-\frac{\partial T}{\partial t},\qquad \frac{\partial^2 T}{\partial x^2}.
-$$</div>
-<p>The symbols are:</p>
-<table><thead><tr><th>Symbol</th><th>Meaning</th><th>Typical SI unit</th></tr></thead><tbody><tr><td>$x,y,z$</td><td>spatial coordinates</td><td>m</td></tr><tr><td>$t$</td><td>time</td><td>s</td></tr><tr><td>$u(x,t)$</td><td>unknown field or dependent variable</td><td>problem-dependent</td></tr><tr><td>$u_t,u_x$</td><td>first partial derivatives</td><td>units of $u$/s or $u$/m</td></tr><tr><td>$u_{xx}$</td><td>second partial derivative</td><td>units of $u$/m$^2$</td></tr><tr><td>$\Omega$</td><td>spatial domain</td><td>m$^n$</td></tr><tr><td>$\partial\Omega$</td><td>boundary of the domain</td><td>m$^{n-1}$</td></tr></tbody></table>
-<h2 id="a-general-form">A general form</h2>
-<p>A PDE may be written as</p>
-<div class="math-block">$$
-F\left(x,t,u,u_t,u_x,u_{xx},\ldots\right)=0.
-$$</div>
-<p>The <strong>order</strong> is the highest derivative appearing. The PDE is <strong>linear</strong> if $u$ and all its derivatives occur only to the first power and are not multiplied together. For example,</p>
-<div class="math-block">$$
-u_t-k u_{xx}=f(x,t)
-$$</div>
-<p>is linear, while $u_t+u u_x=0$ is nonlinear because the unknown $u$ multiplies its derivative.</p>
-<h2 id="pde-versus-ode-a-field-not-a-trajectory">PDE versus ODE: a field, not a trajectory</h2>
-<p>An ODE may determine one function of time, such as the position of one mass. A PDE determines a value at every point in a region. A solution is therefore a surface, curve, or higher-dimensional field, not a single time history.</p>
-<pre><code>        spatial position x
-        0 ---------------------- L
-time t  |  temperature field T(x,t)
-  ^     |  each point has a value
-  |     v</code></pre>
-<h2 id="linear-superposition">Linear superposition</h2>
-<p>For a linear homogeneous PDE, if $u_1$ and $u_2$ are solutions, then</p>
-<div class="math-block">$$
-u=c_1u_1+c_2u_2
-$$</div>
-<p>is also a solution for constants $c_1,c_2$. This is the basis of Fourier series and modal methods. Superposition generally fails for nonlinear PDEs.</p>
-<hr />
 <h1 id="derivative-language-and-common-operators">Derivative language and common operators</h1>
 <p>The <strong>gradient</strong> collects first spatial derivatives of a scalar field:</p>
 <div class="math-block">$$
@@ -246,7 +206,7 @@ $$</div>
 <div class="math-block">$$
 \boxed{u_t+\nabla\cdot\mathbf{J}=s.}
 $$</div>
-<p>This equation is the mathematical form of “rate of accumulation = sources − net outflow.”</p>
+<p>This equation is the mathematical form of “rate of accumulation = sources âˆ’ net outflow.”</p>
 <h2 id="constitutive-laws-produce-pdes">Constitutive laws produce PDEs</h2>
 <p>Conservation alone does not determine the flux. A constitutive law closes the model:</p>
 <ul><li><p>diffusion: $\mathbf{J}=-D\nabla u$, where $D$ may depend on position or state</p></li><li><p>heat conduction: $\mathbf{q}=-k\nabla T$</p></li><li><p>electrical conduction: $\mathbf{J}_e=\sigma\mathbf{E}$</p></li></ul>

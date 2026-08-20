@@ -1,43 +1,4 @@
-# What a function is
-
-> **What this assumes:** Basic algebra, coordinates, and the idea that an expression can have a domain.
->
-> **What this enables:** Limits and continuity can examine how a function behaves near an input. Derivatives and integrals come later; this note supplies the function language they use.
-
-> **Label: Concept.** This note is the canonical home for function notation,
-> domain, range, composition, inverses, exponentials, and logarithms. Algebra
-> contains the solution techniques for equations involving these concepts.
-
-A **function** is a rule that assigns each input exactly one output.
-
-In set notation, a function from set $A$ to set $B$ is written
-
-$$
-f : A \to B
-$$
-
-and means that every element of the domain $A$ maps to one element in the codomain $B$.
-
-The key requirement is **single-valued output**:
-
-- One input can produce only one output.
-- Different inputs can produce the same output.
-
-Examples:
-
-- $f(x) = x^2$ is a function.
-- $g(x) = \pm \sqrt{x}$ is not a function if both signs are taken at once.
-- The relation $y^2 = x$ is not a function of $x$ unless you restrict the branch.
-
-## Vertical line test
-
-A graph represents a function of $x$ if every vertical line intersects the graph at most once.
-
-This is a fast visual check, but it is not a substitute for reasoning about the domain.
-
----
-
-# Notation, domain, codomain, and range
+﻿# Notation, domain, codomain, and range
 
 ## Standard notation
 

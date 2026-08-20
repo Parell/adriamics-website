@@ -1,39 +1,4 @@
-# Optics
-
-## Prerequisites and outcomes
-
-This note assumes geometry, trigonometry, wave basics, and introductory electromagnetism. By the end, you should be able to decide when the ray approximation is valid, construct images with sign conventions, and predict interference, diffraction, and polarization outcomes from phase and geometry.
-
-# What optics studies
-
-Optics is the branch of physics that studies the behavior of light and its interactions with matter. In practice, the subject is usually split into:
-
-- **Geometric optics**: treats light as rays and is accurate when optical components are much larger than the wavelength.
-- **Wave optics**: treats light as a wave and is needed for interference, diffraction, and polarization.
-
-Light is an electromagnetic wave. In vacuum it travels at speed
-
-$$
-c \approx 3.00 \times 10^8 \ \text{m/s}
-$$
-
-In a medium, the speed is lower:
-
-$$
-v = \frac{c}{n}
-$$
-
-where $n$ is the refractive index.
-
-## Core ideas
-
-- Rays show the direction of energy flow in the short-wavelength limit.
-- Reflection sends light back into the original medium.
-- Refraction changes the ray direction when light crosses an interface.
-- Lenses and mirrors form images by redirecting rays.
-- Wave effects appear when the aperture or obstacle size is comparable to the wavelength.
-
----
+﻿# Optics
 
 # Light as a wave and a ray
 

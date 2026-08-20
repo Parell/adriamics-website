@@ -1,48 +1,4 @@
-# What a matrix is
-
-A **matrix** is a rectangular array of numbers, symbols, or expressions arranged in rows and columns.
-
-Matrices are used to represent:
-
-- Linear transformations
-- Systems of equations
-- Data tables
-- Graph and network relationships
-- Recurrence relations and computational models
-
-In linear algebra, matrices are most often studied as algebraic objects that encode linear maps.
-
-> **What this assumes:** Algebraic manipulation and vectors as coordinate lists. Geometry helps with the interpretation, but the computations below are defined by row and column operations.
->
-> **What this enables:** Eigenvalues, systems of ODEs, numerical methods, and optimization use matrices to represent transformations and coupled equations.
-
-## Entry notation
-
-If $A$ is a matrix, its entry in row $i$ and column $j$ is written as:
-
-$$
-a_{ij}
-$$
-
-For example:
-
-$$
-A =
-\begin{bmatrix}
-1 & 2 & 3 \\
-4 & 5 & 6
-\end{bmatrix}
-$$
-
-then:
-
-$$
-a_{12} = 2,\quad a_{21} = 4
-$$
-
----
-
-# Matrix notation and dimensions
+﻿# Matrix notation and dimensions
 
 The **size** or **dimension** of a matrix is written as:
 

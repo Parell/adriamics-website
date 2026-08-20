@@ -1,43 +1,4 @@
-# Classical Mechanics
-
-## Prerequisites and outcomes
-
-This note assumes algebra, trigonometry, vectors, and single-variable differentiation and integration. By the end, you should be able to select force, energy, momentum, rotational, or Lagrangian models; state their assumptions; and check a result using units, limits, and conservation laws.
-
-# Scope and core ideas
-
-Classical mechanics describes the motion of bodies under the action of forces, along with the conservation laws that govern that motion.
-
-It is the foundation for:
-
-- particle dynamics
-- rigid-body motion
-- vibrations and waves
-- orbital motion
-- mechanical engineering analysis
-
-The core quantities are:
-
-- position
-- velocity
-- acceleration
-- force
-- momentum
-- energy
-- angular momentum
-
-## Modeling assumptions
-
-Most introductory problems rely on simplifying assumptions such as:
-
-- bodies can be treated as particles
-- objects may be rigid
-- motion occurs in an inertial frame
-- forces can be idealized as weight, normal force, tension, spring force, or drag
-
-Knowing which assumptions are valid is often more important than algebra.
-
----
+﻿# Classical Mechanics
 
 # Kinematics in one and three dimensions
 

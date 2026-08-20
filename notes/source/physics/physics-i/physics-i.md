@@ -1,29 +1,4 @@
-# Physics I
-
-## Prerequisites and outcomes
-
-Before starting, be comfortable with algebra, trigonometry, vectors, and basic differentiation and integration. By the end, you should be able to choose between force, energy, momentum, and torque models and justify the assumptions used in a mechanics solution.
-
-# What Physics I covers
-
-Physics I is usually the first university-level mechanics course. The core goal is to describe how objects move and why they move using a small set of conservation laws and force laws.
-
-The main themes are:
-
-- Kinematics: describing motion without explaining its cause
-- Dynamics: explaining motion with forces
-- Conservation of energy and momentum
-- Rotational motion and torque
-- Gravitational motion and oscillations
-
-The subject is not about memorizing a large number of formulas. Most problems reduce to:
-
-1. Identify the system.
-2. Draw the relevant forces or motion quantities.
-3. Choose the correct conservation or Newtonian principle.
-4. Solve algebraically and check units.
-
----
+﻿# Physics I
 
 # Units, vectors, and notation
 
@@ -966,3 +941,4 @@ $$
 - Griffiths, *Introduction to Quantum Mechanics*
 - Taylor, *Classical Mechanics*
 - [Parell GitHub repository](https://github.com/Parell/parell.github.io)
+

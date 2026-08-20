@@ -1,8 +1,6 @@
-# What a limit means
+﻿# What a limit means
 
-> **What this assumes:** Functions, algebraic manipulation, graphs, and domain restrictions.
 >
-> **What this enables:** A precise definition of continuity and the limit-based definition of the derivative. Integrals and series use limits later, but are not developed here.
 
 A **limit** describes the value a function approaches as the input approaches some point.
 
@@ -514,7 +512,7 @@ If a rational function has numerator degree exactly one higher than the denomina
 
 ---
 
-# Indeterminate forms and L'HÃ´pital's rule
+# Indeterminate forms and L'HÃƒÂ´pital's rule
 
 An **indeterminate form** is an expression that does not determine the limit by itself.
 
@@ -530,7 +528,7 @@ Common forms:
 
 The form tells you that more work is needed; it does not tell you the answer.
 
-## L'HÃ´pital's rule
+## L'HÃƒÂ´pital's rule
 
 If
 
@@ -550,7 +548,7 @@ when the right-hand limit exists and the rule's hypotheses are satisfied.
 
 ## When to use it
 
-Use L'HÃ´pital's rule after:
+Use L'HÃƒÂ´pital's rule after:
 
 - Confirming an indeterminate form
 - Checking that derivatives exist where needed
@@ -558,7 +556,7 @@ Use L'HÃ´pital's rule after:
 
 ## When not to overuse it
 
-L'HÃ´pital's rule is powerful, but algebra is often faster.
+L'HÃƒÂ´pital's rule is powerful, but algebra is often faster.
 
 For example, factorization or a standard trig limit is usually cleaner than repeated differentiation.
 
@@ -568,7 +566,7 @@ $$
 \lim_{x \to 0} \frac{e^x-1}{x}
 $$
 
-This is $\frac{0}{0}$, so L'HÃ´pital gives:
+This is $\frac{0}{0}$, so L'HÃƒÂ´pital gives:
 
 $$
 \lim_{x \to 0} \frac{e^x}{1} = 1
@@ -580,7 +578,7 @@ $$
 
 ## Derivative-based methods (preview)
 
-Some indeterminate forms can be handled by L'Hôpital's rule, which uses derivatives. Learn and apply that rule with the derivative note; here, prefer algebra, standard limits, or the squeeze theorem.
+Some indeterminate forms can be handled by L'HÃ´pital's rule, which uses derivatives. Learn and apply that rule with the derivative note; here, prefer algebra, standard limits, or the squeeze theorem.
 
 ---
 
@@ -597,7 +595,7 @@ When you see a limit, use this sequence.
 7. If the function is piecewise, compute left and right limits separately.
 8. If the expression is oscillatory or complicated, consider the squeeze theorem.
 <!--
-9. Use L'HÃ´pital's rule only when the hypotheses fit and a simpler approach is not better.
+9. Use L'HÃƒÂ´pital's rule only when the hypotheses fit and a simpler approach is not better.
 
 ## Common mistakes
 -->
@@ -608,7 +606,7 @@ When you see a limit, use this sequence.
 - Treating the limit as the same thing as the function value
 - Cancelling terms before checking for zero denominators
 - Forgetting to check both one-sided limits
-- Using L'HÃ´pital's rule on a non-indeterminate form
+- Using L'HÃƒÂ´pital's rule on a non-indeterminate form
 - Replacing $x$ with $\infty$ as if it were a number
 - Ignoring domain restrictions
 
@@ -688,7 +686,7 @@ $$
 \lim_{x \to a} f(x)=L
 $$
 
-<!-- L'Hôpital's rule is deferred to Derivatives; this entry is retained only as a pointer.
+<!-- L'HÃ´pital's rule is deferred to Derivatives; this entry is retained only as a pointer.
 
 For $\frac{0}{0}$ or $\frac{\infty}{\infty}$ forms:
 

@@ -1,8 +1,4 @@
-# Mathematical Mechanics
-
-## Prerequisites and outcomes
-
-This note assumes single- and multivariable calculus, ordinary differential equations, vectors, and the Newtonian ideas in [Classical Mechanics](../classical-mechanics/classical-mechanics.md). By the end, you should be able to formulate a mechanical problem with a Lagrangian, handle ideal constraints, identify symmetry and conserved quantities, change between Lagrangian and Hamiltonian descriptions, and recognize the Hamilton–Jacobi equation as a generating equation for canonical motion.
+﻿# Mathematical Mechanics
 
 # Functionals and the calculus of variations
 
@@ -26,7 +22,7 @@ $$
 \delta J=\int_{t_1}^{t_2}\left(F_q\eta+F_{\dot q}\dot\eta\right)dt.
 $$
 
-Integration by parts and the fundamental lemma of the calculus of variations give the **Euler–Lagrange equation**:
+Integration by parts and the fundamental lemma of the calculus of variations give the **Eulerâ€“Lagrange equation**:
 
 $$
 \boxed{\frac{d}{dt}\frac{\partial F}{\partial\dot q}-\frac{\partial F}{\partial q}=0.}
@@ -34,7 +30,7 @@ $$
 
 For several coordinates, apply this equation to every $q_i$. If $F$ does not depend explicitly on $q_i$, then $\partial F/\partial\dot q_i$ is constant; $q_i$ is called cyclic or ignorable.
 
-## Hamilton’s principle
+## Hamiltonâ€™s principle
 
 For a conservative system,
 
@@ -42,7 +38,7 @@ $$
 L(q,\dot q,t)=T(q,\dot q)-V(q,t),\qquad S[q]=\int_{t_1}^{t_2}L\,dt.
 $$
 
-Hamilton’s principle says that the physical path makes $S$ stationary among nearby paths with the same endpoints. It is a local first-variation statement, not a claim that nature searches through paths in real time.
+Hamiltonâ€™s principle says that the physical path makes $S$ stationary among nearby paths with the same endpoints. It is a local first-variation statement, not a claim that nature searches through paths in real time.
 
 ### Worked example: pendulum
 
@@ -59,7 +55,7 @@ $$
 \qquad \frac{\partial L}{\partial\theta}=-mg\ell\sin\theta.
 $$
 
-Euler–Lagrange gives
+Eulerâ€“Lagrange gives
 
 $$
 \boxed{\ddot\theta+\frac g\ell\sin\theta=0.}
@@ -101,9 +97,9 @@ $$
 
 Variation with respect to $\lambda_a$ recovers the constraints; the multiplier equations encode the reaction forces. Eliminate coordinates when only the motion is wanted, and use multipliers when reaction forces are important.
 
-# Symmetry and Noether’s theorem
+# Symmetry and Noetherâ€™s theorem
 
-A continuous symmetry is a smooth transformation that leaves the action unchanged, or changes $L$ only by a total time derivative. Noether’s theorem turns each such symmetry into a conserved quantity. For an infinitesimal change $q_i\mapsto q_i+\varepsilon\Delta q_i$ with no boundary contribution,
+A continuous symmetry is a smooth transformation that leaves the action unchanged, or changes $L$ only by a total time derivative. Noetherâ€™s theorem turns each such symmetry into a conserved quantity. For an infinitesimal change $q_i\mapsto q_i+\varepsilon\Delta q_i$ with no boundary contribution,
 
 $$
 \mathcal Q=\sum_i p_i\Delta q_i,\qquad p_i=\frac{\partial L}{\partial\dot q_i}
@@ -133,7 +129,7 @@ $$
 p_i=\frac{\partial L}{\partial\dot q_i},\qquad H(q,p,t)=\sum_ip_i\dot q_i-L.
 $$
 
-The velocity–momentum relation must be invertible before $H$ is a regular Hamiltonian. In phase space, Hamilton’s equations are
+The velocityâ€“momentum relation must be invertible before $H$ is a regular Hamiltonian. In phase space, Hamiltonâ€™s equations are
 
 $$
 \boxed{\dot q_i=\frac{\partial H}{\partial p_i},\qquad \dot p_i=-\frac{\partial H}{\partial q_i}.}
@@ -167,11 +163,11 @@ $$
 \{f,\{g,h\}\}+\{g,\{h,f\}\}+\{h,\{f,g\}\}=0.
 $$
 
-For $H=p^2/(2m)+V(x)$, $\{p,H\}=-V'(x)$, recovering Newton’s law.
+For $H=p^2/(2m)+V(x)$, $\{p,H\}=-V'(x)$, recovering Newtonâ€™s law.
 
 # Canonical transformations
 
-A transformation $(q,p)\mapsto(Q,P)$ is canonical when it preserves Hamilton’s equations and the symplectic structure. A practical test is preservation of the fundamental brackets:
+A transformation $(q,p)\mapsto(Q,P)$ is canonical when it preserves Hamiltonâ€™s equations and the symplectic structure. A practical test is preservation of the fundamental brackets:
 
 $$
 \{Q_i,Q_j\}=0,\quad\{P_i,P_j\}=0,\quad\{Q_i,P_j\}=\delta_{ij}.
@@ -185,9 +181,9 @@ $$
 
 The identity choice $F_2=\sum_iq_iP_i$ gives $Q=q$ and $P=p$. A time-dependent transformation changes the Hamiltonian to $K$, so the old $H$ cannot simply be reused.
 
-# Hamilton–Jacobi theory
+# Hamiltonâ€“Jacobi theory
 
-Hamilton’s principal function $S(q,t)$ is a generating function chosen so that the new momenta and Hamiltonian are constants. It satisfies the **Hamilton–Jacobi equation**:
+Hamiltonâ€™s principal function $S(q,t)$ is a generating function chosen so that the new momenta and Hamiltonian are constants. It satisfies the **Hamiltonâ€“Jacobi equation**:
 
 $$
 \boxed{H\left(q,\frac{\partial S}{\partial q},t\right)+\frac{\partial S}{\partial t}=0.}
@@ -209,17 +205,17 @@ so $dW/dx=p(x)=\pm\sqrt{2m(E-V(x))}$. Separation can reduce trajectory finding t
 
 # Common mistakes and workflow
 
-- A stationary action need not be a minimum; maxima and saddle points also satisfy Euler–Lagrange.
+- A stationary action need not be a minimum; maxima and saddle points also satisfy Eulerâ€“Lagrange.
 - Fixed endpoints mean the variation vanishes there.
-- Do not confuse partial derivatives with the total derivative in Euler–Lagrange.
-- “Ideal constraint” means zero virtual work, not necessarily zero real work in every motion.
+- Do not confuse partial derivatives with the total derivative in Eulerâ€“Lagrange.
+- â€œIdeal constraintâ€ means zero virtual work, not necessarily zero real work in every motion.
 - Generalized forces have coordinate-dependent units.
 - Check the Legendre transform before calling $H$ equal to $T+V$.
 - Conservation laws require the corresponding symmetry; explicit time or coordinate dependence can break them.
 - Preserve the sign in the Poisson bracket and canonical equations.
-- In Hamilton–Jacobi theory, retain both $H(q,\nabla S,t)$ and $\partial S/\partial t$.
+- In Hamiltonâ€“Jacobi theory, retain both $H(q,\nabla S,t)$ and $\partial S/\partial t$.
 
-Workflow: list coordinates and constraints; state assumptions; build $T$, $V$, and $L$; apply Euler–Lagrange; search for cyclic coordinates and symmetries; then check dimensions, limits, and agreement with Newtonian mechanics.
+Workflow: list coordinates and constraints; state assumptions; build $T$, $V$, and $L$; apply Eulerâ€“Lagrange; search for cyclic coordinates and symmetries; then check dimensions, limits, and agreement with Newtonian mechanics.
 
 # Formula sheet and summary
 
@@ -256,7 +252,7 @@ Newton emphasizes forces, Lagrange emphasizes stationary action and configuratio
 - Differential geometry and symplectic manifolds
 - Rigid-body dynamics and Euler angles
 - Continuum mechanics and field-theoretic Lagrangians
-- Perturbation theory and action–angle variables
+- Perturbation theory and actionâ€“angle variables
 
 ## Sources
 

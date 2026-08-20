@@ -1,85 +1,8 @@
-# Partial Differential Equations
+﻿# Partial Differential Equations
 
 Partial differential equations (PDEs) describe how an unknown quantity changes with respect to **several independent variables**. A temperature field $T(x,y,z,t)$, a pressure field $p(x,y,z,t)$, and a displacement field $u(x,t)$ are typical examples. PDEs matter because conservation of mass, momentum, energy, and charge almost always produces fields rather than single numbers.
 
 This note develops the core language of PDEs, the classification of second-order equations, initial and boundary conditions, separation of variables, the wave, heat, and Laplace equations, well-posedness, and conservation laws. The emphasis is on the one-dimensional and rectangular-domain cases that make the ideas transparent; real geometries usually require numerical methods.
-
-## Prerequisites
-
-Before starting, be comfortable with:
-
-- functions of several variables and partial derivatives
-- gradients, divergence, and the Laplacian
-- single and multiple integrals, including integration by parts
-- ordinary differential equations and initial-value problems
-- vectors, matrices, eigenvalues, and basic Fourier series
-- algebra, trigonometry, and dimensional analysis
-
-The main ideas can be learned with calculus, but rigorous existence theory and numerical PDEs require more analysis and linear algebra.
-
----
-
-# What a PDE is
-
-An **ordinary differential equation** (ODE) has derivatives with respect to one independent variable. A **partial differential equation** has partial derivatives with respect to at least two independent variables.
-
-For example, a rod temperature $T(x,t)$ depends on position $x$ and time $t$. Its time rate of change and spatial curvature are different derivatives:
-
-$$
-\frac{\partial T}{\partial t},\qquad \frac{\partial^2 T}{\partial x^2}.
-$$
-
-The symbols are:
-
-| Symbol | Meaning | Typical SI unit |
-|---|---|---|
-| $x,y,z$ | spatial coordinates | m |
-| $t$ | time | s |
-| $u(x,t)$ | unknown field or dependent variable | problem-dependent |
-| $u_t,u_x$ | first partial derivatives | units of $u$/s or $u$/m |
-| $u_{xx}$ | second partial derivative | units of $u$/m$^2$ |
-| $\Omega$ | spatial domain | m$^n$ |
-| $\partial\Omega$ | boundary of the domain | m$^{n-1}$ |
-
-## A general form
-
-A PDE may be written as
-
-$$
-F\left(x,t,u,u_t,u_x,u_{xx},\ldots\right)=0.
-$$
-
-The **order** is the highest derivative appearing. The PDE is **linear** if $u$ and all its derivatives occur only to the first power and are not multiplied together. For example,
-
-$$
-u_t-k u_{xx}=f(x,t)
-$$
-
-is linear, while $u_t+u u_x=0$ is nonlinear because the unknown $u$ multiplies its derivative.
-
-## PDE versus ODE: a field, not a trajectory
-
-An ODE may determine one function of time, such as the position of one mass. A PDE determines a value at every point in a region. A solution is therefore a surface, curve, or higher-dimensional field, not a single time history.
-
-```text
-        spatial position x
-        0 ---------------------- L
-time t  |  temperature field T(x,t)
-  ^     |  each point has a value
-  |     v
-```
-
-## Linear superposition
-
-For a linear homogeneous PDE, if $u_1$ and $u_2$ are solutions, then
-
-$$
-u=c_1u_1+c_2u_2
-$$
-
-is also a solution for constants $c_1,c_2$. This is the basis of Fourier series and modal methods. Superposition generally fails for nonlinear PDEs.
-
----
 
 # Derivative language and common operators
 
@@ -242,7 +165,7 @@ $$
 \boxed{u_t+\nabla\cdot\mathbf{J}=s.}
 $$
 
-This equation is the mathematical form of “rate of accumulation = sources − net outflow.”
+This equation is the mathematical form of â€œrate of accumulation = sources âˆ’ net outflow.â€
 
 ## Constitutive laws produce PDEs
 
@@ -363,7 +286,7 @@ $$
 e^{-30/10.8}\approx 0.062.
 $$
 
-The result is not “the slab reaches equilibrium in 30 s”; it says the first Fourier component has fallen to about $6.2\%$. Boundary conditions, geometry, and the initial shape still matter.
+The result is not â€œthe slab reaches equilibrium in 30 sâ€; it says the first Fourier component has fallen to about $6.2\%$. Boundary conditions, geometry, and the initial shape still matter.
 
 ## Idealization and limitations
 
@@ -521,7 +444,7 @@ Validate assumptions with dimensionless groups, experiments, mesh refinement, an
 
 ## Connections to related subjects
 
-- **Mechanics:** continuum momentum balance produces elastodynamics, beam, plate, and Navier–Stokes PDEs.
+- **Mechanics:** continuum momentum balance produces elastodynamics, beam, plate, and Navierâ€“Stokes PDEs.
 - **Thermodynamics and heat transfer:** energy balance plus Fourier's law produces diffusion.
 - **Electromagnetism:** Maxwell's equations are coupled PDEs for electric and magnetic fields.
 - **Control:** distributed-parameter systems, such as flexible beams and thermal plants, have PDE states; model reduction turns them into ODE approximations.
@@ -534,14 +457,14 @@ Validate assumptions with dimensionless groups, experiments, mesh refinement, an
 
 # Common misconceptions and mistakes
 
-- **“The PDE is the solution.”** The PDE is only the governing relation; domain and data are essential.
-- **“Parabolic means a parabola.”** The classification describes information and smoothing behavior, not graph shape.
-- **“A Neumann condition gives the value.”** It gives a normal derivative or flux.
-- **“Separation of variables always works.”** It requires compatible geometry, boundary conditions, and linear structure; otherwise use another method.
-- **“Heat travels instantly, so the equation is physically exact.”** The classical heat equation has mathematically infinite propagation speed. It is an excellent macroscopic approximation in many regimes, but not a universal microscopic theory.
-- **“More grid points guarantee accuracy.”** Boundary conditions, discretization order, stiffness, stability, and model error also matter.
-- **“A stable simulation is correct.”** Stability prevents numerical blow-up; it does not verify the model or convergence.
-- **“Units can be ignored.”** For diffusion, $\alpha t/L^2$ must be dimensionless; missing a length scale often creates orders-of-magnitude errors.
+- **â€œThe PDE is the solution.â€** The PDE is only the governing relation; domain and data are essential.
+- **â€œParabolic means a parabola.â€** The classification describes information and smoothing behavior, not graph shape.
+- **â€œA Neumann condition gives the value.â€** It gives a normal derivative or flux.
+- **â€œSeparation of variables always works.â€** It requires compatible geometry, boundary conditions, and linear structure; otherwise use another method.
+- **â€œHeat travels instantly, so the equation is physically exact.â€** The classical heat equation has mathematically infinite propagation speed. It is an excellent macroscopic approximation in many regimes, but not a universal microscopic theory.
+- **â€œMore grid points guarantee accuracy.â€** Boundary conditions, discretization order, stiffness, stability, and model error also matter.
+- **â€œA stable simulation is correct.â€** Stability prevents numerical blow-up; it does not verify the model or convergence.
+- **â€œUnits can be ignored.â€** For diffusion, $\alpha t/L^2$ must be dimensionless; missing a length scale often creates orders-of-magnitude errors.
 
 ---
 
@@ -644,4 +567,4 @@ $$
 
 # Recommended next topics
 
-Study Fourier series and transforms, eigenvalues and Sturm–Liouville problems, weak formulations, FEM, numerical linear algebra, fluid mechanics, elasticity, and control of distributed systems. After those, continue to nonlinear PDEs, shocks, conservation-law entropy conditions, Green's functions, and functional analysis.
+Study Fourier series and transforms, eigenvalues and Sturmâ€“Liouville problems, weak formulations, FEM, numerical linear algebra, fluid mechanics, elasticity, and control of distributed systems. After those, continue to nonlinear PDEs, shocks, conservation-law entropy conditions, Green's functions, and functional analysis.

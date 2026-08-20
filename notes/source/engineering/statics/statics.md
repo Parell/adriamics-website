@@ -1,28 +1,4 @@
-# What statics studies
-
-Statics is the branch of mechanics that deals with bodies in equilibrium, meaning there is no net translation or rotation.
-
-The central idea is simple:
-
-$$
-\sum \mathbf{F} = \mathbf{0}, \qquad \sum \mathbf{M} = \mathbf{0}
-$$
-
-In practice, statics is about turning a physical situation into the correct force model, then applying equilibrium with consistent sign conventions.
-
-Typical statics topics include:
-
-- Reaction forces at supports
-- Tension and compression in members
-- Distributed loading
-- Internal shear and bending moment
-- Frictional contact
-- Centroids and centers of gravity
-- Trusses, frames, and machines
-
----
-
-# Modeling assumptions
+﻿# Modeling assumptions
 
 Statics problems usually rely on idealizations. The answer is only as good as the model.
 

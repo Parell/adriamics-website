@@ -1,9 +1,5 @@
 # Thermodynamics
 
-## Prerequisites and outcomes
-
-Use algebra, functions, unit conversions, and basic energy ideas from Physics I as prerequisites. This note prepares you to write closed-system and control-volume balances, interpret property data, and distinguish reversible limits from real irreversible processes.
-
 # Thermodynamic systems and properties
 
 Thermodynamics studies energy, matter, and property changes at the macroscopic scale.

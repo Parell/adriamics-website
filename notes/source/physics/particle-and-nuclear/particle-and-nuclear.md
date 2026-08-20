@@ -1,8 +1,4 @@
-# Particle and Nuclear Physics
-
-## Prerequisites and outcomes
-
-This note assumes special relativity, introductory quantum mechanics, and conservation-law reasoning. By the end, you should be able to test reactions for kinematic and charge constraints, compute decay quantities from mass differences or half-lives, and distinguish a measured cross section from a probability for one particular event.
+﻿# Particle and Nuclear Physics
 
 # Scales and constituents
 

@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Electricity and Magnetism | Adriamics</title>
-  <meta name="description" content="This note assumes Physics I mechanics, vectors, algebra, and single- and multivariable calculus. By the end, you should be able to choose between field, pote..." />
+  <meta name="description" content="Electric charge comes in positive and negative signs. Like charges repel, unlike charges attract." />
   <link rel="canonical" href="https://adriamics.com/notes/subjects/physics/electricity-and-magnetism/" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
@@ -24,37 +24,34 @@
       }
     })();
   </script>
-  <link rel="stylesheet" href="../../../notes.min.css?v=3cf80617cc94" />
-  <link rel="stylesheet" href="/notes/webmeji/webmeji.css" />
-  <script defer src="/notes/webmeji/config.js"></script>
-  <script defer src="/notes/webmeji/webmeji.js"></script>
+  <link rel="stylesheet" href="../../../notes.min.css?v=ac6f575c0bc9" />
+  <link rel="preload" href="/notes/webmeji/webmeji.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="/notes/webmeji/webmeji.css" /></noscript>
+  <script defer src="/notes/webmeji/config.min.js"></script>
+  <script defer src="/notes/webmeji/webmeji.min.js"></script>
+  
   
   <script>
     window.MathJax = {
-      loader: { load: ['[tex]/unicode'] },
       tex: {
         inlineMath: [['\\(', '\\)'], ['$', '$']],
         displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams', 'unicode'] },
+        packages: { '[+]': ['ams'] },
         macros: {
           degree: '{^{\\circ}}',
           arcsec: '\\operatorname{arcsec}',
-          oiint: '\\mathop{\\unicode{x222F}}'
+          oiint: '\\oiint'
         }
       },
       svg: {
         fontCache: 'local',
         blacker: 0
-      },
-      options: {
-        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.3/tex-svg.js"></script>
+  <script defer src="../../../vendor/mathjax/mathjax.min.js?v=896a6a833e10"></script>
   
-  <script defer src="../../../notes-runtime.min.js?v=5a184243e12c"></script>
-  <script defer src="../../../notes.min.js?v=1dea25793cc8"></script>
+  <script defer src="../../../notes.min.js?v=9c2881d618bb"></script>
 </head>
 <body class="notes-page note-standalone-page" id="top">
   <a class="skip-link" href="#content">Skip to content</a>
@@ -98,8 +95,8 @@
       <div class="viewer-head">
         <div>
           <h1>Electricity and Magnetism</h1>
-          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/physics/electricity-and-magnetism/electricity-and-magnetism.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="2026-08-19T19:53:11.000Z">Last modified Aug 19, 2026</time></p>
-          <div class="viewer-contributors-block"><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">5</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
+          <p class="viewer-meta"><a class="notes-inline-link viewer-source-jump" href="https://github.com/Parell/parell.github.io/blame/master/notes/source/physics/electricity-and-magnetism/electricity-and-magnetism.md" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub Changelog</a> - <time datetime="2026-08-20T16:41:44.000Z">Last modified Aug 20, 2026</time></p>
+          <div class="viewer-contributors-block"><ul class="viewer-contributors"><li class="viewer-contributors__item"><span class="viewer-contributors__count">6</span> <button type="button" class="viewer-contributors__name" data-copy-text="parelldev01@gmail.com" data-copy-label="Parell" aria-label="Copy contributor email parelldev01@gmail.com" title="Copy email">Parell</button></li></ul></div>
       </div>
       <div class="viewer-head__actions">
           <a class="suggest-edit-link notes-action-chip" href="https://github.com/Parell/parell.github.io/issues/new?template=contribute.yml&amp;page_path=notes%2Fsource%2Fphysics%2Felectricity-and-magnetism%2Felectricity-and-magnetism.md&amp;title=%5BContribute%5D%3A%20Electricity%20and%20Magnetism" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
@@ -116,30 +113,9 @@
     </section>
         <nav class="notes-toc" aria-label="Table of contents">
       <h2 class="notes-toc__title">Table of Contents</h2>
-      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#scope-and-core-ideas">Scope and core ideas</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#charge-force-and-electric-field">Charge, force, and electric field</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electric-flux-and-gausss-law">Electric flux and Gauss&#39;s law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electric-potential-and-energy">Electric potential and energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#capacitance-and-dielectrics">Capacitance and dielectrics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#current-resistance-and-dc-circuits">Current, resistance, and DC circuits</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#magnetic-fields-and-magnetic-forces">Magnetic fields and magnetic forces</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#sources-of-magnetic-fields">Sources of magnetic fields</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electromagnetic-induction">Electromagnetic induction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inductance-and-rl-transients">Inductance and RL transients</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#maxwells-equations">Maxwell&#39;s equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#problem-solving-workflow">Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-summary">Formula summary</a></li></ol></div>
+      <div class="notes-toc__columns"><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#charge-force-and-electric-field">Charge, force, and electric field</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electric-flux-and-gausss-law">Electric flux and Gauss&#39;s law</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electric-potential-and-energy">Electric potential and energy</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#capacitance-and-dielectrics">Capacitance and dielectrics</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#current-resistance-and-dc-circuits">Current, resistance, and DC circuits</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#magnetic-fields-and-magnetic-forces">Magnetic fields and magnetic forces</a></li></ol><ol class="notes-toc__list"><li class="notes-toc__item"><a class="notes-toc__link" href="#sources-of-magnetic-fields">Sources of magnetic fields</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#electromagnetic-induction">Electromagnetic induction</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#inductance-and-rl-transients">Inductance and RL transients</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#maxwells-equations">Maxwell&#39;s equations</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#problem-solving-workflow">Problem-solving workflow</a></li><li class="notes-toc__item"><a class="notes-toc__link" href="#formula-summary">Formula summary</a></li></ol></div>
     </nav>
-        <h2 id="prerequisites-and-outcomes">Prerequisites and outcomes</h2>
-<p>This note assumes Physics I mechanics, vectors, algebra, and single- and multivariable calculus. By the end, you should be able to choose between field, potential, circuit, and Maxwell-equation descriptions and track signs, units, symmetry, and boundary assumptions.</p>
-<h1 id="scope-and-core-ideas">Scope and core ideas</h1>
-<p>Electricity and magnetism describe how charges interact, how fields store and transfer energy, and how changing fields generate each other.</p>
-<p>The subject usually begins with electrostatics, then current and circuit analysis, then magnetostatics, and finally time-varying fields and induction.</p>
-<h2 id="big-picture-relationships">Big-picture relationships</h2>
-<ul><li><p>Electric charge creates electric fields.</p></li><li><p>Moving charge is current and creates magnetic fields.</p></li><li><p>Changing magnetic fields create electric fields.</p></li><li><p>Changing electric fields create magnetic fields.</p></li></ul>
-<p>That feedback loop is the basis of electromagnetism and electromagnetic waves.</p>
-<h2 id="key-quantities">Key quantities</h2>
-<table><thead><tr><th>Quantity</th><th>Symbol</th><th>Typical SI unit</th></tr></thead><tbody><tr><td>Charge</td><td>$q$</td><td>coulomb, C</td></tr><tr><td>Electric field</td><td>$\mathbf{E}$</td><td>N/C or V/m</td></tr><tr><td>Electric potential</td><td>$V$</td><td>volt, V</td></tr><tr><td>Current</td><td>$I$</td><td>ampere, A</td></tr><tr><td>Resistance</td><td>$R$</td><td>ohm, $\Omega$</td></tr><tr><td>Magnetic field</td><td>$\mathbf{B}$</td><td>tesla, T</td></tr><tr><td>Magnetic flux</td><td>$\Phi_B$</td><td>weber, Wb</td></tr><tr><td>Inductance</td><td>$L$</td><td>henry, H</td></tr></tbody></table>
-<h2 id="useful-constants">Useful constants</h2>
-<div class="math-block">$$
-\varepsilon_0 \approx 8.854\times 10^{-12}\ \text{F/m}
-$$</div>
-<div class="math-block">$$
-\mu_0 = 4\pi\times 10^{-7}\ \text{N/A}^2
-$$</div>
-<div class="math-block">$$
-k = \frac{1}{4\pi\varepsilon_0}
-$$</div>
-<hr />
-<h1 id="charge-force-and-electric-field">Charge, force, and electric field</h1>
+        <h1 id="charge-force-and-electric-field">Charge, force, and electric field</h1>
 <p>Electric charge comes in positive and negative signs. Like charges repel, unlike charges attract.</p>
 <h2 id="coulombs-law">Coulomb&#39;s law</h2>
 <p>The force between two point charges is</p>

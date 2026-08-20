@@ -1,8 +1,4 @@
-# What a derivative means
-
-> **What this assumes:** Functions, limits, and continuity, including one-sided limits and domain restrictions.
->
-> **What this enables:** Integration uses derivatives to define antiderivatives and connect rates to accumulated change. Series later uses derivatives to build Taylor expansions.
+﻿# What a derivative means
 
 The derivative measures how a function changes as its input changes.
 

@@ -1,10 +1,5 @@
 ﻿# Sequences, series, and convergence
 
-> **Layer 1 Ã¢â‚¬â€ after Limits:** This layer develops sequences, series, and convergence without requiring derivatives or integrals.
->
-> **Layer 2 Ã¢â‚¬â€ after Derivatives:** Power and Taylor series use derivatives to represent and approximate functions. Integration appears only in the advanced subsections.
->
-
 A **series** is the sum of the terms of a sequence.
 
 If $(a_n)$ is a sequence, the associated infinite series is

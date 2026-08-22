@@ -1,4 +1,3 @@
-import { mkdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
@@ -6,12 +5,12 @@ import { fileURLToPath } from 'node:url';
 const notesRoot = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.dirname(notesRoot);
 const assets = [
-  { root: notesRoot, source: 'notes.css', output: 'notes.min.css', tool: 'css' },
-  { root: notesRoot, source: 'notes.js', output: 'notes.min.js', tool: 'js' },
-  { root: notesRoot, source: 'webmeji/config.js', output: 'webmeji/config.min.js', tool: 'js' },
-  { root: notesRoot, source: 'webmeji/webmeji.js', output: 'webmeji/webmeji.min.js', tool: 'js' },
-  { root: repoRoot, source: 'site.css', output: 'site.min.css', tool: 'css' },
-  { root: repoRoot, source: 'site.js', output: 'site.min.js', tool: 'js' },
+  { root: notesRoot, source: 'notes.css', output: 'notes.min.css', type: 'css' },
+  { root: notesRoot, source: 'notes.js', output: 'notes.min.js', type: 'js' },
+  { root: notesRoot, source: 'webmeji/config.js', output: 'webmeji/config.min.js', type: 'js' },
+  { root: notesRoot, source: 'webmeji/webmeji.js', output: 'webmeji/webmeji.min.js', type: 'js' },
+  { root: repoRoot, source: 'site.css', output: 'site.min.css', type: 'css' },
+  { root: repoRoot, source: 'site.js', output: 'site.min.js', type: 'js' },
 ];
 
 function run(command, args) {
@@ -23,20 +22,17 @@ function run(command, args) {
   });
 }
 
-async function minifyJavaScript(sourcePath, outputPath) {
-  await run('npx', ['--yes', 'terser@5.44.0', sourcePath, '--compress', '--mangle', '--comments', 'false', '--output', outputPath]);
+async function minifyAsset(sourcePath, outputPath, type) {
+  const args = type === 'css'
+    ? ['--yes', 'clean-css-cli@5.6.3', '-o', outputPath, sourcePath]
+    : ['--yes', 'terser@5.44.0', sourcePath, '--compress', '--mangle', '--comments', 'false', '--output', outputPath];
+
+  await run('npx', args);
 }
 
-async function minifyCss(sourcePath, outputPath) {
-  await run('npx', ['--yes', 'clean-css-cli@5.6.3', '-o', outputPath, sourcePath]);
-}
-
-await mkdir(notesRoot, { recursive: true });
 for (const asset of assets) {
   const sourcePath = path.join(asset.root, asset.source);
   const outputPath = path.join(asset.root, asset.output);
-  await readFile(sourcePath);
-  if (asset.tool === 'css') await minifyCss(sourcePath, outputPath);
-  else await minifyJavaScript(sourcePath, outputPath);
+  await minifyAsset(sourcePath, outputPath, asset.type);
   console.log(`${asset.source} -> ${asset.output}`);
 }

@@ -5,6 +5,7 @@
   --border: rgba(255, 255, 255, 0.12);
   --text: #f1ece4;
   --muted: #b8b8b8;
+  --metadata: color-mix(in srgb, var(--muted) 68%, var(--panel-strong));
   --accent: #eee7dd;
   --accent-strong: #fff8ed;
   --accent-soft: rgba(255, 255, 255, 0.06);
@@ -30,7 +31,7 @@ html {
 body.notes-page {
   margin: 0;
   color: var(--text);
-  background: var(--bg);
+  background: var(--panel-strong);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -105,10 +106,10 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   align-items: start;
   gap: 1rem 1.25rem;
   padding: 1.5rem 1.5rem 1.35rem;
-  border: 1px solid var(--border);
+  border: 0;
   border-radius: 0;
-  background: var(--panel);
-  box-shadow: var(--shadow);
+  background: transparent;
+  box-shadow: none;
 }
 
 .notes-quick-actions {
@@ -217,10 +218,6 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
-.notes-theme-toggle[aria-pressed="true"] {
-  color: var(--accent-strong);
-}
-
 .notes-theme-toggle:hover,
 .notes-theme-toggle:focus-visible {
   background: transparent;
@@ -231,11 +228,17 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 :is(html, body).notes-page--sepia .notes-theme-toggle {
-  color: var(--text);
+  color: var(--metadata);
 }
 
-:is(html, body).notes-page--sepia .notes-theme-toggle[aria-pressed="true"] {
-  color: var(--accent-strong);
+.notes-action-chip--back {
+  --notes-button-bg: #c7b8d9;
+  --notes-button-border: #9c89b8;
+  --notes-button-fg: #2b2138;
+  --notes-button-hover-bg: #d7cbe5;
+  --notes-button-hover-border: #ab99c4;
+  --notes-button-hover-fg: #241b31;
+  --notes-button-outline: #d7cbe5;
 }
 
 .notes-quick-actions--floating .notes-action-chip {
@@ -249,13 +252,87 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   outline-offset: 2px;
 }
 
+.subjects-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: auto;
+  padding: clamp(1rem, 4vw, 3rem);
+  background: var(--panel-strong);
+}
+
+.subjects-panel[hidden] {
+  display: none;
+}
+
+.subjects-panel__content {
+  width: min(1180px, 100%);
+  min-height: 100%;
+  margin: 0 auto;
+}
+
+.subjects-panel__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.subjects-panel__head h1 {
+  margin: 0.2rem 0 0;
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  line-height: 1.05;
+}
+
+.subjects-panel__groups {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding-top: clamp(1.5rem, 4vw, 3rem);
+}
+
+.subjects-panel__group h2 {
+  margin: 0 0 0.85rem;
+  font-size: 1.1rem;
+  line-height: 1.2;
+}
+
+.subjects-panel__list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.subjects-panel__list .notes-inline-link {
+  color: var(--metadata);
+  font-weight: 500;
+}
+
+.subjects-panel__list .notes-inline-link[aria-current="page"] {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+.subjects-panel__list .notes-inline-link:focus-visible,
+.subjects-panel__list .notes-inline-link:hover {
+  color: var(--accent-strong);
+}
+
+body.subjects-panel-open {
+  overflow: hidden;
+}
+
 .section-label,
 .notes-header__eyebrow {
   margin: 0 0 0.02rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
   font-size: 0.7rem;
-  color: var(--muted);
+  color: var(--metadata);
   font-weight: 400;
 }
 
@@ -269,7 +346,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .notes-header__credit {
-  color: var(--muted);
+  color: var(--metadata);
   font-size: 0.78rem;
   font-weight: 400;
   letter-spacing: 0.08em;
@@ -512,9 +589,18 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .notes-layout {
   display: grid;
-  grid-template-columns: minmax(240px, 290px) minmax(0, 1fr);
+  grid-template-columns: minmax(240px, 290px) minmax(0, 75ch) minmax(0, 290px);
   gap: 1rem;
   align-items: start;
+  justify-content: center;
+}
+
+.notes-layout__balance {
+  min-width: 0;
+}
+
+.practice-layout {
+  display: block;
 }
 
 .landing-hero,
@@ -522,6 +608,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   display: grid;
   gap: clamp(2rem, 5vw, 4rem);
   padding: clamp(1.25rem, 4vw, 3rem);
+}
+
+.notes-landing-page .notes-header__inner,
+.notes-landing-page .landing-hero,
+.notes-landing-page .landing-support,
+.notes-landing-page .landing-subject-card {
+  border: 0;
 }
 
 .landing-hero__intro {
@@ -644,6 +737,10 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   border-top: 1px solid var(--border);
 }
 
+.notes-landing-page .landing-philosophy {
+  border-top: 0;
+}
+
 .landing-philosophy__copy {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -657,7 +754,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .text-underline-muted {
-  color: var(--muted);
+  color: var(--metadata);
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--muted) 55%, transparent);
   text-decoration-thickness: 1px;
@@ -670,9 +767,16 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   text-decoration-color: var(--muted);
 }
 
-.concept-dag-tree-panel {
+.panel.concept-dag-tree-panel {
   display: grid;
   padding: 1rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+.concept-dag-tree-panel + [data-notes-lesson-body] > :first-child {
+  margin-top: 1.2em;
 }
 
 .concept-dag-tree-panel__head {
@@ -706,7 +810,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   display: flex;
   flex: 0 0 auto;
   height: 1.5rem;
-  color: var(--muted);
+  color: var(--metadata);
 }
 
 .concept-dag-tree__connector-cell {
@@ -772,7 +876,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   padding: 0;
   border: 0;
   background: transparent;
-  color: var(--text);
+  color: var(--metadata);
   font: inherit;
   line-height: inherit;
   text-decoration: none;
@@ -780,7 +884,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .concept-dag-tree__separator {
-  color: var(--muted);
+  color: var(--metadata);
   white-space: pre;
 }
 
@@ -796,13 +900,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .concept-dag-tree__node.is-selected {
-  color: var(--accent-strong);
+  color: var(--metadata);
   font-weight: 700;
 }
 
 .concept-dag-tree__empty {
   margin: 0;
-  color: var(--muted);
+  color: var(--metadata);
 }
 
 
@@ -811,6 +915,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   gap: 0.65rem;
   flex: 1 1 100%;
   min-width: 0;
+  position: relative;
 }
 
 .notes-sidebar {
@@ -820,6 +925,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   align-self: start;
   max-height: calc(100vh - 2rem);
   overflow: auto;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
 }
 
 .notes-sidebar__head {
@@ -992,6 +1100,73 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   padding: 0;
   display: grid;
   gap: 0.08rem;
+}
+
+.notes-section-toc {
+  position: sticky;
+  top: 1rem;
+  align-self: start;
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  padding: 1.15rem 0;
+}
+
+.notes-section-toc__panel[hidden] {
+  display: none;
+}
+
+.notes-section-toc__panel > .section-label {
+  margin-bottom: 0.95rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.notes-section-toc__list {
+  display: grid;
+  gap: 0.55rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.notes-lesson-nav__link {
+  display: block;
+  color: var(--metadata);
+  font-weight: 500;
+  line-height: 1.35;
+  text-decoration: none;
+  text-underline-offset: 0.22em;
+  text-decoration-thickness: 2px;
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.notes-lesson-nav__link:hover,
+.notes-lesson-nav__link:focus-visible {
+  color: var(--accent-strong);
+  text-decoration: underline;
+}
+
+.notes-lesson-nav__link:focus-visible {
+  outline: 2px solid var(--accent-strong);
+  outline-offset: 3px;
+}
+
+.notes-lesson-nav__link.is-active {
+  color: var(--text);
+  font-weight: 650;
+  text-decoration: underline;
+}
+
+.notes-sidebar__toc > .notes-toc__list {
+  gap: 0.55rem;
+}
+
+.notes-sidebar__toc .notes-lesson-nav__link {
+  transition: color 0.18s ease, text-decoration-color 0.18s ease;
+}
+
+.notes-sidebar__toc .notes-lesson-nav__link:not(.is-active) {
+  color: var(--muted);
 }
 
 .notes-toc__list .notes-toc__list {
@@ -1202,8 +1377,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .viewer-meta {
   margin: 0;
-  color: var(--muted);
+  color: var(--metadata);
   line-height: 1.5;
+}
+
+.viewer-meta .viewer-source-jump {
+  color: inherit;
+  text-decoration-color: color-mix(in srgb, currentColor 55%, transparent);
 }
 
 .viewer-head__actions {
@@ -1230,7 +1410,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   margin: 0.15rem 0 0;
   padding: 0;
   list-style: none;
-  color: var(--text);
+  color: var(--metadata);
   font-size: 0.94rem;
   line-height: 1.45;
 }
@@ -1243,7 +1423,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .viewer-contributors__count {
-  color: var(--muted);
+  color: var(--metadata);
   font-variant-numeric: tabular-nums;
 }
 
@@ -1252,7 +1432,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   padding: 0;
   border: 0;
   background: none;
-  color: var(--muted);
+  color: var(--metadata);
   font: inherit;
   cursor: pointer;
   text-decoration: underline;
@@ -1263,7 +1443,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .viewer-contributors__name:hover,
 .viewer-contributors__name:focus-visible {
-  color: var(--text);
+  color: var(--muted);
 }
 
 .viewer-contributors__name:focus-visible {
@@ -1573,9 +1753,18 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .practice-problem__meta {
   min-width: 0;
   margin: 0.35rem 0 0;
-  color: var(--muted);
+  color: var(--metadata);
   line-height: 1.5;
   overflow-wrap: anywhere;
+}
+
+.practice-problem__meta .notes-inline-link {
+  color: var(--metadata);
+}
+
+.practice-problem__meta .notes-inline-link:hover,
+.practice-problem__meta .notes-inline-link:focus-visible {
+  color: var(--muted);
 }
 
 .practice-problem__head-actions { display: flex; align-items: flex-start; gap: 0.55rem; flex-wrap: wrap; justify-content: flex-end; }
@@ -1698,19 +1887,14 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  gap: 0.35rem 1rem;
+  line-height: 1.7;
 }
 
-.subject-list li {
+.subject-list > li {
   display: inline-flex;
   align-items: center;
-  margin: 0.2rem 0;
-}
-
-.subject-list li+li::before {
-  content: "-";
-  color: var(--muted);
-  margin: 0 0.5rem 0;
-  font-weight: 400;
+  margin: 0;
 }
 
 .notes-inline-link,
@@ -1730,6 +1914,15 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   transition: color 0.18s ease, text-decoration-color 0.18s ease;
 }
 
+.subject-list > li > .notes-inline-link,
+.subject-list > li > button {
+  color: var(--metadata);
+}
+
+.subject-section__list .notes-inline-link {
+  color: var(--metadata);
+}
+
 .notes-inline-link:hover,
 .notes-inline-link:focus-visible,
 .subject-list button:hover,
@@ -1740,8 +1933,45 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .notes-inline-link.is-active,
 .subject-list button[aria-selected="true"] {
-  color: var(--accent-strong);
+  color: var(--metadata);
   text-decoration: underline;
+}
+
+.subject-list button[aria-expanded="true"] {
+  color: var(--metadata);
+  text-decoration: underline;
+}
+
+.subject-sections {
+  margin-top: 0.65rem;
+}
+
+.subject-section {
+  padding-top: 0.65rem;
+  border-top: 1px solid var(--border);
+}
+
+.subject-section__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  margin: 0;
+  padding: 0;
+  line-height: 1.7;
+}
+
+.subject-section__list > li {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .notes-lesson-nav__link {
+    transition: none;
+  }
 }
 
 .practice-page .practice-problem__text-action {
@@ -1805,9 +2035,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .notes-viewer {
   width: 100%;
+  max-width: none;
   padding: 1.35rem 1.35rem 1.5rem;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
   overflow: hidden;
-  margin: 0 0 2rem;
+  margin: 0 auto 2rem;
 }
 
 .notes-footer {
@@ -1825,12 +2059,12 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   border: 0;
   background: transparent;
   box-shadow: none;
-  color: var(--muted);
+  color: var(--metadata);
   font-size: 0.92rem;
 }
 
 .notes-footer__inner a {
-  color: var(--text);
+  color: var(--metadata);
   font-weight: 400;
   text-decoration: underline;
   text-decoration-thickness: 1px;
@@ -1840,7 +2074,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .notes-footer__inner a:hover,
 .notes-footer__inner a:focus-visible {
-  color: var(--accent-strong);
+  color: var(--muted);
 }
 
 .notes-footer__inner a:focus-visible {
@@ -1849,7 +2083,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .notes-footer__sep {
-  color: var(--muted);
+  color: var(--metadata);
 }
 
 .markdown-body {
@@ -1868,8 +2102,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .markdown-body h4 {
   line-height: 1.22;
   letter-spacing: 0;
-  margin: 1.6em 0 0.6em;
+  margin: 1.9em 0 0.75em;
   scroll-margin-top: 1.5rem;
+}
+
+.markdown-body h1,
+.markdown-body h2 {
+  margin-top: 2.25em;
 }
 
 .markdown-body h1 {
@@ -2177,17 +2416,26 @@ mjx-container * {
 
 @media (max-width: 920px) {
 
+  .notes-section-toc {
+    display: none;
+  }
+
   .notes-header__inner {
     grid-template-columns: minmax(0, 1fr);
   }
 
   .viewer-head,
-  .search-panel__head {
+  .search-panel__head,
+  .subjects-panel__head {
     flex-direction: column;
   }
 
   .notes-layout {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .notes-layout__balance {
+    display: none;
   }
 
   .concept-dag-tree-panel__head {
@@ -2204,7 +2452,8 @@ mjx-container * {
   }
 
   .notes-sidebar,
-  .notes-toc {
+  .notes-toc,
+  .notes-section-toc {
     position: static;
     max-height: none;
   }
@@ -2216,6 +2465,10 @@ mjx-container * {
 
   .notes-toc__columns::before {
     display: none;
+  }
+
+  .subjects-panel__groups {
+    grid-template-columns: 1fr;
   }
 
   .notes-toc__columns>.notes-toc__list+.notes-toc__list {

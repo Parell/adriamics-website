@@ -482,30 +482,6 @@ function getPracticeUrl(notePath) {
   return `${getNoteUrl(notePath)}practice/`;
 }
 
-function getConceptNodeAnchorId(nodeId) {
-  const normalized = String(nodeId ?? '').trim().toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-  return `concept-${normalized || 'node'}`;
-}
-
-function toTitleCase(text) {
-  return String(text ?? '')
-    .replace(/[_-]+/g, ' ')
-    .replace(/\s+/g, ' ')
-    .trim()
-    .replace(/\b\w/g, (match) => match.toUpperCase());
-}
-
-function getConceptDomainFromId(nodeId) {
-  const normalizedId = String(nodeId ?? '').trim();
-  const separatorIndex = normalizedId.indexOf('.');
-
-  if (separatorIndex < 0) {
-    return '';
-  }
-
-  return normalizedId.slice(0, separatorIndex).trim();
-}
-
 function getConceptNoteUrlFromId(nodeId) {
   const normalizedId = String(nodeId ?? '').trim();
   const separatorIndex = normalizedId.indexOf('.');
@@ -1396,35 +1372,36 @@ function getFirstPagePath(node) {
   return null;
 }
 
-function containsPagePath(node, pagePath) {
-  return node?.path === pagePath
-    || (node?.children ?? []).some((child) => containsPagePath(child, pagePath));
-}
-
 function getNoteUrl(notePath) {
   return `/notes/${getSubjectRoutePath(notePath)}/`;
 }
 
-function renderSubjectLinks(structures, activeStructureId = null) {
-  const structureLinks = structures
-    .filter((structure) => structure.id !== 'hidden')
-    .map((structure) => {
-      const pagePath = structure.id === homeStructureId ? null : getFirstPagePath(structure);
-
-      if (!pagePath && structure.id !== homeStructureId) {
-        return '';
-      }
-
-      const isActive = structure.id === activeStructureId;
-      const activeClass = isActive ? ' class="is-active"' : '';
-      const current = isActive ? ' aria-current="true"' : '';
-      const href = structure.id === homeStructureId ? getHomeUrl() : getNoteUrl(pagePath);
-
-      return `<li><a class="notes-inline-link"${activeClass}${current} href="${escapeHtml(href)}" data-subject-id="${escapeHtml(structure.id)}" data-default-href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(structure.title)}</a></li>`;
-    });
-
-  const combinedLinks = structureLinks.join('');
+function renderSubjectLinks(structures, activeStructureId = null, activePagePath = null) {
+  const visibleStructures = structures.filter((structure) => structure.id !== 'hidden');
+  const subjectStructures = visibleStructures.filter((structure) => structure.id !== homeStructureId);
   const homeCurrent = activeStructureId === homeStructureId ? ' aria-current="true"' : '';
+  const subjectGroups = subjectStructures.map((structure) => {
+    const groupId = `subjects-panel-${structure.id}`;
+    const menuItems = (structure.children ?? [])
+      .map((node) => {
+        const nodePagePath = getFirstPagePath(node);
+
+        if (!nodePagePath) {
+          return '';
+        }
+
+        const nodeHref = getNoteUrl(nodePagePath);
+        const activeClass = nodePagePath === activePagePath ? ' is-active' : '';
+        const current = nodePagePath === activePagePath ? ' aria-current="page"' : '';
+        return `<li><a class="notes-inline-link${activeClass}"${current} href="${escapeHtml(nodeHref)}" data-notes-nav-item>${escapeHtml(node.title)}</a></li>`;
+      })
+      .join('');
+
+    return `<section class="subjects-panel__group" aria-labelledby="${escapeHtml(groupId)}">
+          <h2 id="${escapeHtml(groupId)}">${escapeHtml(structure.title)}</h2>
+          <ul class="subjects-panel__list">${menuItems}</ul>
+        </section>`;
+  }).join('');
 
   return `<aside class="notes-structures" aria-label="Guide structures">
           <div class="notes-header__brand">
@@ -1432,10 +1409,8 @@ function renderSubjectLinks(structures, activeStructureId = null) {
             <p class="notes-header__title">Universal Education <a class="notes-header__credit text-underline-muted" href="/">by Adriamics</a></p>
           </div>
           <ul class="subject-list">
-          <li>
-          <a class="notes-inline-link${activeStructureId === homeStructureId ? ' is-active' : ''}"${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a>
-          </li>
-          ${combinedLinks}
+          <li><a class="notes-inline-link${activeStructureId === homeStructureId ? ' is-active' : ''}"${homeCurrent} href="/notes/" data-subject-id="home" data-default-href="/notes/" data-notes-nav-item>Home</a></li>
+          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
           <li>
           <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
           </li>
@@ -1443,32 +1418,19 @@ function renderSubjectLinks(structures, activeStructureId = null) {
           <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
           </li>
           </ul>
+          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
+            <div class="subjects-panel__content">
+              <div class="subjects-panel__head">
+                <div>
+                  <p class="section-label">Subjects</p>
+                  <h1 id="subjects-panel-title">Choose a topic</h1>
+                </div>
+                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
+              </div>
+              <div class="subjects-panel__groups">${subjectGroups}</div>
+            </div>
+          </section>
         </aside>`;
-}
-
-function renderGuideTree(nodes, activePagePath = null, depth = 0) {
-  return nodes.map((node) => {
-    const pagePath = node.path ?? getFirstPagePath(node);
-
-    if (!pagePath) {
-      return '';
-    }
-
-    const isActive = node.path === activePagePath;
-    const isAncestor = !isActive && containsPagePath(node, activePagePath);
-    const classes = [
-      'guide-tree__button',
-      node.children?.length ? 'guide-tree__button--folder' : 'guide-tree__button--page',
-      isActive ? 'is-active' : '',
-      isAncestor ? 'is-ancestor' : '',
-    ].filter(Boolean).join(' ');
-    const current = isActive ? ' aria-current="page"' : '';
-    const children = node.children?.length
-      ? `<ul class="guide-tree__branch">${renderGuideTree(node.children, activePagePath, depth + 1)}</ul>`
-      : '';
-
-    return `<li class="guide-tree__item"><a class="${classes}" style="--guide-depth: ${depth}" href="${escapeHtml(getNoteUrl(pagePath))}"${current} data-notes-nav-item>${escapeHtml(node.title)}</a>${children}</li>`;
-  }).join('');
 }
 
 function renderSearchPanel() {
@@ -1503,10 +1465,6 @@ function renderNotesFooter() {
   </footer>`;
 }
 
-function getHomeUrl() {
-  return '/notes/';
-}
-
 function getGeneratedSourcePathFromOutputDir(outputDir) {
   const relativeOutputDir = toPosix(path.relative(path.join(notesRoot, 'subjects'), outputDir));
   const parts = relativeOutputDir.split('/').filter(Boolean);
@@ -1531,11 +1489,11 @@ function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
   const actions = [];
 
   if (practiceUrl) {
-    actions.push(`<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice</a>`);
+    actions.push(`<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice →</a>`);
   }
 
   if (backToNoteUrl) {
-    actions.push(`<a class="notes-action-chip" href="${escapeHtml(backToNoteUrl)}" data-notes-nav-item>Back to note</a>`);
+    actions.push(`<a class="notes-action-chip notes-action-chip--back" href="${escapeHtml(backToNoteUrl)}" data-notes-nav-item>← Back To Notes</a>`);
   }
 
   return actions.join('');
@@ -1570,10 +1528,10 @@ function stripSearchOnlySections(markdown) {
 }
 
 function renderFloatingActions(quickActionsHtml = '') {
-  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip" href="#top" data-notes-nav-item>Back To Top</a></div>`;
+  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>`;
 }
 
-function renderHeader(structures, activeStructureId = null, includeIntro = false) {
+function renderHeader(structures, activeStructureId = null, includeIntro = false, activePagePath = null) {
   const intro = includeIntro
     ? `
         <p class="notes-intro">
@@ -1585,7 +1543,7 @@ function renderHeader(structures, activeStructureId = null, includeIntro = false
 
   return `<header class="shell notes-header">
     <div class="notes-header__inner">
-      ${renderSubjectLinks(structures, activeStructureId)}
+      ${renderSubjectLinks(structures, activeStructureId, activePagePath)}
     </div>
   </header>`;
 }
@@ -1600,6 +1558,7 @@ function renderNotesPageDocument({
   mainHtml,
   structures,
   activeStructureId = null,
+  activePagePath = null,
   includeIntro = false,
   quickActionsHtml = '',
   stylesheetHref = '/notes/notes.min.css',
@@ -1656,7 +1615,7 @@ function renderNotesPageDocument({
   <a class="skip-link" href="#content">Skip to content</a>
   ${floatingActionsHtml}
 
-  ${renderHeader(structures, activeStructureId, includeIntro)}
+  ${renderHeader(structures, activeStructureId, includeIntro, activePagePath)}
 
   <main id="content" class="${escapeHtml(mainClass)}" aria-label="${escapeHtml(mainAriaLabel)}">
     ${mainHtml}
@@ -1699,71 +1658,75 @@ function buildTocTree(entries) {
   return root.children;
 }
 
-function renderTocNodes(nodes) {
-  return `<ol class="notes-toc__list">${nodes.map((node) => {
-    const children = node.children.length ? renderTocNodes(node.children) : '';
-    return `<li class="notes-toc__item"><a class="notes-toc__link" href="#${escapeHtml(node.id)}">${node.headingHtml}</a>${children}</li>`;
-  }).join('')}</ol>`;
-}
-
-function getTocNodeWeight(node) {
-  return 1 + node.children.reduce((weight, child) => weight + getTocNodeWeight(child), 0);
-}
-
-function splitTocNodes(nodes) {
-  if (nodes.length < 2) {
-    return [nodes];
-  }
-
-  const weights = nodes.map(getTocNodeWeight);
-  const totalWeight = weights.reduce((total, weight) => total + weight, 0);
-  let leftWeight = 0;
-  let splitIndex = 1;
-  let smallestDifference = Number.POSITIVE_INFINITY;
-
-  for (let index = 1; index < nodes.length; index += 1) {
-    leftWeight += weights[index - 1];
-    const difference = Math.abs(totalWeight - (2 * leftWeight));
-
-    if (difference < smallestDifference) {
-      smallestDifference = difference;
-      splitIndex = index;
-    }
-  }
-
-  return [nodes.slice(0, splitIndex), nodes.slice(splitIndex)];
-}
-
-function renderTocColumns(nodes) {
-  const columns = splitTocNodes(nodes).filter((columnNodes) => columnNodes.length > 0);
-  return `<div class="notes-toc__columns">${columns.map((columnNodes) => renderTocNodes(columnNodes)).join('')}</div>`;
-}
-
-function renderTableOfContents(bodyHtml) {
+function getHeadingEntries(bodyHtml) {
   const headingPattern = /<h([1-6]) id="([^"]+)">([\s\S]*?)<\/h\1>/g;
-  const entries = Array.from(bodyHtml.matchAll(headingPattern), ([, level, id, headingHtml]) => ({
+  return Array.from(bodyHtml.matchAll(headingPattern), ([, level, id, headingHtml]) => ({
     level: Number.parseInt(level, 10),
     id,
     headingHtml,
-  })).filter((entry) => {
-    if (entry.level !== 1) {
-      return false;
-    }
-    const normalizedText = normalizeTocHeadingText(entry.headingHtml);
+  }));
+}
+
+function getHeadingTree(bodyHtml) {
+  // The page title is rendered outside bodyHtml. Ignore generated contents headings
+  // before building the tree so real descendants remain attached to their section.
+  const entries = getHeadingEntries(bodyHtml).filter((node) => {
+    const normalizedText = normalizeTocHeadingText(node.headingHtml);
     return normalizedText && normalizedText !== 'table of contents' && normalizedText !== 'contents';
   });
 
-  if (!entries.length) {
+  return buildTocTree(entries);
+}
+
+function renderLessonNavLink(node, { type, sectionId = '', isInitialActive = false } = {}) {
+  const dataType = type === 'subtopic'
+    ? ` data-notes-subtopic-link data-notes-section-id="${escapeHtml(sectionId)}"`
+    : ' data-notes-toc-link';
+  const activeState = isInitialActive ? ' is-active' : '';
+  const currentState = isInitialActive ? ' aria-current="location"' : '';
+
+  return `<a class="notes-lesson-nav__link${activeState}"${currentState} href="#${escapeHtml(node.id)}" data-notes-nav-item${dataType}>${node.headingHtml}</a>`;
+}
+
+function renderSidebarTocNodes(nodes) {
+  return `<ol class="notes-toc__list">${nodes.map((node) => `<li class="notes-toc__item">${renderLessonNavLink(node, { type: 'toc', isInitialActive: node.isInitialActive })}</li>`).join('')}</ol>`;
+}
+
+function renderNotesSidebarToc(bodyHtml) {
+  const headingTree = getHeadingTree(bodyHtml);
+
+  if (!headingTree.length) {
     return '';
   }
 
-  const tocTree = buildTocTree(entries);
-  const tocHtml = tocTree.length > 1 ? renderTocColumns(tocTree) : renderTocNodes(tocTree);
+  headingTree[0].isInitialActive = true;
 
-  return `<nav class="notes-toc" aria-label="Table of contents">
-      <h2 class="notes-toc__title">Table of Contents</h2>
-      ${tocHtml}
-    </nav>`;
+  return `<aside class="notes-sidebar panel" aria-label="Table of contents">
+      <div class="notes-sidebar__head">
+        <p class="section-label">Topics</p>
+      </div>
+      <nav class="notes-sidebar__toc" aria-label="Table of contents">
+        ${renderSidebarTocNodes(headingTree)}
+      </nav>
+    </aside>`;
+}
+
+function renderCurrentSectionToc(bodyHtml) {
+  const headingTree = getHeadingTree(bodyHtml);
+  const sectionsWithSubtopics = headingTree.filter((section) => section.children.length > 0);
+
+  if (!sectionsWithSubtopics.length) {
+    return '';
+  }
+
+  return `<aside class="notes-section-toc" aria-label="Subtopics">
+      ${sectionsWithSubtopics.map((section) => `<section class="notes-section-toc__panel" data-notes-section-toc-panel="${escapeHtml(section.id)}"${section.id === headingTree[0].id ? '' : ' hidden'}>
+        <p class="section-label">Subtopics</p>
+        <nav aria-label="Subtopics for ${escapeHtml(plainTextFromHtml(section.headingHtml))}">
+          <ol class="notes-section-toc__list">${section.children.map((subtopic, index) => `<li class="notes-toc__item">${renderLessonNavLink(subtopic, { type: 'subtopic', sectionId: section.id, isInitialActive: section.id === headingTree[0].id && index === 0 })}</li>`).join('')}</ol>
+        </nav>
+      </section>`).join('')}
+    </aside>`;
 }
 
 function buildNoteHtml({
@@ -1785,7 +1748,6 @@ function buildNoteHtml({
   practiceUrl = null,
   interactive = null,
 }) {
-  const tocHtml = renderTableOfContents(bodyHtml);
   const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
   const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
@@ -1795,16 +1757,11 @@ function buildNoteHtml({
   <script>window.__NOTES_JSXGRAPH_URL = 'https://cdn.jsdelivr.net/npm/jsxgraph@1.12.2/distrib/jsxgraphcore.js';</script>
   ` : '';
   const quickActionsHtml = renderQuickActions({ practiceUrl });
+  const sidebarHtml = renderNotesSidebarToc(bodyHtml);
+  const sectionTocHtml = renderCurrentSectionToc(bodyHtml) || '    <div class="notes-layout__balance" aria-hidden="true"></div>';
+  const sidebarColumnHtml = sidebarHtml || '    <div class="notes-layout__balance" aria-hidden="true"></div>';
   const mainHtml = `
-    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
-      <div class="notes-sidebar__head">
-        <p class="section-label">Guides</p>
-      </div>
-      <nav aria-labelledby="guide-tree-title">
-        <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
-        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], notePath)}</ul>
-      </nav>
-    </aside>
+${sidebarColumnHtml}
     <section class="notes-viewer panel">
       <div class="viewer-head">
         <div>
@@ -1818,13 +1775,13 @@ function buildNoteHtml({
       </div>
       <article class="markdown-body" id="note-content">
         ${beforeBodyHtml}
-        ${tocHtml}
         <div data-notes-lesson-body>
           ${bodyHtml}
           ${afterBodyHtml}
         </div>
       </article>
     </section>
+${sectionTocHtml}
   `;
 
   return renderNotesPageDocument({
@@ -1837,6 +1794,7 @@ function buildNoteHtml({
     mainHtml,
     structures,
     activeStructureId: structure.id,
+    activePagePath: notePath,
     quickActionsHtml,
     stylesheetHref,
     scriptHref,
@@ -1845,44 +1803,6 @@ function buildNoteHtml({
   ${renderMathJaxConfig(outputDir, assetVersions)}
   `,
   });
-}
-
-function buildConceptResourceLink(label, href, className = '') {
-  if (!href) {
-    return '';
-  }
-
-  return `<a class="notes-action-chip${className ? ` ${className}` : ''}" href="${escapeHtml(href)}" data-notes-nav-item>${escapeHtml(label)}</a>`;
-}
-
-function buildConceptDependencyLinks(node, nodesById, dependencyIds, label) {
-  if (!dependencyIds.length) {
-    return '';
-  }
-
-  const links = dependencyIds
-    .map((dependencyId) => nodesById.get(dependencyId))
-    .filter(Boolean)
-    .map((dependencyNode) => buildConceptResourceLink(
-      dependencyNode.title,
-      `#${getConceptNodeAnchorId(dependencyNode.id)}`,
-      'notes-action-chip--practice',
-    ))
-    .join('');
-
-  return `<div class="learning-path-card__prereqs concept-node__links">
-      <strong>${escapeHtml(label)}:</strong> ${links}
-    </div>`;
-}
-
-function buildConceptResourceLinks(node, nodesById, options = {}) {
-  const includeDependencies = options.includeDependencies !== false;
-  const dependencyLinks = includeDependencies ? [
-    buildConceptDependencyLinks(node, nodesById, node.requires.hard, 'Hard requires'),
-    buildConceptDependencyLinks(node, nodesById, node.requires.soft, 'Soft requires'),
-  ].filter(Boolean) : [];
-
-  return dependencyLinks.join('');
 }
 
 function getConceptDagDefaultSubjectId(nodes) {
@@ -2410,19 +2330,6 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
     </article>`;
 }
 
-function renderPracticeSidebarHtml(structure, notePath) {
-  return `
-    <aside class="notes-sidebar panel" aria-labelledby="guide-tree-title">
-      <div class="notes-sidebar__head">
-        <p class="section-label">Guides</p>
-      </div>
-      <nav aria-labelledby="guide-tree-title">
-        <h2 class="notes-sidebar__title" id="guide-tree-title">${escapeHtml(structure.title)}</h2>
-        <ul class="guide-tree">${renderGuideTree(structure.children ?? [], notePath)}</ul>
-      </nav>
-    </aside>`;
-}
-
 function renderPracticeFiltersHtml() {
   return `
       <section class="practice-filters" data-practice-filters aria-label="Practice filters">
@@ -2509,7 +2416,6 @@ function renderPracticePageHtml({
   const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
   const quickActionsHtml = renderQuickActions({ backToNoteUrl: noteUrl });
   const mainHtml = `
-    ${renderPracticeSidebarHtml(structure, notePath)}
     <section class="notes-viewer panel practice-viewer" data-practice-page>
       <div class="viewer-head">
         <div>
@@ -2536,11 +2442,12 @@ function renderPracticePageHtml({
     description,
     canonicalUrl,
     bodyClass: 'practice-page',
-    mainClass: 'shell notes-layout',
+    mainClass: 'shell practice-layout',
     mainAriaLabel: 'Practice problems',
     mainHtml,
     structures,
     activeStructureId: structure.id,
+    activePagePath: notePath,
     quickActionsHtml,
     stylesheetHref,
     scriptHref,
@@ -2971,7 +2878,6 @@ export {
   parsePracticeProblems,
   renderBlocks,
   renderFloatingActions,
-  renderTableOfContents,
   rewriteInternalHref,
   slugifyHeading,
   stripSearchOnlySections,

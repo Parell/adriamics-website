@@ -4,9 +4,15 @@ const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
+const subjectsTriggers = Array.from(document.querySelectorAll('[data-subjects-trigger]'));
+const subjectsPanel = document.getElementById('subjects-panel');
+const subjectsCloseButton = document.getElementById('subjects-close');
 const noteContent = document.getElementById('note-content');
 const lessonBody = document.querySelector('[data-notes-lesson-body]');
 const isPracticePage = document.querySelector('[data-practice-page]');
+const lessonTocLinks = Array.from(document.querySelectorAll('[data-notes-toc-link]'));
+const lessonSectionTocPanels = Array.from(document.querySelectorAll('[data-notes-section-toc-panel]'));
+const lessonSubtopicLinks = Array.from(document.querySelectorAll('[data-notes-subtopic-link]'));
 const practiceFilterButtons = Array.from(document.querySelectorAll('[data-practice-filter-button]'));
 const practiceProgressBar = document.querySelector('[data-practice-progress]');
 const practiceProgressSummary = document.querySelector('[data-practice-progress-summary]');
@@ -31,13 +37,14 @@ const NOTES_THEME_STORAGE_KEY = 'ues-notes:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'ues-notes:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'ues-notes:practice-filter:';
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
-const PRACTICE_READY_FALLBACK_MS = 5000;
+const PAGE_READY_FALLBACK_MS = 5000;
 
 let searchIndex = [];
 let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexFailed = false;
 let activeSearchTrigger = searchTriggers[0] ?? null;
+let activeSubjectsTrigger = subjectsTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
 const contributorCopyResetTimers = new WeakMap();
@@ -81,7 +88,7 @@ function readLastPagesBySubject() {
 
     const parsed = JSON.parse(raw);
     return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? parsed : {};
-  });
+  }, {});
 }
 
 function writeLastPagesBySubject(state) {
@@ -301,8 +308,8 @@ function renderPracticeFilter(value) {
   syncPracticeFilterButtons(normalized);
 }
 
-function revealPracticePageWhenReady() {
-  if (!isPracticePage) {
+function revealPageWhenReady(element, bootClass) {
+  if (!element) {
     return;
   }
 
@@ -311,7 +318,7 @@ function revealPracticePageWhenReady() {
     || Promise.resolve();
   let timeoutId = null;
   const fallback = new Promise((resolve) => {
-    timeoutId = window.setTimeout(resolve, PRACTICE_READY_FALLBACK_MS);
+    timeoutId = window.setTimeout(resolve, PAGE_READY_FALLBACK_MS);
   });
 
   Promise.race([
@@ -321,31 +328,7 @@ function revealPracticePageWhenReady() {
     if (timeoutId !== null) {
       window.clearTimeout(timeoutId);
     }
-    document.documentElement.classList.remove('notes-practice-boot');
-  });
-}
-
-function revealLessonBodyWhenReady() {
-  if (!lessonBody) {
-    return;
-  }
-
-  const mathJaxReady = window.__NOTES_MATHJAX_READY
-    || window.MathJax?.startup?.promise
-    || Promise.resolve();
-  let timeoutId = null;
-  const fallback = new Promise((resolve) => {
-    timeoutId = window.setTimeout(resolve, PRACTICE_READY_FALLBACK_MS);
-  });
-
-  Promise.race([
-    Promise.resolve(mathJaxReady).catch(() => {}),
-    fallback,
-  ]).finally(() => {
-    if (timeoutId !== null) {
-      window.clearTimeout(timeoutId);
-    }
-    document.documentElement.classList.remove('notes-lesson-boot');
+    document.documentElement.classList.remove(bootClass);
   });
 }
 
@@ -605,18 +588,34 @@ function toggleThemePreference() {
 }
 
 function getCurrentSubjectPageInfo() {
-  const match = window.location.pathname.match(/^\/notes\/subjects\/([^/]+)\/([^/]+)\/(?:practice\/)?$/);
+  const subjectPathPrefix = '/notes/subjects/';
 
-  if (!match) {
+  if (!window.location.pathname.startsWith(subjectPathPrefix)) {
     return null;
   }
 
-  const subjectId = match[1];
-  const noteSlug = match[2];
+  const pathSegments = window.location.pathname
+    .slice(subjectPathPrefix.length)
+    .split('/')
+    .filter(Boolean);
+
+  if (pathSegments.length < 2) {
+    return null;
+  }
+
+  const subjectId = pathSegments.shift();
+
+  if (pathSegments.at(-1) === 'practice') {
+    pathSegments.pop();
+  }
+
+  if (!subjectId || !pathSegments.length) {
+    return null;
+  }
 
   return {
     subjectId,
-    pagePath: `/notes/subjects/${subjectId}/${noteSlug}/`,
+    pagePath: `/notes/subjects/${subjectId}/${pathSegments.join('/')}/`,
   };
 }
 
@@ -655,6 +654,116 @@ function updateSubjectHeaderLinks() {
 function syncSubjectNavigation() {
   rememberCurrentSubjectPage();
   updateSubjectHeaderLinks();
+}
+
+function initLessonTocTracking() {
+  if (!lessonBody || isPracticePage || !lessonTocLinks.length) {
+    return;
+  }
+
+  const sections = lessonTocLinks.map((link) => {
+    const id = String(link.getAttribute('href') ?? '').replace(/^#/, '');
+    const heading = id ? document.getElementById(id) : null;
+
+    return heading ? { heading, link } : null;
+  }).filter(Boolean);
+
+  if (!sections.length) {
+    return;
+  }
+
+  const subtopics = lessonSubtopicLinks.map((link) => {
+    const id = String(link.getAttribute('href') ?? '').replace(/^#/, '');
+    const heading = id ? document.getElementById(id) : null;
+    const sectionId = String(link.dataset.notesSectionId ?? '');
+
+    return heading && sectionId ? { heading, link, sectionId } : null;
+  }).filter(Boolean);
+
+  let activeLink = null;
+  let activeSubtopicLink = null;
+  let updateFrame = null;
+
+  const setActiveLink = (nextLink) => {
+    if (!nextLink || nextLink === activeLink) {
+      return;
+    }
+
+    sections.forEach(({ link }) => {
+      const isActive = link === nextLink;
+      link.classList.toggle('is-active', isActive);
+
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+
+    const activeSectionId = String(nextLink.getAttribute('href') ?? '').replace(/^#/, '');
+    lessonSectionTocPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.notesSectionTocPanel !== activeSectionId;
+    });
+
+    activeLink = nextLink;
+  };
+
+  const setActiveSubtopicLink = (nextLink) => {
+    if (nextLink === activeSubtopicLink) {
+      return;
+    }
+
+    subtopics.forEach(({ link }) => {
+      const isActive = link === nextLink;
+      link.classList.toggle('is-active', isActive);
+
+      if (isActive) {
+        link.setAttribute('aria-current', 'location');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+
+    activeSubtopicLink = nextLink;
+  };
+
+  const updateActiveLink = () => {
+    updateFrame = null;
+    const activationLine = Math.min(window.innerHeight * 0.32, 260);
+    let currentSection = sections[0];
+
+    sections.forEach((section) => {
+      if (section.heading.getBoundingClientRect().top <= activationLine) {
+        currentSection = section;
+      }
+    });
+
+    setActiveLink(currentSection.link);
+
+    const activeSectionId = String(currentSection.link.getAttribute('href') ?? '').replace(/^#/, '');
+    const sectionSubtopics = subtopics.filter((subtopic) => subtopic.sectionId === activeSectionId);
+    let currentSubtopic = sectionSubtopics[0] ?? null;
+
+    sectionSubtopics.forEach((subtopic) => {
+      if (subtopic.heading.getBoundingClientRect().top <= activationLine) {
+        currentSubtopic = subtopic;
+      }
+    });
+
+    setActiveSubtopicLink(currentSubtopic?.link ?? null);
+  };
+
+  const scheduleActiveLinkUpdate = () => {
+    if (updateFrame === null) {
+      updateFrame = window.requestAnimationFrame(updateActiveLink);
+    }
+  };
+
+  setActiveLink(sections[0].link);
+  scheduleActiveLinkUpdate();
+  window.addEventListener('scroll', scheduleActiveLinkUpdate, { passive: true });
+  window.addEventListener('resize', scheduleActiveLinkUpdate);
+  window.addEventListener('hashchange', scheduleActiveLinkUpdate);
 }
 
 function normalizeWhitespace(text) {
@@ -817,6 +926,12 @@ function setSearchTriggerState(isExpanded) {
   });
 }
 
+function setSubjectsTriggerState(isExpanded) {
+  subjectsTriggers.forEach((trigger) => {
+    trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+  });
+}
+
 function isVisibleElement(element) {
   return element instanceof HTMLElement
     && !element.hidden
@@ -826,6 +941,10 @@ function isVisibleElement(element) {
 
 function getVisibleSearchTrigger() {
   return searchTriggers.find(isVisibleElement) ?? null;
+}
+
+function getVisibleSubjectsTrigger() {
+  return subjectsTriggers.find(isVisibleElement) ?? null;
 }
 
 function getPageNavItems() {
@@ -999,6 +1118,14 @@ function handleGlobalKeyboardShortcuts(event) {
     return;
   }
 
+  if (subjectsPanel && !subjectsPanel.hidden) {
+    if (event.key === 'Escape') {
+      event.preventDefault();
+      closeSubjects();
+    }
+    return;
+  }
+
   handlePageNavKeydown(event);
 }
 
@@ -1162,6 +1289,7 @@ function openSearch(trigger = activeSearchTrigger) {
     ? trigger
     : getVisibleSearchTrigger()
     ?? activeSearchTrigger;
+  closeSubjects({ restoreFocus: false });
   searchPanel.hidden = false;
   setSearchTriggerState(true);
   void loadSearchIndex();
@@ -1186,6 +1314,41 @@ function closeSearch({ restoreFocus = true } = {}) {
     ? activeSearchTrigger
     : getVisibleSearchTrigger();
 
+  returnTrigger?.focus();
+}
+
+function openSubjects(trigger = activeSubjectsTrigger) {
+  if (!subjectsPanel) {
+    return;
+  }
+
+  activeSubjectsTrigger = (trigger && isVisibleElement(trigger))
+    ? trigger
+    : getVisibleSubjectsTrigger()
+    ?? activeSubjectsTrigger;
+  closeSearch({ restoreFocus: false });
+  subjectsPanel.hidden = false;
+  document.body.classList.add('subjects-panel-open');
+  setSubjectsTriggerState(true);
+  subjectsCloseButton?.focus();
+}
+
+function closeSubjects({ restoreFocus = true } = {}) {
+  if (!subjectsPanel) {
+    return;
+  }
+
+  subjectsPanel.hidden = true;
+  document.body.classList.remove('subjects-panel-open');
+  setSubjectsTriggerState(false);
+
+  if (!restoreFocus) {
+    return;
+  }
+
+  const returnTrigger = isVisibleElement(activeSubjectsTrigger)
+    ? activeSubjectsTrigger
+    : getVisibleSubjectsTrigger();
   returnTrigger?.focus();
 }
 
@@ -1309,6 +1472,12 @@ function ensureInteractiveBoardId(element, type) {
   return id;
 }
 
+function observeBoardResize(board, element) {
+  if (window.ResizeObserver) {
+    new ResizeObserver(() => board.resizeContainer(element.clientWidth, element.clientHeight, true)).observe(element);
+  }
+}
+
 function initVectorCalculusGradient(root) {
   if (!root || root.dataset.gradientInitialized === 'true') {
     return;
@@ -1351,7 +1520,7 @@ function initVectorCalculusGradient(root) {
   probe.on('drag', update);
   updateFieldVisibility();
   update();
-  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+  observeBoardResize(board, boardElement);
 }
 
 function createGradientFields() {
@@ -1414,7 +1583,7 @@ function initVectorCalculusGradient3D(root) {
   view.create('line3d', [basePoint, surfacePoint], { dash: 2, strokeColor: '#777', strokeWidth: 1.5 });
   const gradientTip = view.create('point3d', [() => [surfacePoint.X() + fx(basePoint.X()) * 0.5, surfacePoint.Y() + fy(basePoint.Y()) * 0.5, surfacePoint.Z()]], { fixed: true, size: 3, fillColor: '#777', strokeColor: '#777' });
   view.create('line3d', [surfacePoint, gradientTip], { strokeColor: '#777', strokeWidth: 3 });
-  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+  observeBoardResize(board, boardElement);
 }
 
 function initVectorField3D(root) {
@@ -1462,7 +1631,7 @@ function initVectorField3D(root) {
       board.update();
     };
     update();
-  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+  observeBoardResize(board, boardElement);
 }
 
 function createStaticBoard(root, type, boundingbox) {
@@ -1475,7 +1644,7 @@ function createStaticBoard(root, type, boundingbox) {
     boundingbox, axis: false, pan: { enabled: false }, zoom: { enabled: false },
     showCopyright: false, showNavigation: false, keepaspectratio: true,
   });
-  if (window.ResizeObserver) new ResizeObserver(() => board.resizeContainer(boardElement.clientWidth, boardElement.clientHeight, true)).observe(boardElement);
+  observeBoardResize(board, boardElement);
   return board;
 }
 
@@ -1672,6 +1841,16 @@ searchTriggers.forEach((trigger) => {
   });
 });
 
+subjectsTriggers.forEach((trigger) => {
+  trigger.addEventListener('click', () => {
+    if (subjectsPanel?.hidden) {
+      openSubjects(trigger);
+    } else {
+      closeSubjects();
+    }
+  });
+});
+
 practiceFilterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const nextValue = String(button.dataset.practiceFilter ?? 'all').trim().toLowerCase();
@@ -1818,6 +1997,7 @@ document.addEventListener('click', async (event) => {
 });
 
 searchCloseButton?.addEventListener('click', closeSearch);
+subjectsCloseButton?.addEventListener('click', closeSubjects);
 searchInput?.addEventListener('input', (event) => searchNotes(event.target.value));
 searchPanel?.addEventListener('click', (event) => {
   if (event.target === searchPanel) {
@@ -1841,10 +2021,11 @@ if (practiceFilterFromUrl) {
 }
 renderPracticeFilter(initialPracticeFilter);
 renderWorksheetSelection();
-revealPracticePageWhenReady();
+revealPageWhenReady(isPracticePage, 'notes-practice-boot');
 
 syncSubjectNavigation();
-revealLessonBodyWhenReady();
+initLessonTocTracking();
+revealPageWhenReady(lessonBody, 'notes-lesson-boot');
 window.addEventListener('storage', (event) => {
   if (event.key === NOTES_THEME_STORAGE_KEY) {
     syncThemePreference();
@@ -1859,6 +2040,8 @@ window.addEventListener('storage', (event) => {
   }
 
 });
-window.addEventListener('pageshow', syncSubjectNavigation);
-window.addEventListener('pageshow', syncThemePreference);
-window.addEventListener('pageshow', syncPracticeCompletionState);
+window.addEventListener('pageshow', () => {
+  syncSubjectNavigation();
+  syncThemePreference();
+  syncPracticeCompletionState();
+});

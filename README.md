@@ -11,7 +11,7 @@ npm ci
 npm run build
 ```
 
-The build creates `public/`, containing only the files that should be served publicly. The directory is generated and ignored by Git.
+The build first regenerates the minified CSS and JavaScript assets, then creates `public/`, containing only the files that should be served publicly. The directory is generated and ignored by Git.
 
 ## Cloudflare deployment
 

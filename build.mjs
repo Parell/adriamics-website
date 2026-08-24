@@ -16,9 +16,7 @@ const files = [
   "robots.txt",
   "sitemap.xml",
   "LICENSE",
-  "_headers",
-  ".nojekyll",
-  "CNAME",
+  "_headers"
 ];
 
 for (const file of files) {

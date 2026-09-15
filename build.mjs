@@ -19,7 +19,7 @@ const files = [
 
 for (const file of files) cpSync(resolve(root, file), resolve(output, file));
 
-for (const directory of ["assets", "privacy-policy", "terms-of-service"]) {
+for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocinante"]) {
   const source = resolve(root, directory);
   if (existsSync(source)) cpSync(source, resolve(output, directory), { recursive: true });
 }

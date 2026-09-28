@@ -69,6 +69,83 @@ function renderTextStream() {
   container.innerHTML = Array.from({ length: rows }, (_, rowIndex) => renderTextStreamRow(rowIndex, linesPerRow)).join("");
 }
 
+function initTextStreamFade() {
+  const stream = $("#text-stream");
+  if (!stream) {
+    return;
+  }
+
+  let updateFrame = 0;
+  const updateOpacity = () => {
+    updateFrame = 0;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? Math.min(1, Math.max(0, window.scrollY / maxScroll)) : 0;
+    stream.style.opacity = String(0.3 * (1 - progress));
+  };
+
+  const scheduleUpdate = () => {
+    if (updateFrame) {
+      return;
+    }
+    updateFrame = window.requestAnimationFrame(updateOpacity);
+  };
+
+  window.addEventListener("scroll", scheduleUpdate, { passive: true });
+  window.addEventListener("resize", scheduleUpdate, { passive: true });
+  updateOpacity();
+}
+
+function initFrameGallery() {
+  const gallery = $("#frame-gallery");
+  if (!gallery) {
+    return;
+  }
+
+  const image = $("#frame-image", gallery);
+  const capabilityButtons = gallery.querySelectorAll("[data-frame-index]");
+  if (!image) {
+    return;
+  }
+
+  const slides = [
+    {
+      src: "/assets/SL3-114-1626.webp",
+      alt: "Spacecraft above the Earth, viewed from orbit",
+    },
+    {
+      src: "/assets/S-IVB_ignition_from_Apollo_9.webp",
+      alt: "Apollo 9 S-IVB engine igniting in space",
+    },
+    {
+      src: "/assets/SL3-114-1626.webp",
+      alt: "Spacecraft above the Earth, viewed from orbit",
+    },
+    {
+      src: "/assets/S-IVB_ignition_from_Apollo_9.webp",
+      alt: "Apollo 9 S-IVB engine igniting in space",
+    },
+  ];
+  let activeSlide = 0;
+
+  const showSlide = (index) => {
+    activeSlide = (index + slides.length) % slides.length;
+    image.src = slides[activeSlide].src;
+    image.alt = slides[activeSlide].alt;
+    capabilityButtons.forEach((button) => {
+      button.setAttribute("aria-pressed", String(Number(button.dataset.frameIndex) === activeSlide));
+    });
+  };
+
+  gallery.addEventListener("click", (event) => {
+    const capability = event.target.closest("[data-frame-index]");
+    if (capability) {
+      showSlide(Number(capability.dataset.frameIndex));
+    }
+  });
+
+  showSlide(activeSlide);
+}
+
 const copyEmailResetTimers = new WeakMap();
 
 async function copyTextToClipboard(text) {
@@ -154,3 +231,5 @@ document.addEventListener("click", async (event) => {
 });
 
 renderTextStream();
+initTextStreamFade();
+initFrameGallery();

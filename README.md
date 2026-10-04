@@ -9,20 +9,21 @@ npm ci
 npm run build
 ```
 
-The build regenerates the study pages and combined `sitemap.xml`, then copies the main website and study library into `public/` (`/` and `/study/`). It updates generated files in place, so rebuilding does not need to remove `public/` first. Cloudflare receives only this generated output. `public/` is ignored by Git.
+The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), copies shared assets from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
 
 When the build succeeds, the last line reports the full path to the generated `public/` directory. You can run `npm.cmd run build` by itself whenever you only need to refresh those files.
 
 ## Local server
 
 ```bash
-npm run build
 npm run dev
 ```
 
-`npm run dev` serves the existing `public/` output through Wrangler at `http://localhost:8787`; it does not rebuild. Open the main site at `/` and study content at `/study/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server.
+`npm run dev` builds the site, serves `public/` through Wrangler at `http://localhost:8787`, and watches source files for incremental rebuilds. Open the main site at `/` and study content at `/study/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server and watcher.
 
-Run `npm run build` again after changing source files to refresh `public/`.
+The development watcher rebuilds the main website pages, styles, and assets without regenerating every study page. Changes under `study/source/` still run the full build because study pages, search data, and the sitemap are generated together. Build script changes also run the full build. Refresh the browser after the watcher reports completion.
+
+Codex and other contributors should read [AGENTS.md](AGENTS.md) first for source/output boundaries and build workflow.
 
 ## Local/deployment validation
 
@@ -66,7 +67,8 @@ OpenTofu is also supported by the configuration (`tofu init`, `tofu plan`, `tofu
 
 ## Source layout
 
-- `website/` contains the main website served at `/`.
+- `website/` contains the main website served at `/`; `website/public.json` is the deliberately curated public project registry used to render its navigation, project sequence, and status strip.
+- `assets/` contains shared website and study assets copied to `/assets/`.
 - `study/` contains study source content and its page generator, served at `/study/`.
 - `build.mjs` combines both into generated `public/` output.
 - `wrangler.jsonc` configures the Cloudflare Workers Static Assets deployment.

@@ -2,6 +2,7 @@ import { cpSync, existsSync, mkdirSync, rmSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = import.meta.dirname;
+const website = resolve(root, "website");
 const output = resolve(root, "public");
 
 rmSync(output, { force: true, recursive: true });
@@ -12,15 +13,15 @@ const files = [
   "site.css",
   "site.js",
   "robots.txt",
-  "sitemap.xml",
-  "LICENSE",
   "_headers"
 ];
 
-for (const file of files) cpSync(resolve(root, file), resolve(output, file));
+for (const file of files) cpSync(resolve(website, file), resolve(output, file));
+cpSync(resolve(website, "LICENSE"), resolve(output, "LICENSE"));
+cpSync(resolve(root, "sitemap.xml"), resolve(output, "sitemap.xml"));
 
 for (const directory of ["assets", "frame", "privacy-policy", "terms-of-service", "rocinante"]) {
-  const source = resolve(root, directory);
+  const source = resolve(website, directory);
   if (existsSync(source)) cpSync(source, resolve(output, directory), { recursive: true });
 }
 

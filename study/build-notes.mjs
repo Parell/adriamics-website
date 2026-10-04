@@ -135,7 +135,12 @@ function makeInternalPageLinksRelative(html, outputPath) {
     const suffixIndex = value.search(/[?#]/);
     const route = suffixIndex < 0 ? value : value.slice(0, suffixIndex);
     const suffix = suffixIndex < 0 ? '' : value.slice(suffixIndex);
-    const targetPath = route === '/' ? 'index.html' : route.endsWith('/') ? `${route.slice(1)}index.html` : route.slice(1);
+    const isStudyRoute = route.startsWith('/study/');
+    const siteRoute = isStudyRoute ? route.slice('/study/'.length) : `../${route.slice(1)}`;
+    const targetPath = route === '/study/'
+      ? 'index.html'
+      : route === '/' ? '../index.html'
+        : route.endsWith('/') ? `${siteRoute}index.html` : siteRoute;
     let relative = toPosix(path.relative(pageDirectory, targetPath));
     if (!relative.startsWith('.')) relative = `./${relative}`;
     if (route.endsWith('/')) relative = relative.slice(0, relative.lastIndexOf('/') + 1);
@@ -1997,7 +2002,7 @@ function buildLandingHtml(structures, assetVersions, dag) {
     mainHtml: `<section class="landing-hero panel" aria-labelledby="landing-title">
       <div class="landing-hero__intro">
         <p class="section-label">Open Sourced Education for all</p>
-        <h1 id="landing-title">Learn what you need, one concept at a time.</h1>
+        <h1 id="landing-title">Like all magnificent things, it's very simple.</h1>
         <p class="landing-hero__lead">Free, structured lessons that help you build understanding in order, revisit individual topics, and practice until the ideas hold together.</p>
       </div>
       <!-- <section class="landing-router" aria-labelledby="landing-router-title">
@@ -2651,11 +2656,75 @@ async function exists(filePath) {
   }
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null, practiceProblemIndex = new Map()) {
+function getCurriculumTarget(id, notes, noteDocuments) {
+  const direct = notes.find((candidate) => noteDocuments.get(candidate.path)?.metadata.id === id);
+
+  if (direct) return direct;
+
+  const [, slug = ''] = String(id ?? '').split('.');
+  return notes.find((candidate) => (
+    candidate.structureId === 'math'
+    && candidate.title.toLowerCase().replace(/[^a-z0-9]+/g, '-') === slug
+  )) ?? null;
+}
+
+function renderCurriculumLinks(ids, notes, noteDocuments) {
+  const links = (Array.isArray(ids) ? ids : ids ? [ids] : [])
+    .map((id) => {
+      const target = getCurriculumTarget(id, notes, noteDocuments);
+      return target ? `[${target.title}](${getNoteUrl(target.path)})` : String(id);
+    });
+
+  return links.length ? links.join(', ') : 'None';
+}
+
+function buildArithmeticCurriculumBody(note, noteDocument, notes, noteDocuments) {
+  const metadata = noteDocument.metadata;
+  const concepts = notes
+    .filter((candidate) => String(noteDocuments.get(candidate.path)?.metadata.id ?? '').startsWith('arithmetic.'))
+    .sort((left, right) => Number(noteDocuments.get(left.path)?.metadata.order ?? 0) - Number(noteDocuments.get(right.path)?.metadata.order ?? 0));
+
+  if (note.path === 'source/math/arithmetic/arithmetic.md') {
+    const map = concepts.map((concept) => {
+      const conceptMetadata = noteDocuments.get(concept.path).metadata;
+      return `[${String(conceptMetadata.order).padStart(2, '0')} ${concept.title}](${getNoteUrl(concept.path)})`;
+    }).join('\n');
+    const courseBody = noteDocument.bodyForDisplay
+      .replace(/## Course map\n[\s\S]*?(?=\n## |$)/, `## Course map\n\n**${concepts.length} concepts**\n\n${map}\n`);
+    return courseBody;
+  }
+
+  const metadataBlock = [
+    `**Arithmetic | ${metadata.order} of ${concepts.length}**`,
+    '',
+    `Prerequisites: ${renderCurriculumLinks(metadata.requires, notes, noteDocuments)}. Enables: ${renderCurriculumLinks(metadata.leads_to, notes, noteDocuments)}.`,
+    '',
+    '',
+  ].join('\n');
+  const currentIndex = concepts.findIndex((concept) => concept.path === note.path);
+  const previous = concepts[currentIndex - 1];
+  const next = concepts[currentIndex + 1];
+  const course = notes.find((candidate) => candidate.path === 'source/math/arithmetic/arithmetic.md');
+  const navItems = [];
+  if (previous) navItems.push(`[Previous: ${previous.title}](${getNoteUrl(previous.path)})`);
+  navItems.push(`[Arithmetic course map](${getNoteUrl(course.path)})`);
+  if (next) navItems.push(`[Next: ${next.title}](${getNoteUrl(next.path)})`);
+  const nav = navItems.join(' | ');
+  const practiceIds = Array.isArray(metadata.practice) ? metadata.practice : metadata.practice ? [metadata.practice] : [];
+  const practiceLinks = practiceIds.includes('arithmetic')
+    ? `\n\n[Practice Arithmetic](${getPracticeUrl(course.path)})`
+    : '';
+
+  return `${metadataBlock}${noteDocument.bodyForDisplay.trim()}\n\n---\n\n${nav}${practiceLinks}`;
+}
+
+async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null, practiceProblemIndex = new Map(), curriculumNotes = [], curriculumDocuments = new Map()) {
   const sourcePath = noteDocument.sourcePath;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const title = note.title;
-  const bodyForDisplay = noteDocument.bodyForDisplay;
+  const bodyForDisplay = noteDocument.metadata.course === 'Arithmetic'
+    ? buildArithmeticCurriculumBody(note, noteDocument, curriculumNotes, curriculumDocuments)
+    : noteDocument.bodyForDisplay;
   const summary = getSummary(bodyForDisplay) || title;
   const description = summary.length > 160 ? `${summary.slice(0, 157)}...` : summary;
   const canonicalUrl = `${siteOrigin}${urlPath}`;
@@ -2823,6 +2892,7 @@ async function buildNotePages(notes, structures, assetVersions, conceptDag) {
       practice.problems.map((problem) => [problem.id, problem])
     )),
   );
+  const curriculumDocuments = noteDocuments;
 
   for (const [index, note] of notes.entries()) {
     const practice = practiceByNotePath.get(note.path);
@@ -2841,6 +2911,8 @@ async function buildNotePages(notes, structures, assetVersions, conceptDag) {
       conceptDag,
       practice,
       practiceProblemIndex,
+      notes,
+      curriculumDocuments,
     ));
 
     if (practice) {

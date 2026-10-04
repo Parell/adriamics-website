@@ -1,13 +1,6 @@
 window.ADRIAMICS_STUDY_MANIFEST = {
   structures: [
     {
-      id: 'hidden',
-      title: 'Hidden',
-      children: [
-        { title: 'Tests', path: 'source/hidden/tests/tests.md' },
-      ],
-    },
-    {
       id: 'math',
       title: 'Math',
       children: [

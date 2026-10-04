@@ -146,6 +146,35 @@ function initFrameGallery() {
   showSlide(activeSlide);
 }
 
+function initContactMenu() {
+  const menu = $("[data-contact-menu]");
+  if (!menu) return;
+
+  const trigger = $(".contact-menu__trigger", menu);
+  const panel = $(".contact-menu__panel", menu);
+  if (!trigger || !panel) return;
+
+  const setOpen = (open) => {
+    menu.open = open;
+    trigger.setAttribute("aria-expanded", String(open));
+  };
+
+  trigger.setAttribute("aria-expanded", String(menu.open));
+  menu.addEventListener("toggle", () => trigger.setAttribute("aria-expanded", String(menu.open)));
+  document.addEventListener("click", (event) => {
+    if (!menu.contains(event.target)) setOpen(false);
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && menu.open) {
+      setOpen(false);
+      trigger.focus();
+    }
+  });
+  panel.addEventListener("click", (event) => {
+    if (event.target.closest("a")) setOpen(false);
+  });
+}
+
 const copyEmailResetTimers = new WeakMap();
 
 async function copyTextToClipboard(text) {
@@ -233,3 +262,4 @@ document.addEventListener("click", async (event) => {
 renderTextStream();
 initTextStreamFade();
 initFrameGallery();
+initContactMenu();

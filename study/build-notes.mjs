@@ -17,8 +17,8 @@ const MATHJAX_SVG_FONT_CACHE = 'local';
 const MATHJAX_SVG_BLACKER = 0;
 const MATHJAX_ASSET_PATH = 'vendor/mathjax/mathjax.min.js';
 
-function renderMathJaxConfig(outputDir, assetVersions) {
-  const mathJaxHref = `${getRelativeNotesAssetHref(outputDir, MATHJAX_ASSET_PATH)}?v=${assetVersions.mathjax}`;
+function renderMathJaxConfig(assetVersions) {
+  const mathJaxHref = `${getNotesAssetHref(MATHJAX_ASSET_PATH)}?v=${assetVersions.mathjax}`;
   return `
   <script>
     let resolveNotesMathJaxReady;
@@ -79,7 +79,6 @@ function repairMojibake(text) {
 const siteOrigin = 'https://adriamics.com';
 const githubRepoUrl = 'https://github.com/Parell/adriamics';
 const githubRepoBranch = 'master';
-const notesThemeStorageKey = 'adriamics-study:contrast-mode';
 const homeStructureId = 'home';
 const practiceLevelLabels = new Map([
   [1, 'Direct'],
@@ -136,6 +135,10 @@ function makeInternalPageLinksRelative(html, outputPath) {
     const route = suffixIndex < 0 ? value : value.slice(0, suffixIndex);
     const suffix = suffixIndex < 0 ? '' : value.slice(suffixIndex);
     const isStudyRoute = route.startsWith('/study/');
+    if (isStudyRoute) {
+      const canonicalRoute = route === '/study/' ? '/study' : route.replace(/\/$/, '');
+      return `${attribute}="${canonicalRoute}${suffix}"`;
+    }
     const siteRoute = isStudyRoute ? route.slice('/study/'.length) : `../${route.slice(1)}`;
     const targetPath = route === '/study/'
       ? 'index.html'
@@ -492,7 +495,7 @@ function getPracticeOutputDir(notePath) {
 }
 
 function getPracticeUrl(notePath) {
-  return `${getNoteUrl(notePath)}practice/`;
+  return `${getNoteUrl(notePath)}/practice`;
 }
 
 function getConceptNoteUrlFromId(nodeId) {
@@ -511,14 +514,14 @@ function getConceptNoteUrlFromId(nodeId) {
   }
 
   if (domain === 'math' && slug === 'multivariable-calculus') {
-    return '/study/math/multivariable-calculus/multivariable-differential-calculus/';
+    return '/study/math/multivariable-calculus/multivariable-differential-calculus';
   }
 
   if (domain === 'math' && slug === 'multiple-integrals') {
-    return '/study/math/multivariable-calculus/multiple-integrals/';
+    return '/study/math/multivariable-calculus/multiple-integrals';
   }
 
-  return `/study/${domain}/${slug}/`;
+  return `/study/${domain}/${slug}`;
 }
 
 function loadConceptDagNode(entry, nodeId, index) {
@@ -677,11 +680,8 @@ function groupPracticeProblems(problems) {
     }));
 }
 
-function getRelativeNotesAssetHref(outputDirPath, assetName) {
-  const relativeOutputDir = toPosix(path.relative(notesRoot, outputDirPath));
-  const depth = relativeOutputDir ? relativeOutputDir.split('/').filter(Boolean).length : 0;
-  const prefix = '../'.repeat(depth);
-  return `${prefix}${assetName}`;
+function getNotesAssetHref(assetName) {
+  return `/study/${assetName}`;
 }
 
 async function getAssetVersion(assetPath) {
@@ -722,7 +722,7 @@ function rewriteInternalHref(href, sourcePath) {
     }
 
     if (pathname.endsWith('.md')) {
-      pathname = `${pathname.slice(0, -3)}/`;
+      pathname = pathname.slice(0, -3);
       let outputPath = pathname.startsWith('source/')
         ? pathname.slice('source/'.length)
         : pathname;
@@ -730,7 +730,7 @@ function rewriteInternalHref(href, sourcePath) {
       if (outputSegments.length >= 2
         && outputSegments.at(-1) === outputSegments.at(-2)) {
         outputSegments.pop();
-        outputPath = `${outputSegments.join('/')}/`;
+        outputPath = outputSegments.join('/');
       }
       return `/study/${outputPath}${resolved.search}${resolved.hash}`;
     }
@@ -1384,15 +1384,14 @@ function getFirstPagePath(node) {
 }
 
 function getNoteUrl(notePath) {
-  return `/study/${getSubjectRoutePath(notePath)}/`;
+  return `/study/${getSubjectRoutePath(notePath)}`;
 }
 
-function renderSubjectLinks(structures, activeStructureId = null, activePagePath = null) {
+function renderSubjectGroups(structures, activePagePath = null) {
   const visibleStructures = structures.filter((structure) => structure.id !== 'hidden');
   const subjectStructures = visibleStructures.filter((structure) => structure.id !== homeStructureId);
-  const homeCurrent = activeStructureId === homeStructureId ? ' aria-current="true"' : '';
-  const subjectGroups = subjectStructures.map((structure) => {
-    const groupId = `subjects-panel-${structure.id}`;
+  return subjectStructures.map((structure) => {
+    const groupId = `study-subject-${structure.id}`;
     const menuItems = (structure.children ?? [])
       .map((node) => {
         const nodePagePath = getFirstPagePath(node);
@@ -1413,34 +1412,21 @@ function renderSubjectLinks(structures, activeStructureId = null, activePagePath
           <ul class="subjects-panel__list">${menuItems}</ul>
         </section>`;
   }).join('');
+}
 
+function renderSubjectLinks(structures, activeStructureId = null) {
+  const homeCurrent = activeStructureId === homeStructureId ? ' aria-current="true"' : '';
   return `<aside class="notes-structures" aria-label="Guide structures">
           <div class="notes-header__brand">
-            <p class="notes-header__eyebrow">Open Sourced Education for all</p>
+            <p class="notes-header__eyebrow">Education for all</p>
             <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
           </div>
           <ul class="subject-list">
-          <li><a class="notes-inline-link${activeStructureId === homeStructureId ? ' is-active' : ''}"${homeCurrent} href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Home</a></li>
-          <li><button class="notes-subjects-toggle" type="button" data-subjects-trigger aria-controls="subjects-panel" aria-expanded="false" data-notes-nav-item>Subjects</button></li>
-          <li>
-          <button class="notes-theme-toggle" type="button" data-theme-toggle aria-pressed="false" aria-label="Switch to light mode" data-notes-nav-item>Light</button>
-          </li>
+          <li><a class="notes-inline-link${activeStructureId === homeStructureId ? ' is-active' : ''}"${homeCurrent} href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Topics</a></li>
           <li>
           <button class="notes-theme-toggle" type="button" data-webmeji-toggle aria-pressed="true" aria-label="Toggle companion" data-notes-nav-item>Companion</button>
           </li>
           </ul>
-          <section class="subjects-panel" id="subjects-panel" role="dialog" aria-modal="true" aria-labelledby="subjects-panel-title" hidden>
-            <div class="subjects-panel__content">
-              <div class="subjects-panel__head">
-                <div>
-                  <p class="section-label">Subjects</p>
-                  <h1 id="subjects-panel-title">Choose a topic</h1>
-                </div>
-                <button class="notes-action-chip" id="subjects-close" type="button" aria-label="Close subjects" data-notes-nav-item>Close</button>
-              </div>
-              <div class="subjects-panel__groups">${subjectGroups}</div>
-            </div>
-          </section>
         </aside>`;
 }
 
@@ -1467,11 +1453,9 @@ function renderSearchPanel() {
 function renderNotesFooter() {
   return `<footer class="shell notes-footer">
     <div class="notes-footer__inner">
-      <a href="/privacy-policy/">Privacy Policy</a>
+      <a href="/privacy-policy">Privacy Policy</a>
       <span class="notes-footer__sep" aria-hidden="true">-</span>
-      <a href="/terms-of-service/">Terms of Service</a>
-      <span class="notes-footer__sep" aria-hidden="true">-</span>
-      <a href="/">Adriamics</a>
+      <a href="/terms-of-service">Terms of Service</a>
     </div>
   </footer>`;
 }
@@ -1586,22 +1570,6 @@ function renderNotesPageDocument({
   const webmejiHead = `${renderAsyncStylesheet('/study/webmeji/webmeji.css', { nonBlocking: true })}
   <script defer src="/study/webmeji/config.js"></script>
   <script defer src="/study/webmeji/webmeji.js"></script>`;
-  const themeBootstrapScript = `<script>
-    (() => {
-      let storedTheme = null;
-
-      try {
-        storedTheme = window.localStorage.getItem(${JSON.stringify(notesThemeStorageKey)});
-      } catch {
-        // Browser storage can be disabled or unavailable in private/sandboxed contexts.
-      }
-
-      if (storedTheme === 'sepia' || storedTheme === 'light') {
-        document.documentElement.classList.add('notes-page--sepia');
-      }
-    })();
-  </script>`;
-
   const floatingActionsHtml = renderFloatingActions(quickActionsHtml);
 
   return `<!doctype html>
@@ -1615,7 +1583,6 @@ function renderNotesPageDocument({
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
   ${headHtml}
-  ${themeBootstrapScript}
   ${renderAsyncStylesheet(stylesheetHref)}
   ${webmejiCriticalStyles}
   ${webmejiHead}
@@ -1759,8 +1726,8 @@ function buildNoteHtml({
   practiceUrl = null,
   interactive = null,
 }) {
-  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const stylesheetHref = `${getNotesAssetHref('notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getNotesAssetHref('notes.js')}?v=${assetVersions.notesJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
   const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
   const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-gradient-3d') || interactiveAssets.has('vector-calculus-vector-field-3d') || interactiveAssets.has('statics-modeling') || interactiveAssets.has('dynamics-projectile') || interactiveAssets.has('circuits-kcl') || interactiveAssets.has('jsxgraph-examples') ? `
@@ -1811,7 +1778,7 @@ ${sectionTocHtml}
     scriptHref,
     headHtml: '<script>document.documentElement.classList.add("notes-lesson-boot");</script>',
     extraHead: `${interactiveHead}
-  ${renderMathJaxConfig(outputDir, assetVersions)}
+  ${renderMathJaxConfig(assetVersions)}
   `,
   });
 }
@@ -1995,69 +1962,18 @@ function buildLandingHtml(structures, assetVersions, dag) {
   return renderNotesPageDocument({
     title: 'Adriamics Study',
     description: 'Free, structured lessons for learning mathematics, physics, and engineering one concept at a time.',
-    canonicalUrl: `${siteOrigin}/study/`,
+    canonicalUrl: `${siteOrigin}/study`,
     bodyClass: 'notes-landing-page',
     mainClass: 'shell',
-    mainAriaLabel: 'Home',
-    mainHtml: `<section class="landing-hero panel" aria-labelledby="landing-title">
-      <div class="landing-hero__intro">
-        <p class="section-label">Open Sourced Education for all</p>
-        <h1 id="landing-title">Like all magnificent things, it's very simple.</h1>
-        <p class="landing-hero__lead">Free, structured lessons that help you build understanding in order, revisit individual topics, and practice until the ideas hold together.</p>
-      </div>
-      <!-- <section class="landing-router" aria-labelledby="landing-router-title">
-        <p class="section-label">Start here</p>
-        <h2 id="landing-router-title">What do you want to learn?</h2>
-        <div class="landing-subject-grid">
-          <a class="landing-subject-card" href="/study/math/arithmetic/" data-notes-nav-item>
-            <span class="landing-subject-card__number" aria-hidden="true">01</span>
-            <span class="landing-subject-card__title">Mathematics</span>
-            <span class="landing-subject-card__description">Begin with arithmetic and build toward higher mathematics.</span>
-            <span class="landing-subject-card__link" aria-hidden="true">Start with Arithmetic <span>→</span></span>
-          </a>
-          <a class="landing-subject-card" href="/study/physics/physics-i/" data-notes-nav-item>
-            <span class="landing-subject-card__number" aria-hidden="true">02</span>
-            <span class="landing-subject-card__title">Physics</span>
-            <span class="landing-subject-card__description">Use models, motion, and forces to explain the physical world.</span>
-            <span class="landing-subject-card__link" aria-hidden="true">Start with Physics I <span>→</span></span>
-          </a>
-          <a class="landing-subject-card" href="/study/engineering/statics/" data-notes-nav-item>
-            <span class="landing-subject-card__number" aria-hidden="true">03</span>
-            <span class="landing-subject-card__title">Engineering</span>
-            <span class="landing-subject-card__description">Turn first principles into useful systems and sound designs.</span>
-            <span class="landing-subject-card__link" aria-hidden="true">Start with Statics <span>→</span></span>
-          </a>
-        </div>
-      </section> -->
-    </section>
-    <!-- <section class="landing-support panel" aria-labelledby="landing-support-title">
-      <div>
-        <p class="section-label">Choose your next step</p>
-        <h2 id="landing-support-title">Not sure where to start?</h2>
-      </div>
-      <div class="landing-support__actions">
-        <a class="notes-action-chip" href="/study/math/arithmetic/" data-notes-nav-item>Begin a subject</a>
-        <button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search for a topic</button>
-        <a class="notes-action-chip" href="/study/math/arithmetic/" data-notes-nav-item>Follow prerequisites</a>
-        <a class="notes-action-chip notes-action-chip--practice" href="/study/math/arithmetic/practice/" data-notes-nav-item>Practice problems</a>
-        <a class="notes-action-chip" href="${githubRepoUrl}" target="_blank" rel="noreferrer" data-notes-nav-item>GitHub</a>
-        <a class="notes-action-chip" href="https://github.com/sponsors/Parell" target="_blank" rel="noreferrer" data-notes-nav-item>Support</a>
-      </div>
-    </section> -->
-    <section class="landing-philosophy" id="learning-path" aria-labelledby="landing-philosophy-title">
-      <p class="section-label">The idea behind the notes</p>
-      <h2 id="landing-philosophy-title">Learning should have a path.</h2>
-      <div class="landing-philosophy__copy">
-        <p>This is <strong>not</strong> a textbook. It is a <strong>structured study system</strong> designed to help you learn concepts in order, review individual topics, practice with focused problem sets, and follow guided prerequisite maps.</p>
-        <p><strong>No filler.</strong> <em>No empty history.</em> Just direct learning, rigorous reasoning, and proof of understanding.</p>
-        <p>If education is truly <strong>universal</strong>, anyone can become an expert. What matters is not where you start, but whether you can prove what you understand with <em>rigor</em>.</p>
-      </div>
-    </section>`,
-    structures,
+    mainAriaLabel: 'Topics',
+    mainHtml: `<section class="landing-subjects" aria-labelledby="landing-subjects-title">
+      <h1 class="landing-subjects__title" id="landing-subjects-title">Like all magnificent things, it's very simple.</h1>
+      <div class="subjects-panel__groups">${renderSubjectGroups(structures)}</div>
+    </section>`,    structures,
     activeStructureId: homeStructureId,
     quickActionsHtml: '',
-    stylesheetHref: `notes.css?v=${assetVersions.notesCss}`,
-    scriptHref: `notes.js?v=${assetVersions.notesJs}`,
+    stylesheetHref: `/study/notes.css?v=${assetVersions.notesCss}`,
+    scriptHref: `/study/notes.js?v=${assetVersions.notesJs}`,
   });
 }
 
@@ -2414,8 +2330,8 @@ function renderPracticePageHtml({
   problems,
   referenceHtml = null,
 }) {
-  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
+  const stylesheetHref = `${getNotesAssetHref('notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getNotesAssetHref('notes.js')}?v=${assetVersions.notesJs}`;
   const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
   const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
@@ -2457,7 +2373,7 @@ function renderPracticePageHtml({
     stylesheetHref,
     scriptHref,
     headHtml: '<script>document.documentElement.classList.add("notes-practice-boot");</script>',
-    extraHead: renderMathJaxConfig(outputDir, assetVersions),
+    extraHead: renderMathJaxConfig(assetVersions),
   });
 }
 
@@ -2834,10 +2750,11 @@ async function buildSitemap(noteUrls, practiceUrls) {
   const siteSitemap = await fs.readFile(path.resolve(repoRoot, '..', 'sitemap.xml'), 'utf8');
   const rootUrls = [...siteSitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
     .map(([, url]) => url)
-    .filter((url) => !url.startsWith(`${siteOrigin}/study/`));
+    .filter((url) => !url.startsWith(`${siteOrigin}/study/`))
+    .map((url) => url === `${siteOrigin}/` ? url : url.replace(/\/$/, ''));
   const urls = [...new Set([
     ...rootUrls,
-    `${siteOrigin}/study/`,
+    `${siteOrigin}/study`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
   ])];

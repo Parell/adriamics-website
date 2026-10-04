@@ -4,9 +4,6 @@ const searchCloseButton = document.getElementById('search-close');
 const searchInput = document.getElementById('search-input');
 const searchStatus = document.getElementById('search-status');
 const searchResults = document.getElementById('search-results');
-const subjectsTriggers = Array.from(document.querySelectorAll('[data-subjects-trigger]'));
-const subjectsPanel = document.getElementById('subjects-panel');
-const subjectsCloseButton = document.getElementById('subjects-close');
 const noteContent = document.getElementById('note-content');
 const lessonBody = document.querySelector('[data-notes-lesson-body]');
 const isPracticePage = document.querySelector('[data-practice-page]');
@@ -26,7 +23,6 @@ let worksheetSelectedIds = [];
 const worksheetSpacing = new Map();
 let worksheetDraggedId = null;
 const subjectHeaderLinks = Array.from(document.querySelectorAll('[data-subject-id]'));
-const themeToggleButtons = Array.from(document.querySelectorAll('[data-theme-toggle]'));
 const notesScriptUrl = document.currentScript?.src
   || Array.from(document.scripts).find((script) => /\/notes\.js(?:\?|$)/.test(script.src))?.src
   || window.location.href;
@@ -34,7 +30,6 @@ const NOTES_BASE_URL = new URL('.', notesScriptUrl);
 const SITE_BASE_PATH = NOTES_BASE_URL.pathname.replace(/study\/$/, '');
 const SEARCH_INDEX_URL = new URL('search-index.json', NOTES_BASE_URL).href;
 const NOTES_SESSION_STORAGE_KEY = 'adriamics-study:last-pages-by-subject';
-const NOTES_THEME_STORAGE_KEY = 'adriamics-study:contrast-mode';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'adriamics-study:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'adriamics-study:practice-filter:';
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
@@ -45,7 +40,6 @@ let searchIndexPromise = null;
 let searchIndexReady = false;
 let searchIndexFailed = false;
 let activeSearchTrigger = searchTriggers[0] ?? null;
-let activeSubjectsTrigger = subjectsTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
 const contributorCopyResetTimers = new WeakMap();
@@ -198,24 +192,6 @@ function showContributorCopiedState(button) {
   }, 1500);
 
   contributorCopyResetTimers.set(button, resetTimer);
-}
-
-function readThemePreference() {
-  return ['sepia', 'light'].includes(readStoredString(NOTES_THEME_STORAGE_KEY));
-}
-
-function getThemeToggleLabel(isSepia) {
-  return isSepia ? 'Dark' : 'Light';
-}
-
-function getThemeToggleAriaLabel(isSepia) {
-  return isSepia ? 'Switch to dark mode' : 'Switch to light mode';
-}
-
-function writeThemePreference(isSepia) {
-  writeToStorage(getLocalStorage, NOTES_THEME_STORAGE_KEY, (storage) => {
-    storage.setItem(NOTES_THEME_STORAGE_KEY, isSepia ? 'light' : 'default');
-  });
 }
 
 function getPracticeCompletionStorageKey() {
@@ -573,32 +549,6 @@ function finishWorksheetPrint() {
   document.body.classList.remove('is-printing-worksheet');
 }
 
-function applyThemePreference(isSepia) {
-  const enabled = Boolean(isSepia);
-
-  document.documentElement.classList.toggle('notes-page--sepia', enabled);
-
-  if (document.body) {
-    document.body.classList.toggle('notes-page--sepia', enabled);
-  }
-
-  themeToggleButtons.forEach((button) => {
-    button.setAttribute('aria-pressed', enabled ? 'true' : 'false');
-    button.setAttribute('aria-label', getThemeToggleAriaLabel(enabled));
-    button.textContent = getThemeToggleLabel(enabled);
-  });
-}
-
-function syncThemePreference() {
-  applyThemePreference(readThemePreference());
-}
-
-function toggleThemePreference() {
-  const nextValue = !document.documentElement.classList.contains('notes-page--sepia');
-  applyThemePreference(nextValue);
-  writeThemePreference(nextValue);
-}
-
 function getCurrentSubjectPageInfo() {
   const subjectPathPrefix = '/study/';
 
@@ -939,12 +889,6 @@ function setSearchTriggerState(isExpanded) {
   });
 }
 
-function setSubjectsTriggerState(isExpanded) {
-  subjectsTriggers.forEach((trigger) => {
-    trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
-  });
-}
-
 function isVisibleElement(element) {
   return element instanceof HTMLElement
     && !element.hidden
@@ -954,10 +898,6 @@ function isVisibleElement(element) {
 
 function getVisibleSearchTrigger() {
   return searchTriggers.find(isVisibleElement) ?? null;
-}
-
-function getVisibleSubjectsTrigger() {
-  return subjectsTriggers.find(isVisibleElement) ?? null;
 }
 
 function getPageNavItems() {
@@ -1131,13 +1071,6 @@ function handleGlobalKeyboardShortcuts(event) {
     return;
   }
 
-  if (subjectsPanel && !subjectsPanel.hidden) {
-    if (event.key === 'Escape') {
-      event.preventDefault();
-      closeSubjects();
-    }
-    return;
-  }
 
   handlePageNavKeydown(event);
 }
@@ -1302,7 +1235,6 @@ function openSearch(trigger = activeSearchTrigger) {
     ? trigger
     : getVisibleSearchTrigger()
     ?? activeSearchTrigger;
-  closeSubjects({ restoreFocus: false });
   searchPanel.hidden = false;
   setSearchTriggerState(true);
   void loadSearchIndex();
@@ -1327,41 +1259,6 @@ function closeSearch({ restoreFocus = true } = {}) {
     ? activeSearchTrigger
     : getVisibleSearchTrigger();
 
-  returnTrigger?.focus();
-}
-
-function openSubjects(trigger = activeSubjectsTrigger) {
-  if (!subjectsPanel) {
-    return;
-  }
-
-  activeSubjectsTrigger = (trigger && isVisibleElement(trigger))
-    ? trigger
-    : getVisibleSubjectsTrigger()
-    ?? activeSubjectsTrigger;
-  closeSearch({ restoreFocus: false });
-  subjectsPanel.hidden = false;
-  document.body.classList.add('subjects-panel-open');
-  setSubjectsTriggerState(true);
-  subjectsCloseButton?.focus();
-}
-
-function closeSubjects({ restoreFocus = true } = {}) {
-  if (!subjectsPanel) {
-    return;
-  }
-
-  subjectsPanel.hidden = true;
-  document.body.classList.remove('subjects-panel-open');
-  setSubjectsTriggerState(false);
-
-  if (!restoreFocus) {
-    return;
-  }
-
-  const returnTrigger = isVisibleElement(activeSubjectsTrigger)
-    ? activeSubjectsTrigger
-    : getVisibleSubjectsTrigger();
   returnTrigger?.focus();
 }
 
@@ -1854,16 +1751,6 @@ searchTriggers.forEach((trigger) => {
   });
 });
 
-subjectsTriggers.forEach((trigger) => {
-  trigger.addEventListener('click', () => {
-    if (subjectsPanel?.hidden) {
-      openSubjects(trigger);
-    } else {
-      closeSubjects();
-    }
-  });
-});
-
 practiceFilterButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const nextValue = String(button.dataset.practiceFilter ?? 'all').trim().toLowerCase();
@@ -1919,13 +1806,6 @@ worksheetSelectedList?.addEventListener('drop', (event) => {
 window.addEventListener('afterprint', finishWorksheetPrint);
 
 document.addEventListener('click', async (event) => {
-  const themeButton = event.target.closest('[data-theme-toggle]');
-
-  if (themeButton) {
-    toggleThemePreference();
-    return;
-  }
-
   const worksheetToggle = event.target.closest('[data-worksheet-problem-toggle]');
 
   if (worksheetToggle) {
@@ -2010,7 +1890,6 @@ document.addEventListener('click', async (event) => {
 });
 
 searchCloseButton?.addEventListener('click', closeSearch);
-subjectsCloseButton?.addEventListener('click', closeSubjects);
 searchInput?.addEventListener('input', (event) => searchNotes(event.target.value));
 searchPanel?.addEventListener('click', (event) => {
   if (event.target === searchPanel) {
@@ -2022,7 +1901,6 @@ window.addEventListener('keydown', (event) => {
   handleGlobalKeyboardShortcuts(event);
 });
 
-syncThemePreference();
 initInteractiveExperiences();
 renderPlaceholder('Search note titles and note content.');
 revealQueryMatch();
@@ -2040,10 +1918,6 @@ syncSubjectNavigation();
 initLessonTocTracking();
 revealPageWhenReady(lessonBody, 'notes-lesson-boot');
 window.addEventListener('storage', (event) => {
-  if (event.key === NOTES_THEME_STORAGE_KEY) {
-    syncThemePreference();
-  }
-
   if (event.key === getPracticeCompletionStorageKey() || event.key === null) {
     syncPracticeCompletionState();
   }
@@ -2055,6 +1929,5 @@ window.addEventListener('storage', (event) => {
 });
 window.addEventListener('pageshow', () => {
   syncSubjectNavigation();
-  syncThemePreference();
   syncPracticeCompletionState();
 });

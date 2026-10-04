@@ -1,11 +1,10 @@
-import { cpSync, existsSync, mkdirSync, rmSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
 const root = import.meta.dirname;
 const website = resolve(root, "website");
 const output = resolve(root, "public");
 
-rmSync(output, { force: true, recursive: true });
 mkdirSync(output, { recursive: true });
 
 const files = [
@@ -31,7 +30,7 @@ for (const file of ["index.html", "notes.css", "notes.js", "search-index.json"])
   cpSync(resolve(root, "study", file), resolve(studyOutput, file));
 }
 
-for (const directory of ["assets", "engineering", "hidden", "math", "physics", "webmeji"]) {
+for (const directory of ["assets", "engineering", "math", "physics", "webmeji"]) {
   const source = resolve(root, "study", directory);
   if (existsSync(source)) cpSync(source, resolve(studyOutput, directory), { recursive: true });
 }

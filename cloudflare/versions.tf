@@ -9,6 +9,4 @@ terraform {
   }
 }
 
-provider "cloudflare" {
-  account_id = var.account_id
-}
+provider "cloudflare" {}

@@ -9,23 +9,38 @@ npm ci
 npm run build
 ```
 
-The build regenerates the study pages and combined `sitemap.xml`, then creates `public/` with the main website at `/` and the study library at `/study/`. Cloudflare receives only this generated output. `public/` is ignored by Git.
+The build regenerates the study pages and combined `sitemap.xml`, then copies the main website and study library into `public/` (`/` and `/study/`). It updates generated files in place, so rebuilding does not need to remove `public/` first. Cloudflare receives only this generated output. `public/` is ignored by Git.
+
+When the build succeeds, the last line reports the full path to the generated `public/` directory. You can run `npm.cmd run build` by itself whenever you only need to refresh those files.
+
+## Local server
+
+```bash
+npm run build
+npm run dev
+```
+
+`npm run dev` serves the existing `public/` output through Wrangler at `http://localhost:8787`; it does not rebuild. Open the main site at `/` and study content at `/study/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server.
+
+Run `npm run build` again after changing source files to refresh `public/`.
 
 ## Local/deployment validation
 
 ```bash
+npm run build
 npm run check
 ```
 
-This builds the site and runs Wrangler's deployment dry-run using `wrangler.jsonc`.
+`npm run check` runs Wrangler's deployment dry-run using the existing `public/` output and `wrangler.jsonc`.
 
 ## Production deploy
 
 ```bash
+npm run build
 npm run deploy
 ```
 
-This builds and deploys the static-assets-only Worker. The GitHub Actions deploy workflow runs on pushes to `master` and can also be started manually. Configure these repository secrets before using it:
+`npm run deploy` deploys the existing `public/` output as the static-assets-only Worker. Build first whenever you want to deploy updated source. The GitHub Actions deploy workflow runs on pushes to `master` and can also be started manually. Configure these repository secrets before using it:
 
 ```text
 CLOUDFLARE_API_TOKEN
@@ -41,13 +56,13 @@ Wrangler owns the Workers Static Assets deployment, application configuration, a
 Infrastructure changes are planned and applied deliberately:
 
 ```bash
-cd infra/cloudflare
+cd cloudflare
 terraform init
 terraform plan
 terraform apply
 ```
 
-OpenTofu is also supported by the configuration (`tofu init`, `tofu plan`, `tofu apply`). Review [infra/cloudflare/README.md](infra/cloudflare/README.md) before managing existing Cloudflare resources.
+OpenTofu is also supported by the configuration (`tofu init`, `tofu plan`, `tofu apply`). Review [cloudflare/README.md](cloudflare/README.md) before managing existing Cloudflare resources.
 
 ## Source layout
 

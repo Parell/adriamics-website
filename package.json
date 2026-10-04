@@ -4,6 +4,11 @@
   "type": "module",
   "scripts": {
     "build": "node study/build-notes.mjs && node build.mjs",
-    "build:notes": "node study/build-notes.mjs"
+    "build:notes": "node study/build-notes.mjs",
+    "deploy": "npm run build && wrangler deploy",
+    "check": "npm run build && wrangler deploy --dry-run"
+  },
+  "devDependencies": {
+    "wrangler": "4.147.0"
   }
 }

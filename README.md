@@ -11,7 +11,7 @@ npm ci
 npm run build
 ```
 
-The build first regenerates the minified CSS and JavaScript assets, then creates `public/`, containing only the files that should be served publicly. The directory is generated and ignored by Git.
+The build regenerates the study pages and combined sitemap, then creates `public/` with the main site and the study library under `/study/`. The directory is generated and ignored by Git.
 
 ## Cloudflare deployment
 
@@ -22,6 +22,4 @@ For Cloudflare Pages, use:
 
 For Wrangler, the checked-in `wrangler.jsonc` already points the static assets directory at `./public`.
 
-The source files remain at the repository root; `build.mjs` copies the required HTML, styles, scripts, assets, legal pages, and deployment metadata into `public/`.
-
-The [Adriamics Study](https://github.com/Parell/parell.github.io/tree/master/study) project is maintained separately.
+Main site source files remain at the repository root. Study content and its page generator live in `study/`; edit content under `study/source/` and run the same root build command to regenerate the complete site.

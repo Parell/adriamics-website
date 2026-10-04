@@ -45,32 +45,30 @@ structure and prerequisite relationships.
 
 ## Build
 
-Run these commands from the repository root (`adriamics-study/`):
+Run these commands from the `adriamics-website/` repository root:
 
 ```bash
 npm install
 npm run build
 ```
 
-`npm run build` is the complete build. It minifies assets, regenerates the study pages, and stages the Cloudflare deployment output in `public/`:
+`npm run build` is the complete site build. It regenerates the study pages and combined sitemap, then stages the main site and study library in `public/`:
 
-| Command                | Purpose                                                                                                                                                     |
-| ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `npm run build:assets` | Minifies the study CSS/JavaScript and Webmeji assets into the `*.min.css` and `*.min.js` files used by generated pages.                                     |
-| `npm run build:notes`  | Reads `source/`, validates the manifest, and regenerates lesson pages, practice pages, landing pages, concept maps, `search-index.json`, and `sitemap.xml`. |
-| `npm run build`        | Runs the asset build, notes build, and deployment staging; use this after normal content or code changes.                                                   |
+| Command               | Purpose                                                                                                                                                           |
+| --------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `npm run build:notes` | Reads `study/source/`, validates the manifest, and regenerates lesson pages, practice pages, landing pages, concept maps, and `search-index.json`.                 |
+| `npm run build`       | Regenerates the study library and stages the complete site in `public/`; use this after normal content or code changes.                                          |
 
 If only lesson content, practice problems, the manifest, or prerequisite
-paths changed and the minified assets are already current, run the notes
-generator directly:
+paths changed, regenerate the study pages directly:
 
 ```bash
-node build-notes.mjs
+node study/build-notes.mjs
 ```
 
 The build scripts do not provide command-line flags. They overwrite generated
-files in the repository, so edit files under `source/` (and the unminified
-assets) rather than editing generated HTML or minified assets by hand.
+files in the repository, so edit files under `study/source/` rather than
+editing generated HTML by hand.
 
 ## Contributing
 

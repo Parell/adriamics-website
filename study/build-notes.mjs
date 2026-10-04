@@ -77,7 +77,7 @@ function repairMojibake(text) {
     .replace(/Ã´/g, 'ô');
 }
 const siteOrigin = 'https://adriamics.com';
-const githubRepoUrl = 'https://github.com/Parell/adriamics-study';
+const githubRepoUrl = 'https://github.com/Parell/adriamics';
 const githubRepoBranch = 'master';
 const notesThemeStorageKey = 'adriamics-study:contrast-mode';
 const homeStructureId = 'home';
@@ -125,6 +125,22 @@ const practiceSkillLinks = {
 
 function toPosix(inputPath) {
   return String(inputPath).split(path.sep).join('/');
+}
+
+function makeInternalPageLinksRelative(html, outputPath) {
+  const relativeOutputPath = path.relative(notesRoot, outputPath);
+  const pageDirectory = path.dirname(relativeOutputPath);
+  return html.replace(/(href|data-default-href)="(\/[^" ]*)"/g, (match, attribute, value) => {
+    if (!/^\/(?:study\/|privacy-policy\/|terms-of-service\/|frame\/|$|LICENSE(?:$|[?#]))/.test(value)) return match;
+    const suffixIndex = value.search(/[?#]/);
+    const route = suffixIndex < 0 ? value : value.slice(0, suffixIndex);
+    const suffix = suffixIndex < 0 ? '' : value.slice(suffixIndex);
+    const targetPath = route === '/' ? 'index.html' : route.endsWith('/') ? `${route.slice(1)}index.html` : route.slice(1);
+    let relative = toPosix(path.relative(pageDirectory, targetPath));
+    if (!relative.startsWith('.')) relative = `./${relative}`;
+    if (route.endsWith('/')) relative = relative.slice(0, relative.lastIndexOf('/') + 1);
+    return `${attribute}="${relative}${suffix}"`;
+  });
 }
 
 function escapeHtml(text) {
@@ -275,11 +291,11 @@ function parseFrontmatter(block) {
 }
 
 function buildGithubBlobUrl(relativePath) {
-  return `${githubRepoUrl}/blob/${githubRepoBranch}/${toPosix(relativePath)}`;
+  return `${githubRepoUrl}/blob/${githubRepoBranch}/study/${toPosix(relativePath)}`;
 }
 
 function buildContributeIssueUrl(relativeSourcePath, title) {
-  return `${githubRepoUrl}/issues/new?template=contribute.yml&page_path=${encodeURIComponent(relativeSourcePath)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
+  return `${githubRepoUrl}/issues/new?template=contribute.yml&page_path=${encodeURIComponent(`study/${relativeSourcePath}`)}&title=${encodeURIComponent(`[Contribute]: ${title}`)}`;
 }
 
 function buildGithubBlameUrl(sourceUrl) {
@@ -1551,8 +1567,8 @@ function renderNotesPageDocument({
   activePagePath = null,
   includeIntro = false,
   quickActionsHtml = '',
-  stylesheetHref = '/study/notes.min.css',
-  scriptHref = '/study/notes.min.js',
+  stylesheetHref = '/study/notes.css',
+  scriptHref = '/study/notes.js',
   headHtml = '',
   extraHead = '',
 }) {
@@ -1563,8 +1579,8 @@ function renderNotesPageDocument({
     @media (max-width: 768px) { .webmeji-container { width: clamp(56px, 16vw, 78px); height: clamp(56px, 16vw, 78px); } }
   </style>`;
   const webmejiHead = `${renderAsyncStylesheet('/study/webmeji/webmeji.css', { nonBlocking: true })}
-  <script defer src="/study/webmeji/config.min.js"></script>
-  <script defer src="/study/webmeji/webmeji.min.js"></script>`;
+  <script defer src="/study/webmeji/config.js"></script>
+  <script defer src="/study/webmeji/webmeji.js"></script>`;
   const themeBootstrapScript = `<script>
     (() => {
       let storedTheme = null;
@@ -1738,8 +1754,8 @@ function buildNoteHtml({
   practiceUrl = null,
   interactive = null,
 }) {
-  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
+  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
   const interactiveTypes = Array.isArray(interactive) ? interactive : [interactive];
   const interactiveAssets = new Set(interactiveTypes.filter(Boolean));
   const interactiveHead = interactiveAssets.has('vector-calculus-gradient') || interactiveAssets.has('vector-calculus-gradient-3d') || interactiveAssets.has('vector-calculus-vector-field-3d') || interactiveAssets.has('statics-modeling') || interactiveAssets.has('dynamics-projectile') || interactiveAssets.has('circuits-kcl') || interactiveAssets.has('jsxgraph-examples') ? `
@@ -2035,8 +2051,8 @@ function buildLandingHtml(structures, assetVersions, dag) {
     structures,
     activeStructureId: homeStructureId,
     quickActionsHtml: '',
-    stylesheetHref: `notes.min.css?v=${assetVersions.notesCss}`,
-    scriptHref: `notes.min.js?v=${assetVersions.notesJs}`,
+    stylesheetHref: `notes.css?v=${assetVersions.notesCss}`,
+    scriptHref: `notes.js?v=${assetVersions.notesJs}`,
   });
 }
 
@@ -2393,8 +2409,8 @@ function renderPracticePageHtml({
   problems,
   referenceHtml = null,
 }) {
-  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.css')}?v=${assetVersions.notesCss}`;
-  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.min.js')}?v=${assetVersions.notesJs}`;
+  const stylesheetHref = `${getRelativeNotesAssetHref(outputDir, 'notes.css')}?v=${assetVersions.notesCss}`;
+  const scriptHref = `${getRelativeNotesAssetHref(outputDir, 'notes.js')}?v=${assetVersions.notesJs}`;
   const totalProblems = problems.length;
   const problemGroups = groupPracticeProblems(problems);
   const problemHtml = renderGroupedPracticeProblemsHtml(problemGroups, practiceSourcePath, notePath);
@@ -2676,7 +2692,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   const outputPath = path.join(getSubjectOutputDir(note.path), 'index.html');
 
   await ensureDir(outputPath);
-  await fs.writeFile(outputPath, pageHtml, 'utf8');
+  await fs.writeFile(outputPath, makeInternalPageLinksRelative(pageHtml, outputPath), 'utf8');
 
   return {
     title,
@@ -2728,7 +2744,7 @@ async function buildPracticePage(practice, structures, assetVersions, noteDocume
   const outputPath = path.join(getPracticeOutputDir(note.path), 'index.html');
 
   await ensureDir(outputPath);
-  await fs.writeFile(outputPath, pageHtml, 'utf8');
+  await fs.writeFile(outputPath, makeInternalPageLinksRelative(pageHtml, outputPath), 'utf8');
 
   return {
     url: getPracticeUrl(note.path),
@@ -2736,7 +2752,8 @@ async function buildPracticePage(practice, structures, assetVersions, noteDocume
 }
 
 async function buildLandingPage(structures, assetVersions, paths) {
-  await fs.writeFile(path.join(notesRoot, 'index.html'), buildLandingHtml(structures, assetVersions, paths), 'utf8');
+  const landingPath = path.join(notesRoot, 'index.html');
+  await fs.writeFile(landingPath, makeInternalPageLinksRelative(buildLandingHtml(structures, assetVersions, paths), landingPath), 'utf8');
 }
 
 async function buildSearchIndex(entries) {
@@ -2745,19 +2762,24 @@ async function buildSearchIndex(entries) {
 }
 
 async function buildSitemap(noteUrls, practiceUrls) {
-  const urls = [
+  const siteSitemap = await fs.readFile(path.resolve(repoRoot, '..', 'sitemap.xml'), 'utf8');
+  const rootUrls = [...siteSitemap.matchAll(/<loc>(.*?)<\/loc>/g)]
+    .map(([, url]) => url)
+    .filter((url) => !url.startsWith(`${siteOrigin}/study/`));
+  const urls = [...new Set([
+    ...rootUrls,
     `${siteOrigin}/study/`,
     ...noteUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
     ...practiceUrls.map((urlPath) => `${siteOrigin}${urlPath}`),
-  ];
+  ])];
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 </urlset>
 `;
 
-  await fs.writeFile(path.join(repoRoot, 'sitemap.xml'), xml, 'utf8');
+  await fs.writeFile(path.resolve(repoRoot, '..', 'sitemap.xml'), xml, 'utf8');
 }
 
 async function main() {
@@ -2780,8 +2802,8 @@ async function main() {
 
 async function loadAssetVersions() {
   const [notesCss, notesJs, mathjax] = await Promise.all([
-    getAssetVersion(path.join(notesRoot, 'notes.min.css')),
-    getAssetVersion(path.join(notesRoot, 'notes.min.js')),
+    getAssetVersion(path.join(notesRoot, 'notes.css')),
+    getAssetVersion(path.join(notesRoot, 'notes.js')),
     getAssetVersion(path.join(notesRoot, MATHJAX_ASSET_PATH)),
   ]);
 

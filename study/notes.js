@@ -31,6 +31,7 @@ const notesScriptUrl = document.currentScript?.src
   || Array.from(document.scripts).find((script) => /\/notes\.js(?:\?|$)/.test(script.src))?.src
   || window.location.href;
 const NOTES_BASE_URL = new URL('.', notesScriptUrl);
+const SITE_BASE_PATH = NOTES_BASE_URL.pathname.replace(/study\/$/, '');
 const SEARCH_INDEX_URL = new URL('search-index.json', NOTES_BASE_URL).href;
 const NOTES_SESSION_STORAGE_KEY = 'adriamics-study:last-pages-by-subject';
 const NOTES_THEME_STORAGE_KEY = 'adriamics-study:contrast-mode';
@@ -48,6 +49,17 @@ let activeSubjectsTrigger = subjectsTriggers[0] ?? null;
 let activeSearchResultIndex = -1;
 let activePracticeFilter = 'all';
 const contributorCopyResetTimers = new WeakMap();
+
+function getRelativeSiteHref(sitePath) {
+  const target = new URL(`${SITE_BASE_PATH}${String(sitePath).replace(/^\//, '')}`, window.location.origin);
+  const fromParts = window.location.pathname.split('/').filter(Boolean);
+  if (!window.location.pathname.endsWith('/')) fromParts.pop();
+  const toParts = target.pathname.split('/').filter(Boolean);
+  let shared = 0;
+  while (shared < fromParts.length && fromParts[shared] === toParts[shared]) shared += 1;
+  const relative = [...Array(fromParts.length - shared).fill('..'), ...toParts.slice(shared)].join('/') || './';
+  return `${relative}${target.pathname.endsWith('/') && relative !== './' ? '/' : ''}${target.search}${target.hash}`;
+}
 
 function getSessionStorage() {
   try {
@@ -647,7 +659,8 @@ function updateSubjectHeaderLinks() {
       return;
     }
 
-    link.href = lastPagesBySubject[subjectId] || defaultHref;
+    const lastPage = lastPagesBySubject[subjectId];
+    link.href = lastPage ? getRelativeSiteHref(lastPage) : defaultHref;
   });
 }
 
@@ -1195,7 +1208,7 @@ function getSearchResultHref(url, query) {
   const relativePath = String(url ?? '').replace(/^\/study\//, '');
   const href = new URL(relativePath, NOTES_BASE_URL);
   href.searchParams.set('q', query);
-  return href.href;
+  return getRelativeSiteHref(`${href.pathname.slice(SITE_BASE_PATH.length)}${href.search}${href.hash}`);
 }
 
 function searchNotes(query) {
@@ -1944,7 +1957,7 @@ document.addEventListener('click', async (event) => {
   const leaveButton = event.target.closest('[data-leave-notes]');
 
   if (leaveButton) {
-    window.location.href = '/';
+    window.location.href = getRelativeSiteHref('/');
     return;
   }
 

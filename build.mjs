@@ -95,7 +95,7 @@ function renderProjectNavigation(currentPath) {
 }
 
 function renderContactPanel() {
-  return `<dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title"><div class="contact-dialog__inner"><div class="contact-dialog__heading"><div><h2 id="contact-title">Get in touch</h2><p><a href="mailto:contact@adriamics.com" data-copy-email="contact@adriamics.com">contact@adriamics.com</a></p></div><button class="contact-dialog__close" type="button" data-contact-close>Close</button></div><form class="contact-form" data-contact-form><div class="contact-form__grid"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label></div><label>Subject<input name="subject" required /></label><label>Message<textarea name="message" required></textarea></label><button class="project-action contact-form__submit" type="submit">Copy email template <span aria-hidden="true">↗</span></button><p class="contact-form__status" data-contact-status aria-live="polite"></p></form></div></dialog>`;
+  return `<dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title"><div class="contact-dialog__inner"><div class="contact-dialog__heading"><div><h2 id="contact-title">Let's talk</h2><p><a href="mailto:contact@adriamics.com" data-copy-email="contact@adriamics.com">contact@adriamics.com</a></p></div><button class="contact-dialog__close" type="button" data-contact-close>Close</button></div><form class="contact-form" data-contact-form><div class="contact-form__grid"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label></div><label>Subject<input name="subject" required /></label><label>Message<textarea name="message" required></textarea></label><button class="project-action contact-form__submit" type="submit">Copy email template <span aria-hidden="true">↗</span></button><p class="contact-form__status" data-contact-status aria-live="polite"></p></form></div></dialog>`;
 }
 
 function renderFooter() {
@@ -140,17 +140,17 @@ for (const [file, route] of [["index.html", "/"], ["privacy-policy.html", "/priv
   html = html.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
   writeFileSync(resolve(output, file), html);
 }
-const documentsHtml = readFileSync(resolve(website, "documents", "index.html"), "utf8");
-let renderedDocuments = documentsHtml;
-if (!renderedDocuments.includes('/website.js')) renderedDocuments = renderedDocuments.replace('</head>', '  <script defer src="/website.js"></script>\n</head>');
-for (const [marker, markup] of [["<!-- shared-site-header -->", renderProjectNavigation("/documents/")], ["<!-- shared-site-footer -->", renderFooter()]]) {
-  if (renderedDocuments.split(marker).length !== 2) throw new Error(`website/documents/index.html must contain exactly one ${marker} marker.`);
-  renderedDocuments = renderedDocuments.replace(marker, markup);
+const frameHtml = readFileSync(resolve(website, "frame", "index.html"), "utf8");
+let renderedFrame = frameHtml;
+if (!renderedFrame.includes('/website.js')) renderedFrame = renderedFrame.replace('</head>', '  <script defer src="/website.js"></script>\n</head>');
+for (const [marker, markup] of [["<!-- shared-site-header -->", renderProjectNavigation("/frame/")], ["<!-- shared-site-footer -->", renderFooter()]]) {
+  if (renderedFrame.split(marker).length !== 2) throw new Error(`website/frame/index.html must contain exactly one ${marker} marker.`);
+  renderedFrame = renderedFrame.replace(marker, markup);
 }
-renderedDocuments = renderedDocuments.replace(/(\/website\.css)(?:\?v=[a-zA-Z0-9._-]+)?/g, `$1?v=${websiteCssVersion}`);
-renderedDocuments = renderedDocuments.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
-mkdirSync(resolve(output, "documents"), { recursive: true });
-writeFileSync(resolve(output, "documents", "index.html"), renderedDocuments);
+renderedFrame = renderedFrame.replace(/(\/website\.css)(?:\?v=[a-zA-Z0-9._-]+)?/g, `$1?v=${websiteCssVersion}`);
+renderedFrame = renderedFrame.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
+mkdirSync(resolve(output, "frame"), { recursive: true });
+writeFileSync(resolve(output, "frame", "index.html"), renderedFrame);
 
 for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocinante"]) {
   const source = resolve(website, directory);

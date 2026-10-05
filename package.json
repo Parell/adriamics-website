@@ -4,13 +4,17 @@
   "type": "module",
   "scripts": {
     "build": "node build.mjs && node study/build-study.mjs",
-    "build:website": "node build.mjs",
+    "build:website": "node build.mjs --preserve-study",
     "build:study": "node study/build-study.mjs",
     "dev": "node dev.mjs",
-    "deploy": "wrangler deploy",
-    "check": "wrangler deploy --dry-run"
+    "deploy": "npm run build && wrangler deploy",
+    "check": "npm run build && wrangler deploy --dry-run"
   },
   "devDependencies": {
+    "esbuild": "^0.28.1",
     "wrangler": "4.147.0"
+  },
+  "dependencies": {
+    "three": "^0.180.0"
   }
 }

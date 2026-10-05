@@ -146,33 +146,95 @@ function initFrameGallery() {
   showSlide(activeSlide);
 }
 
-function initContactMenu() {
-  const menu = $("[data-contact-menu]");
-  if (!menu) return;
+function initContactPanel() {
+  const dialog = $("#contact-dialog");
+  if (!dialog) return;
 
-  const trigger = $(".contact-menu__trigger", menu);
-  const panel = $(".contact-menu__panel", menu);
-  if (!trigger || !panel) return;
-
-  const setOpen = (open) => {
-    menu.open = open;
-    trigger.setAttribute("aria-expanded", String(open));
-  };
-
-  trigger.setAttribute("aria-expanded", String(menu.open));
-  menu.addEventListener("toggle", () => trigger.setAttribute("aria-expanded", String(menu.open)));
   document.addEventListener("click", (event) => {
-    if (!menu.contains(event.target)) setOpen(false);
+    const openButton = event.target.closest("[data-contact-open]");
+    if (openButton) {
+      dialog.showModal();
+      $("input[name='name']", dialog)?.focus();
+      return;
+    }
+    if (event.target.closest("[data-contact-close]")) dialog.close();
   });
-  document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && menu.open) {
-      setOpen(false);
-      trigger.focus();
+
+  dialog.addEventListener("click", (event) => {
+    if (event.target === dialog) dialog.close();
+  });
+
+  $("[data-contact-form]", dialog)?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const form = new FormData(event.currentTarget);
+    const subject = String(form.get("subject")).trim();
+    const template = [
+      "To: contact@adriamics.com",
+      `Subject: ${subject}`,
+      "",
+      "Hello Adriamics,",
+      "",
+      String(form.get("message")).trim(),
+      "",
+      `Name: ${String(form.get("name")).trim()}`,
+      `Reply email: ${String(form.get("email")).trim()}`,
+    ].join("\n");
+    const status = $("[data-contact-status]", dialog);
+    try {
+      await copyTextToClipboard(template);
+      if (status) status.textContent = "Email template copied. Paste it into an email to contact@adriamics.com.";
+    } catch {
+      if (status) status.textContent = "Could not copy the template. Please select and copy your message manually.";
     }
   });
-  panel.addEventListener("click", (event) => {
-    if (event.target.closest("a")) setOpen(false);
+}
+
+function initFeatureCarousel(carousel) {
+  const slides = [...carousel.querySelectorAll("[data-feature-slide]")];
+  if (!slides.length) return;
+
+  const dots = [...carousel.querySelectorAll("[data-feature-dot]")];
+  const status = carousel.querySelector("[data-feature-status]");
+  let activeIndex = 0;
+
+  const showSlide = (nextIndex) => {
+    activeIndex = (nextIndex + slides.length) % slides.length;
+    slides.forEach((slide, index) => {
+      slide.hidden = index !== activeIndex;
+      slide.classList.toggle("is-active", index === activeIndex);
+    });
+    dots.forEach((dot, index) => {
+      const isActive = index === activeIndex;
+      dot.classList.toggle("is-active", isActive);
+      if (isActive) dot.setAttribute("aria-current", "true");
+      else dot.removeAttribute("aria-current");
+    });
+    if (status) status.textContent = `${slides[activeIndex].querySelector("h3")?.textContent}, slide ${activeIndex + 1} of ${slides.length}`;
+  };
+
+  carousel.querySelector("[data-feature-prev]")?.addEventListener("click", () => showSlide(activeIndex - 1));
+  carousel.querySelector("[data-feature-next]")?.addEventListener("click", () => showSlide(activeIndex + 1));
+  dots.forEach((dot) => dot.addEventListener("click", () => showSlide(Number(dot.dataset.featureDot))));
+  carousel.addEventListener("keydown", (event) => {
+    if (event.key === "ArrowLeft") {
+      event.preventDefault();
+      showSlide(activeIndex - 1);
+    } else if (event.key === "ArrowRight") {
+      event.preventDefault();
+      showSlide(activeIndex + 1);
+    }
   });
+
+  let pointerStartX = null;
+  const stage = carousel.querySelector(".feature-carousel__stage");
+  stage?.addEventListener("pointerdown", (event) => { pointerStartX = event.clientX; });
+  stage?.addEventListener("pointerup", (event) => {
+    if (pointerStartX === null) return;
+    const deltaX = event.clientX - pointerStartX;
+    pointerStartX = null;
+    if (Math.abs(deltaX) > 60) showSlide(activeIndex + (deltaX < 0 ? 1 : -1));
+  });
+  stage?.addEventListener("pointercancel", () => { pointerStartX = null; });
 }
 
 const copyEmailResetTimers = new WeakMap();
@@ -262,4 +324,5 @@ document.addEventListener("click", async (event) => {
 renderTextStream();
 initTextStreamFade();
 initFrameGallery();
-initContactMenu();
+initContactPanel();
+document.querySelectorAll("[data-feature-carousel]").forEach(initFeatureCarousel);

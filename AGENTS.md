@@ -7,3 +7,4 @@
 - The project has no test suite. Use the requested build or validation command when verification is needed.
 - Keep changes focused, preserve unrelated working tree edits, and inspect `git status --short` before editing generated or widely changed files.
 - Read this file and the relevant package script before changing build or watch behavior. Record any new build dependency here and in `README.md` so future work has a stable entry point.
+- The homepage hero sphere uses the `three` runtime dependency and `esbuild` build dependency declared in `package.json`; `build.mjs` bundles the editable `website/hero-sphere.js` into generated `public/hero-sphere.js` and includes the Three.js license notice under `public/vendor/`. Do not hand edit generated output.

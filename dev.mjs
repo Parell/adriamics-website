@@ -8,7 +8,7 @@ const root = fileURLToPath(new URL(".", import.meta.url));
 const websiteRoot = resolve(root, "website");
 const watchedDirectories = ["website", "assets", "study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
 const watchedFiles = ["build.mjs", "website/build.mjs", "study/build-study.mjs", "study/study.css", "study/study.js"];
-const staticWebsiteFiles = new Set(["website.js", "robots.txt", "_headers", "LICENSE"]);
+const staticWebsiteFiles = new Set(["robots.txt", "_headers", "LICENSE"]);
 let timer;
 let building = false;
 let rebuildQueued = false;
@@ -17,16 +17,16 @@ let websiteBuildQueued = false;
 const pendingWebsiteCopies = new Set();
 const watchers = [];
 
-function run(scriptPath) {
+function run(scriptPath, args = []) {
   return new Promise((resolveRun, rejectRun) => {
-    const child = spawn(process.execPath, [scriptPath], { cwd: root, stdio: "inherit" });
+    const child = spawn(process.execPath, [scriptPath, ...args], { cwd: root, stdio: "inherit" });
     child.once("error", rejectRun);
     child.once("exit", (code) => code === 0 ? resolveRun() : rejectRun(new Error(`Command exited with code ${code}.`)));
   });
 }
 
 async function runBuild(full = false) {
-  await run(resolve(root, "build.mjs"));
+  await run(resolve(root, "build.mjs"), full ? [] : ["--preserve-study"]);
   if (full) await run(resolve(root, "study", "build-study.mjs"));
 }
 

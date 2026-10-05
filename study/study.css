@@ -1,17 +1,18 @@
 :root {
-  --bg: #000000;
-  --panel: rgba(17, 17, 17, 0.98);
-  --panel-strong: rgba(24, 24, 24, 0.99);
-  --border: rgba(255, 255, 255, 0.12);
-  --text: #f1ece4;
-  --muted: #b8b8b8;
-  --metadata: color-mix(in srgb, var(--muted) 68%, var(--panel-strong));
-  --accent: #eee7dd;
-  --accent-strong: #fff8ed;
+  --bg: #1e1e1e;
+  --panel: rgba(36, 36, 36, 0.98);
+  --panel-strong: #1e1e1e;
+  --border: rgba(255, 255, 255, 0.18);
+  --text: #f5f5f5;
+  --common-white: #ffffff;
+  --muted: #a0a0a0;
+  --metadata: var(--muted);
+  --accent: #f5f5f5;
+  --accent-strong: #ffffff;
   --accent-soft: rgba(255, 255, 255, 0.06);
-  --control-bg: rgba(18, 18, 18, 0.98);
-  --control-hover-bg: #232323;
-  --control-hover-border: rgba(255, 255, 255, 0.16);
+  --control-bg: rgba(36, 36, 36, 0.98);
+  --control-hover-bg: #303030;
+  --control-hover-border: rgba(255, 255, 255, 0.28);
   --shadow: none;
   --transition-ui: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
   font-synthesis: none;
@@ -78,17 +79,20 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .notes-header {
-  padding: 1.5rem 0 1rem;
+  margin-top: -0.45rem;
+  padding: 0;
 }
 
 .notes-header__inner {
   position: relative;
+  display: flex;
+  justify-content: center;
+  min-height: 2rem;
   width: 100%;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) auto;
-  align-items: start;
-  gap: 1rem 1.25rem;
-  padding: 1.5rem 1.5rem 1.35rem;
+  margin-bottom: 1.25rem;
+  align-items: center;
+  gap: 0.3rem 1.25rem;
+  padding: 0 1.5rem;
   border: 0;
   border-radius: 0;
   background: transparent;
@@ -115,6 +119,10 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   gap: 0.55rem;
   width: fit-content;
   max-width: calc(100vw - 2rem);
+}
+
+.notes-page .site-footer {
+  padding-bottom: 8rem;
 }
 
 .notes-action-chip {
@@ -150,12 +158,12 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .notes-action-chip--search {
   gap: 0.5rem;
-  --notes-button-bg: #d7ebcd;
-  --notes-button-border: #b2c99f;
-  --notes-button-fg: #20331b;
-  --notes-button-hover-bg: #e4f2dd;
-  --notes-button-hover-border: #c3d7b3;
-  --notes-button-hover-fg: #20331b;
+  --notes-button-bg: var(--common-white);
+  --notes-button-border: var(--common-white);
+  --notes-button-fg: #111111;
+  --notes-button-hover-bg: #e8e8e8;
+  --notes-button-hover-border: #e8e8e8;
+  --notes-button-hover-fg: #111111;
 }
 
 @supports (background-color: color-mix(in srgb, white, black)) {
@@ -166,12 +174,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .notes-action-chip--practice {
-  --notes-button-bg: #d9f1d1;
-  --notes-button-border: #aecd9f;
-  --notes-button-fg: #1f3718;
-  --notes-button-hover-bg: #e5f7df;
-  --notes-button-hover-border: #bfd9b1;
-  --notes-button-hover-fg: #1f3718;
+  --notes-button-bg: var(--common-white);
+  --notes-button-border: var(--common-white);
+  --notes-button-fg: #111111;
+  --notes-button-hover-bg: #e8e8e8;
+  --notes-button-hover-border: #e8e8e8;
+  --notes-button-hover-fg: #111111;
+  --notes-button-outline: #111111;
 }
 
 @supports (background-color: color-mix(in srgb, white, black)) {
@@ -211,13 +220,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .notes-action-chip--back {
-  --notes-button-bg: #c7b8d9;
-  --notes-button-border: #9c89b8;
-  --notes-button-fg: #2b2138;
-  --notes-button-hover-bg: #d7cbe5;
-  --notes-button-hover-border: #ab99c4;
-  --notes-button-hover-fg: #241b31;
-  --notes-button-outline: #d7cbe5;
+  --notes-button-bg: var(--common-white);
+  --notes-button-border: var(--common-white);
+  --notes-button-fg: #111111;
+  --notes-button-hover-bg: #e8e8e8;
+  --notes-button-hover-border: #e8e8e8;
+  --notes-button-hover-fg: #111111;
+  --notes-button-outline: #ffffff;
 }
 
 .notes-quick-actions--floating .notes-action-chip {
@@ -229,6 +238,43 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .search-result:focus-visible {
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
+}
+
+.study-intro {
+  max-width: 980px;
+  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(2rem, 5vw, 4rem);
+}
+
+.study-intro > h1 {
+  max-width: 16ch;
+  margin: 0.75rem 0 2rem;
+  font-size: clamp(2.5rem, 7vw, 6rem);
+  font-weight: 450;
+  letter-spacing: -0.065em;
+  line-height: 1.02;
+}
+
+.study-intro .concept-dag-tree-panel {
+  margin: 0;
+  border-inline: 0;
+}
+
+.study-start-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  color: var(--accent-strong);
+  font: 600 0.75rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.study-start-link:hover,
+.study-start-link:focus-visible {
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
 }
 
 .landing-subjects {
@@ -246,7 +292,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: clamp(1.5rem, 4vw, 4rem);
-  padding-top: clamp(1.5rem, 4vw, 3rem);
+  padding-top: 0;
 }
 
 .subjects-panel__group h2 {
@@ -298,7 +344,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .notes-header__brand-link {
-  color: #c7b8d9;
+  color: var(--accent-strong);
   text-decoration: underline;
 }
 
@@ -383,10 +429,10 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .search-panel__head {
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
+  align-items: center;
+  justify-content: flex-end;
   gap: 1rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .search-panel__title {
@@ -397,6 +443,17 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .search-panel__field {
   display: block;
+}
+
+.search-panel__row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: stretch;
+  gap: 0.5rem;
+}
+
+.search-panel__row .search-panel__close {
+  align-self: stretch;
 }
 
 .search-panel__field input {
@@ -661,8 +718,10 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 
 .notes-structures {
-  display: grid;
-  gap: 0.65rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
   flex: 1 1 100%;
   min-width: 0;
   position: relative;
@@ -1070,13 +1129,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .suggest-edit-link {
-  --notes-button-bg: #b9dcf7;
-  --notes-button-border: #8bbfe8;
-  --notes-button-fg: #0d2233;
-  --notes-button-hover-bg: #d4efff;
-  --notes-button-hover-border: #78acd6;
-  --notes-button-hover-fg: #0d2233;
-  --notes-button-outline: #0d2233;
+  --notes-button-bg: #1e1e1e;
+  --notes-button-border: #474747;
+  --notes-button-fg: #ffffff;
+  --notes-button-hover-bg: #303030;
+  --notes-button-hover-border: #606060;
+  --notes-button-hover-fg: #ffffff;
+  --notes-button-outline: #ffffff;
 }
 
 .practice-problem-list {
@@ -1180,9 +1239,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   display: grid;
   gap: 1rem;
   overflow: hidden;
-  padding: 1.1rem;
-  border: 1px solid var(--practice-level-border, var(--border));
-  background: var(--panel-strong);
+  padding: 0.75rem 0;
+  border: 0;
+  background: transparent;
   box-shadow: none;
 }
 
@@ -1501,6 +1560,8 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
+  width: 100%;
   gap: 0.35rem 1rem;
   line-height: 1.7;
 }
@@ -2050,7 +2111,7 @@ mjx-container * {
   }
 
   .notes-header {
-    padding-top: 0.5rem;
+    padding: 0.15rem 0;
   }
 
   .notes-header__inner,
@@ -2070,6 +2131,16 @@ mjx-container * {
   .search-panel__card {
     width: calc(100vw - 1.5rem);
     max-height: calc(100vh - 1.5rem);
+  }
+
+  .notes-header__inner {
+    padding: 0.5rem;
+  }
+
+  .notes-structures {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.3rem;
   }
 
   .notes-quick-actions--floating {

@@ -1,21 +1,25 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { resolve } from "node:path";
+import { createHash } from "node:crypto";
+import { buildSync } from "esbuild";
 import vm from "node:vm";
 
 const root = import.meta.dirname;
 const website = resolve(root, "website");
 const output = resolve(root, "public");
-
-try {
-  rmSync(output, { recursive: true, force: true });
-} catch (error) {
-  // Windows can keep the output directory itself open while still allowing
-  // its generated contents to be removed (for example, while Wrangler runs).
-  if (error.code !== "EPERM" && error.code !== "EBUSY") throw error;
-  for (const entry of readdirSync(output)) {
-    rmSync(resolve(output, entry), { recursive: true, force: true });
-  }
-}
+const websiteCssVersion = createHash("sha256").update(readFileSync(resolve(website, "website.css"))).digest("hex").slice(0, 12);
+const heroSphereBundle = buildSync({
+  entryPoints: [resolve(website, "hero-sphere.js")],
+  bundle: true,
+  format: "iife",
+  platform: "browser",
+  target: "es2020",
+  minify: true,
+  legalComments: "eof",
+  write: false,
+});
+const heroSphereVersion = createHash("sha256").update(heroSphereBundle.outputFiles[0].contents).digest("hex").slice(0, 12);
+const preserveStudyOutput = process.argv.includes("--preserve-study");
 
 function escapeHtml(value) {
   return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;")
@@ -35,58 +39,78 @@ for (const project of projects) {
   if (projectUrls.has(project.url)) throw new Error(`Duplicate public project URL: ${project.url}`);
   projectIds.add(project.id);
   projectUrls.add(project.url);
-  if (!project.url.startsWith("/") || project.url.startsWith("//")) throw new Error(`Invalid public project URL: ${project.url}`);
+  if (!/^\/(?:[a-z0-9-]+\/)*$/.test(project.url) || project.url === "/") {
+    throw new Error(`Invalid public project URL: ${project.url}`);
+  }
+  if (project.version !== undefined && (typeof project.version !== "string" || !project.version.trim())) {
+    throw new Error(`Invalid public project version for ${project.id}.`);
+  }
 }
 
 const manifestSandbox = { window: {} };
 vm.runInNewContext(readFileSync(resolve(root, "study/source/manifest.js"), "utf8"), manifestSandbox);
 const studyManifest = manifestSandbox.window.ADRIAMICS_STUDY_MANIFEST;
-if (!Array.isArray(studyManifest?.structures)) throw new Error("Could not load study project facts.");
-let studyTopicCount = 0;
-function countTopics(nodes) {
-  for (const node of nodes) {
-    if (node.path) studyTopicCount += 1;
-    if (Array.isArray(node.children)) countTopics(node.children);
+if (!Array.isArray(studyManifest?.structures) || studyManifest.structures.length === 0) {
+  throw new Error("Study manifest must define at least one structure.");
+}
+function countTopics(nodes, location = "structures") {
+  if (!Array.isArray(nodes)) throw new Error(`Study manifest ${location} must be an array.`);
+  for (const [index, node] of nodes.entries()) {
+    const nodeLocation = `${location}[${index}]`;
+    if (!node || typeof node !== "object" || Array.isArray(node)) {
+      throw new Error(`Study manifest ${nodeLocation} must be an object.`);
+    }
+    if (typeof node.title !== "string" || !node.title.trim()) {
+      throw new Error(`Study manifest ${nodeLocation} must have a title.`);
+    }
+    if (node.path !== undefined) {
+      if (typeof node.path !== "string" || !node.path.trim()) {
+        throw new Error(`Study manifest ${nodeLocation} has an invalid path.`);
+      }
+    }
+    if (node.children !== undefined) countTopics(node.children, `${nodeLocation}.children`);
   }
 }
 countTopics(studyManifest.structures);
 
+// Do not remove the last good site output until the controlled public inputs
+// have passed validation. A malformed registry or Study manifest must not
+// leave the deployment directory blank.
+if (!preserveStudyOutput) {
+  try {
+    rmSync(output, { recursive: true, force: true });
+  } catch (error) {
+    // Windows can keep the output directory itself open while still allowing
+    // its generated contents to be removed (for example, while Wrangler runs).
+    if (error.code !== "EPERM" && error.code !== "EBUSY") throw error;
+    for (const entry of readdirSync(output)) {
+      if (entry === "study") continue;
+      rmSync(resolve(output, entry), { recursive: true, force: true });
+    }
+  }
+}
+
 function renderProjectNavigation(currentPath) {
-  const links = projects.map((project) => {
-    const current = currentPath === project.url || (project.id === "study" && currentPath.startsWith("/study/"));
-    return `<a href="${escapeHtml(project.url)}"${current ? ' aria-current="page"' : ""}>${escapeHtml(project.name)}</a>`;
-  }).join("");
-  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="Adriamics home">Adriamics</a><nav class="site-nav" aria-label="Main navigation">${links}<a href="https://github.com/Parell/adriamics" target="_blank" rel="noopener noreferrer">GitHub</a></nav></div></header>`;
+  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="Adriamics home"><span>ADRI</span><em>AMICS</em></a><nav class="site-nav" aria-label="Main navigation"><button class="site-nav__contact" type="button" data-contact-open>Contact</button></nav></div></header>${renderContactPanel()}`;
+}
+
+function renderContactPanel() {
+  return `<dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title"><div class="contact-dialog__inner"><div class="contact-dialog__heading"><div><h2 id="contact-title">Get in touch</h2><p><a href="mailto:contact@adriamics.com" data-copy-email="contact@adriamics.com">contact@adriamics.com</a></p></div><button class="contact-dialog__close" type="button" data-contact-close>Close</button></div><form class="contact-form" data-contact-form><div class="contact-form__grid"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label></div><label>Subject<input name="subject" required /></label><label>Message<textarea name="message" required></textarea></label><button class="project-action contact-form__submit" type="submit">Copy email template <span aria-hidden="true">↗</span></button><p class="contact-form__status" data-contact-status aria-live="polite"></p></form></div></dialog>`;
 }
 
 function renderFooter() {
-  return `<footer class="shell site-footer"><span>ADRIAMICS © 2026</span><nav class="site-footer__links" aria-label="Footer navigation"><a href="https://github.com/Parell/adriamics" target="_blank" rel="noopener noreferrer">GitHub</a><a href="mailto:contact@adriamics.com">Contact</a><a href="/study/">Study</a><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
+  return `<footer class="shell site-footer"><span>ADRIAMICS © 2026</span><nav class="site-footer__social" aria-label="Social and contact links"><a href="https://www.linkedin.com/company/adriamics/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/adriamics" target="_blank" rel="noreferrer">X</a><a href="mailto:contact@adriamics.com" data-copy-email="contact@adriamics.com">contact@adriamics.com</a></nav><nav class="site-footer__legal" aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
 }
 
-function visualFor(project) {
-  if (project.visual === "prerequisite-graph") return `<svg viewBox="0 0 260 130" role="img" aria-labelledby="study-graph-title"><title id="study-graph-title">Math, physics, and engineering form a learning path</title><path d="M36 65H224M82 65 130 30m0 35 48 35"/><circle class="node-fill" cx="36" cy="65" r="12"/><circle class="node-fill" cx="130" cy="30" r="12"/><circle class="node-fill" cx="130" cy="65" r="12"/><circle class="node-fill" cx="178" cy="100" r="12"/><circle class="node-fill" cx="224" cy="65" r="12"/></svg>`;
-  if (project.visual === "mission-pipeline") return `<svg viewBox="0 0 260 130" role="img" aria-labelledby="frame-graph-title"><title id="frame-graph-title">Mission design, simulation, verification, and flight software pipeline</title><path d="M32 65H228M82 65V38m48 27V92m48-27V38"/><rect class="node-fill" x="20" y="53" width="24" height="24"/><circle class="node-fill" cx="82" cy="65" r="11"/><circle class="node-fill" cx="130" cy="65" r="11"/><circle class="node-fill" cx="178" cy="65" r="11"/><rect class="node-fill" x="216" y="53" width="24" height="24"/></svg>`;
-  if (project.visual === "orbit-schematic") return `<svg viewBox="0 0 260 130" role="img" aria-labelledby="tug-graph-title"><title id="tug-graph-title">Orbital transfer concept</title><ellipse cx="130" cy="65" rx="88" ry="32" transform="rotate(-18 130 65)"/><path d="M54 75C83 22 159 20 204 54" stroke-dasharray="4 5"/><circle class="node-fill" cx="54" cy="75" r="5"/><circle class="node-fill" cx="204" cy="54" r="5"/><circle class="node-fill" cx="130" cy="65" r="3"/></svg>`;
-  return `<svg viewBox="0 0 260 130" role="img" aria-label="${escapeHtml(project.name)} engineering schematic"><path d="M34 65H226M130 28V102"/><circle class="node-fill" cx="34" cy="65" r="11"/><circle class="node-fill" cx="130" cy="65" r="18"/><circle class="node-fill" cx="226" cy="65" r="11"/></svg>`;
-}
-
-function renderProjectSequence() {
-  return projects.map((project, index) => `<a class="project-card" href="${escapeHtml(project.url)}"><span class="project-card__number">0${index + 1} / ${escapeHtml(project.verb)}</span><span class="project-card__visual">${visualFor(project)}</span><span class="project-card__bottom"><span><span class="project-card__title">${escapeHtml(project.label)}</span><span class="project-card__verb">${escapeHtml(project.verb)}</span><span class="project-card__description">${escapeHtml(project.headline)}</span></span><span class="project-card__arrow" aria-hidden="true">↗</span></span></a>`).join("");
-}
-
-function renderProjectStatus() {
-  return `<div class="evidence__items">${projects.map((project) => {
-    const value = project.id === "study" ? `${studyTopicCount} TOPICS · ${project.status}`
-      : project.version ? `${project.version} · ${project.status}` : project.status;
-    return `<div class="evidence__item"><span class="evidence__name">${escapeHtml(project.label)}</span><span class="evidence__value">${escapeHtml(value)}</span></div>`;
-  }).join("")}</div>`;
+function renderGenericProjectPage(project) {
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="color-scheme" content="dark"/><meta name="description" content="${escapeHtml(project.headline)}"/><title>${escapeHtml(project.name)} — Adriamics</title><link rel="stylesheet" href="/website.css"/><script defer src="/website.js"></script></head><body class="project-page"><!-- shared-site-header --><main id="content" class="shell project-detail"><p class="eyebrow">${escapeHtml(project.verb)}</p><h1>${escapeHtml(project.name)}</h1><p class="project-detail__lede">${escapeHtml(project.headline)}</p><dl class="project-status"><div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div></dl></main><!-- shared-site-footer --></body></html>`;
 }
 
 function applyProjectFacts(html) {
   return html.replace(/\{\{project\.([a-z0-9-]+)\.([a-z]+)\}\}/g, (token, id, field) => {
     const project = projects.find((entry) => entry.id === id);
     if (!project) throw new Error(`Project page references unknown project: ${id}`);
-    const value = field === "headline" || field === "status" || field === "version" || field === "name" ? project[field] : undefined;
+    const value = field === "headline" || field === "status" || field === "version" || field === "name" || field === "label" || field === "verb" ? project[field] : undefined;
     if (value === undefined) throw new Error(`Project ${id} does not publish ${field}.`);
     return escapeHtml(value);
   });
@@ -100,27 +124,44 @@ for (const file of files) {
   const source = resolve(website, file);
   if (existsSync(source)) cpSync(source, resolve(output, file));
 }
+writeFileSync(resolve(output, "hero-sphere.js"), heroSphereBundle.outputFiles[0].text);
+mkdirSync(resolve(output, "vendor"), { recursive: true });
+cpSync(resolve(root, "node_modules", "three", "LICENSE"), resolve(output, "vendor", "THREE-LICENSE.txt"));
 for (const [file, route] of [["index.html", "/"], ["privacy-policy.html", "/privacy-policy"], ["terms-of-service.html", "/terms-of-service"]]) {
   let html = readFileSync(resolve(website, file), "utf8");
   html = applyProjectFacts(html);
+  if (!html.includes('/website.js')) html = html.replace('</head>', '  <script defer src="/website.js"></script>\n</head>');
   for (const [marker, markup] of [["<!-- shared-site-header -->", renderProjectNavigation(route)], ["<!-- shared-site-footer -->", renderFooter()]]) {
     if (html.split(marker).length !== 2) throw new Error(`${file} must contain exactly one ${marker} marker.`);
     html = html.replace(marker, markup);
   }
-  if (file === "index.html") {
-    for (const [marker, markup] of [["<!-- project-sequence -->", renderProjectSequence()], ["<!-- project-status -->", renderProjectStatus()]]) {
-      if (html.split(marker).length !== 2) throw new Error(`${file} must contain exactly one ${marker} marker.`);
-      html = html.replace(marker, markup);
-    }
-  }
+  html = html.replace(/(\/website\.css\?v=)[a-zA-Z0-9._-]+/g, `$1${websiteCssVersion}`);
+  html = html.replace(/href="\/website\.css(?:\?v=[^"]*)?"/g, `href="/website.css?v=${websiteCssVersion}"`);
+  html = html.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
   writeFileSync(resolve(output, file), html);
 }
-for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocinante", "frame", "tug"]) {
+const documentsHtml = readFileSync(resolve(website, "documents", "index.html"), "utf8");
+let renderedDocuments = documentsHtml;
+if (!renderedDocuments.includes('/website.js')) renderedDocuments = renderedDocuments.replace('</head>', '  <script defer src="/website.js"></script>\n</head>');
+for (const [marker, markup] of [["<!-- shared-site-header -->", renderProjectNavigation("/documents/")], ["<!-- shared-site-footer -->", renderFooter()]]) {
+  if (renderedDocuments.split(marker).length !== 2) throw new Error(`website/documents/index.html must contain exactly one ${marker} marker.`);
+  renderedDocuments = renderedDocuments.replace(marker, markup);
+}
+renderedDocuments = renderedDocuments.replace(/(\/website\.css)(?:\?v=[a-zA-Z0-9._-]+)?/g, `$1?v=${websiteCssVersion}`);
+renderedDocuments = renderedDocuments.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
+mkdirSync(resolve(output, "documents"), { recursive: true });
+writeFileSync(resolve(output, "documents", "index.html"), renderedDocuments);
+
+for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocinante"]) {
   const source = resolve(website, directory);
   if (existsSync(source)) cpSync(source, resolve(output, directory), { recursive: true });
 }
 
-cpSync(resolve(root, "assets"), resolve(output, "assets"), { recursive: true });
+mkdirSync(resolve(output, "assets"), { recursive: true });
+for (const asset of ["favicon.png", "image-1.webp", "image-2.webp", "image-3.webp"]) {
+  const source = resolve(root, "assets", asset);
+  cpSync(source, resolve(output, "assets", asset));
+}
 cpSync(resolve(root, "LICENSE"), resolve(output, "LICENSE"));
 
 const studyOutput = resolve(output, "study");

@@ -9,7 +9,9 @@ npm ci
 npm run build
 ```
 
-The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), copies shared assets from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
+The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), copies the shared favicon and homepage carousel images from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
+
+The homepage hero sphere uses Three.js (`three` in `package.json`), bundled for browsers by esbuild (`esbuild` in `devDependencies`). The editable entry point is `website/hero-sphere.js`; `build.mjs` bundles it into generated `public/hero-sphere.js` and includes the Three.js license notice under `public/vendor/`.
 
 When the build succeeds, the last line reports the full path to the generated `public/` directory. You can run `npm.cmd run build` by itself whenever you only need to refresh those files.
 
@@ -23,32 +25,25 @@ npm run dev
 
 The development watcher rebuilds the main website pages, styles, and assets without regenerating every study page. Changes under `study/source/` still run the full build because study pages, search data, and the sitemap are generated together. Build script changes also run the full build. Refresh the browser after the watcher reports completion.
 
+`npm run build:website` refreshes the main site while keeping the existing generated study pages. Run `npm run build` first when the generated study output is missing or stale.
+
 Codex and other contributors should read [AGENTS.md](AGENTS.md) first for source/output boundaries and build workflow.
 
 ## Local/deployment validation
 
 ```bash
-npm run build
 npm run check
 ```
 
-`npm run check` runs Wrangler's deployment dry-run using the existing `public/` output and `wrangler.jsonc`.
+`npm run check` builds the latest sources and runs Wrangler's deployment dry-run against the generated `public/` output and `wrangler.jsonc`.
 
 ## Production deploy
 
 ```bash
-npm run build
 npm run deploy
 ```
 
-`npm run deploy` deploys the existing `public/` output as the static-assets-only Worker. Build first whenever you want to deploy updated source. The GitHub Actions deploy workflow runs on pushes to `master` and can also be started manually. Configure these repository secrets before using it:
-
-```text
-CLOUDFLARE_API_TOKEN
-CLOUDFLARE_ACCOUNT_ID
-```
-
-The token should have only the permissions needed to deploy Workers and manage the Worker custom domains for the target account and zone.
+`npm run deploy` builds the latest sources before deploying the static-assets-only Worker. Production deployment is manual; the pull request workflow only builds and runs a deployment dry-run.
 
 ## Cloudflare ownership
 
@@ -68,7 +63,7 @@ OpenTofu is also supported by the configuration (`tofu init`, `tofu plan`, `tofu
 ## Source layout
 
 - `website/` contains the main website served at `/`; `website/public.json` is the deliberately curated public project registry used to render its navigation, project sequence, and status strip.
-- `assets/` contains shared website and study assets copied to `/assets/`.
+- `assets/` contains source assets; the build copies the shared favicon and the three homepage feature-carousel images to `public/assets/`.
 - `study/` contains study source content and its page generator, served at `/study/`.
 - `build.mjs` combines both into generated `public/` output.
 - `wrangler.jsonc` configures the Cloudflare Workers Static Assets deployment.

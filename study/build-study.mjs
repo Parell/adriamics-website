@@ -1414,12 +1414,6 @@ function renderSubjectGroups(structures, activePagePath = null) {
 function renderSubjectLinks(structures, activeStructureId = null) {
   const homeCurrent = activeStructureId === homeStructureId ? ' aria-current="true"' : '';
   return `<aside class="notes-structures" aria-label="Guide structures">
-          <div class="notes-header__brand">
-            <p class="notes-header__title"><a class="notes-header__brand-link" href="/">Adriamics</a> Study</p>
-            <nav class="notes-project-links" aria-label="Main navigation">
-              <a href="/study/" aria-current="page">Study</a><a href="/frame/">Frame</a><a href="/tug/">Solar Tug</a>
-            </nav>
-          </div>
           <ul class="subject-list">
           <li><a class="notes-inline-link${activeStructureId === homeStructureId ? ' is-active' : ''}"${homeCurrent} href="/study/" data-subject-id="home" data-default-href="/study/" data-notes-nav-item>Topics</a></li>
           <li>
@@ -1430,33 +1424,27 @@ function renderSubjectLinks(structures, activeStructureId = null) {
 }
 
 function renderSearchPanel() {
-  return `<aside class="search-panel" id="search-panel" aria-labelledby="search-panel-title" hidden>
+  return `<aside class="search-panel" id="search-panel" aria-label="Search notes" hidden>
     <div class="search-panel__card panel">
-      <div class="search-panel__head">
-        <div>
-          <p class="section-label">Search</p>
-          <h2 class="search-panel__title" id="search-panel-title">Find a note</h2>
-        </div>
+      <div class="search-panel__row">
+        <label class="search-panel__field">
+          <span class="sr-only">Search all notes</span>
+          <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
+        </label>
         <button class="search-panel__close notes-action-chip" id="search-close" type="button" aria-label="Close search" data-notes-nav-item>Close</button>
       </div>
-      <label class="search-panel__field">
-        <span class="sr-only">Search all notes</span>
-        <input id="search-input" type="search" placeholder="Search all notes..." autocomplete="off" spellcheck="false" />
-      </label>
-      <p class="search-panel__status" id="search-status" aria-live="polite">Loading search index...</p>
+      <p class="search-panel__status sr-only" id="search-status" aria-live="polite"></p>
       <div class="search-results" id="search-results" role="list"></div>
     </div>
   </aside>`;
 }
 
-function renderNotesFooter() {
-  return `<footer class="shell notes-footer">
-    <div class="notes-footer__inner">
-      <a href="/privacy-policy">Privacy Policy</a>
-      <span class="notes-footer__sep" aria-hidden="true">-</span>
-      <a href="/terms-of-service">Terms of Service</a>
-    </div>
-  </footer>`;
+function renderSiteHeader() {
+  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="Adriamics home"><span>ADRI</span><em>AMICS</em></a><nav class="site-nav" aria-label="Main navigation"><button class="site-nav__contact" type="button" data-contact-open>Contact</button></nav></div></header><dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title"><div class="contact-dialog__inner"><div class="contact-dialog__heading"><div><h2 id="contact-title">Get in touch</h2><p><a href="mailto:contact@adriamics.com">contact@adriamics.com</a></p></div><button class="contact-dialog__close" type="button" data-contact-close>Close</button></div><form class="contact-form" data-contact-form><div class="contact-form__grid"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label></div><label>Subject<input name="subject" required /></label><label>Message<textarea name="message" required></textarea></label><button class="project-action contact-form__submit" type="submit">Copy email template <span aria-hidden="true">↗</span></button><p class="contact-form__status" data-contact-status aria-live="polite"></p></form></div></dialog>`;
+}
+
+function renderSiteFooter() {
+  return `<footer class="shell site-footer"><span>ADRIAMICS © 2026</span><nav class="site-footer__social" aria-label="Social and contact links"><a href="https://www.linkedin.com/company/adriamics/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/adriamics" target="_blank" rel="noreferrer">X</a><a href="mailto:contact@adriamics.com">contact@adriamics.com</a></nav><nav class="site-footer__legal" aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
 }
 
 function getGeneratedSourcePathFromOutputDir(outputDir) {
@@ -1581,6 +1569,8 @@ function renderNotesPageDocument({
   <link rel="canonical" href="${escapeHtml(canonicalUrl)}" />
   <meta name="color-scheme" content="dark" />
   <link rel="icon" type="image/png" href="/assets/favicon.png" />
+  <link rel="stylesheet" href="/website.css" />
+  <script defer src="/website.js"></script>
   ${headHtml}
   ${renderAsyncStylesheet(stylesheetHref)}
   ${webmejiCriticalStyles}
@@ -1592,12 +1582,14 @@ function renderNotesPageDocument({
   <a class="skip-link" href="#content">Skip to content</a>
   ${floatingActionsHtml}
 
+  ${renderSiteHeader()}
+
   ${renderHeader(structures, activeStructureId, includeIntro, activePagePath)}
 
   <main id="content" class="${escapeHtml(mainClass)}" aria-label="${escapeHtml(mainAriaLabel)}">
     ${mainHtml}
   </main>
-  ${renderNotesFooter()}
+  ${renderSiteFooter()}
   ${renderSearchPanel()}
 </body>
 </html>`;
@@ -1960,12 +1952,12 @@ function buildConceptDagTreeHtml(dag, selectedSubjectId = '') {
 function buildLandingHtml(structures, assetVersions, dag) {
   return renderNotesPageDocument({
     title: 'Adriamics Study',
-    description: 'Free, structured lessons for learning mathematics, physics, and engineering one concept at a time.',
+    description: 'First-principles mathematics, physics, and engineering.',
     canonicalUrl: `${siteOrigin}/study`,
     bodyClass: 'notes-landing-page',
     mainClass: 'shell',
     mainAriaLabel: 'Topics',
-    mainHtml: `<section class="landing-subjects" aria-labelledby="landing-subjects-title">
+    mainHtml: `<section class="landing-subjects" aria-label="Study library topics">
       <div class="subjects-panel__groups">${renderSubjectGroups(structures)}</div>
     </section>`, structures,
     activeStructureId: homeStructureId,
@@ -2645,8 +2637,6 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
   const canonicalUrl = `${siteOrigin}${urlPath}`;
   const editUrl = buildContributeIssueUrl(relativeSourcePath, title);
   const { sourceUrl, lastModifiedDate, contributorsHtml } = await getSourceMetadata(relativeSourcePath);
-  const conceptDagSubjectId = getConceptDagSubjectIdFromNotePath(note.path);
-  const conceptDagHtml = conceptDag ? buildConceptDagTreeHtml(conceptDag, conceptDagSubjectId) : '';
   const lessonPath = `study/${note.path}`;
   const practiceExampleContext = createPracticeExampleContext(
     lessonPath,
@@ -2658,7 +2648,7 @@ async function buildNotePage(note, urlPath, structures, assetVersions, noteDocum
     title,
     description,
     bodyHtml,
-    beforeBodyHtml: conceptDagHtml,
+    beforeBodyHtml: '',
     afterBodyHtml: '',
     canonicalUrl,
     editUrl,

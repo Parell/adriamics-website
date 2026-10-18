@@ -43,8 +43,12 @@ if (canvas) {
     sphere.add(new THREE.LineSegments(geometry, new THREE.LineBasicMaterial({ color: 0xe9eeee, transparent: true, opacity: 0.25 })));
     scene.add(sphere);
 
-    const satellites = Array.from({ length: 18 }, (_, index) => ({
-      radius: 1.52 + (index % 7) * 0.09,
+    const satellites = Array.from({ length: 48 }, (_, index) => ({
+      radius: index < 18
+        ? 1.52 + (index % 7) * 0.09
+        : index < 30
+          ? 2.15 + ((index - 18) % 6) * 0.16
+          : 3.2 + ((index - 30) % 9) * 0.24,
       tilt: -0.9 + ((index * 0.37) % 1.8),
       speed: (index % 2 ? -1 : 1) * (0.006 + (index % 5) * 0.0035),
       phase: index * Math.PI * (3 - Math.sqrt(5)),
@@ -77,7 +81,7 @@ if (canvas) {
     const render = () => {
       const elapsed = clock.getElapsedTime();
       sphere.rotation.x = -0.24;
-      sphere.rotation.y = 0.18 + elapsed * 0.03;
+      sphere.rotation.y = 0.18 + elapsed * 0.01;
       for (const satellite of satellites) {
         const angle = satellite.phase + elapsed * satellite.speed;
         satellite.point.position.set(Math.cos(angle) * satellite.radius, 0, Math.sin(angle) * satellite.radius);

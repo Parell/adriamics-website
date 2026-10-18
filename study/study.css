@@ -1,18 +1,28 @@
 :root {
-  --bg: #1e1e1e;
-  --panel: rgba(36, 36, 36, 0.98);
-  --panel-strong: #1e1e1e;
-  --border: rgba(255, 255, 255, 0.18);
-  --text: #f5f5f5;
-  --common-white: #ffffff;
-  --muted: #a0a0a0;
+  --ink: rgba(25, 24, 20, 1);
+  --green: rgba(60, 113, 69, 1);
+  --red: rgba(188, 38, 34, 1);
+  --blue: rgba(11, 55, 88, 1);
+  --yellow: rgba(219, 187, 22, 1);
+  --paper: rgba(219, 214, 208, 1);
+  --rust: rgba(187, 75, 28, 1);
+  --olive: rgba(114, 124, 51, 1);
+  --bg: var(--ink);
+  --panel: rgba(60, 113, 69, 0.12);
+  --panel-strong: rgba(25, 24, 20, 1);
+  --border: rgba(219, 214, 208, 0.2);
+  --text: var(--paper);
+  --common-white: var(--yellow);
+  --muted: rgba(219, 214, 208, 0.68);
   --metadata: var(--muted);
-  --accent: #f5f5f5;
-  --accent-strong: #ffffff;
-  --accent-soft: rgba(255, 255, 255, 0.06);
-  --control-bg: rgba(36, 36, 36, 0.98);
-  --control-hover-bg: #303030;
-  --control-hover-border: rgba(255, 255, 255, 0.28);
+  --accent: var(--yellow);
+  --accent-strong: var(--yellow);
+  --on-accent: var(--ink);
+  --accent-hover: var(--olive);
+  --accent-soft: rgba(219, 187, 22, 0.1);
+  --control-bg: var(--panel);
+  --control-hover-bg: rgba(60, 113, 69, 0.2);
+  --control-hover-border: rgba(219, 214, 208, 0.42);
   --shadow: none;
   --transition-ui: background 0.18s ease, border-color 0.18s ease, color 0.18s ease, transform 0.18s ease;
   font-synthesis: none;
@@ -32,7 +42,7 @@ html {
 body.notes-page {
   margin: 0;
   color: var(--text);
-  background: var(--panel-strong);
+  background: var(--bg);
   font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
@@ -160,10 +170,10 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   gap: 0.5rem;
   --notes-button-bg: var(--common-white);
   --notes-button-border: var(--common-white);
-  --notes-button-fg: #111111;
-  --notes-button-hover-bg: #e8e8e8;
-  --notes-button-hover-border: #e8e8e8;
-  --notes-button-hover-fg: #111111;
+  --notes-button-fg: var(--on-accent);
+  --notes-button-hover-bg: var(--accent-hover);
+  --notes-button-hover-border: var(--accent-hover);
+  --notes-button-hover-fg: var(--on-accent);
 }
 
 @supports (background-color: color-mix(in srgb, white, black)) {
@@ -176,11 +186,11 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .notes-action-chip--practice {
   --notes-button-bg: var(--common-white);
   --notes-button-border: var(--common-white);
-  --notes-button-fg: #111111;
-  --notes-button-hover-bg: #e8e8e8;
-  --notes-button-hover-border: #e8e8e8;
-  --notes-button-hover-fg: #111111;
-  --notes-button-outline: #111111;
+  --notes-button-fg: var(--on-accent);
+  --notes-button-hover-bg: var(--accent-hover);
+  --notes-button-hover-border: var(--accent-hover);
+  --notes-button-hover-fg: var(--on-accent);
+  --notes-button-outline: var(--on-accent);
 }
 
 @supports (background-color: color-mix(in srgb, white, black)) {
@@ -222,11 +232,11 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .notes-action-chip--back {
   --notes-button-bg: var(--common-white);
   --notes-button-border: var(--common-white);
-  --notes-button-fg: #111111;
-  --notes-button-hover-bg: #e8e8e8;
-  --notes-button-hover-border: #e8e8e8;
-  --notes-button-hover-fg: #111111;
-  --notes-button-outline: #ffffff;
+  --notes-button-fg: var(--on-accent);
+  --notes-button-hover-bg: var(--accent-hover);
+  --notes-button-hover-border: var(--accent-hover);
+  --notes-button-hover-fg: var(--on-accent);
+  --notes-button-outline: var(--accent-strong);
 }
 
 .notes-quick-actions--floating .notes-action-chip {
@@ -411,7 +421,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   align-items: flex-start;
   justify-content: center;
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.48);
+  background: rgba(25, 24, 20, 0.78);
   backdrop-filter: blur(10px);
   overflow: auto;
 }
@@ -460,7 +470,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   width: 100%;
   border: 1px solid var(--border);
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(219, 214, 208, 0.04);
   color: var(--text);
   padding: 0.9rem 1rem;
   font: inherit;
@@ -492,7 +502,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   text-align: left;
   border: 1px solid var(--border);
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(219, 214, 208, 0.06);
   color: var(--text);
   padding: 0.9rem 1rem;
   font: inherit;
@@ -507,14 +517,14 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .search-result:hover,
 .search-result:focus-visible {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(219, 187, 22, 0.12);
   border-color: var(--accent-strong);
   transform: translateX(2px);
 }
 
 .search-result.is-active,
 .search-result[aria-current="true"] {
-  background: rgba(255, 255, 255, 0.08);
+  background: rgba(219, 187, 22, 0.08);
   border-color: var(--accent-strong);
   outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
@@ -552,7 +562,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 .search-result mark,
 .notes-search-match {
-  background: rgba(255, 255, 255, 0.14);
+  background: rgba(219, 187, 22, 0.14);
   color: var(--accent-strong);
   border-radius: 0;
   padding: 0 0.18rem;
@@ -772,11 +782,11 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 
 /* Practice pages use a neutral visual treatment regardless of subject. */
 .practice-page {
-  --accent: #e0e0e0;
-  --accent-strong: #ffffff;
-  --accent-soft: rgba(255, 255, 255, 0.06);
-  --control-hover-bg: #232323;
-  --control-hover-border: rgba(255, 255, 255, 0.16);
+  --accent: var(--yellow);
+  --accent-strong: var(--yellow);
+  --accent-soft: rgba(219, 187, 22, 0.1);
+  --control-hover-bg: rgba(60, 113, 69, 0.2);
+  --control-hover-border: rgba(219, 214, 208, 0.32);
 }
 
 .practice-page .practice-level--level-1,
@@ -958,19 +968,19 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .gradient-legend--level {
-  background: #999;
+  background: var(--green);
 }
 
 .gradient-legend--gradient {
-  background: #444;
+  background: var(--yellow);
 }
 
 .gradient-legend--tangent {
-  background: #afafaf;
+  background: var(--rust);
 }
 
 .gradient-legend--direction {
-  background: #3d3d3d;
+  background: var(--olive);
 }
 
 
@@ -1129,13 +1139,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .suggest-edit-link {
-  --notes-button-bg: #1e1e1e;
-  --notes-button-border: #474747;
-  --notes-button-fg: #ffffff;
-  --notes-button-hover-bg: #303030;
-  --notes-button-hover-border: #606060;
-  --notes-button-hover-fg: #ffffff;
-  --notes-button-outline: #ffffff;
+  --notes-button-bg: var(--surface, var(--green));
+  --notes-button-border: var(--green);
+  --notes-button-fg: var(--text);
+  --notes-button-hover-bg: var(--olive);
+  --notes-button-hover-border: var(--olive);
+  --notes-button-hover-fg: var(--text);
+  --notes-button-outline: var(--yellow);
 }
 
 .practice-problem-list {
@@ -1254,23 +1264,23 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .practice-level--level-1 {
-  --practice-level-accent: #84f0b8;
-  --practice-level-border: rgba(132, 240, 184, 0.34);
+  --practice-level-accent: var(--green);
+  --practice-level-border: rgba(60, 113, 69, 0.5);
 }
 
 .practice-level--level-2 {
-  --practice-level-accent: #8fb2ff;
-  --practice-level-border: rgba(143, 178, 255, 0.34);
+  --practice-level-accent: var(--blue);
+  --practice-level-border: rgba(11, 55, 88, 0.6);
 }
 
 .practice-level--level-3 {
-  --practice-level-accent: #ffd27a;
-  --practice-level-border: rgba(255, 210, 122, 0.34);
+  --practice-level-accent: var(--yellow);
+  --practice-level-border: rgba(219, 187, 22, 0.45);
 }
 
 .practice-level--level-4 {
-  --practice-level-accent: #ff9ca8;
-  --practice-level-border: rgba(255, 156, 168, 0.34);
+  --practice-level-accent: var(--red);
+  --practice-level-border: rgba(188, 38, 34, 0.5);
 }
 
 .practice-level__head {
@@ -1309,7 +1319,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   min-width: 5.6rem;
   padding: 0.7rem 0.8rem 0.65rem;
   border: 1px solid var(--practice-level-border, var(--border));
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(219, 214, 208, 0.03);
   text-transform: uppercase;
   letter-spacing: 0.12em;
 }
@@ -1331,7 +1341,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .practice-problem {
   padding: 1rem;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(219, 214, 208, 0.03);
   box-shadow: none;
 }
 
@@ -1363,7 +1373,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   margin: 0;
   padding: 0.4rem 0.65rem;
   border: 1px solid var(--border);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(219, 214, 208, 0.03);
   color: var(--muted);
   font-size: 0.72rem;
   font-weight: 700;
@@ -1389,16 +1399,16 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 }
 
 .practice-problem__complete-toggle[aria-pressed='true'] {
-  border-color: #b2c99f;
-  background: #d7ebcd;
-  color: #20331b;
+  border-color: var(--green);
+  background: rgba(60, 113, 69, 0.34);
+  color: var(--paper);
 }
 
 .practice-problem__complete-toggle[aria-pressed='true']:hover,
 .practice-problem__complete-toggle[aria-pressed='true']:focus-visible {
-  border-color: #c3d7b3;
-  background: #e4f2dd;
-  color: #20331b;
+  border-color: var(--olive);
+  background: rgba(114, 124, 51, 0.42);
+  color: var(--paper);
 }
 
 .practice-problem__title {
@@ -1456,7 +1466,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .worksheet-action-link:hover, .worksheet-action-link:focus-visible, .practice-problem__worksheet-toggle:hover, .practice-problem__worksheet-toggle:focus-visible { color: var(--accent); }
 .worksheet-action-link:focus-visible, .practice-problem__worksheet-toggle:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
 .worksheet-action-link:disabled { color: var(--muted); cursor: not-allowed; text-decoration: none; }
-.worksheet-controls__error { color: #a91f2d; font-weight: 700; }
+.worksheet-controls__error { color: var(--red); font-weight: 700; }
 .worksheet-selection { margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--border); }
 .worksheet-selection h3 { margin: 0 0 0.65rem; font-size: 1rem; }
 .worksheet-selection__empty { margin: 0; color: var(--muted); }
@@ -1513,7 +1523,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   padding: 0.8rem 0.9rem;
   border: 1px solid var(--border);
   border-radius: 0;
-  background: rgba(255, 255, 255, 0.04);
+  background: rgba(219, 214, 208, 0.04);
   color: var(--text);
   font: inherit;
   line-height: 1.55;
@@ -1769,8 +1779,8 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .markdown-body code {
   font-family: "Cascadia Mono", "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
   font-size: 0.94em;
-  background: rgba(255, 255, 255, 0.08);
-  color: #ffffff;
+  background: rgba(219, 214, 208, 0.08);
+  color: var(--paper);
   padding: 0.14rem 0.34rem;
   border-radius: 0;
 }
@@ -1797,8 +1807,8 @@ mjx-container * {
   overflow: auto;
   padding: 1rem 1.05rem;
   border-radius: 0;
-  background: #090909;
-  color: #f5f5f5;
+  background: var(--ink);
+  color: var(--paper);
 }
 
 .markdown-body pre code {
@@ -1809,7 +1819,7 @@ mjx-container * {
 
 .markdown-body blockquote {
   padding: 0.1rem 0 0.1rem 1rem;
-  border-left: 4px solid rgba(255, 255, 255, 0.22);
+  border-left: 4px solid rgba(219, 214, 208, 0.22);
   color: var(--muted);
 }
 
@@ -1896,7 +1906,7 @@ mjx-container * {
 }
 
 .markdown-body th {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(219, 214, 208, 0.06);
 }
 
 .markdown-body hr {

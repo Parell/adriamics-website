@@ -209,7 +209,7 @@ function initFeatureCarousel(carousel) {
       if (isActive) dot.setAttribute("aria-current", "true");
       else dot.removeAttribute("aria-current");
     });
-    if (status) status.textContent = `${slides[activeIndex].querySelector("h3")?.textContent}, slide ${activeIndex + 1} of ${slides.length}`;
+    if (status) status.textContent = slides[activeIndex].getAttribute("aria-label") || `Slide ${activeIndex + 1} of ${slides.length}`;
   };
 
   carousel.querySelector("[data-feature-prev]")?.addEventListener("click", () => showSlide(activeIndex - 1));

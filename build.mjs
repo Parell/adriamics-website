@@ -1,5 +1,5 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { resolve } from "node:path";
+import { dirname, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { buildSync } from "esbuild";
 import vm from "node:vm";
@@ -140,17 +140,19 @@ for (const [file, route] of [["index.html", "/"], ["privacy-policy.html", "/priv
   html = html.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
   writeFileSync(resolve(output, file), html);
 }
-const frameHtml = readFileSync(resolve(website, "frame", "index.html"), "utf8");
-let renderedFrame = frameHtml;
-if (!renderedFrame.includes('/website.js')) renderedFrame = renderedFrame.replace('</head>', '  <script defer src="/website.js"></script>\n</head>');
-for (const [marker, markup] of [["<!-- shared-site-header -->", renderProjectNavigation("/frame/")], ["<!-- shared-site-footer -->", renderFooter()]]) {
-  if (renderedFrame.split(marker).length !== 2) throw new Error(`website/frame/index.html must contain exactly one ${marker} marker.`);
-  renderedFrame = renderedFrame.replace(marker, markup);
+for (const [file, route] of [["frame/index.html", "/frame/"], ["frame/getting-started/index.html", "/frame/getting-started/"]]) {
+  let html = readFileSync(resolve(website, file), "utf8");
+  if (!html.includes('/website.js')) html = html.replace('</head>', '  <script defer src="/website.js"></script>\n</head>');
+  for (const [marker, markup] of [["<!-- shared-site-header -->", renderProjectNavigation(route)], ["<!-- shared-site-footer -->", renderFooter()]]) {
+    if (html.split(marker).length !== 2) throw new Error(`${file} must contain exactly one ${marker} marker.`);
+    html = html.replace(marker, markup);
+  }
+  html = html.replace(/(\/website\.css)(?:\?v=[a-zA-Z0-9._-]+)?/g, `$1?v=${websiteCssVersion}`);
+  html = html.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
+  const destination = resolve(output, file);
+  mkdirSync(dirname(destination), { recursive: true });
+  writeFileSync(destination, html);
 }
-renderedFrame = renderedFrame.replace(/(\/website\.css)(?:\?v=[a-zA-Z0-9._-]+)?/g, `$1?v=${websiteCssVersion}`);
-renderedFrame = renderedFrame.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
-mkdirSync(resolve(output, "frame"), { recursive: true });
-writeFileSync(resolve(output, "frame", "index.html"), renderedFrame);
 
 for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocinante"]) {
   const source = resolve(website, directory);

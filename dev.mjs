@@ -1,4 +1,4 @@
-import { existsSync, watch } from "node:fs";
+import { existsSync, readdirSync, statSync, watch } from "node:fs";
 import { spawn } from "node:child_process";
 import { copyFile } from "node:fs/promises";
 import { resolve } from "node:path";
@@ -9,7 +9,11 @@ const websiteRoot = resolve(root, "website");
 const watchedDirectories = ["website", "assets", "study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
 const watchedFiles = ["build.mjs", "website/build.mjs", "study/build-study.mjs", "study/study.css", "study/study.js"];
 const staticWebsiteFiles = new Set(["robots.txt", "_headers", "LICENSE"]);
+const polledStudyDirectories = ["study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
+const studyPollIntervalMs = 750;
 let timer;
+let studyPollTimer;
+let studySnapshot = new Map();
 let building = false;
 let rebuildQueued = false;
 let fullBuildQueued = false;
@@ -111,6 +115,45 @@ function startWatching() {
   }
 }
 
+function snapshotStudyFiles() {
+  const snapshot = new Map();
+  const visit = (path) => {
+    let entries;
+    try {
+      entries = readdirSync(path, { withFileTypes: true });
+    } catch {
+      return;
+    }
+    for (const entry of entries) {
+      const entryPath = resolve(path, entry.name);
+      if (entry.isDirectory()) {
+        visit(entryPath);
+      } else if (entry.isFile()) {
+        try {
+          const stat = statSync(entryPath);
+          snapshot.set(entryPath, `${stat.size}:${stat.mtimeMs}`);
+        } catch {
+          // A file can disappear between the directory read and stat call.
+        }
+      }
+    }
+  };
+
+  for (const directory of polledStudyDirectories) {
+    const path = resolve(root, directory);
+    if (existsSync(path)) visit(path);
+  }
+  return snapshot;
+}
+
+function pollStudySources() {
+  const nextSnapshot = snapshotStudyFiles();
+  const changed = nextSnapshot.size !== studySnapshot.size
+    || [...nextSnapshot].some(([path, signature]) => studySnapshot.get(path) !== signature);
+  studySnapshot = nextSnapshot;
+  if (changed) scheduleBuild("full");
+}
+
 async function startDevelopment() {
   try {
     await runBuild(true);
@@ -119,6 +162,8 @@ async function startDevelopment() {
   }
 
   startWatching();
+  studySnapshot = snapshotStudyFiles();
+  studyPollTimer = setInterval(pollStudySources, studyPollIntervalMs);
   console.log("Watching website and study sources. Website page, style, and asset edits rebuild only the main site; study edits rebuild all generated pages.");
 
   const server = spawn(process.execPath, [resolve(root, "node_modules", "wrangler", "bin", "wrangler.js"), "dev"], {
@@ -130,6 +175,7 @@ async function startDevelopment() {
     if (shuttingDown) return;
     shuttingDown = true;
     clearTimeout(timer);
+    clearInterval(studyPollTimer);
     for (const watcher of watchers) watcher.close();
     if (server.exitCode === null) server.kill(signal);
   };
@@ -143,6 +189,7 @@ async function startDevelopment() {
   });
   server.once("exit", (code, signal) => {
     clearTimeout(timer);
+    clearInterval(studyPollTimer);
     for (const watcher of watchers) watcher.close();
     process.exitCode = code ?? (signal ? 1 : 0);
   });

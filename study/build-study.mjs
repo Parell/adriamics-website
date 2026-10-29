@@ -14,7 +14,6 @@ const outputRoot = process.env.STUDY_OUTPUT_DIR
   ? path.resolve(process.env.STUDY_OUTPUT_DIR)
   : path.resolve(repoRoot, '..', 'public', 'study');
 const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
-const conceptDagSourcePath = path.join(notesRoot, 'source', 'paths.json');
 // Printed worksheets clone equations while hiding MathJax's page-level cache,
 // so every SVG needs to carry its own glyph definitions.
 const MATHJAX_SVG_FONT_CACHE = 'local';
@@ -484,93 +483,13 @@ function getSubjectOutputDir(notePath) {
   return path.join(outputRoot, getSubjectRoutePath(notePath));
 }
 
-function getPracticeOutputDir(notePath) {
+function getPracticeOutputDir() {
   return path.join(outputRoot, 'practice');
 }
 
 function getPracticeUrl(notePath) {
   const subjectPath = getSubjectRoutePath(notePath);
   return `/study/practice/${path.basename(subjectPath)}/`;
-}
-
-function getConceptNoteUrlFromId(nodeId) {
-  const normalizedId = String(nodeId ?? '').trim();
-  const separatorIndex = normalizedId.indexOf('.');
-
-  if (separatorIndex < 0) {
-    return '';
-  }
-
-  const domain = normalizedId.slice(0, separatorIndex).trim();
-  const slug = normalizedId.slice(separatorIndex + 1).trim();
-
-  if (!domain || !slug) {
-    return '';
-  }
-
-  if (domain === 'math' && slug === 'multivariable-calculus') {
-    return '/study/math/multivariable-calculus/multivariable-differential-calculus';
-  }
-
-  if (domain === 'math' && slug === 'multiple-integrals') {
-    return '/study/math/multivariable-calculus/multiple-integrals';
-  }
-
-  return `/study/${domain}/${slug}`;
-}
-
-function loadConceptDagNode(entry, nodeId, index) {
-  if (!entry || typeof entry !== 'object' || Array.isArray(entry)) {
-    throw new Error(`Concept DAG node "${nodeId || index + 1}" must be an object.`);
-  }
-
-  const title = String(entry.title ?? '').trim();
-  const requires = entry.requires && typeof entry.requires === 'object' && !Array.isArray(entry.requires)
-    ? entry.requires
-    : {};
-  const hard = Array.isArray(requires.hard) ? requires.hard.map((item) => String(item ?? '').trim()).filter(Boolean) : [];
-  const soft = Array.isArray(requires.soft) ? requires.soft.map((item) => String(item ?? '').trim()).filter(Boolean) : [];
-
-  return {
-    id: nodeId,
-    title,
-    requires: {
-      hard,
-      soft,
-    },
-  };
-}
-
-async function loadConceptDag() {
-  const conceptDagData = JSON.parse(await fs.readFile(conceptDagSourcePath, 'utf8'));
-
-  if (!conceptDagData || typeof conceptDagData !== 'object' || Array.isArray(conceptDagData)) {
-    throw new Error('Could not load concept DAG.');
-  }
-
-  const nodesObject = conceptDagData.nodes;
-
-  if (!nodesObject || typeof nodesObject !== 'object' || Array.isArray(nodesObject)) {
-    throw new Error('Concept DAG must include a nodes object.');
-  }
-
-  const nodes = Object.entries(nodesObject).map(([nodeId, entry], index) => loadConceptDagNode(entry, nodeId, index));
-  const nodeIds = new Set(nodes.map((node) => node.id));
-
-  for (const node of nodes) {
-    for (const dependencyId of [...node.requires.hard, ...node.requires.soft]) {
-      if (!nodeIds.has(dependencyId)) {
-        throw new Error(`Concept DAG node "${node.id}" references missing prerequisite "${dependencyId}".`);
-      }
-    }
-  }
-
-  return {
-    version: conceptDagData.version ?? 1,
-    id: String(conceptDagData.id ?? '').trim(),
-    description: String(conceptDagData.description ?? '').trim(),
-    nodes,
-  };
 }
 
 function parsePracticeProblemId(id, sourcePath, problemIndex) {
@@ -1440,31 +1359,11 @@ function renderSearchPanel() {
 }
 
 function renderSiteHeader() {
-  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="Adriamics home"><span>ADRI</span><em>AMICS</em></a><nav class="site-nav" aria-label="Main navigation"><button class="site-nav__contact" type="button" data-contact-open>Contact</button></nav></div></header><dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title"><div class="contact-dialog__inner"><div class="contact-dialog__heading"><div><h2 id="contact-title">Let's talk</h2><p><a href="mailto:contact@adriamics.com">contact@adriamics.com</a></p></div><button class="contact-dialog__close" type="button" data-contact-close>Close</button></div><form class="contact-form" data-contact-form><div class="contact-form__grid"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label></div><label>Subject<input name="subject" required /></label><label>Message<textarea name="message" required></textarea></label><button class="project-action contact-form__submit" type="submit">Copy email template <span aria-hidden="true">↗</span></button><p class="contact-form__status" data-contact-status aria-live="polite"></p></form></div></dialog>`;
+  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="adriamics home"><span>adri</span><em>amics</em></a><nav class="site-nav" aria-label="Main navigation"><button class="site-nav__contact" type="button" data-contact-open>Contact</button></nav></div></header><dialog class="contact-dialog" id="contact-dialog" aria-labelledby="contact-title"><div class="contact-dialog__inner"><div class="contact-dialog__heading"><div><h2 id="contact-title">Let's talk</h2><p><a href="mailto:contact@adriamics.com">contact@adriamics.com</a></p></div><button class="contact-dialog__close" type="button" data-contact-close>Close</button></div><form class="contact-form" data-contact-form><div class="contact-form__grid"><label>Name<input name="name" autocomplete="name" required /></label><label>Email<input name="email" type="email" autocomplete="email" required /></label></div><label>Subject<input name="subject" required /></label><label>Message<textarea name="message" required></textarea></label><button class="project-action contact-form__submit" type="submit">Copy email template <span aria-hidden="true">↗</span></button><p class="contact-form__status" data-contact-status aria-live="polite"></p></form></div></dialog>`;
 }
 
 function renderSiteFooter() {
-  return `<footer class="shell site-footer"><span>ADRIAMICS © 2026</span><nav class="site-footer__social" aria-label="Social and contact links"><a href="https://www.linkedin.com/company/adriamics/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/adriamics" target="_blank" rel="noreferrer">X</a><a href="mailto:contact@adriamics.com">contact@adriamics.com</a></nav><nav class="site-footer__legal" aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
-}
-
-function getGeneratedSourcePathFromOutputDir(outputDir) {
-  const relativeOutputDir = toPosix(path.relative(outputRoot, outputDir));
-  const parts = relativeOutputDir.split('/').filter(Boolean);
-
-  if (!parts.length) {
-    return null;
-  }
-
-  if (parts.at(-1) === 'practice') {
-    if (parts.length < 2) {
-      return null;
-    }
-
-    const noteParts = parts.slice(0, -1);
-    return path.join(notesRoot, 'source', ...noteParts, `${noteParts.at(-1)}-problems.md`);
-  }
-
-  return path.join(notesRoot, 'source', ...parts, `${parts.at(-1)}.md`);
+  return `<footer class="shell site-footer"><span>adriamics © 2026</span><nav class="site-footer__social" aria-label="Social and contact links"><a href="https://x.com/adriamics" target="_blank" rel="noreferrer">X</a><a href="mailto:contact@adriamics.com">contact@adriamics.com</a></nav><nav class="site-footer__legal" aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
 }
 
 function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
@@ -1510,14 +1409,14 @@ function stripSearchOnlySections(markdown) {
 }
 
 function renderFloatingActions(quickActionsHtml = '') {
-  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>Search (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ Back To Top</a></div>`;
+  return `<div class="notes-quick-actions notes-quick-actions--floating" role="group" aria-label="Quick actions">${quickActionsHtml}<button class="notes-action-chip notes-action-chip--search" type="button" data-search-trigger aria-controls="search-panel" aria-expanded="false" data-notes-nav-item>SEARCH (ctrl+S)</button><a class="notes-action-chip notes-action-chip--back" href="#top" data-notes-nav-item>↑ BACK TO TOP</a></div>`;
 }
 
 function renderHeader(structures, activeStructureId = null, includeIntro = false, activePagePath = null) {
   const intro = includeIntro
     ? `
         <p class="notes-intro">
-          Adriamics Study is an open collection of structured notes for math,
+          adriamics Study is an open collection of structured notes for math,
           physics, engineering, biology, chemistry, programming, and self-guided learning.
           Browse subjects, search notes, and suggest corrections through GitHub.
         </p>`
@@ -1754,7 +1653,7 @@ ${sectionTocHtml}
   `;
 
   return renderNotesPageDocument({
-    title: `${title} | Adriamics Study`,
+    title: `${title} | adriamics`,
     description,
     canonicalUrl,
     bodyClass: 'note-standalone-page',
@@ -1772,41 +1671,6 @@ ${sectionTocHtml}
   ${renderMathJaxConfig(assetVersions)}
   `,
   });
-}
-
-function getConceptDagDefaultSubjectId(nodes) {
-  const preferredIds = ['math.vectors', 'math.limits', 'math.algebra'];
-
-  for (const preferredId of preferredIds) {
-    if (nodes.some((node) => node.id === preferredId)) {
-      return preferredId;
-    }
-  }
-
-  return nodes[0]?.id ?? '';
-}
-
-function getConceptDagSubjectIdFromNotePath(notePath) {
-  const normalizedPath = toPosix(notePath).replace(/^notes\//, '');
-  const nestedSourceMatch = normalizedPath.match(/^source\/([^/]+)\/([^/]+)\/([^/]+)\/\3\.md$/);
-
-  if (nestedSourceMatch) {
-    const [, domain, slug] = nestedSourceMatch;
-
-    if (domain === 'math' && slug === 'multivariable-differential-calculus') {
-      return 'math.multivariable-calculus';
-    }
-
-    return `${domain}.${slug}`;
-  }
-
-  const sourceMatch = normalizedPath.match(/^source\/([^/]+)\/([^/]+)\/\2\.md$/);
-
-  if (sourceMatch) {
-    return `${sourceMatch[1]}.${sourceMatch[2]}`;
-  }
-
-  return '';
 }
 
 function collectConceptDagAncestors(selectedId, nodesById) {
@@ -1833,35 +1697,6 @@ function collectConceptDagAncestors(selectedId, nodesById) {
   return visited;
 }
 
-function buildConceptDagChildMap(ancestorIds, nodesById, nodeOrder) {
-  const childMap = new Map();
-
-  ancestorIds.forEach((nodeId) => childMap.set(nodeId, { hard: [], soft: [] }));
-
-  ancestorIds.forEach((nodeId) => {
-    const node = nodesById.get(nodeId);
-
-    if (!node) {
-      return;
-    }
-
-    for (const type of ['hard', 'soft']) {
-      node.requires[type].forEach((dependencyId) => {
-        if (ancestorIds.has(dependencyId)) {
-          childMap.get(dependencyId)[type].push(nodeId);
-        }
-      });
-    }
-  });
-
-  childMap.forEach((relations) => {
-    relations.hard.sort((left, right) => nodeOrder.get(left) - nodeOrder.get(right));
-    relations.soft.sort((left, right) => nodeOrder.get(left) - nodeOrder.get(right));
-  });
-
-  return childMap;
-}
-
 function collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder) {
   return [...ancestorIds]
     .filter((nodeId) => {
@@ -1871,87 +1706,9 @@ function collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder) {
     .sort((left, right) => nodeOrder.get(left) - nodeOrder.get(right));
 }
 
-function walkConceptDagTreeRows(nodeId, context, depth, pathStack, rows) {
-  if (pathStack.has(nodeId) || context.renderedIds.has(nodeId)) {
-    return;
-  }
-
-  const node = context.nodesById.get(nodeId);
-
-  if (!node) {
-    return;
-  }
-
-  const nextPathStack = new Set(pathStack);
-  nextPathStack.add(nodeId);
-  context.renderedIds.add(nodeId);
-  rows[depth] ??= [];
-  rows[depth].push(node);
-
-  const children = context.childMap.get(nodeId) ?? { hard: [], soft: [] };
-  [...children.hard, ...children.soft].forEach((childId) => walkConceptDagTreeRows(childId, context, depth + 1, nextPathStack, rows));
-}
-
-function renderConceptDagNodeLink(node, selectedId) {
-  const noteUrl = getConceptNoteUrlFromId(node.id);
-  const selectedClass = node.id === selectedId ? ' is-selected' : '';
-
-  return `<a class="concept-dag-tree__node${selectedClass}" href="${escapeHtml(noteUrl)}" data-concept-dag-node-link data-concept-dag-note-url="${escapeHtml(noteUrl)}" data-notes-nav-item>${escapeHtml(node.title)}</a>`;
-}
-
-function renderConceptDagConnector(depth, isTail) {
-  if (!depth) {
-    return '';
-  }
-
-  const cells = Array.from({ length: depth }, (_, index) => {
-    const type = isTail ? (index === 0 ? 'corner' : 'junction') : 'vertical';
-    return `<span class="concept-dag-tree__connector-cell concept-dag-tree__connector-cell--${type}" aria-hidden="true"></span>`;
-  }).join('');
-
-  return `<span class="concept-dag-tree__connector${isTail ? ' concept-dag-tree__connector--tail' : ''}" aria-hidden="true">${cells}</span>`;
-}
-
-function renderConceptDagRows(rows, selectedId) {
-  return rows.map((rowNodes, depth) => {
-    const isLastRow = depth === rows.length - 1 && depth > 0;
-    const nodesHtml = `<span class="concept-dag-tree__nodes">${rowNodes.map((node, index) => `${index ? '<span class="concept-dag-tree__separator" aria-hidden="true"> - </span>' : ''}${renderConceptDagNodeLink(node, selectedId)}`).join('')}</span>`;
-
-    return `<div class="concept-dag-tree__row${isLastRow ? ' concept-dag-tree__row--tail' : ''}" data-concept-dag-depth="${escapeHtml(String(depth))}">${renderConceptDagConnector(depth, isLastRow)}${nodesHtml}</div>`;
-  }).join('');
-}
-
-function buildConceptDagTreeHtml(dag, selectedSubjectId = '') {
-  const defaultSubjectId = selectedSubjectId || getConceptDagDefaultSubjectId(dag.nodes);
-  const nodesById = new Map(dag.nodes.map((node) => [node.id, node]));
-  const nodeOrder = new Map(dag.nodes.map((node, index) => [node.id, index]));
-  const ancestorIds = collectConceptDagAncestors(defaultSubjectId, nodesById);
-  const rootIds = collectConceptDagRootIds(ancestorIds, nodesById, nodeOrder);
-  const context = {
-    nodesById,
-    childMap: buildConceptDagChildMap(ancestorIds, nodesById, nodeOrder),
-    renderedIds: new Set(),
-  };
-  const rows = [];
-
-  (rootIds.length ? rootIds : [defaultSubjectId]).forEach((nodeId) => walkConceptDagTreeRows(nodeId, context, 0, new Set(), rows));
-  const treeHtml = rows.length
-    ? `<div class="concept-dag-tree__lines">${renderConceptDagRows(rows, defaultSubjectId)}</div>`
-    : '<p class="concept-dag-tree__empty">No prerequisite chain available for this subject.</p>';
-
-  return `<section class="panel concept-dag-tree-panel" aria-label="Selected prerequisite map">
-      <div class="concept-dag-tree-panel__head">
-        <div>
-          <p class="section-label">Prerequisites</p>
-        </div>
-      </div>
-      <div class="concept-dag-tree">${treeHtml}</div>
-    </section>`;
-}
-
-function buildLandingHtml(structures, assetVersions, dag) {
+function buildLandingHtml(structures, assetVersions) {
   return renderNotesPageDocument({
-    title: 'Adriamics Study',
+    title: 'adriamics Study',
     description: 'First-principles mathematics, physics, and engineering.',
     canonicalUrl: `${siteOrigin}/study`,
     bodyClass: 'notes-landing-page',
@@ -2349,7 +2106,7 @@ function renderPracticePageHtml({
     </section>`;
 
   return renderNotesPageDocument({
-    title: `${title} | Adriamics Study`,
+    title: `${title} | adriamics Study`,
     description,
     canonicalUrl,
     bodyClass: 'practice-page',
@@ -2530,7 +2287,7 @@ async function removeStaleGeneratedPages(notes, practiceByNotePath) {
   const expectedPages = new Set([
     ...notes.map((note) => `${getSubjectOutputDir(note.path)}.html`),
     ...[...practiceByNotePath.values()].map((practice) => path.join(
-      getPracticeOutputDir(practice.note.path),
+      getPracticeOutputDir(),
       `${path.basename(getSubjectRoutePath(practice.note.path))}.html`,
     )),
   ]);
@@ -2625,7 +2382,7 @@ function buildArithmeticCurriculumBody(note, noteDocument, notes, noteDocuments)
   return `${metadataBlock}${noteDocument.bodyForDisplay.trim()}\n\n---\n\n${nav}${practiceLinks}`;
 }
 
-async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, conceptDag, practice = null, practiceProblemIndex = new Map(), curriculumNotes = [], curriculumDocuments = new Map()) {
+async function buildNotePage(note, urlPath, structures, assetVersions, noteDocument, practice = null, practiceProblemIndex = new Map(), curriculumNotes = [], curriculumDocuments = new Map()) {
   const sourcePath = noteDocument.sourcePath;
   const relativeSourcePath = toPosix(path.relative(repoRoot, sourcePath));
   const title = note.title;
@@ -2707,7 +2464,7 @@ async function buildPracticePage(practice, structures, assetVersions, noteDocume
     practiceSourcePath: sourcePath,
     structures,
     structure: note.structure,
-    outputDir: getPracticeOutputDir(note.path),
+    outputDir: getPracticeOutputDir(),
     assetVersions,
     problems: practice.problems,
     referenceHtml: (() => {
@@ -2715,7 +2472,7 @@ async function buildPracticePage(practice, structures, assetVersions, noteDocume
       return reference ? { ...reference, html: renderBlocks(reference.markdown, noteDocument?.sourcePath ?? note.path) } : null;
     })(),
   });
-  const outputPath = path.join(getPracticeOutputDir(note.path), `${path.basename(getSubjectRoutePath(note.path))}.html`);
+  const outputPath = path.join(getPracticeOutputDir(), `${path.basename(getSubjectRoutePath(note.path))}.html`);
 
   await ensureDir(outputPath);
   await fs.writeFile(outputPath, makeInternalPageLinksRelative(pageHtml, outputPath), 'utf8');
@@ -2736,9 +2493,9 @@ async function buildPracticePage(practice, structures, assetVersions, noteDocume
   };
 }
 
-async function buildLandingPage(structures, assetVersions, paths) {
+async function buildLandingPage(structures, assetVersions) {
   const landingPath = path.join(outputRoot, 'index.html');
-  await fs.writeFile(landingPath, makeInternalPageLinksRelative(buildLandingHtml(structures, assetVersions, paths), landingPath), 'utf8');
+  await fs.writeFile(landingPath, makeInternalPageLinksRelative(buildLandingHtml(structures, assetVersions), landingPath), 'utf8');
 }
 
 async function buildSearchIndex(entries) {
@@ -2785,7 +2542,6 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 async function main() {
   await fs.mkdir(outputRoot, { recursive: true });
   const manifest = await loadManifest();
-  const conceptDag = await loadConceptDag();
   const notes = flattenNotes(manifest.structures);
   const assetVersions = await loadAssetVersions();
   await validateManifestCoverage(notes);
@@ -2793,10 +2549,9 @@ async function main() {
     notes,
     manifest.structures,
     assetVersions,
-    conceptDag,
   );
   await removeStaleGeneratedPages(notes, practiceByNotePath);
-  await buildLandingPage(manifest.structures, assetVersions, conceptDag);
+  await buildLandingPage(manifest.structures, assetVersions);
   searchEntries.unshift({
     title: 'Study Library',
     subject: 'Study',
@@ -2821,7 +2576,7 @@ async function loadAssetVersions() {
   return { notesCss, notesJs, mathjax };
 }
 
-async function buildNotePages(notes, structures, assetVersions, conceptDag) {
+async function buildNotePages(notes, structures, assetVersions) {
   const urls = notes.map((note) => getNoteUrl(note.path));
   const [noteDocuments, practiceByNotePath] = await Promise.all([
     loadNoteDocuments(notes),
@@ -2862,7 +2617,6 @@ async function buildNotePages(notes, structures, assetVersions, conceptDag) {
       structures,
       assetVersions,
       noteDocument,
-      conceptDag,
       practice,
       practiceProblemIndex,
       notes,

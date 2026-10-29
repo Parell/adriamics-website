@@ -141,8 +141,8 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   background: var(--notes-button-bg, var(--control-bg));
   color: var(--notes-button-fg, var(--accent-strong));
   cursor: pointer;
-  font: inherit;
-  font-weight: 600;
+  font: var(--button-font);
+  letter-spacing: var(--button-letter-spacing);
   text-decoration: none;
   transition: var(--transition-ui);
 }
@@ -206,7 +206,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   color: var(--text);
   cursor: pointer;
   font: inherit;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: normal;
   line-height: 1.3;
   text-decoration: none;
   text-underline-offset: 0.22em;
@@ -244,52 +246,8 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   outline-offset: 2px;
 }
 
-.study-intro {
-  max-width: 980px;
-  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(2rem, 5vw, 4rem);
-}
-
-.study-intro > h1 {
-  max-width: 16ch;
-  margin: 0.75rem 0 2rem;
-  font-size: clamp(2.5rem, 7vw, 6rem);
-  font-weight: 450;
-  letter-spacing: -0.065em;
-  line-height: 1.02;
-}
-
-.study-intro .concept-dag-tree-panel {
-  margin: 0;
-  border-inline: 0;
-}
-
-.study-start-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-  margin-top: 1.25rem;
-  color: var(--accent-strong);
-  font: 600 0.75rem/1.5 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: 0.1em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.study-start-link:hover,
-.study-start-link:focus-visible {
-  text-decoration: underline;
-  text-underline-offset: 0.25em;
-}
-
 .landing-subjects {
   margin-bottom: clamp(1.25rem, 3vw, 2rem);
-}
-
-.landing-subjects__title {
-  margin: 0;
-  font-size: clamp(0.65rem, 3.7vw, 2rem);
-  line-height: 1.15;
-  white-space: nowrap;
 }
 
 .subjects-panel__groups {
@@ -328,8 +286,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   color: var(--accent-strong);
 }
 
-.section-label,
-.notes-header__eyebrow {
+.section-label {
   margin: 0 0 0.02rem;
   text-transform: uppercase;
   letter-spacing: 0.14em;
@@ -355,29 +312,6 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .notes-header__brand-link:hover,
 .notes-header__brand-link:focus-visible {
   text-decoration: underline;
-}
-
-.notes-project-links {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.45rem 1rem;
-  margin-top: 0.6rem;
-  font: 500 0.68rem/1.4 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.notes-project-links a {
-  color: var(--metadata);
-  text-decoration: none;
-}
-
-.notes-project-links a:hover,
-.notes-project-links a:focus-visible,
-.notes-project-links a[aria-current="page"] {
-  color: var(--accent-strong);
-  text-decoration: underline;
-  text-underline-offset: 0.2em;
 }
 
 .notes-header h1,
@@ -528,9 +462,6 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .search-result__title {
   display: block;
   margin: 0;
-}
-
-.search-result__title {
   margin-top: 0.18rem;
   font-weight: 700;
 }
@@ -577,149 +508,6 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .practice-layout {
   display: block;
 }
-
-.panel.concept-dag-tree-panel {
-  display: grid;
-  padding: 1rem;
-  border: 0;
-  background: transparent;
-  box-shadow: none;
-}
-
-.concept-dag-tree-panel + [data-notes-lesson-body] > :first-child {
-  margin-top: 1.2em;
-}
-
-.concept-dag-tree-panel__head {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-}
-
-.concept-dag-tree {
-  overflow-x: auto;
-}
-
-.concept-dag-tree__lines {
-  display: grid;
-  min-width: max-content;
-  --concept-dag-unit: 4rem;
-  font-size: 1.0rem;
-  line-height: 1.5rem;
-}
-
-.concept-dag-tree__row {
-  display: flex;
-  flex-wrap: nowrap;
-  align-items: center;
-  position: relative;
-  width: max-content;
-  white-space: nowrap;
-}
-
-.concept-dag-tree__connector {
-  display: flex;
-  flex: 0 0 auto;
-  height: 1.5rem;
-  color: var(--metadata);
-}
-
-.concept-dag-tree__connector-cell {
-  position: relative;
-  display: inline-block;
-  flex: 0 0 var(--concept-dag-unit);
-  width: var(--concept-dag-unit);
-  height: 1.5rem;
-}
-
-.concept-dag-tree__connector-cell--vertical::after,
-.concept-dag-tree__connector-cell--corner::after,
-.concept-dag-tree__connector-cell--junction::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0.5rem;
-  width: 1px;
-  height: 100%;
-  background: currentColor;
-}
-
-.concept-dag-tree__connector-cell--corner::before,
-.concept-dag-tree__connector-cell--junction::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0.5rem;
-  height: 1px;
-  background: currentColor;
-}
-
-.concept-dag-tree__connector-cell--corner::before {
-  /* Connect this cell's center to the next cell's center. */
-  width: calc(var(--concept-dag-unit) + 0.5rem);
-}
-
-.concept-dag-tree__connector-cell--junction::before {
-  width: calc(var(--concept-dag-unit) + 0.5rem);
-}
-
-.concept-dag-tree__connector--tail .concept-dag-tree__connector-cell--corner::after,
-.concept-dag-tree__connector--tail .concept-dag-tree__connector-cell--junction::after {
-  /* Overlap the midpoint stroke by one pixel so the T-shaped joins cannot rasterize
-     as a one-pixel gap at fractional CSS coordinates. */
-  height: calc(50% + 1px);
-}
-
-.concept-dag-tree__connector--tail .concept-dag-tree__connector-cell--junction:last-child::before {
-  width: calc(var(--concept-dag-unit) + 0.5rem);
-}
-
-.concept-dag-tree__nodes {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  align-items: center;
-  background: var(--panel-strong);
-}
-
-.concept-dag-tree__node {
-  display: inline-block;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  color: var(--metadata);
-  font: inherit;
-  line-height: inherit;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.concept-dag-tree__separator {
-  color: var(--metadata);
-  white-space: pre;
-}
-
-.concept-dag-tree__node:hover,
-.concept-dag-tree__node:focus-visible {
-  color: var(--accent-strong);
-  text-decoration: underline;
-}
-
-.concept-dag-tree__node:focus-visible {
-  outline: 1px solid var(--accent-strong);
-  outline-offset: 1px;
-}
-
-.concept-dag-tree__node.is-selected {
-  color: var(--metadata);
-  font-weight: 700;
-}
-
-.concept-dag-tree__empty {
-  margin: 0;
-  color: var(--metadata);
-}
-
 
 .notes-structures {
   display: flex;
@@ -1111,6 +899,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   background: none;
   color: var(--metadata);
   font: inherit;
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: normal;
   cursor: pointer;
   text-decoration: underline;
   text-decoration-color: color-mix(in srgb, var(--muted) 55%, transparent);
@@ -1174,9 +965,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   border-radius: 0;
   background: var(--control-bg);
   color: var(--muted);
-  font: inherit;
+  font-family: var(--sans);
   font-size: 0.82rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.08em;
   line-height: 1;
   text-transform: uppercase;
@@ -1369,8 +1160,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   border: 1px solid var(--border);
   background: rgba(219, 214, 208, 0.03);
   color: var(--muted);
+  font-family: var(--sans);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 500;
   letter-spacing: 0.12em;
   line-height: 1;
   text-transform: uppercase;
@@ -1456,7 +1248,7 @@ html.notes-lesson-boot [data-notes-lesson-body] {
 .worksheet-controls label { display: flex; flex-direction: column; gap: 0.35rem; color: var(--muted); font-size: 0.8rem; font-weight: 700; }
 .worksheet-controls input[type='text'], .worksheet-controls select { width: 100%; padding: 0.55rem; border: 1px solid var(--border); background: var(--control-bg); color: var(--text); font: inherit; }
 .worksheet-controls__actions, .worksheet-selection__actions { display: flex; align-items: center; gap: 0.65rem; flex-wrap: wrap; }
-.worksheet-action-link, .practice-problem__worksheet-toggle { appearance: none; border: 0; padding: 0; background: transparent; color: var(--accent-strong); cursor: pointer; font: inherit; text-decoration: underline; text-underline-offset: 0.15em; }
+.worksheet-action-link, .practice-problem__worksheet-toggle { appearance: none; border: 0; padding: 0; background: transparent; color: var(--accent-strong); cursor: pointer; font: inherit; font-family: var(--sans); font-weight: 500; letter-spacing: normal; text-decoration: underline; text-underline-offset: 0.15em; }
 .worksheet-action-link:hover, .worksheet-action-link:focus-visible, .practice-problem__worksheet-toggle:hover, .practice-problem__worksheet-toggle:focus-visible { color: var(--accent); }
 .worksheet-action-link:focus-visible, .practice-problem__worksheet-toggle:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
 .worksheet-action-link:disabled { color: var(--muted); cursor: not-allowed; text-decoration: none; }
@@ -1584,7 +1376,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   color: var(--text);
   padding: 0;
   font: inherit;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: normal;
   text-align: left;
   cursor: pointer;
   text-decoration: none;
@@ -1629,7 +1423,9 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   background: transparent;
   padding: 0;
   font: inherit;
-  font-weight: 600;
+  font-family: var(--sans);
+  font-weight: 500;
+  letter-spacing: normal;
   text-align: left;
   cursor: pointer;
   text-decoration: none;
@@ -1955,8 +1751,7 @@ mjx-container * {
   .notes-sidebar,
   .notes-footer,
   .search-panel,
-  .viewer-head__actions,
-  .concept-dag-tree-panel {
+  .viewer-head__actions {
     display: none !important;
   }
 
@@ -2053,10 +1848,6 @@ mjx-container * {
 
   .notes-layout__balance {
     display: none;
-  }
-
-  .concept-dag-tree-panel__head {
-    flex-direction: column;
   }
 
   .notes-footer {

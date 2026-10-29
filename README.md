@@ -4,7 +4,10 @@ Static website for [adriamics.com](https://adriamics.com/). The repository is th
 
 ## Local build
 
+Use Node.js 22 or newer (`.nvmrc` pins 22; CI also uses Node 22). With nvm, run `nvm use` in the repository before installing or running npm commands; `.nvmrc` selects the version but does not activate it automatically.
+
 ```bash
+nvm use
 npm ci
 npm run build
 ```

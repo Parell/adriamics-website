@@ -26,7 +26,7 @@ const TEXT_STREAM_LINES = [
   "keep the feedback loop short",
 ];
 
-const $ = (selector, root = document) => root.querySelector(selector);
+const queryOne = (selector, root = document) => root.querySelector(selector);
 
 function escapeHtml(value) {
   return String(value)
@@ -58,7 +58,7 @@ function renderTextStreamRow(rowIndex, linesPerRow) {
 }
 
 function renderTextStream() {
-  const container = $("#text-stream");
+  const container = queryOne("#text-stream");
   if (!container) {
     return;
   }
@@ -70,7 +70,7 @@ function renderTextStream() {
 }
 
 function initTextStreamFade() {
-  const stream = $("#text-stream");
+  const stream = queryOne("#text-stream");
   if (!stream) {
     return;
   }
@@ -96,13 +96,13 @@ function initTextStreamFade() {
 }
 
 function initFrameGallery() {
-  const gallery = $("#frame-gallery");
+  const gallery = queryOne("#frame-gallery");
   if (!gallery) {
     return;
   }
 
-  const image = $("#frame-image", gallery);
-  const capabilityButtons = gallery.querySelectorAll("[data-frame-index]");
+  const image = queryOne("#frame-image", gallery);
+  const frameButtons = gallery.querySelectorAll("[data-frame-index]");
   if (!image) {
     return;
   }
@@ -131,7 +131,7 @@ function initFrameGallery() {
     activeSlide = (index + slides.length) % slides.length;
     image.src = slides[activeSlide].src;
     image.alt = slides[activeSlide].alt;
-    capabilityButtons.forEach((button) => {
+    frameButtons.forEach((button) => {
       button.setAttribute("aria-pressed", String(Number(button.dataset.frameIndex) === activeSlide));
     });
   };
@@ -147,14 +147,14 @@ function initFrameGallery() {
 }
 
 function initContactPanel() {
-  const dialog = $("#contact-dialog");
+  const dialog = queryOne("#contact-dialog");
   if (!dialog) return;
 
   document.addEventListener("click", (event) => {
     const openButton = event.target.closest("[data-contact-open]");
     if (openButton) {
       dialog.showModal();
-      $("input[name='name']", dialog)?.focus();
+      queryOne("input[name='name']", dialog)?.focus();
       return;
     }
     if (event.target.closest("[data-contact-close]")) dialog.close();
@@ -164,7 +164,7 @@ function initContactPanel() {
     if (event.target === dialog) dialog.close();
   });
 
-  $("[data-contact-form]", dialog)?.addEventListener("submit", async (event) => {
+  queryOne("[data-contact-form]", dialog)?.addEventListener("submit", async (event) => {
     event.preventDefault();
     const form = new FormData(event.currentTarget);
     const subject = String(form.get("subject")).trim();
@@ -172,14 +172,14 @@ function initContactPanel() {
       "To: contact@adriamics.com",
       `Subject: ${subject}`,
       "",
-      "Hello Adriamics,",
+      "Hello adriamics,",
       "",
       String(form.get("message")).trim(),
       "",
       `Name: ${String(form.get("name")).trim()}`,
       `Reply email: ${String(form.get("email")).trim()}`,
     ].join("\n");
-    const status = $("[data-contact-status]", dialog);
+    const status = queryOne("[data-contact-status]", dialog);
     try {
       await copyTextToClipboard(template);
       if (status) status.textContent = "Email template copied. Paste it into an email to contact@adriamics.com.";
@@ -193,28 +193,32 @@ function initFeatureCarousel(carousel) {
   const slides = [...carousel.querySelectorAll("[data-feature-slide]")];
   if (!slides.length) return;
 
-  const dots = [...carousel.querySelectorAll("[data-feature-dot]")];
   const status = carousel.querySelector("[data-feature-status]");
   let activeIndex = 0;
+  let autoplayTimer;
 
   const showSlide = (nextIndex) => {
     activeIndex = (nextIndex + slides.length) % slides.length;
     slides.forEach((slide, index) => {
       slide.hidden = index !== activeIndex;
-      slide.classList.toggle("is-active", index === activeIndex);
+      slide.classList.remove("is-active");
     });
-    dots.forEach((dot, index) => {
-      const isActive = index === activeIndex;
-      dot.classList.toggle("is-active", isActive);
-      if (isActive) dot.setAttribute("aria-current", "true");
-      else dot.removeAttribute("aria-current");
+    const incomingSlide = slides[activeIndex];
+    requestAnimationFrame(() => {
+      if (!incomingSlide.hidden && slides[activeIndex] === incomingSlide) incomingSlide.classList.add("is-active");
     });
     if (status) status.textContent = slides[activeIndex].getAttribute("aria-label") || `Slide ${activeIndex + 1} of ${slides.length}`;
   };
 
   carousel.querySelector("[data-feature-prev]")?.addEventListener("click", () => showSlide(activeIndex - 1));
   carousel.querySelector("[data-feature-next]")?.addEventListener("click", () => showSlide(activeIndex + 1));
-  dots.forEach((dot) => dot.addEventListener("click", () => showSlide(Number(dot.dataset.featureDot))));
+  const startAutoplay = () => {
+    window.clearInterval(autoplayTimer);
+    autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1), 5000);
+  };
+  carousel.addEventListener("pointerenter", () => window.clearInterval(autoplayTimer));
+  carousel.addEventListener("pointerleave", startAutoplay);
+  startAutoplay();
   carousel.addEventListener("keydown", (event) => {
     if (event.key === "ArrowLeft") {
       event.preventDefault();

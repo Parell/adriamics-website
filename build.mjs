@@ -77,21 +77,18 @@ countTopics(studyManifest.structures);
 // have passed validation. A malformed registry or Study manifest must not
 // leave the deployment directory blank.
 if (!preserveStudyOutput) {
-  try {
-    rmSync(output, { recursive: true, force: true });
-  } catch (error) {
-    // Windows can keep the output directory itself open while still allowing
-    // its generated contents to be removed (for example, while Wrangler runs).
-    if (error.code !== "EPERM" && error.code !== "EBUSY") throw error;
-    for (const entry of readdirSync(output)) {
-      if (entry === "study") continue;
-      rmSync(resolve(output, entry), { recursive: true, force: true });
-    }
+  // Keep the last generated Study pages available while the Study builder
+  // writes their replacements. This avoids a temporary /study/ 404 during
+  // full builds in the local Wrangler server.
+  mkdirSync(output, { recursive: true });
+  for (const entry of readdirSync(output)) {
+    if (entry === "study") continue;
+    rmSync(resolve(output, entry), { recursive: true, force: true });
   }
 }
 
 function renderProjectNavigation(currentPath) {
-  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="Adriamics home"><span>ADRI</span><em>AMICS</em></a><nav class="site-nav" aria-label="Main navigation"><button class="site-nav__contact" type="button" data-contact-open>Contact</button></nav></div></header>${renderContactPanel()}`;
+  return `<header class="site-header"><div class="shell site-header__inner"><a class="site-brand" href="/" aria-label="adriamics home"><span>adri</span><em>amics</em></a><nav class="site-nav" aria-label="Main navigation"><button class="site-nav__contact" type="button" data-contact-open>Contact</button></nav></div></header>${renderContactPanel()}`;
 }
 
 function renderContactPanel() {
@@ -99,11 +96,11 @@ function renderContactPanel() {
 }
 
 function renderFooter() {
-  return `<footer class="shell site-footer"><span>ADRIAMICS © 2026</span><nav class="site-footer__social" aria-label="Social and contact links"><a href="https://www.linkedin.com/company/adriamics/" target="_blank" rel="noreferrer">LinkedIn</a><a href="https://x.com/adriamics" target="_blank" rel="noreferrer">X</a><a href="mailto:contact@adriamics.com" data-copy-email="contact@adriamics.com">contact@adriamics.com</a></nav><nav class="site-footer__legal" aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
+  return `<footer class="shell site-footer"><span>adriamics © 2026</span><nav class="site-footer__social" aria-label="Social and contact links"><a href="https://x.com/adriamics" target="_blank" rel="noreferrer">X</a><a href="mailto:contact@adriamics.com" data-copy-email="contact@adriamics.com">contact@adriamics.com</a></nav><nav class="site-footer__legal" aria-label="Legal"><a href="/privacy-policy">Privacy</a><a href="/terms-of-service">Terms</a></nav></footer>`;
 }
 
 function renderGenericProjectPage(project) {
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="color-scheme" content="dark"/><meta name="description" content="${escapeHtml(project.headline)}"/><title>${escapeHtml(project.name)} — Adriamics</title><link rel="stylesheet" href="/website.css"/><script defer src="/website.js"></script></head><body class="project-page"><!-- shared-site-header --><main id="content" class="shell project-detail"><p class="eyebrow">${escapeHtml(project.verb)}</p><h1>${escapeHtml(project.name)}</h1><p class="project-detail__lede">${escapeHtml(project.headline)}</p><dl class="project-status"><div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div></dl></main><!-- shared-site-footer --></body></html>`;
+  return `<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><meta name="color-scheme" content="dark"/><meta name="description" content="${escapeHtml(project.headline)}"/><title>${escapeHtml(project.name)} — adriamics</title><link rel="stylesheet" href="/website.css"/><script defer src="/website.js"></script></head><body class="project-page"><!-- shared-site-header --><main id="content" class="shell project-detail"><p class="eyebrow">${escapeHtml(project.verb)}</p><h1>${escapeHtml(project.name)}</h1><p class="project-detail__lede">${escapeHtml(project.headline)}</p><dl class="project-status"><div><dt>Status</dt><dd>${escapeHtml(project.status)}</dd></div></dl></main><!-- shared-site-footer --></body></html>`;
 }
 
 function applyProjectFacts(html) {

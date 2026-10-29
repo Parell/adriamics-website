@@ -1370,11 +1370,11 @@ function renderQuickActions({ practiceUrl = null, backToNoteUrl = null } = {}) {
   const actions = [];
 
   if (practiceUrl) {
-    actions.push(`<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>Practice →</a>`);
+    actions.push(`<a class="notes-action-chip notes-action-chip--practice" href="${escapeHtml(practiceUrl)}" data-notes-nav-item>PRACTICE →</a>`);
   }
 
   if (backToNoteUrl) {
-    actions.push(`<a class="notes-action-chip notes-action-chip--back" href="${escapeHtml(backToNoteUrl)}" data-notes-nav-item>← Back To Notes</a>`);
+    actions.push(`<a class="notes-action-chip notes-action-chip--back" href="${escapeHtml(backToNoteUrl)}" data-notes-nav-item>← BACK TO NOTES</a>`);
   }
 
   return actions.join('');
@@ -1638,7 +1638,7 @@ ${sidebarColumnHtml}
           ${contributorsHtml}
       </div>
       <div class="viewer-head__actions">
-          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>Suggest edit</a>
+          <a class="suggest-edit-link notes-action-chip" href="${escapeHtml(editUrl)}" target="_blank" rel="noreferrer" data-notes-nav-item>SUGGEST EDIT</a>
         </div>
       </div>
       <article class="markdown-body" id="note-content">

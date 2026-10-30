@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 const root = fileURLToPath(new URL(".", import.meta.url));
 const websiteRoot = resolve(root, "website");
 const watchedDirectories = ["website", "assets", "study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
-const watchedFiles = ["build.mjs", "website/build.mjs", "study/build-study.mjs", "study/study.css", "study/study.js"];
+const watchedFiles = ["build.ts", "study/build-study.ts", "study/source/manifest.ts", "website/website.ts", "website/hero-sphere.ts", "study/study.css", "study/study.ts", "study/webmeji/config.ts", "study/webmeji/webmeji.ts"];
 const staticWebsiteFiles = new Set(["robots.txt", "_headers", "LICENSE"]);
 const polledStudyDirectories = ["study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
 const studyPollIntervalMs = 750;
@@ -18,20 +18,20 @@ let building = false;
 let rebuildQueued = false;
 let fullBuildQueued = false;
 let websiteBuildQueued = false;
-const pendingWebsiteCopies = new Set();
+const pendingWebsiteCopies = new Set<string>();
 const watchers = [];
 
 function run(scriptPath, args = []) {
-  return new Promise((resolveRun, rejectRun) => {
-    const child = spawn(process.execPath, [scriptPath, ...args], { cwd: root, stdio: "inherit" });
+  return new Promise<void>((resolveRun, rejectRun) => {
+    const child = spawn(process.execPath, [resolve(root, "node_modules", "tsx", "dist", "cli.mjs"), scriptPath, ...args], { cwd: root, stdio: "inherit" });
     child.once("error", rejectRun);
     child.once("exit", (code) => code === 0 ? resolveRun() : rejectRun(new Error(`Command exited with code ${code}.`)));
   });
 }
 
 async function runBuild(full = false) {
-  await run(resolve(root, "build.mjs"), full ? [] : ["--preserve-study"]);
-  if (full) await run(resolve(root, "study", "build-study.mjs"));
+  await run(resolve(root, "build.ts"), full ? [] : ["--preserve-study"]);
+  if (full) await run(resolve(root, "study", "build-study.ts"));
 }
 
 function queueBuild(kind = "drain") {

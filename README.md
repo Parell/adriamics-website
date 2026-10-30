@@ -14,7 +14,7 @@ npm run build
 
 The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), copies the shared favicon and homepage carousel images from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
 
-The homepage hero sphere uses Three.js (`three` in `package.json`), bundled for browsers by esbuild (`esbuild` in `devDependencies`). The editable entry point is `website/hero-sphere.js`; `build.mjs` bundles it into generated `public/hero-sphere.js` and includes the Three.js license notice under `public/vendor/`.
+The editable JavaScript implementation is TypeScript. `tsx` runs the Node build and development scripts, and TypeScript (`typescript` in `devDependencies`) checks the build tooling and study manifest with `npm run typecheck`. esbuild (`esbuild` in `devDependencies`) bundles browser TypeScript into the JavaScript files served from `public/`. The homepage hero sphere uses Three.js (`three` in `package.json`); `website/hero-sphere.ts` bundles to generated `public/hero-sphere.js`, with the Three.js license notice under `public/vendor/`. Vendored MathJax files and its build helpers remain JavaScript.
 
 When the build succeeds, the last line reports the full path to the generated `public/` directory. You can run `npm.cmd run build` by itself whenever you only need to refresh those files.
 
@@ -68,5 +68,5 @@ OpenTofu is also supported by the configuration (`tofu init`, `tofu plan`, `tofu
 - `website/` contains the main website served at `/`; `website/public.json` is the deliberately curated public project registry used to render its navigation, project sequence, and status strip.
 - `assets/` contains source assets; the build copies the shared favicon and the three homepage feature-carousel images to `public/assets/`.
 - `study/` contains study source content and its page generator, served at `/study/`.
-- `build.mjs` combines both into generated `public/` output.
+- `build.ts` combines both into generated `public/` output.
 - `wrangler.jsonc` configures the Cloudflare Workers Static Assets deployment.

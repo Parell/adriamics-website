@@ -2,14 +2,15 @@ import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, write
 import { dirname, resolve } from "node:path";
 import { createHash } from "node:crypto";
 import { buildSync } from "esbuild";
-import vm from "node:vm";
+import { fileURLToPath } from "node:url";
+import { STUDY_MANIFEST } from "./study/source/manifest.js";
 
-const root = import.meta.dirname;
+const root = dirname(fileURLToPath(import.meta.url));
 const website = resolve(root, "website");
 const output = resolve(root, "public");
 const websiteCssVersion = createHash("sha256").update(readFileSync(resolve(website, "website.css"))).digest("hex").slice(0, 12);
-const heroSphereBundle = buildSync({
-  entryPoints: [resolve(website, "hero-sphere.js")],
+const bundleBrowserScript = (entryPoint) => buildSync({
+  entryPoints: [entryPoint],
   bundle: true,
   format: "iife",
   platform: "browser",
@@ -17,8 +18,9 @@ const heroSphereBundle = buildSync({
   minify: true,
   legalComments: "eof",
   write: false,
-});
-const heroSphereVersion = createHash("sha256").update(heroSphereBundle.outputFiles[0].contents).digest("hex").slice(0, 12);
+}).outputFiles[0].text;
+const heroSphereBundle = bundleBrowserScript(resolve(website, "hero-sphere.ts"));
+const heroSphereVersion = createHash("sha256").update(heroSphereBundle).digest("hex").slice(0, 12);
 const preserveStudyOutput = process.argv.includes("--preserve-study");
 
 function escapeHtml(value) {
@@ -47,9 +49,7 @@ for (const project of projects) {
   }
 }
 
-const manifestSandbox = { window: {} };
-vm.runInNewContext(readFileSync(resolve(root, "study/source/manifest.js"), "utf8"), manifestSandbox);
-const studyManifest = manifestSandbox.window.ADRIAMICS_STUDY_MANIFEST;
+const studyManifest = STUDY_MANIFEST;
 if (!Array.isArray(studyManifest?.structures) || studyManifest.structures.length === 0) {
   throw new Error("Study manifest must define at least one structure.");
 }
@@ -115,13 +115,14 @@ function applyProjectFacts(html) {
 
 mkdirSync(output, { recursive: true });
 
-const files = ["website.css", "website.js", "robots.txt", "_headers"];
+const files = ["website.css", "robots.txt", "_headers"];
 
 for (const file of files) {
   const source = resolve(website, file);
   if (existsSync(source)) cpSync(source, resolve(output, file));
 }
-writeFileSync(resolve(output, "hero-sphere.js"), heroSphereBundle.outputFiles[0].text);
+writeFileSync(resolve(output, "website.js"), bundleBrowserScript(resolve(website, "website.ts")));
+writeFileSync(resolve(output, "hero-sphere.js"), heroSphereBundle);
 mkdirSync(resolve(output, "vendor"), { recursive: true });
 cpSync(resolve(root, "node_modules", "three", "LICENSE"), resolve(output, "vendor", "THREE-LICENSE.txt"));
 for (const [file, route] of [["index.html", "/"], ["privacy-policy.html", "/privacy-policy"], ["terms-of-service.html", "/terms-of-service"]]) {
@@ -165,14 +166,23 @@ cpSync(resolve(root, "LICENSE"), resolve(output, "LICENSE"));
 
 const studyOutput = resolve(output, "study");
 mkdirSync(studyOutput, { recursive: true });
-for (const file of ["study.css", "study.js"]) {
+for (const file of ["study.css"]) {
   cpSync(resolve(root, "study", file), resolve(studyOutput, file));
 }
-
 for (const directory of ["assets", "webmeji"]) {
   const source = resolve(root, "study", directory);
-  if (existsSync(source)) cpSync(source, resolve(studyOutput, directory), { recursive: true });
+  const destination = resolve(studyOutput, directory);
+  if (existsSync(source)) {
+    if (directory === "webmeji") rmSync(destination, { recursive: true, force: true });
+    cpSync(source, destination, {
+      recursive: true,
+      filter: (sourcePath) => !sourcePath.endsWith(".ts"),
+    });
+  }
 }
+writeFileSync(resolve(studyOutput, "study.js"), bundleBrowserScript(resolve(root, "study", "study.ts")));
+writeFileSync(resolve(studyOutput, "webmeji", "config.js"), bundleBrowserScript(resolve(root, "study", "webmeji", "config.ts")));
+writeFileSync(resolve(studyOutput, "webmeji", "webmeji.js"), bundleBrowserScript(resolve(root, "study", "webmeji", "webmeji.ts")));
 
 const mathjax = resolve(root, "study", "vendor", "mathjax");
 if (existsSync(mathjax)) cpSync(mathjax, resolve(studyOutput, "vendor", "mathjax"), { recursive: true });

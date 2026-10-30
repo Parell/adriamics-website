@@ -5,7 +5,7 @@ Adriamics Study is a structured library of mathematics, physics, and engineering
 ## Source and generated pages
 
 - `source/` contains lesson and problem Markdown, the topic manifest, and prerequisite graph.
-- `study.css` and `study.js` contain the shared study interface.
+- `study.css` and `study.ts` contain the shared study interface; the build bundles the TypeScript as `study.js` for the browser.
 - `webmeji/` contains the locally hosted optional companion.
 - `vendor/mathjax/` contains the local MathJax runtime used to typeset equations.
 - `../public/study/` is generated deployment output. Edit source files instead of generated HTML.

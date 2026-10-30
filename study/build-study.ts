@@ -3,8 +3,8 @@ import { execFile } from 'node:child_process';
 import crypto from 'node:crypto';
 import path from 'node:path';
 import { promisify } from 'node:util';
-import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { STUDY_MANIFEST } from './source/manifest.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,7 +13,6 @@ const notesRoot = __dirname;
 const outputRoot = process.env.STUDY_OUTPUT_DIR
   ? path.resolve(process.env.STUDY_OUTPUT_DIR)
   : path.resolve(repoRoot, '..', 'public', 'study');
-const manifestPath = path.join(notesRoot, 'source', 'manifest.js');
 // Printed worksheets clone equations while hiding MathJax's page-level cache,
 // so every SVG needs to carry its own glyph definitions.
 const MATHJAX_SVG_FONT_CACHE = 'local';
@@ -2125,11 +2124,7 @@ function renderPracticePageHtml({
 }
 
 async function loadManifest() {
-  const manifestText = await fs.readFile(manifestPath, 'utf8');
-  const sandbox = { window: {} };
-  vm.createContext(sandbox);
-  vm.runInContext(manifestText, sandbox, { filename: manifestPath });
-  const manifest = sandbox.window.ADRIAMICS_STUDY_MANIFEST;
+  const manifest = STUDY_MANIFEST;
 
   if (!manifest || !Array.isArray(manifest.structures)) {
     throw new Error('Could not load notes manifest.');
@@ -2569,7 +2564,7 @@ async function main() {
 async function loadAssetVersions() {
   const [notesCss, notesJs, mathjax] = await Promise.all([
     getAssetVersion(path.join(notesRoot, 'study.css')),
-    getAssetVersion(path.join(notesRoot, 'study.js')),
+    getAssetVersion(path.join(notesRoot, 'study.ts')),
     getAssetVersion(path.join(notesRoot, MATHJAX_ASSET_PATH)),
   ]);
 

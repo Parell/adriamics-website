@@ -6,15 +6,19 @@
     "node": ">=22"
   },
   "scripts": {
-    "build": "node build.mjs && node study/build-study.mjs",
-    "build:website": "node build.mjs --preserve-study",
-    "build:study": "node study/build-study.mjs",
-    "dev": "node dev.mjs",
+    "build": "tsx build.ts && tsx study/build-study.ts",
+    "build:website": "tsx build.ts --preserve-study",
+    "build:study": "tsx study/build-study.ts",
+    "dev": "tsx dev.ts",
+    "typecheck": "tsc --noEmit",
     "deploy": "npm run build && wrangler deploy",
     "check": "npm run build && wrangler deploy --dry-run"
   },
   "devDependencies": {
+    "@types/node": "^22.20.5",
     "esbuild": "^0.28.1",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
     "wrangler": "^4.151.0"
   },
   "dependencies": {

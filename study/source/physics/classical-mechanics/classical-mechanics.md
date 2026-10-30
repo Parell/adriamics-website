@@ -185,7 +185,7 @@ $$
 Net work equals change in kinetic energy:
 
 $$
-W_{\text{net}} = \Delta T
+W_{\mathrm{net}} = \Delta T
 $$
 
 ## Conservative forces and potential energy
@@ -284,7 +284,7 @@ This is especially useful for short-duration forces like impacts.
 If the net external impulse is negligible, total momentum is conserved:
 
 $$
-\sum \mathbf{p}_{\text{before}} = \sum \mathbf{p}_{\text{after}}
+\sum \mathbf{p}_{\mathrm{before}} = \sum \mathbf{p}_{\mathrm{after}}
 $$
 
 This is often the best approach for collisions and explosions.
@@ -304,7 +304,7 @@ Momentum and kinetic energy are both conserved.
 In one dimension:
 
 $$
-e = \frac{\text{relative speed of separation}}{\text{relative speed of approach}}
+e = \frac{v_{\mathrm{separation}}}{v_{\mathrm{approach}}}
 $$
 
 with $0 \le e \le 1$.
@@ -450,7 +450,7 @@ Rolling problems often combine translation, rotation, and static friction.
 Torque is the rotational effect of force:
 
 $$
-\boldsymbol{\tau} = \mathbf{r}\times \mathbf{F}
+\vec{\tau} = \mathbf{r}\times \mathbf{F}
 $$
 
 Magnitude:
@@ -486,7 +486,7 @@ $$
 ## Angular impulse-momentum
 
 $$
-\int_{t_1}^{t_2}\boldsymbol{\tau}\,dt = \Delta \mathbf{L}
+\int_{t_1}^{t_2}\vec{\tau}\,dt = \Delta \mathbf{L}
 $$
 
 ## Conservation of angular momentum

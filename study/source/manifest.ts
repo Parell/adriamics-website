@@ -1,4 +1,13 @@
-window.ADRIAMICS_STUDY_MANIFEST = {
+export type StudyNode = {
+  id?: string;
+  title: string;
+  path?: string;
+  children?: StudyNode[];
+};
+
+export type StudyManifest = { structures: StudyNode[] };
+
+export const STUDY_MANIFEST: StudyManifest = {
   structures: [
     {
       id: 'math',

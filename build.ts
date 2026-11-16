@@ -19,8 +19,6 @@ const bundleBrowserScript = (entryPoint) => buildSync({
   legalComments: "eof",
   write: false,
 }).outputFiles[0].text;
-const heroSphereBundle = bundleBrowserScript(resolve(website, "hero-sphere.ts"));
-const heroSphereVersion = createHash("sha256").update(heroSphereBundle).digest("hex").slice(0, 12);
 const preserveStudyOutput = process.argv.includes("--preserve-study");
 
 function escapeHtml(value) {
@@ -122,9 +120,6 @@ for (const file of files) {
   if (existsSync(source)) cpSync(source, resolve(output, file));
 }
 writeFileSync(resolve(output, "website.js"), bundleBrowserScript(resolve(website, "website.ts")));
-writeFileSync(resolve(output, "hero-sphere.js"), heroSphereBundle);
-mkdirSync(resolve(output, "vendor"), { recursive: true });
-cpSync(resolve(root, "node_modules", "three", "LICENSE"), resolve(output, "vendor", "THREE-LICENSE.txt"));
 for (const [file, route] of [["index.html", "/"], ["privacy-policy.html", "/privacy-policy"], ["terms-of-service.html", "/terms-of-service"]]) {
   let html = readFileSync(resolve(website, file), "utf8");
   html = applyProjectFacts(html);
@@ -135,7 +130,6 @@ for (const [file, route] of [["index.html", "/"], ["privacy-policy.html", "/priv
   }
   html = html.replace(/(\/website\.css\?v=)[a-zA-Z0-9._-]+/g, `$1${websiteCssVersion}`);
   html = html.replace(/href="\/website\.css(?:\?v=[^"]*)?"/g, `href="/website.css?v=${websiteCssVersion}"`);
-  html = html.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
   writeFileSync(resolve(output, file), html);
 }
 for (const [file, route] of [["frame/index.html", "/frame/"], ["frame/getting-started/index.html", "/frame/getting-started/"]]) {
@@ -146,7 +140,6 @@ for (const [file, route] of [["frame/index.html", "/frame/"], ["frame/getting-st
     html = html.replace(marker, markup);
   }
   html = html.replace(/(\/website\.css)(?:\?v=[a-zA-Z0-9._-]+)?/g, `$1?v=${websiteCssVersion}`);
-  html = html.replace(/src="\/hero-sphere\.js(?:\?v=[^"]*)?"/g, `src="/hero-sphere.js?v=${heroSphereVersion}"`);
   const destination = resolve(output, file);
   mkdirSync(dirname(destination), { recursive: true });
   writeFileSync(destination, html);

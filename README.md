@@ -4,49 +4,48 @@ Static website for [adriamics.com](https://adriamics.com/). The repository is th
 
 ## Local build
 
-Use Node.js 22 or newer (`.nvmrc` pins 22; CI also uses Node 22). With nvm, run `nvm use` in the repository before installing or running npm commands; `.nvmrc` selects the version but does not activate it automatically.
+Use Bun 1.2.22 or newer for dependency installation, development, builds, and deployment checks.
 
 ```bash
-nvm use
-npm ci
-npm run build
+bun install --frozen-lockfile
+bun run build
 ```
 
 The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), copies the shared favicon and homepage carousel images from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
 
-The editable JavaScript implementation is TypeScript. `tsx` runs the Node build and development scripts, and TypeScript (`typescript` in `devDependencies`) checks the build tooling and study manifest with `npm run typecheck`. esbuild (`esbuild` in `devDependencies`) bundles browser TypeScript into the JavaScript files served from `public/`. The homepage hero sphere uses Three.js (`three` in `package.json`); `website/hero-sphere.ts` bundles to generated `public/hero-sphere.js`, with the Three.js license notice under `public/vendor/`. Vendored MathJax files and its build helpers remain JavaScript.
+The editable JavaScript implementation is TypeScript. Bun runs the build and development scripts, and TypeScript (`typescript` in `devDependencies`) checks the build tooling and study manifest with `bun run typecheck`. esbuild (`esbuild` in `devDependencies`) bundles browser TypeScript into the JavaScript files served from `public/`. Vendored MathJax files and its build helpers remain JavaScript.
 
-When the build succeeds, the last line reports the full path to the generated `public/` directory. You can run `npm.cmd run build` by itself whenever you only need to refresh those files.
+When the build succeeds, the last line reports the full path to the generated `public/` directory. Run `bun run build` whenever you only need to refresh those files.
 
 ## Local server
 
 ```bash
-npm run dev
+bun run dev
 ```
 
-`npm run dev` builds the site, serves `public/` through Wrangler at `http://localhost:8787`, and watches source files for incremental rebuilds. Open the main site at `/` and study content at `/study/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server and watcher.
+`bun run dev` builds the site, serves `public/` through Wrangler at `http://localhost:8787`, and watches source files for incremental rebuilds. Open the main site at `/` and study content at `/study/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server and watcher.
 
 The development watcher rebuilds the main website pages, styles, and assets without regenerating every study page. Changes under `study/source/` still run the full build because study pages, search data, and the sitemap are generated together. Build script changes also run the full build. Refresh the browser after the watcher reports completion.
 
-`npm run build:website` refreshes the main site while keeping the existing generated study pages. Run `npm run build` first when the generated study output is missing or stale.
+`bun run build:website` refreshes the main site while keeping the existing generated study pages. Run `bun run build` first when the generated study output is missing or stale.
 
 Codex and other contributors should read [AGENTS.md](AGENTS.md) first for source/output boundaries and build workflow.
 
 ## Local/deployment validation
 
 ```bash
-npm run check
+bun run check
 ```
 
-`npm run check` builds the latest sources and runs Wrangler's deployment dry-run against the generated `public/` output and `wrangler.jsonc`.
+`bun run check` builds the latest sources and runs Wrangler's deployment dry-run against the generated `public/` output and `wrangler.jsonc`.
 
 ## Production deploy
 
 ```bash
-npm run deploy
+bun run deploy
 ```
 
-`npm run deploy` builds the latest sources before deploying the static-assets-only Worker. Production deployment is manual; the pull request workflow only builds and runs a deployment dry-run.
+`bun run deploy` builds the latest sources before deploying the static-assets-only Worker. Production deployment is manual; the pull request workflow only builds and runs a deployment dry-run.
 
 ## Cloudflare ownership
 

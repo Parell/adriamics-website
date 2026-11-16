@@ -23,7 +23,7 @@ const watchers = [];
 
 function run(scriptPath, args = []) {
   return new Promise<void>((resolveRun, rejectRun) => {
-    const child = spawn(process.execPath, [resolve(root, "node_modules", "tsx", "dist", "cli.mjs"), scriptPath, ...args], { cwd: root, stdio: "inherit" });
+    const child = spawn(process.execPath, [scriptPath, ...args], { cwd: root, stdio: "inherit" });
     child.once("error", rejectRun);
     child.once("exit", (code) => code === 0 ? resolveRun() : rejectRun(new Error(`Command exited with code ${code}.`)));
   });
@@ -166,7 +166,7 @@ async function startDevelopment() {
   studyPollTimer = setInterval(pollStudySources, studyPollIntervalMs);
   console.log("Watching website and study sources. Website page, style, and asset edits rebuild only the main site; study edits rebuild all generated pages.");
 
-  const server = spawn(process.execPath, [resolve(root, "node_modules", "wrangler", "bin", "wrangler.js"), "dev"], {
+  const server = spawn(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "dev"], {
     cwd: root,
     stdio: "inherit",
   });

@@ -5,6 +5,7 @@ import path from 'node:path';
 import { promisify } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import { STUDY_MANIFEST } from './source/manifest.js';
+import katex from 'katex';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -13,48 +14,15 @@ const notesRoot = __dirname;
 const outputRoot = process.env.STUDY_OUTPUT_DIR
   ? path.resolve(process.env.STUDY_OUTPUT_DIR)
   : path.resolve(repoRoot, '..', 'public', 'study');
-// Printed worksheets clone equations while hiding MathJax's page-level cache,
-// so every SVG needs to carry its own glyph definitions.
-const MATHJAX_SVG_FONT_CACHE = 'local';
-const MATHJAX_SVG_BLACKER = 0;
-const MATHJAX_ASSET_PATH = 'vendor/mathjax/mathjax.min.js';
+const KATEX_STYLESHEET_PATH = 'katex/katex.min.css';
 
-function renderMathJaxConfig(assetVersions) {
-  const mathJaxHref = `${getNotesAssetHref(MATHJAX_ASSET_PATH)}?v=${assetVersions.mathjax}`;
-  return `
-  <script>
-    let resolveNotesMathJaxReady;
-    window.__NOTES_MATHJAX_READY = new Promise((resolve) => {
-      resolveNotesMathJaxReady = resolve;
-    });
-
-    window.MathJax = {
-      tex: {
-        inlineMath: [['\\\\(', '\\\\)'], ['$', '$']],
-        displayMath: [['$$', '$$']],
-        packages: { '[+]': ['ams', 'boldsymbol'] }
-      },
-      svg: {
-        fontCache: '${MATHJAX_SVG_FONT_CACHE}',
-        blacker: ${MATHJAX_SVG_BLACKER}
-      },
-      startup: {
-        ready() {
-          window.MathJax.startup.defaultReady();
-          window.MathJax.startup.promise.then(() => {
-            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = true;
-            resolveNotesMathJaxReady();
-            window.dispatchEvent(new Event('notes:mathjax-ready'));
-          }, () => {
-            window.__NOTES_MATHJAX_INITIAL_TYPESET_COMPLETE = false;
-            resolveNotesMathJaxReady();
-            window.dispatchEvent(new Event('notes:mathjax-ready'));
-          });
-        }
-      }
-    };
-  </script>
-  <script defer src="${mathJaxHref}"></script>`;
+function renderMath(source, sourcePath, displayMode) {
+  try {
+    return katex.renderToString(source, { displayMode, throwOnError: true, output: 'html' });
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    throw new Error(`Could not render math in ${sourcePath}: ${JSON.stringify(source)} (${message})`, { cause: error });
+  }
 }
 
 function renderAsyncStylesheet(href, { nonBlocking = false } = {}) {
@@ -677,6 +645,10 @@ function renderInline(text, sourcePath) {
     return stashInlineHtml(tokens, `<code>${escapeHtml(code)}</code>`);
   });
 
+  source = source.replace(/(?<!\\)\$([^$\n]+?)(?<!\\)\$/g, (_, math) => (
+    stashInlineHtml(tokens, renderMath(math, sourcePath, false))
+  ));
+
   source = source.replace(/!\[([^\]]*)\]\(([^)\s]+)(?:\s+"[^"]*")?\)/g, (_, alt, src) => {
     const resolvedSrc = rewriteInternalHref(src, sourcePath);
     return stashInlineHtml(tokens, `<img src="${escapeHtml(resolvedSrc)}" alt="${escapeHtml(alt)}" />`);
@@ -873,7 +845,7 @@ function renderFenceBlock(lines, index) {
   };
 }
 
-function renderMathBlock(lines, index) {
+function renderMathBlock(lines, index, sourcePath) {
   const mathLines = [];
   let nextIndex = index + 1;
 
@@ -887,7 +859,7 @@ function renderMathBlock(lines, index) {
   }
 
   return {
-    html: `<div class="math-block">$$\n${escapeHtml(mathLines.join('\n'))}\n$$</div>`,
+    html: `<div class="math-block">${renderMath(mathLines.join('\n').trim(), sourcePath, true)}</div>`,
     nextIndex,
   };
 }
@@ -1094,7 +1066,7 @@ function renderHeadingBlock(lines, index, sourcePath, usedHeadingIds) {
 function getMarkdownBlockHandlers(sourcePath, usedHeadingIds, practiceExampleContext) {
   return [
     { matches: (lines, index) => isFence(lines[index]), render: renderFenceBlock },
-    { matches: (lines, index) => isMathFence(lines[index]), render: renderMathBlock },
+    { matches: (lines, index) => isMathFence(lines[index]), render: (lines, index) => renderMathBlock(lines, index, sourcePath) },
     { matches: (lines, index) => isPracticeExampleOpening(lines[index]), render: (lines, index) => renderPracticeExampleBlock(lines, index, sourcePath, practiceExampleContext) },
     { matches: (lines, index) => isCalloutOpening(lines[index]), render: (lines, index) => renderCalloutBlock(lines, index, sourcePath, practiceExampleContext) },
     { matches: (lines, index) => isHeading(lines[index]), render: (lines, index) => renderHeadingBlock(lines, index, sourcePath, usedHeadingIds) },
@@ -1443,6 +1415,7 @@ function renderNotesPageDocument({
   quickActionsHtml = '',
   stylesheetHref = '/study/study.css',
   scriptHref = '/study/study.js',
+  katexStylesheetHref = '/study/katex/katex.min.css',
   headHtml = '',
   extraHead = '',
 }) {
@@ -1473,6 +1446,7 @@ function renderNotesPageDocument({
   ${renderAsyncStylesheet(stylesheetHref)}
   ${webmejiCriticalStyles}
   ${webmejiHead}
+  ${renderAsyncStylesheet(katexStylesheetHref)}
   ${extraHead}
   <script defer src="${escapeHtml(scriptHref)}"></script>
 </head>
@@ -1666,9 +1640,7 @@ ${sectionTocHtml}
     stylesheetHref,
     scriptHref,
     headHtml: '<script>document.documentElement.classList.add("notes-lesson-boot");</script>',
-    extraHead: `${interactiveHead}
-  ${renderMathJaxConfig(assetVersions)}
-  `,
+    extraHead: interactiveHead,
   });
 }
 
@@ -1988,7 +1960,7 @@ function renderPracticeProblem(problem, practiceSourcePath, notePath) {
           <button type="button" class="practice-problem__text-action practice-problem__worksheet-toggle" data-worksheet-problem-toggle aria-pressed="false">Add to worksheet.</button>
         </div>
       </div>
-      <section class="practice-problem__solution mathjax_ignore" data-practice-solution hidden>
+      <section class="practice-problem__solution" data-practice-solution hidden>
         <p class="section-label">Solution</p>
         <div class="markdown-body">
           ${solutionHtml}
@@ -2119,7 +2091,6 @@ function renderPracticePageHtml({
     stylesheetHref,
     scriptHref,
     headHtml: '<script>document.documentElement.classList.add("notes-practice-boot");</script>',
-    extraHead: renderMathJaxConfig(assetVersions),
   });
 }
 
@@ -2536,6 +2507,7 @@ ${urls.map((url) => `  <url><loc>${url}</loc></url>`).join('\n')}
 
 async function main() {
   await fs.mkdir(outputRoot, { recursive: true });
+  await fs.rm(path.join(outputRoot, 'vendor', 'mathjax'), { recursive: true, force: true });
   const manifest = await loadManifest();
   const notes = flattenNotes(manifest.structures);
   const assetVersions = await loadAssetVersions();
@@ -2562,13 +2534,12 @@ async function main() {
 }
 
 async function loadAssetVersions() {
-  const [notesCss, notesJs, mathjax] = await Promise.all([
+  const [notesCss, notesJs] = await Promise.all([
     getAssetVersion(path.join(notesRoot, 'study.css')),
     getAssetVersion(path.join(notesRoot, 'study.ts')),
-    getAssetVersion(path.join(notesRoot, MATHJAX_ASSET_PATH)),
   ]);
 
-  return { notesCss, notesJs, mathjax };
+  return { notesCss, notesJs };
 }
 
 async function buildNotePages(notes, structures, assetVersions) {

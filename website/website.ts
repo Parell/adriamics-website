@@ -212,8 +212,11 @@ function initFeatureCarousel(carousel) {
 
   carousel.querySelector("[data-feature-prev]")?.addEventListener("click", () => showSlide(activeIndex - 1));
   carousel.querySelector("[data-feature-next]")?.addEventListener("click", () => showSlide(activeIndex + 1));
+  const canAutoplay = window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    && !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const startAutoplay = () => {
     window.clearInterval(autoplayTimer);
+    if (!canAutoplay) return;
     autoplayTimer = window.setInterval(() => showSlide(activeIndex + 1), 5000);
   };
   carousel.addEventListener("pointerenter", () => window.clearInterval(autoplayTimer));

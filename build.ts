@@ -173,11 +173,12 @@ for (const directory of ["assets", "webmeji"]) {
     });
   }
 }
+const katexOutput = resolve(studyOutput, "katex");
+mkdirSync(katexOutput, { recursive: true });
+cpSync(resolve(root, "node_modules", "katex", "dist", "katex.min.css"), resolve(katexOutput, "katex.min.css"));
+cpSync(resolve(root, "node_modules", "katex", "dist", "fonts"), resolve(katexOutput, "fonts"), { recursive: true });
 writeFileSync(resolve(studyOutput, "study.js"), bundleBrowserScript(resolve(root, "study", "study.ts")));
 writeFileSync(resolve(studyOutput, "webmeji", "config.js"), bundleBrowserScript(resolve(root, "study", "webmeji", "config.ts")));
 writeFileSync(resolve(studyOutput, "webmeji", "webmeji.js"), bundleBrowserScript(resolve(root, "study", "webmeji", "webmeji.ts")));
-
-const mathjax = resolve(root, "study", "vendor", "mathjax");
-if (existsSync(mathjax)) cpSync(mathjax, resolve(studyOutput, "vendor", "mathjax"), { recursive: true });
 
 console.log(`Built Cloudflare deployment files in ${output}`);

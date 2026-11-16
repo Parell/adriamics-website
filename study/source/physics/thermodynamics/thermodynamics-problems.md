@@ -145,7 +145,7 @@ skills: [Ideal gas, Equation of state]
 An ideal gas has
 
 $$
-P = 300\ \text{kPa},\qquad T = 300\ \text{K},\qquad R = 0.287\ \text{kJ/(kg\cdot K)}.
+P = 300\ \text{kPa},\qquad T = 300\ \text{K},\qquad R = 0.287\ \text{kJ/(kg}\cdot\text{K)}.
 $$
 
 What is the specific volume $v$?
@@ -483,7 +483,7 @@ skills: [Entropy, Ideal gas entropy changes]
 Air has
 
 $$
-c_p = 1.005\ \text{kJ/(kg\cdot K)},\qquad R = 0.287\ \text{kJ/(kg\cdot K)}.
+c_p = 1.005\ \text{kJ/(kg}\cdot\text{K)},\qquad R = 0.287\ \text{kJ/(kg}\cdot\text{K)}.
 $$
 
 It changes from $T_1 = 300\ \text{K}$ and $P_1 = 100\ \text{kPa}$ to $T_2 = 450\ \text{K}$ and $P_2 = 200\ \text{kPa}$.
@@ -508,7 +508,7 @@ s_2 - s_1 \approx 1.005(0.4055) - 0.287(0.6931)
 $$
 
 $$
-s_2 - s_1 \approx 0.4075 - 0.1988 = 0.2087\ \text{kJ/(kg\cdot K)}
+s_2 - s_1 \approx 0.4075 - 0.1988 = 0.2087\ \text{kJ/(kg}\cdot\text{K)}
 $$
 :::
 

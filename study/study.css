@@ -1573,20 +1573,13 @@ html.notes-lesson-boot [data-notes-lesson-body] {
   overflow: visible;
 }
 
-mjx-container:not([display="true"]) > svg {
-  display: inline-block;
-}
-
-.MathJax,
-mjx-container,
-.MathJax *,
-mjx-container * {
+.markdown-body .katex {
   -webkit-user-select: none;
   -moz-user-select: none;
   user-select: none;
 }
 
-.markdown-body .math-block>mjx-container {
+.markdown-body .math-block .katex-display {
   margin: 0 auto;
 }
 
@@ -1731,7 +1724,7 @@ mjx-container * {
   .worksheet-print__answer { margin-top: 0.5rem; }
   .worksheet-reference { break-after: page; }
   .worksheet-reference, .worksheet-print__problem { color: #111; }
-  .worksheet-print .math-block, .worksheet-print .MathJax { break-inside: avoid; }
+  .worksheet-print .math-block, .worksheet-print .katex-display { break-inside: avoid; }
 
   html,
   body {

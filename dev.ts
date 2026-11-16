@@ -1,15 +1,23 @@
 import { existsSync, readdirSync, statSync, watch } from "node:fs";
 import { spawn } from "node:child_process";
 import { copyFile } from "node:fs/promises";
-import { resolve } from "node:path";
+import { extname, resolve, sep } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const websiteRoot = resolve(root, "website");
-const watchedDirectories = ["website", "assets", "study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
+const publicRoot = resolve(root, "public");
+const responseHeaders = {
+  "X-Content-Type-Options": "nosniff",
+  "Referrer-Policy": "strict-origin-when-cross-origin",
+  "X-Frame-Options": "DENY",
+  "Permissions-Policy": "camera=(), geolocation=(), microphone=(), payment=(), usb=()",
+  "Strict-Transport-Security": "max-age=31536000; includeSubDomains",
+};
+const watchedDirectories = ["website", "assets", "study/source", "study/assets", "study/webmeji"];
 const watchedFiles = ["build.ts", "study/build-study.ts", "study/source/manifest.ts", "website/website.ts", "website/hero-sphere.ts", "study/study.css", "study/study.ts", "study/webmeji/config.ts", "study/webmeji/webmeji.ts"];
 const staticWebsiteFiles = new Set(["robots.txt", "_headers", "LICENSE"]);
-const polledStudyDirectories = ["study/source", "study/assets", "study/webmeji", "study/vendor/mathjax"];
+const polledStudyDirectories = ["study/source", "study/assets", "study/webmeji"];
 const studyPollIntervalMs = 750;
 let timer;
 let studyPollTimer;
@@ -154,6 +162,43 @@ function pollStudySources() {
   if (changed) scheduleBuild("full");
 }
 
+async function serveStaticFile(request) {
+  let pathname;
+  try {
+    pathname = decodeURIComponent(new URL(request.url).pathname);
+  } catch {
+    return new Response("Bad request", { status: 400 });
+  }
+
+  let filePath = resolve(publicRoot, `.${pathname}`);
+  if (filePath !== publicRoot && !filePath.startsWith(`${publicRoot}${sep}`)) {
+    return new Response("Not found", { status: 404 });
+  }
+
+  if (!extname(filePath)) {
+    const routeFile = `${filePath}.html`;
+    if (pathname.endsWith("/")) {
+      const directoryIndex = resolve(filePath, "index.html");
+      if (existsSync(directoryIndex)) filePath = directoryIndex;
+      else if (existsSync(routeFile)) filePath = routeFile;
+      else filePath = directoryIndex;
+    } else {
+      const directoryIndex = resolve(filePath, "index.html");
+      if (existsSync(directoryIndex)) {
+        return Response.redirect(new URL(`${pathname}/${new URL(request.url).search}`, request.url), 301);
+      }
+      if (existsSync(routeFile)) filePath = routeFile;
+      else if (existsSync(filePath) && statSync(filePath).isDirectory()) filePath = directoryIndex;
+    }
+  }
+
+  if (!existsSync(filePath)) return new Response("Not found", { status: 404 });
+  const headers = new Headers(responseHeaders);
+  if (filePath.endsWith(".html")) headers.set("Cache-Control", "public, max-age=0, must-revalidate");
+  if (filePath.endsWith("/study/search-index.json")) headers.set("Cache-Control", "public, max-age=3600, must-revalidate");
+  return new Response(Bun.file(filePath), { headers });
+}
+
 async function startDevelopment() {
   try {
     await runBuild(true);
@@ -166,10 +211,8 @@ async function startDevelopment() {
   studyPollTimer = setInterval(pollStudySources, studyPollIntervalMs);
   console.log("Watching website and study sources. Website page, style, and asset edits rebuild only the main site; study edits rebuild all generated pages.");
 
-  const server = spawn(process.execPath, ["node_modules/wrangler/bin/wrangler.js", "dev"], {
-    cwd: root,
-    stdio: "inherit",
-  });
+  const server = Bun.serve({ port: 8787, fetch: serveStaticFile });
+  console.log(`Serving public/ at http://localhost:${server.port}`);
   let shuttingDown = false;
   const stop = (signal) => {
     if (shuttingDown) return;
@@ -177,22 +220,11 @@ async function startDevelopment() {
     clearTimeout(timer);
     clearInterval(studyPollTimer);
     for (const watcher of watchers) watcher.close();
-    if (server.exitCode === null) server.kill(signal);
+    server.stop(true);
   };
 
   process.once("SIGINT", () => stop("SIGINT"));
   process.once("SIGTERM", () => stop("SIGTERM"));
-  server.once("error", (error) => {
-    console.error(`Could not start Wrangler: ${error.message}`);
-    stop("SIGTERM");
-    process.exitCode = 1;
-  });
-  server.once("exit", (code, signal) => {
-    clearTimeout(timer);
-    clearInterval(studyPollTimer);
-    for (const watcher of watchers) watcher.close();
-    process.exitCode = code ?? (signal ? 1 : 0);
-  });
 }
 
 void startDevelopment();

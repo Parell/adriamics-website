@@ -33,7 +33,6 @@ const NOTES_SESSION_STORAGE_KEY = 'adriamics-study:last-pages-by-subject';
 const PRACTICE_COMPLETION_STORAGE_KEY_PREFIX = 'adriamics-study:practice-completion:';
 const PRACTICE_FILTER_STORAGE_KEY_PREFIX = 'adriamics-study:practice-filter:';
 const PRACTICE_FILTER_VALUES = new Set(['all', 'exam-i', 'exam-ii', 'final', 'marked', 'missed']);
-const PAGE_READY_FALLBACK_MS = 5000;
 
 let searchIndex = [];
 let searchIndexPromise = null;
@@ -301,23 +300,7 @@ function revealPageWhenReady(element, bootClass) {
     return;
   }
 
-  const mathJaxReady = window.__NOTES_MATHJAX_READY
-    || window.MathJax?.startup?.promise
-    || Promise.resolve();
-  let timeoutId = null;
-  const fallback = new Promise((resolve) => {
-    timeoutId = window.setTimeout(resolve, PAGE_READY_FALLBACK_MS);
-  });
-
-  Promise.race([
-    Promise.resolve(mathJaxReady).catch(() => {}),
-    fallback,
-  ]).finally(() => {
-    if (timeoutId !== null) {
-      window.clearTimeout(timeoutId);
-    }
-    document.documentElement.classList.remove(bootClass);
-  });
+  document.documentElement.classList.remove(bootClass);
 }
 
 function updatePracticeProgressUi(completedCount, totalCount) {
@@ -530,7 +513,6 @@ function renderWorksheetPrint(mode, cards) {
   container.append(list);
   container.hidden = false;
   document.body.classList.add('is-printing-worksheet');
-  window.MathJax?.typesetPromise?.([container]).catch(() => {});
 }
 
 function printWorksheet(mode) {
@@ -1271,7 +1253,7 @@ function findTextMatch(root, query) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode(node) {
         const parent = node.parentElement;
-        return parent && !parent.closest('script, style, code, pre, mjx-container')
+        return parent && !parent.closest('script, style, code, pre')
           ? NodeFilter.FILTER_ACCEPT
           : NodeFilter.FILTER_REJECT;
       },
@@ -1875,15 +1857,8 @@ document.addEventListener('click', async (event) => {
   const problemCard = solutionButton.closest('[data-practice-problem]');
   const solution = problemCard?.querySelector('[data-practice-solution]');
   const isHidden = solution?.hidden ?? true;
-  const needsMathJax = isHidden && solution?.classList.contains('mathjax_ignore');
-
   if (solution) {
     solution.hidden = !isHidden;
-
-    if (needsMathJax) {
-      solution.classList.remove('mathjax_ignore');
-      window.MathJax?.typesetPromise?.([solution])?.catch(() => {});
-    }
   }
 
   solutionButton.textContent = isHidden ? 'Hide solutions' : 'Show solutions';

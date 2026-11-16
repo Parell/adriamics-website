@@ -7,7 +7,7 @@ Adriamics Study is a structured library of mathematics, physics, and engineering
 - `source/` contains lesson and problem Markdown, the topic manifest, and prerequisite graph.
 - `study.css` and `study.ts` contain the shared study interface; the build bundles the TypeScript as `study.js` for the browser.
 - `webmeji/` contains the locally hosted optional companion.
-- `vendor/mathjax/` contains the local MathJax runtime used to typeset equations.
+- Study Markdown equations use `$...$` inline and `$$...$$` display delimiters. The page generator renders them with KaTeX at build time; KaTeX's stylesheet and fonts are copied into generated output.
 - `../public/study/` is generated deployment output. Edit source files instead of generated HTML.
 
 ## Build
@@ -15,16 +15,16 @@ Adriamics Study is a structured library of mathematics, physics, and engineering
 Run commands from the repository root:
 
 ```bash
-npm ci
-npm run build:study
+bun install --frozen-lockfile
+bun run build:study
 ```
 
-`npm run build:study` validates that manifest entries point to source notes, generates lesson and practice pages, builds the search index, and updates the combined sitemap in `public/`. `npm run build` also stages the main website and shared assets for deployment.
+`bun run build:study` validates that manifest entries point to source notes, generates lesson and practice pages, builds the search index, and updates the combined sitemap in `public/`. `bun run build` also stages the main website and shared assets for deployment.
 
 The full build is also available while developing:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 The local server watches source files and rebuilds the affected output. See the repository [AGENTS.md](../AGENTS.md) for source/output boundaries and workflow details.

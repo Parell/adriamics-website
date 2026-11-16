@@ -4,7 +4,7 @@ Static website for [adriamics.com](https://adriamics.com/). The repository is th
 
 ## Local build
 
-Use Bun 1.2.22 or newer for dependency installation, development, builds, and deployment checks.
+Use Bun 1.4.0 or newer for dependency installation, development, builds, and deployment checks. The checked-in lockfile uses Bun's lockfile format version 2, introduced in Bun 1.4.
 
 ```bash
 bun install --frozen-lockfile

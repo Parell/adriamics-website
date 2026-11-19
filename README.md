@@ -11,7 +11,7 @@ bun install --frozen-lockfile
 bun run build
 ```
 
-The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), copies the shared favicon and homepage carousel images from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
+The build removes the old `public/` directory, renders the main site from `website/` and its public project registry (`website/public.json`), builds the sibling `robotics-vision-shallot` app into `website/hidden/`, copies it to `public/hidden/`, copies the shared favicon and homepage carousel images from root `assets/`, then generates study pages, search data, and the combined sitemap directly in `public/`. There is no generated study-site copy inside `study/`; `study/source/` is the editable content source. Cloudflare receives only `public/`, which is ignored by Git.
 
 The editable JavaScript implementation is TypeScript. Bun runs the build and development scripts, and TypeScript (`typescript` in `devDependencies`) checks the build tooling and study manifest with `bun run typecheck`. esbuild (`esbuild` in `devDependencies`) bundles browser TypeScript into the JavaScript files served from `public/`. KaTeX (`katex` in `devDependencies`) renders study equations to HTML during page generation; the build copies KaTeX's stylesheet and fonts into `public/study/katex/`.
 
@@ -23,7 +23,7 @@ When the build succeeds, the last line reports the full path to the generated `p
 bun run dev
 ```
 
-`bun run dev` builds the site, serves `public/` with Bun at `http://localhost:8787`, and watches source files for incremental rebuilds. Open the main site at `/` and study content at `/study/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server and watcher.
+`bun run dev` builds the site, serves `public/` with Bun at `http://localhost:8787`, and watches source files for incremental rebuilds. Open the main site at `/`, study content at `/study/`, and the Robotics Vision Lab at `/hidden/`. Leave the terminal running while you browse; press `Ctrl+C` to stop the server and watcher.
 
 The development watcher rebuilds the main website pages, styles, and assets without regenerating every study page. Changes under `study/source/` still run the full build because study pages, search data, and the sitemap are generated together. Build script changes also run the full build. Refresh the browser after the watcher reports completion.
 
@@ -65,6 +65,7 @@ OpenTofu is also supported by the configuration (`tofu init`, `tofu plan`, `tofu
 ## Source layout
 
 - `website/` contains the main website served at `/`; `website/public.json` is the deliberately curated public project registry used to render its navigation, project sequence, and status strip.
+- `website/hidden/` contains generated production files for the sibling `robotics-vision-shallot` project, served at `/hidden/` and rebuilt as part of the website build.
 - `assets/` contains source assets; the build copies the shared favicon and the three homepage feature-carousel images to `public/assets/`.
 - `study/` contains study source content and its page generator, served at `/study/`.
 - `build.ts` combines both into generated `public/` output.

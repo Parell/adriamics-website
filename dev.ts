@@ -6,6 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL(".", import.meta.url));
 const websiteRoot = resolve(root, "website");
+const roboticsRoot = resolve(root, "..", "robotics-vision-shallot");
 const publicRoot = resolve(root, "public");
 const responseHeaders = {
   "X-Content-Type-Options": "nosniff",
@@ -94,6 +95,7 @@ function scheduleBuild(kind) {
 function onWebsiteChange(_eventType, filename) {
   if (!filename) return scheduleBuild("full");
   const relativePath = String(filename).split("\\").join("/");
+  if (relativePath === "hidden" || relativePath.startsWith("hidden/")) return;
   if (!relativePath.includes("/") && staticWebsiteFiles.has(relativePath)) {
     return scheduleBuild(`copy:${relativePath}`);
   }
@@ -101,6 +103,13 @@ function onWebsiteChange(_eventType, filename) {
     return scheduleBuild("website");
   }
   // Other site inputs (including routes and build logic) can affect files copied by the full build.
+  scheduleBuild("full");
+}
+
+function onRoboticsChange(_eventType, filename) {
+  if (!filename) return scheduleBuild("full");
+  const relativePath = String(filename).split("\\").join("/");
+  if (relativePath.startsWith("node_modules/") || relativePath.startsWith("website/hidden/")) return;
   scheduleBuild("full");
 }
 
@@ -119,6 +128,20 @@ function startWatching() {
     if (!existsSync(path)) continue;
     const watcher = watch(path, () => scheduleBuild("full"));
     watcher.on("error", (error) => console.error(`Watcher error for ${file}: ${error.message}`));
+    watchers.push(watcher);
+  }
+  for (const directory of ["src", "public"]) {
+    const path = resolve(roboticsRoot, directory);
+    if (!existsSync(path)) continue;
+    const watcher = watch(path, { recursive: true }, onRoboticsChange);
+    watcher.on("error", (error) => console.error(`Watcher error for robotics ${directory}: ${error.message}`));
+    watchers.push(watcher);
+  }
+  for (const file of ["index.html", "vite.config.ts", "package.json"]) {
+    const path = resolve(roboticsRoot, file);
+    if (!existsSync(path)) continue;
+    const watcher = watch(path, onRoboticsChange);
+    watcher.on("error", (error) => console.error(`Watcher error for robotics ${file}: ${error.message}`));
     watchers.push(watcher);
   }
 }

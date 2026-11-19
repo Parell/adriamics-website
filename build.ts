@@ -1,5 +1,6 @@
 import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
+import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
 import { buildSync } from "esbuild";
 import { fileURLToPath } from "node:url";
@@ -7,6 +8,7 @@ import { STUDY_MANIFEST } from "./study/source/manifest.js";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const website = resolve(root, "website");
+const roboticsApp = resolve(root, "..", "robotics-vision-shallot");
 const output = resolve(root, "public");
 const websiteCssVersion = createHash("sha256").update(readFileSync(resolve(website, "website.css"))).digest("hex").slice(0, 12);
 const bundleBrowserScript = (entryPoint) => buildSync({
@@ -70,6 +72,10 @@ function countTopics(nodes, location = "structures") {
   }
 }
 countTopics(studyManifest.structures);
+
+const roboticsBuild = spawnSync(process.execPath, ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
+if (roboticsBuild.error) throw roboticsBuild.error;
+if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
 
 // Do not remove the last good site output until the controlled public inputs
 // have passed validation. A malformed registry or Study manifest must not
@@ -149,6 +155,10 @@ for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocina
   const source = resolve(website, directory);
   if (existsSync(source)) cpSync(source, resolve(output, directory), { recursive: true });
 }
+
+const hiddenOutput = resolve(output, "hidden");
+rmSync(hiddenOutput, { recursive: true, force: true });
+cpSync(resolve(website, "hidden"), hiddenOutput, { recursive: true });
 
 mkdirSync(resolve(output, "assets"), { recursive: true });
 for (const asset of ["favicon.png", "image-1.webp", "image-2.webp", "image-3.webp"]) {

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="description" content="Interactive, camera-guided robotic arm laboratory" />
+    <title>Robotics test</title>
+    <script type="module" crossorigin src="/hidden/assets/index-DpB_N5UK.js"></script>
+    <link rel="stylesheet" crossorigin href="/hidden/assets/index-Bcu3qXEQ.css">
+  </head>
+  <body>
+    <canvas id="canvas" aria-label="Black and white 3D simulated robot arm"></canvas>
+    <section class="left-panel" aria-label="Control laboratory">
+      <div class="card camera-card"><div class="camera-wrap"><canvas id="camera" width="320" height="240" aria-label="Overhead camera image, click to move the target"></canvas><span class="camera-cross">+</span></div></div>
+      <div class="card"><div class="card-heading"><span>CONTROL</span><span id="phase-label" class="phase-label">IDLE</span></div><div class="buttons"><button class="primary" id="run">RUN</button><button id="scan">SCAN</button><button id="reset">RESET</button></div><p id="status-message" class="status-message">Waiting for camera scan.</p><div class="control-row"><label for="speed">SPEED</label><output id="speed-value">1.0×</output></div><input id="speed" type="range" min="0.2" max="2" value="1" step="0.1" /><div class="control-row"><label for="kp">KP</label><output id="kp-value">4.00</output></div><input id="kp" type="range" min="0" max="8" value="4" step="0.1" /><div class="control-row"><label for="ki">KI</label><output id="ki-value">0.15</output></div><input id="ki" type="range" min="0" max="1" value="0.15" step="0.05" /><div class="control-row"><label for="kd">KD</label><output id="kd-value">0.80</output></div><input id="kd" type="range" min="0" max="3" value="0.8" step="0.1" /></div>
+      <div class="card data-card"><div class="card-heading"><span>STATUS</span></div><div class="telemetry"><div><small>PIXELS</small><strong id="pixels">—</strong></div><div><small>POSITION</small><strong id="world-pos">—</strong></div><div><small>JOINTS</small><strong id="joints">—</strong></div><div><small>ERROR</small><strong id="error">—</strong></div></div></div>
+    </section>
+    <div id="fatal" role="alert" hidden></div>
+  </body>
+</html>

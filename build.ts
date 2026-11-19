@@ -73,15 +73,17 @@ function countTopics(nodes, location = "structures") {
 }
 countTopics(studyManifest.structures);
 
-// Bun's spawnSync does not reliably search PATH in hosted builds. Resolve the
-// executable ourselves, then pass the absolute path to the child process.
-const bunExecutable = Bun.which("bun");
-if (!bunExecutable || !existsSync(bunExecutable)) {
-  throw new Error(`Could not locate a runnable Bun executable (process.execPath: ${process.execPath}).`);
+// Cloudflare checks out this repository alone, so the sibling app is not
+// available there. Use the checked-in production snapshot for those builds;
+// when the sibling source is present locally, rebuild the snapshot normally.
+if (existsSync(resolve(roboticsApp, "package.json"))) {
+  const bunExecutable = Bun.which("bun") ?? process.execPath;
+  const roboticsBuild = spawnSync(bunExecutable, ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
+  if (roboticsBuild.error) throw roboticsBuild.error;
+  if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
+} else if (!existsSync(resolve(website, "hidden", "index.html"))) {
+  throw new Error("Robotics Vision Lab source and the checked-in website/hidden production snapshot are both missing.");
 }
-const roboticsBuild = spawnSync(bunExecutable, ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
-if (roboticsBuild.error) throw roboticsBuild.error;
-if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
 
 // Do not remove the last good site output until the controlled public inputs
 // have passed validation. A malformed registry or Study manifest must not

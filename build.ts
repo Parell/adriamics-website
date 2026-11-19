@@ -73,10 +73,13 @@ function countTopics(nodes, location = "structures") {
 }
 countTopics(studyManifest.structures);
 
-// Resolve Bun through PATH instead of reusing process.execPath. Some hosted
-// build environments remove or replace the version-manager shim path after
-// launching the initial Bun process, leaving that absolute path stale.
-const roboticsBuild = spawnSync("bun", ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
+// Bun's spawnSync does not reliably search PATH in hosted builds. Resolve the
+// executable ourselves, then pass the absolute path to the child process.
+const bunExecutable = Bun.which("bun");
+if (!bunExecutable || !existsSync(bunExecutable)) {
+  throw new Error(`Could not locate a runnable Bun executable (process.execPath: ${process.execPath}).`);
+}
+const roboticsBuild = spawnSync(bunExecutable, ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
 if (roboticsBuild.error) throw roboticsBuild.error;
 if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
 

@@ -73,7 +73,10 @@ function countTopics(nodes, location = "structures") {
 }
 countTopics(studyManifest.structures);
 
-const roboticsBuild = spawnSync(process.execPath, ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
+// Resolve Bun through PATH instead of reusing process.execPath. Some hosted
+// build environments remove or replace the version-manager shim path after
+// launching the initial Bun process, leaving that absolute path stale.
+const roboticsBuild = spawnSync("bun", ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
 if (roboticsBuild.error) throw roboticsBuild.error;
 if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
 

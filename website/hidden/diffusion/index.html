@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Interactive comparison of one-dimensional heat diffusion under two boundary conditions." />
+  <meta name="color-scheme" content="dark" />
+  <title>Thermal Race — 1D Heat Diffusion</title>
+  <link rel="stylesheet" href="/hidden/diffusion/diffusion.css" />
+  <link rel="stylesheet" href="/study/katex/katex.min.css" />
+  <script defer src="/hidden/diffusion/diffusion.js"></script>
+  <script id="lesson-equations" type="application/json">{"source":["T(x,0)=100\\,^{\\circ}\\mathrm{C},\\quad 0<x<L,\\quad \\alpha=10^{-4}\\,\\mathrm{m^2/s},\\quad L=0.10\\,\\mathrm{m}","\\begin{aligned}\\text{A: }&T(0,t)=20,\\quad T(L,t)=20\\\\\\text{B: }&T(0,t)=20,\\quad \\frac{\\partial T}{\\partial x}(L,t)=0\\end{aligned}","u(x,t)=T(x,t)-20,\\qquad u_t=\\alpha u_{xx}","u(x,t)=X(x)G(t),\\qquad X''+\\lambda^2X=0,\\qquad G'+\\alpha\\lambda^2G=0","\\text{A: }\\lambda_n=\\frac{n\\pi}{L},\\qquad \\text{B: }\\lambda_n=\\frac{(2n+1)\\pi}{2L}","A_n(t)=\\frac{320}{(2n+1)\\pi}e^{-\\alpha\\lambda_n^2t},\\qquad T(x,t)=20+\\sum_{n=0}^{\\infty}A_n(t)\\sin(\\lambda_nx)","\\tau=\\frac{1}{\\alpha\\lambda_1^2},\\qquad \\tau_A=\\frac{L^2}{\\alpha\\pi^2}=10.13\\,\\mathrm{s},\\qquad \\tau_B=\\frac{4L^2}{\\alpha\\pi^2}=40.53\\,\\mathrm{s}","\\overline{T}_A=28^\\circ\\mathrm{C}\\text{ at }21.2\\,\\mathrm{s},\\qquad \\overline{T}_B=28^\\circ\\mathrm{C}\\text{ at }84.8\\,\\mathrm{s},\\qquad \\frac{t_B}{t_A}=4"]}</script>
+</head>
+<body>
+  <main class="shell">
+    <header><div><h1>Why does one insulated end take longer to cool?</h1></div></header>
+    <section class="lesson" aria-label="Interactive problem walkthrough">
+      <div class="lesson-top"><div><h2 id="lesson-title">Start with the physical setup</h2></div><span id="lesson-count" class="lesson-count">STEP 1 OF 7</span></div>
+      <div class="progress-track" aria-hidden="true"><span id="lesson-progress"></span></div>
+      <div class="lesson-content" aria-live="polite"><div class="lesson-copy"><p id="lesson-text"></p><div id="lesson-equation" class="equation"></div><div class="lesson-prompt" id="lesson-flow"></div></div><div class="lesson-visual" id="lesson-visual" aria-label="Visual for this lesson step"></div></div>
+      <div class="lesson-nav"><button id="lesson-prev" type="button">← Back</button><span id="lesson-dots" class="lesson-dots" aria-label="Lesson steps"></span><button id="lesson-next" type="button">Next step →</button></div>
+    </section>
+    <section class="race" aria-label="Heat diffusion comparison">
+      <article class="case case-a"><h2>A · TWO COOLED ENDS</h2><div class="heatbar" id="heat-a" aria-label="Case A heat profile"></div><p class="edge-labels"><span>20°C coolant</span><span>20°C coolant</span></p><p class="summary" id="summary-a"></p></article>
+      <article class="case case-b"><h2>B · ONE INSULATED END</h2><div class="heatbar" id="heat-b" aria-label="Case B heat profile"></div><p class="edge-labels"><span>20°C coolant</span><span>INSULATED · q = 0</span></p><p class="summary" id="summary-b"></p></article>
+    </section>
+    <section class="chart-panel"><div class="section-heading"><div><p class="eyebrow">LIVE PROFILE</p><h2>Temperature along the rod</h2></div><output id="clock">t = 0.0 s</output></div><canvas id="profile-chart" aria-label="Temperature profile chart"></canvas></section>
+    <section class="chart-panel"><div class="section-heading"><div><p class="eyebrow">THERMAL ENERGY REMAINING</p><h2>Mean temperature over time</h2></div><p class="target" id="target-times"></p></div><canvas id="mean-chart" aria-label="Mean temperature chart"></canvas></section>
+    <section class="controls" aria-label="Simulation controls"><button id="play" type="button">PLAY</button><button id="reset" type="button">RESET</button><label class="timeline">TIMELINE <input id="timeline" type="range" min="0" max="1" step="0.001" value="0" /></label><label class="speed">SPEED <select id="speed"><option value="0.5">0.5×</option><option value="1">1×</option><option value="2">2×</option><option value="5" selected>5×</option><option value="8">8×</option><option value="12">12×</option></select></label><button id="length" type="button">L = 10 cm</button></section>
+    <p class="help">SPACE play/pause · R reset · L double/halve rod length · ←/→ step through time</p>
+  </main>
+</body>
+</html>

@@ -1,10 +1,14 @@
-import { cpSync, existsSync, mkdirSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
 import { createHash } from "node:crypto";
+import { tmpdir } from "node:os";
 import { buildSync } from "esbuild";
+import { build as viteBuild } from "vite";
+import { shallot } from "@dylanebert/shallot/vite";
 import { fileURLToPath } from "node:url";
 import { STUDY_MANIFEST } from "./study/source/manifest.js";
+import katex from "katex";
 
 const root = dirname(fileURLToPath(import.meta.url));
 const website = resolve(root, "website");
@@ -78,10 +82,18 @@ countTopics(studyManifest.structures);
 // when the sibling source is present locally, rebuild the snapshot normally.
 if (existsSync(resolve(roboticsApp, "package.json"))) {
   const bunExecutable = Bun.which("bun") ?? process.execPath;
-  const roboticsBuild = spawnSync(bunExecutable, ["run", "build:website"], { cwd: roboticsApp, stdio: "inherit" });
-  if (roboticsBuild.error) throw roboticsBuild.error;
-  if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
-} else if (!existsSync(resolve(website, "hidden", "index.html"))) {
+  const staging = mkdtempSync(resolve(tmpdir(), "adriamics-robotics-"));
+  try {
+    const roboticsBuild = spawnSync(bunExecutable, ["run", "vite", "build", "--base=/hidden/robotic-arm/", `--outDir=${staging}`, "--emptyOutDir"], { cwd: roboticsApp, stdio: "inherit" });
+    if (roboticsBuild.error) throw roboticsBuild.error;
+    if (roboticsBuild.status !== 0) throw new Error(`Robotics Vision Lab build failed with exit code ${roboticsBuild.status}.`);
+    const armOutput = resolve(website, "hidden", "robotic-arm");
+    rmSync(armOutput, { recursive: true, force: true });
+    cpSync(staging, armOutput, { recursive: true });
+  } finally {
+    rmSync(staging, { recursive: true, force: true });
+  }
+} else if (!existsSync(resolve(website, "hidden", "robotic-arm", "index.html"))) {
   throw new Error("Robotics Vision Lab source and the checked-in website/hidden production snapshot are both missing.");
 }
 
@@ -166,7 +178,32 @@ for (const directory of ["assets", "privacy-policy", "terms-of-service", "rocina
 
 const hiddenOutput = resolve(output, "hidden");
 rmSync(hiddenOutput, { recursive: true, force: true });
-cpSync(resolve(website, "hidden"), hiddenOutput, { recursive: true });
+cpSync(resolve(website, "hidden"), hiddenOutput, {
+  recursive: true,
+  filter: (sourcePath) => !sourcePath.endsWith(".ts") && !sourcePath.endsWith(".py"),
+});
+const diffusionOutput = resolve(hiddenOutput, "diffusion");
+mkdirSync(diffusionOutput, { recursive: true });
+const diffusionHtmlPath = resolve(diffusionOutput, "index.html");
+let diffusionHtml = readFileSync(diffusionHtmlPath, "utf8");
+diffusionHtml = diffusionHtml.replace(/(<script id="lesson-equations" type="application\/json">)([\s\S]*?)(<\/script>)/, (_match, open, raw) => {
+  const source = JSON.parse(raw).source;
+  const rendered = source.map((equation) => katex.renderToString(equation, { displayMode: true, throwOnError: true, output: "html" }));
+  return `${open}${JSON.stringify({ rendered })}${_match.slice(_match.length - 9)}`;
+});
+if (!diffusionHtml.includes('"rendered"')) throw new Error("Could not render diffusion lesson equations with KaTeX.");
+writeFileSync(diffusionHtmlPath, diffusionHtml);
+writeFileSync(resolve(diffusionOutput, "diffusion.js"), bundleBrowserScript(resolve(website, "hidden", "diffusion", "diffusion.ts")));
+const waveDipoleOutput = resolve(hiddenOutput, "wave-dipole");
+mkdirSync(waveDipoleOutput, { recursive: true });
+await viteBuild({
+  configFile: false,
+  root: resolve(website, "hidden", "wave-dipole"),
+  base: "/hidden/wave-dipole/",
+  plugins: [shallot()],
+  publicDir: false,
+  build: { outDir: waveDipoleOutput, emptyOutDir: true, assetsInlineLimit: 0 },
+});
 
 mkdirSync(resolve(output, "assets"), { recursive: true });
 for (const asset of ["favicon.png", "image-1.webp", "image-2.webp", "image-3.webp"]) {

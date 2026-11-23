@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Explore the time-varying current and electromagnetic fields of a half-wave dipole in an interactive 3D simulation." />
+  <meta name="color-scheme" content="dark" />
+  <title>Dipole Waves — 3D Radiation Simulation</title>
+  <link rel="stylesheet" href="./wave-dipole.css" />
+  <script type="module" src="./wave-dipole.ts"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="top"><div><p class="eyebrow">FIELD LAB · 01</p><h1>How a dipole radiates</h1><p class="lede">Orbit the scene to explore alternating fields and outward energy flow around a center-fed half-wave antenna.</p></div><span class="badge"><i></i> 3D · FREE SPACE MODEL</span></header>
+    <section class="stage" aria-label="Interactive 3D half-wave dipole simulation">
+      <div class="stage-head"><div><p class="eyebrow">INTERACTIVE 3D SCENE</p><h2>Half-wave dipole</h2></div><span class="phase-readout" id="phase-label">PHASE 000°</span></div>
+      <div class="canvas-wrap"><canvas id="scene" aria-label="Rotatable 3D model of a half-wave dipole with three-dimensional electric, magnetic, and current direction arrows and outward energy markers"></canvas><div id="webgpu-error" class="error" hidden role="alert">This interactive scene needs a browser with WebGPU enabled. Try a recent version of Chrome, Edge, or another WebGPU-capable browser.</div><div class="camera-hint">DRAG TO ORBIT · SCROLL TO ZOOM</div></div>
+      <div class="layers" aria-label="Visible scene layers"><label><input class="layer-toggle" id="show-E" type="checkbox" checked><i class="e-key"></i> E field</label><label><input class="layer-toggle" id="show-B" type="checkbox" checked><i class="b-key"></i> B field</label><label><input class="layer-toggle" id="show-current" type="checkbox" checked><i class="current-key"></i> Current</label><label><input class="layer-toggle" id="show-energy" type="checkbox" checked><i class="energy-key"></i> Energy flow</label><span class="layer-note">Radiation pattern: broadside maximum · axial null</span></div>
+    </section>
+    <section class="explain"><article><p class="eyebrow">WHAT TO NOTICE</p><h2>Fields reverse; energy moves outward</h2><p>Arrowheads show the instantaneous direction of electric field (cyan), magnetic field (violet), and current (coral); each reverses after half a cycle. Amber markers show outward energy flow separately. Samples span multiple azimuths, and their size follows the dipole pattern: strongest broadside, zero along the antenna axis.</p></article><aside><b>Thin-wire approximation</b><span>Ideal resonant half-wave dipole in free space. Field strength is shaped by the dipole pattern, proportional to sin²θ.</span></aside></section>
+    <section class="controls" aria-label="Animation controls"><button class="primary" id="play" type="button">Ⅱ &nbsp; Pause</button><button id="reset" type="button">↺ &nbsp; Reset phase</button><button id="view-reset" type="button">⌖ &nbsp; Reset view</button><label class="timeline"><span>PHASE</span><input id="phase" type="range" min="0" max="6.283185" step="0.001" value="0" aria-label="Animation phase" /></label><label class="speed"><span>SPEED</span><select id="speed"><option value="0.25">¼×</option><option value="0.5">½×</option><option value="1" selected>1×</option><option value="1.5">1½×</option></select></label></section>
+    <footer>Field motion is slowed for visibility. Drag to rotate the camera and use the wheel or trackpad to zoom.</footer>
+  </main>
+</body>
+</html>
